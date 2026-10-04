@@ -38,18 +38,16 @@ export const tetouan_martilThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": true,
     "isPhotographyFriendly": true,
-    "tags": [
-      "medina",
-      "cultural-tour",
-      "authentic",
-      "instagrammable"
-    ],
+    "tags": ["authentic", "cultural-tour", "instagrammable", "medina", "private", "walk-in"],
     "archetypeAffinity": [
       "first-timer",
       "culture",
       "nomad"
     ],
-    "tip": "Start from one of the main gates and wander with enough time to get pleasantly lost."
+    "tip": "Start from one of the main gates and wander with enough time to get pleasantly lost.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: false
   },
   {
     "id": "tetouan-martil-royal-palace-and-hassan-ii-square",
@@ -88,16 +86,15 @@ export const tetouan_martilThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "cultural-tour",
-      "urban",
-      "instagrammable"
-    ],
+    "tags": ["cultural-tour", "instagrammable", "urban", "walk-in"],
     "archetypeAffinity": [
       "first-timer",
       "culture"
     ],
-    "tip": "Photography is fine from public space, but be discreet around security."
+    "tip": "Photography is fine from public space, but be discreet around security.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     "id": "tetouan-martil-archaeological-museum-of-tetouan",
@@ -137,15 +134,15 @@ export const tetouan_martilThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": true,
     "isPhotographyFriendly": false,
-    "tags": [
-      "cultural-tour",
-      "urban"
-    ],
+    "tags": ["cultural-tour", "private", "relaxed", "urban", "walk-in"],
     "archetypeAffinity": [
       "culture",
       "first-timer"
     ],
-    "tip": "It pairs well with a same-day visit to the Tamuda ruins."
+    "tip": "It pairs well with a same-day visit to the Tamuda ruins.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: false
   },
   {
     "id": "tetouan-martil-ethnographic-museum",
@@ -185,16 +182,15 @@ export const tetouan_martilThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": false,
-    "tags": [
-      "cultural-tour",
-      "medina",
-      "urban"
-    ],
+    "tags": ["cultural-tour", "medina", "private", "relaxed", "urban", "walk-in"],
     "archetypeAffinity": [
       "culture",
       "nomad"
     ],
-    "tip": "Go slowly here; the detail matters more than the size of the collection."
+    "tip": "Go slowly here; the detail matters more than the size of the collection.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: false
   },
   {
     "id": "tetouan-martil-dar-sanaa-craft-school",
@@ -232,17 +228,15 @@ export const tetouan_martilThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "workshop",
-      "authentic",
-      "cultural-tour",
-      "urban"
-    ],
+    "tags": ["authentic", "cultural-tour", "private", "urban", "walk-in", "workshop"],
     "archetypeAffinity": [
       "culture",
       "nomad"
     ],
-    "tip": "If you are buying crafts later, this visit gives useful context for quality."
+    "tip": "If you are buying crafts later, this visit gives useful context for quality.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: false
   },
   {
     "id": "tetouan-martil-ensanche-spanish-quarter-walk",
@@ -281,16 +275,15 @@ export const tetouan_martilThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": true,
     "isPhotographyFriendly": true,
-    "tags": [
-      "urban",
-      "instagrammable",
-      "cultural-tour"
-    ],
+    "tags": ["cultural-tour", "instagrammable", "private", "urban", "walk-in"],
     "archetypeAffinity": [
       "nomad",
       "culture"
     ],
-    "tip": "This is especially pleasant in the late afternoon once the heat softens."
+    "tip": "This is especially pleasant in the late afternoon once the heat softens.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: false
   },
   {
     "id": "tetouan-martil-place-feddan",
@@ -329,16 +322,15 @@ export const tetouan_martilThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": true,
     "isPhotographyFriendly": true,
-    "tags": [
-      "urban",
-      "authentic",
-      "instagrammable"
-    ],
+    "tags": ["authentic", "instagrammable", "urban", "walk-in"],
     "archetypeAffinity": [
       "first-timer",
       "nomad"
     ],
-    "tip": "Come in the evening if you want the liveliest atmosphere."
+    "tip": "Come in the evening if you want the liveliest atmosphere.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     "id": "tetouan-martil-bab-el-okla-gate-walk",
@@ -377,16 +369,15 @@ export const tetouan_martilThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "medina",
-      "cultural-tour",
-      "urban"
-    ],
+    "tags": ["cultural-tour", "medina", "private", "urban", "walk-in"],
     "archetypeAffinity": [
       "culture",
       "first-timer"
     ],
-    "tip": "Use it as your anchor if you do not want to rely on GPS inside the medina."
+    "tip": "Use it as your anchor if you do not want to rely on GPS inside the medina.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: false
   },
   {
     "id": "tetouan-martil-tamuda-ruins",
@@ -425,16 +416,15 @@ export const tetouan_martilThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "cultural-tour",
-      "off-the-beaten-path",
-      "urban"
-    ],
+    "tags": ["cultural-tour", "off-the-beaten-path", "urban", "walk-in"],
     "archetypeAffinity": [
       "culture",
       "nomad"
     ],
-    "tip": "Pair it with the archaeology museum for the most coherent historical context."
+    "tip": "Pair it with the archaeology museum for the most coherent historical context.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     "id": "tetouan-martil-ras-el-ma-spring",
@@ -473,16 +463,15 @@ export const tetouan_martilThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": true,
     "isPhotographyFriendly": true,
-    "tags": [
-      "nature",
-      "mountain",
-      "authentic"
-    ],
+    "tags": ["authentic", "mountain", "nature", "relaxed", "walk-in"],
     "archetypeAffinity": [
       "nomad",
       "culture"
     ],
-    "tip": "A short uphill walk is normal here, so wear shoes with grip."
+    "tip": "A short uphill walk is normal here, so wear shoes with grip.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     "id": "tetouan-martil-martil-corniche",
@@ -521,16 +510,15 @@ export const tetouan_martilThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": true,
     "isPhotographyFriendly": true,
-    "tags": [
-      "coastal",
-      "urban",
-      "instagrammable"
-    ],
+    "tags": ["coastal", "instagrammable", "sunset", "urban", "walk-in"],
     "archetypeAffinity": [
       "first-timer",
       "nomad"
     ],
-    "tip": "It is most enjoyable after the beach crowd begins to thin near sunset."
+    "tip": "It is most enjoyable after the beach crowd begins to thin near sunset.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: true
   },
   {
     "id": "tetouan-martil-martil-beach",
@@ -569,15 +557,14 @@ export const tetouan_martilThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "coastal",
-      "nature",
-      "urban"
-    ],
+    "tags": ["coastal", "nature", "relaxed", "sunset", "urban", "walk-in"],
     "archetypeAffinity": [
       "first-timer"
     ],
-    "tip": "For more space, walk farther from the busiest central access points."
+    "tip": "For more space, walk farther from the busiest central access points.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: true
   },
   {
     "id": "tetouan-martil-martil-port-and-fish-market",
@@ -616,16 +603,15 @@ export const tetouan_martilThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": true,
     "isPhotographyFriendly": true,
-    "tags": [
-      "coastal",
-      "authentic",
-      "urban"
-    ],
+    "tags": ["authentic", "coastal", "morning", "sunset", "urban", "walk-in"],
     "archetypeAffinity": [
       "culture",
       "nomad"
     ],
-    "tip": "Mornings are livelier if you want to see the working side of town."
+    "tip": "Mornings are livelier if you want to see the working side of town.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: true
   },
   {
     "id": "tetouan-martil-cabo-negro-beach",
@@ -664,16 +650,15 @@ export const tetouan_martilThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "coastal",
-      "nature",
-      "instagrammable"
-    ],
+    "tags": ["coastal", "instagrammable", "nature", "relaxed", "sunset", "walk-in"],
     "archetypeAffinity": [
       "first-timer",
       "luxury"
     ],
-    "tip": "Weekdays are easier if you want a calmer experience."
+    "tip": "Weekdays are easier if you want a calmer experience.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: true
   },
   {
     "id": "tetouan-martil-cabo-negro-golf",
@@ -709,16 +694,15 @@ export const tetouan_martilThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": true,
     "isPhotographyFriendly": true,
-    "tags": [
-      "coastal",
-      "nature",
-      "urban"
-    ],
+    "tags": ["active", "coastal", "nature", "sunset", "urban", "walk-in"],
     "archetypeAffinity": [
       "luxury",
       "nomad"
     ],
-    "tip": "Book ahead in summer when holiday traffic in the area rises."
+    "tip": "Book ahead in summer when holiday traffic in the area rises.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: true
   },
   {
     "id": "tetouan-martil-tamuda-bay-seaside-stroll",
@@ -757,16 +741,15 @@ export const tetouan_martilThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": true,
     "isPhotographyFriendly": true,
-    "tags": [
-      "coastal",
-      "instagrammable",
-      "urban"
-    ],
+    "tags": ["coastal", "instagrammable", "relaxed", "sunset", "urban", "walk-in"],
     "archetypeAffinity": [
       "luxury",
       "nomad"
     ],
-    "tip": "Best as an evening activity when the shoreline feels cooler and more atmospheric."
+    "tip": "Best as an evening activity when the shoreline feels cooler and more atmospheric.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: true
   },
   {
     "id": "tetouan-martil-kabila-beach",
@@ -805,16 +788,15 @@ export const tetouan_martilThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "coastal",
-      "nature",
-      "off-the-beaten-path"
-    ],
+    "tags": ["coastal", "nature", "off-the-beaten-path", "relaxed", "sunset", "walk-in"],
     "archetypeAffinity": [
       "nomad",
       "luxury"
     ],
-    "tip": "Bring your own beach basics if you are going outside the main season."
+    "tip": "Bring your own beach basics if you are going outside the main season.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: true
   },
   {
     "id": "tetouan-martil-marina-smir-day-trip",
@@ -853,16 +835,15 @@ export const tetouan_martilThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "coastal",
-      "urban",
-      "instagrammable"
-    ],
+    "tags": ["coastal", "instagrammable", "sunset", "urban", "walk-in"],
     "archetypeAffinity": [
       "luxury",
       "nomad"
     ],
-    "tip": "Combine it with nearby beaches rather than treating it as a full-day standalone stop."
+    "tip": "Combine it with nearby beaches rather than treating it as a full-day standalone stop.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: true
   },
   {
     "id": "tetouan-martil-beni-hozmar-viewpoint-hike",
@@ -898,16 +879,15 @@ export const tetouan_martilThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "mountain",
-      "nature",
-      "off-the-beaten-path"
-    ],
+    "tags": ["active", "mountain", "nature", "off-the-beaten-path", "sunset", "walk-in"],
     "archetypeAffinity": [
       "adventure",
       "nomad"
     ],
-    "tip": "Go with a local driver or guide if you do not know the road network."
+    "tip": "Go with a local driver or guide if you do not know the road network.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: true
   },
   {
     "id": "tetouan-martil-tetouan-center-of-modern-art",
@@ -947,14 +927,14 @@ export const tetouan_martilThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": true,
     "isPhotographyFriendly": false,
-    "tags": [
-      "cultural-tour",
-      "urban"
-    ],
+    "tags": ["cultural-tour", "relaxed", "urban", "walk-in"],
     "archetypeAffinity": [
       "culture",
       "nomad"
     ],
-    "tip": "Check opening hours in advance because programming can shift."
+    "tip": "Check opening hours in advance because programming can shift.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   }
 ]

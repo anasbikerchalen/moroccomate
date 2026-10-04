@@ -168,11 +168,11 @@ export const agadirSleep: SleepListing[] = [
     amenities: ['wifi', 'pool', 'ac', 'spa', 'beach', 'restaurant', 'breakfast'],
     // ── RATINGS ──
     googleRating: 4.5,
-    googleReviewCount: 850,
+    googleReviewCount: 4504,
     tripadvisorRating: 4.5,
-    tripadvisorReviewCount: 850,
-    bookingRating: 4.5,
-    bookingReviewCount: 850,
+    tripadvisorReviewCount: 4524,
+    bookingRating: 4.4,
+    bookingReviewCount: 836,
     hotelguruRating: 4.5,
     hotelguruReviewCount: 850,
 
@@ -194,6 +194,8 @@ export const agadirSleep: SleepListing[] = [
     kidsStayFree: false,
 
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ['solo', 'couple', 'family', 'business-friendly', 'seniors'],
@@ -201,10 +203,10 @@ export const agadirSleep: SleepListing[] = [
 
     tip: 'The hotel has banned single-use plastic. Book the "Romantic Getaway" package for champagne and in-room breakfast at a reduced rate.',
     vibeTags: ['Luxury', 'Beachfront', 'Spa', 'Elegant'],
-    locationSummary: 'Private Beachfront',
+    locationSummary: "Agadir Seaside Promenade & Marina",
     availabilityText: 'Available tonight - Only 3 rooms left',
     googleMapsUrl: 'https://www.google.com/maps/place/30.398086,-9.597577/@30.398086,-9.597577,17z',
-    address: 'Sofitel Agadir Thalassa Sea & Spa, Secteur Touristique, Agadir 80000, Morocco',
+    address: 'Baie des Palmiers, Cité Founty P5, Secteur Touristique, Agadir 80010, Morocco',
     paymentMethods: ['card', 'cash'],
     languagesSpoken: ['Arabic', 'French', 'English'],
 
@@ -239,7 +241,7 @@ export const agadirSleep: SleepListing[] = [
     ],
     cancellationPolicy: 'Free cancellation up to 24h before check-in',
     childPolicy: 'Children welcome - free under 12',
-    officialWebsite: 'https://sofitel.accor.com/en/hotels/5242.html',
+    officialWebsite: 'https://all.accor.com/hotel/5242/index.en.shtml',
     instagramHandle: '@sofitelagadirthalassa',
     isWheelchairAccessible: true,
 
@@ -249,7 +251,12 @@ export const agadirSleep: SleepListing[] = [
       families: 'Spacious rooms and kids activities available.',
       business: 'Co-working space and fast WiFi make it ideal for work.',
       nomad: 'The quiet ocean-view balcony is the perfect workspace.'
-    }
+    },
+    coordinates: {
+      lat: 30.391612,
+      lng: -9.598192
+    },
+    tags: ["family-favorite"]
   },
   {
     id: 'a-sleep-2',
@@ -262,10 +269,10 @@ export const agadirSleep: SleepListing[] = [
     lifestyle: 'premium',
     amenities: ['wifi', 'pool', 'ac', 'spa', 'beach', 'restaurant', 'fitness'],
     googleRating: 4.4,
-    googleReviewCount: 970,
-    tripadvisorRating: 4.4,
-    tripadvisorReviewCount: 970,
-    bookingRating: 4.4,
+    googleReviewCount: 3250,
+    tripadvisorRating: 4.1,
+    tripadvisorReviewCount: 3100,
+    bookingRating: 4.2,
     bookingReviewCount: 970,
     hotelguruRating: 4.4,
     hotelguruReviewCount: 970,
@@ -288,6 +295,8 @@ export const agadirSleep: SleepListing[] = [
     kidsStayFree: false,
 
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ['solo', 'couple', 'family', 'business-friendly', 'seniors'],
@@ -295,10 +304,10 @@ export const agadirSleep: SleepListing[] = [
 
     tip: 'The Sunday Brunch served poolside is world class—book it in advance as it fills up fast.',
     vibeTags: ['Modern', 'Beachfront', 'Spa', 'Family'],
-    locationSummary: 'Beachfront - Taghazout Bay',
+    locationSummary: "Agadir Seaside Promenade & Marina",
     availabilityText: 'Available tonight',
     googleMapsUrl: 'https://www.google.com/maps/place/30.393134,-9.596515/@30.393134,-9.596515,17z',
-    address: 'Sofitel Agadir Royal Bay Resort, Secteur Touristique, Agadir 80000, Morocco',
+    address: 'Baie des Palmiers, Cité Founty, Secteur Touristique, Agadir 80000, Morocco',
     paymentMethods: ['card', 'cash'],
     languagesSpoken: ['Arabic', 'French', 'English'],
 
@@ -321,7 +330,7 @@ export const agadirSleep: SleepListing[] = [
       checkOut: 'Before 12:00',
       luggageStorage: 'Free',
       parking: 'Free on-site',
-      contact: '+212528849157'
+      contact: '+212528849200'
     },
     roomFeatures: ['soundproof', 'workspace', 'balcony', 'ac', 'heating'],
     roomTypes: [
@@ -332,7 +341,7 @@ export const agadirSleep: SleepListing[] = [
     ],
     cancellationPolicy: 'Free cancellation up to 24h before check-in',
     childPolicy: 'Children welcome',
-    officialWebsite: 'https://sofitelroyalbayresort.allhotelsmorocco.com/en/',
+    officialWebsite: 'https://all.accor.com/hotel/5707/index.en.shtml',
     instagramHandle: '@sofitelagadirroyalbay',
     isWheelchairAccessible: true,
 
@@ -342,7 +351,12 @@ export const agadirSleep: SleepListing[] = [
       families: 'Spacious rooms and kids club.',
       business: 'Meeting facilities and fast WiFi.',
       nomad: 'Good workspace and stable fiber internet.'
-    }
+    },
+    coordinates: {
+      lat: 30.39325,
+      lng: -9.597075
+    },
+    tags: ["family-favorite"]
   },
   {
     id: 'a-sleep-3',
@@ -355,11 +369,11 @@ export const agadirSleep: SleepListing[] = [
     lifestyle: 'premium',
     amenities: ['wifi', 'pool', 'ac', 'spa', 'beach', 'restaurant', 'surf'],
     googleRating: 4.6,
-    googleReviewCount: 570,
+    googleReviewCount: 1120,
     tripadvisorRating: 4.6,
-    tripadvisorReviewCount: 570,
-    bookingRating: 4.6,
-    bookingReviewCount: 570,
+    tripadvisorReviewCount: 607,
+    bookingRating: 4.4,
+    bookingReviewCount: 370,
     hotelguruRating: 4.6,
     hotelguruReviewCount: 570,
 
@@ -381,6 +395,8 @@ export const agadirSleep: SleepListing[] = [
     kidsStayFree: true,
 
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ['solo', 'couple', 'family', 'business-friendly', 'seniors'],
@@ -388,10 +404,10 @@ export const agadirSleep: SleepListing[] = [
 
     tip: 'Request a villa-style room for maximum privacy and garden views. Taghazout is a vibrant surf and yogi hangout.',
     vibeTags: ['Luxury', 'Surf', 'Garden', 'Eco'],
-    locationSummary: 'Beachfront',
+    locationSummary: "Taghazout Bay Resort",
     availabilityText: 'Available tonight',
     googleMapsUrl: 'https://www.google.com/maps/place/30.516127,-9.686902/@30.516127,-9.686902,17z',
-    address: 'Fairmont Taghazout Bay, Taghazout Bay, Agadir, Morocco',
+    address: "Fairmont Taghazout Bay, Km 17 Route d'Essaouira, Taghazout 80007, Morocco",
     paymentMethods: ['card', 'cash'],
     languagesSpoken: ['Arabic', 'French', 'English'],
 
@@ -414,7 +430,7 @@ export const agadirSleep: SleepListing[] = [
       checkOut: 'Before 12:00',
       luggageStorage: 'Free',
       parking: 'Free on-site',
-      contact: '+212528286666'
+      contact: '+212528282828'
     },
     roomFeatures: ['soundproof', 'workspace', 'balcony', 'ac', 'heating', 'sea-view'],
     roomTypes: [
@@ -435,7 +451,12 @@ export const agadirSleep: SleepListing[] = [
       families: 'Great kids club and large gardens.',
       business: 'Meeting rooms and peaceful setting.',
       nomad: 'Good for digital detox nomads.'
-    }
+    },
+    coordinates: {
+      lat: 30.51659,
+      lng: -9.686777
+    },
+    tags: ["family-favorite"]
   },
   {
     id: 'a-sleep-4',
@@ -448,10 +469,10 @@ export const agadirSleep: SleepListing[] = [
     lifestyle: 'premium',
     amenities: ['wifi', 'pool', 'ac', 'spa', 'restaurant', 'rooftop'],
     googleRating: 4.5,
-    googleReviewCount: 840,
-    tripadvisorRating: 4.5,
-    tripadvisorReviewCount: 840,
-    bookingRating: 4.5,
+    googleReviewCount: 1240,
+    tripadvisorRating: 4.1,
+    tripadvisorReviewCount: 194,
+    bookingRating: 4.6,
     bookingReviewCount: 840,
     hotelguruRating: 4.5,
     hotelguruReviewCount: 840,
@@ -474,6 +495,8 @@ export const agadirSleep: SleepListing[] = [
     kidsStayFree: false,
 
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ['solo', 'couple', 'family', 'business-friendly', 'seniors'],
@@ -481,10 +504,10 @@ export const agadirSleep: SleepListing[] = [
 
     tip: 'Treat yourself to innovative fine dining at Le Sensya. Ask for a high-floor room for panoramic Atlantic views.',
     vibeTags: ['Modern', 'Trendy', 'Views', 'Nightlife'],
-    locationSummary: 'City Center - Beachfront',
+    locationSummary: "Agadir Seaside Promenade & Marina",
     availabilityText: 'Available tonight',
     googleMapsUrl: 'https://www.google.com/maps/place/30.41558847,-9.60315585/@30.41558847,-9.60315585,17z',
-    address: 'The View Agadir, City Centre, Agadir 80000, Morocco',
+    address: 'Boulevard du 20 Août, Agadir 80000, Morocco',
     paymentMethods: ['card', 'cash'],
     languagesSpoken: ['Arabic', 'French', 'English'],
 
@@ -507,7 +530,7 @@ export const agadirSleep: SleepListing[] = [
       checkOut: 'Before 12:00',
       luggageStorage: 'Free',
       parking: 'Valet',
-      contact: '+212528294040'
+      contact: '+212529080100'
     },
     roomFeatures: ['workspace', 'balcony', 'ac', 'heating', 'sea-view'],
     roomTypes: [
@@ -518,7 +541,7 @@ export const agadirSleep: SleepListing[] = [
     ],
     cancellationPolicy: 'Free cancellation up to 24h before check-in',
     childPolicy: 'Children welcome',
-    officialWebsite: 'https://the-view.hotelagadir.net/en/',
+    officialWebsite: 'https://theviewhotels.com/the-view-agadir',
     instagramHandle: '@theviewagadir',
     isWheelchairAccessible: true,
 
@@ -528,7 +551,12 @@ export const agadirSleep: SleepListing[] = [
       families: 'Spacious rooms and activities.',
       business: 'Excellent WiFi and central position.',
       nomad: 'Great rooftop workspace with sea views.'
-    }
+    },
+    coordinates: {
+      lat: 30.415524,
+      lng: -9.603529
+    },
+    tags: ["family-favorite"]
   },
   {
     id: 'a-sleep-5',
@@ -541,10 +569,10 @@ export const agadirSleep: SleepListing[] = [
     lifestyle: 'premium',
     amenities: ['wifi', 'pool', 'ac', 'spa', 'breakfast', 'restaurant'],
     googleRating: 4.5,
-    googleReviewCount: 550,
+    googleReviewCount: 850,
     tripadvisorRating: 4.5,
-    tripadvisorReviewCount: 550,
-    bookingRating: 4.5,
+    tripadvisorReviewCount: 850,
+    bookingRating: 4.4,
     bookingReviewCount: 550,
     hotelguruRating: 4.5,
     hotelguruReviewCount: 550,
@@ -567,6 +595,8 @@ export const agadirSleep: SleepListing[] = [
     kidsStayFree: true,
 
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ['solo', 'couple', 'family', 'business-friendly', 'seniors'],
@@ -574,10 +604,10 @@ export const agadirSleep: SleepListing[] = [
 
     tip: 'Always book directly to unlock the complimentary refined sweet and savory continental breakfast.',
     vibeTags: ['Authentic', 'Boutique', 'Spa', 'Intimate'],
-    locationSummary: 'Tourist Zone',
+    locationSummary: "Agadir Seaside Promenade & Marina",
     availabilityText: 'Available tonight',
     googleMapsUrl: 'https://www.google.com/maps/place/30.39004,-9.593926/@30.39004,-9.593926,17z',
-    address: 'Riad Villa Blanche, Secteur Touristique, Agadir 80000, Morocco',
+    address: 'Baie des Palmiers, Secteur Touristique, Agadir 80000, Morocco',
     paymentMethods: ['card', 'cash'],
     languagesSpoken: ['Arabic', 'French', 'English'],
 
@@ -610,7 +640,7 @@ export const agadirSleep: SleepListing[] = [
     ],
     cancellationPolicy: 'Free cancellation up to 24h before check-in',
     childPolicy: 'Children welcome',
-    officialWebsite: 'https://riad-villa-blanche.agadirhotelsonline.com/en/',
+    officialWebsite: 'https://www.riadvillablanche.com',
     instagramHandle: '@riadvillablanche',
     isWheelchairAccessible: false,
 
@@ -620,7 +650,12 @@ export const agadirSleep: SleepListing[] = [
       families: 'Spacious rooms, though best for couples.',
       business: 'Quiet environment and good WiFi.',
       nomad: 'Tranquil setting for focused remote work.'
-    }
+    },
+    coordinates: {
+      lat: 30.389913,
+      lng: -9.594137
+    },
+    tags: ["family-favorite"]
   },
   {
     id: 'a-sleep-6',
@@ -635,9 +670,9 @@ export const agadirSleep: SleepListing[] = [
     googleRating: 4.4,
     googleReviewCount: 7650,
     tripadvisorRating: 4.4,
-    tripadvisorReviewCount: 7650,
-    bookingRating: 4.4,
-    bookingReviewCount: 7650,
+    tripadvisorReviewCount: 4500,
+    bookingRating: 4.1,
+    bookingReviewCount: 2100,
     hotelguruRating: 4.4,
     hotelguruReviewCount: 7650,
 
@@ -659,6 +694,8 @@ export const agadirSleep: SleepListing[] = [
     kidsStayFree: true,
 
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ['solo', 'couple', 'family', 'friends', 'business-friendly', 'seniors'],
@@ -666,10 +703,10 @@ export const agadirSleep: SleepListing[] = [
 
     tip: 'Opt for a room with a balcony facing the fountain for the best views. Consider visiting in low season (January) to avoid crowds.',
     vibeTags: ['All-Inclusive', 'Beachfront', 'Family', 'Resort'],
-    locationSummary: 'Direct Beachfront',
+    locationSummary: "Sonaba & Tourist Zone",
     availabilityText: 'Available tonight',
     googleMapsUrl: 'https://www.google.com/maps/place/30.40809,-9.59907/@30.40809,-9.59907,17z',
-    address: 'Hotel Riu Palace Tikida Agadir, Secteur Touristique, Agadir 80000, Morocco',
+    address: 'Chemin des Dunes, Secteur Touristique, Agadir 80000, Morocco',
     paymentMethods: ['card', 'cash'],
     languagesSpoken: ['Arabic', 'French', 'English', 'German'],
 
@@ -702,7 +739,7 @@ export const agadirSleep: SleepListing[] = [
     ],
     cancellationPolicy: 'Free cancellation up to 48h before check-in',
     childPolicy: 'Children welcome - all-inclusive covers kids',
-    officialWebsite: 'https://www.riu.com/en/hotel/morocco/agadir/hotel-riu-palace-tikida-agadir/index.jsp',
+    officialWebsite: 'https://www.riu.com/en/hotel/morocco/agadir/hotel-riu-palace-tikida-agadir/',
     instagramHandle: '@riupalacetikida',
     isWheelchairAccessible: true,
 
@@ -712,7 +749,12 @@ export const agadirSleep: SleepListing[] = [
       families: 'Kids club and all-inclusive.',
       business: 'Meeting rooms available.',
       nomad: 'Works from lobby area.'
-    }
+    },
+    coordinates: {
+      lat: 30.407955,
+      lng: -9.600393
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: 'a-sleep-7',
@@ -724,10 +766,10 @@ export const agadirSleep: SleepListing[] = [
     pricePerNight: 135,
     lifestyle: 'balanced',
     amenities: ['wifi', 'pool', 'ac', 'spa', 'beach', 'all-inclusive', 'kids club'],
-    googleRating: 4.3,
-    googleReviewCount: 2720,
-    tripadvisorRating: 4.3,
-    tripadvisorReviewCount: 2720,
+    googleRating: 4.4,
+    googleReviewCount: 4500,
+    tripadvisorRating: 4.6,
+    tripadvisorReviewCount: 4487,
     bookingRating: 4.3,
     bookingReviewCount: 2720,
     hotelguruRating: 4.3,
@@ -751,6 +793,8 @@ export const agadirSleep: SleepListing[] = [
     kidsStayFree: true,
 
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ['solo', 'couple', 'family', 'friends', 'business-friendly'],
@@ -758,10 +802,10 @@ export const agadirSleep: SleepListing[] = [
 
     tip: 'Each room has a terrace—request a sea-facing one at check-in as not all face the ocean by default.',
     vibeTags: ['Family', 'All-Inclusive', 'Beachfront', 'Relaxed'],
-    locationSummary: 'Beachfront',
+    locationSummary: "Agadir Seaside Promenade & Marina",
     availabilityText: 'Available tonight',
     googleMapsUrl: 'https://www.google.com/maps/place/30.3968045,-9.5968741',
-    address: 'Iberostar Waves Founty Beach, Secteur Touristique, Agadir 80000, Morocco',
+    address: 'Chemin des Dunes, Cité Founty, Agadir 80000, Morocco',
     paymentMethods: ['card', 'cash'],
     languagesSpoken: ['Arabic', 'French', 'English', 'German'],
 
@@ -804,7 +848,12 @@ export const agadirSleep: SleepListing[] = [
       families: 'Excellent kids club and entertainment.',
       business: 'Decent WiFi and quiet corners.',
       nomad: 'Functional for basic remote work.'
-    }
+    },
+    coordinates: {
+      lat: 30.396726,
+      lng: -9.597228
+    },
+    tags: ["family-favorite"]
   },
   {
     id: 'a-sleep-8',
@@ -817,11 +866,11 @@ export const agadirSleep: SleepListing[] = [
     lifestyle: 'balanced',
     amenities: ['wifi', 'pool', 'ac', 'spa', 'views', 'tennis'],
     googleRating: 3.8,
-    googleReviewCount: 1300,
-    tripadvisorRating: 3.8,
-    tripadvisorReviewCount: 1300,
-    bookingRating: 3.8,
-    bookingReviewCount: 1300,
+    googleReviewCount: 3500,
+    tripadvisorRating: 3.4,
+    tripadvisorReviewCount: 1363,
+    bookingRating: 3.5,
+    bookingReviewCount: 3492,
     hotelguruRating: 3.8,
     hotelguruReviewCount: 1300,
 
@@ -843,6 +892,8 @@ export const agadirSleep: SleepListing[] = [
     kidsStayFree: false,
 
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ['solo', 'couple', 'family', 'friends', 'business-friendly'],
@@ -850,10 +901,10 @@ export const agadirSleep: SleepListing[] = [
 
     tip: 'The upper floors provide some of the best panoramic city-to-ocean views in Agadir at a lower price than beachfront resorts.',
     vibeTags: ['Views', 'Central', 'Budget-Friendly', 'Pool'],
-    locationSummary: 'City Center',
+    locationSummary: "Sonaba & Tourist Zone",
     availabilityText: 'Available tonight',
     googleMapsUrl: 'https://www.google.com/maps/place/30.416685,-9.600146/@30.416685,-9.600146,17z',
-    address: 'Anezi Tower Hotel, City Centre, Agadir 80000, Morocco',
+    address: 'Boulevard Mohamed V, Agadir 80000, Morocco',
     paymentMethods: ['card', 'cash'],
     languagesSpoken: ['Arabic', 'French', 'English'],
 
@@ -886,7 +937,7 @@ export const agadirSleep: SleepListing[] = [
     ],
     cancellationPolicy: 'Free cancellation up to 24h before check-in',
     childPolicy: 'Children welcome',
-    officialWebsite: 'https://anezi-tower.agadirhotels.org/en/',
+    officialWebsite: 'https://www.hotelaneziagadir.com',
     instagramHandle: '@aneziagadir',
     isWheelchairAccessible: true,
 
@@ -896,7 +947,12 @@ export const agadirSleep: SleepListing[] = [
       families: 'Multiple pools and space.',
       business: 'Central and affordable.',
       nomad: 'Views inspire work.'
-    }
+    },
+    coordinates: {
+      lat: 30.416926,
+      lng: -9.600162
+    },
+    tags: ["family-favorite"]
   },
   {
     id: 'a-sleep-9',
@@ -908,11 +964,11 @@ export const agadirSleep: SleepListing[] = [
     pricePerNight: 95,
     lifestyle: 'balanced',
     amenities: ['wifi', 'pool', 'ac', 'breakfast', 'beach'],
-    googleRating: 4.3,
-    googleReviewCount: 580,
+    googleRating: 4.2,
+    googleReviewCount: 2800,
     tripadvisorRating: 4.3,
-    tripadvisorReviewCount: 580,
-    bookingRating: 4.3,
+    tripadvisorReviewCount: 647,
+    bookingRating: 4.1,
     bookingReviewCount: 580,
     hotelguruRating: 4.3,
     hotelguruReviewCount: 580,
@@ -935,6 +991,8 @@ export const agadirSleep: SleepListing[] = [
     kidsStayFree: false,
 
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ['solo', 'couple', 'family', 'business-friendly', 'seniors'],
@@ -942,10 +1000,10 @@ export const agadirSleep: SleepListing[] = [
 
     tip: 'Take advantage of TUI included excursion packages—Paradise Valley and camel treks are frequently bundled at reduced rates.',
     vibeTags: ['Value', 'Family', 'Central', 'Beach'],
-    locationSummary: 'City Center - Near Beach',
+    locationSummary: "Agadir Seaside Promenade & Marina",
     availabilityText: 'Available tonight',
     googleMapsUrl: 'https://www.google.com/maps/place/30.417091,-9.602951/@30.417091,-9.602951,17z',
-    address: 'TUI SUNEO Kenzi Europa, Agadir Bay, Agadir 80000, Morocco',
+    address: 'Boulevard 20 Août, Secteur Touristique, Agadir 80000, Morocco',
     paymentMethods: ['card', 'cash'],
     languagesSpoken: ['Arabic', 'French', 'English'],
 
@@ -968,7 +1026,7 @@ export const agadirSleep: SleepListing[] = [
       checkOut: 'Before 11:00',
       luggageStorage: 'Free',
       parking: 'Free',
-      contact: '+212528294040'
+      contact: '+212528821212'
     },
     roomFeatures: ['ac', 'heating'],
     roomTypes: [
@@ -978,7 +1036,7 @@ export const agadirSleep: SleepListing[] = [
     ],
     cancellationPolicy: 'Free cancellation up to 24h before check-in',
     childPolicy: 'Children welcome',
-    officialWebsite: 'https://www.tui.co.uk/',
+    officialWebsite: 'https://www.kenzi-hotels.com/kenzi-europa',
     instagramHandle: '@kenzieuropaagadir',
     isWheelchairAccessible: true,
 
@@ -988,7 +1046,12 @@ export const agadirSleep: SleepListing[] = [
       families: 'Good facilities and excursions.',
       business: 'Practical central location.',
       nomad: 'Affordable long-term stay.'
-    }
+    },
+    coordinates: {
+      lat: 30.417156,
+      lng: -9.602838
+    },
+    tags: ["family-favorite"]
   },
   {
     id: 'a-sleep-10',
@@ -1004,8 +1067,8 @@ export const agadirSleep: SleepListing[] = [
     googleReviewCount: 610,
     tripadvisorRating: 4.7,
     tripadvisorReviewCount: 610,
-    bookingRating: 4.7,
-    bookingReviewCount: 610,
+    bookingRating: 4.4,
+    bookingReviewCount: 618,
     hotelguruRating: 4.7,
     hotelguruReviewCount: 610,
 
@@ -1037,7 +1100,7 @@ export const agadirSleep: SleepListing[] = [
     locationSummary: 'City Center - Residential',
     availabilityText: 'Available tonight',
     googleMapsUrl: 'https://www.google.com/maps/place/30.4171,-9.588953/@30.4171,-9.588953,17z',
-    address: "Riad Les Chtis d'Agadir, City Centre, Agadir 80000, Morocco",
+    address: '27 Rue Houmane El Fetouaki, Agadir 80000, Morocco',
     paymentMethods: ['card', 'cash'],
     languagesSpoken: ['Arabic', 'French', 'English'],
 
@@ -1060,7 +1123,7 @@ export const agadirSleep: SleepListing[] = [
       checkOut: 'Before 11:00',
       luggageStorage: 'Free',
       parking: 'Nearby public',
-      contact: '+212661376344'
+      contact: '+212666027962'
     },
     roomFeatures: ['ac', 'heating', 'traditional-decor'],
     roomTypes: [
@@ -1071,7 +1134,7 @@ export const agadirSleep: SleepListing[] = [
     ],
     cancellationPolicy: 'Free cancellation up to 24h before check-in',
     childPolicy: 'Children welcome - small families',
-    officialWebsite: '',
+    officialWebsite: 'https://www.riadleschtisdagadir.com',
     instagramHandle: '@riadleschtis',
     isWheelchairAccessible: false,
 
@@ -1081,7 +1144,12 @@ export const agadirSleep: SleepListing[] = [
       families: 'Cozy and welcoming for small families.',
       business: 'Quiet and central for city exploration.',
       nomad: 'Rooftop is a nice workspace.'
-    }
+    },
+    coordinates: {
+      lat: 30.417117,
+      lng: -9.588974
+    },
+    tags: ["family-favorite"]
   },
   {
     id: 'a-sleep-11',
@@ -1093,13 +1161,13 @@ export const agadirSleep: SleepListing[] = [
     pricePerNight: 54.5,
     lifestyle: 'lean',
     amenities: ['wifi', 'pool', 'ac', 'breakfast'],
-    googleRating: 4.3,
-    googleReviewCount: 155,
-    tripadvisorRating: 4.3,
-    tripadvisorReviewCount: 155,
-    bookingRating: 4.3,
-    bookingReviewCount: 155,
-    hotelguruRating: 4.3,
+    googleRating: 4.1,
+    googleReviewCount: 2700,
+    tripadvisorRating: 4.0,
+    tripadvisorReviewCount: 350,
+    bookingRating: 4.0,
+    bookingReviewCount: 2741,
+    hotelguruRating: 4.1,
     hotelguruReviewCount: 155,
 
     hasPool: true,
@@ -1120,6 +1188,8 @@ export const agadirSleep: SleepListing[] = [
     kidsStayFree: true,
 
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ['solo', 'couple', 'family', 'business-friendly'],
@@ -1127,10 +1197,10 @@ export const agadirSleep: SleepListing[] = [
 
     tip: 'A 10-minute walk from Ensemble Artisanal—your best base for authentic shopping at Souk El Had without breaking the bank.',
     vibeTags: ['Budget', 'Clean', 'Local', 'Value'],
-    locationSummary: 'Local Neighborhood',
+    locationSummary: "Sonaba & Tourist Zone",
     availabilityText: 'Available tonight',
     googleMapsUrl: 'https://www.google.com/maps/place/30.42503,-9.592518',
-    address: 'Hotel Sindibad, Talborjt, Agadir 80000, Morocco',
+    address: 'Place Lahcen Oubrahim, Talborjt, Agadir 80000, Morocco',
     paymentMethods: ['card', 'cash'],
     languagesSpoken: ['Arabic', 'French', 'English'],
 
@@ -1163,7 +1233,7 @@ export const agadirSleep: SleepListing[] = [
     ],
     cancellationPolicy: 'Free cancellation up to 24h before check-in',
     childPolicy: 'Children welcome',
-    officialWebsite: '',
+    officialWebsite: 'https://hotelsindibad.ma',
     instagramHandle: '',
     isWheelchairAccessible: false,
 
@@ -1173,7 +1243,12 @@ export const agadirSleep: SleepListing[] = [
       families: 'Simple but clean option.',
       business: 'Affordable central stay.',
       nomad: 'Basic but functional.'
-    }
+    },
+    coordinates: {
+      lat: 30.424696,
+      lng: -9.592979
+    },
+    tags: ["family-favorite"]
   },
   {
     id: 'a-sleep-12',
@@ -1185,12 +1260,12 @@ export const agadirSleep: SleepListing[] = [
     pricePerNight: 35,
     lifestyle: 'lean',
     amenities: ['wifi', 'surf', 'breakfast', 'rooftop'],
-    googleRating: 4.6,
-    googleReviewCount: 430,
+    googleRating: 4.7,
+    googleReviewCount: 600,
     tripadvisorRating: 4.6,
     tripadvisorReviewCount: 430,
-    bookingRating: 4.6,
-    bookingReviewCount: 430,
+    bookingRating: 4.4,
+    bookingReviewCount: 600,
     hotelguruRating: 4.6,
     hotelguruReviewCount: 430,
 
@@ -1212,6 +1287,8 @@ export const agadirSleep: SleepListing[] = [
     kidsStayFree: false,
 
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ['solo', 'couple', 'friends', 'business-friendly'],
@@ -1219,10 +1296,10 @@ export const agadirSleep: SleepListing[] = [
 
     tip: 'Anza Beach has excellent waves and local art. Ask the host for local surf instructors—they are 30-50% cheaper than tourist-zone schools.',
     vibeTags: ['Surf', 'Authentic', 'Community', 'Budget'],
-    locationSummary: 'Surf Neighborhood',
+    locationSummary: "Sonaba & Tourist Zone",
     availabilityText: 'Available tonight',
     googleMapsUrl: 'https://www.google.com/maps/place/30.4472742,-9.6587784',
-    address: 'Anza Surfhouse, Anza, Agadir 80000, Morocco',
+    address: '14 Bloc B Dallas Anza, Agadir 80000, Morocco',
     paymentMethods: ['cash', 'card'],
     languagesSpoken: ['Arabic', 'French', 'English'],
 
@@ -1245,7 +1322,7 @@ export const agadirSleep: SleepListing[] = [
       checkOut: 'Before 12:00',
       luggageStorage: 'Free',
       parking: 'Free',
-      contact: '+212661234567'
+      contact: '+212678513011'
     },
     roomFeatures: ['rooftop-access'],
     roomTypes: [
@@ -1256,7 +1333,7 @@ export const agadirSleep: SleepListing[] = [
     ],
     cancellationPolicy: 'Free cancellation up to 24h before check-in',
     childPolicy: 'Not ideal for families',
-    officialWebsite: '',
+    officialWebsite: 'https://anzasurfhouse.com',
     instagramHandle: '@anzasurfhouse',
     isWheelchairAccessible: false,
 
@@ -1266,7 +1343,12 @@ export const agadirSleep: SleepListing[] = [
       families: 'Less ideal for families.',
       business: 'Not suited for business.',
       nomad: 'Surf community vibe.'
-    }
+    },
+    coordinates: {
+      lat: 30.455,
+      lng: -9.631722
+    },
+    tags: ["dorm", "heritage"]
   },
   {
     id: 'a-sleep-13',
@@ -1280,10 +1362,10 @@ export const agadirSleep: SleepListing[] = [
     amenities: ['wifi', 'pool', 'ac', 'spa', 'breakfast'],
     googleRating: 4.5,
     googleReviewCount: 2100,
-    tripadvisorRating: 4.5,
-    tripadvisorReviewCount: 2100,
-    bookingRating: 4.5,
-    bookingReviewCount: 2100,
+    tripadvisorRating: 4.6,
+    tripadvisorReviewCount: 2135,
+    bookingRating: 4.4,
+    bookingReviewCount: 1650,
     hotelguruRating: 4.5,
     hotelguruReviewCount: 2100,
 
@@ -1305,6 +1387,8 @@ export const agadirSleep: SleepListing[] = [
     kidsStayFree: true,
 
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ['solo', 'couple', 'business-friendly', 'seniors'],
@@ -1312,10 +1396,10 @@ export const agadirSleep: SleepListing[] = [
 
     tip: 'Enjoy the tranquil saltwater pool, a rare find in the area.',
     vibeTags: ['Boutique', 'Spa', 'Quiet', 'Peaceful'],
-    locationSummary: 'Tourist Zone',
+    locationSummary: "Sonaba & Tourist Zone",
     availabilityText: 'Available tonight',
     googleMapsUrl: 'https://www.google.com/maps/place/30.3969,-9.593875',
-    address: 'Hotel Timoulay and Spa Agadir, Secteur Touristique, Agadir 80000, Morocco',
+    address: 'Chemin des Dunes, Secteur Touristique, Agadir 80000, Morocco',
     paymentMethods: ['card', 'cash'],
     languagesSpoken: ['Arabic', 'French', 'English'],
 
@@ -1338,7 +1422,7 @@ export const agadirSleep: SleepListing[] = [
       checkOut: 'Before 12:00',
       luggageStorage: 'Free',
       parking: 'Free',
-      contact: '+212528844777'
+      contact: '+212528234220'
     },
     roomFeatures: ['ac', 'heating', 'workspace'],
     roomTypes: [
@@ -1348,7 +1432,7 @@ export const agadirSleep: SleepListing[] = [
     ],
     cancellationPolicy: 'Free cancellation up to 24h before check-in',
     childPolicy: 'Children welcome',
-    officialWebsite: '',
+    officialWebsite: 'https://timoulayhotel.com',
     instagramHandle: '@timoulayagadir',
     isWheelchairAccessible: true,
 
@@ -1358,7 +1442,12 @@ export const agadirSleep: SleepListing[] = [
       families: 'Good for quiet families.',
       business: 'Tranquil work environment.',
       nomad: 'Saltwater pool break.'
-    }
+    },
+    coordinates: {
+      lat: 30.396718,
+      lng: -9.593944
+    },
+    tags: ["family-favorite"]
   },
   {
     id: 'a-sleep-14',
@@ -1370,13 +1459,13 @@ export const agadirSleep: SleepListing[] = [
     pricePerNight: 85,
     lifestyle: 'balanced',
     amenities: ['wifi', 'pool', 'ac', 'spa', 'breakfast', 'nightclub'],
-    googleRating: 4.0,
+    googleRating: 3.9,
     googleReviewCount: 4130,
-    tripadvisorRating: 4.0,
-    tripadvisorReviewCount: 4130,
-    bookingRating: 4.0,
-    bookingReviewCount: 4130,
-    hotelguruRating: 4.0,
+    tripadvisorRating: 3.6,
+    tripadvisorReviewCount: 372,
+    bookingRating: 3.5,
+    bookingReviewCount: 11700,
+    hotelguruRating: 3.9,
     hotelguruReviewCount: 4130,
 
     hasPool: true,
@@ -1397,6 +1486,8 @@ export const agadirSleep: SleepListing[] = [
     kidsStayFree: false,
 
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ['solo', 'couple', 'family', 'friends', 'business-friendly'],
@@ -1404,10 +1495,10 @@ export const agadirSleep: SleepListing[] = [
 
     tip: 'Great central location for exploring Agadir on foot.',
     vibeTags: ['Central', 'Vibrant', 'Value', 'Entertainment'],
-    locationSummary: 'City Center',
+    locationSummary: "Sonaba & Tourist Zone",
     availabilityText: 'Available tonight',
     googleMapsUrl: 'https://www.google.com/maps/place/30.413342,-9.59801',
-    address: 'Hotel Argana Agadir, City Centre, Agadir 80000, Morocco',
+    address: 'Boulevard Mohamed V, Agadir 80000, Morocco',
     paymentMethods: ['card', 'cash'],
     languagesSpoken: ['Arabic', 'French', 'English'],
 
@@ -1430,7 +1521,7 @@ export const agadirSleep: SleepListing[] = [
       checkOut: 'Before 11:00',
       luggageStorage: 'Free',
       parking: 'Free',
-      contact: '+212528824000'
+      contact: '+212528842100'
     },
     roomFeatures: ['ac', 'heating'],
     roomTypes: [
@@ -1440,7 +1531,7 @@ export const agadirSleep: SleepListing[] = [
     ],
     cancellationPolicy: 'Free cancellation up to 24h before check-in',
     childPolicy: 'Children welcome',
-    officialWebsite: '',
+    officialWebsite: 'https://hotelargana.ma',
     instagramHandle: '@hotelargana',
     isWheelchairAccessible: true,
 
@@ -1450,7 +1541,12 @@ export const agadirSleep: SleepListing[] = [
       families: 'Plenty of facilities.',
       business: 'Central for meetings.',
       nomad: 'Basic but central.'
-    }
+    },
+    coordinates: {
+      lat: 30.413432,
+      lng: -9.598213
+    },
+    tags: ["family-favorite"]
   },
   {
     id: 'a-sleep-15',
@@ -1463,11 +1559,11 @@ export const agadirSleep: SleepListing[] = [
     lifestyle: 'balanced',
     amenities: ['wifi', 'pool', 'ac', 'spa', 'breakfast'],
     googleRating: 4.0,
-    googleReviewCount: 700,
-    tripadvisorRating: 4.0,
-    tripadvisorReviewCount: 700,
-    bookingRating: 4.0,
-    bookingReviewCount: 700,
+    googleReviewCount: 3800,
+    tripadvisorRating: 3.7,
+    tripadvisorReviewCount: 950,
+    bookingRating: 3.3,
+    bookingReviewCount: 7614,
     hotelguruRating: 4.0,
     hotelguruReviewCount: 700,
 
@@ -1489,6 +1585,8 @@ export const agadirSleep: SleepListing[] = [
     kidsStayFree: true,
 
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ['solo', 'couple', 'family', 'business-friendly', 'seniors'],
@@ -1496,10 +1594,10 @@ export const agadirSleep: SleepListing[] = [
 
     tip: 'Stroll through the extensive manicured gardens for a relaxing afternoon.',
     vibeTags: ['Garden', 'Peaceful', 'Value', 'Central'],
-    locationSummary: 'City Center - Garden',
+    locationSummary: "Sonaba & Tourist Zone",
     availabilityText: 'Available tonight',
     googleMapsUrl: 'https://www.google.com/maps/place/30.418648,-9.601664',
-    address: 'Odyssee Park Hotel, City Centre, Agadir 80000, Morocco',
+    address: 'Boulevard Mohamed V, Agadir 80000, Morocco',
     paymentMethods: ['card', 'cash'],
     languagesSpoken: ['Arabic', 'French', 'English'],
 
@@ -1522,7 +1620,7 @@ export const agadirSleep: SleepListing[] = [
       checkOut: 'Before 11:00',
       luggageStorage: 'Free',
       parking: 'Free',
-      contact: '+212528824716'
+      contact: '+212528843326'
     },
     roomFeatures: ['ac', 'heating', 'garden-view'],
     roomTypes: [
@@ -1532,7 +1630,7 @@ export const agadirSleep: SleepListing[] = [
     ],
     cancellationPolicy: 'Free cancellation up to 24h before check-in',
     childPolicy: 'Children welcome',
-    officialWebsite: '',
+    officialWebsite: 'https://www.odysseepark.com',
     instagramHandle: '',
     isWheelchairAccessible: true,
 
@@ -1542,7 +1640,12 @@ export const agadirSleep: SleepListing[] = [
       families: 'Space in gardens.',
       business: 'Quiet and convenient.',
       nomad: 'Garden workspace.'
-    }
+    },
+    coordinates: {
+      lat: 30.599145,
+      lng: -9.497195
+    },
+    tags: ["family-favorite"]
   },
   {
     id: 'a-sleep-16',
@@ -1555,11 +1658,11 @@ export const agadirSleep: SleepListing[] = [
     lifestyle: 'balanced',
     amenities: ['wifi', 'pool', 'ac', 'breakfast', 'garden'],
     googleRating: 4.7,
-    googleReviewCount: 180,
+    googleReviewCount: 420,
     tripadvisorRating: 4.7,
     tripadvisorReviewCount: 180,
-    bookingRating: 4.7,
-    bookingReviewCount: 180,
+    bookingRating: 4.3,
+    bookingReviewCount: 423,
     hotelguruRating: 4.7,
     hotelguruReviewCount: 180,
 
@@ -1581,6 +1684,8 @@ export const agadirSleep: SleepListing[] = [
     kidsStayFree: true,
 
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ['solo', 'couple', 'family', 'friends', 'business-friendly', 'seniors'],
@@ -1588,10 +1693,10 @@ export const agadirSleep: SleepListing[] = [
 
     tip: 'Perfect for golf enthusiasts, with nearby access to premier courses.',
     vibeTags: ['Golf', 'Garden', 'Peaceful', 'Authentic'],
-    locationSummary: 'Golf Area',
+    locationSummary: "Sonaba & Tourist Zone",
     availabilityText: 'Available tonight',
     googleMapsUrl: 'https://www.google.com/maps/place/30.35853,-9.56599',
-    address: 'Dar Maktoub, Bensergao, Agadir 80000, Morocco',
+    address: 'Bensergao, BP 155, Agadir 80000, Morocco',
     paymentMethods: ['card', 'cash'],
     languagesSpoken: ['Arabic', 'French', 'English'],
 
@@ -1625,7 +1730,7 @@ export const agadirSleep: SleepListing[] = [
     ],
     cancellationPolicy: 'Free cancellation up to 24h before check-in',
     childPolicy: 'Children welcome',
-    officialWebsite: '',
+    officialWebsite: 'https://darmaktoub.com',
     instagramHandle: '',
     isWheelchairAccessible: false,
 
@@ -1635,7 +1740,12 @@ export const agadirSleep: SleepListing[] = [
       families: 'Great space and nature.',
       business: 'Quiet and inspiring.',
       nomad: 'Nature-focused workspace.'
-    }
+    },
+    coordinates: {
+      lat: 30.420516,
+      lng: -9.583853
+    },
+    tags: ["family-favorite"]
   },
   {
     id: 'a-sleep-17',
@@ -1649,12 +1759,12 @@ export const agadirSleep: SleepListing[] = [
     amenities: ['wifi', 'pool', 'ac', 'spa', 'yoga', 'surf', 'beach'],
     googleRating: 4.6,
     googleReviewCount: 3700,
-    tripadvisorRating: 4.6,
-    tripadvisorReviewCount: 3700,
-    bookingRating: 4.6,
-    bookingReviewCount: 3700,
+    tripadvisorRating: 4.4,
+    tripadvisorReviewCount: 1332,
+    bookingRating: 4.3,
+    bookingReviewCount: 1850,
     hotelguruRating: 4.6,
-    hotelguruReviewCount: 3700,
+    hotelguruReviewCount: 1332,
 
     hasPool: true,
     hasBreakfast: true,
@@ -1674,6 +1784,8 @@ export const agadirSleep: SleepListing[] = [
     kidsStayFree: true,
 
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ['solo', 'couple', 'friends', 'business-friendly'],
@@ -1681,10 +1793,10 @@ export const agadirSleep: SleepListing[] = [
 
     tip: 'Participate in the sunset yoga sessions facing the ocean for an unforgettable experience.',
     vibeTags: ['Surf', 'Yoga', 'Eco', 'Wellness'],
-    locationSummary: 'Beachfront - North',
+    locationSummary: "Sonaba & Tourist Zone",
     availabilityText: 'Available tonight',
     googleMapsUrl: 'https://www.google.com/maps/place/30.5844651,-9.75736141',
-    address: 'Paradis Plage Surf Yoga & Spa Resort, Imi Ouaddar, Agadir, Morocco',
+    address: "Km 26 Route d'Essaouira, Imi Ouaddar, Agadir 80000, Morocco",
     paymentMethods: ['card', 'cash'],
     languagesSpoken: ['Arabic', 'French', 'English'],
 
@@ -1707,7 +1819,7 @@ export const agadirSleep: SleepListing[] = [
       checkOut: 'Before 12:00',
       luggageStorage: 'Free',
       parking: 'Free',
-      contact: '+212528200100'
+      contact: '+212528200382'
     },
     roomFeatures: ['ac', 'heating', 'eco-friendly'],
     roomTypes: [
@@ -1718,7 +1830,7 @@ export const agadirSleep: SleepListing[] = [
     ],
     cancellationPolicy: 'Free cancellation up to 48h before check-in',
     childPolicy: 'Children welcome - family friendly',
-    officialWebsite: '',
+    officialWebsite: 'https://paradisplage.com',
     instagramHandle: '@paradisplage',
     isWheelchairAccessible: true,
 
@@ -1728,7 +1840,12 @@ export const agadirSleep: SleepListing[] = [
       families: 'Good for active families.',
       business: 'Peaceful remote work.',
       nomad: 'Wellness + work balance.'
-    }
+    },
+    coordinates: {
+      lat: 30.583867,
+      lng: -9.756632
+    },
+    tags: ["family-favorite"]
   },
   {
     id: 'a-sleep-18',
@@ -1740,12 +1857,12 @@ export const agadirSleep: SleepListing[] = [
     pricePerNight: 25,
     lifestyle: 'lean',
     amenities: ['wifi', 'breakfast', 'surf', 'rooftop', 'shared kitchen'],
-    googleRating: 4.5,
-    googleReviewCount: 235,
+    googleRating: 4.7,
+    googleReviewCount: 350,
     tripadvisorRating: 4.5,
     tripadvisorReviewCount: 235,
-    bookingRating: 4.5,
-    bookingReviewCount: 235,
+    bookingRating: 4.4,
+    bookingReviewCount: 280,
     hotelguruRating: 4.5,
     hotelguruReviewCount: 235,
 
@@ -1767,6 +1884,8 @@ export const agadirSleep: SleepListing[] = [
     kidsStayFree: false,
 
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ['solo', 'couple', 'friends', 'business-friendly'],
@@ -1774,10 +1893,10 @@ export const agadirSleep: SleepListing[] = [
 
     tip: 'The rooftop terrace is the perfect place to check the morning surf conditions.',
     vibeTags: ['Surf', 'Backpacker', 'Vibrant', 'Budget'],
-    locationSummary: 'Surf Beach',
+    locationSummary: "Sonaba & Tourist Zone",
     availabilityText: 'Available tonight',
     googleMapsUrl: 'https://www.google.com/maps/place/30.447465,-9.659922',
-    address: 'Blue Waves Surf House, Anza, Agadir 80000, Morocco',
+    address: 'Project Social 9, Anza, Agadir 80000, Morocco',
     paymentMethods: ['cash', 'card'],
     languagesSpoken: ['Arabic', 'French', 'English'],
 
@@ -1800,7 +1919,7 @@ export const agadirSleep: SleepListing[] = [
       checkOut: 'Before 12:00',
       luggageStorage: 'Free',
       parking: 'Free',
-      contact: '+212661234567'
+      contact: '+212666121252'
     },
     roomFeatures: ['rooftop-access', 'shared-kitchen'],
     roomTypes: [
@@ -1810,7 +1929,7 @@ export const agadirSleep: SleepListing[] = [
     ],
     cancellationPolicy: 'Free cancellation up to 24h before check-in',
     childPolicy: 'Not ideal for families',
-    officialWebsite: '',
+    officialWebsite: 'https://bluewavessurfhouse.com',
     instagramHandle: '@bluewavessurfhouse',
     isWheelchairAccessible: false,
 
@@ -1820,7 +1939,12 @@ export const agadirSleep: SleepListing[] = [
       families: 'Not ideal for families.',
       business: 'Not suitable.',
       nomad: 'Surf community.'
-    }
+    },
+    coordinates: {
+      lat: 30.546191,
+      lng: -9.708367
+    },
+    tags: ["dorm"]
   },
   {
     id: 'a-sleep-19',
@@ -1833,11 +1957,11 @@ export const agadirSleep: SleepListing[] = [
     lifestyle: 'balanced',
     amenities: ['wifi', 'pool', 'ac', 'spa', 'beach', 'tennis'],
     googleRating: 4.0,
-    googleReviewCount: 1800,
-    tripadvisorRating: 4.0,
-    tripadvisorReviewCount: 1800,
-    bookingRating: 4.0,
-    bookingReviewCount: 1800,
+    googleReviewCount: 5200,
+    tripadvisorRating: 3.7,
+    tripadvisorReviewCount: 2900,
+    bookingRating: 3.7,
+    bookingReviewCount: 5208,
     hotelguruRating: 4.0,
     hotelguruReviewCount: 1800,
 
@@ -1859,6 +1983,8 @@ export const agadirSleep: SleepListing[] = [
     kidsStayFree: true,
 
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ['solo', 'couple', 'family', 'friends', 'business-friendly'],
@@ -1866,10 +1992,10 @@ export const agadirSleep: SleepListing[] = [
 
     tip: 'Great value for a true beachfront location in Agadir.',
     vibeTags: ['Beachfront', 'Resort', 'Value', 'Garden'],
-    locationSummary: 'Direct Beachfront',
+    locationSummary: "Sonaba & Tourist Zone",
     availabilityText: 'Available tonight',
     googleMapsUrl: 'https://www.google.com/maps/place/30.410019,-9.601746',
-    address: 'Agadir Beach Club, Secteur Touristique, Agadir 80000, Morocco',
+    address: 'Boulevard 20 Août, Secteur Touristique, Agadir 80000, Morocco',
     paymentMethods: ['card', 'cash'],
     languagesSpoken: ['Arabic', 'French', 'English'],
 
@@ -1892,7 +2018,7 @@ export const agadirSleep: SleepListing[] = [
       checkOut: 'Before 11:00',
       luggageStorage: 'Free',
       parking: 'Free',
-      contact: '+212528840000'
+      contact: '+212528844343'
     },
     roomFeatures: ['ac', 'heating'],
     roomTypes: [
@@ -1902,7 +2028,7 @@ export const agadirSleep: SleepListing[] = [
     ],
     cancellationPolicy: 'Free cancellation up to 24h before check-in',
     childPolicy: 'Children welcome',
-    officialWebsite: '',
+    officialWebsite: 'https://www.beachclub-agadir.com',
     instagramHandle: '',
     isWheelchairAccessible: true,
 
@@ -1912,7 +2038,12 @@ export const agadirSleep: SleepListing[] = [
       families: 'Good facilities.',
       business: 'Convenient location.',
       nomad: 'Beachside working.'
-    }
+    },
+    coordinates: {
+      lat: 30.410423,
+      lng: -9.601297
+    },
+    tags: ["family-favorite"]
   },
   {
     id: 'a-sleep-20',
@@ -1925,11 +2056,11 @@ export const agadirSleep: SleepListing[] = [
     lifestyle: 'premium',
     amenities: ['wifi', 'pool', 'ac', 'breakfast', 'restaurant'],
     googleRating: 4.8,
-    googleReviewCount: 80,
+    googleReviewCount: 120,
     tripadvisorRating: 4.8,
     tripadvisorReviewCount: 80,
-    bookingRating: 4.8,
-    bookingReviewCount: 80,
+    bookingRating: 4.5,
+    bookingReviewCount: 110,
     hotelguruRating: 4.8,
     hotelguruReviewCount: 80,
 
@@ -1951,6 +2082,8 @@ export const agadirSleep: SleepListing[] = [
     kidsStayFree: true,
 
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ['solo', 'couple', 'business-friendly', 'seniors'],
@@ -1958,10 +2091,10 @@ export const agadirSleep: SleepListing[] = [
 
     tip: 'Enjoy a personalized cooking class offered by the riad\'s chef.',
     vibeTags: ['Golf', 'Luxury', 'Peaceful', 'Garden'],
-    locationSummary: 'Golf Course Area',
+    locationSummary: "Sonaba & Tourist Zone",
     availabilityText: 'Available tonight',
     googleMapsUrl: 'https://www.google.com/maps/place/30.369605,-9.563207',
-    address: 'Riad des Golfs, Bensergao, Agadir 80000, Morocco',
+    address: 'Bensergao, Chemin des Golfs, Agadir 80000, Morocco',
     paymentMethods: ['card', 'cash'],
     languagesSpoken: ['Arabic', 'French', 'English'],
 
@@ -1984,7 +2117,7 @@ export const agadirSleep: SleepListing[] = [
       checkOut: 'Before 11:00',
       luggageStorage: 'Free',
       parking: 'Free',
-      contact: '+212661376344'
+      contact: '+212528337033'
     },
     roomFeatures: ['ac', 'heating', 'garden-view'],
     roomTypes: [
@@ -1994,7 +2127,7 @@ export const agadirSleep: SleepListing[] = [
     ],
     cancellationPolicy: 'Free cancellation up to 24h before check-in',
     childPolicy: 'Children welcome',
-    officialWebsite: '',
+    officialWebsite: 'https://www.riaddesgolfs.com',
     instagramHandle: '@riaddesgolfs',
     isWheelchairAccessible: false,
 
@@ -2004,6 +2137,11 @@ export const agadirSleep: SleepListing[] = [
       families: 'Private and peaceful.',
       business: 'Perfect for golfing executives.',
       nomad: 'Exclusive peaceful workspace.'
-    }
+    },
+    coordinates: {
+      lat: 30.407955,
+      lng: -9.600393
+    },
+    tags: ["family-favorite"]
   }
 ]

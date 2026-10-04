@@ -192,13 +192,15 @@ export const ouzoudSleep: SleepListing[] = [
     freeCancellation: false,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Book the deluxe family master suite to enjoy a massive private terrace overlooking the canyon walls.",
     vibeTags: ["Pisé", "Rooftop", "Canyon-Views", "Serene"],
-    locationSummary: "Aghbalou - Canyon View Kasbah",
+    locationSummary: "Ouzoud Waterfalls - Grand Atlas",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Kasbah+Bab+Ourika+Ouzoud",
     address: "Aghbalou, Ouzoud 22576, Morocco",
@@ -265,6 +267,7 @@ export const ouzoudSleep: SleepListing[] = [
       business: "Quiet enough for light work and writing.",
       nomad: "A peaceful rural base for nomads with a car.",
     },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "oz-sleep-2",
@@ -302,13 +305,15 @@ export const ouzoudSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "seniors"],
     tip: "Take advantage of early morning pool access; the water is refreshing before midday sun peaks.",
     vibeTags: ["Luxury-Guesthouse", "Pool", "Private-Yards", "Waterfall-Walk"],
-    locationSummary: "Ait Taguella - 6 min from Falls",
+    locationSummary: "Ouzoud Waterfalls - Grand Atlas",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Le+Domaine+M+Ouzoud",
     address: "Ait Taguella, Ouzoud 22576, Morocco",
@@ -375,6 +380,11 @@ export const ouzoudSleep: SleepListing[] = [
       business: "Quiet gardens work well for focused remote work.",
       nomad: "A premium waterfall base for calm workation days.",
     },
+    coordinates: {
+      lat: 32.015355,
+      lng: -6.71923
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "oz-sleep-3",
@@ -412,13 +422,15 @@ export const ouzoudSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Request a family villa package when traveling in a group to enjoy a private garden terrace.",
     vibeTags: ["Country-Resort", "Mountain-Views", "Spa", "Family-Villa"],
-    locationSummary: "Ouzoud Outskirts - Mountain Resort",
+    locationSummary: "Ouzoud Waterfalls - Grand Atlas",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Kasbah+Ntifa+Ouzoud",
     address: "Ouzoud Center, Ouzoud 22576, Morocco",
@@ -485,6 +497,11 @@ export const ouzoudSleep: SleepListing[] = [
       business: "Quiet garden lounge suits work and planning.",
       nomad: "A comfortable work base if you prefer a resort feel.",
     },
+    coordinates: {
+      lat: 32.005429,
+      lng: -6.721009
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "oz-sleep-4",
@@ -522,13 +539,15 @@ export const ouzoudSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Sit by the outdoor fireplace at night to meet travelers and share hiking tips.",
     vibeTags: ["Auberge", "Campground", "Social", "Infinity-Pool"],
-    locationSummary: "Near Waterfalls - Clean Auberge Camp",
+    locationSummary: "Ouzoud Waterfalls - Grand Atlas",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Camping+Auberge+Zebra+Ouzoud",
     address: "Near Ouzoud Waterfalls, Ouzoud 22576, Morocco",
@@ -595,6 +614,11 @@ export const ouzoudSleep: SleepListing[] = [
       business: "Common areas are fine for trip planning and emails.",
       nomad: "A balanced social base for nomads hiking the falls.",
     },
+    coordinates: {
+      lat: 32.005075,
+      lng: -6.720291
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "oz-sleep-5",
@@ -705,6 +729,11 @@ export const ouzoudSleep: SleepListing[] = [
       business: "Quiet areas are useful for light business tasks.",
       nomad: "A polished base for work breaks and waterfall walks.",
     },
+    coordinates: {
+      lat: 32.015355,
+      lng: -6.71923
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "oz-sleep-6",
@@ -742,13 +771,15 @@ export const ouzoudSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "seniors"],
     tip: "Enjoy sunset drinks on the highest terrace as the valley turns orange.",
     vibeTags: ["Luxury", "Gorge-Views", "Spa", "Infinity-Pool"],
-    locationSummary: "Above Ouzoud Gorge - Waterfall Luxury",
+    locationSummary: "Ouzoud Waterfalls - Grand Atlas",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Borj+Des+Cascades+Spa+Ouzoud",
     address: "Above Oued Ouzoud Gorge, Ouzoud 22576, Morocco",
@@ -815,6 +846,11 @@ export const ouzoudSleep: SleepListing[] = [
       business: "Excellent for relaxed work with spa breaks.",
       nomad: "A premium waterfall workation base with views.",
     },
+    coordinates: {
+      lat: 32.014074,
+      lng: -6.722297
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "oz-sleep-7",
@@ -925,6 +961,11 @@ export const ouzoudSleep: SleepListing[] = [
       business: "Quiet garden areas help with light work.",
       nomad: "A balanced waterfall base for active nomads.",
     },
+    coordinates: {
+      lat: 32.005429,
+      lng: -6.721009
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "oz-sleep-8",
@@ -962,13 +1003,15 @@ export const ouzoudSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "The host, Ismael, is incredibly welcoming; ask him for the best local path down into the gorge.",
     vibeTags: ["Cozy", "Authentic", "Balconies", "Local-Host"],
-    locationSummary: "Ouzoud Center - Hill View Riad",
+    locationSummary: "Ouzoud Waterfalls - Grand Atlas",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Lala+Fatima+Ouzoud",
     address: "Ouzoud Center, Ouzoud 22576, Morocco",
@@ -1035,6 +1078,7 @@ export const ouzoudSleep: SleepListing[] = [
       business: "Quiet enough for light laptop work.",
       nomad: "A friendly village base for nomads exploring the gorge.",
     },
+    tags: ["family-favorite"]
   },
   {
     id: "oz-sleep-9",
@@ -1072,13 +1116,15 @@ export const ouzoudSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Step onto the main path after breakfast to explore the falls before day-trippers arrive.",
     vibeTags: ["Boutique", "Waterfall-Path", "Courtyard", "Terrace"],
-    locationSummary: "Main Waterfall Path",
+    locationSummary: "Ouzoud Waterfalls - Grand Atlas",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Dar+Ouzoud",
     address: "Near Ouzoud Waterfalls, Ouzoud 22576, Morocco",
@@ -1145,6 +1191,11 @@ export const ouzoudSleep: SleepListing[] = [
       business: "Terrace spaces work for light work before/after hikes.",
       nomad: "A practical waterfall base for nomads who wake early.",
     },
+    coordinates: {
+      lat: 32.01657,
+      lng: -6.714716
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "oz-sleep-10",
@@ -1182,13 +1233,15 @@ export const ouzoudSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Request the first-floor corner room for the best morning mist view over the upper falls.",
     vibeTags: ["Family-Run", "Garden", "Falls-View", "Parking"],
-    locationSummary: "Ouzoud Center - Upper Falls View",
+    locationSummary: "Ouzoud Waterfalls - Grand Atlas",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Dar+Diafa+Kaltom+Ouzoud",
     address: "Ouzoud Center, Ouzoud 22576, Morocco",
@@ -1255,6 +1308,7 @@ export const ouzoudSleep: SleepListing[] = [
       business: "Good WiFi and quiet lounge for planning.",
       nomad: "A practical base for nomads wanting parking and calm.",
     },
+    tags: ["family-favorite"]
   },
   {
     id: "oz-sleep-11",
@@ -1292,13 +1346,15 @@ export const ouzoudSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "large-groups"],
     tip: "Perfect with a rental vehicle, thanks to some of the most spacious secure parking in town.",
     vibeTags: ["Classic-Hotel", "Pool", "Groups", "Central"],
-    locationSummary: "Ouzoud Center - Large Basecamp Hotel",
+    locationSummary: "Ouzoud Waterfalls - Grand Atlas",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Hotel+France+Ouzoud",
     address: "Ouzoud Center, Ouzoud 22576, Morocco",
@@ -1365,6 +1421,11 @@ export const ouzoudSleep: SleepListing[] = [
       business: "Functional for work trips and logistics.",
       nomad: "A practical base for nomads with a car and gear.",
     },
+    coordinates: {
+      lat: 32.01681,
+      lng: -6.717346
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "oz-sleep-12",
@@ -1402,13 +1463,15 @@ export const ouzoudSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "friends", "solo"],
     tip: "Perfect if traveling by bus, as it sits close to the main local taxi drop-off point.",
     vibeTags: ["Budget", "Practical", "Taxi-Access", "Terrace"],
-    locationSummary: "Ouzoud Center - Village Entrance",
+    locationSummary: "Ouzoud Waterfalls - Grand Atlas",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Hotel+Dijon+Ouzoud",
     address: "Ouzoud Center, Ouzoud 22576, Morocco",
@@ -1475,6 +1538,11 @@ export const ouzoudSleep: SleepListing[] = [
       business: "Good WiFi for basic work and planning.",
       nomad: "A no-frills base for nomads in transit.",
     },
+    coordinates: {
+      lat: 32.013493,
+      lng: -6.720077
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "oz-sleep-13",
@@ -1585,6 +1653,11 @@ export const ouzoudSleep: SleepListing[] = [
       business: "Shared spaces are fine for light work.",
       nomad: "A balanced village base for nomads wanting pool breaks.",
     },
+    coordinates: {
+      lat: 32.014074,
+      lng: -6.722297
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "oz-sleep-14",
@@ -1695,6 +1768,11 @@ export const ouzoudSleep: SleepListing[] = [
       business: "Quiet enough for light work and planning.",
       nomad: "A practical base for nomads wanting parking and calm.",
     },
+    coordinates: {
+      lat: 32.016536,
+      lng: -6.710946
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "oz-sleep-15",
@@ -1805,6 +1883,11 @@ export const ouzoudSleep: SleepListing[] = [
       business: "Basic but usable for emails and planning.",
       nomad: "A practical waterfall base for nomads who hike early.",
     },
+    coordinates: {
+      lat: 32.013493,
+      lng: -6.720077
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "oz-sleep-16",
@@ -1842,13 +1925,15 @@ export const ouzoudSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "friends", "solo"],
     tip: "Sit on the terrace at sunset as the red sandstone cliffs glow copper.",
     vibeTags: ["Budget", "Canyon-Views", "Terrace", "Authentic"],
-    locationSummary: "Ouzoud Center - Canyon Panorama",
+    locationSummary: "Ouzoud Waterfalls - Grand Atlas",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Ouzoud+le+Panorama",
     address: "Ouzoud Center, Ouzoud 22576, Morocco",
@@ -1915,6 +2000,11 @@ export const ouzoudSleep: SleepListing[] = [
       business: "Good for basic work with views.",
       nomad: "A low-cost scenic base for nomads.",
     },
+    coordinates: {
+      lat: 32.017247,
+      lng: -6.722456
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "oz-sleep-17",
@@ -1952,13 +2042,15 @@ export const ouzoudSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "friends", "solo"],
     tip: "Request extra heavy blankets in winter, as nights in the Atlas foothills get cool.",
     vibeTags: ["Budget", "Quiet-Patio", "Traditional", "Waterfall-Tours"],
-    locationSummary: "Ouzoud Center - Quiet Patio Riad",
+    locationSummary: "Ouzoud Waterfalls - Grand Atlas",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Heermans+Ouzoud",
     address: "Ouzoud Center, Ouzoud 22576, Morocco",
@@ -2025,6 +2117,11 @@ export const ouzoudSleep: SleepListing[] = [
       business: "Quiet patio can work for light remote tasks.",
       nomad: "A basic but calm base for nomads on a budget.",
     },
+    coordinates: {
+      lat: 32.01657,
+      lng: -6.714716
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "oz-sleep-18",
@@ -2062,13 +2159,15 @@ export const ouzoudSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "The hosts are helpful; ask for the best local paths for private unguided walks.",
     vibeTags: ["Family-Home", "Budget", "Berber-Lounge", "Quiet"],
-    locationSummary: "Ouzoud Village Edge - Family Guesthouse",
+    locationSummary: "Ouzoud Waterfalls - Grand Atlas",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Maison+Touria+Ouzoud",
     address: "Ouzoud Center, Ouzoud 22576, Morocco",
@@ -2135,6 +2234,7 @@ export const ouzoudSleep: SleepListing[] = [
       business: "Basic but quiet for route planning.",
       nomad: "A low-cost base for nomads who value local guidance.",
     },
+    tags: ["family-favorite"]
   },
   {
     id: "oz-sleep-19",
@@ -2245,6 +2345,7 @@ export const ouzoudSleep: SleepListing[] = [
       business: "Not suitable for business travel.",
       nomad: "A true unplugged base for budget nomads and hikers.",
     },
+    tags: ["dorm", "family-favorite"]
   },
   {
     id: "oz-sleep-20",
@@ -2282,13 +2383,15 @@ export const ouzoudSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Enjoy the freshly made local breads at breakfast; they are baked by the host family daily.",
     vibeTags: ["Clean", "Hospitality", "Mountain-Lounge", "Terrace"],
-    locationSummary: "Ouzoud Center - Clean Guesthouse",
+    locationSummary: "Ouzoud Waterfalls - Grand Atlas",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Dar+Marwa+Ouzoud",
     address: "Ouzoud Center, Ouzoud 22576, Morocco",
@@ -2355,5 +2458,10 @@ export const ouzoudSleep: SleepListing[] = [
       business: "Lounge spaces are fine for light work.",
       nomad: "A calm, clean base for nomads staying near the falls.",
     },
+    coordinates: {
+      lat: 32.01657,
+      lng: -6.714716
+    },
+    tags: ["family-favorite"]
   }
 ]

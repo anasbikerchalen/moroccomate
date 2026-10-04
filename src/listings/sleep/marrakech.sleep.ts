@@ -192,13 +192,15 @@ export const marrakechSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["couple", "family", "solo", "seniors", "business-friendly"],
     tip: "Purchase a spa day pass or enjoy afternoon tea at Le Menzeh pavilion to stroll the famous gardens.",
     vibeTags: ["Palatial", "Historic", "Garden", "Iconic"],
-    locationSummary: "Medina / Hivernage Border",
+    locationSummary: "Medina - Historic Center",
     availabilityText: "Available tonight - High demand",
     googleMapsUrl: "https://maps.google.com/?q=La+Mamounia+Marrakech",
     address: "Avenue Bab Jdid, Marrakech 40040, Morocco",
@@ -265,6 +267,11 @@ export const marrakechSleep: SleepListing[] = [
       business: "Excellent business center and discreet meeting spots.",
       nomad: "Fast internet and plenty of quiet garden nooks for work.",
     },
+    coordinates: {
+      lat: 31.621383,
+      lng: -7.997442
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "m-sleep-2",
@@ -302,13 +309,15 @@ export const marrakechSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["couple", "family", "seniors", "business-friendly"],
     tip: "Take advantage of the luxury fast-track service through Marrakech Menara Airport customs.",
     vibeTags: ["Palatial", "Private", "Ultra-Luxury", "Artisanal"],
-    locationSummary: "Medina Edge",
+    locationSummary: "Medina - Historic Center",
     availabilityText: "Very limited availability",
     googleMapsUrl: "https://maps.google.com/?q=Royal+Mansour+Marrakech",
     address: "Rue Abou Abbas El Sebti, Marrakech 40000, Morocco",
@@ -375,6 +384,11 @@ export const marrakechSleep: SleepListing[] = [
       business: "Discreet and prestigious for high-level meetings.",
       nomad: "Unmatched privacy for deep focused work.",
     },
+    coordinates: {
+      lat: 31.625269,
+      lng: -7.998302
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "m-sleep-3",
@@ -412,13 +426,15 @@ export const marrakechSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["couple", "solo", "seniors", "family"],
     tip: "Request a Maison-style pavilion with a private heated pool for a quiet getaway away from the Medina.",
     vibeTags: ["Serene", "Palatial", "Minimalist-Luxury", "Secluded"],
-    locationSummary: "Palmerie / Annakhil District",
+    locationSummary: "Palmeraie / Rural Outskirts",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Amanjena+Marrakech",
     address: "Route de Ouarzazate, Marrakech 40000, Morocco",
@@ -485,6 +501,11 @@ export const marrakechSleep: SleepListing[] = [
       business: "Discreet and prestigious for top-level retreats.",
       nomad: "Fast internet and inspiring silence for creative work.",
     },
+    coordinates: {
+      lat: 31.60912,
+      lng: -7.932954
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "m-sleep-4",
@@ -522,13 +543,15 @@ export const marrakechSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["couple", "solo", "friends"],
     tip: "Enjoy complimentary afternoon tea and cakes on the rooftop; the sunset bar is a must even for non-guests.",
     vibeTags: ["Bohemian-Chic", "Art-Centric", "Vibrant", "Stylish"],
-    locationSummary: "Medina - Near Bab Laksour",
+    locationSummary: "Medina - Historic Center",
     availabilityText: "Available tonight - Very popular",
     googleMapsUrl: "https://maps.google.com/?q=El+Fenn+Marrakech",
     address: "2 Derb Moulay Abdellah Ben Hezzian, Marrakech 40000, Morocco",
@@ -595,6 +618,11 @@ export const marrakechSleep: SleepListing[] = [
       business: "Trendy and inspiring venue for creative meetings.",
       nomad: "Excellent WiFi and the rooftop is the ultimate outdoor office.",
     },
+    coordinates: {
+      lat: 31.627303,
+      lng: -7.992947
+    },
+    tags: []
   },
   {
     id: "m-sleep-5",
@@ -632,13 +660,15 @@ export const marrakechSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["couple", "solo", "seniors"],
     tip: "Dine on-site and ask for Haj Mohamed, the owner and historian, to share insights into Marrakech heritage.",
     vibeTags: ["Historic", "Antiquarian", "Refined", "Museum-Quality"],
-    locationSummary: "Bab Doukkala - Easy Access",
+    locationSummary: "Medina - Historic Center",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Kniza+Marrakech",
     address: "34 Derb l’Hotel, Bab Doukkala, Marrakech 40000, Morocco",
@@ -705,6 +735,11 @@ export const marrakechSleep: SleepListing[] = [
       business: "A quiet setting for business travelers who value culture.",
       nomad: "The library is a spectacular quiet place to work for a few hours.",
     },
+    coordinates: {
+      lat: 31.632995,
+      lng: -7.997721
+    },
+    tags: ["heritage"]
   },
   {
     id: "m-sleep-6",
@@ -742,13 +777,15 @@ export const marrakechSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "friends"],
     tip: "Request the Oasis side for pool access or the Soul side for a quieter, meditative atmosphere.",
     vibeTags: ["Bohemian", "Photogenic", "Vibrant", "Youthful"],
-    locationSummary: "Bab Doukkala - Near the Markets",
+    locationSummary: "Medina - Historic Center",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+BE+Marrakech",
     address: "23 Derb Sidi Lahcen O Ali, Bab Doukkala, Marrakech 40000, Morocco",
@@ -815,6 +852,11 @@ export const marrakechSleep: SleepListing[] = [
       business: "Good WiFi and inspiring common spaces for remote work.",
       nomad: "The Soul riad is a peaceful place to focus during the day.",
     },
+    coordinates: {
+      lat: 31.63742,
+      lng: -7.992386
+    },
+    tags: []
   },
   {
     id: "m-sleep-7",
@@ -852,13 +894,15 @@ export const marrakechSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "friends", "business-friendly"],
     tip: "Request a pool-view room with balcony to minimize street noise and enjoy afternoon sun.",
     vibeTags: ["Modern", "Chic", "Urban", "Convenient"],
-    locationSummary: "Gueliz - Modern City Center",
+    locationSummary: "Gueliz / Hivernage Modern District",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Radisson+Blu+Hotel+Marrakech+Carre+Eden",
     address: "166-176 Avenue Mohammed V, Gueliz, Marrakech 40000, Morocco",
@@ -925,6 +969,11 @@ export const marrakechSleep: SleepListing[] = [
       business: "Excellent facilities near major business centers.",
       nomad: "The poolside lounge and high-speed WiFi are best for remote work.",
     },
+    coordinates: {
+      lat: 31.629691,
+      lng: -8.003522
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "m-sleep-8",
@@ -961,14 +1010,16 @@ export const marrakechSleep: SleepListing[] = [
     taxesIncluded: false,
     freeCancellation: true,
     kidsStayFree: false,
-    nearMedina: false,
+    nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "seniors", "business-friendly"],
     tip: "Use the Little Birds kids club for structured activities while you relax by the separate adults-only pool.",
     vibeTags: ["Resort", "Grand", "Family-Friendly", "Lush"],
-    locationSummary: "Hivernage - Adjacent to Congress Center",
+    locationSummary: "Medina - Historic Center",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Movenpick+Hotel+Mansour+Eddahbi+Marrakech",
     address: "Avenue Mohammed VI, Hivernage, Marrakech 40000, Morocco",
@@ -1035,6 +1086,11 @@ export const marrakechSleep: SleepListing[] = [
       business: "Excellent facilities next to the congress center.",
       nomad: "The resort gardens are peaceful for remote work.",
     },
+    coordinates: {
+      lat: 31.634632,
+      lng: -8.016514
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "m-sleep-9",
@@ -1072,13 +1128,15 @@ export const marrakechSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "friends"],
     tip: "Ask for an upgrade to the Artist’s Studio if vacant—it has exceptional natural light and creative space.",
     vibeTags: ["Organic", "Bohemian", "Minimalist", "Artistic"],
-    locationSummary: "Bab Doukkala - Quiet Sanctuary",
+    locationSummary: "Medina - Historic Center",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Jardin+Secret+Marrakech",
     address: "43 Derb Hajra, Bab Doukkala, Marrakech 40000, Morocco",
@@ -1145,6 +1203,11 @@ export const marrakechSleep: SleepListing[] = [
       business: "A refreshing quiet alternative with good WiFi for focused work.",
       nomad: "The lush courtyard is a dream for morning remote work sessions.",
     },
+    coordinates: {
+      lat: 31.630898,
+      lng: -7.994828
+    },
+    tags: []
   },
   {
     id: "m-sleep-10",
@@ -1182,13 +1245,15 @@ export const marrakechSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "friends"],
     tip: "Don’t miss the dress-up closet near the entrance for a fun rooftop photo shoot with vintage jazz accessories.",
     vibeTags: ["Jazz-Age", "Art-Deco", "Historic", "Themed"],
-    locationSummary: "Medina - Near the Ben Youssef Madrasa",
+    locationSummary: "Medina - Historic Center",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Star+Marrakech",
     address: "31 Derb Ailich, Kaat Benahid, Marrakech 40000, Morocco",
@@ -1255,6 +1320,11 @@ export const marrakechSleep: SleepListing[] = [
       business: "A bit too themed for a serious business trip.",
       nomad: "The rooftop terrace is a fun high-view spot for remote work.",
     },
+    coordinates: {
+      lat: 31.631461,
+      lng: -7.985278
+    },
+    tags: ["heritage"]
   },
   {
     id: "m-sleep-11",
@@ -1291,14 +1361,16 @@ export const marrakechSleep: SleepListing[] = [
     taxesIncluded: false,
     freeCancellation: true,
     kidsStayFree: false,
-    nearMedina: true,
+    nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["solo", "friends", "couple"],
     tip: "Book the airport shuttle through the hostel to avoid getting lost in the deep medina on arrival.",
     vibeTags: ["Social", "Boutique-Hostel", "Spa-Experience", "Lively"],
-    locationSummary: "Medina - Near Ben Youssef Madrasa",
+    locationSummary: "Gueliz / Hivernage Modern District",
     availabilityText: "Beds available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Equity+Point+Marrakech",
     address: "80 Derb El Hammam, Mouassine, Marrakech 40000, Morocco",
@@ -1365,6 +1437,11 @@ export const marrakechSleep: SleepListing[] = [
       business: "A bit too noisy for serious business.",
       nomad: "The rooftop restaurant and pool area are great for afternoon work.",
     },
+    coordinates: {
+      lat: 31.629431,
+      lng: -7.988202
+    },
+    tags: ["dorm", "heritage"]
   },
   {
     id: "m-sleep-12",
@@ -1475,6 +1552,11 @@ export const marrakechSleep: SleepListing[] = [
       business: "A bit too noisy for serious business.",
       nomad: "The rooftop is a great place to work with a city view.",
     },
+    coordinates: {
+      lat: 31.624397,
+      lng: -7.987121
+    },
+    tags: ["dorm"]
   },
   {
     id: "m-sleep-13",
@@ -1511,14 +1593,16 @@ export const marrakechSleep: SleepListing[] = [
     taxesIncluded: false,
     freeCancellation: true,
     kidsStayFree: false,
-    nearMedina: true,
+    nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ["couple", "solo", "seniors", "family"],
     tip: "Book the Mastering Moroccan Spices cooking class with the chef; it includes a guided Kasbah market visit.",
     vibeTags: ["Palatial", "Opulent", "Historic-Royal", "Refined"],
-    locationSummary: "Kasbah - Near Saadian Tombs",
+    locationSummary: "Gueliz / Hivernage Modern District",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=La+Sultana+Marrakech",
     address: "403 Rue de la Kasbah, Marrakech 40000, Morocco",
@@ -1585,6 +1669,11 @@ export const marrakechSleep: SleepListing[] = [
       business: "Discreet and prestigious for top-level corporate retreats.",
       nomad: "The library and rooftop garden are inspiring and quiet for work.",
     },
+    coordinates: {
+      lat: 31.616934,
+      lng: -7.98862
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "m-sleep-14",
@@ -1622,13 +1711,15 @@ export const marrakechSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["family", "couple", "seniors", "business-friendly"],
     tip: "Enjoy early-morning golf when the air is crisp and the Atlas Mountains are clearest.",
     vibeTags: ["Resort-Luxe", "Expansive", "Scenic", "Elite"],
-    locationSummary: "Route d'Amizmiz - South of City",
+    locationSummary: "Palmeraie / Rural Outskirts",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Fairmont+Royal+Palm+Marrakech",
     address: "Km 12 Route d’Amizmiz, Marrakech 40000, Morocco",
@@ -1695,6 +1786,11 @@ export const marrakechSleep: SleepListing[] = [
       business: "Excellent facilities and close to the airport.",
       nomad: "Working on the terrace with mountain views is a dream.",
     },
+    coordinates: {
+      lat: 31.513249,
+      lng: -8.051905
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "m-sleep-15",
@@ -1732,13 +1828,15 @@ export const marrakechSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["couple", "solo", "friends"],
     tip: "Book 4-6 months ahead, as this highly photographed riad has few rooms and a global following.",
     vibeTags: ["Photogenic", "Boho-Chic", "Intimate", "Serene"],
-    locationSummary: "Bab Doukkala - Near Jemaa el-Fnaa",
+    locationSummary: "Medina - Historic Center",
     availabilityText: "Very limited availability",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Yasmine+Marrakech",
     address: "209 Rue Ank Jemel, Bab Doukkala, Marrakech 40000, Morocco",
@@ -1805,6 +1903,11 @@ export const marrakechSleep: SleepListing[] = [
       business: "A refreshing quiet alternative to central business hotels.",
       nomad: "The rooftop terrace is a dream for morning remote work.",
     },
+    coordinates: {
+      lat: 31.635697,
+      lng: -7.989585
+    },
+    tags: []
   },
   {
     id: "m-sleep-16",
@@ -1842,13 +1945,15 @@ export const marrakechSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "friends"],
     tip: "Go to the rooftop at sunset for unobstructed views of Koutoubia and La Mamounia gardens.",
     vibeTags: ["Designer", "Art-Centric", "Bold", "High-Fashion"],
-    locationSummary: "Sidi Mimoun - Near Royal Palace",
+    locationSummary: "Medina - Historic Center",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Goloboy+Marrakech",
     address: "94 Derb Sidi Mbarek, Sidi Mimoun, Marrakech 40000, Morocco",
@@ -1915,6 +2020,11 @@ export const marrakechSleep: SleepListing[] = [
       business: "A refreshing quiet alternative to central business hotels.",
       nomad: "The rooftop terrace is a dream for morning remote work.",
     },
+    coordinates: {
+      lat: 31.620874,
+      lng: -7.995576
+    },
+    tags: ["heritage"]
   },
   {
     id: "m-sleep-17",
@@ -1952,13 +2062,15 @@ export const marrakechSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["solo", "friends", "couple"],
     tip: "Join Family Dinner nights on the rooftop to meet travelers and enjoy Moroccan food at a great price.",
     vibeTags: ["Social", "Nomad-Friendly", "Design-Hostel", "Lively"],
-    locationSummary: "Medina - Central and Social",
+    locationSummary: "Medina - Historic Center",
     availabilityText: "Beds available tonight",
     googleMapsUrl: "https://maps.google.com/?q=The+Central+House+Marrakech+Medina",
     address: "Amssafah 32, Medina, Marrakech 40000, Morocco",
@@ -2025,6 +2137,11 @@ export const marrakechSleep: SleepListing[] = [
       business: "Good for quick overnights; coworking is better for work.",
       nomad: "The best co-working setup of any hostel in the medina.",
     },
+    coordinates: {
+      lat: 31.622581,
+      lng: -7.991372
+    },
+    tags: ["dorm", "heritage"]
   },
   {
     id: "m-sleep-18",
@@ -2061,14 +2178,16 @@ export const marrakechSleep: SleepListing[] = [
     taxesIncluded: false,
     freeCancellation: true,
     kidsStayFree: false,
-    nearMedina: true,
+    nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 3,
     groupTypes: ["solo", "friends"],
     tip: "Don’t miss the home-cooked tajine dinners—some of the best-value meals in the medina.",
     vibeTags: ["Budget-Friendly", "Cozy", "Social", "Authentic"],
-    locationSummary: "Medina - Steps from Jemaa el-Fnaa",
+    locationSummary: "Gueliz / Hivernage Modern District",
     availabilityText: "Beds available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Kaktus+Hostel+Marrakech",
     address: "Medina near Jemaa el-Fnaa, Marrakech 40000, Morocco",
@@ -2135,6 +2254,11 @@ export const marrakechSleep: SleepListing[] = [
       business: "Not suitable for business travel.",
       nomad: "The rooftop is a decent place to work for a few hours.",
     },
+    coordinates: {
+      lat: 31.625827,
+      lng: -7.987131
+    },
+    tags: ["dorm"]
   },
   {
     id: "m-sleep-19",
@@ -2172,13 +2296,15 @@ export const marrakechSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["couple", "family", "seniors", "business-friendly"],
     tip: "Don’t miss Sunday Brunch, when guests can watch a full parade of Arabian horses in the gardens.",
     vibeTags: ["Equestrian-Luxe", "Grand", "Jacques-Garcia", "Exclusive"],
-    locationSummary: "Route d'Amizmiz - South of City",
+    locationSummary: "Gueliz / Hivernage Modern District",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Selman+Marrakech",
     address: "BP 24 530 Marrakech Atlas, KM 5 Route d’Amizmiz, Marrakech 40160, Morocco",
@@ -2245,6 +2371,11 @@ export const marrakechSleep: SleepListing[] = [
       business: "Discreet and prestigious for top-level corporate retreats.",
       nomad: "Quiet garden nooks and high-speed WiFi are inspiring for work.",
     },
+    coordinates: {
+      lat: 31.573994,
+      lng: -8.018714
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "m-sleep-20",
@@ -2282,13 +2413,15 @@ export const marrakechSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["couple", "family", "friends"],
     tip: "Wander through the courtyards to admire preserved 19th-century tilework and cedar woodwork like a private museum.",
     vibeTags: ["Palatial", "Historic", "Andalusian", "Grand"],
-    locationSummary: "Medina - Near Bab Laksour",
+    locationSummary: "Medina - Historic Center",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Palais+Sebban+Marrakech",
     address: "43 Derb Moulay Abdellah Ben Hssein, Laksour, Marrakech 40000, Morocco",
@@ -2355,5 +2488,10 @@ export const marrakechSleep: SleepListing[] = [
       business: "A quiet unique setting for business travelers who value culture.",
       nomad: "The library and quiet courtyard are inspiring for work.",
     },
+    coordinates: {
+      lat: 31.626918,
+      lng: -7.992566
+    },
+    tags: ["family-favorite", "heritage"]
   }
 ]

@@ -27,9 +27,12 @@ export const taroudant_tafraouteThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ['adobe-fortress', '16th-century-ramparts', 'saadian-dynasty', 'calèche-ride'],
+    tags: ["16th-century-ramparts", "adobe-fortress", "calèche-ride", "private", "saadian-dynasty", "sunset", "walk-in"],
     archetypeAffinity: ['culture', 'history', 'first-timer'],
-    tip: 'Hire a traditional horse-drawn carriage (calèche) at Place Assarag at sunset for a complete perimeter loop around the glowing mud walls.'
+    tip: 'Hire a traditional horse-drawn carriage (calèche) at Place Assarag at sunset for a complete perimeter loop around the glowing mud walls.',
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: true
   },
   {
     id: 'tafraoute-painted-rocks',
@@ -57,9 +60,12 @@ export const taroudant_tafraouteThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: false,
     isPhotographyFriendly: true,
-    tags: ['land-art', 'painted-rocks', 'surreal-landscape', 'anti-atlas'],
+    tags: ["anti-atlas", "land-art", "painted-rocks", "sunset", "surreal-landscape", "walk-in"],
     archetypeAffinity: ['art-and-culture', 'photography', 'adventure'],
-    tip: 'Best visited during golden hour at sunrise or late afternoon when the desert sun highlights the contrast between the painted surfaces and pink granite.'
+    tip: 'Best visited during golden hour at sunrise or late afternoon when the desert sun highlights the contrast between the painted surfaces and pink granite.',
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: true
   },
   {
     id: 'tiout-oasis-kasbah',
@@ -87,9 +93,12 @@ export const taroudant_tafraouteThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: false,
     isPhotographyFriendly: true,
-    tags: ['palm-oasis', 'saadian-kasbah', 'donkey-ride', 'traditional-irrigation'],
+    tags: ["donkey-ride", "palm-oasis", "private", "saadian-kasbah", "sunset", "traditional-irrigation", "walk-in"],
     archetypeAffinity: ['nature', 'history', 'family'],
-    tip: 'You can hire a local guide for a donkey ride through the shady palm gardens before having lunch at the hilltop Kasbah restaurant.'
+    tip: 'You can hire a local guide for a donkey ride through the shady palm gardens before having lunch at the hilltop Kasbah restaurant.',
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: true
   },
   {
     id: 'tafraoute-napoleon-hat-head-lion',
@@ -117,9 +126,12 @@ export const taroudant_tafraouteThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ['geological-wonder', 'napoleon-hat', 'granite-peaks', 'ameln-valley'],
+    tags: ["ameln-valley", "geological-wonder", "granite-peaks", "napoleon-hat", "private", "relaxed", "walk-in"],
     archetypeAffinity: ['nature', 'photography', 'first-timer'],
-    tip: 'Watch the face of Jebel el Kest around 16:00—the changing shadows reveal the striking silhouette of the Lion\'s Face.'
+    tip: 'Watch the face of Jebel el Kest around 16:00—the changing shadows reveal the striking silhouette of the Lion\'s Face.',
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: false
   },
   {
     id: 'tafraoute-ait-mansour-gorge',
@@ -147,8 +159,11 @@ export const taroudant_tafraouteThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: false,
     isPhotographyFriendly: true,
-    tags: ['dramatic-gorges', 'palm-canyon', 'mountain-biking', 'anti-atlas-hiking'],
+    tags: ["active", "anti-atlas-hiking", "dramatic-gorges", "mountain-biking", "palm-canyon", "walk-in"],
     archetypeAffinity: ['adventure', 'nature', 'photography'],
-    tip: 'Ideal for a scenic day drive or mountain bike loop from Tafraoute. Bring comfortable walking shoes for stream trekking.'
+    tip: 'Ideal for a scenic day drive or mountain bike loop from Tafraoute. Bring comfortable walking shoes for stream trekking.',
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   }
 ]

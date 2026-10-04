@@ -23,6 +23,9 @@ export interface FilterState {
   isVerified?: boolean;
   isFixedPrice?: boolean;
   isNoHassle?: boolean;
+  isWorkshop?: boolean;
+  isLocalFav?: boolean;
+  isOpenNow?: boolean;
 }
 
 export interface ContextData {
@@ -41,6 +44,7 @@ interface ExploreState {
   sportExperienceType: SportExperienceType | null;
   activeItemId: string | null;
   omitGoogleImage: boolean;
+  modalOpen: boolean;
   quizAnswers: Record<string, any>;
   archetype: ArchetypeId | null;
   secondaryArchetype: ArchetypeId | null;
@@ -62,6 +66,7 @@ interface ExploreState {
   setSportExperienceType: (type: SportExperienceType | null) => void;
   setActiveItem: (itemId: string | null) => void;
   setOmitGoogleImage: (omit: boolean) => void;
+  setModalOpen: (open: boolean) => void;
   setQuizAnswer: (questionId: string, answer: any) => void;
   setArchetype: (archetype: ArchetypeId | null) => void;
   setFilter: (key: keyof FilterState, value: any) => void;
@@ -70,6 +75,7 @@ interface ExploreState {
   setContext: (context: Partial<ContextData>) => void;
   addExploredCategory: (categoryId: string) => void;
   setMatchmakerTree: (updates: Partial<ExploreState['matchmakerTree']>) => void;
+  applyQuizAutoFilters: (quizAnswers: Record<string, any>) => void;
   resetExplore: () => void;
 }
 
@@ -107,6 +113,7 @@ export const useExploreStore = create<ExploreState>()(
       sportExperienceType: null,
       activeItemId: null,
       omitGoogleImage: false,
+      modalOpen: false,
       quizAnswers: {},
       archetype: null,
       secondaryArchetype: null,
@@ -155,6 +162,7 @@ export const useExploreStore = create<ExploreState>()(
       setSportExperienceType: (sportExperienceType) => set({ sportExperienceType }),
       setActiveItem: (activeItemId) => set({ activeItemId }),
       setOmitGoogleImage: (omitGoogleImage) => set({ omitGoogleImage }),
+      setModalOpen: (modalOpen) => set({ modalOpen }),
       setQuizAnswer: (questionId, answer) => set((state) => ({ quizAnswers: { ...state.quizAnswers, [questionId]: answer } })),
       setArchetype: (archetype) => set({ archetype }),
       setFilter: (key, value) => set((state) => ({ filters: { ...state.filters, [key]: value } })),
@@ -165,6 +173,22 @@ export const useExploreStore = create<ExploreState>()(
         exploredCategories: state.exploredCategories.includes(categoryId) ? state.exploredCategories : [...state.exploredCategories, categoryId]
       })),
       setMatchmakerTree: (updates) => set((state) => ({ matchmakerTree: { ...state.matchmakerTree, ...updates } })),
+
+      // Smart auto-filters (lite): silently activate filters from quiz answers so
+      // personalization kicks in without adding more quiz steps
+      applyQuizAutoFilters: (quizAnswers) => set((state) => {
+        const updates: Partial<FilterState> = {};
+        const group = quizAnswers?.['base-group'];
+        if (group !== undefined) {
+          updates.isKidFriendly = group === 'family';
+        }
+        const diet = quizAnswers?.['food-diet'];
+        if (diet !== undefined && (!Array.isArray(diet) || diet.length > 0)) {
+          updates.isHalal = Array.isArray(diet) ? diet.includes('halal') : diet === 'halal';
+        }
+        if (Object.keys(updates).length === 0) return state;
+        return { filters: { ...state.filters, ...updates } };
+      }),
       resetExplore: () => set({
         view: 'hub',
         history: [],

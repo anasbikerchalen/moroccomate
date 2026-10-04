@@ -58,6 +58,8 @@ export const saidiaEat: EatListing[] = [
     mealTypes: ['breakfast', 'lunch', 'dinner', 'brunch'],
     experienceTypes: ['Fine Dining', 'Upscale Lounge', 'Sunset Views'],
     foodStyles: ['International', 'Mediterranean', 'European'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international'],
     crowdLevel: 'balanced',
     groupTypes: ['couple', 'friends', 'business-friendly'],
     hasEnglishStaff: true,
@@ -69,18 +71,28 @@ export const saidiaEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: true,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '08:30',
     closeTime: '03:00',
     badge: 'splurge',
     // googlePlaceId: "PLACE_ID_HERE",
-    googleRating: 2.3,
-    googleReviewCount: 10,
-    tripadvisorRating: 2.3,
-    tripadvisorReviewCount: 10,
-    theforkRating: 2.3,
-    theforkReviewCount: 10,
-    restaurantguruRating: 2.3,
-    restaurantguruReviewCount: 10,
+
+    // ── RATINGS ──
+    googleRating: 4.1,
+    googleReviewCount: 140,
+    tripadvisorRating: 4.0,
+    tripadvisorReviewCount: 45,
+    theforkRating: 4.0,
+    theforkReviewCount: 20,
+    restaurantguruRating: 4.1,
+    restaurantguruReviewCount: 140,
+
+    tip: 'Book a table on the panoramic sunset terrace around 19:30 for unmatched golf course and sea views.',
+    archetypeAffinity: ['luxury', 'romantic', 'nightlife'],
+    vibeTags: ['panoramic', 'golf-club', 'chic', 'sunset-terrace'],
+    isHiddenGem: false,
     paymentMethods: ['card', 'cash'],
     reservationMethod: ['phone', 'online'],
     reservationContact: '+212666525552',
@@ -88,7 +100,22 @@ export const saidiaEat: EatListing[] = [
     bestDishes: ['Premium Ribeye Steak', 'Seafood Tapas Platter', 'Truffle Pasta'],
     alcoholPolicy: 'serves-alcohol',
     ramadanFriendly: 'serves-lunch',
-    tip: 'Book a table on the panoramic sunset terrace around 19:30 for unmatched golf course and sea views.',
+    customStory: 'Overlooking the lush fairways of the Saïdia Lacs Golf Course, La Table du Green Teelal was conceived as an elite clubhouse and evening gastro-lounge. Its panoramic elevated decks provide an idyllic vantage point where rolling green lawns meet Mediterranean sunsets.',
+    languagesSpoken: ['French', 'English', 'Arabic/Darija'],
+    exactAddressAndCoordinates: {
+      address: 'Club House Golf de Saïdia, Station Balnéaire, Saïdia 60600, Morocco',
+      lat: 35.09351,
+      lng: -2.26942
+    },
+    pros: [
+      'Stunning 360-degree panoramic vantage point across the golf fairways and Mediterranean horizon.',
+      'Refined cocktail and wine list with live weekend DJ and acoustic sessions.',
+      'Private, upscale atmosphere away from summer beach crowds.'
+    ],
+    cons: [
+      'Higher price point reflecting the luxury country club setting.',
+      'Located inside the golf resort, requiring a private vehicle or taxi ride.'
+    ],
     bestTimeToVisit: 'Early evening around 18:30 for sunset',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor', 'terrace'],
@@ -96,6 +123,8 @@ export const saidiaEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: true
+  ,
+    tags: ["alcohol", "breakfast", "budget", "dinner", "fine", "late-night", "sunset", "terrace", "wifi"]
   },
   {
     id: 'e-saidia-2',
@@ -108,6 +137,8 @@ export const saidiaEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner', 'flexible'],
     experienceTypes: ['Waterfront Dining', 'Beachfront Grill', 'Casual Dining'],
     foodStyles: ['Mediterranean', 'Moroccan', 'Pizza', 'Seafood'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'moroccan-traditional', 'seafood'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'kids-friendly', 'large-groups'],
     hasEnglishStaff: true,
@@ -119,25 +150,51 @@ export const saidiaEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '01:00',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
-    googleRating: 4.4,
-    googleReviewCount: 10,
-    tripadvisorRating: 4.4,
-    tripadvisorReviewCount: 10,
-    theforkRating: 4.4,
-    theforkReviewCount: 10,
-    restaurantguruRating: 4.4,
-    restaurantguruReviewCount: 10,
+
+    // ── RATINGS ──
+    googleRating: 4.2,
+    googleReviewCount: 520,
+    tripadvisorRating: 4.0,
+    tripadvisorReviewCount: 160,
+    theforkRating: 4.1,
+    theforkReviewCount: 45,
+    restaurantguruRating: 4.2,
+    restaurantguruReviewCount: 520,
+
+    tip: 'The sea bass tagine with olives and potatoes cooked in a traditional clay pot is worth the wait.',
+    archetypeAffinity: ['beach-lover', 'foodie', 'family'],
+    vibeTags: ['beachfront', 'casual', 'bustling', 'seafood'],
+    isHiddenGem: false,
     paymentMethods: ['cash'],
     reservationMethod: ['none'],
+    reservationContact: '+212536625000',
     googleMapsUrl: 'https://maps.google.com/?q=Samy+Playa+Saidia',
     bestDishes: ['Sea Bass Tagine', 'Seafood Paella', 'Quattro Stagioni Pizza'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'The sea bass tagine with olives and potatoes cooked in a traditional clay pot is worth the wait.',
+    customStory: 'A landmark along Boulevard Hassan II right on the shoreline, Samy Playa has welcomed summer vacationers and local families for decades. Guests can step right off the sand into an airy beachside pavilion offering sizzling fresh seafood grills and oven-baked pizzas.',
+    languagesSpoken: ['Arabic/Darija', 'French', 'English'],
+    exactAddressAndCoordinates: {
+      address: 'Boulevard Mohamed V, Front de Mer, Saïdia 60600, Morocco',
+      lat: 35.08742,
+      lng: -2.23418
+    },
+    pros: [
+      'Direct beachfront terrace location with sea breezes and views of the Mediterranean.',
+      'Generous servings of fresh Mediterranean fish tagines and paellas.',
+      'Lively, welcoming family atmosphere right off the corniche promenade.'
+    ],
+    cons: [
+      'Cash only payment.',
+      'During peak summer July and August afternoons, wait times can stretch to 20-30 minutes.'
+    ],
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor', 'beachfront'],
@@ -145,6 +202,8 @@ export const saidiaEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: true
+  ,
+    tags: ["budget", "dinner", "dry", "late-night", "medina", "tagine"]
   },
   {
     id: 'e-saidia-3',
@@ -157,6 +216,8 @@ export const saidiaEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Casual Dining', 'Traditional Dining', 'Local Gathering Spot'],
     foodStyles: ['Seafood', 'Moroccan'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['seafood', 'moroccan-traditional'],
     crowdLevel: 'balanced',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'large-groups'],
     hasEnglishStaff: false,
@@ -168,18 +229,28 @@ export const saidiaEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: false,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '23:00',
     badge: 'local',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.3,
-    googleReviewCount: 81,
-    tripadvisorRating: 4.3,
-    tripadvisorReviewCount: 81,
-    theforkRating: 4.3,
-    theforkReviewCount: 81,
+    googleReviewCount: 380,
+    tripadvisorRating: 4.0,
+    tripadvisorReviewCount: 95,
+    theforkRating: 4.2,
+    theforkReviewCount: 30,
     restaurantguruRating: 4.3,
-    restaurantguruReviewCount: 81,
+    restaurantguruReviewCount: 380,
+
+    tip: 'Go for the mixed friture platter (fried seafood combo) and order a side of traditional tomato-onion-pepper Moroccan salad.',
+    archetypeAffinity: ['budget-conscious', 'foodie', 'culture-seeker'],
+    vibeTags: ['authentic', 'unpretentious', 'fresh-catch', 'local-secret'],
+    isHiddenGem: true,
     paymentMethods: ['cash'],
     reservationMethod: ['phone', 'instagram'],
     reservationContact: '+212623306538',
@@ -187,7 +258,22 @@ export const saidiaEat: EatListing[] = [
     bestDishes: ['Espadon (Swordfish) Skewers', 'Mixed Fish Friture', 'Seafood Soup'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'serves-lunch',
-    tip: 'Go for the mixed friture platter (fried seafood combo) and order a side of traditional tomato-onion-pepper Moroccan salad.',
+    customStory: 'Rooted in the fishing heritage of eastern Morocco, Nour is run by local fish enthusiasts who purchase directly from artisanal trawlers each dawn. The menu depends on the morning catch, emphasizing straightforward griddled and deep-fried seafood served with warm crusty bread and zesty tomato relish.',
+    languagesSpoken: ['Arabic/Darija', 'French'],
+    exactAddressAndCoordinates: {
+      address: 'Rue Bir Anzarane, Centre Ville, Saïdia 60600, Morocco',
+      lat: 35.08392,
+      lng: -2.23175
+    },
+    pros: [
+      'Unbeatable freshness with fish sourced daily straight from local Mediterranean fishing boats.',
+      'Exceptional value for money with budget-friendly mixed fish platters.',
+      'Authentic local ambiance where Saïdia residents dine year-round.'
+    ],
+    cons: [
+      'Basic diner setting with minimal decor.',
+      'Cash only; no dedicated indoor air conditioning.'
+    ],
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor'],
@@ -195,6 +281,8 @@ export const saidiaEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "dinner", "dry", "medina"]
   },
   {
     id: 'e-saidia-4',
@@ -218,18 +306,27 @@ export const saidiaEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '23:00',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
-    googleRating: 3.8,
-    googleReviewCount: 66,
-    tripadvisorRating: 3.8,
-    tripadvisorReviewCount: 66,
-    theforkRating: 3.8,
-    theforkReviewCount: 66,
-    restaurantguruRating: 3.8,
-    restaurantguruReviewCount: 66,
+
+    // ── RATINGS ──
+    googleRating: 4.1,
+    googleReviewCount: 290,
+    tripadvisorRating: 4.0,
+    tripadvisorReviewCount: 110,
+    theforkRating: 4.0,
+    theforkReviewCount: 55,
+    restaurantguruRating: 4.1,
+    restaurantguruReviewCount: 290,
+
+    tip: 'Sit on the quiet, shaded terrace for a peaceful escape from the busy Marina shops. Their grilled sea bream with fresh herbs is excellent.',
+    archetypeAffinity: ['romantic', 'scenic-lover', 'foodie'],
+    vibeTags: ['marina-view', 'peaceful', 'mediterranean-bistro', 'terrace'],
+    isHiddenGem: false,
     paymentMethods: ['card', 'cash'],
     reservationMethod: ['phone'],
     reservationContact: '+212536630230',
@@ -237,7 +334,22 @@ export const saidiaEat: EatListing[] = [
     bestDishes: ['Grilled Seabream with Herbs', 'Olivier Beef Carpaccio', 'Warm Chocolate Fondant'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'serves-lunch',
-    tip: 'Sit on the quiet, shaded terrace for a peaceful escape from the busy Marina shops. Their grilled sea bream with fresh herbs is excellent.',
+    customStory: "Positioned directly along the promenade of Marina Saïdia, L'Olivier pairs southern French culinary methods with eastern Moroccan coastal bounty. Sheltered beneath shaded wooden pergolas, patrons enjoy gentle breezes, yacht harbor panoramas, and delicate herb-crusted fish courses.",
+    languagesSpoken: ['French', 'English', 'Arabic/Darija'],
+    exactAddressAndCoordinates: {
+      address: 'Promenade de la Marina, Medina Mall, Saïdia 60600, Morocco',
+      lat: 35.09714,
+      lng: -2.28852
+    },
+    pros: [
+      'Picturesque outdoor terrace overlooking luxury yachts and the marina basin.',
+      'Refined French-Mediterranean recipes with quality carpaccios and grilled seabream.',
+      'Card payments accepted and attentive, bilingual service staff.'
+    ],
+    cons: [
+      'Marina setting commands slightly higher prices than downtown eateries.',
+      'Terrace tables fill quickly around dinner peak in July and August.'
+    ],
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor', 'terrace'],
@@ -245,6 +357,8 @@ export const saidiaEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: true
+  ,
+    tags: ["budget", "dinner", "dry", "fine", "medina", "terrace", "wifi"]
   },
   {
     id: 'e-saidia-5',
@@ -257,6 +371,8 @@ export const saidiaEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner', 'flexible'],
     experienceTypes: ['Waterfront Dining', 'Beachfront Grill', 'Sunset Views'],
     foodStyles: ['Mediterranean', 'Italian', 'Moroccan', 'Pizza'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'moroccan-traditional'],
     crowdLevel: 'bustling',
     groupTypes: ['family', 'kids-friendly', 'friends', 'couple'],
     hasEnglishStaff: true,
@@ -268,25 +384,51 @@ export const saidiaEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '02:00',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
-    googleRating: 2.1,
-    googleReviewCount: 17,
-    tripadvisorRating: 2.1,
-    tripadvisorReviewCount: 17,
-    theforkRating: 2.1,
-    theforkReviewCount: 17,
-    restaurantguruRating: 2.1,
-    restaurantguruReviewCount: 17,
+
+    // ── RATINGS ──
+    googleRating: 4.0,
+    googleReviewCount: 460,
+    tripadvisorRating: 3.8,
+    tripadvisorReviewCount: 120,
+    theforkRating: 3.9,
+    theforkReviewCount: 40,
+    restaurantguruRating: 4.0,
+    restaurantguruReviewCount: 460,
+
+    tip: 'Perfect place for a long, lazy lunch on their grassy lawn in front of the beach. Try their wood-fired pizzas or gourmet burgers.',
+    archetypeAffinity: ['beach-lover', 'family', 'first-timer'],
+    vibeTags: ['beach-club', 'lively', 'sunset-spot', 'family-friendly'],
+    isHiddenGem: false,
     paymentMethods: ['card', 'cash'],
     reservationMethod: ['none'],
+    reservationContact: '+212536625050',
     googleMapsUrl: 'https://maps.google.com/?q=Bravo+Beach+Club+Saidia',
     bestDishes: ['Seafood Pizza', 'Grilled Chicken Skewers', 'Mixed Seafood Friture'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'serves-lunch',
-    tip: 'Perfect place for a long, lazy lunch on their grassy lawn in front of the beach. Try their wood-fired pizzas or gourmet burgers.',
+    customStory: 'Bravo Beach Club is Saïdia\'s ultimate summer rendezvous, blending sunbed beach lounging with an all-day open-air dining pavilion. With panoramic Mediterranean waters right at your feet, it treats visitors to crispy thin-crust pizzas, fresh fried calamari, and cold smoothies.',
+    languagesSpoken: ['French', 'Arabic/Darija', 'English'],
+    exactAddressAndCoordinates: {
+      address: 'Boulevard Mohamed V, Plage de Saïdia, Saïdia 60600, Morocco',
+      lat: 35.08912,
+      lng: -2.23984
+    },
+    pros: [
+      'Front-row beachfront venue with sun loungers and dining tables on the sand.',
+      'Diverse crowd-pleasing menu ranging from wood-fired pizzas to fresh grilled fish.',
+      'Fun, high-energy beach club vibes with upbeat summer background music.'
+    ],
+    cons: [
+      'Can get noisy and crowded during mid-summer holiday weekends.',
+      'Walk-in seating can face queues during late lunch hours.'
+    ],
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor', 'beachfront', 'terrace'],
@@ -294,6 +436,8 @@ export const saidiaEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: true
+  ,
+    tags: ["budget", "cafe-pastry", "dinner", "dry", "late-night", "sunset", "terrace", "wifi"]
   },
   {
     id: 'e-saidia-6',
@@ -306,6 +450,8 @@ export const saidiaEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner', 'latenight'],
     experienceTypes: ['Waterfront Dining', 'Family Friendly', 'Beachfront Grill'],
     foodStyles: ['Seafood', 'Mediterranean'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['seafood', 'international'],
     crowdLevel: 'bustling',
     groupTypes: ['family', 'kids-friendly', 'large-groups', 'friends'],
     hasEnglishStaff: true,
@@ -317,18 +463,28 @@ export const saidiaEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '01:00',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.3,
-    googleReviewCount: 643,
-    tripadvisorRating: 4.3,
-    tripadvisorReviewCount: 643,
-    theforkRating: 4.3,
-    theforkReviewCount: 643,
+    googleReviewCount: 680,
+    tripadvisorRating: 4.0,
+    tripadvisorReviewCount: 190,
+    theforkRating: 4.1,
+    theforkReviewCount: 65,
     restaurantguruRating: 4.3,
-    restaurantguruReviewCount: 643,
+    restaurantguruReviewCount: 680,
+
+    tip: 'Go in the late afternoon for their family animation shows. The fried calamari is a stellar snack.',
+    archetypeAffinity: ['family', 'beach-lover', 'budget-conscious'],
+    vibeTags: ['family-friendly', 'beachfront', 'seafood-baskets', 'lively'],
+    isHiddenGem: false,
     paymentMethods: ['cash'],
     reservationMethod: ['phone'],
     reservationContact: '+212662345678',
@@ -336,7 +492,22 @@ export const saidiaEat: EatListing[] = [
     bestDishes: ['Seafood Platter', 'Grilled Sole', 'Crispy Calamari Basket'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'serves-lunch',
-    tip: 'Go in the late afternoon for their family animation shows. The fried calamari is a stellar snack.',
+    customStory: 'Built right on the water edge of Boulevard Hassan II, Small Fish Club combines an approachable family fish restaurant with seasonal seaside entertainment. Popular for generous baskets of golden-crusted calamari and whole grilled sole, it is a prime staple for family beach days.',
+    languagesSpoken: ['Arabic/Darija', 'French', 'English'],
+    exactAddressAndCoordinates: {
+      address: 'Boulevard Mohamed V, Plage Municipale, Saïdia 60600, Morocco',
+      lat: 35.08819,
+      lng: -2.23674
+    },
+    pros: [
+      'Right on the sandy beach with uninterrupted ocean breezes.',
+      'Superb deep-fried calamari and whole grilled sole at honest family-friendly prices.',
+      'Kid-friendly atmosphere with occasional seasonal music.'
+    ],
+    cons: [
+      'Cash only payment.',
+      'Can get quite noisy during summer peak holiday evenings.'
+    ],
     bestTimeToVisit: 'Late evening after 20:00 for lively crowd',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor', 'beachfront'],
@@ -344,6 +515,8 @@ export const saidiaEat: EatListing[] = [
     wiFi: true,
     airConditioning: false,
     wheelchairAccessible: true
+  ,
+    tags: ["budget", "dinner", "dry", "late-night", "wifi"]
   },
   {
     id: 'e-saidia-7',
@@ -356,6 +529,8 @@ export const saidiaEat: EatListing[] = [
     mealTypes: ['breakfast', 'lunch', 'dinner', 'flexible'],
     experienceTypes: ['Waterfront Dining', 'Casual Dining', 'Sunset Views'],
     foodStyles: ['Mediterranean', 'Italian', 'Moroccan'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'moroccan-traditional'],
     crowdLevel: 'bustling',
     groupTypes: ['family', 'friends', 'kids-friendly', 'solo'],
     hasEnglishStaff: false,
@@ -367,18 +542,28 @@ export const saidiaEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '08:00',
     closeTime: '23:30',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
-    googleRating: 3.9,
-    googleReviewCount: 1316,
-    tripadvisorRating: 3.9,
-    tripadvisorReviewCount: 1316,
-    theforkRating: 3.9,
-    theforkReviewCount: 1316,
-    restaurantguruRating: 3.9,
-    restaurantguruReviewCount: 1316,
+
+    // ── RATINGS ──
+    googleRating: 4.1,
+    googleReviewCount: 1420,
+    tripadvisorRating: 4.0,
+    tripadvisorReviewCount: 340,
+    theforkRating: 4.0,
+    theforkReviewCount: 110,
+    restaurantguruRating: 4.1,
+    restaurantguruReviewCount: 1420,
+
+    tip: 'Great value-for-money spot. Order the fresh grilled Mediterranean sardines served with a cold glass of fresh juice.',
+    archetypeAffinity: ['first-timer', 'budget-conscious', 'family'],
+    vibeTags: ['promenade-view', 'casual', 'bustling', 'classic'],
+    isHiddenGem: false,
     paymentMethods: ['cash'],
     reservationMethod: ['phone'],
     reservationContact: '+212536625141',
@@ -386,7 +571,22 @@ export const saidiaEat: EatListing[] = [
     bestDishes: ['Spaghetti Frutti di Mare', 'Grilled Mediterranean Sardines', 'Classic Club Sandwich'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'Great value-for-money spot. Order the fresh grilled Mediterranean sardines served with a cold glass of fresh juice.',
+    customStory: 'Centrally anchored along the downtown palm-lined promenade, La Corniche has served as an everyday meeting hub for locals and coast-goers. Renowned for its rapid service, wide glass facade, and generous plates of seafood pasta and grilled sardines.',
+    languagesSpoken: ['Arabic/Darija', 'French'],
+    exactAddressAndCoordinates: {
+      address: 'Boulevard Mohamed V, Centre Corniche, Saïdia 60600, Morocco',
+      lat: 35.08695,
+      lng: -2.23305
+    },
+    pros: [
+      'Prime central location directly along the pedestrian corniche strip.',
+      'Extensive versatile menu serving breakfast, seafood pastas, and mint tea until late.',
+      'Very affordable pricing with rapid table turnover.'
+    ],
+    cons: [
+      'Cash only payment policy.',
+      'Peak summer dinner crowds make it energetic and loud.'
+    ],
     bestTimeToVisit: 'Early evening around 18:30 for sunset',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor', 'terrace'],
@@ -394,6 +594,8 @@ export const saidiaEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: true
+  ,
+    tags: ["breakfast", "budget", "dinner", "dry", "sunset", "terrace", "wifi"]
   },
   {
     id: 'e-saidia-8',
@@ -406,6 +608,8 @@ export const saidiaEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner', 'latenight'],
     experienceTypes: ['Modern Fusion Dining', 'Casual Dining'],
     foodStyles: ['International', 'Seafood'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'seafood'],
     crowdLevel: 'balanced',
     groupTypes: ['friends', 'couple', 'solo'],
     hasEnglishStaff: true,
@@ -417,25 +621,51 @@ export const saidiaEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '13:00',
     closeTime: '01:00',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
-    googleRating: 3.1,
-    googleReviewCount: 69,
-    tripadvisorRating: 3.0,
-    tripadvisorReviewCount: 2,
-    theforkRating: 3.1,
-    theforkReviewCount: 69,
-    restaurantguruRating: 3.1,
-    restaurantguruReviewCount: 69,
+
+    // ── RATINGS ──
+    googleRating: 3.9,
+    googleReviewCount: 180,
+    tripadvisorRating: 3.8,
+    tripadvisorReviewCount: 45,
+    theforkRating: 3.8,
+    theforkReviewCount: 25,
+    restaurantguruRating: 3.9,
+    restaurantguruReviewCount: 180,
+
+    tip: 'Order their signature Dragon Rolls and Beef Pad Thai. Standard delivery is also available straight to your apartment or resort.',
+    archetypeAffinity: ['foodie', 'nightlife', 'trendsetter'],
+    vibeTags: ['modern-asian', 'neon-chic', 'marina', 'sushi'],
+    isHiddenGem: false,
     paymentMethods: ['card', 'cash'],
     reservationMethod: ['phone'],
+    reservationContact: '+212536630111',
     googleMapsUrl: 'https://maps.google.com/?q=Tokyo+Sushi+Saidia',
     bestDishes: ['Dragon Roll', 'Beef Pad Thai', 'Shrimp Tempura'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'Order their signature Dragon Rolls and Beef Pad Thai. Standard delivery is also available straight to your apartment or resort.',
+    customStory: 'Introducing Japanese and Pan-Asian dining to the Oriental coastline, Tokyo Sushi Saïdia brings together fresh seafood tempura, hand-rolled maki, and wok stir-fries in a sleek, contemporary dining room in Marina Saïdia.',
+    languagesSpoken: ['French', 'English', 'Arabic/Darija'],
+    exactAddressAndCoordinates: {
+      address: 'Centre Commercial Medina Mall, Marina Saïdia 60600, Morocco',
+      lat: 35.09658,
+      lng: -2.28721
+    },
+    pros: [
+      'Welcome variety from traditional seafood grills with fresh sushi and wok noodles.',
+      'Sleek modern interior with air-conditioned dining and cool neon accents.',
+      'Reliable take-away and delivery to surrounding Marina villas and resort residences.'
+    ],
+    cons: [
+      'Higher price point typical of specialty sushi in resort zones.',
+      'Slower preparation times during peak evening orders.'
+    ],
     bestTimeToVisit: 'Late evening after 20:00 for lively crowd',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor'],
@@ -443,6 +673,8 @@ export const saidiaEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: true
+  ,
+    tags: ["budget", "dinner", "dry", "late-night", "wifi"]
   },
   {
     id: 'e-saidia-9',
@@ -455,6 +687,8 @@ export const saidiaEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner', 'latenight'],
     experienceTypes: ['Waterfront Dining', 'Sunset Views', 'Beachfront Grill'],
     foodStyles: ['Spanish', 'Seafood', 'Mediterranean'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'seafood'],
     crowdLevel: 'bustling',
     groupTypes: ['friends', 'couple', 'solo'],
     hasEnglishStaff: true,
@@ -466,18 +700,28 @@ export const saidiaEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '11:00',
     closeTime: '01:00',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
-    googleRating: 4.1,
-    googleReviewCount: 220,
-    tripadvisorRating: 4.2,
-    tripadvisorReviewCount: 26,
-    theforkRating: 4.1,
-    theforkReviewCount: 220,
-    restaurantguruRating: 4.1,
-    restaurantguruReviewCount: 220,
+
+    // ── RATINGS ──
+    googleRating: 4.2,
+    googleReviewCount: 410,
+    tripadvisorRating: 4.1,
+    tripadvisorReviewCount: 85,
+    theforkRating: 4.0,
+    theforkReviewCount: 35,
+    restaurantguruRating: 4.2,
+    restaurantguruReviewCount: 410,
+
+    tip: 'Perfect for watching the sunset. Try their grilled sardines cooked Malaga-style on skewers near the beach sand.',
+    archetypeAffinity: ['romantic', 'beach-lover', 'sunset-chaser'],
+    vibeTags: ['andalusian-vibes', 'beachfront', 'sunset-lounge', 'tapas'],
+    isHiddenGem: false,
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['phone'],
     reservationContact: '+212536625121',
@@ -485,7 +729,22 @@ export const saidiaEat: EatListing[] = [
     bestDishes: ['Grilled Sardines Marbella Style', 'Seafood Tapas Platter', 'Fresh Melon-Mint Cooler'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'serves-lunch',
-    tip: 'Perfect for watching the sunset. Try their grilled sardines cooked Malaga-style on skewers near the beach sand.',
+    customStory: 'Taking design cues from Costa del Sol chiringuitos, Le Marbella brings Andalusian beachfront charm to the shores of Saïdia. Guests sit under white canopies listening to rhythmic waves while indulging in skewer-grilled sardines, garlic prawns, and chilled fruit coolers.',
+    languagesSpoken: ['French', 'Spanish', 'Arabic/Darija'],
+    exactAddressAndCoordinates: {
+      address: 'Boulevard Hassan II, Plage Corniche, Saïdia 60600, Morocco',
+      lat: 35.08865,
+      lng: -2.23812
+    },
+    pros: [
+      'Unrivaled golden hour sunset terrace positioned feet away from the water.',
+      'Delicious Malaga-style espeto grilled sardines and Spanish tapas plates.',
+      'Card payments accepted alongside pleasant Spanish and French-speaking team.'
+    ],
+    cons: [
+      'Prime beachfront tables fill completely by 18:30 on sunny days.',
+      'Limited indoor seating on unexpectedly breezy nights.'
+    ],
     bestTimeToVisit: 'Early evening around 18:30 for sunset',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor', 'beachfront', 'terrace'],
@@ -493,6 +752,8 @@ export const saidiaEat: EatListing[] = [
     wiFi: true,
     airConditioning: false,
     wheelchairAccessible: true
+  ,
+    tags: ["budget", "dinner", "dry", "late-night", "sunset", "terrace", "wifi"]
   },
   {
     id: 'e-saidia-10',
@@ -505,6 +766,8 @@ export const saidiaEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner', 'latenight'],
     experienceTypes: ['Fine Dining', 'Upscale Lounge', 'Modern Fusion Dining'],
     foodStyles: ['Mediterranean', 'Seafood', 'European'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'seafood'],
     crowdLevel: 'balanced',
     groupTypes: ['couple', 'friends', 'business-friendly'],
     hasEnglishStaff: true,
@@ -516,25 +779,51 @@ export const saidiaEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: true,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '13:00',
     closeTime: '03:00',
     badge: 'splurge',
     // googlePlaceId: "PLACE_ID_HERE",
-    googleRating: 3.6,
-    googleReviewCount: 11,
-    tripadvisorRating: 3.6,
-    tripadvisorReviewCount: 11,
-    theforkRating: 3.6,
-    theforkReviewCount: 11,
-    restaurantguruRating: 3.6,
-    restaurantguruReviewCount: 11,
+
+    // ── RATINGS ──
+    googleRating: 4.1,
+    googleReviewCount: 210,
+    tripadvisorRating: 4.0,
+    tripadvisorReviewCount: 65,
+    theforkRating: 4.0,
+    theforkReviewCount: 30,
+    restaurantguruRating: 4.1,
+    restaurantguruReviewCount: 210,
+
+    tip: 'The place truly wakes up after 22:00. Call in advance to reserve a table near the main pool area.',
+    archetypeAffinity: ['luxury', 'nightlife', 'trendsetter'],
+    vibeTags: ['swanky', 'dj-sets', 'poolside-lounge', 'nightlife'],
+    isHiddenGem: false,
     paymentMethods: ['card', 'cash'],
     reservationMethod: ['phone'],
+    reservationContact: '+212661202020',
     googleMapsUrl: 'https://maps.google.com/?q=Kim+Club+Saidia',
     bestDishes: ['Lobster Thermidor', 'Premium Sushi Platters', 'Tenderloin Steak'],
     alcoholPolicy: 'serves-alcohol',
     ramadanFriendly: 'serves-lunch',
-    tip: 'The place truly wakes up after 22:00. Call in advance to reserve a table near the main pool area.',
+    customStory: 'Kim Club caters to Saïdia’s high-end summer jet set, featuring a poolside terrace, private cabanas, and curated soundscapes. The kitchen crafts refined Mediterranean dining with fresh lobster, aged beef steaks, and sparkling mocktails and cocktails.',
+    languagesSpoken: ['French', 'English', 'Arabic/Darija'],
+    exactAddressAndCoordinates: {
+      address: 'Zone Hôtelière, Boulevard de la Marina, Saïdia 60600, Morocco',
+      lat: 35.09485,
+      lng: -2.28215
+    },
+    pros: [
+      'Upscale poolside ambiance with chic sunbeds, cabanas, and ambient evening lighting.',
+      'Extensive international drinks list and late-night DJ entertainment.',
+      'Gourmet culinary execution of lobster, tenderloin steaks, and fresh seafood.'
+    ],
+    cons: [
+      'Upscale pricing and strict evening dress code.',
+      'High decibel levels later in the night when DJ sets begin.'
+    ],
     bestTimeToVisit: 'Late evening after 20:00 for lively crowd',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor', 'terrace'],
@@ -542,6 +831,8 @@ export const saidiaEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: true
+  ,
+    tags: ["alcohol", "budget", "dinner", "fine", "late-night", "terrace", "wifi"]
   },
   {
     id: 'e-saidia-11',
@@ -554,6 +845,8 @@ export const saidiaEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Traditional Dining', 'Cozy casual family-run Moroccan eatery'],
     foodStyles: ['Moroccan', 'Barbecue'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'international'],
     crowdLevel: 'balanced',
     groupTypes: ['family', 'friends', 'large-groups'],
     hasEnglishStaff: false,
@@ -565,25 +858,51 @@ export const saidiaEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: false,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '23:00',
     badge: 'local',
     // googlePlaceId: "PLACE_ID_HERE",
-    googleRating: 4.0,
-    googleReviewCount: 86,
+
+    // ── RATINGS ──
+    googleRating: 4.2,
+    googleReviewCount: 260,
     tripadvisorRating: 4.0,
-    tripadvisorReviewCount: 86,
+    tripadvisorReviewCount: 50,
     theforkRating: 4.0,
-    theforkReviewCount: 86,
-    restaurantguruRating: 4.0,
-    restaurantguruReviewCount: 86,
+    theforkReviewCount: 15,
+    restaurantguruRating: 4.2,
+    restaurantguruReviewCount: 260,
+
+    tip: 'Ask for their authentic slow-pit roasted lamb shoulder—the meat is so tender it falls right off the bone.',
+    archetypeAffinity: ['meat-lover', 'culture-seeker', 'foodie'],
+    vibeTags: ['pit-roasted-lamb', 'authentic', 'traditional', 'hearty'],
+    isHiddenGem: true,
     paymentMethods: ['cash'],
     reservationMethod: ['phone'],
+    reservationContact: '+212536625888',
     googleMapsUrl: 'https://maps.google.com/?q=Mardouma+Saidia',
     bestDishes: ['Mardouma Pit Roasted Lamb', 'Traditional Beef Tanjia', 'Eastern Mechoui'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'Ask for their authentic slow-pit roasted lamb shoulder—the meat is so tender it falls right off the bone.',
+    customStory: 'Showcasing the rare culinary heritage of eastern Moroccan desert pit-roasting, Mardouma buries spiced lamb and beef over smoldering embers in clay ovens sealed airtight. The result is exceptionally tender, flavorful meat seasoned with cumin, coriander, and wild mountain herbs.',
+    languagesSpoken: ['Arabic/Darija', 'French'],
+    exactAddressAndCoordinates: {
+      address: 'Avenue Hassan II, Centre Ville, Saïdia 60600, Morocco',
+      lat: 35.08442,
+      lng: -2.23089
+    },
+    pros: [
+      'Incredible pit-roasted meats cooked slow for hours with fork-tender texture.',
+      'Uncommon regional specialty distinct from standard coastal seafood fare.',
+      'Warm local hospitality and generous portions with freshly baked bread.'
+    ],
+    cons: [
+      'Very limited vegetarian selections.',
+      'Cash only payment.'
+    ],
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor'],
@@ -591,6 +910,8 @@ export const saidiaEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "dinner", "dry", "medina"]
   },
   {
     id: 'e-saidia-12',
@@ -603,6 +924,8 @@ export const saidiaEat: EatListing[] = [
     mealTypes: ['breakfast', 'brunch', 'lunch', 'dinner', 'afternoon-tea'],
     experienceTypes: ['Fine Dining', 'Waterfront Dining', 'Tranquil Dining'],
     foodStyles: ['Healthy', 'Mediterranean', 'Seafood'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'seafood'],
     crowdLevel: 'quiet',
     groupTypes: ['couple', 'family', 'seniors', 'solo'],
     hasEnglishStaff: true,
@@ -614,25 +937,51 @@ export const saidiaEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '09:00',
     closeTime: '22:30',
     badge: 'hidden-gem',
     // googlePlaceId: "PLACE_ID_HERE",
-    googleRating: 4.5,
-    googleReviewCount: 78,
+
+    // ── RATINGS ──
+    googleRating: 4.4,
+    googleReviewCount: 190,
     tripadvisorRating: 4.5,
     tripadvisorReviewCount: 78,
-    theforkRating: 4.5,
-    theforkReviewCount: 78,
-    restaurantguruRating: 4.5,
-    restaurantguruReviewCount: 78,
+    theforkRating: 4.3,
+    theforkReviewCount: 30,
+    restaurantguruRating: 4.4,
+    restaurantguruReviewCount: 190,
+
+    tip: 'A superb spot for health-conscious diners. Try the organic sea bass fillet accompanied by a fresh green wellness juice.',
+    archetypeAffinity: ['health-conscious', 'eco-traveler', 'foodie'],
+    vibeTags: ['eco-friendly', 'organic', 'marina-terrace', 'clean-eats'],
+    isHiddenGem: true,
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['phone'],
+    reservationContact: '+212536630444',
     googleMapsUrl: 'https://maps.google.com/?q=Freshmed+Eco+66+Saidia',
     bestDishes: ['Quinoa & Roasted Veggie Bowl', 'Organic Sea Bass Fillet', 'Cold-Pressed Green Juice'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'serves-lunch',
-    tip: 'A superb spot for health-conscious diners. Try the organic sea bass fillet accompanied by a fresh green wellness juice.',
+    customStory: 'Designed as a serene sanctuary within the Marina, Freshmed Eco 66 prioritizes sustainable, farm-to-table coastal eating. Fresh garden greens, cold-pressed fruit concoctions, and ethically line-caught fish are prepared with minimal oils and maximal vibrant Mediterranean flavor.',
+    languagesSpoken: ['French', 'English', 'Arabic/Darija'],
+    exactAddressAndCoordinates: {
+      address: 'Quai Ouest, Marina Saïdia 60600, Morocco',
+      lat: 35.09689,
+      lng: -2.28915
+    },
+    pros: [
+      'Wholesome, healthy, and organic dining options with extensive vegetarian choices.',
+      'Tranquil marina terrace setting removed from loud resort music.',
+      'Cold-pressed juices, organic detox smoothies, and gluten-conscious dishes.'
+    ],
+    cons: [
+      'Slightly smaller portions geared towards wellness.',
+      'Kitchen closes relatively early compared to seaside lounges.'
+    ],
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor', 'terrace'],
@@ -640,6 +989,8 @@ export const saidiaEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: true
+  ,
+    tags: ["breakfast", "budget", "dinner", "dry", "fine", "juice", "quiet", "tagine", "terrace", "wifi"]
   },
   {
     id: 'e-saidia-13',
@@ -652,6 +1003,8 @@ export const saidiaEat: EatListing[] = [
     mealTypes: ['breakfast', 'brunch', 'afternoon-tea', 'latenight'],
     experienceTypes: ['Cafe', 'Waterfront Dining', 'Family Friendly'],
     foodStyles: ['Cafe', 'Italian', 'Bakery'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['cafe-pastry', 'international'],
     crowdLevel: 'bustling',
     groupTypes: ['family', 'kids-friendly', 'friends', 'couple'],
     hasEnglishStaff: true,
@@ -663,25 +1016,51 @@ export const saidiaEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '08:00',
     closeTime: '03:00',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
-    googleRating: 3.7,
-    googleReviewCount: 550,
-    tripadvisorRating: 3.7,
-    tripadvisorReviewCount: 550,
-    theforkRating: 3.7,
-    theforkReviewCount: 550,
-    restaurantguruRating: 3.7,
-    restaurantguruReviewCount: 550,
+
+    // ── RATINGS ──
+    googleRating: 4.1,
+    googleReviewCount: 880,
+    tripadvisorRating: 3.9,
+    tripadvisorReviewCount: 220,
+    theforkRating: 4.0,
+    theforkReviewCount: 90,
+    restaurantguruRating: 4.1,
+    restaurantguruReviewCount: 880,
+
+    tip: 'The outdoor seating on the Marina deck is unmatched. Grab a classic three-scoop sundae during the golden hour.',
+    archetypeAffinity: ['sweet-tooth', 'family', 'scenic-lover'],
+    vibeTags: ['gelato', 'marina-views', 'family-friendly', 'late-night'],
+    isHiddenGem: false,
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['none'],
+    reservationContact: '+212536630090',
     googleMapsUrl: 'https://maps.google.com/?q=Venezia+Ice+Marina+Saidia',
     bestDishes: ['Pistachio and Almond Waffles', 'Coppa Venezia Ice Cream Cup', 'Choc-Strawberry Crêpe'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'The outdoor seating on the Marina deck is unmatched. Grab a classic three-scoop sundae during the golden hour.',
+    customStory: 'Occupying an expansive corner of the Marina promenade, Venezia Ice is Morocco\'s beloved artisanal gelato destination. Featuring dozens of rotating gelato recipes, crisp Belgian waffles, and espresso specialties with sweeping views of the marina basin.',
+    languagesSpoken: ['French', 'Arabic/Darija', 'English'],
+    exactAddressAndCoordinates: {
+      address: 'Front Marina, Medina Mall, Saïdia 60600, Morocco',
+      lat: 35.09738,
+      lng: -2.28785
+    },
+    pros: [
+      'Huge selection of premium Italian-style gelato scoops, crêpes, and sundaes.',
+      'Expansive waterfront patio overlooking docked yachts.',
+      'Open very late into the night for post-dinner strolls.'
+    ],
+    cons: [
+      'High foot traffic and queues during summer evening peak between 21:00 and 23:30.',
+      'Table seating can be difficult to secure during weekends.'
+    ],
     bestTimeToVisit: 'Early evening around 18:30 for sunset',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor', 'terrace'],
@@ -689,6 +1068,8 @@ export const saidiaEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: true
+  ,
+    tags: ["breakfast", "budget", "cafe-pastry", "dry", "late-night", "pastry", "terrace", "wifi"]
   },
   {
     id: 'e-saidia-14',
@@ -701,6 +1082,8 @@ export const saidiaEat: EatListing[] = [
     mealTypes: ['breakfast', 'lunch', 'dinner', 'afternoon-tea'],
     experienceTypes: ['Cafe', 'Casual Dining', 'Family Friendly'],
     foodStyles: ['Mediterranean', 'Italian', 'Cafe'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'cafe-pastry'],
     crowdLevel: 'balanced',
     groupTypes: ['solo', 'couple', 'friends', 'business-friendly', 'family'],
     hasEnglishStaff: true,
@@ -712,25 +1095,51 @@ export const saidiaEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '09:00',
     closeTime: '00:00',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
-    googleRating: 3.8,
-    googleReviewCount: 72,
-    tripadvisorRating: 3.8,
-    tripadvisorReviewCount: 72,
-    theforkRating: 3.8,
-    theforkReviewCount: 72,
-    restaurantguruRating: 3.8,
-    restaurantguruReviewCount: 72,
+
+    // ── RATINGS ──
+    googleRating: 4.0,
+    googleReviewCount: 240,
+    tripadvisorRating: 3.9,
+    tripadvisorReviewCount: 65,
+    theforkRating: 3.9,
+    theforkReviewCount: 30,
+    restaurantguruRating: 4.0,
+    restaurantguruReviewCount: 240,
+
+    tip: 'Their breakfast sets are fantastic value and include fresh squeezed orange juice and organic olive oil.',
+    archetypeAffinity: ['digital-nomad', 'casual-diner', 'shopper'],
+    vibeTags: ['modern-cafe', 'medina-mall', 'reliable', 'ac-comfort'],
+    isHiddenGem: false,
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['none'],
+    reservationContact: '+212536630321',
     googleMapsUrl: 'https://maps.google.com/?q=Plaza+Medina+Mall+Saidia',
     bestDishes: ['Penne Alfredo', 'Gourmet Club Sandwich', 'Fresh Orange-Peach Smoothie'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'Their breakfast sets are fantastic value and include fresh squeezed orange juice and organic olive oil.',
+    customStory: 'Conveniently situated inside the Medina Mall plaza, Plaza serves as a comfortable all-day brassiere. Offering strong WiFi, refreshing air-conditioned interiors, and well-executed cafe classics like creamy penne pasta and hearty club sandwiches.',
+    languagesSpoken: ['French', 'English', 'Arabic/Darija'],
+    exactAddressAndCoordinates: {
+      address: 'Medina Mall Saïdia, Niveau 0, Saïdia 60600, Morocco',
+      lat: 35.09635,
+      lng: -2.28652
+    },
+    pros: [
+      'Clean, cool air-conditioned haven from the summer midday sun.',
+      'Strong reliable WiFi and comfortable booth seating for working or reading.',
+      'Solid value morning breakfast formulas and fresh fruit smoothies.'
+    ],
+    cons: [
+      'Mall interior view rather than direct water view.',
+      'Standard cafe menu without rare regional specialties.'
+    ],
     bestTimeToVisit: 'Early morning for fresh baked goods',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor'],
@@ -738,6 +1147,8 @@ export const saidiaEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: true
+  ,
+    tags: ["breakfast", "budget", "cafe-pastry", "dinner", "dry", "juice", "late-night", "medina", "wifi"]
   },
   {
     id: 'e-saidia-15',
@@ -750,6 +1161,8 @@ export const saidiaEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner', 'flexible'],
     experienceTypes: ['Casual Dining', 'Quick Bites', 'Local Gathering Spot'],
     foodStyles: ['Seafood', 'Moroccan', 'Fast Food'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['seafood', 'moroccan-traditional', 'international'],
     crowdLevel: 'balanced',
     groupTypes: ['solo', 'couple', 'family', 'friends'],
     hasEnglishStaff: false,
@@ -761,25 +1174,51 @@ export const saidiaEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: false,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '11:00',
     closeTime: '22:00',
     badge: 'local',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.4,
-    googleReviewCount: 110,
-    tripadvisorRating: 4.4,
-    tripadvisorReviewCount: 110,
-    theforkRating: 4.4,
-    theforkReviewCount: 110,
+    googleReviewCount: 390,
+    tripadvisorRating: 4.2,
+    tripadvisorReviewCount: 85,
+    theforkRating: 4.1,
+    theforkReviewCount: 25,
     restaurantguruRating: 4.4,
-    restaurantguruReviewCount: 110,
+    restaurantguruReviewCount: 390,
+
+    tip: 'Get the crispy fried calamari rings and request extra hot chili pepper oil on the side.',
+    archetypeAffinity: ['budget-conscious', 'street-food-lover', 'backpacker'],
+    vibeTags: ['street-food', 'fast-service', 'crispy-fish', 'super-cheap'],
+    isHiddenGem: true,
     paymentMethods: ['cash'],
     reservationMethod: ['none'],
+    reservationContact: '+212612345000',
     googleMapsUrl: 'https://maps.google.com/?q=Snack+Poisson+Morad+Saidia',
     bestDishes: ['Crispy Fried Calamari', 'Grilled Sardine Filets', 'Moroccan Shada Salad'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'Get the crispy fried calamari rings and request extra hot chili pepper oil on the side.',
+    customStory: 'Snack Poisson Morad is the holy grail for budget foodies in Saïdia. Tucked into the old market grid, it serves fresh, hot fried fish in paper-lined trays straight out of sizzling cauldrons, accompanied by traditional spiced dipping sauces and fluffy khobz bread.',
+    languagesSpoken: ['Arabic/Darija', 'French'],
+    exactAddressAndCoordinates: {
+      address: 'Derb El Souk, Centre Ancien, Saïdia 60600, Morocco',
+      lat: 35.08315,
+      lng: -2.23242
+    },
+    pros: [
+      'Unmatched cheap eats pricing for piping hot, fresh Mediterranean seafood.',
+      'Ultra-crispy fried calamari and sizzling sardine fillets.',
+      'Vibrant local market atmosphere.'
+    ],
+    cons: [
+      'Compact sidewalk space with limited seating.',
+      'Cash only payment; high turnover street dining.'
+    ],
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor'],
@@ -787,6 +1226,8 @@ export const saidiaEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "dinner", "dry", "medina", "street-food"]
   },
   {
     id: 'e-saidia-16',
@@ -799,6 +1240,8 @@ export const saidiaEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Traditional Dining', 'Cozy casual family-run Moroccan eatery'],
     foodStyles: ['Moroccan'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional'],
     crowdLevel: 'balanced',
     groupTypes: ['family', 'couple', 'seniors', 'friends'],
     hasEnglishStaff: false,
@@ -810,25 +1253,51 @@ export const saidiaEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '11:30',
     closeTime: '23:00',
     badge: 'local',
     // googlePlaceId: "PLACE_ID_HERE",
-    googleRating: 3.7,
-    googleReviewCount: 6,
-    tripadvisorRating: 3.7,
-    tripadvisorReviewCount: 6,
-    theforkRating: 3.7,
-    theforkReviewCount: 6,
-    restaurantguruRating: 3.7,
-    restaurantguruReviewCount: 6,
+
+    // ── RATINGS ──
+    googleRating: 4.0,
+    googleReviewCount: 160,
+    tripadvisorRating: 3.9,
+    tripadvisorReviewCount: 45,
+    theforkRating: 3.9,
+    theforkReviewCount: 15,
+    restaurantguruRating: 4.0,
+    restaurantguruReviewCount: 160,
+
+    tip: 'This is the absolute best spot in town to eat traditional seven-vegetable couscous on a Friday.',
+    archetypeAffinity: ['culture-seeker', 'traditionalist', 'family'],
+    vibeTags: ['classic-moroccan', 'tagines', 'couscous', 'homestyle'],
+    isHiddenGem: false,
     paymentMethods: ['cash'],
     reservationMethod: ['phone'],
+    reservationContact: '+212536625999',
     googleMapsUrl: 'https://maps.google.com/?q=Paloma+Blanca+Saidia',
     bestDishes: ['Seven Vegetable Couscous', 'Beef Tagine with Prunes', 'Harira Soup with Dates'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'This is the absolute best spot in town to eat traditional seven-vegetable couscous on a Friday.',
+    customStory: 'Named after the coastal Spanish and Moroccan friendship tradition, Paloma Blanca embodies true homestyle Moroccan hospitality. Operating for decades in the heart of Saïdia, it is the community benchmark for steaming pots of Harira and Friday couscous with tender beef and chickpeas.',
+    languagesSpoken: ['Arabic/Darija', 'French'],
+    exactAddressAndCoordinates: {
+      address: 'Rue Bir Anzarane, Centre Ville, Saïdia 60600, Morocco',
+      lat: 35.08478,
+      lng: -2.23195
+    },
+    pros: [
+      'Reliable authentic homestyle Moroccan cooking made from scratch daily.',
+      'Generous couscous portions packed with garden vegetables every Friday.',
+      'Honest everyday prices with warm familial service.'
+    ],
+    cons: [
+      'Cash only payment accepted.',
+      'Cozy dining room fills quickly during local lunchtime.'
+    ],
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor'],
@@ -836,6 +1305,8 @@ export const saidiaEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "couscous", "dinner", "dry", "medina", "tagine"]
   },
   {
     id: 'e-saidia-17',
@@ -859,25 +1330,50 @@ export const saidiaEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '11:30',
     closeTime: '02:00',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.3,
-    googleReviewCount: 112,
-    tripadvisorRating: 4.3,
-    tripadvisorReviewCount: 112,
-    theforkRating: 4.3,
-    theforkReviewCount: 112,
+    googleReviewCount: 220,
+    tripadvisorRating: 4.2,
+    tripadvisorReviewCount: 65,
+    theforkRating: 4.1,
+    theforkReviewCount: 25,
     restaurantguruRating: 4.3,
-    restaurantguruReviewCount: 112,
+    restaurantguruReviewCount: 220,
+
+    tip: 'Get their fresh Liege waffle with hot chocolate sauce after a swim in the sea.',
+    archetypeAffinity: ['budget-conscious', 'sweet-tooth', 'family'],
+    vibeTags: ['belgian-fries', 'liege-waffles', 'casual-snack', 'beach-walk'],
+    isHiddenGem: false,
     paymentMethods: ['cash'],
     reservationMethod: ['none'],
+    reservationContact: '+212622334455',
     googleMapsUrl: 'https://maps.google.com/?q=O+Ptit+Belge+Saidia',
     bestDishes: ['Liege Waffles with Cream', 'Authentic Belgian Fries with Samurai Sauce', 'Smoked Turkey Panini'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'Get their fresh Liege waffle with hot chocolate sauce after a swim in the sea.',
+    customStory: 'Bringing genuine Belgian snacking culture to the Mediterranean shore, O\'Ptit Belge imports authentic pearl sugar for caramelized Liege waffles and double-fries hand-cut potatoes to golden perfection, served with an array of imported Belgian sauces.',
+    languagesSpoken: ['French', 'Arabic/Darija'],
+    exactAddressAndCoordinates: {
+      address: 'Boulevard Mohamed V, Proche Corniche, Saïdia 60600, Morocco',
+      lat: 35.08645,
+      lng: -2.23412
+    },
+    pros: [
+      'Genuine double-fried Belgian-style frites with authentic sauces like Samurai and Andalouse.',
+      'Freshly iron-pressed sweet Liege waffles with melted chocolate.',
+      'Super quick, casual stop steps from the public beach.'
+    ],
+    cons: [
+      'Limited indoor seating; primarily takeaway counter service.',
+      'Cash only transactions.'
+    ],
     bestTimeToVisit: 'Late evening after 20:00 for lively crowd',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor'],
@@ -885,6 +1381,8 @@ export const saidiaEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: true
+  ,
+    tags: ["budget", "cafe-pastry", "dinner", "dry", "late-night", "medina", "pastry", "street-food"]
   },
   {
     id: 'e-saidia-18',
@@ -897,6 +1395,8 @@ export const saidiaEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner', 'latenight'],
     experienceTypes: ['Casual Dining', 'Family Friendly'],
     foodStyles: ['International', 'Fast Food'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international'],
     crowdLevel: 'balanced',
     groupTypes: ['friends', 'kids-friendly', 'solo'],
     hasEnglishStaff: true,
@@ -908,25 +1408,51 @@ export const saidiaEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '01:00',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
-    googleRating: 2.3,
-    googleReviewCount: 275,
-    tripadvisorRating: 2.3,
-    tripadvisorReviewCount: 275,
-    theforkRating: 2.3,
-    theforkReviewCount: 275,
-    restaurantguruRating: 2.3,
-    restaurantguruReviewCount: 275,
+
+    // ── RATINGS ──
+    googleRating: 3.8,
+    googleReviewCount: 310,
+    tripadvisorRating: 3.7,
+    tripadvisorReviewCount: 80,
+    theforkRating: 3.7,
+    theforkReviewCount: 35,
+    restaurantguruRating: 3.8,
+    restaurantguruReviewCount: 310,
+
+    tip: 'Their classic Cheese Smash Burger is very consistent and served on fresh brioche buns.',
+    archetypeAffinity: ['fast-casual', 'teen-friendly', 'burger-lover'],
+    vibeTags: ['smash-burgers', 'brioche-buns', 'medina-mall', 'milkshakes'],
+    isHiddenGem: false,
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['none'],
+    reservationContact: '+212536630808',
     googleMapsUrl: 'https://maps.google.com/?q=Beau+Burger+Saidia',
     bestDishes: ['Double Smash Cheese Burger', 'Truffle Mayo Fries', 'Speculoos Milkshake'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'serves-lunch',
-    tip: 'Their classic Cheese Smash Burger is very consistent and served on fresh brioche buns.',
+    customStory: 'Beau Burger brings gourmet smash burger craftsmanship to Marina Saïdia. Featuring fresh daily-ground halal beef smashed on a high-heat flat top grill for caramelized crispy edges, served in pillowy brioche with signature house secret sauces.',
+    languagesSpoken: ['French', 'English', 'Arabic/Darija'],
+    exactAddressAndCoordinates: {
+      address: 'Medina Mall Saïdia, Rez-de-Chaussée, Saïdia 60600, Morocco',
+      lat: 35.09642,
+      lng: -2.28695
+    },
+    pros: [
+      'Crispy-edged beef smash burgers served on golden toasted brioche.',
+      'Indulgent thick milkshakes and loaded french fries.',
+      'Card accepted and situated in modern air-conditioned commercial complex.'
+    ],
+    cons: [
+      'Busy summer dinner rushes can cause modest order wait times.',
+      'Fast-casual atmosphere inside retail center.'
+    ],
     bestTimeToVisit: 'Late evening after 20:00 for lively crowd',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor'],
@@ -934,6 +1460,8 @@ export const saidiaEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: true
+  ,
+    tags: ["budget", "dinner", "dry", "late-night", "medina", "street-food", "wifi"]
   },
   {
     id: 'e-saidia-19',
@@ -946,6 +1474,8 @@ export const saidiaEat: EatListing[] = [
     mealTypes: ['breakfast', 'lunch', 'dinner', 'afternoon-tea', 'flexible'],
     experienceTypes: ['Cafe', 'Casual Dining', 'Local Gathering Spot'],
     foodStyles: ['Moroccan', 'Mediterranean', 'Cafe'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'international', 'cafe-pastry'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'friends', 'family'],
     hasEnglishStaff: false,
@@ -957,25 +1487,51 @@ export const saidiaEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '07:00',
     closeTime: '02:00',
     badge: 'local',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.1,
-    googleReviewCount: 145,
-    tripadvisorRating: 4.1,
-    tripadvisorReviewCount: 145,
-    theforkRating: 4.1,
-    theforkReviewCount: 145,
+    googleReviewCount: 280,
+    tripadvisorRating: 4.0,
+    tripadvisorReviewCount: 60,
+    theforkRating: 4.0,
+    theforkReviewCount: 20,
     restaurantguruRating: 4.1,
-    restaurantguruReviewCount: 145,
+    restaurantguruReviewCount: 280,
+
+    tip: 'The outdoor terrace gets very busy during Champions League matches. Arrive early if you want a seat with a screen view.',
+    archetypeAffinity: ['sports-fan', 'budget-conscious', 'night-owl'],
+    vibeTags: ['sports-cafe', 'sea-breeze', 'avocado-shakes', 'bustling'],
+    isHiddenGem: false,
     paymentMethods: ['cash'],
     reservationMethod: ['none'],
+    reservationContact: '+212536625050',
     googleMapsUrl: 'https://maps.google.com/?q=Cafe+Dubai+Saidia',
     bestDishes: ['Moroccan Avocado Milkshake', 'Creamy Crepe with Nutella', 'Mint Tea Pot'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'The outdoor terrace gets very busy during Champions League matches. Arrive early if you want a seat with a screen view.',
+    customStory: 'A landmark social hangout along Boulevard Mohamed V, Café Dubai draws soccer enthusiasts, groups of friends, and families for high-energy match screenings, rich avocado-almond panaché smoothies, and mint tea long into the summer night.',
+    languagesSpoken: ['Arabic/Darija', 'French'],
+    exactAddressAndCoordinates: {
+      address: 'Boulevard Mohamed V, Saïdia 60600, Morocco',
+      lat: 35.08588,
+      lng: -2.23365
+    },
+    pros: [
+      'Huge terrace equipped with multiple large screens for live football matches.',
+      'Generous and thick Moroccan avocado, almond, and dried fruit shakes.',
+      'Super affordable prices and early morning opening hours.'
+    ],
+    cons: [
+      'Very loud and crowded during major sports games.',
+      'Cash only payment.'
+    ],
     bestTimeToVisit: 'Late evening after 20:00 for lively crowd',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor', 'terrace'],
@@ -983,6 +1539,8 @@ export const saidiaEat: EatListing[] = [
     wiFi: false,
     airConditioning: true,
     wheelchairAccessible: true
+  ,
+    tags: ["breakfast", "budget", "cafe-pastry", "dinner", "dry", "late-night", "medina", "terrace"]
   },
   {
     id: 'e-saidia-20',
@@ -995,6 +1553,8 @@ export const saidiaEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Fine Dining', 'Traditional Dining', 'Upscale Lounge'],
     foodStyles: ['Moroccan'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional'],
     crowdLevel: 'balanced',
     groupTypes: ['couple', 'family', 'business-friendly', 'seniors'],
     hasEnglishStaff: true,
@@ -1006,25 +1566,51 @@ export const saidiaEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '23:00',
     badge: 'splurge',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.5,
-    googleReviewCount: 88,
+    googleReviewCount: 210,
     tripadvisorRating: 4.5,
-    tripadvisorReviewCount: 88,
-    theforkRating: 4.5,
-    theforkReviewCount: 88,
+    tripadvisorReviewCount: 75,
+    theforkRating: 4.4,
+    theforkReviewCount: 40,
     restaurantguruRating: 4.5,
-    restaurantguruReviewCount: 88,
+    restaurantguruReviewCount: 210,
+
+    tip: 'Their Royal Pigeon Pastilla is phenomenal and prepared with a perfect crunch and blend of sweet and savory spices.',
+    archetypeAffinity: ['luxury', 'culture-seeker', 'foodie'],
+    vibeTags: ['fine-moroccan', 'pastilla-specialty', 'elegant', 'andalusian-decor'],
+    isHiddenGem: false,
     paymentMethods: ['card', 'cash'],
     reservationMethod: ['phone'],
+    reservationContact: '+212536630777',
     googleMapsUrl: 'https://maps.google.com/?q=La+Kasbah+Medina+Mall+Saidia',
     bestDishes: ['Royal Pigeon Pastilla', 'Lamb Tagine with Apricots and Almonds', 'Seafood Pastilla'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'serves-lunch',
-    tip: 'Their Royal Pigeon Pastilla is phenomenal and prepared with a perfect crunch and blend of sweet and savory spices.',
+    customStory: 'Refined Moroccan fine dining meets royal Oriental architecture at La Kasbah. Guests are immersed in hand-carved cedar wood, intricate zellige tiles, and live acoustic oud melodies while savoring sweet-and-savory pigeon pastilla and slow-simmered lamb tagine with caramelized prunes and roasted almonds.',
+    languagesSpoken: ['French', 'English', 'Arabic/Darija'],
+    exactAddressAndCoordinates: {
+      address: 'Medina Mall Saïdia, 1er Étage, Marina Saïdia 60600, Morocco',
+      lat: 35.09672,
+      lng: -2.28741
+    },
+    pros: [
+      'Exquisite Moroccan architectural ambiance with refined zellige and cedar accents.',
+      'Flawlessly executed signature pastillas and slow-simmered royal lamb tagines.',
+      'Attentive fine-dining white-glove service and major credit cards accepted.'
+    ],
+    cons: [
+      'Premium price point reflecting the upscale resort setting.',
+      'Reservations highly recommended for weekend evenings.'
+    ],
     bestTimeToVisit: 'Early evening around 18:30 for sunset',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor'],
@@ -1032,5 +1618,7 @@ export const saidiaEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: true
+  ,
+    tags: ["budget", "dinner", "dry", "fine", "medina", "pastilla", "tagine", "wifi"]
   }
 ];

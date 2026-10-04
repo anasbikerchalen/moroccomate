@@ -1,104 +1,19 @@
 import type { EatListing } from '../types';
 
-/**
- * EAT LISTING TEMPLATE
- * {
- *   id: 'e-[city]-[name]',
- *   city: '[city]',
- *   name: '[Name]',
- *   neighborhood: '[Neighborhood]',
- *   description: '[Long description]',
- *   pricePerPerson: [number],
- *   lifestyle: 'lean' | 'balanced' | 'premium',
- *   mealTypes: ['breakfast', 'lunch', 'dinner', 'brunch', 'latenight', 'afternoon-tea', 'flexible'],
- *   experienceTypes: ['Fine Dining' | 'Waterfront Dining' | 'Romantic Sunset' | 'Beachfront Dining' | 'Garden restaurant with live music' | 'Fountain courtyard' | 'French-Moroccan fusion' | 'Casual Italian Dining' | 'Family Pizza Night' | 'Spanish Beach Lounge' | 'Paella & Tapas' | 'Live Music Terrace' | 'Upscale Romantic Dining' | 'Fine Seafood' | 'Classic Royal Ambiance' | '24/7 Brasserie' | 'People Watching' | 'Bakery-Patisserie' | 'Traditional Breakfast Ritual' | 'Local Gathering Spot' | 'Fishing Harbor Dining' | 'Gourmet Seafood' | 'French-Italian Fusion' | 'Authentic Berber Feast' | 'Traditional Dining' | 'Cozy casual family-run Moroccan eatery' | 'Amazigh-inspired decor' | 'Beachfront Grill' | 'Casual Dining' | 'Sunset Views' | 'Wood-Fired Pizza' | 'Family Friendly' | 'Leafy Tennis Oasis' | 'Tranquil Dining' | 'Upscale Lounge' | 'Modern Fusion Dining' | 'Unverified'],
- *   foodStyles: ['French' | 'Moroccan' | 'Seafood' | 'Mediterranean' | 'European' | 'International' | 'Italian' | 'Pizza' | 'Spanish' | 'Berber' | 'Barbecue' | 'Middle Eastern' | 'Healthy' | 'Cafe' | 'Bakery' | 'Patisserie' | 'Gourmet' | 'Fast Food'],
- *   crowdLevel: 'bustling' | 'balanced' | 'quiet',
- *   groupTypes: ['solo', 'couple', 'family', 'friends', 'seniors', 'kids-friendly', 'large-groups', 'business-friendly'],
- *   hasEnglishStaff: true | false,
- *   hasFrenchStaff: true | false,
- *   hasDelivery: true | false,
- *   hasParking: true | false,
- *   nearMedina: true | false,
- *   nearBeach: true | false,
- *   nearCenter: true | false,
- *   isVegetarianFriendly: true | false,
- *   isHalal: true | false,
- *   openTime: 'HH:mm',
- *   closeTime: 'HH:mm',
- *   badge: 'local-favorite' | 'splurge' | 'hidden-gem' | 'local',
- *
- *   // ═══════════════════════════════════════════════════
- *   // IMAGES — now fetched from Google Places API via googlePlaceId
- *   // ═══════════════════════════════════════════════════
- *   // REMOVED: images: ['url1', 'url2']
- *   // Instead, just add: // googlePlaceId: "ChIJ..."
- *   // Frontend uses googlePlaceId to call Google Places API → gets photo_reference → builds <img> URLs
- *
- *   // ═══════════════════════════════════════════════════
- *   // RATINGS — organized per source
- *   // ═══════════════════════════════════════════════════
- *   // Search for real ratings from Google, TripAdvisor, TheFork, and RestaurantGuru.
- *   // If you cannot find a rating for a specific source, set it to the same value as
- *   // the closest available one so the code that calculates average ratings doesn't break.
- *   // Example: if no TripAdvisor rating found, set tripadvisorRating = googleRating
- *
- *   // Google Places rating
- *   googleRating: [4.x],
- *   googleReviewCount: [number],
- *
- *   // TripAdvisor rating
- *   tripadvisorRating: [4.x],
- *   tripadvisorReviewCount: [number],
- *
- *   // TheFork rating
- *   theforkRating: [4.x],
- *   theforkReviewCount: [number],
- *
- *   // RestaurantGuru rating
- *   restaurantguruRating: [4.x],
- *   restaurantguruReviewCount: [number],
- *
- *   // REMOVED: rating, reviewCount, ratingSource (old single-source fields)
- *
- *   // ═══════════════════════════════════════════════════
- *
- *   fullMenu: { type: 'image' | 'text', content: 'https://...' },
- *   tip: '[Short tip]',
- *   googleMapsUrl: 'https://maps.google.com/?q=[Name]+[City]',
- *   reservationContact: '+212XXXXXXXXX',
- *   bestDishes: ['Dish 1', 'Dish 2'],
- *   alcoholPolicy: 'serves-alcohol' | 'dry',
- *   ramadanFriendly: 'serves-lunch' | 'special-ftour' | 'closed',
- *
- *   // ═══════════════════════════════════════════════════
- *   // NEW FIELDS — psychological UX optimization
- *   // ═══════════════════════════════════════════════════
- *
- *   bestTimeToVisit: 'Early evening around 18:30 for sunset' | 'Lunch around 13:00 for quiet' | 'Late evening after 20:00 for lively crowd' | 'Early morning for fresh baked goods' | 'Sunday morning for brunch peak',
- *   averageWaitMinutes: 0 | 5 | 10 | 15 | 20 | 30 | 45 | 60,
- *   seatingTypes: ['indoor'] | ['terrace'] | ['rooftop'] | ['garden'] | ['beachfront'] | ['indoor', 'terrace'] | ['indoor', 'garden'] | ['terrace', 'rooftop'],
- *   viewType: 'beach' | 'mountain' | 'city' | 'garden' | 'none',
- *   wiFi: true | false,
- *   airConditioning: true | false,
- *   wheelchairAccessible: true | false,
- *   website: 'https://...',
- *   instagram: '@handle' | 'https://instagram.com/...'
- * }
- */
-
 export const ouarzazateEat: EatListing[] = [
   {
     id: 'e-ouarzazate-1',
     city: 'ouarzazate',
     name: 'La Kasbah des Sables',
     neighborhood: 'Ait Kdif',
-    description: 'An extraordinary gourmet destination located in Ouarzazate\'s oldest neighborhood. Built like an opulent desert palace, it features six distinct dining salons, a central plunge pool, and intricate Amazigh craftsmanship.',
+    description: 'An extraordinary gourmet destination located in Ouarzazate\'s oldest neighborhood. Built like an opulent desert palace, it features distinct dining salons, a central plunge pool, and intricate Amazigh craftsmanship.',
     pricePerPerson: 32,
     lifestyle: 'premium',
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Fine Dining', 'Traditional Dining', 'Romantic Sunset'],
     foodStyles: ['Moroccan', 'French', 'Mediterranean', 'Gourmet'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'international'],
     crowdLevel: 'balanced',
     groupTypes: ['couple', 'family', 'friends', 'seniors', 'large-groups'],
     hasEnglishStaff: true,
@@ -110,20 +25,20 @@ export const ouarzazateEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: true,
     openTime: '12:00',
     closeTime: '23:30',
     badge: 'splurge',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
     googleRating: 4.6,
-    googleReviewCount: 573,
-    tripadvisorRating: 4.6,
-    tripadvisorReviewCount: 573,
-    theforkRating: 4.6,
-    theforkReviewCount: 573,
-    restaurantguruRating: 4.6,
-    restaurantguruReviewCount: 573,
+    googleReviewCount: 850,
+    tripadvisorRating: 4.5,
+    tripadvisorReviewCount: 920,
+    theforkRating: 4.5,
+    theforkReviewCount: 80,
+    restaurantguruRating: 4.8,
+    restaurantguruReviewCount: 1056,
 
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['phone', 'online'],
@@ -134,7 +49,7 @@ export const ouarzazateEat: EatListing[] = [
     ramadanFriendly: 'special-ftour',
     tip: 'Sit around the central pool in the evening. The candlelit atmosphere is spectacular, and the French owner, Brigitte, offers wonderful service.',
 
-    // ── NEW FIELDS ──
+    // ── PSYCHOLOGICAL UX FIELDS ──
     bestTimeToVisit: 'Early evening around 18:30 for sunset',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor', 'garden'],
@@ -142,6 +57,8 @@ export const ouarzazateEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: false
+  ,
+    tags: ["alcohol", "budget", "dinner", "fine", "medina", "palace", "pastilla", "sunset", "tagine", "wifi"]
   },
 
   {
@@ -155,6 +72,8 @@ export const ouarzazateEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner', 'latenight'],
     experienceTypes: ['Casual Dining', 'Traditional Dining', 'Local Gathering Spot'],
     foodStyles: ['Mediterranean', 'French', 'Moroccan', 'Italian'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'moroccan-traditional'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'seniors'],
     hasEnglishStaff: true,
@@ -166,20 +85,20 @@ export const ouarzazateEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: true,
     openTime: '11:30',
     closeTime: '00:00',
     badge: 'local-favorite',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
     googleRating: 4.0,
-    googleReviewCount: 275,
+    googleReviewCount: 480,
     tripadvisorRating: 4.0,
-    tripadvisorReviewCount: 275,
+    tripadvisorReviewCount: 360,
     theforkRating: 4.0,
-    theforkReviewCount: 275,
-    restaurantguruRating: 4.0,
-    restaurantguruReviewCount: 275,
+    theforkReviewCount: 90,
+    restaurantguruRating: 4.1,
+    restaurantguruReviewCount: 650,
 
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['phone'],
@@ -190,7 +109,7 @@ export const ouarzazateEat: EatListing[] = [
     ramadanFriendly: 'serves-lunch',
     tip: 'Take some time to look at the vintage movie-set photos on the walls. It is a fantastic historical monument of the Moroccan film industry.',
 
-    // ── NEW FIELDS ──
+    // ── PSYCHOLOGICAL UX FIELDS ──
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor'],
@@ -198,6 +117,8 @@ export const ouarzazateEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: true
+  ,
+    tags: ["alcohol", "budget", "dinner", "late-night", "tagine", "wifi"]
   },
 
   {
@@ -205,12 +126,14 @@ export const ouarzazateEat: EatListing[] = [
     city: 'ouarzazate',
     name: 'Jardin des Arômes',
     neighborhood: 'Centre Ville',
-    description: 'A stylish and highly refined French-Moroccan fusion restaurant. It offers an upscale dining experience with beautifully presented stews and modern steaks inside a chic Moroccan salon.',
+    description: 'A stylish and refined French-Moroccan fusion restaurant. It offers an upscale dining experience with beautifully presented stews and modern steaks inside a chic Moroccan salon.',
     pricePerPerson: 21,
     lifestyle: 'premium',
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Fine Dining', 'Romantic Sunset', 'Upscale Lounge'],
     foodStyles: ['Moroccan', 'French', 'Mediterranean', 'Gourmet'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'international'],
     crowdLevel: 'balanced',
     groupTypes: ['couple', 'family', 'friends', 'business-friendly'],
     hasEnglishStaff: true,
@@ -222,30 +145,31 @@ export const ouarzazateEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: true,
     openTime: '12:00',
     closeTime: '23:00',
     badge: 'local-favorite',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
     googleRating: 4.5,
-    googleReviewCount: 680,
+    googleReviewCount: 450,
     tripadvisorRating: 4.5,
-    tripadvisorReviewCount: 680,
-    theforkRating: 4.5,
-    theforkReviewCount: 680,
+    tripadvisorReviewCount: 510,
+    theforkRating: 4.4,
+    theforkReviewCount: 70,
     restaurantguruRating: 4.5,
-    restaurantguruReviewCount: 680,
+    restaurantguruReviewCount: 950,
 
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['phone', 'online'],
+    reservationContact: '+212524885338',
     googleMapsUrl: 'https://maps.google.com/?q=Jardin+des+Aromes+Ouarzazate',
     bestDishes: ['Gourmet Chicken Pastilla', 'Slow-cooked Beef Tagine', 'Chocolate Fondant'],
     alcoholPolicy: 'serves-alcohol',
     ramadanFriendly: 'serves-lunch',
-    tip: 'One of the highest-end meals in the city center. Their modern chicken pastilla is outstanding.',
+    tip: 'One of the highest-end meals in the city center. Their modern chicken pastilla and wine pairings are outstanding.',
 
-    // ── NEW FIELDS ──
+    // ── PSYCHOLOGICAL UX FIELDS ──
     bestTimeToVisit: 'Early evening around 18:30 for sunset',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor'],
@@ -253,6 +177,8 @@ export const ouarzazateEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: true
+  ,
+    tags: ["alcohol", "budget", "dinner", "fine", "pastilla", "sunset", "tagine", "wifi"]
   },
 
   {
@@ -260,12 +186,14 @@ export const ouarzazateEat: EatListing[] = [
     city: 'ouarzazate',
     name: 'Le Relais de Saint-Exupéry',
     neighborhood: 'Centre Ville',
-    description: 'A cozy and warm French bistro celebrating the famous writer-aviator Antoine de Saint-Exupéry. Managed by a Bordeaux chef, it serves classic French delicacies using highly demanding fresh local products.',
+    description: 'A cozy French bistro celebrating the writer-aviator Antoine de Saint-Exupéry. Managed by a Bordeaux chef, it serves classic French delicacies and dromedary steak using demanding fresh local products.',
     pricePerPerson: 18,
     lifestyle: 'balanced',
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Fine Dining', 'Romantic Sunset', 'Upscale Lounge'],
     foodStyles: ['French', 'Mediterranean', 'European'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international'],
     crowdLevel: 'balanced',
     groupTypes: ['couple', 'friends', 'seniors', 'business-friendly'],
     hasEnglishStaff: true,
@@ -277,30 +205,31 @@ export const ouarzazateEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: true,
     openTime: '12:00',
     closeTime: '23:00',
     badge: 'hidden-gem',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.4,
-    googleReviewCount: 310,
+    googleRating: 4.3,
+    googleReviewCount: 180,
     tripadvisorRating: 4.4,
-    tripadvisorReviewCount: 310,
-    theforkRating: 4.4,
-    theforkReviewCount: 310,
-    restaurantguruRating: 4.4,
-    restaurantguruReviewCount: 310,
+    tripadvisorReviewCount: 140,
+    theforkRating: 4.3,
+    theforkReviewCount: 40,
+    restaurantguruRating: 4.3,
+    restaurantguruReviewCount: 340,
 
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['phone'],
+    reservationContact: '+212524887779',
     googleMapsUrl: 'https://maps.google.com/?q=Le+Relais+de+Saint-Exupery+Ouarzazate',
-    bestDishes: ['Bordeaux Style Roasted Beef', 'Fresh Herb Lemon Fish', 'Warm Apple Tarte Tatin'],
+    bestDishes: ['Dromedary Meat with Mashed Vegetables', 'Fresh Herb Lemon Fish', 'Warm Apple Tarte Tatin'],
     alcoholPolicy: 'serves-alcohol',
     ramadanFriendly: 'serves-lunch',
-    tip: 'Perfect for expats and travelers seeking top-tier French culinary craft in a warm, friendly setting.',
+    tip: 'Located at 13 Boulevard Moulay Abdellah. Features an extensive Moroccan wine list and intimate French-aviation nostalgia decor.',
 
-    // ── NEW FIELDS ──
+    // ── PSYCHOLOGICAL UX FIELDS ──
     bestTimeToVisit: 'Late evening after 20:00 for lively crowd',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor'],
@@ -308,6 +237,8 @@ export const ouarzazateEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: false
+  ,
+    tags: ["alcohol", "budget", "dinner", "fine", "sunset", "wifi"]
   },
 
   {
@@ -319,8 +250,10 @@ export const ouarzazateEat: EatListing[] = [
     pricePerPerson: 4.5,
     lifestyle: 'lean',
     mealTypes: ['lunch', 'dinner', 'flexible'],
-    experienceTypes: ['Casual Dining', 'Quick Bites', 'Local Gathering Spot'],
+    experienceTypes: ['Casual Dining', 'Local Gathering Spot'],
     foodStyles: ['Moroccan', 'Barbecue'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'international'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'kids-friendly'],
     hasEnglishStaff: false,
@@ -332,30 +265,30 @@ export const ouarzazateEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
     openTime: '11:00',
     closeTime: '22:00',
     badge: 'local-favorite',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.6,
-    googleReviewCount: 950,
-    tripadvisorRating: 4.6,
-    tripadvisorReviewCount: 950,
-    theforkRating: 4.6,
-    theforkReviewCount: 950,
-    restaurantguruRating: 4.6,
-    restaurantguruReviewCount: 950,
+    googleRating: 4.1,
+    googleReviewCount: 450,
+    tripadvisorRating: 4.2,
+    tripadvisorReviewCount: 210,
+    theforkRating: 4.0,
+    theforkReviewCount: 50,
+    restaurantguruRating: 4.0,
+    restaurantguruReviewCount: 807,
 
     paymentMethods: ['cash'],
     reservationMethod: ['none'],
     googleMapsUrl: 'https://maps.google.com/?q=Restaurant+Bahja+Ouarzazate',
-    bestDishes: ['Mixed Grill Platter', 'Spiced Loubia (White Beans)', 'Rotisserie Chicken with Olives'],
+    bestDishes: ['Mixed Charcoal Grill Platter', 'Spiced Loubia (White Beans)', 'Rotisserie Chicken with Olives'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'closed',
     tip: 'Order their famous "loubia" (spiced white beans) to accompany your mixed charcoal meat plate. Very cheap and deeply satisfying.',
 
-    // ── NEW FIELDS ──
+    // ── PSYCHOLOGICAL UX FIELDS ──
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor'],
@@ -363,6 +296,8 @@ export const ouarzazateEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "dinner", "dry"]
   },
 
   {
@@ -370,12 +305,14 @@ export const ouarzazateEat: EatListing[] = [
     city: 'ouarzazate',
     name: 'Restaurant Douyria',
     neighborhood: 'Centre Ville',
-    description: 'A cozy traditional Moroccan restaurant featuring beautiful Berber carpets and a scenic rooftop terrace. Famously trusted for its Friday couscous and traditional clay-pot tagines.',
+    description: 'A cozy traditional Moroccan restaurant featuring beautiful Berber carpets and a scenic rooftop terrace overlooking Kasbah Taourirt. Trusted for Friday couscous and traditional clay-pot tagines.',
     pricePerPerson: 9.5,
     lifestyle: 'balanced',
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Casual Dining', 'Traditional Dining', 'Sunset Views'],
     foodStyles: ['Moroccan'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional'],
     crowdLevel: 'balanced',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'seniors'],
     hasEnglishStaff: true,
@@ -387,30 +324,31 @@ export const ouarzazateEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
     openTime: '11:30',
     closeTime: '22:30',
     badge: 'local-favorite',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
     googleRating: 4.4,
     googleReviewCount: 820,
-    tripadvisorRating: 4.4,
-    tripadvisorReviewCount: 820,
-    theforkRating: 4.4,
-    theforkReviewCount: 820,
+    tripadvisorRating: 4.2,
+    tripadvisorReviewCount: 360,
+    theforkRating: 4.2,
+    theforkReviewCount: 80,
     restaurantguruRating: 4.4,
-    restaurantguruReviewCount: 820,
+    restaurantguruReviewCount: 850,
 
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['phone'],
+    reservationContact: '+212524885288',
     googleMapsUrl: 'https://maps.google.com/?q=Restaurant+Douyria+Ouarzazate',
-    bestDishes: ['Friday Seven-Vegetable Couscous', 'Lamb Tagine with Apricots', 'Traditional Harira Soup'],
-    alcoholPolicy: 'dry',
+    bestDishes: ['Dromedary Meat Tagine', 'Friday Seven-Vegetable Couscous', 'Pigeon Pastilla with Almonds'],
+    alcoholPolicy: 'serves-alcohol',
     ramadanFriendly: 'special-ftour',
-    tip: 'Excellent Friday couscous. Dine on the upper terrace for a relaxing, breezy view of the cityscape.',
+    tip: 'Licensed to serve wine and beer. Dine on the upper terrace around sunset for a breezy view overlooking the square and Kasbah walls.',
 
-    // ── NEW FIELDS ──
+    // ── PSYCHOLOGICAL UX FIELDS ──
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor', 'rooftop'],
@@ -418,6 +356,8 @@ export const ouarzazateEat: EatListing[] = [
     wiFi: true,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["alcohol", "budget", "couscous", "dinner", "pastilla", "rooftop", "sunset", "tagine", "terrace", "wifi"]
   },
 
   {
@@ -425,12 +365,14 @@ export const ouarzazateEat: EatListing[] = [
     city: 'ouarzazate',
     name: 'The Full Sun',
     neighborhood: 'Zone Touristique',
-    description: 'A contemporary, bright restaurant and café located in Ouarzazate\'s tourist zone near the Ibis Hotel. Offers fresh breakfasts, homemade pizzas, fresh salads to compile yourself, and stews.',
+    description: 'A contemporary, bright restaurant and cafe located in Ouarzazate\'s tourist zone near the Ibis Hotel. Offers fresh breakfasts, homemade pizzas, custom fresh salads, and Moroccan stews.',
     pricePerPerson: 8.5,
     lifestyle: 'balanced',
     mealTypes: ['breakfast', 'lunch', 'dinner', 'brunch', 'flexible'],
-    experienceTypes: ['Cafe', 'Casual Dining', 'Family Friendly'],
-    foodStyles: ['Mediterranean', 'Italian', 'Moroccan'],
+    experienceTypes: ['Casual Dining', 'Family Friendly', 'People Watching'],
+    foodStyles: ['Mediterranean', 'Italian', 'Moroccan', 'Cafe'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'moroccan-traditional'],
     crowdLevel: 'balanced',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'kids-friendly', 'business-friendly'],
     hasEnglishStaff: true,
@@ -442,30 +384,31 @@ export const ouarzazateEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
     openTime: '07:30',
     closeTime: '23:00',
     badge: 'local-favorite',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.5,
-    googleReviewCount: 290,
-    tripadvisorRating: 4.5,
-    tripadvisorReviewCount: 290,
-    theforkRating: 4.5,
-    theforkReviewCount: 290,
-    restaurantguruRating: 4.5,
-    restaurantguruReviewCount: 290,
+    googleRating: 4.7,
+    googleReviewCount: 2120,
+    tripadvisorRating: 4.8,
+    tripadvisorReviewCount: 685,
+    theforkRating: 4.7,
+    theforkReviewCount: 110,
+    restaurantguruRating: 4.8,
+    restaurantguruReviewCount: 2876,
 
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['phone'],
+    reservationContact: '+212524885566',
     googleMapsUrl: 'https://maps.google.com/?q=Restaurant+The+Full+Sun+Ouarzazate',
     bestDishes: ['Build-your-own Fresh Salad', 'Wood-fired Pizza Pepperoni', 'Chicken Tagine with Lemon'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'Perfect place to fill up on vitamins and fresh continental breakfasts before heading deep into the desert.',
+    tip: 'Located at N° 706 Avenue Moulay Rachid. One of the highest-rated and cleanest stops in the city, accepting card payments and offering great AC.',
 
-    // ── NEW FIELDS ──
+    // ── PSYCHOLOGICAL UX FIELDS ──
     bestTimeToVisit: 'Early morning for fresh baked goods',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor', 'terrace'],
@@ -473,6 +416,8 @@ export const ouarzazateEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: true
+  ,
+    tags: ["breakfast", "budget", "cafe-pastry", "dinner", "dry", "tagine", "terrace", "wifi"]
   },
 
   {
@@ -480,12 +425,14 @@ export const ouarzazateEat: EatListing[] = [
     city: 'ouarzazate',
     name: 'Dar Chamaa Restaurant',
     neighborhood: 'Zone Touristique',
-    description: 'A beautiful guesthouse restaurant offering poolside dining surrounded by olive trees. Known for its quiet, romantic, and highly atmospheric evening dinners under the Saharan stars.',
+    description: 'A peaceful guesthouse restaurant offering poolside dining surrounded by olive trees in the Palmeraie de Tajda. Known for romantic evening dinners under the Saharan stars with Atlas views.',
     pricePerPerson: 18,
     lifestyle: 'balanced',
     mealTypes: ['breakfast', 'dinner'],
     experienceTypes: ['Fine Dining', 'Romantic Sunset', 'Garden restaurant with live music'],
     foodStyles: ['Moroccan', 'Mediterranean'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'international'],
     crowdLevel: 'quiet',
     groupTypes: ['couple', 'family', 'seniors'],
     hasEnglishStaff: true,
@@ -497,30 +444,31 @@ export const ouarzazateEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: true,
     openTime: '08:00',
     closeTime: '22:30',
     badge: 'hidden-gem',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
     googleRating: 4.6,
-    googleReviewCount: 310,
+    googleReviewCount: 480,
     tripadvisorRating: 4.6,
-    tripadvisorReviewCount: 310,
-    theforkRating: 4.6,
-    theforkReviewCount: 310,
+    tripadvisorReviewCount: 934,
+    theforkRating: 4.5,
+    theforkReviewCount: 60,
     restaurantguruRating: 4.6,
-    restaurantguruReviewCount: 310,
+    restaurantguruReviewCount: 520,
 
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['phone', 'online'],
+    reservationContact: '+212524854954',
     googleMapsUrl: 'https://maps.google.com/?q=Dar+Chamaa+Ouarzazate',
-    bestDishes: ['Beef Tagine with Prunes', 'Organic Saffron Rice with Vegetables', 'Moroccan Pastry Sampler'],
+    bestDishes: ['Beef Tagine with Caramelized Prunes', 'Organic Saffron Rice with Vegetables', 'Moroccan Pastry Sampler'],
     alcoholPolicy: 'serves-alcohol',
     ramadanFriendly: 'special-ftour',
-    tip: 'Dine by the pool in the evening. Their beef tagine with caramelized prunes and roasted almonds is exceptionally tender.',
+    tip: 'Dine by the pool in the evening. Features a curated Moroccan wine and beer selection with tranquil mountain vistas.',
 
-    // ── NEW FIELDS ──
+    // ── PSYCHOLOGICAL UX FIELDS ──
     bestTimeToVisit: 'Early evening around 18:30 for sunset',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor', 'garden'],
@@ -528,61 +476,68 @@ export const ouarzazateEat: EatListing[] = [
     wiFi: true,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["alcohol", "breakfast", "budget", "dinner", "fine", "live-music", "mountain", "quiet", "sunset", "tagine", "wifi"]
   },
 
   {
     id: 'e-ouarzazate-9',
     city: 'ouarzazate',
     name: 'Restaurant 3 Thés',
-    neighborhood: 'Ait Kdif',
-    description: 'A classic, traditional riad-style restaurant located near the Taourirt Kasbah. Features high-quality Moroccan salons and a panoramic terrace serving generous, authentic Moroccan set menus.',
+    neighborhood: 'Centre Ville',
+    description: 'A traditional riad-style restaurant and art gallery on Avenue Moulay Rachid near the CTM station. Features authentic Moroccan salons serving generous set menus and fragrant teas.',
     pricePerPerson: 11,
     lifestyle: 'balanced',
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Casual Dining', 'Sunset Views', 'Traditional Dining'],
     foodStyles: ['Moroccan'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional'],
     crowdLevel: 'balanced',
     groupTypes: ['couple', 'family', 'friends', 'seniors'],
     hasEnglishStaff: true,
     hasFrenchStaff: true,
     hasDelivery: false,
     hasParking: true,
-    nearMedina: true,
+    nearMedina: false,
     nearBeach: false,
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
     openTime: '11:30',
     closeTime: '22:30',
     badge: 'local-favorite',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.3,
-    googleReviewCount: 520,
-    tripadvisorRating: 4.3,
-    tripadvisorReviewCount: 520,
-    theforkRating: 4.3,
-    theforkReviewCount: 520,
-    restaurantguruRating: 4.3,
-    restaurantguruReviewCount: 520,
+    googleRating: 4.2,
+    googleReviewCount: 260,
+    tripadvisorRating: 4.0,
+    tripadvisorReviewCount: 140,
+    theforkRating: 4.1,
+    theforkReviewCount: 30,
+    restaurantguruRating: 4.1,
+    restaurantguruReviewCount: 280,
 
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['phone'],
+    reservationContact: '+212524886363',
     googleMapsUrl: 'https://maps.google.com/?q=Restaurant+3+Thes+Ouarzazate',
     bestDishes: ['Berber Tagine with Vegetables', 'Chicken Pastilla', 'Assorted Moroccan Salads'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'Sit on the upper roof terrace for beautiful views of the historic Kasbah Taourirt at sunset.',
+    tip: 'Located at 1 Avenue Moulay Rachid right behind the CTM terminal. Great stop for tea and tagine before or after bus travel.',
 
-    // ── NEW FIELDS ──
+    // ── PSYCHOLOGICAL UX FIELDS ──
     bestTimeToVisit: 'Early evening around 18:30 for sunset',
     averageWaitMinutes: 10,
-    seatingTypes: ['indoor', 'rooftop'],
+    seatingTypes: ['indoor', 'terrace'],
     viewType: 'city',
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "dinner", "dry", "pastilla", "riad", "sunset", "tagine", "terrace"]
   },
 
   {
@@ -590,12 +545,14 @@ export const ouarzazateEat: EatListing[] = [
     city: 'ouarzazate',
     name: 'Kasbah Tafarnout',
     neighborhood: 'Centre Ville',
-    description: 'A highly popular modern bakery, pastry shop, and café. Famed among locals and travelers for freshly baked French pastries, traditional Moroccan cookies, and satisfying modern breakfast boards.',
+    description: 'A popular modern bakery, pastry shop, and cafe at 74 Avenue Mohammed V. Famed for freshly baked French croissants, traditional Moroccan almond sweets, and morning breakfast boards.',
     pricePerPerson: 5,
     lifestyle: 'lean',
     mealTypes: ['breakfast', 'brunch', 'afternoon-tea', 'flexible'],
-    experienceTypes: ['Cafe', 'Bakery-Patisserie', 'Casual Dining'],
+    experienceTypes: ['Bakery-Patisserie', 'Casual Dining', 'Traditional Breakfast Ritual'],
     foodStyles: ['Bakery', 'French', 'Moroccan', 'Cafe'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['cafe-pastry', 'international', 'moroccan-traditional'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'kids-friendly'],
     hasEnglishStaff: true,
@@ -607,30 +564,31 @@ export const ouarzazateEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
     openTime: '06:30',
     closeTime: '22:00',
     badge: 'local-favorite',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.3,
-    googleReviewCount: 610,
-    tripadvisorRating: 4.3,
-    tripadvisorReviewCount: 610,
-    theforkRating: 4.3,
-    theforkReviewCount: 610,
-    restaurantguruRating: 4.3,
-    restaurantguruReviewCount: 610,
+    googleRating: 4.1,
+    googleReviewCount: 370,
+    tripadvisorRating: 4.0,
+    tripadvisorReviewCount: 180,
+    theforkRating: 4.0,
+    theforkReviewCount: 40,
+    restaurantguruRating: 4.1,
+    restaurantguruReviewCount: 450,
 
     paymentMethods: ['cash'],
     reservationMethod: ['none'],
+    reservationContact: '+212524882800',
     googleMapsUrl: 'https://maps.google.com/?q=Kasbah+Tafarnout+Ouarzazate',
-    bestDishes: ['Almond Croissant', 'Traditional Mint Tea with Cookies', 'Belgian Chocolate Waffle'],
+    bestDishes: ['Almond Croissant', 'Traditional Mint Tea with Cookies', 'Fresh Fruit Juice'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
     tip: 'The best spot in town to pick up traditional Moroccan cookies like Chebakia and Kaab el Ghazal, or grab a rapid espresso before visiting the studios.',
 
-    // ── NEW FIELDS ──
+    // ── PSYCHOLOGICAL UX FIELDS ──
     bestTimeToVisit: 'Early morning for fresh baked goods',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor'],
@@ -638,6 +596,8 @@ export const ouarzazateEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: false
+  ,
+    tags: ["breakfast", "budget", "cafe-pastry", "dry", "juice", "pastry", "wifi"]
   },
 
   {
@@ -645,12 +605,14 @@ export const ouarzazateEat: EatListing[] = [
     city: 'ouarzazate',
     name: 'Restaurant Sabrine',
     neighborhood: 'Centre Ville',
-    description: 'A cozy, highly reliable central restaurant serving authentic, home-style Berber dishes. Offers a highly relaxed street-facing terrace, perfect for affordable Moroccan stews and salads.',
+    description: 'A cozy family-run restaurant directly opposite the famous Kasbah Taourirt on Avenue Mohammed V. Features a sunny street terrace serving authentic, sizzling clay-pot Berber tagines and fresh salads.',
     pricePerPerson: 7.5,
     lifestyle: 'lean',
     mealTypes: ['lunch', 'dinner', 'flexible'],
     experienceTypes: ['Casual Dining', 'Traditional Dining', 'Cozy casual family-run Moroccan eatery'],
     foodStyles: ['Moroccan', 'Berber'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional'],
     crowdLevel: 'balanced',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'kids-friendly'],
     hasEnglishStaff: true,
@@ -662,37 +624,40 @@ export const ouarzazateEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
     openTime: '11:00',
     closeTime: '22:30',
     badge: 'local',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.4,
-    googleReviewCount: 280,
-    tripadvisorRating: 4.4,
-    tripadvisorReviewCount: 280,
-    theforkRating: 4.4,
-    theforkReviewCount: 280,
-    restaurantguruRating: 4.4,
-    restaurantguruReviewCount: 280,
+    googleRating: 4.7,
+    googleReviewCount: 520,
+    tripadvisorRating: 4.7,
+    tripadvisorReviewCount: 240,
+    theforkRating: 4.6,
+    theforkReviewCount: 50,
+    restaurantguruRating: 4.8,
+    restaurantguruReviewCount: 584,
 
     paymentMethods: ['cash'],
     reservationMethod: ['none'],
+    reservationContact: '+212661948640',
     googleMapsUrl: 'https://maps.google.com/?q=Restaurant+Sabrine+Ouarzazate',
     bestDishes: ['Saffron Chicken Tagine', 'Kefta Egg Tagine', 'Fresh Fruit Salad'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'Perfect for travelers on a budget seeking simple, highly authentic tagines with exceptionally welcoming service.',
+    tip: 'Located right across from Kasbah Taourirt. Sizzling homemade tagines served with hot bread and friendly hospitality at budget prices.',
 
-    // ── NEW FIELDS ──
+    // ── PSYCHOLOGICAL UX FIELDS ──
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor', 'terrace'],
     viewType: 'none',
     wiFi: false,
-    airConditioning: false,
+    airConditioning: true,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "dinner", "dry", "tagine", "terrace"]
   },
 
   {
@@ -700,12 +665,14 @@ export const ouarzazateEat: EatListing[] = [
     city: 'ouarzazate',
     name: 'La Terrasse Café & Restaurant',
     neighborhood: 'Centre Ville',
-    description: 'A stylish and popular rooftop café in the city center. Known for its breezy top terrace and wide selection of continental breakfasts, custom fresh juices, and light Italian pasta.',
+    description: 'A stylish rooftop cafe in the city center. Known for its breezy top terrace and wide selection of continental breakfasts, custom fresh juices, and light Italian pasta.',
     pricePerPerson: 6.5,
     lifestyle: 'lean',
     mealTypes: ['breakfast', 'lunch', 'brunch', 'flexible'],
-    experienceTypes: ['Cafe', 'Casual Dining', 'Sunset Views'],
+    experienceTypes: ['Casual Dining', 'Sunset Views', 'People Watching'],
     foodStyles: ['Mediterranean', 'Italian', 'Cafe'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'cafe-pastry'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'kids-friendly'],
     hasEnglishStaff: true,
@@ -717,20 +684,20 @@ export const ouarzazateEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
     openTime: '07:00',
     closeTime: '23:00',
     badge: 'local',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.1,
+    googleRating: 4.3,
     googleReviewCount: 340,
-    tripadvisorRating: 4.1,
-    tripadvisorReviewCount: 340,
-    theforkRating: 4.1,
-    theforkReviewCount: 340,
-    restaurantguruRating: 4.1,
-    restaurantguruReviewCount: 340,
+    tripadvisorRating: 4.2,
+    tripadvisorReviewCount: 110,
+    theforkRating: 4.2,
+    theforkReviewCount: 30,
+    restaurantguruRating: 4.8,
+    restaurantguruReviewCount: 427,
 
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['none'],
@@ -740,14 +707,16 @@ export const ouarzazateEat: EatListing[] = [
     ramadanFriendly: 'special-ftour',
     tip: 'Sit on the terrace for excellent morning breeze. Their fresh avocado and almond shake is delicious.',
 
-    // ── NEW FIELDS ──
+    // ── PSYCHOLOGICAL UX FIELDS ──
     bestTimeToVisit: 'Early morning for fresh baked goods',
     averageWaitMinutes: 5,
-    seatingTypes: ['indoor', 'rooftop'],
+    seatingTypes: ['indoor', 'terrace'],
     viewType: 'city',
     wiFi: true,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["breakfast", "budget", "cafe-pastry", "dry", "juice", "rooftop", "sunset", "terrace", "wifi"]
   },
 
   {
@@ -755,12 +724,14 @@ export const ouarzazateEat: EatListing[] = [
     city: 'ouarzazate',
     name: 'Afoulki Café Restaurant',
     neighborhood: 'Centre Ville',
-    description: 'A bustling local café-restaurant with traditional earthen motifs. Offers street-level shaded terrace seating, serving highly popular barbecue plates, pizzas, and paninis.',
+    description: 'A bustling local cafe-restaurant on Avenue Mohammed V. Offers street-level shaded terrace seating, serving barbecue plates, pizzas, and paninis.',
     pricePerPerson: 6,
     lifestyle: 'lean',
     mealTypes: ['breakfast', 'lunch', 'dinner', 'flexible'],
     experienceTypes: ['Casual Dining', 'Family Friendly', 'Local Gathering Spot'],
     foodStyles: ['Moroccan', 'Italian', 'Barbecue'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'international', 'cafe-pastry'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'kids-friendly'],
     hasEnglishStaff: true,
@@ -772,20 +743,20 @@ export const ouarzazateEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
     openTime: '08:00',
     closeTime: '23:30',
     badge: 'local',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.2,
-    googleReviewCount: 195,
-    tripadvisorRating: 4.2,
-    tripadvisorReviewCount: 195,
-    theforkRating: 4.2,
-    theforkReviewCount: 195,
-    restaurantguruRating: 4.2,
-    restaurantguruReviewCount: 195,
+    googleRating: 4.1,
+    googleReviewCount: 310,
+    tripadvisorRating: 3.8,
+    tripadvisorReviewCount: 90,
+    theforkRating: 3.9,
+    theforkReviewCount: 20,
+    restaurantguruRating: 4.0,
+    restaurantguruReviewCount: 442,
 
     paymentMethods: ['cash'],
     reservationMethod: ['none'],
@@ -793,9 +764,9 @@ export const ouarzazateEat: EatListing[] = [
     bestDishes: ['Spiced Charcoal Mixed Grill', 'Margherita Pizza', 'Msemen with honey'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'Perfect place for families. Their charcoal mixed grill and cheese pizzas are highly popular with kids.',
+    tip: 'Casual spot along the main avenue. Their charcoal mixed grill and cheese pizzas are dependable and quick.',
 
-    // ── NEW FIELDS ──
+    // ── PSYCHOLOGICAL UX FIELDS ──
     bestTimeToVisit: 'Late evening after 20:00 for lively crowd',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor', 'terrace'],
@@ -803,6 +774,8 @@ export const ouarzazateEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["breakfast", "budget", "cafe-pastry", "dinner", "dry", "terrace"]
   },
 
   {
@@ -810,12 +783,14 @@ export const ouarzazateEat: EatListing[] = [
     city: 'ouarzazate',
     name: 'Restaurant Habous',
     neighborhood: 'Centre Ville',
-    description: 'A charming local café-restaurant and tea salon. Renowned for its traditional Moroccan pastries, fresh fruit shakes, and satisfying classic tagines served on a breezy sidewalk terrace.',
+    description: 'A landmark cafe, bakery, and restaurant located on Place Al-Mouahidine. Renowned for its traditional Moroccan pastries, fresh fruit shakes, and classic tagines served on a breezy sidewalk terrace.',
     pricePerPerson: 5.5,
     lifestyle: 'lean',
     mealTypes: ['breakfast', 'lunch', 'afternoon-tea', 'flexible'],
-    experienceTypes: ['Cafe', 'Casual Dining', 'Bakery-Patisserie'],
+    experienceTypes: ['Bakery-Patisserie', 'Casual Dining', 'People Watching'],
     foodStyles: ['Moroccan', 'Cafe', 'Bakery'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'cafe-pastry'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'kids-friendly'],
     hasEnglishStaff: true,
@@ -827,30 +802,31 @@ export const ouarzazateEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
     openTime: '07:00',
     closeTime: '22:00',
     badge: 'local',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.3,
-    googleReviewCount: 220,
-    tripadvisorRating: 4.3,
-    tripadvisorReviewCount: 220,
-    theforkRating: 4.3,
-    theforkReviewCount: 220,
-    restaurantguruRating: 4.3,
-    restaurantguruReviewCount: 220,
+    googleRating: 4.2,
+    googleReviewCount: 1012,
+    tripadvisorRating: 4.0,
+    tripadvisorReviewCount: 380,
+    theforkRating: 4.1,
+    theforkReviewCount: 60,
+    restaurantguruRating: 4.4,
+    restaurantguruReviewCount: 1097,
 
     paymentMethods: ['cash'],
     reservationMethod: ['none'],
+    reservationContact: '+212524882525',
     googleMapsUrl: 'https://maps.google.com/?q=Restaurant+Cafe+Habous+Ouarzazate',
     bestDishes: ['Almond Ghriba Cookies', 'Sage Mint Tea', 'Kefta Tagine with Eggs'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'Try their classic almond pastries along with a pot of hot sage-infused mint tea.',
+    tip: 'Prime people-watching location on Place Al-Mouahidine. Pair a pot of hot mint tea with their almond pastries.',
 
-    // ── NEW FIELDS ──
+    // ── PSYCHOLOGICAL UX FIELDS ──
     bestTimeToVisit: 'Early morning for fresh baked goods',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor', 'terrace'],
@@ -858,6 +834,8 @@ export const ouarzazateEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: true
+  ,
+    tags: ["breakfast", "budget", "cafe-pastry", "dry", "pastry", "tagine", "terrace"]
   },
 
   {
@@ -865,12 +843,14 @@ export const ouarzazateEat: EatListing[] = [
     city: 'ouarzazate',
     name: 'Restaurant César',
     neighborhood: 'Centre Ville',
-    description: 'A stylish, highly popular local café and bistro. Serves excellent continental breakfasts, fresh mocktails, and Mediterranean-inspired light stews in a stylish, design-forward setting.',
+    description: 'A stylish, popular modern cafe and bistro on Boulevard Moulay Abdellah. Serves continental breakfasts, fresh mocktails, burgers, and Italian-inspired pasta in a clean, design-forward setting.',
     pricePerPerson: 8,
     lifestyle: 'lean',
     mealTypes: ['breakfast', 'lunch', 'dinner', 'flexible'],
-    experienceTypes: ['Cafe', 'Casual Dining', 'Modern Fusion Dining'],
+    experienceTypes: ['Casual Dining', 'Modern Fusion Dining', 'People Watching'],
     foodStyles: ['Mediterranean', 'Italian', 'Cafe'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'cafe-pastry'],
     crowdLevel: 'balanced',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'kids-friendly'],
     hasEnglishStaff: true,
@@ -882,30 +862,31 @@ export const ouarzazateEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
     openTime: '07:30',
     closeTime: '23:30',
     badge: 'local',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
     googleRating: 4.1,
-    googleReviewCount: 140,
-    tripadvisorRating: 4.1,
-    tripadvisorReviewCount: 140,
-    theforkRating: 4.1,
-    theforkReviewCount: 140,
+    googleReviewCount: 130,
+    tripadvisorRating: 4.0,
+    tripadvisorReviewCount: 40,
+    theforkRating: 4.0,
+    theforkReviewCount: 15,
     restaurantguruRating: 4.1,
-    restaurantguruReviewCount: 140,
+    restaurantguruReviewCount: 125,
 
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['none'],
+    reservationContact: '+212524884129',
     googleMapsUrl: 'https://maps.google.com/?q=Cesar+Cafe+Ouarzazate',
     bestDishes: ['Italian Double Espresso', 'Chicken Alfredo Pasta', 'Gourmet Beef Burger'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'Perfect spot for digital nomads needing a quiet, clean place to work with excellent coffee.',
+    tip: 'Comfortable modern setting on Boulevard Moulay Abdellah with reliable Wi-Fi and air conditioning.',
 
-    // ── NEW FIELDS ──
+    // ── PSYCHOLOGICAL UX FIELDS ──
     bestTimeToVisit: 'Early morning for fresh baked goods',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor'],
@@ -913,6 +894,8 @@ export const ouarzazateEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: true
+  ,
+    tags: ["breakfast", "budget", "cafe-pastry", "dinner", "dry", "wifi"]
   },
 
   {
@@ -920,12 +903,14 @@ export const ouarzazateEat: EatListing[] = [
     city: 'ouarzazate',
     name: 'Restaurant Oasis',
     neighborhood: 'Ait Kdif',
-    description: 'A grand traditional Moroccan restaurant situated right opposite the historic Taourirt Kasbah. Decorated beautifully with classic Moroccan zellige and arches, it serves authentic giant couscous.',
+    description: 'A traditional Moroccan dining room situated near the historic Taourirt Kasbah. Decorated with classic Moroccan zellige and arches, it serves authentic tagines, pastillas, and couscous.',
     pricePerPerson: 12,
     lifestyle: 'balanced',
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Traditional Dining', 'Casual Dining', 'Sunset Views'],
     foodStyles: ['Moroccan'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional'],
     crowdLevel: 'balanced',
     groupTypes: ['couple', 'family', 'friends', 'seniors'],
     hasEnglishStaff: true,
@@ -937,30 +922,30 @@ export const ouarzazateEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
     openTime: '11:00',
     closeTime: '22:30',
     badge: 'local-favorite',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.2,
-    googleReviewCount: 480,
-    tripadvisorRating: 4.2,
-    tripadvisorReviewCount: 480,
-    theforkRating: 4.2,
-    theforkReviewCount: 480,
-    restaurantguruRating: 4.2,
-    restaurantguruReviewCount: 480,
+    googleRating: 4.1,
+    googleReviewCount: 260,
+    tripadvisorRating: 4.0,
+    tripadvisorReviewCount: 120,
+    theforkRating: 4.0,
+    theforkReviewCount: 30,
+    restaurantguruRating: 4.1,
+    restaurantguruReviewCount: 260,
 
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['phone'],
     googleMapsUrl: 'https://maps.google.com/?q=Restaurant+Oasis+Ouarzazate',
-    bestDishes: ['Oasis Chicken Couscous', 'Beef Tagine with Almonds', 'Traditional Harira Soup'],
+    bestDishes: ['Chicken Couscous with Seven Vegetables', 'Beef Tagine with Almonds', 'Traditional Harira Soup'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'serves-lunch',
-    tip: 'Sit in the beautiful traditional Moroccan salons. Excellent choice for larger families or tourist groups wanting classic comfort after visiting the Kasbah.',
+    tip: 'Good traditional choice for families and groups visiting the Taourirt Kasbah.',
 
-    // ── NEW FIELDS ──
+    // ── PSYCHOLOGICAL UX FIELDS ──
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor'],
@@ -968,6 +953,8 @@ export const ouarzazateEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: true
+  ,
+    tags: ["budget", "couscous", "dinner", "dry", "medina", "pastilla", "sunset", "tagine", "wifi"]
   },
 
   {
@@ -975,12 +962,14 @@ export const ouarzazateEat: EatListing[] = [
     city: 'ouarzazate',
     name: 'Restaurant Phoenix',
     neighborhood: 'Zone des Studios',
-    description: 'A vibrant casual restaurant situated right near the famous Atlas Film Studios. Famed for catering to tourists and movie crews, it serves great Moroccan stews and crispy stone-baked pizzas.',
+    description: 'A casual restaurant on Rue de l\'ONEP near the famous Atlas Film Studios. Known for catering to tourists and movie crews, it serves Moroccan stews and crispy stone-baked pizzas.',
     pricePerPerson: 11,
     lifestyle: 'balanced',
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Casual Dining', 'Family Friendly', 'Wood-Fired Pizza'],
     foodStyles: ['Italian', 'Moroccan', 'Pizza'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'moroccan-traditional'],
     crowdLevel: 'balanced',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'kids-friendly', 'business-friendly'],
     hasEnglishStaff: true,
@@ -992,37 +981,40 @@ export const ouarzazateEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
     openTime: '11:30',
     closeTime: '23:00',
     badge: 'local-favorite',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.3,
-    googleReviewCount: 320,
-    tripadvisorRating: 4.3,
-    tripadvisorReviewCount: 320,
-    theforkRating: 4.3,
-    theforkReviewCount: 320,
-    restaurantguruRating: 4.3,
-    restaurantguruReviewCount: 320,
+    googleRating: 3.9,
+    googleReviewCount: 160,
+    tripadvisorRating: 3.8,
+    tripadvisorReviewCount: 60,
+    theforkRating: 3.9,
+    theforkReviewCount: 20,
+    restaurantguruRating: 3.9,
+    restaurantguruReviewCount: 160,
 
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['phone'],
+    reservationContact: '+212524888313',
     googleMapsUrl: 'https://maps.google.com/?q=Restaurant+Phoenix+Ouarzazate',
     bestDishes: ['Stone-baked Four Cheese Pizza', 'Saffron Beef Tagine', 'Fresh Fruit Juices'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'serves-lunch',
-    tip: 'A very popular spot for movie studio visitors. Their stone-baked pizzas are thin, crispy, and exceptionally satisfying.',
+    tip: 'Convenient stop right near Atlas Film Studios. Offers an outdoor terrace with views over the valley.',
 
-    // ── NEW FIELDS ──
+    // ── PSYCHOLOGICAL UX FIELDS ──
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 10,
-    seatingTypes: ['indoor'],
+    seatingTypes: ['indoor', 'terrace'],
     viewType: 'none',
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: true
+  ,
+    tags: ["budget", "dinner", "dry", "juice", "mountain", "tagine", "terrace", "wifi"]
   },
 
   {
@@ -1030,7 +1022,7 @@ export const ouarzazateEat: EatListing[] = [
     city: 'ouarzazate',
     name: "Restaurant L'Étoile du Sud",
     neighborhood: 'Centre Ville',
-    description: 'An evocative traditional restaurant decorated with grand Saharan tents and beautiful Berber carpets. Highly trusted for its authentic, slow-cooked couscous and tagines representing Southern Moroccan hospitality.',
+    description: 'An evocative traditional restaurant operating on Avenue Mohammed V since 1968. Decorated with caidal velvet tents and Berber carpets, serving classic couscous and tagines with licensed wine.',
     pricePerPerson: 13,
     lifestyle: 'balanced',
     mealTypes: ['lunch', 'dinner'],
@@ -1050,27 +1042,26 @@ export const ouarzazateEat: EatListing[] = [
     openTime: '11:30',
     closeTime: '22:30',
     badge: 'local-favorite',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.2,
-    googleReviewCount: 410,
-    tripadvisorRating: 4.2,
-    tripadvisorReviewCount: 410,
-    theforkRating: 4.2,
-    theforkReviewCount: 410,
-    restaurantguruRating: 4.2,
-    restaurantguruReviewCount: 410,
+    googleRating: 4.1,
+    googleReviewCount: 310,
+    tripadvisorRating: 4.0,
+    tripadvisorReviewCount: 180,
+    theforkRating: 4.0,
+    theforkReviewCount: 40,
+    restaurantguruRating: 4.1,
+    restaurantguruReviewCount: 310,
 
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['phone'],
     googleMapsUrl: 'https://maps.google.com/?q=L+Etoile+du+Sud+Ouarzazate',
-    bestDishes: ['Southern Lamb Couscous', 'Spiced Berber Beef Tagine', 'Moroccan Mint Tea'],
-    alcoholPolicy: 'dry',
+    bestDishes: ['Royal Lamb Couscous', 'Spiced Berber Beef Tagine', 'Warm Harira with Dates'],
+    alcoholPolicy: 'serves-alcohol',
     ramadanFriendly: 'special-ftour',
-    tip: 'Perfect for travelers wanting to dine inside a traditional Nomad tent environment with live Berber lute notes on select nights.',
+    tip: 'Dine under the caidal tent interior. The restaurant holds an alcohol license and serves local Moroccan wines.',
 
-    // ── NEW FIELDS ──
+    // ── PSYCHOLOGICAL UX FIELDS ──
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor'],
@@ -1078,6 +1069,8 @@ export const ouarzazateEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["alcohol", "budget", "couscous", "dinner", "tagine"]
   },
 
   {
@@ -1085,12 +1078,14 @@ export const ouarzazateEat: EatListing[] = [
     city: 'ouarzazate',
     name: 'Restaurant Bagdad Café',
     neighborhood: 'Ait Benhaddou',
-    description: 'A stylish, highly popular hotel-restaurant located near the ancient Ksar of Ait Benhaddou. Heavily celebrated for its film-inspired retro decor, lovely poolside patio, and delicious Berber dishes.',
+    description: 'A stylish, popular hotel-restaurant located near the ancient Ksar of Ait Benhaddou. Celebrated for its film-inspired retro decor, lovely poolside patio, and delicious Berber dishes.',
     pricePerPerson: 14,
     lifestyle: 'balanced',
     mealTypes: ['breakfast', 'lunch', 'dinner', 'brunch'],
     experienceTypes: ['Casual Dining', 'Sunset Views', 'Romantic Sunset'],
     foodStyles: ['Moroccan', 'Mediterranean', 'Berber'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'international', 'cafe-pastry'],
     crowdLevel: 'balanced',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'kids-friendly'],
     hasEnglishStaff: true,
@@ -1102,30 +1097,31 @@ export const ouarzazateEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: true,
     openTime: '08:00',
     closeTime: '23:00',
     badge: 'local-favorite',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
     googleRating: 4.6,
-    googleReviewCount: 650,
-    tripadvisorRating: 4.6,
-    tripadvisorReviewCount: 650,
-    theforkRating: 4.6,
-    theforkReviewCount: 650,
-    restaurantguruRating: 4.6,
+    googleReviewCount: 520,
+    tripadvisorRating: 4.8,
+    tripadvisorReviewCount: 609,
+    theforkRating: 4.7,
+    theforkReviewCount: 50,
+    restaurantguruRating: 4.7,
     restaurantguruReviewCount: 650,
 
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['phone', 'online'],
+    reservationContact: '+212662771218',
     googleMapsUrl: 'https://maps.google.com/?q=Restaurant+Bagdad+Cafe+Ait+Benhaddou',
     bestDishes: ['Spiced Berber Egg Tagine', 'Traditional Chicken Tajine with Almonds', 'Fresh Melon Salad'],
     alcoholPolicy: 'serves-alcohol',
     ramadanFriendly: 'serves-lunch',
-    tip: 'Famed for its artistic film-themed vibe. Sit by the pool to enjoy their legendary, spiced Berber egg tagine.',
+    tip: 'Famed for its artistic film-themed vibe. Sit by the pool to enjoy their spiced Berber egg tagine with cold beer or wine.',
 
-    // ── NEW FIELDS ──
+    // ── PSYCHOLOGICAL UX FIELDS ──
     bestTimeToVisit: 'Early evening around 18:30 for sunset',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor', 'garden'],
@@ -1133,6 +1129,8 @@ export const ouarzazateEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: true
+  ,
+    tags: ["alcohol", "breakfast", "budget", "cafe-pastry", "dinner", "mountain", "sunset", "tagine", "terrace", "wifi"]
   },
 
   {
@@ -1140,12 +1138,14 @@ export const ouarzazateEat: EatListing[] = [
     city: 'ouarzazate',
     name: 'Restaurant Riad Ksar Ighnda',
     neighborhood: 'Ait Benhaddou',
-    description: 'An opulent, high-end hotel restaurant set right on the edge of the desert valley. Offers exquisite, chef-elevated traditional Moroccan stews and international fusion plates inside a majestic, fortress-style castle.',
+    description: 'An opulent, high-end hotel restaurant set right on the edge of the desert valley in Douar Asfalou. Offers chef-elevated traditional Moroccan stews and international fusion plates inside a fortress-style castle.',
     pricePerPerson: 38,
     lifestyle: 'premium',
     mealTypes: ['breakfast', 'lunch', 'dinner'],
     experienceTypes: ['Fine Dining', 'Traditional Dining', 'Romantic Sunset', 'Sunset Views'],
     foodStyles: ['Moroccan', 'Mediterranean', 'Gourmet'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'international'],
     crowdLevel: 'quiet',
     groupTypes: ['couple', 'family', 'seniors', 'business-friendly'],
     hasEnglishStaff: true,
@@ -1157,30 +1157,31 @@ export const ouarzazateEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: true,
     openTime: '07:30',
     closeTime: '23:30',
     badge: 'splurge',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.7,
-    googleReviewCount: 220,
-    tripadvisorRating: 4.7,
-    tripadvisorReviewCount: 220,
-    theforkRating: 4.7,
-    theforkReviewCount: 220,
-    restaurantguruRating: 4.7,
-    restaurantguruReviewCount: 220,
+    googleRating: 4.4,
+    googleReviewCount: 822,
+    tripadvisorRating: 4.8,
+    tripadvisorReviewCount: 528,
+    theforkRating: 4.6,
+    theforkReviewCount: 80,
+    restaurantguruRating: 4.6,
+    restaurantguruReviewCount: 822,
 
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['phone', 'online'],
+    reservationContact: '+212524844111',
     googleMapsUrl: 'https://maps.google.com/?q=Ksar+Ighnda+Ait+Benhaddou',
-    bestDishes: ['Elevated Lamb Shoulder', 'Slow-cooked Saffron Chicken', 'Traditional Moroccan Salad Medley'],
+    bestDishes: ['Slow-Cooked Lamb Shoulder', 'Saffron Braised Chicken', 'Traditional Moroccan Salad Medley'],
     alcoholPolicy: 'serves-alcohol',
     ramadanFriendly: 'serves-lunch',
-    tip: 'Perfect for a luxury dinner stop after exploring the ancient clay ruins of Ait Benhaddou. Highly romantic setting.',
+    tip: 'Perfect for a luxury dinner stop after exploring the ancient clay ruins of Ait Benhaddou. Extensive cocktail and Moroccan wine list.',
 
-    // ── NEW FIELDS ──
+    // ── PSYCHOLOGICAL UX FIELDS ──
     bestTimeToVisit: 'Early evening around 18:30 for sunset',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor', 'terrace'],
@@ -1188,5 +1189,7 @@ export const ouarzazateEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: true
+  ,
+    tags: ["alcohol", "breakfast", "budget", "dinner", "fine", "mountain", "quiet", "riad", "sunset", "terrace", "wifi"]
   }
 ];

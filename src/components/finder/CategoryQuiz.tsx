@@ -1,6 +1,9 @@
 import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { QuizQuestion, QuizOption, getTagForOptionId } from '../../data/explore/questions';
+import { QuizQuestion, QuizOption, getTagForOptionId, QUIZ_STOP_WORDS } from '../../data/explore/questions';
+import PreQuizShortcutBar from './PreQuizShortcutBar';
+import { getShortcutsForCategory, getThingsShortcuts, type PreQuizShortcut, type ShortcutBrand } from '../../data/explore/preQuizShortcuts';
+import { useParameterStore } from '../../state/parameterStore';
 import { 
   Check, 
   Sparkles, 
@@ -16,9 +19,25 @@ import {
   Flower2, 
   Landmark,
   ShieldCheck,
-  Wand2
+  Wand2,
+  X
 } from 'lucide-react';
 import { cn } from '../../utils/cn';
+import { useExploreStore } from '../../state/exploreStore';
+// 🖼️ PENDING IMAGE: single placeholder (kept as a fallback pattern for future options)
+import quizPlaceholderPending from '../../assets/images/quizzes/shared/quiz_placeholder_pending.svg';
+// 🖼️ Quiz cuisine option images (Gemini-generated, prompts in IMAGE_TASKS.md)
+import eatQuizCuisineTraditionalMoroccan from '../../assets/images/quizzes/eat/eat_quiz_cuisine_traditional_moroccan.jpg';
+import eatQuizCuisineInternationalFusion from '../../assets/images/quizzes/eat/eat_quiz_cuisine_international_fusion.jpg';
+import eatQuizCuisineCafePastry from '../../assets/images/quizzes/eat/eat_quiz_cuisine_cafe_pastry.jpg';
+import eatQuizCuisineSeafood from '../../assets/images/quizzes/eat/eat_quiz_cuisine_seafood.jpg';
+// 🖼️ Quiz sleep-location option images (Gemini-generated, prompts in IMAGE_TASKS.md)
+import sleepQuizLocationMedinaHeart from '../../assets/images/quizzes/sleep/sleep_quiz_location_medina_heart.jpg';
+import sleepQuizLocationVilleNouvelle from '../../assets/images/quizzes/sleep/sleep_quiz_location_ville_nouvelle.jpg';
+import sleepQuizLocationCountryside from '../../assets/images/quizzes/sleep/sleep_quiz_location_countryside.jpg';
+
+// Smart skip (lite): premium-only options hidden when the traveler chose "Lean"
+const PREMIUM_ONLY_OPTION_TAGS = ['fine-dining'];
 
 // ðŸ–¼ï¸ Traditional: multi-generational family couscous Friday in Riad courtyard
 import eatQuizTraditional from '../../assets/images/quizzes/eat/eat_quiz_traditional_1786297388220.jpg';
@@ -365,6 +384,15 @@ const getOptionImage = (option: QuizOption, questionId: string, stepIndex: numbe
 
   // 10. Eat / Food Specific Questions & Options
   if (questionId.startsWith('food') || questionId.startsWith('eat') || categoryId === 'food' || categoryId === 'eat') {
+    // Cuisine preference (food-cuisine): PLACEHOLDER images pending AI generation
+    // PROMPT (Traditional Moroccan) | FILE: eat_quiz_cuisine_traditional_moroccan.jpg: "Steaming round tagine pot with saffron chicken, preserved lemons and green olives on a zellij tile table, warm ambient light, clay walls in background. Soft matte vector illustration style on cream canvas, warm Moroccan color palette."
+    if (id === 'moroccan-traditional') return eatQuizCuisineTraditionalMoroccan;
+    // PROMPT (International & Fusion) | FILE: eat_quiz_cuisine_international_fusion.jpg: "Modern plated dish combining Moroccan spices with European presentation, edible flowers, on a white minimalist restaurant table with copper utensils. Soft matte vector illustration style on cream canvas, warm Moroccan color palette."
+    if (id === 'international' || id.includes('fusion')) return eatQuizCuisineInternationalFusion;
+    // PROMPT (Café & Pastries) | FILE: eat_quiz_cuisine_cafe_pastry.jpg: "Sunlit Moroccan café terrace table with a latte art coffee, flaky croissant, and a plate of Moroccan cornes de gazelle pastries, bougainvillea in background. Soft matte vector illustration style on cream canvas, warm Moroccan color palette."
+    if (id === 'cafe-pastry') return eatQuizCuisineCafePastry;
+    // PROMPT (Fresh Seafood) | FILE: eat_quiz_cuisine_seafood.jpg: "Essaouira harbor-style grilled fish platter with sardines, prawns, and lemon wedges on a blue-and-white ceramic plate, fishing boats in soft background. Soft matte vector illustration style on cream canvas, warm Moroccan color palette."
+    if (id === 'seafood') return eatQuizCuisineSeafood;
     if (id === 'breakfast' || id.includes('breakfast') || label.includes('breakfast')) return eatQuizBreakfast;
     if (id === 'lunch' || id.includes('lunch') || label.includes('mid-day')) return eatQuizLunch;
     if (id === 'dinner' || id.includes('dinner') || label.includes('evening')) return eatQuizDinner;
@@ -382,6 +410,13 @@ const getOptionImage = (option: QuizOption, questionId: string, stepIndex: numbe
 
   // 11. Sleep / Stay Specific Questions & Options
   if (questionId.startsWith('sleep') || questionId.includes('sleep') || categoryId === 'sleep' || categoryId === 'stay') {
+    // Location feel (sleep-location): PLACEHOLDER images pending AI generation
+    // PROMPT (Heart of the Medina) | FILE: sleep_quiz_location_medina_heart.jpg: "View from a narrow medina alley doorway looking into a quiet Riad courtyard with mosaic fountain, hanging lanterns, and carved wooden door frames, warm golden light. Soft matte vector illustration style on cream canvas, warm Moroccan color palette."
+    if (id === 'medina-heart') return sleepQuizLocationMedinaHeart;
+    // PROMPT (Modern City District) | FILE: sleep_quiz_location_ville_nouvelle.jpg: "Wide palm-lined Gueliz boulevard with a modern boutique hotel entrance, glass doors, a doorman, and parked vintage car. Clean, contemporary feel. Soft matte vector illustration style on cream canvas, warm Moroccan color palette."
+    if (id === 'ville-nouvelle' || id.includes('ville') || id.includes('nouvelle') || id.includes('gueliz')) return sleepQuizLocationVilleNouvelle;
+    // PROMPT (Countryside & Nature) | FILE: sleep_quiz_location_countryside.jpg: "Peaceful Atlas mountain lodge surrounded by palm trees and terraced gardens, distant snow-capped peaks, morning mist rising from a valley. Soft matte vector illustration style on cream canvas, warm Moroccan color palette."
+    if (id === 'countryside') return sleepQuizLocationCountryside;
     if (id === 'riad' || id.includes('riad') || label.includes('riad')) return sleepQuizRiad;
     if (id === 'hotel' || id.includes('hotel') || id.includes('boutique') || label.includes('boutique') || label.includes('hotel')) return sleepQuizHotel;
     if (id === 'desert-camp' || id.includes('desert') || id.includes('camp') || label.includes('desert')) return sleepQuizDesert;
@@ -517,65 +552,133 @@ const getOptionIcon = (option: QuizOption) => {
 export default function CategoryQuiz({ questions, onComplete, onBack, listings = [], categoryId }: CategoryQuizProps) {
   const [currentStep, setCurrentStep] = useState(0);
   const [answers, setAnswers] = useState<Record<string, any>>({});
+  const applyQuizAutoFilters = useExploreStore((s) => s.applyQuizAutoFilters);
+  const parameterCity = useParameterStore((s) => s.city);
+
+  // Pre-Quiz Quick Shortcuts: a mini-quiz swaps the generic questions for the
+  // shortcut's dedicated 3-question quiz. savedStep restores the full quiz.
+  const [activeShortcut, setActiveShortcut] = useState<PreQuizShortcut | null>(null);
+  const [savedStep, setSavedStep] = useState(0);
 
   const isFoodQuiz = categoryId === 'food' || categoryId === 'eat' || questions.some(q => q.id.startsWith('food'));
   const isSleepQuiz = categoryId === 'sleep' || categoryId === 'stays' || questions.some(q => q.id.startsWith('sleep'));
   const isThingsQuiz = categoryId === 'things' || categoryId === 'visit' || categoryId === 'activities' || questions.some(q => q.id.startsWith('things') || q.id.startsWith('visit'));
 
-  const currentQuestion = questions[currentStep];
+  // Quick shortcuts per category (things-to-do resolves the city's top-5
+  // REAL activities from its listings — never hallucinated)
+  const shortcuts = useMemo(() => {
+    if (isThingsQuiz || categoryId === 'things-to-do') {
+      return getThingsShortcuts(listings);
+    }
+    return getShortcutsForCategory(categoryId ?? null, listings);
+  }, [isThingsQuiz, categoryId, listings]);
+
+  // In quick-shortcut mode the quiz card runs the shortcut's own mini-quiz
+  const effectiveQuestions = activeShortcut?.questions?.length ? activeShortcut.questions : questions;
+  const currentQuestion = effectiveQuestions[currentStep];
+
+  // Single-answer matcher: does one quiz answer match one listing?
+  // Extracted from the live match counter so the full-quiz AND-counter and the
+  // quick-shortcut OR-counter share the exact same matching rules.
+  const answerMatchesListing = (item: any, questionId: string, ids: string[]): boolean => {
+    return ids.some(id => {
+      if (questionId === 'base-lifestyle' || questionId === 'ft-style') {
+        const tag = getTagForOptionId(id);
+        // Shops: lifestyle maps to the structured priceLevel (canonical shop schema)
+        if ((item as any).priceLevel) {
+          const priceMap: Record<string, string[]> = {
+            'lean': ['budget'],
+            'balanced': ['mid-range'],
+            'premium': ['premium', 'luxury']
+          };
+          return priceMap[tag]?.includes((item as any).priceLevel) ?? false;
+        }
+        return item.lifestyle?.includes(tag as any);
+      }
+      if (questionId === 'base-group') {
+        const tag = getTagForOptionId(id);
+        return item.groupTypes?.includes(tag as any);
+      }
+
+      const tagMap: Record<string, string> = {
+        'relaxed': 'relaxed-energy',
+        'moderate': 'moderate-energy',
+        'active': 'active-energy',
+      };
+      const answerTag = getTagForOptionId(id);
+      const targetTag = tagMap[answerTag] || answerTag;
+
+      if (item.tags?.includes(targetTag) || item.archetypeAffinity?.includes(targetTag)) {
+        return true;
+      }
+
+      const vibeTags = Array.isArray(item.vibeTags) ? item.vibeTags : [];
+      const tags = Array.isArray(item.tags) ? item.tags : [];
+      const archetypeAffinity = Array.isArray(item.archetypeAffinity) ? item.archetypeAffinity : [];
+      const foodStyles = Array.isArray((item as any).foodStyles) ? (item as any).foodStyles : [];
+      const experienceTypes = Array.isArray((item as any).experienceTypes) ? (item as any).experienceTypes : [];
+      const mealTypes = Array.isArray((item as any).mealTypes) ? (item as any).mealTypes : [];
+      const amenities = Array.isArray((item as any).amenities) ? (item as any).amenities : [];
+
+      const searchableText = [
+        item.name, item.title, item.description, item.type, item.category, (item as any).cuisine,
+        String((item as any).neighborhood || ''), String((item as any).locationSummary || ''),
+        ...vibeTags, ...tags, ...archetypeAffinity,
+        ...foodStyles, ...experienceTypes, ...mealTypes, ...amenities,
+        ...(Array.isArray((item as any).productCategories) ? (item as any).productCategories : [])
+      ].filter(Boolean).map((t: any) => t.toString().toLowerCase());
+
+      // Multi-part answer IDs: match on meaningful parts, skipping stop-words
+      // and tiny fragments (e.g. 'off' inside 'coffee') that create false matches
+      const parts = id.toLowerCase().split('-').filter((p: string) => p.length >= 4 && !QUIZ_STOP_WORDS.has(p));
+      return parts.length > 0
+        ? parts.some((part: string) => searchableText.some((text: string) => text.includes(part)))
+        : searchableText.some((text: string) => text.includes(id.toLowerCase()));
+    });
+  };
 
   const matchCount = useMemo(() => {
     if (!listings.length) return 0;
-    
+
     const filtered = listings.filter(item => {
       return Object.entries(answers).every(([questionId, answerId]) => {
         if (!answerId || (Array.isArray(answerId) && answerId.length === 0)) return true;
-
         const ids = Array.isArray(answerId) ? answerId : [answerId];
-        
-        return ids.some(id => {
-            if (questionId === 'base-lifestyle' || questionId === 'ft-style') {
-               const tag = getTagForOptionId(id);
-               return item.lifestyle?.includes(tag as any);
-            }
-            if (questionId === 'base-group') {
-               const tag = getTagForOptionId(id);
-               return item.groupTypes?.includes(tag as any);
-            }
-
-            const tagMap: Record<string, string> = {
-              'relaxed': 'relaxed-energy',
-              'moderate': 'moderate-energy',
-              'active': 'active-energy',
-            };
-            const answerTag = getTagForOptionId(id);
-            const targetTag = tagMap[answerTag] || answerTag;
-
-            if (item.tags?.includes(targetTag) || item.archetypeAffinity?.includes(targetTag)) {
-              return true;
-            }
-
-            const vibeTags = Array.isArray(item.vibeTags) ? item.vibeTags : [];
-            const tags = Array.isArray(item.tags) ? item.tags : [];
-            const archetypeAffinity = Array.isArray(item.archetypeAffinity) ? item.archetypeAffinity : [];
-            const foodStyles = Array.isArray((item as any).foodStyles) ? (item as any).foodStyles : [];
-            const experienceTypes = Array.isArray((item as any).experienceTypes) ? (item as any).experienceTypes : [];
-            const mealTypes = Array.isArray((item as any).mealTypes) ? (item as any).mealTypes : [];
-            const amenities = Array.isArray((item as any).amenities) ? (item as any).amenities : [];
-
-            const searchableText = [
-              item.name, item.title, item.description, item.type, item.category, (item as any).cuisine,
-              ...vibeTags, ...tags, ...archetypeAffinity,
-              ...foodStyles, ...experienceTypes, ...mealTypes, ...amenities
-            ].filter(Boolean).map((t: any) => t.toString().toLowerCase());
-            
-            return searchableText.some((text: string) => text.includes(id.toLowerCase()));
-        });
+        return answerMatchesListing(item, questionId, ids);
       });
     });
 
     return filtered.length;
   }, [listings, answers]);
+
+  // Quick-shortcut live matches: OR logic (any quick answer matches) so the
+  // fast 3-question path never dead-ends at zero results
+  const quickMatchCount = useMemo(() => {
+    if (!listings.length || !activeShortcut) return 0;
+    const quickEntries = Object.entries(answers).filter(([qid, a]) =>
+      !!a && (!Array.isArray(a) || a.length > 0) &&
+      (activeShortcut.questions?.some(q => q.id === qid) || qid === 'things-activity')
+    );
+    if (quickEntries.length === 0) return listings.length;
+    return listings.filter(item =>
+      quickEntries.some(([questionId, answerId]) => {
+        const ids = Array.isArray(answerId) ? answerId : [answerId];
+        return answerMatchesListing(item, questionId, ids);
+      })
+    ).length;
+  }, [listings, answers, activeShortcut]);
+
+  // Smart skip (lite): travelers who chose "Lean" never see premium-only options,
+  // keeping every quiz step relevant to their budget
+  const displayedOptions = useMemo(() => {
+    if (!currentQuestion) return [];
+    const lifestyle = answers['base-lifestyle'];
+    if (lifestyle === 'lean') {
+      const filtered = currentQuestion.options.filter(o => !PREMIUM_ONLY_OPTION_TAGS.includes(o.tag || ''));
+      if (filtered.length >= 2) return filtered;
+    }
+    return currentQuestion.options;
+  }, [currentQuestion, answers]);
 
   if (!currentQuestion) {
     return (
@@ -600,9 +703,19 @@ export default function CategoryQuiz({ questions, onComplete, onBack, listings =
   };
 
   const handleNext = () => {
-    if (currentStep < questions.length - 1) {
+    if (currentStep < effectiveQuestions.length - 1) {
       setCurrentStep(prev => prev + 1);
     } else {
+      applyQuizAutoFilters(answers);
+      // Full quiz: a fresh full pass replaces the category-scoped answers and
+      // clears stale quick-shortcut answers. Quick shortcut: merge on top so
+      // context answers from the full quiz are preserved.
+      if (activeShortcut) {
+        useExploreStore.setState({ quizAnswers: { ...useExploreStore.getState().quizAnswers, ...answers } });
+      } else {
+        useExploreStore.setState({ quizAnswers: answers });
+      }
+      setActiveShortcut(null);
       onComplete(answers);
     }
   };
@@ -610,6 +723,9 @@ export default function CategoryQuiz({ questions, onComplete, onBack, listings =
   const handlePreviousStep = () => {
     if (currentStep > 0) {
       setCurrentStep(prev => prev - 1);
+    } else if (activeShortcut) {
+      // Back from step 1 of a mini-quiz returns to the full quiz
+      handleExitShortcut();
     } else if (onBack) {
       onBack();
     }
@@ -617,7 +733,7 @@ export default function CategoryQuiz({ questions, onComplete, onBack, listings =
 
   const handleSurpriseMe = () => {
     const defaultAnswers: Record<string, any> = { ...answers };
-    questions.forEach(q => {
+    effectiveQuestions.forEach(q => {
       if (!defaultAnswers[q.id]) {
         if (q.multiSelect) {
           defaultAnswers[q.id] = [q.options[0]?.id];
@@ -626,7 +742,53 @@ export default function CategoryQuiz({ questions, onComplete, onBack, listings =
         }
       }
     });
+    applyQuizAutoFilters(defaultAnswers);
+    if (activeShortcut) {
+      useExploreStore.setState({ quizAnswers: { ...useExploreStore.getState().quizAnswers, ...defaultAnswers } });
+    } else {
+      useExploreStore.setState({ quizAnswers: defaultAnswers });
+    }
+    setActiveShortcut(null);
     onComplete(defaultAnswers);
+  };
+
+  // ── Pre-Quiz Quick Shortcuts handlers ──
+
+  const handleShortcutSelect = (shortcut: PreQuizShortcut) => {
+    setSavedStep(currentStep);
+    if (shortcut.activityId) {
+      // Things to Do: remember the real activity so results rank it top
+      setAnswers(prev => ({ ...prev, 'things-activity': shortcut.activityId }));
+    }
+    setActiveShortcut(shortcut);
+    setCurrentStep(0);
+  };
+
+  const handleExitShortcut = () => {
+    if (!activeShortcut) return;
+    // Remove the mini-quiz answers so the full quiz stays clean
+    setAnswers(prev => {
+      const next = { ...prev };
+      activeShortcut.questions?.forEach(q => { delete next[q.id]; });
+      if (activeShortcut.activityId) delete next['things-activity'];
+      return next;
+    });
+    setActiveShortcut(null);
+    setCurrentStep(savedStep);
+  };
+
+  const handleBrandLocate = (brand: ShortcutBrand, mode: 'closest' | 'area', area?: string) => {
+    const nextAnswers = { ...answers, 'brand-locator': brand.id };
+    if (mode === 'area' && area) {
+      // Area picked: filter results to that touristic neighborhood
+      useParameterStore.getState().setNeighborhood(area);
+    }
+    setAnswers(nextAnswers);
+    applyQuizAutoFilters(nextAnswers);
+    // Brand answers merge on top of existing context answers
+    useExploreStore.setState({ quizAnswers: { ...useExploreStore.getState().quizAnswers, ...nextAnswers } });
+    setActiveShortcut(null);
+    onComplete(nextAnswers);
   };
 
   const isMultiSelect = !!currentQuestion.multiSelect;
@@ -635,7 +797,7 @@ export default function CategoryQuiz({ questions, onComplete, onBack, listings =
     ? (Array.isArray(currentAnswer) && currentAnswer.length > 0)
     : Boolean(currentAnswer);
 
-  const progressPercentage = Math.round(((currentStep + 1) / questions.length) * 100);
+  const progressPercentage = Math.round(((currentStep + 1) / effectiveQuestions.length) * 100);
 
   const stepLabels = [
     'Your Preferences',
@@ -649,14 +811,34 @@ export default function CategoryQuiz({ questions, onComplete, onBack, listings =
   return (
     <div className="w-full max-w-6xl mx-auto space-y-3 py-1 px-1 sm:px-4 font-sans text-stone-900">
       
+      {/* 0. Pre-Quiz Quick Shortcuts (Step 1 only) */}
+      {currentStep === 0 && !activeShortcut && shortcuts.length > 0 && (
+        <PreQuizShortcutBar
+          shortcuts={shortcuts}
+          cityId={parameterCity || 'marrakech'}
+          cityListings={listings}
+          onMiniQuizSelect={handleShortcutSelect}
+          onBrandLocate={handleBrandLocate}
+        />
+      )}
+
       {/* 1 & 2. Step Progress Bar Card & Header */}
       <div className="bg-white rounded-[24px] p-4 sm:p-5 border border-stone-200/80 shadow-xs flex flex-col gap-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#C86D51]/10 border border-[#C86D51]/20 text-[#C86D51] text-[11px] font-extrabold uppercase tracking-widest">
               <Sparkles className="w-3 h-3" />
-              QUIZ
+              {activeShortcut ? 'QUICK MATCH' : 'QUIZ'}
             </span>
+            {activeShortcut && (
+              <button
+                onClick={handleExitShortcut}
+                className="inline-flex items-center gap-1 text-[11px] font-bold text-stone-500 hover:text-[#C86D51] transition-colors cursor-pointer"
+              >
+                <X className="w-3.5 h-3.5" />
+                Exit — full quiz
+              </button>
+            )}
           </div>
 
           {listings.length > 0 && (
@@ -664,7 +846,7 @@ export default function CategoryQuiz({ questions, onComplete, onBack, listings =
               <span className="text-[10px] font-bold uppercase tracking-wider text-stone-500">Live Matches:</span>
               <span className="text-sm font-bold text-[#C86D51] flex items-center gap-1">
                 <Sparkles className="w-3.5 h-3.5" />
-                {matchCount}
+                {activeShortcut ? quickMatchCount : matchCount}
               </span>
             </div>
           )}
@@ -673,16 +855,16 @@ export default function CategoryQuiz({ questions, onComplete, onBack, listings =
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mt-2">
           <div className="flex flex-col">
             <span className="text-[11px] font-bold tracking-widest text-stone-400 uppercase">
-              STEP {currentStep + 1} OF {questions.length}
+              STEP {currentStep + 1} OF {effectiveQuestions.length}
             </span>
             <span className="text-base font-bold text-stone-800 font-display">
-              {currentStepLabel}
+              {activeShortcut ? 'Quick Match' : currentStepLabel}
             </span>
           </div>
 
           {/* Progress Bar Segments */}
           <div className="flex-1 max-w-md w-full flex items-center gap-2">
-            {questions.map((_, idx) => (
+            {effectiveQuestions.map((_, idx) => (
               <div 
                 key={idx}
                 className="h-2.5 flex-1 rounded-full bg-stone-100 overflow-hidden transition-all relative"
@@ -728,7 +910,7 @@ export default function CategoryQuiz({ questions, onComplete, onBack, listings =
             transition={{ duration: 0.25 }}
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"
           >
-            {currentQuestion.options.map((option) => {
+            {displayedOptions.map((option) => {
               const isSelected = isMultiSelect 
                 ? (Array.isArray(answers[currentQuestion.id]) && answers[currentQuestion.id].includes(option.id))
                 : answers[currentQuestion.id] === option.id;
@@ -750,7 +932,9 @@ export default function CategoryQuiz({ questions, onComplete, onBack, listings =
                   <div className="relative aspect-[4/3] sm:aspect-[16/9] w-full bg-stone-100 overflow-hidden">
                     <img 
                       src={cardImg} 
-                      alt={option.label} 
+                      alt={option.label}
+                      loading="lazy"
+                      decoding="async" 
                       onError={(e) => {
                         (e.target as HTMLImageElement).src = getOptionFallback(categoryId, option.id);
                       }}
@@ -824,14 +1008,14 @@ export default function CategoryQuiz({ questions, onComplete, onBack, listings =
                   : "bg-stone-200 text-stone-400 cursor-not-allowed shadow-none"
               )}
             >
-              {currentStep < questions.length - 1 ? (
+              {currentStep < effectiveQuestions.length - 1 ? (
                 <>
                   Next Question
                   <ArrowRight className="w-4 h-4" />
                 </>
               ) : (
                 <>
-                  See Matches ({matchCount})
+                  See Matches ({activeShortcut ? quickMatchCount : matchCount})
                   <Sparkles className="w-4 h-4" />
                 </>
               )}

@@ -1,92 +1,5 @@
 import type { EatListing } from '../types';
 
-/**
- * EAT LISTING TEMPLATE
- * {
- *   id: 'e-[city]-[name]',
- *   city: '[city]',
- *   name: '[Name]',
- *   neighborhood: '[Neighborhood]',
- *   description: '[Long description]',
- *   pricePerPerson: [number],
- *   lifestyle: 'lean' | 'balanced' | 'premium',
- *   mealTypes: ['breakfast', 'lunch', 'dinner', 'brunch', 'latenight', 'afternoon-tea', 'flexible'],
- *   experienceTypes: ['Fine Dining' | 'Waterfront Dining' | 'Romantic Sunset' | 'Beachfront Dining' | 'Garden restaurant with live music' | 'Fountain courtyard' | 'French-Moroccan fusion' | 'Casual Italian Dining' | 'Family Pizza Night' | 'Spanish Beach Lounge' | 'Paella & Tapas' | 'Live Music Terrace' | 'Upscale Romantic Dining' | 'Fine Seafood' | 'Classic Royal Ambiance' | '24/7 Brasserie' | 'People Watching' | 'Bakery-Patisserie' | 'Traditional Breakfast Ritual' | 'Local Gathering Spot' | 'Fishing Harbor Dining' | 'Gourmet Seafood' | 'French-Italian Fusion' | 'Authentic Berber Feast' | 'Traditional Dining' | 'Cozy casual family-run Moroccan eatery' | 'Amazigh-inspired decor' | 'Beachfront Grill' | 'Casual Dining' | 'Sunset Views' | 'Wood-Fired Pizza' | 'Family Friendly' | 'Leafy Tennis Oasis' | 'Tranquil Dining' | 'Upscale Lounge' | 'Modern Fusion Dining' | 'Unverified'],
- *   foodStyles: ['French' | 'Moroccan' | 'Seafood' | 'Mediterranean' | 'European' | 'International' | 'Italian' | 'Pizza' | 'Spanish' | 'Berber' | 'Barbecue' | 'Middle Eastern' | 'Healthy' | 'Cafe' | 'Bakery' | 'Patisserie' | 'Gourmet' | 'Fast Food'],
- *   crowdLevel: 'bustling' | 'balanced' | 'quiet',
- *   groupTypes: ['solo', 'couple', 'family', 'friends', 'seniors', 'kids-friendly', 'large-groups', 'business-friendly'],
- *   hasEnglishStaff: true | false,
- *   hasFrenchStaff: true | false,
- *   hasDelivery: true | false,
- *   hasParking: true | false,
- *   nearMedina: true | false,
- *   nearBeach: true | false,
- *   nearCenter: true | false,
- *   isVegetarianFriendly: true | false,
- *   isHalal: true | false,
- *   openTime: 'HH:mm',
- *   closeTime: 'HH:mm',
- *   badge: 'local-favorite' | 'splurge' | 'hidden-gem' | 'local',
- *
- *   // ═══════════════════════════════════════════════════
- *   // IMAGES — now fetched from Google Places API via googlePlaceId
- *   // ═══════════════════════════════════════════════════
- *   // REMOVED: images: ['url1', 'url2']
- *   // Instead, just add: // googlePlaceId: "ChIJ..."
- *   // Frontend uses googlePlaceId to call Google Places API → gets photo_reference → builds <img> URLs
- *
- *   // ═══════════════════════════════════════════════════
- *   // RATINGS — organized per source
- *   // ═══════════════════════════════════════════════════
- *   // Search for real ratings from Google, TripAdvisor, TheFork, and RestaurantGuru.
- *   // If you cannot find a rating for a specific source, set it to the same value as
- *   // the closest available one so the code that calculates average ratings doesn't break.
- *   // Example: if no TripAdvisor rating found, set tripadvisorRating = googleRating
- *
- *   // Google Places rating
- *   googleRating: [4.x],
- *   googleReviewCount: [number],
- *
- *   // TripAdvisor rating
- *   tripadvisorRating: [4.x],
- *   tripadvisorReviewCount: [number],
- *
- *   // TheFork rating
- *   theforkRating: [4.x],
- *   theforkReviewCount: [number],
- *
- *   // RestaurantGuru rating
- *   restaurantguruRating: [4.x],
- *   restaurantguruReviewCount: [number],
- *
- *   // REMOVED: rating, reviewCount, ratingSource (old single-source fields)
- *
- *   // ═══════════════════════════════════════════════════
- *
- *   fullMenu: { type: 'image' | 'text', content: 'https://...' },
- *   tip: '[Short tip]',
- *   googleMapsUrl: 'https://maps.google.com/?q=[Name]+[City]',
- *   reservationContact: '+212XXXXXXXXX',
- *   bestDishes: ['Dish 1', 'Dish 2'],
- *   alcoholPolicy: 'serves-alcohol' | 'dry',
- *   ramadanFriendly: 'serves-lunch' | 'special-ftour' | 'closed',
- *
- *   // ═══════════════════════════════════════════════════
- *   // NEW FIELDS — psychological UX optimization
- *   // ═══════════════════════════════════════════════════
- *
- *   bestTimeToVisit: 'Early evening around 18:30 for sunset' | 'Lunch around 13:00 for quiet' | 'Late evening after 20:00 for lively crowd' | 'Early morning for fresh baked goods' | 'Sunday morning for brunch peak',
- *   averageWaitMinutes: 0 | 5 | 10 | 15 | 20 | 30 | 45 | 60,
- *   seatingTypes: ['indoor'] | ['terrace'] | ['rooftop'] | ['garden'] | ['beachfront'] | ['indoor', 'terrace'] | ['indoor', 'garden'] | ['terrace', 'rooftop'],
- *   viewType: 'beach' | 'mountain' | 'city' | 'garden' | 'none',
- *   wiFi: true | false,
- *   airConditioning: true | false,
- *   wheelchairAccessible: true | false,
- *   website: 'https://...',
- *   instagram: '@handle' | 'https://instagram.com/...'
- * }
- */
-
 export const merzougaEat: EatListing[] = [
   {
     id: 'e-merzouga-1',
@@ -99,6 +12,8 @@ export const merzougaEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Traditional Dining', 'Cozy casual family-run Moroccan eatery', 'Live Music Terrace'],
     foodStyles: ['Moroccan', 'Berber'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'cafe-pastry'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'kids-friendly', 'large-groups'],
     hasEnglishStaff: true,
@@ -110,20 +25,20 @@ export const merzougaEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
-    openTime: '11:00',
-    closeTime: '21:30',
+    servesAlcohol: false,
+    openTime: '09:00',
+    closeTime: '20:00',
     badge: 'local-favorite',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.7,
-    googleReviewCount: 519,
-    tripadvisorRating: 4.7,
-    tripadvisorReviewCount: 519,
-    theforkRating: 4.7,
-    theforkReviewCount: 519,
-    restaurantguruRating: 4.7,
-    restaurantguruReviewCount: 519,
+    googleRating: 4.6,
+    googleReviewCount: 1156,
+    tripadvisorRating: 4.5,
+    tripadvisorReviewCount: 450,
+    theforkRating: 4.6,
+    theforkReviewCount: 60,
+    restaurantguruRating: 4.6,
+    restaurantguruReviewCount: 1200,
 
     paymentMethods: ['cash'],
     reservationMethod: ['phone'],
@@ -132,9 +47,9 @@ export const merzougaEat: EatListing[] = [
     bestDishes: ['Medfouna (Berber Pizza)', 'Vegetarian Medfouna', 'Spiced Berber Mint Tea'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'Everything is baked strictly to order in their traditional clay ovens, so expect a 30-40 minute wait. Sit back and enjoy the complimentary mint tea and live Gnawa music.',
+    tip: 'Everything is baked strictly to order in their traditional clay ovens, so expect a 30-40 minute wait. Relax and enjoy the complimentary mint tea and live Gnawa percussion while it bakes.',
 
-    // ── NEW FIELDS ──
+    // ── PSYCHOLOGICAL UX FIELDS ──
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 30,
     seatingTypes: ['indoor', 'terrace'],
@@ -142,19 +57,23 @@ export const merzougaEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "cafe-pastry", "dinner", "dry", "live-music", "terrace"]
   },
 
   {
     id: 'e-merzouga-2',
     city: 'merzouga',
-    name: 'Café Chez Ibrahim',
+    name: 'Café Restaurant Chez Ibrahim',
     neighborhood: 'Khamlia Village',
-    description: 'A beautifully authentic roadside restaurant nestled at the gates of Khamlia. Offers a gorgeous sun-drenched terrace overlooking the black desert terrain, serving incredibly flavorful tagines and medfouna.',
+    description: 'An authentic roadside restaurant situated at Kser El Khamlia on the Taouz road. Offers a sun-drenched terrace overlooking the desert plains, serving rich aubergine tagines, charcoal brochettes, and freshly baked medfouna.',
     pricePerPerson: 7.5,
     lifestyle: 'lean',
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Casual Dining', 'Traditional Dining', 'Sunset Views'],
     foodStyles: ['Moroccan', 'Berber'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'cafe-pastry'],
     crowdLevel: 'balanced',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'seniors'],
     hasEnglishStaff: true,
@@ -166,50 +85,55 @@ export const merzougaEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
     openTime: '10:00',
-    closeTime: '22:00',
+    closeTime: '21:00',
     badge: 'local-favorite',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.8,
-    googleReviewCount: 282,
+    googleRating: 4.7,
+    googleReviewCount: 289,
     tripadvisorRating: 4.8,
-    tripadvisorReviewCount: 282,
-    theforkRating: 4.8,
-    theforkReviewCount: 282,
-    restaurantguruRating: 4.8,
-    restaurantguruReviewCount: 282,
+    tripadvisorReviewCount: 85,
+    theforkRating: 4.7,
+    theforkReviewCount: 25,
+    restaurantguruRating: 4.7,
+    restaurantguruReviewCount: 290,
 
     paymentMethods: ['cash'],
-    reservationMethod: ['none'],
+    reservationMethod: ['phone'],
+    reservationContact: '+212666147161',
     googleMapsUrl: 'https://maps.google.com/?q=Cafe+Chez+Ibrahim+Khamlia',
-    bestDishes: ['Charcoal Beef Brochettes', 'Eggplant Tapas', 'Berber Pizza'],
+    bestDishes: ['Eggplant and Cheese Tagine', 'Berber Pizza (Medfouna)', 'Charcoal Kefta Brochettes'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'The lamb kefta brochettes and the vegetable tajine cooked over slow charcoal embers are highly recommended.',
+    tip: 'Their set lunch menu includes cooked Moroccan vegetable salads, an aubergine tajine, freshly baked medfouna, and fresh fruit for dessert.',
 
-    // ── NEW FIELDS ──
+    // ── PSYCHOLOGICAL UX FIELDS ──
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 15,
     seatingTypes: ['indoor', 'terrace'],
     viewType: 'mountain',
-    wiFi: false,
+    wiFi: true,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "cafe-pastry", "dinner", "dry", "mountain", "sunset", "tagine", "terrace", "wifi"]
   },
 
   {
     id: 'e-merzouga-3',
     city: 'merzouga',
-    name: 'Sahara Time',
+    name: 'Café Restaurant SaharaTime',
     neighborhood: 'Hassi Labied',
-    description: 'A magical desert dining oasis set under large traditional tents at the very edge of the towering Erg Chebbi dunes. Managed by Youssef, a warm host who invites guests to relax and savor slow-cooked Moroccan stews.',
+    description: 'A desert dining oasis set under traditional nomad tenting directly at the edge of the Erg Chebbi sand dunes. Managed by Youssef, welcoming guests to savor wood-fired slow-simmered Moroccan stews with dune views.',
     pricePerPerson: 11,
     lifestyle: 'balanced',
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Traditional Dining', 'Romantic Sunset', 'Cozy casual family-run Moroccan eatery'],
     foodStyles: ['Moroccan', 'Berber'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'cafe-pastry'],
     crowdLevel: 'balanced',
     groupTypes: ['couple', 'family', 'friends'],
     hasEnglishStaff: true,
@@ -221,30 +145,31 @@ export const merzougaEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
-    openTime: '11:00',
-    closeTime: '23:00',
+    servesAlcohol: false,
+    openTime: '09:00',
+    closeTime: '22:30',
     badge: 'hidden-gem',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.7,
-    googleReviewCount: 190,
-    tripadvisorRating: 4.7,
-    tripadvisorReviewCount: 190,
-    theforkRating: 4.7,
-    theforkReviewCount: 190,
-    restaurantguruRating: 4.7,
-    restaurantguruReviewCount: 190,
+    googleRating: 4.9,
+    googleReviewCount: 313,
+    tripadvisorRating: 4.9,
+    tripadvisorReviewCount: 90,
+    theforkRating: 4.8,
+    theforkReviewCount: 20,
+    restaurantguruRating: 4.9,
+    restaurantguruReviewCount: 313,
 
     paymentMethods: ['cash'],
     reservationMethod: ['phone'],
+    reservationContact: '+212673239229',
     googleMapsUrl: 'https://maps.google.com/?q=Sahara+Time+Hassi+Labied',
-    bestDishes: ['Slow-Cooked Lemon Chicken Tajine', 'Traditional Harira Soup', 'Nomad Lamb Skewers'],
+    bestDishes: ['Slow-Cooked Lemon Chicken Tagine', 'Smoky Meat Tagine on Wood Embers', 'Traditional Harira Soup'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'Book a dinner reservation to watch the stars light up over the dunes while enjoying a warm bowl of spiced Harira.',
+    tip: 'Book a sunset dinner to watch the dunes change colors from golden to deep red, followed by campfire tea under the starry desert sky.',
 
-    // ── NEW FIELDS ──
+    // ── PSYCHOLOGICAL UX FIELDS ──
     bestTimeToVisit: 'Early evening around 18:30 for sunset',
     averageWaitMinutes: 15,
     seatingTypes: ['indoor', 'garden'],
@@ -252,6 +177,8 @@ export const merzougaEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "cafe-pastry", "dinner", "dry", "mountain", "sunset", "tagine"]
   },
 
   {
@@ -259,12 +186,14 @@ export const merzougaEat: EatListing[] = [
     city: 'merzouga',
     name: 'Snack Mustapha',
     neighborhood: 'Merzouga Center',
-    description: 'The go-to local budget spot in Merzouga village. Unpretentious and bustling, Snack Mustapha serves up quick, freshly seared meat sandwiches, loaded fries, and simple tagines to hungry travelers and locals.',
+    description: 'The go-to local budget counter in Merzouga village. Unpretentious and bustling, Snack Mustapha serves quick, freshly seared meat sandwiches, loaded fries, and simple tagines to hungry travelers and desert guides.',
     pricePerPerson: 4,
     lifestyle: 'lean',
     mealTypes: ['lunch', 'dinner', 'latenight'],
-    experienceTypes: ['Casual Dining', 'Quick Bites', 'Local Gathering Spot'],
+    experienceTypes: ['Casual Dining', 'Local Gathering Spot'],
     foodStyles: ['Moroccan', 'Fast Food'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'international'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'friends', 'kids-friendly'],
     hasEnglishStaff: false,
@@ -276,30 +205,30 @@ export const merzougaEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
     openTime: '11:00',
     closeTime: '01:00',
     badge: 'local',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.4,
-    googleReviewCount: 150,
-    tripadvisorRating: 4.4,
-    tripadvisorReviewCount: 150,
-    theforkRating: 4.4,
-    theforkReviewCount: 150,
-    restaurantguruRating: 4.4,
-    restaurantguruReviewCount: 150,
+    googleRating: 4.7,
+    googleReviewCount: 121,
+    tripadvisorRating: 4.5,
+    tripadvisorReviewCount: 30,
+    theforkRating: 4.5,
+    theforkReviewCount: 15,
+    restaurantguruRating: 4.7,
+    restaurantguruReviewCount: 121,
 
     paymentMethods: ['cash'],
     reservationMethod: ['none'],
     googleMapsUrl: 'https://maps.google.com/?q=Snack+Mustapha+Merzouga',
-    bestDishes: ['Spiced Kofta Sandwich', 'Merguez Brochettes', 'Loaded French Fries'],
+    bestDishes: ['Spiced Kefta Sandwich with Fries', 'Grilled Merguez Brochettes', 'Berber Omelet'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'Order the spiced kofta sandwich with frites inside—an absolute local classic and incredibly cheap.',
+    tip: 'Order the spiced kefta sandwich with frites tucked inside the crusty khobz—an authentic local staple that costs next to nothing.',
 
-    // ── NEW FIELDS ──
+    // ── PSYCHOLOGICAL UX FIELDS ──
     bestTimeToVisit: 'Late evening after 20:00 for lively crowd',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor'],
@@ -307,6 +236,8 @@ export const merzougaEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "dinner", "dry", "late-night", "street-food", "tagine"]
   },
 
   {
@@ -314,12 +245,14 @@ export const merzougaEat: EatListing[] = [
     city: 'merzouga',
     name: 'Restaurant Cafe Fatima',
     neighborhood: 'Hassi Labied',
-    description: 'A beloved family-owned culinary landmark operating for over 15 years in the quiet Hassi Labied village. Famed for serving exceptionally rich, homestyle tagines simmered on clay coal burners.',
+    description: 'A family-owned culinary landmark operating for years in quiet Hassi Labied village. Famed for exceptionally rich, homestyle tagines simmered slowly over clay coal burners and served on a scenic roof terrace.',
     pricePerPerson: 8,
     lifestyle: 'balanced',
     mealTypes: ['lunch', 'dinner'],
-    experienceTypes: ['Traditional Dining', 'Cozy casual family-run Moroccan eatery'],
+    experienceTypes: ['Traditional Dining', 'Cozy casual family-run Moroccan eatery', 'Sunset Views'],
     foodStyles: ['Moroccan', 'Berber'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'cafe-pastry'],
     crowdLevel: 'balanced',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'seniors'],
     hasEnglishStaff: true,
@@ -331,37 +264,39 @@ export const merzougaEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
     openTime: '11:30',
     closeTime: '22:30',
     badge: 'local-favorite',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
     googleRating: 4.7,
-    googleReviewCount: 310,
-    tripadvisorRating: 4.7,
-    tripadvisorReviewCount: 310,
-    theforkRating: 4.7,
-    theforkReviewCount: 310,
-    restaurantguruRating: 4.7,
-    restaurantguruReviewCount: 310,
+    googleReviewCount: 278,
+    tripadvisorRating: 4.6,
+    tripadvisorReviewCount: 263,
+    theforkRating: 4.6,
+    theforkReviewCount: 40,
+    restaurantguruRating: 4.8,
+    restaurantguruReviewCount: 581,
 
     paymentMethods: ['cash'],
     reservationMethod: ['phone'],
     googleMapsUrl: 'https://maps.google.com/?q=Restaurant+Cafe+Fatima+Hassi+Labied',
-    bestDishes: ['Beef Tagine with Plums', 'Friday Seven-Vegetable Couscous', 'Warm Moroccan Salads'],
+    bestDishes: ['Beef Tagine with Prunes & Boiled Eggs', 'Tajine Galia', 'Friday Seven-Vegetable Couscous'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'Try the beef tagine with plums and boiled eggs—Fatima\'s traditional spice blend makes it one of the best in the Sahara.',
+    tip: 'Head upstairs to the roof terrace for lovely dune views while eating. The set menu includes complimentary harira soup, olives, and mint tea.',
 
-    // ── NEW FIELDS ──
+    // ── PSYCHOLOGICAL UX FIELDS ──
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 15,
-    seatingTypes: ['indoor'],
-    viewType: 'none',
+    seatingTypes: ['indoor', 'terrace'],
+    viewType: 'mountain',
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "cafe-pastry", "couscous", "dinner", "dry", "mountain", "sunset", "tagine", "terrace"]
   },
 
   {
@@ -369,12 +304,14 @@ export const merzougaEat: EatListing[] = [
     city: 'merzouga',
     name: 'Café Restaurant Alla',
     neighborhood: 'Khamlia Village',
-    description: 'A warm and vibrant hub in Khamlia village. Alla and his family welcome guests onto a lovely shaded terrace for freshly prepared Moroccan salad, authentic Berber pizza, and traditional tea ceremonies.',
+    description: 'A welcoming culinary stop in Khamlia village. Alla and his family greet travelers into a lovely shaded desert courtyard for fresh Moroccan salads, authentic stone-baked Berber pizza, and tea ceremonies.',
     pricePerPerson: 7,
     lifestyle: 'lean',
     mealTypes: ['lunch', 'dinner', 'brunch'],
-    experienceTypes: ['Traditional Dining', 'Cozy casual family-run Moroccan eatery', 'Cafe'],
+    experienceTypes: ['Traditional Dining', 'Cozy casual family-run Moroccan eatery', 'Casual Dining'],
     foodStyles: ['Moroccan', 'Berber'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'cafe-pastry'],
     crowdLevel: 'balanced',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'kids-friendly'],
     hasEnglishStaff: true,
@@ -386,37 +323,40 @@ export const merzougaEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
-    openTime: '10:00',
-    closeTime: '21:00',
+    servesAlcohol: false,
+    openTime: '08:00',
+    closeTime: '23:00',
     badge: 'local-favorite',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
     googleRating: 4.9,
-    googleReviewCount: 185,
+    googleReviewCount: 172,
     tripadvisorRating: 4.9,
-    tripadvisorReviewCount: 185,
-    theforkRating: 4.9,
-    theforkReviewCount: 185,
+    tripadvisorReviewCount: 45,
+    theforkRating: 4.8,
+    theforkReviewCount: 15,
     restaurantguruRating: 4.9,
-    restaurantguruReviewCount: 185,
+    restaurantguruReviewCount: 175,
 
     paymentMethods: ['cash'],
     reservationMethod: ['none'],
+    reservationContact: '+212611094484',
     googleMapsUrl: 'https://maps.google.com/?q=Cafe+Restaurant+Alla+Khamlia',
-    bestDishes: ['Berber Pizza (Medfouna)', 'Spiced Eggplant Dip', 'Slow-cooked Berber Tagine'],
+    bestDishes: ['Authentic Medfouna (Berber Pizza)', 'Cooked Moroccan Tomato & Pepper Salad', 'Fresh Mint Tea'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'Ask Alla for a quick tour to learn how they bake the Berber pizza on hot stones under the sand.',
+    tip: 'Located just off the main road down a sandy track. Medfouna is baked completely fresh to order (takes ~45 mins) and easily feeds two hungry adults.',
 
-    // ── NEW FIELDS ──
+    // ── PSYCHOLOGICAL UX FIELDS ──
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
-    averageWaitMinutes: 15,
+    averageWaitMinutes: 20,
     seatingTypes: ['indoor', 'terrace'],
     viewType: 'none',
-    wiFi: false,
+    wiFi: true,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["breakfast", "budget", "cafe-pastry", "dinner", "dry", "terrace", "wifi"]
   },
 
   {
@@ -424,12 +364,14 @@ export const merzougaEat: EatListing[] = [
     city: 'merzouga',
     name: 'Restaurant Zafa',
     neighborhood: 'Merzouga / Taouz Road',
-    description: 'Operating since 2007, Zaid and his wife Fatima invite guests to dine directly inside their lovely family home. Experience deeply personal Berber hospitality and slow-cooked desert specialties.',
+    description: 'Operating since 2007, Zaid and his wife Fatima invite guests to dine directly inside their decorated roadside family home. Offers deeply personal Berber hospitality and slow-simmered desert recipes.',
     pricePerPerson: 9,
     lifestyle: 'balanced',
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Traditional Dining', 'Cozy casual family-run Moroccan eatery'],
     foodStyles: ['Moroccan', 'Berber'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional'],
     crowdLevel: 'quiet',
     groupTypes: ['couple', 'family', 'friends', 'seniors'],
     hasEnglishStaff: true,
@@ -441,52 +383,56 @@ export const merzougaEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
     openTime: '12:00',
     closeTime: '22:00',
     badge: 'hidden-gem',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
     googleRating: 4.8,
     googleReviewCount: 110,
     tripadvisorRating: 4.8,
-    tripadvisorReviewCount: 110,
-    theforkRating: 4.8,
-    theforkReviewCount: 110,
+    tripadvisorReviewCount: 40,
+    theforkRating: 4.7,
+    theforkReviewCount: 10,
     restaurantguruRating: 4.8,
     restaurantguruReviewCount: 110,
 
     paymentMethods: ['cash'],
     reservationMethod: ['phone'],
     googleMapsUrl: 'https://maps.google.com/?q=Restaurant+Zafa+Merzouga',
-    bestDishes: ['Fatima\'s Spiced Chicken Tagine', 'Zaza Dessert (Avocado & Fruits)', 'Saffron Beef Tajine'],
+    bestDishes: ['Fatima’s Spiced Chicken Tagine', 'Zaza Fruit Dessert with Avocado', 'Saffron Beef Tajine'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'Since everything is made completely from scratch inside their family kitchen, booking a few hours in advance is highly recommended.',
+    tip: 'Since every meal is made from scratch in their family kitchen, calling ahead or dropping in earlier in the day to place your order ensures minimal waiting.',
 
-    // ── NEW FIELDS ──
+    // ── PSYCHOLOGICAL UX FIELDS ──
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
-    averageWaitMinutes: 0,
+    averageWaitMinutes: 5,
     seatingTypes: ['indoor'],
     viewType: 'none',
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "dinner", "dry", "quiet", "tagine"]
   },
 
   {
     id: 'e-merzouga-8',
     city: 'merzouga',
-    name: 'Cafe Hamid',
+    name: 'Cafe Snack Restaurant Hamid',
     neighborhood: 'Hassi Labied',
-    description: 'A highly popular local snack counter in Hassi Labied. Celebrated for its ultra-fast service, incredible kofta wraps, and satisfying daily portions of Moroccan lentil soup.',
-    pricePerPerson: 4.5,
+    description: 'An overwhelmingly popular culinary institution in Hassi Labied. Renowned for its extraordinarily kind owner Hamid, huge portions of fresh market salads, grilled brochettes, tacos, and slow-cooked tagines.',
+    pricePerPerson: 5,
     lifestyle: 'lean',
     mealTypes: ['lunch', 'dinner', 'flexible'],
-    experienceTypes: ['Casual Dining', 'Quick Bites', 'Local Gathering Spot'],
-    foodStyles: ['Moroccan', 'Fast Food'],
+    experienceTypes: ['Casual Dining', 'Cozy casual family-run Moroccan eatery', 'Local Gathering Spot'],
+    foodStyles: ['Moroccan', 'Fast Food', 'Berber'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['cafe-pastry', 'moroccan-traditional'],
     crowdLevel: 'bustling',
-    groupTypes: ['solo', 'friends'],
+    groupTypes: ['solo', 'couple', 'family', 'friends'],
     hasEnglishStaff: true,
     hasFrenchStaff: true,
     hasDelivery: true,
@@ -496,37 +442,40 @@ export const merzougaEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
-    openTime: '11:00',
-    closeTime: '23:30',
-    badge: 'local',
-    // googlePlaceId: "PLACE_ID_HERE",
+    servesAlcohol: false,
+    openTime: '08:00',
+    closeTime: '22:00',
+    badge: 'local-favorite',
 
     // ── RATINGS ──
-    googleRating: 5.0,
-    googleReviewCount: 279,
+    googleRating: 4.9,
+    googleReviewCount: 1471,
     tripadvisorRating: 5.0,
-    tripadvisorReviewCount: 279,
-    theforkRating: 5.0,
-    theforkReviewCount: 279,
-    restaurantguruRating: 5.0,
-    restaurantguruReviewCount: 279,
+    tripadvisorReviewCount: 420,
+    theforkRating: 4.9,
+    theforkReviewCount: 80,
+    restaurantguruRating: 4.9,
+    restaurantguruReviewCount: 1500,
 
     paymentMethods: ['cash'],
     reservationMethod: ['none'],
+    reservationContact: '+212667069078',
     googleMapsUrl: 'https://maps.google.com/?q=Cafe+Hamid+Hassi+Labied',
-    bestDishes: ['Hamid\'s Kofta Sandwich', 'Spiced Merguez Wrap', 'Lentil Soup (Loubia)'],
+    bestDishes: ['Kefta Tagine with Egg and Cheese', 'House Spiced Chicken Tacos', 'Fresh Moroccan Salad Platter'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'Hamid\'s seasoned kofta is charred to perfection over a charcoal grill. Simply the best quick bite after a dune excursion.',
+    tip: 'One of the highest-rated eateries in the region. Hamid speaks multiple languages and often prepares takeout meals early in the morning for travelers departing toward Fes.',
 
-    // ── NEW FIELDS ──
-    bestTimeToVisit: 'Late evening after 20:00 for lively crowd',
-    averageWaitMinutes: 5,
+    // ── PSYCHOLOGICAL UX FIELDS ──
+    bestTimeToVisit: 'Lunch around 13:00 for quiet',
+    averageWaitMinutes: 10,
     seatingTypes: ['indoor'],
     viewType: 'none',
-    wiFi: false,
+    wiFi: true,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "cafe-pastry", "dinner", "dry", "street-food", "tagine", "wifi"]
   },
 
   {
@@ -534,12 +483,14 @@ export const merzougaEat: EatListing[] = [
     city: 'merzouga',
     name: 'Kanz Erremal Restaurant',
     neighborhood: 'Erg Chebbi Dunes',
-    description: 'An elegant hotel dining room housed in a gorgeous Kasbah structure built directly on the sand dunes. Features panoramic pool and dune views, specializing in high-end desert dining and interactive culinary workshops.',
+    description: 'An elegant hotel dining room housed in a traditional Kasbah structure built right against the foot of the Erg Chebbi dunes. Features panoramic pool and dune views, offering refined Moroccan cuisine and wine.',
     pricePerPerson: 22,
     lifestyle: 'premium',
     mealTypes: ['breakfast', 'lunch', 'dinner'],
     experienceTypes: ['Fine Dining', 'Sunset Views', 'Traditional Dining'],
     foodStyles: ['Moroccan', 'Mediterranean', 'Gourmet'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'international'],
     crowdLevel: 'balanced',
     groupTypes: ['couple', 'family', 'seniors', 'business-friendly'],
     hasEnglishStaff: true,
@@ -551,30 +502,31 @@ export const merzougaEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: true,
     openTime: '08:00',
     closeTime: '23:00',
     badge: 'splurge',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.5,
-    googleReviewCount: 380,
-    tripadvisorRating: 4.5,
-    tripadvisorReviewCount: 380,
-    theforkRating: 4.5,
-    theforkReviewCount: 380,
-    restaurantguruRating: 4.5,
-    restaurantguruReviewCount: 380,
+    googleRating: 4.3,
+    googleReviewCount: 450,
+    tripadvisorRating: 4.0,
+    tripadvisorReviewCount: 280,
+    theforkRating: 4.2,
+    theforkReviewCount: 40,
+    restaurantguruRating: 4.3,
+    restaurantguruReviewCount: 450,
 
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['phone', 'online'],
+    reservationContact: '+212535578482',
     googleMapsUrl: 'https://maps.google.com/?q=Kanz+Erremal+Hotel+Merzouga',
-    bestDishes: ['Slow-Braised Saffron Lamb Shank', 'Hands-on baked Berber Pizza', 'Cinnamon Orange Salad'],
+    bestDishes: ['Slow-Braised Saffron Lamb Shank', 'Assorted Couscous with Vegetables', 'Moroccan Pastry Assortment'],
     alcoholPolicy: 'serves-alcohol',
     ramadanFriendly: 'serves-lunch',
-    tip: 'They host highly rated, immersive workshops where you learn to mix and bake traditional Medfouna yourself in a wood-fired oven.',
+    tip: 'One of the few dining rooms right on the dunes that serves wine and cold beer. Relax on the terrace beside the pool overlooking Erg Chebbi.',
 
-    // ── NEW FIELDS ──
+    // ── PSYCHOLOGICAL UX FIELDS ──
     bestTimeToVisit: 'Early evening around 18:30 for sunset',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor', 'terrace'],
@@ -582,19 +534,23 @@ export const merzougaEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: true
+  ,
+    tags: ["alcohol", "breakfast", "budget", "couscous", "dinner", "fine", "mountain", "sunset", "terrace", "wifi"]
   },
 
   {
     id: 'e-merzouga-10',
     city: 'merzouga',
-    name: 'Restaurant Chez Youssef',
+    name: 'Cafe Restaurant Chez Youssef',
     neighborhood: 'Merzouga Center',
-    description: 'Nestled right in the heart of Merzouga village, this charming, highly welcoming restaurant is heavily favored by desert guides and travelers for its exceptionally crispy, wood-fired medfouna.',
+    description: 'Located in the heart of Merzouga village, this welcoming family eatery is favored by local desert guides and independent travelers for its crispy wood-fired medfouna and hearty tagines.',
     pricePerPerson: 7.5,
     lifestyle: 'lean',
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Casual Dining', 'Traditional Dining', 'Cozy casual family-run Moroccan eatery'],
     foodStyles: ['Moroccan', 'Berber'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'cafe-pastry'],
     crowdLevel: 'balanced',
     groupTypes: ['solo', 'couple', 'family', 'friends'],
     hasEnglishStaff: true,
@@ -606,37 +562,40 @@ export const merzougaEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
     openTime: '11:00',
     closeTime: '22:30',
     badge: 'local-favorite',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.6,
-    googleReviewCount: 190,
-    tripadvisorRating: 4.6,
-    tripadvisorReviewCount: 190,
-    theforkRating: 4.6,
-    theforkReviewCount: 190,
-    restaurantguruRating: 4.6,
-    restaurantguruReviewCount: 190,
+    googleRating: 4.7,
+    googleReviewCount: 157,
+    tripadvisorRating: 4.9,
+    tripadvisorReviewCount: 220,
+    theforkRating: 4.7,
+    theforkReviewCount: 30,
+    restaurantguruRating: 4.8,
+    restaurantguruReviewCount: 180,
 
     paymentMethods: ['cash'],
     reservationMethod: ['phone'],
+    reservationContact: '+212666367174',
     googleMapsUrl: 'https://maps.google.com/?q=Cafe+Restaurant+Chez+Youssef+Merzouga',
-    bestDishes: ['Youssef\'s Classic Medfouna', 'Chicken and Olive Tagine', 'Fresh Mint Tea'],
+    bestDishes: ['Youssef’s Classic Medfouna', 'Chicken and Green Olive Tagine', 'Berber Omelet with Cumin'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'Youssef is an outstanding host. His special Berber pizza is packed with hard-boiled eggs, almonds, and perfectly spiced minced lamb.',
+    tip: 'Youssef is an attentive host. His stuffed Berber flatbread is filled with minced meat, hard-boiled eggs, almonds, and traditional Saharan spices.',
 
-    // ── NEW FIELDS ──
+    // ── PSYCHOLOGICAL UX FIELDS ──
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 15,
     seatingTypes: ['indoor'],
     viewType: 'none',
-    wiFi: false,
-    airConditioning: false,
+    wiFi: true,
+    airConditioning: true,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "cafe-pastry", "dinner", "dry", "tagine", "wifi"]
   },
 
   {
@@ -644,12 +603,14 @@ export const merzougaEat: EatListing[] = [
     city: 'merzouga',
     name: 'Cafe Chez Marrakesh',
     neighborhood: 'Merzouga Village',
-    description: 'A cozy local café-restaurant with traditional earthen architecture. Loved for its incredibly juicy, slow-cooked tagines, fresh local yogurts, and highly relaxed atmosphere.',
+    description: 'A cozy local cafe-restaurant featuring traditional earthen decor. Known for its slow-cooked tagines, Moroccan breakfast sets, and relaxed village setting.',
     pricePerPerson: 6.5,
     lifestyle: 'lean',
     mealTypes: ['breakfast', 'lunch', 'dinner', 'flexible'],
-    experienceTypes: ['Cafe', 'Casual Dining', 'Traditional Dining'],
+    experienceTypes: ['Traditional Dining', 'Casual Dining'],
     foodStyles: ['Moroccan', 'Cafe'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'cafe-pastry'],
     crowdLevel: 'balanced',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'kids-friendly'],
     hasEnglishStaff: true,
@@ -661,30 +622,30 @@ export const merzougaEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
     openTime: '08:00',
     closeTime: '22:30',
     badge: 'local-favorite',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.9,
-    googleReviewCount: 147,
-    tripadvisorRating: 4.9,
-    tripadvisorReviewCount: 147,
-    theforkRating: 4.9,
-    theforkReviewCount: 147,
-    restaurantguruRating: 4.9,
-    restaurantguruReviewCount: 147,
+    googleRating: 4.6,
+    googleReviewCount: 110,
+    tripadvisorRating: 4.5,
+    tripadvisorReviewCount: 40,
+    theforkRating: 4.5,
+    theforkReviewCount: 15,
+    restaurantguruRating: 4.6,
+    restaurantguruReviewCount: 110,
 
     paymentMethods: ['cash'],
     reservationMethod: ['none'],
     googleMapsUrl: 'https://maps.google.com/?q=Cafe+Chez+Marrakesh+Merzouga',
-    bestDishes: ['Berber Breakfast Board', 'Lemon Chicken Tagine', 'Creamy Local Desert Yogurt'],
+    bestDishes: ['Berber Breakfast Board', 'Lemon Chicken Tagine', 'Fresh Squeezed Orange Juice'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'Highly recommended for an authentic, leisurely Berber breakfast featuring warm khobz, olive oil, honey, and fresh goat cheese.',
+    tip: 'A great morning spot for a classic Moroccan breakfast with warm flatbread, olive oil, honey, and mint tea.',
 
-    // ── NEW FIELDS ──
+    // ── PSYCHOLOGICAL UX FIELDS ──
     bestTimeToVisit: 'Early morning for fresh baked goods',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor'],
@@ -692,6 +653,8 @@ export const merzougaEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["breakfast", "budget", "cafe-pastry", "dinner", "dry", "juice", "tagine"]
   },
 
   {
@@ -699,12 +662,14 @@ export const merzougaEat: EatListing[] = [
     city: 'merzouga',
     name: 'Restaurant Tifawt',
     neighborhood: 'Merzouga Village',
-    description: 'Featuring a magnificent raised terrace with views of the approaching dunes, Tifawt serves massive, wonderfully balanced clay-pot tagines and vibrant Moroccan cooked salad platters.',
-    pricePerPerson: 9,
-    lifestyle: 'balanced',
+    description: 'Featuring a raised terrace with direct sightlines to the dunes, Tifawt serves generous clay-pot tagines, skewers, and vibrant cooked Moroccan salads at very reasonable prices.',
+    pricePerPerson: 8,
+    lifestyle: 'lean',
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Casual Dining', 'Sunset Views', 'Traditional Dining'],
     foodStyles: ['Moroccan', 'Berber'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional'],
     crowdLevel: 'balanced',
     groupTypes: ['couple', 'family', 'friends', 'seniors'],
     hasEnglishStaff: true,
@@ -716,30 +681,30 @@ export const merzougaEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
     openTime: '11:00',
     closeTime: '23:00',
     badge: 'local-favorite',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.5,
-    googleReviewCount: 320,
-    tripadvisorRating: 4.5,
-    tripadvisorReviewCount: 320,
-    theforkRating: 4.5,
-    theforkReviewCount: 320,
-    restaurantguruRating: 4.5,
-    restaurantguruReviewCount: 320,
+    googleRating: 4.4,
+    googleReviewCount: 180,
+    tripadvisorRating: 4.0,
+    tripadvisorReviewCount: 35,
+    theforkRating: 4.2,
+    theforkReviewCount: 15,
+    restaurantguruRating: 4.4,
+    restaurantguruReviewCount: 180,
 
     paymentMethods: ['cash'],
     reservationMethod: ['phone'],
     googleMapsUrl: 'https://maps.google.com/?q=Restaurant+Tifawt+Merzouga',
-    bestDishes: ['Beef Tagine with Prunes & Almonds', 'Spiced Tomato Kefta Tagine', 'Traditional Moroccan Salad Medley'],
+    bestDishes: ['Beef Tagine with Prunes & Almonds', 'Spiced Kefta Tagine', 'Moroccan Salad Medley'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'Sit on the upper terrace at sunset. Their slow-cooked beef tagine with caramelized prunes is exceptionally tender.',
+    tip: 'Take a table on the upper terrace around sunset to take in the desert colors while waiting for your tagine.',
 
-    // ── NEW FIELDS ──
+    // ── PSYCHOLOGICAL UX FIELDS ──
     bestTimeToVisit: 'Early evening around 18:30 for sunset',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor', 'terrace'],
@@ -747,19 +712,23 @@ export const merzougaEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "dinner", "dry", "mountain", "sunset", "tagine", "terrace"]
   },
 
   {
     id: 'e-merzouga-13',
     city: 'merzouga',
-    name: 'Restaurant Chez Ibrahim',
-    neighborhood: 'Khamlia Village',
-    description: 'Positioned right on the main Taouz highway, this traditional roadside rest stop features a lovely cool interior and sunny terrace. Serves exceptionally fresh, homestyle tagines to travelers.',
-    pricePerPerson: 8,
-    lifestyle: 'lean',
+    name: 'Restaurant Hassilabiad Appart Chez Toupie',
+    neighborhood: 'Hassi Labied',
+    description: 'A top-rated dining retreat in Hassi Labied run by a welcoming family. Serves generous, freshly cooked Berber feasts, tagines, and salads in modern indoor salons or beside their courtyard pool.',
+    pricePerPerson: 10,
+    lifestyle: 'balanced',
     mealTypes: ['lunch', 'dinner'],
-    experienceTypes: ['Casual Dining', 'Traditional Dining', 'Cozy casual family-run Moroccan eatery'],
-    foodStyles: ['Moroccan', 'Berber'],
+    experienceTypes: ['Traditional Dining', 'Cozy casual family-run Moroccan eatery', 'Family Friendly'],
+    foodStyles: ['Moroccan', 'Mediterranean'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional'],
     crowdLevel: 'balanced',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'seniors'],
     hasEnglishStaff: true,
@@ -771,37 +740,40 @@ export const merzougaEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
-    openTime: '10:00',
-    closeTime: '22:00',
-    badge: 'local',
-    // googlePlaceId: "PLACE_ID_HERE",
+    servesAlcohol: false,
+    openTime: '08:00',
+    closeTime: '23:00',
+    badge: 'local-favorite',
 
     // ── RATINGS ──
-    googleRating: 4.8,
-    googleReviewCount: 190,
-    tripadvisorRating: 4.8,
-    tripadvisorReviewCount: 190,
-    theforkRating: 4.8,
-    theforkReviewCount: 190,
-    restaurantguruRating: 4.8,
-    restaurantguruReviewCount: 190,
+    googleRating: 4.9,
+    googleReviewCount: 591,
+    tripadvisorRating: 5.0,
+    tripadvisorReviewCount: 157,
+    theforkRating: 4.9,
+    theforkReviewCount: 50,
+    restaurantguruRating: 4.9,
+    restaurantguruReviewCount: 736,
 
-    paymentMethods: ['cash'],
-    reservationMethod: ['none'],
-    googleMapsUrl: 'https://maps.google.com/?q=Restaurant+Chez+Ibrahim+Khamlia',
-    bestDishes: ['Slow-simmered Lamb Tagine', 'Berber Pizza (Medfouna)', 'Fresh Fruit Platters'],
+    paymentMethods: ['cash', 'card'],
+    reservationMethod: ['phone'],
+    reservationContact: '+212624422542',
+    googleMapsUrl: 'https://maps.google.com/?q=Restaurant+Hassilabiad+Appart+Chez+Toupie',
+    bestDishes: ['Moroccan Lemon Chicken', 'Traditional Beef Tajine', 'Fresh Fruit Parfait'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'Perfect pitstop during a 4x4 desert excursion. They have a lovely, shaded garden patio to cool off from the Saharan heat.',
+    tip: 'A hidden gem in Hassi Labied. The family also operates the adjacent Depot Nomad carpet gallery. Excellent service in fluent English.',
 
-    // ── NEW FIELDS ──
+    // ── PSYCHOLOGICAL UX FIELDS ──
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 10,
-    seatingTypes: ['indoor', 'garden'],
-    viewType: 'garden',
-    wiFi: false,
-    airConditioning: false,
-    wheelchairAccessible: false
+    seatingTypes: ['indoor', 'terrace'],
+    viewType: 'none',
+    wiFi: true,
+    airConditioning: true,
+    wheelchairAccessible: true
+  ,
+    tags: ["budget", "dinner", "dry", "tagine", "terrace", "wifi"]
   },
 
   {
@@ -809,12 +781,14 @@ export const merzougaEat: EatListing[] = [
     city: 'merzouga',
     name: 'Sahara Stars Camp Restaurant',
     neighborhood: 'Erg Chebbi Dunes',
-    description: 'An ultra-luxurious camp dining experience deep in the dunes of Erg Chebbi. Guests dine on premium, chef-elevated Moroccan gastronomy under a canopy of Saharan stars, accompanied by local drumming.',
+    description: 'A luxury camp dining experience deep in the dunes of Erg Chebbi. Guests dine on multi-course Moroccan cuisine under a canopy of Saharan stars, accompanied by campfire Gnawa drumming.',
     pricePerPerson: 35,
     lifestyle: 'premium',
     mealTypes: ['breakfast', 'dinner'],
     experienceTypes: ['Fine Dining', 'Romantic Sunset', 'Traditional Dining'],
     foodStyles: ['Moroccan', 'Mediterranean', 'Gourmet'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'international'],
     crowdLevel: 'quiet',
     groupTypes: ['couple', 'family', 'large-groups'],
     hasEnglishStaff: true,
@@ -826,30 +800,30 @@ export const merzougaEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: true,
     openTime: '18:30',
     closeTime: '23:30',
     badge: 'splurge',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
     googleRating: 4.9,
     googleReviewCount: 95,
-    tripadvisorRating: 4.9,
-    tripadvisorReviewCount: 95,
-    theforkRating: 4.9,
-    theforkReviewCount: 95,
+    tripadvisorRating: 4.8,
+    tripadvisorReviewCount: 40,
+    theforkRating: 4.8,
+    theforkReviewCount: 10,
     restaurantguruRating: 4.9,
     restaurantguruReviewCount: 95,
 
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['phone', 'online'],
     googleMapsUrl: 'https://maps.google.com/?q=Sahara+Stars+Camp+Merzouga',
-    bestDishes: ['Slow-Roasted Lamb Mechoui', 'Chef\'s Special Saffron Tagine', 'Decadent Pistachio Baklava'],
+    bestDishes: ['Slow-Roasted Lamb Mechoui', 'Saffron Chicken Tagine', 'Pistachio Baklava'],
     alcoholPolicy: 'serves-alcohol',
     ramadanFriendly: 'special-ftour',
-    tip: 'Booking is strictly required. The dinner package typically includes private 4x4 transport into the dunes and a traditional campfire drum circle.',
+    tip: 'Advance booking is required. Packages typically include 4x4 dune transit, candlelit tables under the stars, and campfire music.',
 
-    // ── NEW FIELDS ──
+    // ── PSYCHOLOGICAL UX FIELDS ──
     bestTimeToVisit: 'Early evening around 18:30 for sunset',
     averageWaitMinutes: 0,
     seatingTypes: ['indoor', 'garden'],
@@ -857,19 +831,23 @@ export const merzougaEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["alcohol", "breakfast", "budget", "dinner", "fine", "live-music", "mountain", "quiet", "sunset", "tagine"]
   },
 
   {
     id: 'e-merzouga-15',
     city: 'merzouga',
     name: 'Dar Aytma Restaurant',
-    neighborhood: 'Khamlia Area',
-    description: 'A gorgeous, rustic Kasbah-style restaurant highly praised by food documentarians. Specializes in ancient traditional clay-pot techniques, utilizing organic local ingredients to present raw desert flavors.',
+    neighborhood: 'Khamlia Village',
+    description: 'A traditional Kasbah restaurant in Khamlia celebrated for preserving ancient clay-pot techniques and pre-Saharan recipes with local dates, nuts, and farm-fresh ingredients.',
     pricePerPerson: 13,
     lifestyle: 'balanced',
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Traditional Dining', 'Cozy casual family-run Moroccan eatery'],
     foodStyles: ['Moroccan', 'Berber'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional'],
     crowdLevel: 'quiet',
     groupTypes: ['couple', 'family', 'seniors'],
     hasEnglishStaff: true,
@@ -881,30 +859,30 @@ export const merzougaEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
     openTime: '12:00',
     closeTime: '22:30',
     badge: 'hidden-gem',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.8,
-    googleReviewCount: 120,
-    tripadvisorRating: 4.8,
-    tripadvisorReviewCount: 120,
-    theforkRating: 4.8,
-    theforkReviewCount: 120,
-    restaurantguruRating: 4.8,
-    restaurantguruReviewCount: 120,
+    googleRating: 4.9,
+    googleReviewCount: 282,
+    tripadvisorRating: 5.0,
+    tripadvisorReviewCount: 58,
+    theforkRating: 4.9,
+    theforkReviewCount: 20,
+    restaurantguruRating: 4.9,
+    restaurantguruReviewCount: 282,
 
     paymentMethods: ['cash'],
     reservationMethod: ['phone'],
     googleMapsUrl: 'https://maps.google.com/?q=Dar+Aytma+Restaurant+Merzouga',
-    bestDishes: ['Slow-baked Chicken with Local Dates', 'Traditional Berber Flatbread', 'Handmade Harissa Salads'],
+    bestDishes: ['Slow-Baked Chicken with Desert Dates', 'Berber Pizza (Medfouna)', 'Handmade Harissa Salad'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'Famous for its preservation of rare pre-Saharan recipes. Try their slow-baked chicken with dates and walnuts.',
+    tip: 'Try their slow-baked chicken with dates and almonds—a rare authentic Saharan specialty prepared with local palm grove produce.',
 
-    // ── NEW FIELDS ──
+    // ── PSYCHOLOGICAL UX FIELDS ──
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor', 'terrace'],
@@ -912,6 +890,8 @@ export const merzougaEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "dinner", "dry", "mountain", "quiet", "terrace"]
   },
 
   {
@@ -919,12 +899,14 @@ export const merzougaEat: EatListing[] = [
     city: 'merzouga',
     name: 'Café Restaurant Tenere',
     neighborhood: 'Hassi Labied',
-    description: 'A lovely, highly laid-back desert cafe featuring a beautiful terrace overlooking the local palmeraie. Serves freshly-pressed Saharan juices, tasty light lunches, and classic Italian espresso.',
+    description: 'A relaxed desert cafe and pizzeria featuring an open terrace with views of the palm groves. Serves freshly-pressed juices, pizzas, kebabs, and Italian coffees.',
     pricePerPerson: 6.5,
     lifestyle: 'lean',
     mealTypes: ['breakfast', 'lunch', 'brunch', 'flexible'],
-    experienceTypes: ['Cafe', 'Casual Dining', 'Tranquil Dining'],
-    foodStyles: ['Moroccan', 'Mediterranean', 'Cafe'],
+    experienceTypes: ['Casual Dining', 'Tranquil Dining'],
+    foodStyles: ['Moroccan', 'Mediterranean', 'Pizza'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'international', 'cafe-pastry'],
     crowdLevel: 'balanced',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'kids-friendly'],
     hasEnglishStaff: true,
@@ -936,30 +918,31 @@ export const merzougaEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
     openTime: '08:00',
-    closeTime: '22:00',
+    closeTime: '23:00',
     badge: 'local-favorite',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.4,
-    googleReviewCount: 160,
-    tripadvisorRating: 4.4,
-    tripadvisorReviewCount: 160,
-    theforkRating: 4.4,
-    theforkReviewCount: 160,
-    restaurantguruRating: 4.4,
-    restaurantguruReviewCount: 160,
+    googleRating: 4.2,
+    googleReviewCount: 110,
+    tripadvisorRating: 4.0,
+    tripadvisorReviewCount: 30,
+    theforkRating: 4.0,
+    theforkReviewCount: 10,
+    restaurantguruRating: 4.2,
+    restaurantguruReviewCount: 110,
 
     paymentMethods: ['cash'],
     reservationMethod: ['none'],
+    reservationContact: '+212646037818',
     googleMapsUrl: 'https://maps.google.com/?q=Cafe+Restaurant+Tenere+Hassi+Labied',
-    bestDishes: ['Fresh Pomegranate Mocktail', 'Club Sandwich with Local Fries', 'Berber Pizza'],
+    bestDishes: ['Thin-Crust Wood Pizza', 'Kefta Sandwich with Fries', 'Fresh Pomegranate Juice'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'The perfect spot to cool down under their misting fans while sipping on a fresh pomegranate juice after camel trekking.',
+    tip: 'Great rooftop and terrace seating to relax with cold juice and pizza after camel riding through the dunes.',
 
-    // ── NEW FIELDS ──
+    // ── PSYCHOLOGICAL UX FIELDS ──
     bestTimeToVisit: 'Early morning for fresh baked goods',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor', 'terrace'],
@@ -967,6 +950,8 @@ export const merzougaEat: EatListing[] = [
     wiFi: true,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["breakfast", "budget", "cafe-pastry", "dry", "juice", "terrace", "wifi"]
   },
 
   {
@@ -974,12 +959,14 @@ export const merzougaEat: EatListing[] = [
     city: 'merzouga',
     name: 'Faran B\'Lal',
     neighborhood: 'Rissani',
-    description: 'The most historic, highly famous communal mud bakery ("faran") in nearby Rissani. While technically in Rissani, it is the key food pilgrimage stop for Merzouga travelers wanting to see how medfouna is baked in ancient wood-fired ovens.',
+    description: 'A historic communal mud-brick bakery ("faran") in the ancient trading post of Rissani (birthplace of Medfouna). Visitors stop here during day tours to observe Berber pizzas baked on wood embers.',
     pricePerPerson: 4,
     lifestyle: 'lean',
     mealTypes: ['lunch'],
     experienceTypes: ['Traditional Dining', 'Cozy casual family-run Moroccan eatery'],
     foodStyles: ['Moroccan', 'Berber'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'couple', 'friends'],
     hasEnglishStaff: false,
@@ -991,30 +978,30 @@ export const merzougaEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: false,
     isHalal: true,
+    servesAlcohol: false,
     openTime: '08:00',
     closeTime: '15:00',
     badge: 'hidden-gem',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.9,
+    googleRating: 4.8,
     googleReviewCount: 95,
-    tripadvisorRating: 4.9,
-    tripadvisorReviewCount: 95,
-    theforkRating: 4.9,
-    theforkReviewCount: 95,
-    restaurantguruRating: 4.9,
+    tripadvisorRating: 4.8,
+    tripadvisorReviewCount: 30,
+    theforkRating: 4.7,
+    theforkReviewCount: 10,
+    restaurantguruRating: 4.8,
     restaurantguruReviewCount: 95,
 
     paymentMethods: ['cash'],
     reservationMethod: ['none'],
     googleMapsUrl: 'https://maps.google.com/?q=Faran+BLal+Rissani',
-    bestDishes: ['Traditional Stuffed Medfouna with Almonds', 'Freshly baked Khobz', 'Local Mint Tea'],
+    bestDishes: ['Traditional Stuffed Medfouna with Almonds & Eggs', 'Wood-Fired Khobz', 'Local Mint Tea'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'This is a working communal bakery. You can buy fresh medfouna directly from them, or watch local families bring their custom-made flatbreads to be baked in the historic clay pit.',
+    tip: 'Located inside Rissani souk. Best visited on market days (Sunday, Tuesday, Thursday). Watch the baker shovel flatbreads directly into the wood-fired hearth.',
 
-    // ── NEW FIELDS ──
+    // ── PSYCHOLOGICAL UX FIELDS ──
     bestTimeToVisit: 'Early morning for fresh baked goods',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor'],
@@ -1022,6 +1009,8 @@ export const merzougaEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "cafe-pastry", "dry", "medina", "pastry"]
   },
 
   {
@@ -1029,12 +1018,14 @@ export const merzougaEat: EatListing[] = [
     city: 'merzouga',
     name: 'Auberge Haven La Chance Restaurant',
     neighborhood: 'Hassi Labied',
-    description: 'Located inside the famed haven, this laid-back desert resort restaurant is ideal for relaxed poolside lunches. Serves fresh Moroccan salads, juicy brochettes, and healthy organic juices directly facing the dunes.',
+    description: 'Located inside Haven La Chance at the base of the dunes, this hotel restaurant offers relaxed poolside dining, Moroccan salads, juicy brochettes, and cold beer facing Erg Chebbi.',
     pricePerPerson: 12,
     lifestyle: 'balanced',
     mealTypes: ['breakfast', 'lunch', 'dinner', 'brunch'],
     experienceTypes: ['Casual Dining', 'Sunset Views', 'Family Friendly'],
     foodStyles: ['Moroccan', 'Mediterranean', 'Healthy'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'international'],
     crowdLevel: 'balanced',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'kids-friendly'],
     hasEnglishStaff: true,
@@ -1046,30 +1037,31 @@ export const merzougaEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: true,
     openTime: '07:30',
     closeTime: '23:00',
     badge: 'local-favorite',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.6,
-    googleReviewCount: 240,
-    tripadvisorRating: 4.6,
-    tripadvisorReviewCount: 240,
-    theforkRating: 4.6,
-    theforkReviewCount: 240,
-    restaurantguruRating: 4.6,
-    restaurantguruReviewCount: 240,
+    googleRating: 4.3,
+    googleReviewCount: 320,
+    tripadvisorRating: 4.2,
+    tripadvisorReviewCount: 110,
+    theforkRating: 4.2,
+    theforkReviewCount: 25,
+    restaurantguruRating: 4.3,
+    restaurantguruReviewCount: 320,
 
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['phone'],
+    reservationContact: '+212535577299',
     googleMapsUrl: 'https://maps.google.com/?q=Haven+La+Chance+Merzouga',
-    bestDishes: ['Grilled Lamb Skewers', 'Mixed Moroccan Mezze Plate', 'Freshly Squeezed Orange Juice'],
+    bestDishes: ['Grilled Lamb Skewers', 'Mixed Moroccan Mezze Plate', 'Fresh Squeezed Orange Juice'],
     alcoholPolicy: 'serves-alcohol',
     ramadanFriendly: 'serves-lunch',
-    tip: 'Perfect for travelers seeking a modern, comfortable resort meal. Guests can use the lovely swimming pool for a small fee.',
+    tip: 'A licensed desert hotel where you can enjoy an evening beer or wine on the terrace while looking directly up at the sand dunes.',
 
-    // ── NEW FIELDS ──
+    // ── PSYCHOLOGICAL UX FIELDS ──
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor', 'terrace'],
@@ -1077,6 +1069,8 @@ export const merzougaEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: true
+  ,
+    tags: ["alcohol", "breakfast", "budget", "dinner", "juice", "mountain", "sunset", "terrace", "wifi"]
   },
 
   {
@@ -1084,12 +1078,14 @@ export const merzougaEat: EatListing[] = [
     city: 'merzouga',
     name: 'Ksar Bicha Restaurant',
     neighborhood: 'Merzouga Village',
-    description: 'A highly refined traditional dining room set inside the beautiful Ksar Bicha. Offers refined, slow-cooked Saharan cuisine with beef, figs, and sesame seeds served in a stylish, mud-brick architectural lounge.',
+    description: 'A traditional dining room and poolside lounge set inside the adobe-walled Ksar Bicha. Offers slow-cooked Saharan tagines, Moroccan salads, and licensed bar drinks in a mud-brick Kasbah lounge.',
     pricePerPerson: 14,
     lifestyle: 'balanced',
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Fine Dining', 'Traditional Dining', 'Upscale Lounge'],
     foodStyles: ['Moroccan', 'Gourmet'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'international'],
     crowdLevel: 'quiet',
     groupTypes: ['couple', 'family', 'seniors', 'business-friendly'],
     hasEnglishStaff: true,
@@ -1101,30 +1097,31 @@ export const merzougaEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
     openTime: '12:00',
     closeTime: '22:30',
     badge: 'local-favorite',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.5,
-    googleReviewCount: 180,
-    tripadvisorRating: 4.5,
-    tripadvisorReviewCount: 180,
-    theforkRating: 4.5,
-    theforkReviewCount: 180,
-    restaurantguruRating: 4.5,
-    restaurantguruReviewCount: 180,
+    googleRating: 4.4,
+    googleReviewCount: 77,
+    tripadvisorRating: 4.4,
+    tripadvisorReviewCount: 45,
+    theforkRating: 4.3,
+    theforkReviewCount: 15,
+    restaurantguruRating: 4.4,
+    restaurantguruReviewCount: 77,
 
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['phone'],
+    reservationContact: '+212535577113',
     googleMapsUrl: 'https://maps.google.com/?q=Ksar+Bicha+Merzouga',
-    bestDishes: ['Slow-cooked Beef Tagine with Figs', 'Moroccan Pastilla', 'Harira Soup'],
-    alcoholPolicy: 'dry',
+    bestDishes: ['Slow-Cooked Beef Tagine with Figs', 'Chicken Pastilla with Almonds', 'Spiced Harira'],
+    alcoholPolicy: 'serves-alcohol',
     ramadanFriendly: 'special-ftour',
-    tip: 'Perfect for a quiet, incredibly comfortable traditional dinner. Their beef tagine with local desert figs is outstanding.',
+    tip: 'Features an outdoor pool and licensed bar/lounge. Ideal for a relaxing dinner with Moroccan wine away from the dust of the dunes.',
 
-    // ── NEW FIELDS ──
+    // ── PSYCHOLOGICAL UX FIELDS ──
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor'],
@@ -1132,6 +1129,8 @@ export const merzougaEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: false
+  ,
+    tags: ["alcohol", "budget", "dinner", "fine", "pastilla", "quiet", "tagine", "wifi"]
   },
 
   {
@@ -1139,12 +1138,14 @@ export const merzougaEat: EatListing[] = [
     city: 'merzouga',
     name: 'Snack Milano',
     neighborhood: 'Merzouga Center',
-    description: 'A highly bustling, extremely budget-friendly diner right in Merzouga village. Serving quick personal-sized pizzas, stuffed paninis, and hot Moroccan mint tea to active backpackers and locals.',
+    description: 'A budget-friendly village counter right in Merzouga center. Serves quick personal-sized pizzas, toasted paninis, and sweet mint tea to budget backpackers and locals.',
     pricePerPerson: 3.5,
     lifestyle: 'lean',
     mealTypes: ['lunch', 'dinner', 'latenight'],
-    experienceTypes: ['Casual Dining', 'Quick Bites', 'Local Gathering Spot'],
+    experienceTypes: ['Casual Dining', 'Local Gathering Spot'],
     foodStyles: ['Moroccan', 'Italian', 'Fast Food'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'international'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'friends'],
     hasEnglishStaff: true,
@@ -1156,30 +1157,30 @@ export const merzougaEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
     openTime: '11:00',
     closeTime: '01:30',
     badge: 'local',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.2,
-    googleReviewCount: 95,
-    tripadvisorRating: 4.2,
-    tripadvisorReviewCount: 95,
-    theforkRating: 4.2,
-    theforkReviewCount: 95,
-    restaurantguruRating: 4.2,
-    restaurantguruReviewCount: 95,
+    googleRating: 4.5,
+    googleReviewCount: 35,
+    tripadvisorRating: 4.5,
+    tripadvisorReviewCount: 15,
+    theforkRating: 4.4,
+    theforkReviewCount: 5,
+    restaurantguruRating: 4.5,
+    restaurantguruReviewCount: 35,
 
     paymentMethods: ['cash'],
     reservationMethod: ['none'],
     googleMapsUrl: 'https://maps.google.com/?q=Snack+Milano+Merzouga',
-    bestDishes: ['Saharan Beef Pizza', 'Merguez Panini', 'Fries with Garlic Sauce'],
+    bestDishes: ['Beef & Cheese Pizza', 'Merguez Panini', 'Fresh French Fries'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'The cheapest place in Merzouga for a quick, comforting pizza or panini. Great and friendly local service.',
+    tip: 'Unpretentious and very fast. Great spot for a quick late-night panini or pizza after returning from a desert excursion.',
 
-    // ── NEW FIELDS ──
+    // ── PSYCHOLOGICAL UX FIELDS ──
     bestTimeToVisit: 'Late evening after 20:00 for lively crowd',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor'],
@@ -1187,5 +1188,7 @@ export const merzougaEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "dinner", "dry", "late-night", "street-food"]
   }
 ];

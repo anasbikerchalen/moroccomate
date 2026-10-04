@@ -194,13 +194,15 @@ export const saidiaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: true,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ["couple", "family", "friends", "seniors"],
     tip: "Reserve a cabana at the private beach early to guarantee a prime sunset spot on the water.",
     vibeTags: ["Beachfront", "All-Inclusive", "Family-Resort", "Spa"],
-    locationSummary: "Beachfront - Private Beach Resort",
+    locationSummary: "Marina de Saïdia Beachfront",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Radisson+Blu+Resort+Saidia+Beach",
     address: "Station Balnéaire Saïdia, Saïdia 63600, Morocco",
@@ -270,6 +272,11 @@ export const saidiaSleep: SleepListing[] = [
       business: "Usable for business retreats, though leisure-focused.",
       nomad: "A convenient resort workation if you need poolside WiFi and beach breaks.",
     },
+    coordinates: {
+      lat: 35.11063,
+      lng: -2.303755
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "sa-sleep-2",
@@ -307,13 +314,15 @@ export const saidiaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: true,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ["family", "couple", "friends", "seniors"],
     tip: "Perfect for families; the entertainment crew hosts excellent evening shows.",
     vibeTags: ["Beachfront", "Family", "All-Inclusive", "Entertainment"],
-    locationSummary: "Beachfront - Family Resort",
+    locationSummary: "Marina de Saïdia Beachfront",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Iberostar+Waves+Saidia",
     address: "Station Balnéaire Saïdia, Saïdia 63600, Morocco",
@@ -383,6 +392,11 @@ export const saidiaSleep: SleepListing[] = [
       business: "Not business-focused, but WiFi works for light tasks.",
       nomad: "Good for nomads who need easy amenities and beach downtime.",
     },
+    coordinates: {
+      lat: 35.102198,
+      lng: -2.281369
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "sa-sleep-3",
@@ -420,13 +434,15 @@ export const saidiaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: true,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ["couple", "family", "friends", "seniors"],
     tip: "Golf enthusiasts should ask concierge about discounted green fees at Saïdia Lacs golf course.",
     vibeTags: ["All-Inclusive", "Beachfront", "Spa", "Romantic"],
-    locationSummary: "Beachfront - Spa Resort",
+    locationSummary: "Marina de Saïdia Beachfront",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Be+Live+Collection+Saidia",
     address: "Station Balnéaire Saïdia, Saïdia 63600, Morocco",
@@ -496,6 +512,11 @@ export const saidiaSleep: SleepListing[] = [
       business: "Not ideal for business, though WiFi works for basics.",
       nomad: "A simple resort workation for beach and spa breaks.",
     },
+    coordinates: {
+      lat: 35.099592,
+      lng: -2.274054
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "sa-sleep-4",
@@ -533,13 +554,15 @@ export const saidiaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ["family", "couple", "friends"],
     tip: "Use complimentary bicycles to cycle from gardens to the marina promenade.",
     vibeTags: ["Garden-Resort", "Family", "Marina", "Relaxed"],
-    locationSummary: "Saïdia Marina - Garden Resort",
+    locationSummary: "Marina de Saïdia Beachfront",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Radisson+Blu+Resort+Saidia+Garden",
     address: "Saïdia Marina, Saïdia 63600, Morocco",
@@ -609,6 +632,11 @@ export const saidiaSleep: SleepListing[] = [
       business: "Works for light remote tasks in common areas.",
       nomad: "A quieter resort base for nomads who prefer gardens to beach crowds.",
     },
+    coordinates: {
+      lat: 35.11063,
+      lng: -2.303755
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "sa-sleep-5",
@@ -646,13 +674,15 @@ export const saidiaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: true,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ["family", "couple", "friends", "large-groups"],
     tip: "Perfect for longer stays; request a high-floor apartment for marina yacht views.",
     vibeTags: ["Serviced-Residence", "Marina", "Apartment", "Beach-Access"],
-    locationSummary: "Saïdia Marina - Serviced Residences",
+    locationSummary: "Saidia Marina & Coastal Resort",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Radisson+Blu+Residences+Saidia",
     address: "Saïdia Marina, Saïdia 63600, Morocco",
@@ -722,6 +752,11 @@ export const saidiaSleep: SleepListing[] = [
       business: "Works well for work stays with private living space.",
       nomad: "A practical marina workation option with kitchen and pool.",
     },
+    coordinates: {
+      lat: 35.11063,
+      lng: -2.303755
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "sa-sleep-6",
@@ -759,13 +794,15 @@ export const saidiaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: true,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ["family", "couple", "friends"],
     tip: "Visit the beachside lounge in late afternoon for mint tea with coastline views.",
     vibeTags: ["Classic-Resort", "Andalusian", "Beachfront", "Pool"],
-    locationSummary: "Beachfront - Classic Palace Resort",
+    locationSummary: "Marina de Saïdia Beachfront",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Oasis+Saidia+Palace+Blue+Pearl",
     address: "Beachfront, Saïdia 63600, Morocco",
@@ -835,6 +872,11 @@ export const saidiaSleep: SleepListing[] = [
       business: "Basic for business, but WiFi supports light tasks.",
       nomad: "A simple resort base for remote work in off-peak season.",
     },
+    coordinates: {
+      lat: 35.084591,
+      lng: -2.231178
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "sa-sleep-7",
@@ -872,13 +914,15 @@ export const saidiaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: true,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ["family", "couple", "friends"],
     tip: "Use the direct pathways from rooms to the quieter stretch of Saïdia sand.",
     vibeTags: ["Family-Apartments", "Beachfront", "Clean", "Relaxed"],
-    locationSummary: "Beachfront - Family Apartment Resort",
+    locationSummary: "Marina de Saïdia Beachfront",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Zephyr+Saidia",
     address: "Beachfront, Saïdia 63600, Morocco",
@@ -948,6 +992,11 @@ export const saidiaSleep: SleepListing[] = [
       business: "Apartment layouts are practical for longer work stays.",
       nomad: "A good workation option for nomads needing space and beach breaks.",
     },
+    coordinates: {
+      lat: 35.082221,
+      lng: -2.224576
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "sa-sleep-8",
@@ -985,13 +1034,15 @@ export const saidiaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "business-friendly"],
     tip: "Ask reception for nearby seafood markets to buy fresh fish for your private kitchen.",
     vibeTags: ["Aparthotel", "Clean", "Kitchen", "Central"],
-    locationSummary: "City Center - Near Beach Promenade",
+    locationSummary: "Marina de Saïdia Beachfront",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Bella+Address+Apart+Hotel+Saidia",
     address: "City Center, Saïdia 63600, Morocco",
@@ -1061,6 +1112,7 @@ export const saidiaSleep: SleepListing[] = [
       business: "High-speed WiFi works well for remote work.",
       nomad: "A strong budget workation option in town.",
     },
+    tags: ["family-favorite"]
   },
   {
     id: "sa-sleep-9",
@@ -1098,13 +1150,15 @@ export const saidiaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "friends"],
     tip: "Enjoy morning coffee on your balcony before heading to the coast.",
     vibeTags: ["Boutique", "Balcony", "Budget", "City-Center"],
-    locationSummary: "City Center - 5 min from Beach",
+    locationSummary: "Saidia Marina & Coastal Resort",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Hotel+Everest+Saidia",
     address: "City Center, Saïdia 63600, Morocco",
@@ -1174,6 +1228,7 @@ export const saidiaSleep: SleepListing[] = [
       business: "Soundproof rooms help with work and rest.",
       nomad: "A practical low-cost base for nomads near town and beach.",
     },
+    tags: ["family-favorite"]
   },
   {
     id: "sa-sleep-10",
@@ -1287,6 +1342,11 @@ export const saidiaSleep: SleepListing[] = [
       business: "Quiet enough for planning and light remote work.",
       nomad: "A friendly town base for slow travelers and nomads.",
     },
+    coordinates: {
+      lat: 35.077638,
+      lng: -2.225179
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "sa-sleep-11",
@@ -1324,13 +1384,15 @@ export const saidiaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ["family", "friends", "large-groups", "couple"],
     tip: "Perfect for larger groups; book a ground-floor unit for direct pool and garden access.",
     vibeTags: ["Aparthotel", "Marina", "Gated", "Family"],
-    locationSummary: "Saïdia Marina - Gated Aparthotel",
+    locationSummary: "Marina de Saïdia Beachfront",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=La+Perle+Orientale+Saidia",
     address: "Saïdia Marina, Saïdia 63600, Morocco",
@@ -1400,6 +1462,11 @@ export const saidiaSleep: SleepListing[] = [
       business: "Kitchen and living room make it useful for work stays.",
       nomad: "A practical marina base for nomads traveling with friends or family.",
     },
+    coordinates: {
+      lat: 35.077754,
+      lng: -2.225717
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "sa-sleep-12",
@@ -1437,13 +1504,15 @@ export const saidiaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: true,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ["family", "couple", "friends"],
     tip: "Ask security for the nearest direct beach path, which reaches the shore in under two minutes.",
     vibeTags: ["Residence", "Beachfront", "Secure", "Sea-Views"],
-    locationSummary: "Beachfront - Secure Residence",
+    locationSummary: "Saidia Marina & Coastal Resort",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Residence+Riad+Saidia",
     address: "Beachfront, Saïdia 63600, Morocco",
@@ -1513,6 +1582,11 @@ export const saidiaSleep: SleepListing[] = [
       business: "Good apartment setup for remote work.",
       nomad: "A practical beach workation base for longer stays.",
     },
+    coordinates: {
+      lat: 35.084591,
+      lng: -2.231178
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "sa-sleep-13",
@@ -1550,13 +1624,15 @@ export const saidiaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ["couple", "family", "friends", "business-friendly"],
     tip: "Stroll along the docks in the evening for marina restaurants just outside the gate.",
     vibeTags: ["Luxury-Apartment", "Gated", "Marina", "Modern"],
-    locationSummary: "Saïdia Marina - Tamaris Residence",
+    locationSummary: "Saidia Marina & Coastal Resort",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Residence+Tamaris+Luxury+Apartment+Saidia",
     address: "Résidence Tamaris, Saïdia Marina, Saïdia 63600, Morocco",
@@ -1626,6 +1702,11 @@ export const saidiaSleep: SleepListing[] = [
       business: "High-speed WiFi and quiet apartment space suit work stays.",
       nomad: "A solid marina workation choice with self-catering freedom.",
     },
+    coordinates: {
+      lat: 35.108226,
+      lng: -2.298912
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "sa-sleep-14",
@@ -1663,13 +1744,15 @@ export const saidiaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ["couple", "family", "friends"],
     tip: "Perfect for a secure marina base; check-in is smooth and the host gives excellent local tips.",
     vibeTags: ["Apartment", "Marina", "Host-Led", "Pool"],
-    locationSummary: "Saïdia Marina - Host Apartment",
+    locationSummary: "Saidia Marina & Coastal Resort",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Chez+Younes+Appartement+Marina+Saidia+Ap8",
     address: "Saïdia Marina, Saïdia 63600, Morocco",
@@ -1732,6 +1815,11 @@ export const saidiaSleep: SleepListing[] = [
       business: "Quiet apartment space works for remote work.",
       nomad: "A practical budget marina base for nomads.",
     },
+    coordinates: {
+      lat: 35.108226,
+      lng: -2.298912
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "sa-sleep-15",
@@ -1769,13 +1857,15 @@ export const saidiaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: true,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["couple", "family", "friends", "solo"],
     tip: "The beachfront promenade is directly out front—go jogging early or walking at sunset.",
     vibeTags: ["Apartment", "Oceanview", "Self-Catering", "Promenade"],
-    locationSummary: "Beachfront - Oceanview Apartment",
+    locationSummary: "Saidia Marina & Coastal Resort",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Saidia+Residence+A",
     address: "Beachfront, Saïdia 63600, Morocco",
@@ -1838,6 +1928,11 @@ export const saidiaSleep: SleepListing[] = [
       business: "A practical beach apartment for remote work.",
       nomad: "Strong self-catering option for nomads by the sea.",
     },
+    coordinates: {
+      lat: 35.084591,
+      lng: -2.231178
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "sa-sleep-16",
@@ -1875,13 +1970,15 @@ export const saidiaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family", "solo"],
     tip: "Take a morning walk to the Moulouya river mouth to spot migratory birds and pink flamingos.",
     vibeTags: ["Nature", "Quiet", "Apartment", "Birdwatching"],
-    locationSummary: "City Edge - Near Moulouya Nature Reserve",
+    locationSummary: "Marina de Saïdia Beachfront",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Les+Jardins+De+La+Moulouya+Saidia",
     address: "Near Moulouya River, Saïdia 63600, Morocco",
@@ -1951,6 +2048,7 @@ export const saidiaSleep: SleepListing[] = [
       business: "Not business-focused, but calm for remote tasks.",
       nomad: "A low-cost nature base for nomads with transport.",
     },
+    tags: ["family-favorite"]
   },
   {
     id: "sa-sleep-17",
@@ -1988,13 +2086,15 @@ export const saidiaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: true,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Request the sea-facing room with private patio for Mediterranean breeze all day.",
     vibeTags: ["Beachside", "Authentic", "Sea-Breeze", "Coffee-Shop"],
-    locationSummary: "Beachfront - Public Beach Access",
+    locationSummary: "Marina de Saïdia Beachfront",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Sultana+Saidia",
     address: "Beachfront, Saïdia 63600, Morocco",
@@ -2064,6 +2164,11 @@ export const saidiaSleep: SleepListing[] = [
       business: "Coffee shop and room service make light work practical.",
       nomad: "A simple beachside base for budget nomads.",
     },
+    coordinates: {
+      lat: 35.084591,
+      lng: -2.231178
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "sa-sleep-18",
@@ -2101,13 +2206,15 @@ export const saidiaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "This pet-friendly guesthouse is excellent if traveling through northeastern Morocco with a dog.",
     vibeTags: ["Traditional", "Pet-Friendly", "Quiet", "Courtyard"],
-    locationSummary: "City Center - Quiet Riad Guesthouse",
+    locationSummary: "Marina de Saïdia Beachfront",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Koutoubia+Saidia",
     address: "City Center, Saïdia 63600, Morocco",
@@ -2177,6 +2284,7 @@ export const saidiaSleep: SleepListing[] = [
       business: "Quiet enough for planning and light work.",
       nomad: "A low-cost pet-friendly base for nomads with transport.",
     },
+    tags: ["family-favorite"]
   },
   {
     id: "sa-sleep-19",
@@ -2214,13 +2322,15 @@ export const saidiaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: true,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Great for exploring Saïdia on a budget; walk to nearby cafes and beachfront shops.",
     vibeTags: ["Peaceful", "Budget", "Beach-Near", "Traditional"],
-    locationSummary: "Beachfront Area - Quiet Guesthouse",
+    locationSummary: "Saidia Marina & Coastal Resort",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Saidia",
     address: "Beachfront Area, Saïdia 63600, Morocco",
@@ -2290,6 +2400,11 @@ export const saidiaSleep: SleepListing[] = [
       business: "Quiet terrace supports light remote work.",
       nomad: "A simple beach-near base for unplugged nomad time.",
     },
+    coordinates: {
+      lat: 35.082221,
+      lng: -2.224576
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "sa-sleep-20",
@@ -2327,13 +2442,15 @@ export const saidiaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["couple", "family", "friends", "business-friendly"],
     tip: "History lovers should take a quick 5-minute taxi ride to the nearby 19th-century Kasbah fortress.",
     vibeTags: ["Apartment", "Self-Catering", "Central", "Spacious"],
-    locationSummary: "City Center - Self-Catering Apartment",
+    locationSummary: "Saidia Marina & Coastal Resort",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Appartement+Mediterranee+Saidia",
     address: "City Center, Saïdia 63600, Morocco",
@@ -2403,5 +2520,10 @@ export const saidiaSleep: SleepListing[] = [
       business: "High-speed WiFi and space support remote work.",
       nomad: "A practical apartment base for nomads in Saïdia.",
     },
+    coordinates: {
+      lat: 35.104166,
+      lng: -2.296155
+    },
+    tags: ["family-favorite", "heritage"]
   }
 ]

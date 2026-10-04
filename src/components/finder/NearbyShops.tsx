@@ -2,92 +2,52 @@
  * NearbyShops.tsx
  *
  * Shows nearby shops and landmarks for the current shop detail view.
- * Uses the current shop's coordinates to find neighboring listings.
+ * Data + distance come from the canonical shop module backend service
+ * (single source of truth) — real spatial search by GPS coordinates.
  *
  * Shows max 3 results (anti-overload pattern).
  */
 
 import { useMemo } from 'react';
 import { motion } from 'motion/react';
-import { MapPin, Navigation, Star, ArrowRight } from 'lucide-react';
-import { ShopListing } from '../../listings/types';
-import { getListings } from '../../listings';
+import { MapPin, Navigation, Star, ArrowRight, ShoppingBag } from 'lucide-react';
+import { getShopById, getShopsNearby } from '../../shop';
 import { useNavigate } from 'react-router-dom';
 import { useExploreStore } from '../../state/exploreStore';
+import { getListingUrl } from '../../listings/placeRoutes';
 
 interface NearbyShopsProps {
   currentShopId: string;
   city: string;
   nearbyLandmarks?: string[];
-  allShops?: ShopListing[]; // Optional: inject from parent if available
-}
-
-/**
- * Haversine distance in km between two lat/lng points.
- */
-function haversineKm(
-  lat1: number,
-  lng1: number,
-  lat2: number,
-  lng2: number,
-): number {
-  const R = 6371;
-  const dLat = ((lat2 - lat1) * Math.PI) / 180;
-  const dLng = ((lng2 - lng1) * Math.PI) / 180;
-  const a =
-    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-    Math.cos((lat1 * Math.PI) / 180) *
-      Math.cos((lat2 * Math.PI) / 180) *
-      Math.sin(dLng / 2) *
-      Math.sin(dLng / 2);
-  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-  return R * c;
 }
 
 export default function NearbyShops({
   currentShopId,
   city,
   nearbyLandmarks = [],
-  allShops = [],
 }: NearbyShopsProps) {
   const navigate = useNavigate();
   const { setActiveItem, setView } = useExploreStore();
 
-  // Resolve shops
-  const resolvedShops = useMemo(() => {
-    if (allShops && allShops.length > 0) {
-      return allShops;
-    }
-    return (getListings(city, 'shopping') || []) as ShopListing[];
-  }, [allShops, city]);
-
-  // Locate the current shop in the list
+  // Locate the current shop via the backend service
   const currentShop = useMemo(
-    () => resolvedShops.find((s) => s.id === currentShopId),
-    [currentShopId, resolvedShops],
+    () => getShopById(currentShopId),
+    [currentShopId],
   );
 
-  // Find nearby shops (within ~1km, exclude self, max 3)
+  // Find nearby shops via the backend spatial search (within ~2km, exclude self, max 3)
   const nearby = useMemo(() => {
-    if (!currentShop?.coordinates || resolvedShops.length === 0) {
-      // Fallback: show whatever we have
+    if (!currentShop?.coordinates) {
       return [];
     }
 
     const { lat, lng } = currentShop.coordinates;
 
-    const scored = resolvedShops
-      .filter((s) => s.id !== currentShopId && s.coordinates)
-      .map((s) => ({
-        shop: s,
-        distanceKm: haversineKm(lat, lng, s.coordinates!.lat, s.coordinates!.lng),
-      }))
-      .filter((s) => s.distanceKm < 2) // Within 2km
-      .sort((a, b) => a.distanceKm - b.distanceKm)
+    return getShopsNearby(lat, lng, 2)
+      .filter((s) => s.id !== currentShopId)
       .slice(0, 3);
-
-    return scored;
-  }, [currentShop, currentShopId, resolvedShops]);
+  }, [currentShop, currentShopId]);
 
   // If no nearby shops found, show landmarks as context
   if (nearby.length === 0 && nearbyLandmarks.length === 0) {
@@ -102,31 +62,30 @@ export default function NearbyShops({
 
       <div className="space-y-3">
         {/* Nearby shops */}
-        {nearby.map(({ shop, distanceKm }) => (
+        {nearby.map(({ distanceKm, ...shop }) => (
           <motion.button
             key={shop.id}
             initial={{ opacity: 0, x: -8 }}
             animate={{ opacity: 1, x: 0 }}
             onClick={() => {
+              // Open the nearby shop on its own name-based page
+              const url = getListingUrl(shop);
+              if (url) {
+                navigate(url);
+                return;
+              }
               setActiveItem(shop.id);
               setView('detail');
-              navigate(`/finder/${city}/${shop.id}`);
+              navigate(`/finder/${shop.city || city}/${shop.id}`);
             }}
             className="w-full text-left flex items-center gap-4 p-4 rounded-2xl bg-stone-50 border border-stone-100 hover:bg-stone-100 transition-colors group cursor-pointer hover:border-[#C9A84C]/30"
           >
-            {/* Thumbnail */}
-            <div className="w-14 h-14 rounded-xl overflow-hidden shrink-0 bg-stone-200">
-              {shop.images?.[0] ? (
-                <img
-                  src={shop.images[0]}
-                  alt={shop.name}
-                  className="w-full h-full object-cover"
-                />
-              ) : (
-                <div className="w-full h-full flex items-center justify-center">
-                  <MapPin className="w-5 h-5 text-stone-400" />
-                </div>
-              )}
+            {/* No-Image Tile — warm gradient with shop icon */}
+            <div className="w-14 h-14 rounded-xl shrink-0 relative overflow-hidden
+              bg-gradient-to-br from-[#F5EDE4] to-[#EDE0D0] border border-[#E2D4C2]
+              flex items-center justify-center">
+              <div className="absolute inset-0 bg-[radial-gradient(#C9A84C_0.5px,transparent_0.5px)] [background-size:12px_12px] opacity-10 pointer-events-none" />
+              <ShoppingBag className="w-5 h-5 text-[#C2613C] relative z-10" />
             </div>
 
             {/* Info */}

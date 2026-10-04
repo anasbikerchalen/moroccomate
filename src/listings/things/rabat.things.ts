@@ -38,17 +38,16 @@ export const rabatThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "cultural-tour",
-      "instagrammable",
-      "urban"
-    ],
+    "tags": ["cultural-tour", "instagrammable", "private", "sunset", "urban", "walk-in"],
     "archetypeAffinity": [
       "first-timer",
       "culture",
       "nomad"
     ],
-    "tip": "Go early or at golden hour for the best light and the quietest lanes."
+    "tip": "Go early or at golden hour for the best light and the quietest lanes.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: true
   },
   {
     "id": "rabat-hassan-tower",
@@ -87,16 +86,15 @@ export const rabatThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "cultural-tour",
-      "instagrammable",
-      "urban"
-    ],
+    "tags": ["cultural-tour", "instagrammable", "sunset", "urban", "walk-in"],
     "archetypeAffinity": [
       "first-timer",
       "culture"
     ],
-    "tip": "Pair it with the nearby mausoleum before tour buses arrive."
+    "tip": "Pair it with the nearby mausoleum before tour buses arrive.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: true
   },
   {
     "id": "rabat-mausoleum-of-mohammed-v",
@@ -135,16 +133,15 @@ export const rabatThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "cultural-tour",
-      "instagrammable",
-      "urban"
-    ],
+    "tags": ["cultural-tour", "instagrammable", "urban", "walk-in"],
     "archetypeAffinity": [
       "first-timer",
       "culture"
     ],
-    "tip": "Dress modestly and look up at the cedar and zellige details inside."
+    "tip": "Dress modestly and look up at the cedar and zellige details inside.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     "id": "rabat-andalusian-gardens",
@@ -183,17 +180,16 @@ export const rabatThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": true,
     "isPhotographyFriendly": true,
-    "tags": [
-      "nature",
-      "instagrammable",
-      "urban"
-    ],
+    "tags": ["instagrammable", "nature", "relaxed", "urban", "walk-in"],
     "archetypeAffinity": [
       "first-timer",
       "culture",
       "nomad"
     ],
-    "tip": "Best as a cool-down stop after walking the kasbah."
+    "tip": "Best as a cool-down stop after walking the kasbah.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     "id": "rabat-chellah",
@@ -232,16 +228,15 @@ export const rabatThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "cultural-tour",
-      "nature",
-      "instagrammable"
-    ],
+    "tags": ["cultural-tour", "instagrammable", "nature", "walk-in"],
     "archetypeAffinity": [
       "culture",
       "first-timer"
     ],
-    "tip": "Carry water; the site is partly exposed and rewards slow exploration."
+    "tip": "Carry water; the site is partly exposed and rewards slow exploration.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     "id": "rabat-rabat-medina-and-rue-des-consuls",
@@ -279,18 +274,16 @@ export const rabatThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "shopping",
-      "medina",
-      "authentic",
-      "urban"
-    ],
+    "tags": ["authentic", "medina", "private", "shopping", "urban", "walk-in"],
     "archetypeAffinity": [
       "culture",
       "nomad",
       "first-timer"
     ],
-    "tip": "Enter from Bab El Had and drift toward Rue des Consuls for the best craft stretch."
+    "tip": "Enter from Bab El Had and drift toward Rue des Consuls for the best craft stretch.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: false
   },
   {
     "id": "rabat-mohammed-vi-museum-of-modern-and-contemporary-art",
@@ -330,15 +323,15 @@ export const rabatThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": true,
     "isPhotographyFriendly": false,
-    "tags": [
-      "cultural-tour",
-      "urban"
-    ],
+    "tags": ["cultural-tour", "private", "relaxed", "urban", "walk-in"],
     "archetypeAffinity": [
       "culture",
       "nomad"
     ],
-    "tip": "Check current exhibitions before you go; major shows can change the pace of the visit."
+    "tip": "Check current exhibitions before you go; major shows can change the pace of the visit.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: false
   },
   {
     "id": "rabat-museum-of-history-and-civilisations",
@@ -378,15 +371,15 @@ export const rabatThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": true,
     "isPhotographyFriendly": false,
-    "tags": [
-      "cultural-tour",
-      "urban"
-    ],
+    "tags": ["cultural-tour", "morning", "private", "relaxed", "urban", "walk-in"],
     "archetypeAffinity": [
       "culture",
       "first-timer"
     ],
-    "tip": "It works especially well on hot afternoons when you want an indoor visit."
+    "tip": "It works especially well on hot afternoons when you want an indoor visit.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: false
   },
   {
     "id": "rabat-rabat-beach",
@@ -425,17 +418,15 @@ export const rabatThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "coastal",
-      "nature",
-      "instagrammable",
-      "urban"
-    ],
+    "tags": ["coastal", "instagrammable", "nature", "relaxed", "sunset", "urban", "walk-in"],
     "archetypeAffinity": [
       "first-timer",
       "nomad"
     ],
-    "tip": "The promenade is liveliest late afternoon; swimming conditions vary with surf."
+    "tip": "The promenade is liveliest late afternoon; swimming conditions vary with surf.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: true
   },
   {
     "id": "rabat-bouregreg-marina-walk",
@@ -474,16 +465,15 @@ export const rabatThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": true,
     "isPhotographyFriendly": true,
-    "tags": [
-      "coastal",
-      "urban",
-      "instagrammable"
-    ],
+    "tags": ["coastal", "instagrammable", "private", "relaxed", "sunset", "urban", "walk-in"],
     "archetypeAffinity": [
       "nomad",
       "luxury"
     ],
-    "tip": "Come at dusk when the kasbah and bridge lights begin to glow."
+    "tip": "Come at dusk when the kasbah and bridge lights begin to glow.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: true
   },
   {
     "id": "rabat-grand-theatre-de-rabat-exterior-walk",
@@ -522,15 +512,15 @@ export const rabatThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": true,
     "isPhotographyFriendly": true,
-    "tags": [
-      "instagrammable",
-      "urban"
-    ],
+    "tags": ["instagrammable", "urban", "walk-in"],
     "archetypeAffinity": [
       "nomad",
       "first-timer"
     ],
-    "tip": "Late afternoon gives the building softer contrast for photos."
+    "tip": "Late afternoon gives the building softer contrast for photos.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     "id": "rabat-royal-palace-esplanade",
@@ -569,15 +559,15 @@ export const rabatThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "cultural-tour",
-      "urban"
-    ],
+    "tags": ["cultural-tour", "private", "sunset", "urban", "walk-in"],
     "archetypeAffinity": [
       "first-timer",
       "culture"
     ],
-    "tip": "Security is tight; keep the visit respectful and stick to public viewpoints."
+    "tip": "Security is tight; keep the visit respectful and stick to public viewpoints.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: true
   },
   {
     "id": "rabat-st-peters-cathedral",
@@ -616,16 +606,15 @@ export const rabatThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "cultural-tour",
-      "urban",
-      "instagrammable"
-    ],
+    "tags": ["cultural-tour", "instagrammable", "urban", "walk-in"],
     "archetypeAffinity": [
       "culture",
       "nomad"
     ],
-    "tip": "Visit mid-morning when the façade is evenly lit."
+    "tip": "Visit mid-morning when the façade is evenly lit.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     "id": "rabat-villa-des-arts",
@@ -665,15 +654,15 @@ export const rabatThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": true,
     "isPhotographyFriendly": false,
-    "tags": [
-      "cultural-tour",
-      "urban"
-    ],
+    "tags": ["cultural-tour", "relaxed", "urban", "walk-in"],
     "archetypeAffinity": [
       "culture",
       "nomad"
     ],
-    "tip": "Pair it with nearby cafés or the Mohammed VI Museum for a stronger art day."
+    "tip": "Pair it with nearby cafés or the Mohammed VI Museum for a stronger art day.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     "id": "rabat-jardin-dessais-botaniques",
@@ -712,15 +701,15 @@ export const rabatThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": true,
     "isPhotographyFriendly": true,
-    "tags": [
-      "nature",
-      "urban"
-    ],
+    "tags": ["nature", "relaxed", "urban", "walk-in"],
     "archetypeAffinity": [
       "nomad",
       "culture"
     ],
-    "tip": "Weekday mornings are quieter than evenings and weekends."
+    "tip": "Weekday mornings are quieter than evenings and weekends.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     "id": "rabat-les-jardins-exotiques-de-bouknadel",
@@ -759,15 +748,15 @@ export const rabatThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": true,
     "isPhotographyFriendly": true,
-    "tags": [
-      "nature",
-      "instagrammable"
-    ],
+    "tags": ["instagrammable", "nature", "relaxed", "walk-in"],
     "archetypeAffinity": [
       "first-timer",
       "nomad"
     ],
-    "tip": "Allow extra time for transport; it is better as a half-day outing."
+    "tip": "Allow extra time for transport; it is better as a half-day outing.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     "id": "rabat-rabat-zoo",
@@ -806,14 +795,14 @@ export const rabatThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": true,
     "isPhotographyFriendly": true,
-    "tags": [
-      "nature",
-      "urban"
-    ],
+    "tags": ["nature", "relaxed", "urban", "walk-in"],
     "archetypeAffinity": [
       "first-timer"
     ],
-    "tip": "Buy tickets earlier in the day to avoid the warmest hours."
+    "tip": "Buy tickets earlier in the day to avoid the warmest hours.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     "id": "rabat-tramway-rabat-sal-ride",
@@ -852,15 +841,15 @@ export const rabatThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": true,
     "isPhotographyFriendly": true,
-    "tags": [
-      "urban",
-      "authentic"
-    ],
+    "tags": ["authentic", "urban", "walk-in"],
     "archetypeAffinity": [
       "nomad",
       "first-timer"
     ],
-    "tip": "Ride in off-peak hours if you want windows and easier photography."
+    "tip": "Ride in off-peak hours if you want windows and easier photography.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     "id": "rabat-bouregreg-boat-crossing",
@@ -896,16 +885,15 @@ export const rabatThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "coastal",
-      "urban",
-      "instagrammable"
-    ],
+    "tags": ["coastal", "instagrammable", "relaxed", "urban", "walk-in"],
     "archetypeAffinity": [
       "nomad",
       "first-timer"
     ],
-    "tip": "Go near sunset for the best light and cooler temperatures."
+    "tip": "Go near sunset for the best light and cooler temperatures.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     "id": "rabat-mega-mall-and-ice-rink",
@@ -943,14 +931,14 @@ export const rabatThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": true,
     "isPhotographyFriendly": true,
-    "tags": [
-      "shopping",
-      "urban"
-    ],
+    "tags": ["relaxed", "shopping", "urban", "walk-in"],
     "archetypeAffinity": [
       "nomad",
       "first-timer"
     ],
-    "tip": "Useful on rainy or very hot days; evenings are busiest."
+    "tip": "Useful on rainy or very hot days; evenings are busiest.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   }
 ]

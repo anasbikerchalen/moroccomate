@@ -192,13 +192,15 @@ export const ourikaSleep: SleepListing[] = [
     freeCancellation: false,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "seniors"],
     tip: "Book a garden tour with the head horticulturist to learn about their sustainable pesticide-free farming.",
     vibeTags: ["Hilltop", "Eco-Kasbah", "Panoramic", "Organic-Garden"],
-    locationSummary: "Aghbalou Hilltop - Atlas Panorama",
+    locationSummary: "Ourika Valley - Atlas Foothills",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Kasbah+Bab+Ourika",
     address: "Aghbalou, Ourika Valley 42452, Morocco",
@@ -271,6 +273,11 @@ export const ourikaSleep: SleepListing[] = [
       business: "Quiet enough for executive retreats and focused work.",
       nomad: "A beautiful workation base if you want silence and mountain views.",
     },
+    coordinates: {
+      lat: 31.358678,
+      lng: -7.763159
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "or-sleep-2",
@@ -308,13 +315,15 @@ export const ourikaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["couple", "solo", "seniors"],
     tip: "Perfect for couples seeking total tranquility; each suite has a cozy wood fireplace for chilly nights.",
     vibeTags: ["Adult-Only", "Eco-Lodge", "Serene", "Fireplace-Suites"],
-    locationSummary: "Ourika Valley - Adult-Only Eco Retreat",
+    locationSummary: "Ourika Valley - Atlas Foothills",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Le+Douar+Berbere+Eco+Lodge+Ourika",
     address: "Ourika Valley, Al Haouz 42452, Morocco",
@@ -381,6 +390,11 @@ export const ourikaSleep: SleepListing[] = [
       business: "Quiet and private for retreat-style work.",
       nomad: "Excellent for deep-focus work and digital detox.",
     },
+    coordinates: {
+      lat: 31.344454,
+      lng: -7.751827
+    },
+    tags: []
   },
   {
     id: "or-sleep-3",
@@ -418,13 +432,15 @@ export const ourikaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family"],
     tip: "Popular for families; book the large garden suite when traveling with children.",
     vibeTags: ["Garden-Oasis", "Family-Friendly", "Orchards", "Quiet"],
-    locationSummary: "Ourika Center - Fruit Orchard Retreat",
+    locationSummary: "Ourika Valley - Atlas Foothills",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Les+Jardins+de+Taja+Ourika",
     address: "Ourika Valley, Al Haouz 42452, Morocco",
@@ -491,6 +507,11 @@ export const ourikaSleep: SleepListing[] = [
       business: "Good WiFi and peaceful corners for light work.",
       nomad: "A balanced valley base for nomads with a car.",
     },
+    coordinates: {
+      lat: 31.38038,
+      lng: -7.784386
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "or-sleep-4",
@@ -528,13 +549,15 @@ export const ourikaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family", "seniors"],
     tip: "The home-cooked breakfast is celebrated; do not miss fresh local breads and honey.",
     vibeTags: ["Olive-Grove", "Country-House", "Mountain-Pool", "Refined"],
-    locationSummary: "Ourika Center - Olive Grove Country House",
+    locationSummary: "Ourika Valley - Atlas Foothills",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Dar+Tafantant+Ourika",
     address: "Ourika Valley, Al Haouz 42452, Morocco",
@@ -601,6 +624,11 @@ export const ourikaSleep: SleepListing[] = [
       business: "Quiet enough for writing or remote work.",
       nomad: "A peaceful valley work base with excellent breakfasts.",
     },
+    coordinates: {
+      lat: 31.632146,
+      lng: -7.990344
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "or-sleep-5",
@@ -638,13 +666,15 @@ export const ourikaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family"],
     tip: "Combine your stay with a short walk to the Berber Ecomuseum of the Ourika Valley.",
     vibeTags: ["Wellness", "Eco-Retreat", "Cultural", "Pottery-Village"],
-    locationSummary: "Tafza - Ecomuseum and Pottery Village",
+    locationSummary: "Ourika Valley - Atlas Foothills",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Ourika+Lodge+The+Healing+Place",
     address: "Tafza, Ourika Valley 42452, Morocco",
@@ -711,6 +741,11 @@ export const ourikaSleep: SleepListing[] = [
       business: "Quiet enough for retreat-style work.",
       nomad: "A gentle wellness base for slow digital-nomad days.",
     },
+    coordinates: {
+      lat: 31.344454,
+      lng: -7.751827
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "or-sleep-6",
@@ -748,13 +783,15 @@ export const ourikaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["couple", "family", "seniors", "business-friendly"],
     tip: "Book a traditional Moroccan scrub massage after a long day of hiking the valley.",
     vibeTags: ["Kasbah", "Spa", "Gardens", "Mountain-Getaway"],
-    locationSummary: "Ourika Center - Kasbah Spa Hotel",
+    locationSummary: "Ourika Valley - Atlas Foothills",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Kasbah+Agounsane+Hotel+Spa+Ourika",
     address: "Ourika Valley, Al Haouz 42452, Morocco",
@@ -821,6 +858,11 @@ export const ourikaSleep: SleepListing[] = [
       business: "Suitable for small retreats and work breaks.",
       nomad: "A comfortable workation base with spa recovery.",
     },
+    coordinates: {
+      lat: 31.35608,
+      lng: -7.801689
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "or-sleep-7",
@@ -858,13 +900,15 @@ export const ourikaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Enjoy a classic sunset tagine on the roof deck as the Atlas Mountains turn purple.",
     vibeTags: ["Country-Riad", "Olive-Views", "Rooftop", "Hammam"],
-    locationSummary: "Ourika Center - Olive Tree Views",
+    locationSummary: "Ourika Valley - Atlas Foothills",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Timskrine+Ourika",
     address: "Ourika Valley, Al Haouz 42452, Morocco",
@@ -931,6 +975,11 @@ export const ourikaSleep: SleepListing[] = [
       business: "Quiet enough for remote work with mountain views.",
       nomad: "A balanced countryside base for nomads.",
     },
+    coordinates: {
+      lat: 31.632146,
+      lng: -7.990344
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "or-sleep-8",
@@ -968,13 +1017,15 @@ export const ourikaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Use the shaded outdoor lounge spaces to read and listen to local birds.",
     vibeTags: ["Retreat", "Organic-Garden", "Quiet", "Nature"],
-    locationSummary: "Ourika Center - Organic Garden Retreat",
+    locationSummary: "Ourika Valley - Atlas Foothills",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=3A+Retreat+Lodge+Ourika",
     address: "Ourika Valley, Al Haouz 42452, Morocco",
@@ -1041,6 +1092,11 @@ export const ourikaSleep: SleepListing[] = [
       business: "A quiet shared lounge supports light remote work.",
       nomad: "A calm garden base for slow nomad days.",
     },
+    coordinates: {
+      lat: 31.344454,
+      lng: -7.751827
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "or-sleep-9",
@@ -1078,13 +1134,15 @@ export const ourikaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "This lodge has very low light pollution; sit on the terrace after dark for spectacular stargazing.",
     vibeTags: ["Ridge-Views", "Stone-Lodge", "Stargazing", "Adventure"],
-    locationSummary: "Aït Amer Ridge - Valley Panorama",
+    locationSummary: "Ourika Valley - Atlas Foothills",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Aurocher+Ourika",
     address: "Aït Amer, Ourika Valley 42452, Morocco",
@@ -1151,6 +1209,11 @@ export const ourikaSleep: SleepListing[] = [
       business: "Quiet enough for focused work if you have stable connection.",
       nomad: "A scenic adventure base for nomads with a car.",
     },
+    coordinates: {
+      lat: 31.526682,
+      lng: -7.959435
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "or-sleep-10",
@@ -1261,6 +1324,11 @@ export const ourikaSleep: SleepListing[] = [
       business: "Not ideal for formal business, but peaceful for writing.",
       nomad: "A good nature base for nomads hiking early mornings.",
     },
+    coordinates: {
+      lat: 31.231566,
+      lng: -7.666535
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "or-sleep-11",
@@ -1298,13 +1366,15 @@ export const ourikaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Ask hosts to coordinate a local Berber cooking class in their traditional family kitchen.",
     vibeTags: ["Garden", "Family-Run", "Cooking-Class", "Warm"],
-    locationSummary: "Ourika Center - Garden Paths",
+    locationSummary: "Ourika Valley - Atlas Foothills",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Jnane+Ayam+Atlas+Ourika",
     address: "Ourika Valley, Al Haouz 42452, Morocco",
@@ -1371,6 +1441,11 @@ export const ourikaSleep: SleepListing[] = [
       business: "Shared lounge is good for light remote work.",
       nomad: "A balanced guesthouse base for nomads in the valley.",
     },
+    coordinates: {
+      lat: 31.36687,
+      lng: -7.774971
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "or-sleep-12",
@@ -1408,13 +1483,15 @@ export const ourikaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Order dinner in advance; their slow-cooked beef and prune tagine uses organic local beef.",
     vibeTags: ["Amazigh", "Clay-Built", "Mountain-Views", "Hiking"],
-    locationSummary: "Setti Fatma - Quiet Valley Corner",
+    locationSummary: "Ourika Valley - Atlas Foothills",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Guest+House+Tigminou+Ourika",
     address: "Setti Fatma, Ourika Valley 42452, Morocco",
@@ -1481,6 +1558,11 @@ export const ourikaSleep: SleepListing[] = [
       business: "Quiet enough for writing and planning routes.",
       nomad: "A peaceful upper-valley base for slow remote work.",
     },
+    coordinates: {
+      lat: 31.000049,
+      lng: -8.158327
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "or-sleep-13",
@@ -1518,13 +1600,15 @@ export const ourikaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Its location next to the Berber Ecomuseum makes it convenient for local weaving and history.",
     vibeTags: ["Kasbah", "Orchard-Views", "Cultural", "Terraced"],
-    locationSummary: "Ourika Center - Near Berber Ecomuseum",
+    locationSummary: "Ourika Valley - Atlas Foothills",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Kasbah+Omar+Ourika",
     address: "Ourika Valley, Al Haouz 42452, Morocco",
@@ -1591,6 +1675,11 @@ export const ourikaSleep: SleepListing[] = [
       business: "Quiet terraces can work for light remote work.",
       nomad: "A cultural base for nomads who like village walks.",
     },
+    coordinates: {
+      lat: 31.615416,
+      lng: -7.988681
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "or-sleep-14",
@@ -1628,13 +1717,15 @@ export const ourikaSleep: SleepListing[] = [
     freeCancellation: false,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "A quiet spot if you want to hike the seven cascades without staying in the busier village center.",
     vibeTags: ["Rustic", "Stone-Lodge", "Hiker-Base", "Quiet"],
-    locationSummary: "Setti Fatma - Upper Valley Hiker Lodge",
+    locationSummary: "Ourika Valley - Atlas Foothills",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Tazart+Lodge+Setti+Fatma",
     address: "Setti Fatma, Ourika Valley 42452, Morocco",
@@ -1701,6 +1792,11 @@ export const ourikaSleep: SleepListing[] = [
       business: "Not business-focused, but quiet for writing.",
       nomad: "A good hiking base for nomads seeking simple mountain quiet.",
     },
+    coordinates: {
+      lat: 31.360698,
+      lng: -7.773579
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "or-sleep-15",
@@ -1738,13 +1834,15 @@ export const ourikaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Use the onsite hammam; their traditional steam treatment and olive-oil massages are celebrated.",
     vibeTags: ["Auberge", "Rose-Garden", "Pool", "Social"],
-    locationSummary: "Setti Fatma - Rose Garden Auberge",
+    locationSummary: "Ourika Valley - Atlas Foothills",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Auberge+le+Maquis+Ourika",
     address: "Setti Fatma, Ourika Valley 42452, Morocco",
@@ -1811,6 +1909,11 @@ export const ourikaSleep: SleepListing[] = [
       business: "Not ideal for serious business, but fine for planning.",
       nomad: "A simple nature base for nomads between hikes.",
     },
+    coordinates: {
+      lat: 30.97522,
+      lng: -7.104741
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "or-sleep-16",
@@ -1848,13 +1951,15 @@ export const ourikaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Enjoy morning mint tea in the central courtyard by the indoor plunge pool.",
     vibeTags: ["Budget", "Indoor-Pool", "Colorful", "Valley-Base"],
-    locationSummary: "Ourika Center - Indoor Pool Riad",
+    locationSummary: "Ourika Valley - Atlas Foothills",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Belgika+Ourika",
     address: "Ourika Valley, Al Haouz 42452, Morocco",
@@ -1921,6 +2026,11 @@ export const ourikaSleep: SleepListing[] = [
       business: "Rooftop works for light remote tasks.",
       nomad: "A low-cost valley base for nomads with basic needs.",
     },
+    coordinates: {
+      lat: 31.632146,
+      lng: -7.990344
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "or-sleep-17",
@@ -2031,6 +2141,11 @@ export const ourikaSleep: SleepListing[] = [
       business: "High-speed WiFi makes it practical for light work.",
       nomad: "A budget nomad base with a helpful local host.",
     },
+    coordinates: {
+      lat: 31.344454,
+      lng: -7.751827
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "or-sleep-18",
@@ -2068,13 +2183,15 @@ export const ourikaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Spend late afternoon on the sun deck as the red mountains reflect the light.",
     vibeTags: ["Berber", "Indoor-Pool", "Mountain-Views", "Quiet"],
-    locationSummary: "Sbiti - Red Mountain Views",
+    locationSummary: "Ourika Valley - Atlas Foothills",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Shams+Ourika",
     address: "Sbiti, Ourika Valley 42452, Morocco",
@@ -2141,6 +2258,11 @@ export const ourikaSleep: SleepListing[] = [
       business: "A calm spot for light work and reading.",
       nomad: "A quiet rural base for slow digital-nomad days.",
     },
+    coordinates: {
+      lat: 31.526682,
+      lng: -7.959435
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "or-sleep-19",
@@ -2178,13 +2300,15 @@ export const ourikaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Its central valley location makes it easy to catch local transport to Setti Fatma.",
     vibeTags: ["Simple", "Modern", "Pool", "Transit-Friendly"],
-    locationSummary: "Ourika Center - Transport-Friendly Hotel",
+    locationSummary: "Ourika Valley - Atlas Foothills",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Villa+des+etoiles+Ourika",
     address: "Ourika Valley, Al Haouz 42452, Morocco",
@@ -2251,6 +2375,11 @@ export const ourikaSleep: SleepListing[] = [
       business: "24-hour desk helps with work trips and logistics.",
       nomad: "A practical low-cost base for nomads moving around the valley.",
     },
+    coordinates: {
+      lat: 31.639013,
+      lng: -7.98037
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "or-sleep-20",
@@ -2288,13 +2417,15 @@ export const ourikaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["solo", "friends", "friends", "family"],
     tip: "Wake early to hike to the Setti Fatma waterfalls before Marrakech day-trippers arrive around 10 AM.",
     vibeTags: ["Budget", "Waterfall-Base", "Mountain", "Authentic"],
-    locationSummary: "Setti Fatma - Waterfall Gateway",
+    locationSummary: "Ourika Valley - Atlas Foothills",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=auberge+gite+de+jeunesse+les+Cascades+Setti+Fatma",
     address: "Setti Fatma, Ourika Valley 42452, Morocco",
@@ -2361,5 +2492,10 @@ export const ourikaSleep: SleepListing[] = [
       business: "Not suitable for business travel.",
       nomad: "A bare-bones hiking base for budget nomads.",
     },
+    coordinates: {
+      lat: 31.344454,
+      lng: -7.751827
+    },
+    tags: ["dorm", "family-favorite"]
   }
 ]

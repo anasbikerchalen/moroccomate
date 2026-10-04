@@ -58,6 +58,8 @@ export const taghazoutEat: EatListing[] = [
     mealTypes: ['breakfast', 'lunch', 'dinner', 'brunch', 'flexible'],
     experienceTypes: ['Waterfront Dining', 'Casual Dining', 'Beachfront Grill'],
     foodStyles: ['Mediterranean', 'Seafood', 'Moroccan'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'seafood', 'moroccan-traditional'],
     crowdLevel: 'bustling',
     groupTypes: ['couple', 'friends', 'family', 'solo'],
     hasEnglishStaff: true,
@@ -69,25 +71,51 @@ export const taghazoutEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: true,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '08:00',
     closeTime: '23:00',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.4,
     googleReviewCount: 1850,
     tripadvisorRating: 4.4,
-    tripadvisorReviewCount: 1850,
+    tripadvisorReviewCount: 620,
     theforkRating: 4.4,
     theforkReviewCount: 1850,
     restaurantguruRating: 4.4,
     restaurantguruReviewCount: 1850,
+
+    tip: 'One of the few spots in the main village that serves cold beer and wine. Excellent sunset terrace views.',
+    archetypeAffinity: ['beach-lover', 'digital-nomad', 'foodie'],
+    vibeTags: ['beachfront', 'ocean-terrace', 'surf-culture', 'cocktails'],
+    isHiddenGem: false,
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['phone', 'online'],
+    reservationContact: '+212528200101',
     googleMapsUrl: 'https://maps.google.com/?q=World+of+Waves+Taghazout',
     bestDishes: ['Shrimp Curry', 'Ocean Seafood Pasta', 'Moroccan Shakshuka Breakfast'],
     alcoholPolicy: 'serves-alcohol',
     ramadanFriendly: 'serves-lunch',
-    tip: 'One of the few spots in the main village that serves cold beer and wine. Excellent sunset terrace views.',
+    customStory: 'Built right against the shoreline rocks in the core of Taghazout, World of Waves anchors the coastal village\'s vibrant surf, yoga, and foodie lifestyle. Diners look straight out at point breaks while enjoying fresh Atlantic catches, vibrant salads, and cold local beer on the open-air wooden deck.',
+    languagesSpoken: ['English', 'French', 'Arabic/Darija'],
+    exactAddressAndCoordinates: {
+      address: 'Villa Tizniti, Front de Mer, Taghazout 80022, Morocco',
+      lat: 30.54516,
+      lng: -9.70858
+    },
+    pros: [
+      'Unrivaled direct oceanfront terrace overlooking the main bay and surf breaks.',
+      'One of the few licensed establishments in Taghazout village serving beer and wine.',
+      'Consistently delicious healthy breakfast and seafood mains.'
+    ],
+    cons: [
+      'Can get very crowded during sunset hours; terrace seats fill up fast.',
+      'Slightly higher pricing than surrounding village diners.'
+    ],
     bestTimeToVisit: 'Early evening around 18:30 for sunset',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor', 'terrace'],
@@ -95,6 +123,8 @@ export const taghazoutEat: EatListing[] = [
     wiFi: true,
     airConditioning: false,
     wheelchairAccessible: true
+  ,
+    tags: ["alcohol", "breakfast", "budget", "dinner", "terrace", "wifi"]
   },
   {
     id: 'e-taghazout-2',
@@ -107,6 +137,8 @@ export const taghazoutEat: EatListing[] = [
     mealTypes: ['breakfast', 'lunch', 'brunch', 'flexible'],
     experienceTypes: ['Cafe', 'Casual Dining'],
     foodStyles: ['Mediterranean', 'Healthy', 'Cafe'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'cafe-pastry'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'couple', 'friends'],
     hasEnglishStaff: true,
@@ -118,25 +150,51 @@ export const taghazoutEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '08:30',
     closeTime: '20:00',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.5,
     googleReviewCount: 920,
     tripadvisorRating: 4.5,
-    tripadvisorReviewCount: 920,
+    tripadvisorReviewCount: 280,
     theforkRating: 4.5,
     theforkReviewCount: 920,
     restaurantguruRating: 4.5,
     restaurantguruReviewCount: 920,
+
+    tip: 'The upper-floor coworking loft has great natural light, robust Wi-Fi, and multiple power outlets—perfect for remote work.',
+    archetypeAffinity: ['digital-nomad', 'health-conscious', 'solo-traveler'],
+    vibeTags: ['nomad-hub', 'smoothie-bowls', 'specialty-coffee', 'laid-back'],
+    isHiddenGem: false,
     paymentMethods: ['cash'],
     reservationMethod: ['none'],
+    reservationContact: '+212612345678',
     googleMapsUrl: 'https://maps.google.com/?q=Teapot+Cafe+Taghazout',
     bestDishes: ['Avocado Poached Eggs on Toast', 'Açai Power Bowl', 'Iced Almond Latte'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'The upper-floor coworking loft has great natural light, robust Wi-Fi, and multiple power outlets—perfect for remote work.',
+    customStory: 'Created to serve Taghazout’s international digital nomad and surf community, Teapot Cafe delivers wholesome nutrition alongside artisanal barista coffee. Its bright bohemian interior and cozy upper floor offer a peaceful work sanctuary accompanied by freshly blended superfood smoothies and homemade banana breads.',
+    languagesSpoken: ['English', 'French', 'Arabic/Darija'],
+    exactAddressAndCoordinates: {
+      address: 'Route d\'Essaouira, Centre Taghazout 80022, Morocco',
+      lat: 30.54482,
+      lng: -9.70775
+    },
+    pros: [
+      'Top remote-work spot with reliable Wi-Fi and ample laptop seating.',
+      'Vibrant wholesome breakfast bowls, sourdough toasts, and plant-based milks.',
+      'Super friendly, English-fluent staff who know the surf report.'
+    ],
+    cons: [
+      'Cash only payment.',
+      'Can get busy and crowded with remote workers between 10:00 and 13:00.'
+    ],
     bestTimeToVisit: 'Early morning for fresh baked goods',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor'],
@@ -144,6 +202,8 @@ export const taghazoutEat: EatListing[] = [
     wiFi: true,
     airConditioning: false,
     wheelchairAccessible: true
+  ,
+    tags: ["breakfast", "budget", "cafe-pastry", "dry", "juice", "wifi"]
   },
   {
     id: 'e-taghazout-3',
@@ -156,6 +216,8 @@ export const taghazoutEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Casual Dining', 'Traditional Dining', 'Cozy casual family-run Moroccan eatery'],
     foodStyles: ['Moroccan', 'Mediterranean'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'international'],
     crowdLevel: 'balanced',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'kids-friendly'],
     hasEnglishStaff: true,
@@ -167,25 +229,51 @@ export const taghazoutEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '22:30',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.8,
     googleReviewCount: 410,
     tripadvisorRating: 4.8,
-    tripadvisorReviewCount: 410,
+    tripadvisorReviewCount: 140,
     theforkRating: 4.8,
     theforkReviewCount: 410,
     restaurantguruRating: 4.8,
     restaurantguruReviewCount: 410,
+
+    tip: 'Chef Titrite travels the world to find unique spices for her dishes. Try her slow-cooked beef tagine or her amazing burgers with crispy local fries.',
+    archetypeAffinity: ['foodie', 'budget-conscious', 'culture-seeker'],
+    vibeTags: ['female-chef', 'homestyle', 'fusion-diner', 'incredible-value'],
+    isHiddenGem: true,
     paymentMethods: ['cash'],
     reservationMethod: ['none'],
+    reservationContact: '+212670123456',
     googleMapsUrl: 'https://maps.google.com/?q=Chez+Titrite+Taghazout',
     bestDishes: ['Berber Plum Beef Tagine', 'Gourmet Lamb Burger', 'Authentic Ramen'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'Chef Titrite travels the world to find unique spices for her dishes. Try her slow-cooked beef tagine or her amazing burgers with crispy local fries.',
+    customStory: 'Chez Titrite is the soulful culinary heart of Taghazout village, helmed by local Chef Titrite whose warm culinary creativity blends deep Berber spice traditions with global comfort food favorites learned from visiting surf travelers. The kitchen serves some of the most flavorful, comforting plates on the Souss coast.',
+    languagesSpoken: ['Arabic/Darija', 'French', 'English'],
+    exactAddressAndCoordinates: {
+      address: 'Rue Principale, Taghazout 80022, Morocco',
+      lat: 30.54592,
+      lng: -9.70815
+    },
+    pros: [
+      'Remarkable 4.8-star cooking with deep flavor depth across both tagines and burgers.',
+      'Warm, motherly welcome from Chef Titrite herself.',
+      'Outstanding value for money with generous portions.'
+    ],
+    cons: [
+      'Intimate space with limited tables; brief waits possible at peak dinner.',
+      'Cash only payment.'
+    ],
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor'],
@@ -193,6 +281,8 @@ export const taghazoutEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "dinner", "dry", "tagine"]
   },
   {
     id: 'e-taghazout-4',
@@ -205,6 +295,8 @@ export const taghazoutEat: EatListing[] = [
     mealTypes: ['breakfast', 'lunch', 'brunch', 'flexible'],
     experienceTypes: ['Cafe', 'Casual Dining'],
     foodStyles: ['Healthy', 'Mediterranean', 'Cafe'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'cafe-pastry'],
     crowdLevel: 'balanced',
     groupTypes: ['solo', 'couple', 'friends'],
     hasEnglishStaff: true,
@@ -216,25 +308,51 @@ export const taghazoutEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '08:30',
     closeTime: '18:00',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.7,
     googleReviewCount: 380,
     tripadvisorRating: 4.7,
-    tripadvisorReviewCount: 380,
+    tripadvisorReviewCount: 115,
     theforkRating: 4.7,
     theforkReviewCount: 380,
     restaurantguruRating: 4.7,
     restaurantguruReviewCount: 380,
+
+    tip: 'The best place in Taghazout for third-wave specialty coffee. They use fresh oat milk and make everything with immense passion.',
+    archetypeAffinity: ['vegan', 'coffee-aficionado', 'health-conscious'],
+    vibeTags: ['100%-vegan', 'specialty-coffee', 'plant-based', 'craft-latte'],
+    isHiddenGem: true,
     paymentMethods: ['cash'],
     reservationMethod: ['none'],
+    reservationContact: '+212655443322',
     googleMapsUrl: 'https://maps.google.com/?q=Red+Clay+Cafe+Taghazout',
     bestDishes: ['Spiced Falafel Bowl', 'Oat Milk Flat White', 'Vegan Banana Bread'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'The best place in Taghazout for third-wave specialty coffee. They use fresh oat milk and make everything with immense passion.',
+    customStory: 'Red Clay Cafe was born from a mutual passion for ethical vegan eating and serious third-wave specialty coffee roasting. Tucked along the village strip, it draws health-conscious travelers and surfers seeking crisp falafels, nutrient-packed macro bowls, and flawlessly steamed oat milk flat whites.',
+    languagesSpoken: ['English', 'French', 'Arabic/Darija'],
+    exactAddressAndCoordinates: {
+      address: 'Avenue Hassan II, Taghazout 80022, Morocco',
+      lat: 30.54445,
+      lng: -9.70732
+    },
+    pros: [
+      'Completely vegan menu with creative, nourishing plant-based meals.',
+      'Exceptional barista coffee with premium oat and almond milk options.',
+      'Tranquil, friendly atmosphere with warm owners.'
+    ],
+    cons: [
+      'Closes relatively early at 18:00; not open for late dinner.',
+      'Cash only payment.'
+    ],
     bestTimeToVisit: 'Early morning for fresh baked goods',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor'],
@@ -242,6 +360,8 @@ export const taghazoutEat: EatListing[] = [
     wiFi: true,
     airConditioning: false,
     wheelchairAccessible: true
+  ,
+    tags: ["breakfast", "budget", "cafe-pastry", "dry", "wifi"]
   },
   {
     id: 'e-taghazout-5',
@@ -254,6 +374,8 @@ export const taghazoutEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner', 'flexible'],
     experienceTypes: ['Casual Dining', 'Family Friendly', 'Wood-Fired Pizza'],
     foodStyles: ['Italian', 'Seafood', 'Moroccan', 'Pizza'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'seafood', 'moroccan-traditional'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'kids-friendly'],
     hasEnglishStaff: true,
@@ -265,25 +387,51 @@ export const taghazoutEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '11:30',
     closeTime: '23:00',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.4,
     googleReviewCount: 1100,
-    tripadvisorRating: 4.4,
-    tripadvisorReviewCount: 1100,
+    tripadvisorRating: 4.3,
+    tripadvisorReviewCount: 380,
     theforkRating: 4.4,
     theforkReviewCount: 1100,
     restaurantguruRating: 4.4,
     restaurantguruReviewCount: 1100,
+
+    tip: 'Always busy and offers quick service. Their seafood pizza and savory crepes are perfect for refueling after a long day of surfing.',
+    archetypeAffinity: ['surfer', 'budget-conscious', 'family'],
+    vibeTags: ['pizza-spot', 'bustling-diner', 'comfort-food', 'rapid-service'],
+    isHiddenGem: false,
     paymentMethods: ['cash'],
     reservationMethod: ['none'],
+    reservationContact: '+212528200333',
     googleMapsUrl: 'https://maps.google.com/?q=Le+Spot+Taghazout',
     bestDishes: ['Taghazout Seafood Pizza', 'Alfredo Chicken Penne', 'Sweet Nutella Crêpe'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'Always busy and offers quick service. Their seafood pizza and savory crepes are perfect for refueling after a long day of surfing.',
+    customStory: 'A longtime mainstay for the global surf community, Le Spot is Taghazout\'s quintessential post-session hangout. Fast, unfussy, and packed with energy, it bakes dozens of thin-crust pizzas daily topped with fresh local catch, rich cheeses, and savory crêpes.',
+    languagesSpoken: ['English', 'French', 'Arabic/Darija'],
+    exactAddressAndCoordinates: {
+      address: 'Boulevard Principal, Taghazout 80022, Morocco',
+      lat: 30.54638,
+      lng: -9.70862
+    },
+    pros: [
+      'Speedy service and reliable, comforting thin-crust pizzas.',
+      'Extensive versatile menu spanning Italian, Moroccan, and French crêpes.',
+      'Right on the main village thoroughfare, great for people watching.'
+    ],
+    cons: [
+      'Cash only payment.',
+      'Peak evening rush can result in noisy indoor seating.'
+    ],
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor'],
@@ -291,6 +439,8 @@ export const taghazoutEat: EatListing[] = [
     wiFi: true,
     airConditioning: false,
     wheelchairAccessible: true
+  ,
+    tags: ["budget", "dinner", "dry", "wifi"]
   },
   {
     id: 'e-taghazout-6',
@@ -314,25 +464,50 @@ export const taghazoutEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '23:30',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.6,
     googleReviewCount: 750,
-    tripadvisorRating: 4.6,
-    tripadvisorReviewCount: 750,
+    tripadvisorRating: 4.5,
+    tripadvisorReviewCount: 310,
     theforkRating: 4.6,
     theforkReviewCount: 750,
     restaurantguruRating: 4.6,
     restaurantguruReviewCount: 750,
+
+    tip: 'Their sourdough pizzas are legendary in Taghazout Bay. The atmosphere is highly creative and relaxing.',
+    archetypeAffinity: ['art-and-design-lover', 'foodie', 'romantic-getaway'],
+    vibeTags: ['artisan-decor', 'wood-fired-sourdough', 'driftwood-chic', 'wine-and-dine'],
+    isHiddenGem: false,
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['phone'],
+    reservationContact: '+212698765432',
     googleMapsUrl: 'https://maps.google.com/?q=Mungas+Kitchen+Taghazout',
     bestDishes: ['Sourdough Seafood Pizza', 'Seared Yellowfin Tuna', 'Warm Goat Cheese Salad'],
     alcoholPolicy: 'serves-alcohol',
     ramadanFriendly: 'serves-lunch',
-    tip: 'Their sourdough pizzas are legendary in Taghazout Bay. The atmosphere is highly creative and relaxing.',
+    customStory: 'Tucked inside the bohemian architectural marvel of Munga Guesthouse, Munga\'s Kitchen is sculpted with salvaged maritime timbers, handcrafted ceramic tiles, and vintage Moroccan art. The wood oven turns out stellar artisanal sourdough pizzas alongside sustainably caught Atlantic seafood and a curated selection of beers and regional wines.',
+    languagesSpoken: ['English', 'French', 'Arabic/Darija'],
+    exactAddressAndCoordinates: {
+      address: 'Derb Iwlite, Village Taghazout 80022, Morocco',
+      lat: 30.54578,
+      lng: -9.70823
+    },
+    pros: [
+      'Incredible bohemian interior architecture with bespoke woodcraft.',
+      'One of the premier wood-fired sourdough pizzas in southwestern Morocco.',
+      'Serves beer, wine, and cocktails in an artistic, cozy setting.'
+    ],
+    cons: [
+      'Can book up completely on weekends; reservations are advised.',
+      'Premium pricing relative to local village bistros.'
+    ],
     bestTimeToVisit: 'Late evening after 20:00 for lively crowd',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor'],
@@ -340,6 +515,8 @@ export const taghazoutEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: false
+  ,
+    tags: ["alcohol", "budget", "dinner", "fine", "wifi"]
   },
   {
     id: 'e-taghazout-7',
@@ -352,6 +529,8 @@ export const taghazoutEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner', 'brunch', 'flexible'],
     experienceTypes: ['Fine Dining', 'Waterfront Dining', 'Romantic Sunset', 'Upscale Lounge'],
     foodStyles: ['Mediterranean', 'Seafood', 'Moroccan', 'Gourmet'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'seafood', 'moroccan-traditional'],
     crowdLevel: 'balanced',
     groupTypes: ['couple', 'friends', 'business-friendly'],
     hasEnglishStaff: true,
@@ -363,25 +542,51 @@ export const taghazoutEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: true,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '00:00',
     badge: 'splurge',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.5,
     googleReviewCount: 310,
     tripadvisorRating: 4.5,
-    tripadvisorReviewCount: 310,
+    tripadvisorReviewCount: 160,
     theforkRating: 4.5,
     theforkReviewCount: 310,
     restaurantguruRating: 4.5,
     restaurantguruReviewCount: 310,
+
+    tip: 'Perfect when you want to get dressed up for a special evening. Excellent tapas-style sharing platters and handcrafted sunset cocktails.',
+    archetypeAffinity: ['luxury-traveler', 'romantic-getaway', 'cocktail-lover'],
+    vibeTags: ['poolside-lounge', 'fairy-lights', 'chic-coastal', 'gourmet-tapas'],
+    isHiddenGem: false,
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['online', 'phone'],
+    reservationContact: '+212528300200',
     googleMapsUrl: 'https://maps.google.com/?q=Kitchen+Club+Seaside+Taghazout',
     bestDishes: ['Mediterranean Mezze Board', 'Charcoal-Grilled Squid', 'Beef Ribeye Steak'],
     alcoholPolicy: 'serves-alcohol',
     ramadanFriendly: 'serves-lunch',
-    tip: 'Perfect when you want to get dressed up for a special evening. Excellent tapas-style sharing platters and handcrafted sunset cocktails.',
+    customStory: 'Located in the eco-resort strip of Taghazout Bay, Kitchen Club represents modern beachfront sophistication. Sitting beside turquoise swimming pools and open wooden pergolas, guests savor refined seafood tapas, fresh Atlantic oysters, and handcrafted sunset cocktails while lounge beats set a golden-hour cadence.',
+    languagesSpoken: ['English', 'French', 'Arabic/Darija'],
+    exactAddressAndCoordinates: {
+      address: 'Station Balnéaire Taghazout Bay, 80022, Morocco',
+      lat: 30.52845,
+      lng: -9.68912
+    },
+    pros: [
+      'Upscale resort ambiance with plush poolside and beachfront seating.',
+      'Superb craft cocktail program and curated international wine cellar.',
+      'Refined presentation of charcoal-grilled local seafood and prime meats.'
+    ],
+    cons: [
+      'Resort pricing that reflects upscale hotel standards.',
+      'Located south of the old village; requires a taxi or 25-minute promenade stroll.'
+    ],
     bestTimeToVisit: 'Early evening around 18:30 for sunset',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor', 'beachfront', 'terrace'],
@@ -389,6 +594,8 @@ export const taghazoutEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: true
+  ,
+    tags: ["alcohol", "breakfast", "budget", "dinner", "fine", "late-night", "sunset", "terrace", "wifi"]
   },
   {
     id: 'e-taghazout-8',
@@ -401,6 +608,8 @@ export const taghazoutEat: EatListing[] = [
     mealTypes: ['breakfast', 'lunch', 'dinner', 'brunch', 'flexible'],
     experienceTypes: ['Waterfront Dining', 'Beachfront Grill', 'Sunset Views', 'Upscale Lounge'],
     foodStyles: ['Mediterranean', 'Seafood', 'Moroccan'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'seafood', 'moroccan-traditional'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'couple', 'friends', 'family'],
     hasEnglishStaff: true,
@@ -412,25 +621,51 @@ export const taghazoutEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: true,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '08:00',
     closeTime: '01:00',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.4,
     googleReviewCount: 1400,
     tripadvisorRating: 4.4,
-    tripadvisorReviewCount: 1400,
+    tripadvisorReviewCount: 520,
     theforkRating: 4.4,
     theforkReviewCount: 1400,
     restaurantguruRating: 4.4,
     restaurantguruReviewCount: 1400,
+
+    tip: 'Don\'t miss their legendary Monday and Thursday evening pool-side BBQs and Moroccan Nights, which require prepaid reservations.',
+    archetypeAffinity: ['surfer', 'social-butterfly', 'cocktail-lover', 'beach-lover'],
+    vibeTags: ['infinity-pool', 'sunset-dj', 'ocean-view', 'surf-chic'],
+    isHiddenGem: false,
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['phone', 'online'],
+    reservationContact: '+212528200000',
     googleMapsUrl: 'https://maps.google.com/?q=Amouage+Taghazout',
     bestDishes: ['Spiced Lamb Chops', 'Grilled Sea Bass', 'Moroccan Night Buffet'],
     alcoholPolicy: 'serves-alcohol',
     ramadanFriendly: 'serves-lunch',
-    tip: 'Don\'t miss their legendary Monday and Thursday evening pool-side BBQs and Moroccan Nights, which require prepaid reservations.',
+    customStory: 'As Surf Maroc\'s crowning jewel, Amouage redefined the Moroccan surf and culinary scene. Set around an oceanside infinity pool overlooking the crashing surf, it blends relaxed surf-camp friendliness with world-class hospitality, serving vibrant family-style BBQ banquets and exquisite sundowners.',
+    languagesSpoken: ['English', 'French', 'Arabic/Darija'],
+    exactAddressAndCoordinates: {
+      address: 'Route d\'Essaouira, Front de Mer, Taghazout 80022, Morocco',
+      lat: 30.54395,
+      lng: -9.70685
+    },
+    pros: [
+      'Breathtaking infinity pool terrace overlooking Hash Point and Taghazout Bay.',
+      'Lively, stylish community atmosphere with international surf crowd.',
+      'Full bar with craft beer, fine Moroccan wines, and signature cocktails.'
+    ],
+    cons: [
+      'Special BBQ buffet nights fill up well in advance.',
+      'Can feel more like an international surf enclave than an authentic village spot.'
+    ],
     bestTimeToVisit: 'Late evening after 20:00 for lively crowd',
     averageWaitMinutes: 15,
     seatingTypes: ['indoor', 'beachfront', 'terrace'],
@@ -438,6 +673,8 @@ export const taghazoutEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: true
+  ,
+    tags: ["alcohol", "breakfast", "budget", "dinner", "fine", "late-night", "sunset", "terrace", "wifi"]
   },
   {
     id: 'e-taghazout-9',
@@ -450,6 +687,8 @@ export const taghazoutEat: EatListing[] = [
     mealTypes: ['breakfast', 'lunch', 'dinner', 'brunch', 'flexible'],
     experienceTypes: ['Cafe', 'Casual Dining', 'Waterfront Dining'],
     foodStyles: ['Mediterranean', 'Italian', 'Cafe'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'cafe-pastry'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'kids-friendly'],
     hasEnglishStaff: true,
@@ -461,25 +700,51 @@ export const taghazoutEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '08:00',
     closeTime: '23:00',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.2,
     googleReviewCount: 1650,
     tripadvisorRating: 4.2,
-    tripadvisorReviewCount: 1650,
+    tripadvisorReviewCount: 430,
     theforkRating: 4.2,
     theforkReviewCount: 1650,
     restaurantguruRating: 4.2,
     restaurantguruReviewCount: 1650,
+
+    tip: 'Perfect spot for a lazy seaside breakfast. Sit on the lower deck to watch local fishermen and surfers directly in front of you.',
+    archetypeAffinity: ['beach-lover', 'family', 'budget-conscious'],
+    vibeTags: ['beachfront-terrace', 'breakfast-spot', 'laid-back', 'ocean-breeze'],
+    isHiddenGem: false,
     paymentMethods: ['cash'],
     reservationMethod: ['none'],
+    reservationContact: '+212622114477',
     googleMapsUrl: 'https://maps.google.com/?q=Windy+Bay+Taghazout',
     bestDishes: ['Pizza Windy Bay', 'Healthy Fruit Smoothie Bowl', 'Smoked Salmon Eggs Benedict'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'serves-lunch',
-    tip: 'Perfect spot for a lazy seaside breakfast. Sit on the lower deck to watch local fishermen and surfers directly in front of you.',
+    customStory: 'Poised right at the edge of Taghazout\'s main sand cove, Windy Bay has been a welcoming beacon for travelers greeting the Atlantic morning. Waves crash just feet below the open railings as patrons linger over hearty breakfast platters, mint tea, and cheesy thin-crust pizzas.',
+    languagesSpoken: ['English', 'French', 'Arabic/Darija'],
+    exactAddressAndCoordinates: {
+      address: 'Front de Mer, Taghazout 80022, Morocco',
+      lat: 30.54562,
+      lng: -9.70889
+    },
+    pros: [
+      'Stunning lower-deck seating directly touching the sand and water line.',
+      'Generous breakfast spreads with fresh orange juice and espresso.',
+      'Relaxed casual vibe with friendly staff who welcome lingering diners.'
+    ],
+    cons: [
+      'Cash only payment.',
+      'Can get windy during afternoon Atlantic breezes.'
+    ],
     bestTimeToVisit: 'Early morning for fresh baked goods',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor', 'beachfront'],
@@ -487,6 +752,8 @@ export const taghazoutEat: EatListing[] = [
     wiFi: true,
     airConditioning: false,
     wheelchairAccessible: true
+  ,
+    tags: ["breakfast", "budget", "cafe-pastry", "dinner", "dry", "juice", "terrace", "wifi"]
   },
   {
     id: 'e-taghazout-10',
@@ -499,6 +766,8 @@ export const taghazoutEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Fine Dining', 'Romantic Sunset', 'Garden restaurant with live music'],
     foodStyles: ['French', 'Moroccan', 'Mediterranean'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'moroccan-traditional'],
     crowdLevel: 'balanced',
     groupTypes: ['couple', 'family', 'friends'],
     hasEnglishStaff: true,
@@ -510,25 +779,51 @@ export const taghazoutEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '23:00',
     badge: 'hidden-gem',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.6,
     googleReviewCount: 520,
     tripadvisorRating: 4.6,
-    tripadvisorReviewCount: 520,
+    tripadvisorReviewCount: 210,
     theforkRating: 4.6,
     theforkReviewCount: 520,
     restaurantguruRating: 4.6,
     restaurantguruReviewCount: 520,
+
+    tip: 'The garden setting is incredibly quiet and romantic. Their slow-roasted beef pastilla and chocolate mousse are exceptional.',
+    archetypeAffinity: ['romantic-getaway', 'foodie', 'culture-seeker'],
+    vibeTags: ['garden-patio', 'french-bistro', 'candlelight', 'romantic-gem'],
+    isHiddenGem: true,
     paymentMethods: ['cash'],
     reservationMethod: ['phone'],
+    reservationContact: '+212528200421',
     googleMapsUrl: 'https://maps.google.com/?q=Dar+Josephine+Taghazout',
     bestDishes: ['Slow-roasted Beef Pastilla', 'Classic French Beef Bourguignon', 'Goat Cheese and Olive Tart'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'The garden setting is incredibly quiet and romantic. Their slow-roasted beef pastilla and chocolate mousse are exceptional.',
+    customStory: 'A quiet green haven hidden away from the sunny village streets, Dar Josephine invites diners into a candlelit courtyard patio lined with bougainvillea. The kitchen blends French culinary technique with Moroccan market produce, producing velvety soups, delicate savory pastries, and melt-in-the-mouth meat preparations.',
+    languagesSpoken: ['French', 'English', 'Arabic/Darija'],
+    exactAddressAndCoordinates: {
+      address: 'Rue Principale, Derb Souk, Taghazout 80022, Morocco',
+      lat: 30.54545,
+      lng: -9.70792
+    },
+    pros: [
+      'Peaceful, candlelit garden oasis ideal for quiet romantic dinners.',
+      'Refined French-Moroccan cuisine prepared with immense care.',
+      'Attentive, discreet hospitality in an intimate setting.'
+    ],
+    cons: [
+      'Cash only payment.',
+      'Dry establishment (does not serve alcohol).'
+    ],
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor', 'garden'],
@@ -536,6 +831,8 @@ export const taghazoutEat: EatListing[] = [
     wiFi: true,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "dinner", "dry", "fine", "live-music", "pastilla", "sunset", "terrace", "wifi"]
   },
   {
     id: 'e-taghazout-11',
@@ -548,6 +845,8 @@ export const taghazoutEat: EatListing[] = [
     mealTypes: ['breakfast', 'lunch', 'brunch', 'flexible'],
     experienceTypes: ['Cafe', 'Sunset Views', 'Casual Dining'],
     foodStyles: ['Mediterranean', 'Healthy', 'Cafe'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'cafe-pastry'],
     crowdLevel: 'balanced',
     groupTypes: ['solo', 'couple', 'friends'],
     hasEnglishStaff: true,
@@ -559,25 +858,51 @@ export const taghazoutEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '08:00',
     closeTime: '20:00',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.4,
     googleReviewCount: 880,
     tripadvisorRating: 4.4,
-    tripadvisorReviewCount: 880,
+    tripadvisorReviewCount: 290,
     theforkRating: 4.4,
     theforkReviewCount: 880,
     restaurantguruRating: 4.4,
     restaurantguruReviewCount: 880,
+
+    tip: 'A digital-nomad favorite. They have great Wi-Fi, healthy protein-rich bowls, and views directly over the surf.',
+    archetypeAffinity: ['surfer', 'digital-nomad', 'health-conscious'],
+    vibeTags: ['hash-point-views', 'cold-pressed-juices', 'surf-cafe', 'coastal-terrace'],
+    isHiddenGem: false,
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['none'],
+    reservationContact: '+212528200001',
     googleMapsUrl: 'https://maps.google.com/?q=Cafe+Mouja+Taghazout',
     bestDishes: ['Mighty Green Protein Bowl', 'Avocado Toast with Poached Egg', 'Cold-Pressed Ginger Turmeric Shot'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'serves-lunch',
-    tip: 'A digital-nomad favorite. They have great Wi-Fi, healthy protein-rich bowls, and views directly over the surf.',
+    customStory: 'Perched overlooking the famous Hash Point surf break, Cafe Mouja brings an Australian coastal café aesthetic to Taghazout. Surfers climb up the rocks straight from morning sets to recharge with antioxidant acai bowls, wholesome eggs Florentine, and freshly cold-pressed fruit elixirs.',
+    languagesSpoken: ['English', 'French', 'Arabic/Darija'],
+    exactAddressAndCoordinates: {
+      address: 'Route d\'Essaouira, Hash Point, Taghazout 80022, Morocco',
+      lat: 30.54822,
+      lng: -9.71035
+    },
+    pros: [
+      'Elevated terrace view looking directly down onto Hash Point surf break.',
+      'Card payments accepted alongside fast Wi-Fi.',
+      'Fresh, nutrient-dense breakfast and lunch menu tailored for active athletes.'
+    ],
+    cons: [
+      'Outdoor terrace fills up rapidly on clear sunny mornings.',
+      'Slightly higher price point than street bakeries.'
+    ],
     bestTimeToVisit: 'Early morning for fresh baked goods',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor', 'terrace'],
@@ -585,6 +910,8 @@ export const taghazoutEat: EatListing[] = [
     wiFi: true,
     airConditioning: false,
     wheelchairAccessible: true
+  ,
+    tags: ["breakfast", "budget", "cafe-pastry", "dry", "juice", "sunset", "terrace", "wifi"]
   },
   {
     id: 'e-taghazout-12',
@@ -597,6 +924,8 @@ export const taghazoutEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner', 'latenight', 'flexible'],
     experienceTypes: ['Waterfront Dining', 'Sunset Views', 'Upscale Lounge'],
     foodStyles: ['Mediterranean', 'Seafood'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'seafood'],
     crowdLevel: 'bustling',
     groupTypes: ['couple', 'friends', 'solo'],
     hasEnglishStaff: true,
@@ -608,25 +937,51 @@ export const taghazoutEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: true,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '16:00',
     closeTime: '23:00',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.5,
     googleReviewCount: 480,
     tripadvisorRating: 4.5,
-    tripadvisorReviewCount: 480,
+    tripadvisorReviewCount: 190,
     theforkRating: 4.5,
     theforkReviewCount: 480,
     restaurantguruRating: 4.5,
     restaurantguruReviewCount: 480,
+
+    tip: 'The ultimate sunset spot in Taghazout. Arrive around 5 PM to secure a couch directly on the rocks.',
+    archetypeAffinity: ['cocktail-lover', 'romantic-getaway', 'beach-lover'],
+    vibeTags: ['cliffside-lounge', 'sunset-cocktails', 'ocean-spray', 'boho-cushions'],
+    isHiddenGem: false,
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['none'],
+    reservationContact: '+212661889900',
     googleMapsUrl: 'https://maps.google.com/?q=Bohemian+Berber+Bar+Taghazout',
     bestDishes: ['Tapas Sharing Platter', 'Fried Calamari with Alioli', 'Taghazout Sunset Spritz'],
     alcoholPolicy: 'serves-alcohol',
     ramadanFriendly: 'closed',
-    tip: 'The ultimate sunset spot in Taghazout. Arrive around 5 PM to secure a couch directly on the rocks.',
+    customStory: 'Settled into the rocky sea ledge where the Atlantic tides gently wash against the stones, the Bohemian Berber Bar feels like an open-air lounge at the edge of the continent. Woven rugs, wicker lanterns, and plush cushions provide front-row seats for fiery sunset horizons.',
+    languagesSpoken: ['English', 'French', 'Arabic/Darija'],
+    exactAddressAndCoordinates: {
+      address: 'Front de Mer Nord, Taghazout 80022, Morocco',
+      lat: 30.54715,
+      lng: -9.70992
+    },
+    pros: [
+      'Unrivaled golden-hour sunset experience sitting right above the waves.',
+      'Serves cold beer, chilled wines, and specialty spritzes.',
+      'Flavorful tapas platters and crispy seafood snacks.'
+    ],
+    cons: [
+      'Seating is first-come, first-served and gets fully occupied by 17:30.',
+      'High tide and strong swell can occasionally spray sea mist onto lower cushions.'
+    ],
     bestTimeToVisit: 'Early evening around 18:30 for sunset',
     averageWaitMinutes: 15,
     seatingTypes: ['beachfront', 'terrace'],
@@ -634,6 +989,8 @@ export const taghazoutEat: EatListing[] = [
     wiFi: true,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["alcohol", "budget", "dinner", "fine", "late-night", "sunset", "terrace", "wifi"]
   },
   {
     id: 'e-taghazout-13',
@@ -646,6 +1003,8 @@ export const taghazoutEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner', 'latenight'],
     experienceTypes: ['Traditional Dining', 'Casual Dining', 'Cozy casual family-run Moroccan eatery'],
     foodStyles: ['Moroccan'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional'],
     crowdLevel: 'balanced',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'kids-friendly'],
     hasEnglishStaff: true,
@@ -657,25 +1016,51 @@ export const taghazoutEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '11:30',
     closeTime: '23:30',
     badge: 'local',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.6,
     googleReviewCount: 1300,
-    tripadvisorRating: 4.6,
-    tripadvisorReviewCount: 1300,
+    tripadvisorRating: 4.5,
+    tripadvisorReviewCount: 420,
     theforkRating: 4.6,
     theforkReviewCount: 1300,
     restaurantguruRating: 4.6,
     restaurantguruReviewCount: 1300,
+
+    tip: 'Excellent and very cheap local Moroccan food. Grab a table outside and try their slow-simmered beef and prune tagine.',
+    archetypeAffinity: ['budget-conscious', 'surfer', 'culture-seeker'],
+    vibeTags: ['authentic-tagine', 'clay-pot-cooking', 'street-side', 'local-favorite'],
+    isHiddenGem: false,
     paymentMethods: ['cash'],
     reservationMethod: ['none'],
+    reservationContact: '+212633221100',
     googleMapsUrl: 'https://maps.google.com/?q=Taghazout+Tajine+Palace',
     bestDishes: ['Berber Beef and Prune Tagine', 'Lemon Chicken Tagine', 'Freshly Cooked Harira Soup'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'Excellent and very cheap local Moroccan food. Grab a table outside and try their slow-simmered beef and prune tagine.',
+    customStory: 'The savory aroma of slow-simmered cumin, turmeric, and sizzling onions draws hungry surfers straight off the water to Taghazout Tajine Palace. Simmering in conical clay pots over charcoal braziers, the tagines here feature tender lamb, sweet caramelized prunes, and fresh seasonal vegetables served with steaming khobz.',
+    languagesSpoken: ['Arabic/Darija', 'French', 'English'],
+    exactAddressAndCoordinates: {
+      address: 'Route Nationale 1, Taghazout 80022, Morocco',
+      lat: 30.54512,
+      lng: -9.70788
+    },
+    pros: [
+      'Authentic clay-pot tagines cooked low and slow with rich sauces.',
+      'Extremely economical pricing, perfect for long-stay travelers.',
+      'Quick, hearty meals served late into the evening.'
+    ],
+    cons: [
+      'Cash only payment.',
+      'Simple roadside dining setup with no sea views.'
+    ],
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor'],
@@ -683,6 +1068,8 @@ export const taghazoutEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "dinner", "dry", "late-night", "palace", "tagine"]
   },
   {
     id: 'e-taghazout-14',
@@ -695,6 +1082,8 @@ export const taghazoutEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner', 'latenight'],
     experienceTypes: ['Casual Dining', 'Quick Bites', 'Local Gathering Spot'],
     foodStyles: ['Moroccan', 'Fast Food'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'international'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'friends'],
     hasEnglishStaff: false,
@@ -706,25 +1095,51 @@ export const taghazoutEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: false,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '11:00',
     closeTime: '01:30',
     badge: 'local',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.5,
     googleReviewCount: 380,
-    tripadvisorRating: 4.5,
-    tripadvisorReviewCount: 380,
+    tripadvisorRating: 4.4,
+    tripadvisorReviewCount: 95,
     theforkRating: 4.5,
     theforkReviewCount: 380,
     restaurantguruRating: 4.5,
     restaurantguruReviewCount: 380,
+
+    tip: 'Get the spiced kefta mixed sandwich with extra harissa. Unbelievably cheap, filling, and packed with local flavor.',
+    archetypeAffinity: ['budget-conscious', 'night-owl', 'street-food-lover'],
+    vibeTags: ['grilled-skewers', 'street-snack', 'midnight-bites', 'local-institution'],
+    isHiddenGem: true,
     paymentMethods: ['cash'],
     reservationMethod: ['none'],
+    reservationContact: '+212644778899',
     googleMapsUrl: 'https://maps.google.com/?q=Snack+Ida+Omahmod+Taghazout',
     bestDishes: ['Spiced Kofta Sandwich', 'Merguez Sausage Skewers', 'Fresh Fries Box'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'Get the spiced kefta mixed sandwich with extra harissa. Unbelievably cheap, filling, and packed with local flavor.',
+    customStory: 'Snack Ida Omahmod is the undisputed late-night champion of Taghazout. Operating behind a sizzling charcoal grill counter, the grill masters churn out seasoned minced beef kefta and spicy merguez sausages packed into fresh round bread with hot harissa, local tomato salsa, and french fries.',
+    languagesSpoken: ['Arabic/Darija', 'French'],
+    exactAddressAndCoordinates: {
+      address: 'Rue Centrale, Taghazout 80022, Morocco',
+      lat: 30.54471,
+      lng: -9.70761
+    },
+    pros: [
+      'Extremely affordable, delicious, and filling Moroccan street food.',
+      'Stays open late until 01:30 AM for post-surf or late-night cravings.',
+      'Meats are seared fresh to order over open hot coals.'
+    ],
+    cons: [
+      'Minimal counter seating; mostly takeaway.',
+      'Very limited vegetarian selections.'
+    ],
     bestTimeToVisit: 'Late evening after 20:00 for lively crowd',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor'],
@@ -732,6 +1147,8 @@ export const taghazoutEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "dinner", "dry", "late-night", "street-food"]
   },
   {
     id: 'e-taghazout-15',
@@ -744,6 +1161,8 @@ export const taghazoutEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner', 'flexible'],
     experienceTypes: ['Casual Dining', 'Sunset Views'],
     foodStyles: ['Mediterranean', 'International', 'Fast Food'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international'],
     crowdLevel: 'balanced',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'kids-friendly'],
     hasEnglishStaff: true,
@@ -755,25 +1174,51 @@ export const taghazoutEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '22:30',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.3,
     googleReviewCount: 650,
     tripadvisorRating: 4.3,
-    tripadvisorReviewCount: 650,
+    tripadvisorReviewCount: 180,
     theforkRating: 4.3,
     theforkReviewCount: 650,
     restaurantguruRating: 4.3,
     restaurantguruReviewCount: 650,
+
+    tip: 'A great post-surf meal. Grab a window table around 6 PM to enjoy a massive craft burger while the sun sets over the ocean.',
+    archetypeAffinity: ['surfer', 'sunset-seeker', 'burger-enthusiast'],
+    vibeTags: ['craft-burgers', 'cliffside-view', 'ocean-sunset', 'post-surf-fuel'],
+    isHiddenGem: false,
     paymentMethods: ['cash'],
     reservationMethod: ['none'],
+    reservationContact: '+212677552211',
     googleMapsUrl: 'https://maps.google.com/?q=Sunset+Burger+Taghazout',
     bestDishes: ['Classic Cheese Burger', 'Spicy Crispy Chicken Burger', 'Sweet Potato Fries'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'A great post-surf meal. Grab a window table around 6 PM to enjoy a massive craft burger while the sun sets over the ocean.',
+    customStory: 'Positioned on the scenic road leading toward Anchor Point, Sunset Burger is designed specifically for hungry ocean enthusiasts. Huge handcrafted beef patties grilled on the flat-top, brioche buns, and crispy seasoned fries come paired with wide windows framing the sun dipping into the Atlantic.',
+    languagesSpoken: ['English', 'French', 'Arabic/Darija'],
+    exactAddressAndCoordinates: {
+      address: 'Route d\'Anchor Point, Taghazout 80022, Morocco',
+      lat: 30.54910,
+      lng: -9.71115
+    },
+    pros: [
+      'Direct ocean panoramas with great views of oncoming swell sets.',
+      'Thick, juicy gourmet burgers and crisp sweet potato fries.',
+      'Laid-back, surfer-friendly environment with good music.'
+    ],
+    cons: [
+      'Cash only payment.',
+      'Slight walk north along the coastal road outside the main village square.'
+    ],
     bestTimeToVisit: 'Early evening around 18:30 for sunset',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor'],
@@ -781,6 +1226,8 @@ export const taghazoutEat: EatListing[] = [
     wiFi: true,
     airConditioning: false,
     wheelchairAccessible: true
+  ,
+    tags: ["budget", "dinner", "dry", "street-food", "sunset", "wifi"]
   },
   {
     id: 'e-taghazout-16',
@@ -793,6 +1240,8 @@ export const taghazoutEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Casual Dining', 'Traditional Dining', 'Local Gathering Spot'],
     foodStyles: ['Moroccan'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'cafe-pastry'],
     crowdLevel: 'balanced',
     groupTypes: ['solo', 'couple', 'family', 'friends'],
     hasEnglishStaff: true,
@@ -804,25 +1253,51 @@ export const taghazoutEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '11:30',
     closeTime: '22:30',
     badge: 'local',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.4,
     googleReviewCount: 420,
     tripadvisorRating: 4.4,
-    tripadvisorReviewCount: 420,
+    tripadvisorReviewCount: 110,
     theforkRating: 4.4,
     theforkReviewCount: 420,
     restaurantguruRating: 4.4,
     restaurantguruReviewCount: 420,
+
+    tip: 'Very simple but exceptionally honest Moroccan cooking. Their slow-simmered chicken tagine with lemon and olives is highly satisfying.',
+    archetypeAffinity: ['budget-conscious', 'culture-seeker', 'solo-traveler'],
+    vibeTags: ['berber-tagine', 'street-side-terrace', 'authentic-taste', 'welcoming-host'],
+    isHiddenGem: true,
     paymentMethods: ['cash'],
     reservationMethod: ['none'],
+    reservationContact: '+212688990011',
     googleMapsUrl: 'https://maps.google.com/?q=Cafe+Taliouine+Taghazout',
     bestDishes: ['Chicken Tagine with Olives & Lemon', 'Kefta Tagine with Egg', 'Moroccan Cooked Salads'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'Very simple but exceptionally honest Moroccan cooking. Their slow-simmered chicken tagine with lemon and olives is highly satisfying.',
+    customStory: 'Named after the famous saffron-growing oasis town of the Anti-Atlas, Cafe Taliouine preserves authentic southern Moroccan home cooking. The friendly host prepares bubbling earthen tagines infused with ginger, saffron, and preserved lemons, served right alongside warm Berber flatbread.',
+    languagesSpoken: ['Arabic/Darija', 'French', 'English'],
+    exactAddressAndCoordinates: {
+      address: 'Place Centrale, Village Taghazout 80022, Morocco',
+      lat: 30.54530,
+      lng: -9.70805
+    },
+    pros: [
+      'Genuinely authentic Moroccan Berber tagines with rich fragrant spices.',
+      'Very affordable, honest local pricing.',
+      'Pleasant sidewalk tables for watching daily village life unfold.'
+    ],
+    cons: [
+      'Cash only payment.',
+      'Small dining area with limited seating during midday rush.'
+    ],
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor'],
@@ -830,6 +1305,8 @@ export const taghazoutEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "cafe-pastry", "dinner", "dry", "tagine"]
   },
   {
     id: 'e-taghazout-17',
@@ -842,6 +1319,8 @@ export const taghazoutEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner', 'flexible'],
     experienceTypes: ['Fishing Harbor Dining', 'Casual Dining', 'Local Gathering Spot'],
     foodStyles: ['Seafood'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['seafood'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'couple', 'family', 'friends'],
     hasEnglishStaff: true,
@@ -853,25 +1332,51 @@ export const taghazoutEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: false,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '11:00',
     closeTime: '21:00',
     badge: 'local',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.5,
     googleReviewCount: 1200,
     tripadvisorRating: 4.5,
-    tripadvisorReviewCount: 1200,
+    tripadvisorReviewCount: 380,
     theforkRating: 4.5,
     theforkReviewCount: 1200,
     restaurantguruRating: 4.5,
     restaurantguruReviewCount: 1200,
+
+    tip: 'Always ask to include local sardines, giant prawns, and squid in your mix. Negotiate your plate price before sitting down.',
+    archetypeAffinity: ['foodie', 'beach-lover', 'culture-seeker'],
+    vibeTags: ['fish-market', 'open-coal-grill', 'harbor-dining', 'ocean-catch'],
+    isHiddenGem: false,
     paymentMethods: ['cash'],
     reservationMethod: ['none'],
+    reservationContact: '+212611998877',
     googleMapsUrl: 'https://maps.google.com/?q=Taghazout+Fish+Market',
     bestDishes: ['Coal-Grilled Sardines', 'Grilled Jumbo Prawns', 'Crispy Squid Skewers'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'serves-lunch',
-    tip: 'Always ask to include local sardines, giant prawns, and squid in your mix. Negotiate your plate price before sitting down.',
+    customStory: 'Just steps from the blue wooden skiffs parked on the sand, the Taghazout open-air fish stalls offer the most direct ocean-to-plate experience possible. Diners handpick gleaming fresh sardines, calamari, sea bream, and king prawns, which are tossed in chermoula marinade and charred over sizzling open coals.',
+    languagesSpoken: ['Arabic/Darija', 'French', 'English'],
+    exactAddressAndCoordinates: {
+      address: 'Port de Pêche Artisanal, Taghazout 80022, Morocco',
+      lat: 30.54605,
+      lng: -9.70935
+    },
+    pros: [
+      'The freshest Atlantic seafood caught that very morning by village boats.',
+      'Sizzling charcoal grilling imparts intense, smoky marine flavor.',
+      'Iconic local atmosphere overlooking the colorful wooden fishing skiffs.'
+    ],
+    cons: [
+      'Cash only payment; confirm prices per kilogram before cooking.',
+      'Noisy and smokey when all the grills are in full swing.'
+    ],
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor'],
@@ -879,6 +1384,8 @@ export const taghazoutEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: true
+  ,
+    tags: ["budget", "dinner", "dry"]
   },
   {
     id: 'e-taghazout-18',
@@ -891,6 +1398,8 @@ export const taghazoutEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Casual Italian Dining', 'Romantic Sunset', 'Wood-Fired Pizza'],
     foodStyles: ['Italian', 'Seafood', 'Mediterranean', 'Pizza'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'seafood'],
     crowdLevel: 'balanced',
     groupTypes: ['couple', 'family', 'friends', 'kids-friendly'],
     hasEnglishStaff: true,
@@ -902,25 +1411,51 @@ export const taghazoutEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '23:00',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.2,
     googleReviewCount: 650,
     tripadvisorRating: 4.2,
-    tripadvisorReviewCount: 650,
+    tripadvisorReviewCount: 220,
     theforkRating: 4.2,
     theforkReviewCount: 650,
     restaurantguruRating: 4.2,
     restaurantguruReviewCount: 650,
+
+    tip: 'Their rooftop terrace is lovely and secluded, offering a peaceful dinner away from the bustling main street sounds.',
+    archetypeAffinity: ['pizza-enthusiast', 'family', 'romantic-getaway'],
+    vibeTags: ['rooftop-terrace', 'wood-oven-pizza', 'cozy-italian', 'surf-town-bistro'],
+    isHiddenGem: false,
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['phone'],
+    reservationContact: '+212528200555',
     googleMapsUrl: 'https://maps.google.com/?q=La+Favella+Taghazout',
     bestDishes: ['Pizza La Favella', 'Shrimp Spaghetti', 'Caprese Salad'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'Their rooftop terrace is lovely and secluded, offering a peaceful dinner away from the bustling main street sounds.',
+    customStory: 'Infused with playful artistic flair and surf memorabilia, La Favella is a cozy Italian trattoria in the center of town. The rooftop terrace looks out across the rooftops toward the ocean, providing an intimate setting for handmade pastas tossed with local shrimp and golden blistered pizzas.',
+    languagesSpoken: ['English', 'French', 'Arabic/Darija'],
+    exactAddressAndCoordinates: {
+      address: 'Rue Principale, Taghazout 80022, Morocco',
+      lat: 30.54568,
+      lng: -9.70820
+    },
+    pros: [
+      'Charming rooftop terrace with pleasant breezes and sunset sky views.',
+      'Card payments accepted.',
+      'Crispy wood-fired pizzas with generous mozzarella and seafood toppings.'
+    ],
+    cons: [
+      'Stairs to the rooftop are narrow and steep.',
+      'Dry restaurant (no alcohol served).'
+    ],
     bestTimeToVisit: 'Late evening after 20:00 for lively crowd',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor', 'rooftop'],
@@ -928,6 +1463,8 @@ export const taghazoutEat: EatListing[] = [
     wiFi: true,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "dinner", "dry", "rooftop", "sunset", "terrace", "wifi"]
   },
   {
     id: 'e-taghazout-19',
@@ -940,6 +1477,8 @@ export const taghazoutEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Fine Dining', 'Romantic Sunset', 'Waterfront Dining'],
     foodStyles: ['Italian', 'Seafood', 'Mediterranean', 'Gourmet'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'seafood'],
     crowdLevel: 'quiet',
     groupTypes: ['couple', 'family', 'seniors', 'business-friendly'],
     hasEnglishStaff: true,
@@ -951,25 +1490,51 @@ export const taghazoutEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: true,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '12:30',
     closeTime: '23:30',
     badge: 'splurge',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.6,
     googleReviewCount: 220,
     tripadvisorRating: 4.6,
-    tripadvisorReviewCount: 220,
+    tripadvisorReviewCount: 85,
     theforkRating: 4.6,
     theforkReviewCount: 220,
     restaurantguruRating: 4.6,
     restaurantguruReviewCount: 220,
+
+    tip: 'The pinnacle of high-end Italian dining in Taghazout Bay. Dress strictly smart-casual and reserve a window table for sunset.',
+    archetypeAffinity: ['luxury-traveler', 'romantic-getaway', 'foodie'],
+    vibeTags: ['five-star-luxury', 'milanese-fine-dining', 'ocean-panorama', 'sommelier-service'],
+    isHiddenGem: false,
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['online', 'phone'],
+    reservationContact: '+212528200888',
     googleMapsUrl: 'https://maps.google.com/?q=Paper+Moon+Fairmont+Taghazout+Bay',
     bestDishes: ['Milanese Veal Cutlet', 'House-made Gnocchi', 'Paper Moon Tiramisu'],
     alcoholPolicy: 'serves-alcohol',
     ramadanFriendly: 'serves-lunch',
-    tip: 'The pinnacle of high-end Italian dining in Taghazout Bay. Dress strictly smart-casual and reserve a window table for sunset.',
+    customStory: 'Originating in Milan and acclaimed globally, Paper Moon brings haute Italian gastronomy to the shores of Taghazout Bay within the 5-star Fairmont resort. Floor-to-ceiling glass windows open onto the Atlantic horizon, setting the stage for handmade truffle pasta, crisp veal cotoletta, and masterfully poured Italian vintages.',
+    languagesSpoken: ['English', 'French', 'Italian', 'Arabic/Darija'],
+    exactAddressAndCoordinates: {
+      address: 'Fairmont Taghazout Bay Resort, KM 17 Route d\'Essaouira, 80022, Morocco',
+      lat: 30.52690,
+      lng: -9.68770
+    },
+    pros: [
+      'Five-star luxury hospitality and elegant designer dining room.',
+      'Extensive international and Italian fine wine collection with sommelier pairing.',
+      'Flawlessly executed handmade pasta, risotto, and authentic Milanese mains.'
+    ],
+    cons: [
+      'Premium luxury pricing; highest in the Taghazout region.',
+      'Smart-casual dress code required; reservations essential for dinner.'
+    ],
     bestTimeToVisit: 'Early evening around 18:30 for sunset',
     averageWaitMinutes: 0,
     seatingTypes: ['indoor'],
@@ -977,6 +1542,8 @@ export const taghazoutEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: true
+  ,
+    tags: ["alcohol", "dinner", "fine", "quiet", "sunset", "wifi"]
   },
   {
     id: 'e-taghazout-20',
@@ -989,6 +1556,8 @@ export const taghazoutEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Fine Dining', 'Waterfront Dining', 'Beachfront Grill'],
     foodStyles: ['Seafood', 'Mediterranean', 'European', 'Gourmet'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['seafood', 'international'],
     crowdLevel: 'balanced',
     groupTypes: ['couple', 'family', 'friends', 'business-friendly'],
     hasEnglishStaff: true,
@@ -1000,25 +1569,51 @@ export const taghazoutEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: true,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '23:00',
     badge: 'splurge',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.5,
     googleReviewCount: 310,
     tripadvisorRating: 4.5,
-    tripadvisorReviewCount: 310,
+    tripadvisorReviewCount: 120,
     theforkRating: 4.5,
     theforkReviewCount: 310,
     restaurantguruRating: 4.5,
     restaurantguruReviewCount: 310,
+
+    tip: 'Perfect poolside dining during the day. Try their exceptional Wagyu beef cuts or the sea bass in salt crust.',
+    archetypeAffinity: ['luxury-traveler', 'meat-and-seafood-lover', 'romantic-getaway'],
+    vibeTags: ['surf-and-turf', 'poolside-grill', 'oceanfront-luxury', 'charcoal-cuts'],
+    isHiddenGem: false,
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['online', 'phone'],
+    reservationContact: '+212528200889',
     googleMapsUrl: 'https://maps.google.com/?q=Beef+and+Reef+Fairmont+Taghazout+Bay',
     bestDishes: ['Charcoal-grilled Wagyu Ribeye', 'Sea Bass in Salt Crust', 'Spiced Grilled Lobster'],
     alcoholPolicy: 'serves-alcohol',
     ramadanFriendly: 'serves-lunch',
-    tip: 'Perfect poolside dining during the day. Try their exceptional Wagyu beef cuts or the sea bass in salt crust.',
+    customStory: 'Overlooking the Atlantic breakers and Fairmont\'s crystalline resort pool, Beef & Reef combines the finest elements of fire-grilled land and sea. Premium beef dry-aged cuts and wild-caught Atlantic lobsters are seasoned with coastal herbs and seared over natural coals, accompanied by an extensive cocktail and wine list.',
+    languagesSpoken: ['English', 'French', 'Arabic/Darija'],
+    exactAddressAndCoordinates: {
+      address: 'Fairmont Taghazout Bay, Promenade Maritime, 80022, Morocco',
+      lat: 30.52735,
+      lng: -9.68810
+    },
+    pros: [
+      'Spectacular outdoor oceanside dining setting overlooking the beach.',
+      'Exceptional quality cuts including Wagyu beef and whole grilled wild fish.',
+      'Sophisticated wine pairing and cocktail program.'
+    ],
+    cons: [
+      'High-end resort price tag.',
+      'Outdoor seating is subject to Atlantic sea breezes in cooler months.'
+    ],
     bestTimeToVisit: 'Early evening around 18:30 for sunset',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor', 'beachfront', 'terrace'],
@@ -1026,5 +1621,7 @@ export const taghazoutEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: true
+  ,
+    tags: ["alcohol", "budget", "dinner", "fine", "terrace", "wifi"]
   }
 ];

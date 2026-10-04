@@ -192,13 +192,15 @@ export const imlil_toubkalSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "seniors", "business-friendly"],
     tip: "Book a luxury Berber tent with a private jacuzzi to watch the stars over the mountain peaks.",
     vibeTags: ["Ultra-Luxury", "Atlas-Views", "Romantic", "Palatial"],
-    locationSummary: "Asni Foothills - Luxury Atlas Retreat",
+    locationSummary: "High Atlas Mountains - Imlil Valley",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Kasbah+Tamadot+Asni",
     address: "Kasbah Tamadot, Asni 42152, Al Haouz, Morocco",
@@ -277,6 +279,11 @@ export const imlil_toubkalSleep: SleepListing[] = [
       business: "Prestigious for executive retreats and private events.",
       nomad: "A rare high-end workation option with views, quiet, and top service.",
     },
+    coordinates: {
+      lat: 31.132571,
+      lng: -7.919032
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "it-sleep-2",
@@ -314,13 +321,15 @@ export const imlil_toubkalSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Book the traditional hammam session immediately after your descent from Mount Toubkal to soothe sore muscles.",
     vibeTags: ["Authentic", "Mountain-Riad", "Hammam", "Peak-Views"],
-    locationSummary: "Imlil Center - Walnut Groves",
+    locationSummary: "High Atlas Mountains - Imlil Valley",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Jnane+Imlil",
     address: "Riad Jnane Imlil, Imlil 42152, Morocco",
@@ -387,6 +396,11 @@ export const imlil_toubkalSleep: SleepListing[] = [
       business: "Quiet enough for light work between treks.",
       nomad: "A balanced base for nomads who want comfort and trail access.",
     },
+    coordinates: {
+      lat: 31.134526,
+      lng: -7.916634
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "it-sleep-3",
@@ -424,13 +438,15 @@ export const imlil_toubkalSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "All arrivals involve a brief uphill walk from the road; heavy luggage is transported to the Kasbah by mule.",
     vibeTags: ["Eco-Luxe", "Legendary", "Fortress", "Toubkal-Base"],
-    locationSummary: "Hilltop above Imlil",
+    locationSummary: "High Atlas Mountains - Imlil Valley",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Kasbah+du+Toubkal",
     address: "Kasbah du Toubkal, Imlil 42152, Morocco",
@@ -497,6 +513,11 @@ export const imlil_toubkalSleep: SleepListing[] = [
       business: "Good for retreats, though not a conventional business hotel.",
       nomad: "A powerful digital-detox work base with immense views and quiet.",
     },
+    coordinates: {
+      lat: 31.132571,
+      lng: -7.919032
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "it-sleep-4",
@@ -534,13 +555,15 @@ export const imlil_toubkalSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Stay in the treehouse for a unique immersive experience above the organic fruit gardens.",
     vibeTags: ["Fairytale", "Rustic", "Treehouse", "Berber"],
-    locationSummary: "Tamatert Village - Elevated Valley Views",
+    locationSummary: "High Atlas Mountains - Imlil Valley",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Douar+Samra+Tamatert",
     address: "Douar Samra, Tamatert, Imlil 42152, Morocco",
@@ -613,6 +636,11 @@ export const imlil_toubkalSleep: SleepListing[] = [
       business: "Not business-oriented, but quiet for writing or reflection.",
       nomad: "A memorable off-grid style base for nomads needing inspiration.",
     },
+    coordinates: {
+      lat: 31.141686,
+      lng: -7.903982
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "it-sleep-5",
@@ -650,13 +678,15 @@ export const imlil_toubkalSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ["couple", "family", "seniors", "solo"],
     tip: "Request a private balcony facing Jbel Toubkal for sunrise views of the peaks.",
     vibeTags: ["Mountain-Luxe", "Riverside", "Spa", "Peak-Views"],
-    locationSummary: "Imlil Riverside - Toubkal Views",
+    locationSummary: "High Atlas Mountains - Imlil Valley",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Dar+Imlil",
     address: "Dar Imlil, Imlil 42152, Morocco",
@@ -723,6 +753,11 @@ export const imlil_toubkalSleep: SleepListing[] = [
       business: "Quiet enough for executive-style remote work.",
       nomad: "A premium mountain base with space to work and recover after hikes.",
     },
+    coordinates: {
+      lat: 31.135757,
+      lng: -7.918625
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "it-sleep-6",
@@ -760,13 +795,15 @@ export const imlil_toubkalSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "friends", "friends"],
     tip: "There is a short scenic walk required to reach the guesthouse; pack sturdy walking shoes for arrival.",
     vibeTags: ["High-Village", "Panoramic", "Authentic", "Trekking"],
-    locationSummary: "Armed Village - Toubkal Route",
+    locationSummary: "High Atlas Mountains - Imlil Valley",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Atlas+Prestige+Armed",
     address: "Armed/Aroumd, Imlil 42152, Morocco",
@@ -833,6 +870,11 @@ export const imlil_toubkalSleep: SleepListing[] = [
       business: "Basic for business, but quiet for planning treks.",
       nomad: "A budget trekking base for nomads who work lightly and hike often.",
     },
+    coordinates: {
+      lat: 31.135401,
+      lng: -7.917902
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "it-sleep-7",
@@ -870,13 +912,15 @@ export const imlil_toubkalSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "friends", "friends"],
     tip: "Spend a night here for a quieter, less touristy alternative to the main Ait Mizane climbing route.",
     vibeTags: ["Remote", "Luxury-Trekking", "Hammam", "Valley-Views"],
-    locationSummary: "Remote Azzaden Valley",
+    locationSummary: "High Atlas Mountains - Imlil Valley",
     availabilityText: "Available on selected dates",
     googleMapsUrl: "https://maps.google.com/?q=Azzaden+Trekking+Lodge",
     address: "Azzaden Valley, High Atlas, Morocco",
@@ -943,6 +987,11 @@ export const imlil_toubkalSleep: SleepListing[] = [
       business: "Not a business property; ideal for retreats and deep disconnection.",
       nomad: "A powerful digital-detox base for deep thinking between hikes.",
     },
+    coordinates: {
+      lat: 31.135295,
+      lng: -7.975657
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "it-sleep-8",
@@ -980,13 +1029,15 @@ export const imlil_toubkalSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "friends", "friends"],
     tip: "Book a mountain-facing room with terrace access for early morning photo sessions.",
     vibeTags: ["Budget", "Panoramic", "Mountaineering", "Friendly"],
-    locationSummary: "Imlil Center - Valley View",
+    locationSummary: "High Atlas Mountains - Imlil Valley",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Atlas+Toubkal",
     address: "Imlil 42152, Morocco",
@@ -1053,6 +1104,11 @@ export const imlil_toubkalSleep: SleepListing[] = [
       business: "Basic but quiet for light work.",
       nomad: "A strong value base for trekking nomads.",
     },
+    coordinates: {
+      lat: 31.135401,
+      lng: -7.917902
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "it-sleep-9",
@@ -1090,13 +1146,15 @@ export const imlil_toubkalSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Its high elevation means colder nights in winter; ask staff for extra firewood for your room.",
     vibeTags: ["Eco", "High-Altitude", "Pool", "Stargazing"],
-    locationSummary: "Tamatert - High Valley Views",
+    locationSummary: "High Atlas Mountains - Imlil Valley",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Toubkal+Ecolodge+Tamatert",
     address: "Tamatert, Imlil 42152, Morocco",
@@ -1163,6 +1221,11 @@ export const imlil_toubkalSleep: SleepListing[] = [
       business: "Quiet and scenic for remote work if you can handle mountain WiFi.",
       nomad: "A scenic base for work breaks and day hikes.",
     },
+    coordinates: {
+      lat: 31.142184,
+      lng: -7.906118
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "it-sleep-10",
@@ -1200,13 +1263,15 @@ export const imlil_toubkalSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Enjoy homemade mint tea on the terrace while afternoon clouds drift across the peaks.",
     vibeTags: ["Family-Run", "Warm", "Garden", "Hiker-Friendly"],
-    locationSummary: "Imlil Center - Garden Terrace",
+    locationSummary: "High Atlas Mountains - Imlil Valley",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Smile+House+Imlil",
     address: "Imlil 42152, Morocco",
@@ -1273,6 +1338,11 @@ export const imlil_toubkalSleep: SleepListing[] = [
       business: "Quiet enough for light laptop work between hikes.",
       nomad: "A balanced guesthouse for nomads who want warmth and mountain access.",
     },
+    coordinates: {
+      lat: 31.136578,
+      lng: -7.917027
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "it-sleep-11",
@@ -1310,13 +1380,15 @@ export const imlil_toubkalSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "The hospitality here is top-tier; let the hosts arrange off-the-beaten-path day hikes with local guides.",
     vibeTags: ["Berber", "Garden", "Spacious", "Warm"],
-    locationSummary: "Imlil Center - Berber Garden Riad",
+    locationSummary: "High Atlas Mountains - Imlil Valley",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Berber+Towers+Imlil",
     address: "Imlil 42152, Morocco",
@@ -1383,6 +1455,11 @@ export const imlil_toubkalSleep: SleepListing[] = [
       business: "A quiet base for basic work and planning treks.",
       nomad: "A friendly nomad base if you value local support and quiet.",
     },
+    coordinates: {
+      lat: 31.622001,
+      lng: -7.986312
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "it-sleep-12",
@@ -1420,13 +1497,15 @@ export const imlil_toubkalSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Local village trails are gravel and uneven, so pack proper walking shoes for accessing the guesthouse.",
     vibeTags: ["Peaceful", "Bright", "Oasis", "Hiker-Friendly"],
-    locationSummary: "Imlil Center - Quiet Trail Base",
+    locationSummary: "High Atlas Mountains - Imlil Valley",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Imlil+Oasis",
     address: "Imlil 42152, Morocco",
@@ -1493,6 +1572,11 @@ export const imlil_toubkalSleep: SleepListing[] = [
       business: "Calm common spaces suit light remote work.",
       nomad: "A simple and peaceful base for trekking-focused nomads.",
     },
+    coordinates: {
+      lat: 31.140348,
+      lng: -7.922514
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "it-sleep-13",
@@ -1530,13 +1614,15 @@ export const imlil_toubkalSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["solo", "friends", "couple", "friends"],
     tip: "The guesthouse is slightly uphill from the main road; mule transport can be arranged for luggage on arrival.",
     vibeTags: ["Rustic", "Guide-Owned", "Trekker-Hub", "Fireplace"],
-    locationSummary: "Imlil Hillside - Trekker Base",
+    locationSummary: "High Atlas Mountains - Imlil Valley",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Dar+Adrar+Imlil",
     address: "Imlil 42152, Morocco",
@@ -1603,6 +1689,11 @@ export const imlil_toubkalSleep: SleepListing[] = [
       business: "Basic but quiet for planning or emails.",
       nomad: "A classic budget trekking base for nomads in hiking mode.",
     },
+    coordinates: {
+      lat: 31.133413,
+      lng: -7.920283
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "it-sleep-14",
@@ -1640,13 +1731,15 @@ export const imlil_toubkalSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["couple", "family", "seniors", "solo"],
     tip: "Consider taking their cookery class to learn traditional local dishes from scratch.",
     vibeTags: ["Fortress", "Spacious", "Mountain-Luxe", "Cookery"],
-    locationSummary: "Imlil National Park Edge",
+    locationSummary: "High Atlas Mountains - Imlil Valley",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Le+Village+du+Toubkal+Imlil",
     address: "Imlil 42152, Morocco",
@@ -1713,6 +1806,11 @@ export const imlil_toubkalSleep: SleepListing[] = [
       business: "Quiet and comfortable for work between hikes.",
       nomad: "A premium mountain work base with excellent space and views.",
     },
+    coordinates: {
+      lat: 31.107218,
+      lng: -7.91912
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "it-sleep-15",
@@ -1750,13 +1848,15 @@ export const imlil_toubkalSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Request an upper-level room for the best panoramic views of the high valleys.",
     vibeTags: ["Authentic", "High-Altitude", "Panoramic", "Warm"],
-    locationSummary: "Imlil High Valley View",
+    locationSummary: "High Atlas Mountains - Imlil Valley",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Atlas+Imlil",
     address: "Imlil 42152, Morocco",
@@ -1823,6 +1923,11 @@ export const imlil_toubkalSleep: SleepListing[] = [
       business: "Quiet dining areas work for light laptop sessions.",
       nomad: "A balanced high-altitude base for trek-and-work days.",
     },
+    coordinates: {
+      lat: 31.135401,
+      lng: -7.917902
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "it-sleep-16",
@@ -1860,13 +1965,15 @@ export const imlil_toubkalSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["solo", "friends", "couple", "friends"],
     tip: "The host knows local weather conditions well; ask for advice before heading out to climb.",
     vibeTags: ["Basecamp", "Social", "Fireplace", "Value"],
-    locationSummary: "Imlil Center - Mountaineer Basecamp",
+    locationSummary: "High Atlas Mountains - Imlil Valley",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Oussagou+Imlil",
     address: "Imlil 42152, Morocco",
@@ -1933,6 +2040,11 @@ export const imlil_toubkalSleep: SleepListing[] = [
       business: "Basic, but common areas are calm for planning.",
       nomad: "A good budget basecamp for nomads balancing work and climbing.",
     },
+    coordinates: {
+      lat: 31.137989,
+      lng: -7.9102
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "it-sleep-17",
@@ -1970,13 +2082,15 @@ export const imlil_toubkalSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Ask the host to walk you through custom hiking maps to make the most of day trips.",
     vibeTags: ["Panoramic", "Host-Led", "Rustic", "Trekking"],
-    locationSummary: "Imlil Center - Panorama Terrace",
+    locationSummary: "High Atlas Mountains - Imlil Valley",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Atlas+Panorama+Imlil",
     address: "Imlil 42152, Morocco",
@@ -2043,6 +2157,11 @@ export const imlil_toubkalSleep: SleepListing[] = [
       business: "Quiet enough for light work and planning.",
       nomad: "A balanced trekking base with useful host support for nomads.",
     },
+    coordinates: {
+      lat: 31.135401,
+      lng: -7.917902
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "it-sleep-18",
@@ -2080,13 +2199,15 @@ export const imlil_toubkalSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Its location in Tamatert is peaceful and offers slightly different valley views than Imlil proper.",
     vibeTags: ["Stone-Kasbah", "Quiet", "Berber", "Valley-Views"],
-    locationSummary: "Tamatert Village - Quiet Valley Views",
+    locationSummary: "High Atlas Mountains - Imlil Valley",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Kasbah+Imlil+Tamatert",
     address: "Tamatert, Imlil 42152, Morocco",
@@ -2153,6 +2274,11 @@ export const imlil_toubkalSleep: SleepListing[] = [
       business: "Calm enough for light remote work.",
       nomad: "A quiet alternative to Imlil center for trekking nomads.",
     },
+    coordinates: {
+      lat: 31.132571,
+      lng: -7.919032
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "it-sleep-19",
@@ -2190,13 +2316,15 @@ export const imlil_toubkalSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["couple", "family", "solo", "friends"],
     tip: "This property looks like a small palace inside; explore the intricate tilework and architecture.",
     vibeTags: ["Family-Lodge", "Fortress-Style", "Clean", "Garden"],
-    locationSummary: "Imlil Center - Family Lodge",
+    locationSummary: "High Atlas Mountains - Imlil Valley",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Dar+Arghen+Family+Lodge+Imlil",
     address: "Imlil 42152, Morocco",
@@ -2263,6 +2391,11 @@ export const imlil_toubkalSleep: SleepListing[] = [
       business: "Good for light work in quiet common areas.",
       nomad: "A balanced lodge for nomads who want cleanliness and calm.",
     },
+    coordinates: {
+      lat: 31.143889,
+      lng: -7.921819
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "it-sleep-20",
@@ -2300,13 +2433,15 @@ export const imlil_toubkalSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["solo", "friends", "friends", "couple"],
     tip: "The lodge serves a hearty local breakfast on the roof—perfect fuel before a high-altitude climb.",
     vibeTags: ["Budget", "Berber", "Pass-Views", "Simple"],
-    locationSummary: "Mazzik - Tizi n’Mzik Route",
+    locationSummary: "High Atlas Mountains - Imlil Valley",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Gite+Tizi+Mizik+Imlil",
     address: "Mazzik, Imlil 42152, Morocco",
@@ -2373,5 +2508,10 @@ export const imlil_toubkalSleep: SleepListing[] = [
       business: "Not suitable for business beyond basic messages.",
       nomad: "A bare-bones trekking base for budget nomads who prioritize mountains.",
     },
+    coordinates: {
+      lat: 31.133837,
+      lng: -7.927777
+    },
+    tags: ["dorm", "family-favorite", "heritage"]
   }
 ]

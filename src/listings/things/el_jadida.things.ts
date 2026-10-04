@@ -38,16 +38,15 @@ export const el_jadidaThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "cultural-tour",
-      "instagrammable",
-      "urban"
-    ],
+    "tags": ["cultural-tour", "instagrammable", "urban", "walk-in"],
     "archetypeAffinity": [
       "first-timer",
       "culture"
     ],
-    "tip": "Walk it early in the day before beach crowds spill into the old city."
+    "tip": "Walk it early in the day before beach crowds spill into the old city.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     "id": "el-jadida-portuguese-cistern",
@@ -86,16 +85,15 @@ export const el_jadidaThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "cultural-tour",
-      "instagrammable",
-      "urban"
-    ],
+    "tags": ["cultural-tour", "instagrammable", "urban", "walk-in"],
     "archetypeAffinity": [
       "first-timer",
       "culture"
     ],
-    "tip": "The light beam effect is best when sunlight is strong, but timing varies by season."
+    "tip": "The light beam effect is best when sunlight is strong, but timing varies by season.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     "id": "el-jadida-mazagan-ramparts-walk",
@@ -134,17 +132,15 @@ export const el_jadidaThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": true,
     "isPhotographyFriendly": true,
-    "tags": [
-      "cultural-tour",
-      "coastal",
-      "instagrammable",
-      "urban"
-    ],
+    "tags": ["coastal", "cultural-tour", "instagrammable", "sunset", "urban", "walk-in"],
     "archetypeAffinity": [
       "first-timer",
       "nomad"
     ],
-    "tip": "Do the full loop if possible; the angles change a lot from bastion to bastion."
+    "tip": "Do the full loop if possible; the angles change a lot from bastion to bastion.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: true
   },
   {
     "id": "el-jadida-church-of-the-assumption",
@@ -183,16 +179,15 @@ export const el_jadidaThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "cultural-tour",
-      "urban",
-      "instagrammable"
-    ],
+    "tags": ["cultural-tour", "instagrammable", "urban", "walk-in"],
     "archetypeAffinity": [
       "culture",
       "nomad"
     ],
-    "tip": "Best seen as part of a slow walk through the cité rather than a standalone stop."
+    "tip": "Best seen as part of a slow walk through the cité rather than a standalone stop.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     "id": "el-jadida-porte-de-la-mer",
@@ -231,16 +226,15 @@ export const el_jadidaThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "cultural-tour",
-      "coastal",
-      "instagrammable"
-    ],
+    "tags": ["coastal", "cultural-tour", "instagrammable", "sunset", "walk-in"],
     "archetypeAffinity": [
       "culture",
       "first-timer"
     ],
-    "tip": "Wind can be strong here, so keep cameras and hats secure."
+    "tip": "Wind can be strong here, so keep cameras and hats secure.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: true
   },
   {
     "id": "el-jadida-el-jadida-beach",
@@ -279,16 +273,15 @@ export const el_jadidaThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "coastal",
-      "nature",
-      "urban"
-    ],
+    "tags": ["coastal", "nature", "relaxed", "sunset", "urban", "walk-in"],
     "archetypeAffinity": [
       "first-timer",
       "nomad"
     ],
-    "tip": "Late afternoon is best if you want more shade and more activity on the promenade."
+    "tip": "Late afternoon is best if you want more shade and more activity on the promenade.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: true
   },
   {
     "id": "el-jadida-sidi-bouzid-beach",
@@ -327,16 +320,15 @@ export const el_jadidaThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "coastal",
-      "nature",
-      "climbing-adventure"
-    ],
+    "tags": ["climbing-adventure", "coastal", "nature", "sunset", "walk-in"],
     "archetypeAffinity": [
       "adventure",
       "first-timer"
     ],
-    "tip": "Weekdays are calmer; weekends can get very busy in warm months."
+    "tip": "Weekdays are calmer; weekends can get very busy in warm months.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: true
   },
   {
     "id": "el-jadida-haouzia-beach-and-shipwreck-view",
@@ -375,17 +367,15 @@ export const el_jadidaThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "coastal",
-      "nature",
-      "instagrammable",
-      "off-the-beaten-path"
-    ],
+    "tags": ["coastal", "instagrammable", "nature", "off-the-beaten-path", "relaxed", "sunset", "walk-in"],
     "archetypeAffinity": [
       "nomad",
       "adventure"
     ],
-    "tip": "Bring snacks and sun protection because facilities are lighter than at Sidi Bouzid."
+    "tip": "Bring snacks and sun protection because facilities are lighter than at Sidi Bouzid.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: true
   },
   {
     "id": "el-jadida-el-jadida-port",
@@ -424,16 +414,15 @@ export const el_jadidaThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": true,
     "isPhotographyFriendly": true,
-    "tags": [
-      "coastal",
-      "authentic",
-      "urban"
-    ],
+    "tags": ["authentic", "coastal", "urban", "walk-in"],
     "archetypeAffinity": [
       "nomad",
       "culture"
     ],
-    "tip": "Go in the morning to see more activity and fresher fish landings."
+    "tip": "Go in the morning to see more activity and fresher fish landings.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     "id": "el-jadida-mohamed-afifi-theatre-square",
@@ -472,16 +461,15 @@ export const el_jadidaThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "cultural-tour",
-      "urban",
-      "instagrammable"
-    ],
+    "tags": ["cultural-tour", "instagrammable", "urban", "walk-in"],
     "archetypeAffinity": [
       "culture",
       "nomad"
     ],
-    "tip": "The square looks best once the lights come on after sunset."
+    "tip": "The square looks best once the lights come on after sunset.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     "id": "el-jadida-parc-hassan-ii",
@@ -520,15 +508,15 @@ export const el_jadidaThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": true,
     "isPhotographyFriendly": true,
-    "tags": [
-      "nature",
-      "urban"
-    ],
+    "tags": ["nature", "relaxed", "urban", "walk-in"],
     "archetypeAffinity": [
       "nomad",
       "culture"
     ],
-    "tip": "Useful around lunchtime when the old city feels hottest."
+    "tip": "Useful around lunchtime when the old city feels hottest.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     "id": "el-jadida-portuguese-city-mosque-exterior",
@@ -566,15 +554,15 @@ export const el_jadidaThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "cultural-tour",
-      "urban"
-    ],
+    "tags": ["cultural-tour", "relaxed", "urban", "walk-in"],
     "archetypeAffinity": [
       "culture",
       "first-timer"
     ],
-    "tip": "Non-Muslims should appreciate it from outside and keep photo etiquette respectful."
+    "tip": "Non-Muslims should appreciate it from outside and keep photo etiquette respectful.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     "id": "el-jadida-communal-bread-oven-visit",
@@ -612,16 +600,15 @@ export const el_jadidaThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "authentic",
-      "urban",
-      "off-the-beaten-path"
-    ],
+    "tags": ["authentic", "off-the-beaten-path", "urban", "walk-in"],
     "archetypeAffinity": [
       "culture",
       "nomad"
     ],
-    "tip": "Mornings are the best time if you want to catch actual baking activity."
+    "tip": "Mornings are the best time if you want to catch actual baking activity.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     "id": "el-jadida-resistance-and-liberation-memory-space",
@@ -661,16 +648,15 @@ export const el_jadidaThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": true,
     "isPhotographyFriendly": false,
-    "tags": [
-      "cultural-tour",
-      "urban",
-      "off-the-beaten-path"
-    ],
+    "tags": ["cultural-tour", "off-the-beaten-path", "private", "relaxed", "urban", "walk-in"],
     "archetypeAffinity": [
       "culture",
       "nomad"
     ],
-    "tip": "It is strongest when paired with a broader walk through Ville Nouvelle."
+    "tip": "It is strongest when paired with a broader walk through Ville Nouvelle.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: false
   },
   {
     "id": "el-jadida-mazagan-resort-promenade",
@@ -709,14 +695,14 @@ export const el_jadidaThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": true,
     "isPhotographyFriendly": true,
-    "tags": [
-      "coastal",
-      "urban"
-    ],
+    "tags": ["coastal", "relaxed", "sunset", "urban", "walk-in"],
     "archetypeAffinity": [
       "luxury"
     ],
-    "tip": "Go for a long lunch or sunset drink if you do not want a full resort day pass."
+    "tip": "Go for a long lunch or sunset drink if you do not want a full resort day pass.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: true
   },
   {
     "id": "el-jadida-mazagan-golf-club",
@@ -752,15 +738,15 @@ export const el_jadidaThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": true,
     "isPhotographyFriendly": true,
-    "tags": [
-      "coastal",
-      "nature"
-    ],
+    "tags": ["active", "coastal", "nature", "walk-in"],
     "archetypeAffinity": [
       "luxury",
       "adventure"
     ],
-    "tip": "Book tee times ahead and plan around afternoon wind."
+    "tip": "Book tee times ahead and plan around afternoon wind.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     "id": "el-jadida-sidi-abed-beach",
@@ -799,16 +785,15 @@ export const el_jadidaThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "coastal",
-      "nature",
-      "off-the-beaten-path"
-    ],
+    "tags": ["coastal", "nature", "off-the-beaten-path", "relaxed", "sunset", "walk-in"],
     "archetypeAffinity": [
       "nomad",
       "luxury"
     ],
-    "tip": "Bring what you need for the day because services can be minimal."
+    "tip": "Bring what you need for the day because services can be minimal.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: true
   },
   {
     "id": "el-jadida-azemmour-medina-day-trip",
@@ -847,17 +832,15 @@ export const el_jadidaThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "cultural-tour",
-      "medina",
-      "authentic",
-      "instagrammable"
-    ],
+    "tags": ["authentic", "cultural-tour", "instagrammable", "medina", "private", "walk-in"],
     "archetypeAffinity": [
       "culture",
       "nomad"
     ],
-    "tip": "Combine it with lunch by the Oum Er-Rbia for a fuller outing."
+    "tip": "Combine it with lunch by the Oum Er-Rbia for a fuller outing.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: false
   },
   {
     "id": "el-jadida-sidi-bouafi-lighthouse-viewpoint",
@@ -895,16 +878,15 @@ export const el_jadidaThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "coastal",
-      "nature",
-      "instagrammable"
-    ],
+    "tags": ["coastal", "instagrammable", "nature", "private", "relaxed", "sunset", "walk-in"],
     "archetypeAffinity": [
       "nomad",
       "adventure"
     ],
-    "tip": "Best in clear weather when the coastline is most legible."
+    "tip": "Best in clear weather when the coastline is most legible.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: true
   },
   {
     "id": "el-jadida-seafood-sunset-on-the-corniche",
@@ -943,15 +925,14 @@ export const el_jadidaThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": true,
     "isPhotographyFriendly": true,
-    "tags": [
-      "coastal",
-      "authentic",
-      "urban"
-    ],
+    "tags": ["authentic", "coastal", "sunset", "urban", "walk-in"],
     "archetypeAffinity": [
       "luxury",
       "nomad"
     ],
-    "tip": "Choose a place busy with locals and ask what arrived fresh that day."
+    "tip": "Choose a place busy with locals and ask what arrived fresh that day.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: true
   }
 ]

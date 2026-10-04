@@ -192,13 +192,15 @@ export const fesSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "friends", "business-friendly"],
     tip: "Book a room with a medina view to watch the lights of the old city come alive at night.",
     vibeTags: ["Chic", "Modern", "Panoramic", "Boutique"],
-    locationSummary: "Hillside - Overlooking Medina",
+    locationSummary: "Ville Nouvelle & Panoramic Heights",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Hotel+Sahrai+Fes",
     address: "Bab Lghoul, Dhar El Mehraz, Fes 30000, Morocco",
@@ -265,6 +267,11 @@ export const fesSleep: SleepListing[] = [
       business: "Fast WiFi and quiet rooms make it ideal for remote work.",
       nomad: "The best co-working atmosphere in Fes by the pool.",
     },
+    coordinates: {
+      lat: 34.043636,
+      lng: -4.992217
+    },
+    tags: ["heritage"]
   },
   {
     id: "f-sleep-2",
@@ -302,13 +309,15 @@ export const fesSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["couple", "family", "seniors"],
     tip: "The L’Amandier restaurant on-site is one of the best in Fes—be sure to book dinner.",
     vibeTags: ["Palatial", "Historic", "Sophisticated", "Artisanal"],
-    locationSummary: "Medina Edge - Ziat",
+    locationSummary: "Fes el-Bali - Historic Medina",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Palais+Faraj+Suites+Spa+Fes",
     address: "16-18 Derb Bensouda, Ziat, Fes 30000, Morocco",
@@ -375,6 +384,11 @@ export const fesSleep: SleepListing[] = [
       business: "A quiet and prestigious spot for high-level client meetings.",
       nomad: "Inspiring views for a unique work-from-palace experience.",
     },
+    coordinates: {
+      lat: 34.057496,
+      lng: -4.97609
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "f-sleep-3",
@@ -412,13 +426,15 @@ export const fesSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["couple", "solo", "seniors"],
     tip: "The rooftop terrace offers one of the most iconic views of the Fes medina—perfect for a quiet sunset drink.",
     vibeTags: ["Andalusian", "Opulent", "Sophisticated", "Boutique"],
-    locationSummary: "Medina Center - Near Blue Gate",
+    locationSummary: "Fes el-Bali - Historic Medina",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Fes+Relais+Chateaux",
     address: "5 Derb Ben Slimane Zerbtana, Fes 30110, Morocco",
@@ -485,6 +501,11 @@ export const fesSleep: SleepListing[] = [
       business: "Quiet rooms and elegant spaces for high-level meetings.",
       nomad: "An inspiring but premium place to work from a historic palace.",
     },
+    coordinates: {
+      lat: 34.061751,
+      lng: -4.980459
+    },
+    tags: ["heritage"]
   },
   {
     id: "f-sleep-4",
@@ -522,13 +543,15 @@ export const fesSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["couple", "family"],
     tip: "Do not miss the hammam and massage—it is widely considered one of the most authentic and relaxing in Fes.",
     vibeTags: ["Palatial", "Tranquil", "Authentic", "Artisanal"],
-    locationSummary: "Medina - Near Karaouine Mosque",
+    locationSummary: "Fes el-Bali - Historic Medina",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Laaroussa+Fes",
     address: "3 Derb Bechara, Fes 30000, Morocco",
@@ -595,6 +618,11 @@ export const fesSleep: SleepListing[] = [
       business: "Quiet corners in the patio are perfect for reading or light work.",
       nomad: "A beautiful historical retreat to recharge after exploring Fes.",
     },
+    coordinates: {
+      lat: 34.063406,
+      lng: -4.979261
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "f-sleep-5",
@@ -632,13 +660,15 @@ export const fesSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["couple", "solo"],
     tip: "The Ottomans suite is particularly spectacular—if available, book it for a truly unique stay.",
     vibeTags: ["Sophisticated", "Artisanal", "Boutique", "Curated"],
-    locationSummary: "Medina Center - Near Andalous Quarter",
+    locationSummary: "Fes el-Bali - Historic Medina",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Karawan+Riad+Fes",
     address: "21 Derb Ourbia, R'cif, Fes 30000, Morocco",
@@ -705,6 +735,11 @@ export const fesSleep: SleepListing[] = [
       business: "A prestigious and quiet setting for high-level remote work.",
       nomad: "The most visually inspiring riad to base yourself in Fes.",
     },
+    coordinates: {
+      lat: 34.06069,
+      lng: -4.980112
+    },
+    tags: ["heritage"]
   },
   {
     id: "f-sleep-6",
@@ -742,13 +777,15 @@ export const fesSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["couple", "family", "seniors"],
     tip: "The cooking school is exceptional—even non-guests should consider a half-day Fassi cooking course.",
     vibeTags: ["Palatial", "Art-Deco", "Tranquil", "Artisanal"],
-    locationSummary: "Medina Edge - Near Bab Guissa",
+    locationSummary: "Fes el-Bali - Historic Medina",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Palais+Amani+Fes",
     address: "12 Derb El Miter, Oued Zhoune, Fes 30000, Morocco",
@@ -815,6 +852,11 @@ export const fesSleep: SleepListing[] = [
       business: "A peaceful setting with reliable WiFi for remote work.",
       nomad: "The best place in Fes to learn Moroccan food while staying in a palace.",
     },
+    coordinates: {
+      lat: 34.067471,
+      lng: -4.972058
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "f-sleep-7",
@@ -852,13 +894,15 @@ export const fesSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["couple", "friends"],
     tip: "Book dinner on the rooftop well in advance—the food and view are spectacular.",
     vibeTags: ["Intimate", "Gourmet", "Panoramic", "Authentic"],
-    locationSummary: "Medina Center - Near Bab Ziat",
+    locationSummary: "Fes el-Bali - Historic Medina",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Dar+Roumana+Fes",
     address: "30 Derb el-Amer, Zkak Roumane, Fes 30110, Morocco",
@@ -925,6 +969,11 @@ export const fesSleep: SleepListing[] = [
       business: "The library and terrace are wonderful for quiet creative work.",
       nomad: "A beautiful and authentic guesthouse to focus and work from.",
     },
+    coordinates: {
+      lat: 34.066899,
+      lng: -4.978191
+    },
+    tags: []
   },
   {
     id: "f-sleep-8",
@@ -962,13 +1011,15 @@ export const fesSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["couple", "solo", "family"],
     tip: "Staff are exceptionally helpful with medina navigation—ask them for their favorite shortcuts.",
     vibeTags: ["Intimate", "Artisanal", "Panoramic", "Warm"],
-    locationSummary: "Medina Center - Near R'cif",
+    locationSummary: "Fes el-Bali - Historic Medina",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Maya+Fes",
     address: "Avenue Ben Mohamed El Alaoui, R'cif, Fes 30000, Morocco",
@@ -1035,6 +1086,11 @@ export const fesSleep: SleepListing[] = [
       business: "Quiet and inspiring spaces for remote work between tours.",
       nomad: "A perfect balance of luxury and authenticity for a long stay.",
     },
+    coordinates: {
+      lat: 34.058206,
+      lng: -4.973033
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "f-sleep-9",
@@ -1072,13 +1128,15 @@ export const fesSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["couple", "seniors", "family"],
     tip: "Take breakfast on the rooftop terrace for a quiet start with sweeping city views.",
     vibeTags: ["Regal", "Historic", "Quiet", "Andalusian"],
-    locationSummary: "Medina - Near Batha",
+    locationSummary: "Fes el-Bali - Historic Medina",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Myra+Fes",
     address: "13 Rue Salaj, Batha, Fes 30000, Morocco",
@@ -1145,6 +1203,11 @@ export const fesSleep: SleepListing[] = [
       business: "A quiet and respectful atmosphere for evening focus.",
       nomad: "A beautiful historical space to work and feel the history of Fes.",
     },
+    coordinates: {
+      lat: 34.06069,
+      lng: -4.980112
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "f-sleep-10",
@@ -1182,13 +1245,15 @@ export const fesSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["couple", "family", "solo"],
     tip: "The pool is a lifesaver in the Fes summer heat—leave time to relax by the water.",
     vibeTags: ["Green-Oasis", "Tranquil", "Homely", "Refreshing"],
-    locationSummary: "Medina - Near Batha",
+    locationSummary: "Fes el-Bali - Historic Medina",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Ryad+Salama+Fes",
     address: "Derb Ahl Tadla, Fes 30000, Morocco",
@@ -1255,6 +1320,11 @@ export const fesSleep: SleepListing[] = [
       business: "A quiet garden setting with good WiFi for focused work.",
       nomad: "The most refreshing and green place to stay in the Fes medina.",
     },
+    coordinates: {
+      lat: 34.031328,
+      lng: -4.99885
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "f-sleep-11",
@@ -1292,13 +1362,15 @@ export const fesSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["solo", "friends"],
     tip: "Don’t miss the family-style dinners—they are the best way to meet people and experience home-cooked Fassi cuisine.",
     vibeTags: ["Lively", "Social", "Backpacker-Hub", "Funky"],
-    locationSummary: "Medina - Near Bab Jdid Gate",
+    locationSummary: "Fes el-Bali - Historic Medina",
     availabilityText: "Beds available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Funky+Fes",
     address: "60 Arset Lamdelssi, Bab Jdid, Fes 30000, Morocco",
@@ -1365,6 +1437,11 @@ export const fesSleep: SleepListing[] = [
       business: "Not suitable for business travel.",
       nomad: "The rooftop is decent for work, but can be loud.",
     },
+    coordinates: {
+      lat: 34.058028,
+      lng: -4.974378
+    },
+    tags: ["dorm", "heritage"]
   },
   {
     id: "f-sleep-12",
@@ -1402,13 +1479,15 @@ export const fesSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ["solo", "friends", "couple"],
     tip: "Check the cultural calendar upon arrival—the courtyard concerts are some of the best musical experiences in Fes.",
     vibeTags: ["Cultural", "Intellectual", "Social", "Grand"],
-    locationSummary: "Medina - Near the Tannery Entrance",
+    locationSummary: "Fes el-Bali - Historic Medina",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Medina+Social+Club+Fes",
     address: "11 Derb El Menia, Fes 30000, Morocco",
@@ -1475,6 +1554,11 @@ export const fesSleep: SleepListing[] = [
       business: "Good WiFi and inspiring common spaces for focused work.",
       nomad: "The best co-working vibe in the Fes medina.",
     },
+    coordinates: {
+      lat: 34.063587,
+      lng: -4.978688
+    },
+    tags: ["dorm", "heritage"]
   },
   {
     id: "f-sleep-13",
@@ -1512,13 +1596,15 @@ export const fesSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["couple", "family", "seniors"],
     tip: "The spa is exceptional—book the Royal Hammam for a traditional deep relaxation session.",
     vibeTags: ["Grand", "Opulent", "Historic", "Serene"],
-    locationSummary: "Medina - Near Batha Square",
+    locationSummary: "Fes el-Bali - Historic Medina",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Salam+Fes",
     address: "18 Derb Bennis, Douh, Fes 30000, Morocco",
@@ -1585,6 +1671,11 @@ export const fesSleep: SleepListing[] = [
       business: "A quiet and unique setting for a traveler who values culture.",
       nomad: "The rooftop terrace is a dream for morning remote work.",
     },
+    coordinates: {
+      lat: 34.058624,
+      lng: -4.978311
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "f-sleep-14",
@@ -1622,13 +1713,15 @@ export const fesSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["couple", "solo", "seniors"],
     tip: "The 360-degree rooftop view is legendary—be there at sunset for the call to prayer across the valley.",
     vibeTags: ["Ancient", "Palatial", "Authentic", "Scenic"],
-    locationSummary: "Medina - Near Rcif Gate",
+    locationSummary: "Fes el-Bali - Historic Medina",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Rcif+Spa+Fes",
     address: "Avenue Ben Mohamed El Alaoui, R'cif, Fes 30000, Morocco",
@@ -1695,6 +1788,11 @@ export const fesSleep: SleepListing[] = [
       business: "A refreshing and quiet alternative with good WiFi.",
       nomad: "The rooftop is an inspiring and quiet place for remote work.",
     },
+    coordinates: {
+      lat: 34.060908,
+      lng: -4.971909
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "f-sleep-15",
@@ -1732,13 +1830,15 @@ export const fesSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["couple", "solo", "seniors"],
     tip: "The concierge service is world-class—ask for a private guide specializing in hidden artisan workshops.",
     vibeTags: ["Boutique-Luxe", "Sophisticated", "Refined", "Serene"],
-    locationSummary: "Medina - Near Bab Boujloud",
+    locationSummary: "Fes el-Bali - Historic Medina",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Alassala+Fes",
     address: "Near Bab Boujloud, Fes 30000, Morocco",
@@ -1805,6 +1905,11 @@ export const fesSleep: SleepListing[] = [
       business: "A quiet and inspiring setting with good WiFi for remote work.",
       nomad: "The courtyard is a dream to work from while feeling like you are in a classic villa.",
     },
+    coordinates: {
+      lat: 34.059689,
+      lng: -4.978088
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "f-sleep-16",
@@ -1842,13 +1947,15 @@ export const fesSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["family", "couple", "solo", "business-friendly"],
     tip: "Request a garden-view room with a balcony—the grounds are so lush you can forget you are in a city center.",
     vibeTags: ["Resort", "Modern", "Expansive", "Convenient"],
-    locationSummary: "Ville Nouvelle - Modern City Center",
+    locationSummary: "Ville Nouvelle & Panoramic Heights",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Fes+Marriott+Hotel+Jnan+Palace",
     address: "8 Avenue Ahmed Chaouki, Fes 30000, Morocco",
@@ -1915,6 +2022,11 @@ export const fesSleep: SleepListing[] = [
       business: "Excellent facilities close to major business centers.",
       nomad: "The poolside lounge and high-speed WiFi are excellent for remote work.",
     },
+    coordinates: {
+      lat: 34.031854,
+      lng: -5.002759
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "f-sleep-17",
@@ -1952,13 +2064,15 @@ export const fesSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ["couple", "solo", "seniors", "business-friendly"],
     tip: "The attention to detail is unparalleled—every object has a story. Don’t miss afternoon tea on the rooftop.",
     vibeTags: ["Sophisticated", "Historic", "Ultra-Luxe", "Intimate"],
-    locationSummary: "Andalusian Quarter - Medina",
+    locationSummary: "Fes el-Bali - Historic Medina",
     availabilityText: "Available tonight - Boutique Choice",
     googleMapsUrl: "https://maps.google.com/?q=Karawan+Riad+Fes",
     address: "21 Derb Ourbia, R'cif, Fes 30000, Morocco",
@@ -2019,6 +2133,11 @@ export const fesSleep: SleepListing[] = [
       business: "Excellent service and a very prestigious atmosphere.",
       nomad: "A beautiful and quiet environment for reflection.",
     },
+    coordinates: {
+      lat: 34.06069,
+      lng: -4.980112
+    },
+    tags: ["heritage"]
   },
   {
     id: "f-sleep-18",
@@ -2056,13 +2175,15 @@ export const fesSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "seniors", "business-friendly"],
     tip: "Book a rooftop restaurant table for dinner—the sunset view of Fes is one of Morocco’s iconic sights.",
     vibeTags: ["Scenic", "Classic", "Grand", "Quiet"],
-    locationSummary: "Hillside - Overlooking Medina",
+    locationSummary: "Ville Nouvelle & Panoramic Heights",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Les+Merinides+Fes",
     address: "Borj Nord, Fes 30000, Morocco",
@@ -2129,6 +2250,11 @@ export const fesSleep: SleepListing[] = [
       business: "Excellent facilities and close to business routes.",
       nomad: "The poolside lounge and high-speed WiFi are strong for remote work.",
     },
+    coordinates: {
+      lat: 34.069815,
+      lng: -4.982371
+    },
+    tags: ["heritage"]
   },
   {
     id: "f-sleep-19",
@@ -2166,13 +2292,15 @@ export const fesSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["couple", "solo"],
     tip: "The Ruined Garden is one of the most famous restaurants in Fes—come for slow-food lunch even if you do not stay.",
     vibeTags: ["Authentic", "Botanical", "Historic", "Artistic"],
-    locationSummary: "Medina - Near Siyaj District",
+    locationSummary: "Fes el-Bali - Historic Medina",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Idrissy+Fes",
     address: "13 Derb Idrissy, Siaj, Fes 30000, Morocco",
@@ -2233,6 +2361,11 @@ export const fesSleep: SleepListing[] = [
       business: "A quiet and inspiring setting with good WiFi for remote work.",
       nomad: "The garden is the most inspiring place to work from in the medina.",
     },
+    coordinates: {
+      lat: 34.063353,
+      lng: -4.983441
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "f-sleep-20",
@@ -2270,13 +2403,15 @@ export const fesSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["couple", "family", "seniors"],
     tip: "The spa is one of the largest in the medina—recommended for a full day of pampering in a regal setting.",
     vibeTags: ["Regal", "Opulent", "Grand", "Serene"],
-    locationSummary: "Medina - Near Batha Square",
+    locationSummary: "Fes el-Bali - Historic Medina",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Palais+Sheherazade+Spa+Fes",
     address: "23 Arsat Bennis, Douh, Fes 30000, Morocco",
@@ -2343,5 +2478,10 @@ export const fesSleep: SleepListing[] = [
       business: "A quiet and unique setting for business travelers who value culture.",
       nomad: "The rooftop terrace is a dream for morning remote work sessions.",
     },
+    coordinates: {
+      lat: 34.058988,
+      lng: -4.978783
+    },
+    tags: ["family-favorite", "heritage"]
   }
 ]

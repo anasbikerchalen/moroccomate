@@ -1,25 +1,21 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
-  Heart, MapPin, Clock, Phone, Calendar, Shield, ThumbsUp, ThumbsDown,
+  Heart, MapPin, Clock, Shield, ThumbsUp, ThumbsDown,
   Navigation, CheckCircle2, ChevronRight, ArrowLeft, ExternalLink, MessageSquare, X,
   BookOpen, type LucideIcon, Wifi, Wind, Globe, ShieldAlert, Star, DollarSign, UtensilsCrossed,
   Info, Sparkles, HelpCircle, User, Award, Layers
 } from 'lucide-react';
 import { cn } from '../../utils/cn';
 import { useSavedStore } from '../../state/savedStore';
-import { usePlanStore } from '../../state/planStore';
 import { useParameterStore } from '../../state/parameterStore';
-import { useTransportStore } from '../../state/transportStore';
 import { useExploreStore } from '../../state/exploreStore';
 import { listingsRegistry } from '../../listings';
 import { cityMap } from '../../data/cities';
 import { SavvyScoreEngine } from '../../engine/savvyScoreEngine';
-import { placeIntelDB } from '../../data/savvy/place-intel';
 import SavvyBadge from '../savvy/SavvyBadge';
-import { resolveListingImages, handleListingImageError } from '../../utils/imageResolver';
 
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 interface EatDetailViewProps {
   item: any;
@@ -28,11 +24,7 @@ interface EatDetailViewProps {
 
 export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
   const navigate = useNavigate();
-  const location = useLocation();
-  const query = new URLSearchParams(location.search);
-  const ref = query.get('ref');
   const { toggleBookmark, isBookmarked } = useSavedStore();
-  const { addCustomActivity } = usePlanStore();
   const { city } = useParameterStore();
   const { omitGoogleImage } = useExploreStore();
 
@@ -107,41 +99,9 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
     }
   }, [id, name]);
 
-  const hasSavvyPage = useMemo(() => {
-    return placeIntelDB.some(p => p.placeId === id);
-  }, [id]);
-
   const placeIntel = useMemo(() => {
     return SavvyScoreEngine.getPlaceIntel(id);
   }, [id]);
-
-  // 3-Tier Image Resolution
-  const resolvedImages = useMemo(() => {
-    return resolveListingImages({
-      id: item?.id,
-      googlePlaceId: item?.googlePlaceId,
-      images: item?.images,
-      nonCopyrightImage: item?.nonCopyrightImage,
-      category: 'eat',
-      omitGooglePlaceApi: omitGoogleImage
-    });
-  }, [item, omitGoogleImage]);
-
-  // Fallback and dynamic image strip
-  const finalImages = useMemo(() => {
-    const list = [resolvedImages.url, ...resolvedImages.fallbackUrls];
-    // Fill with gorgeous stock if short
-    const stock = [
-      'https://images.unsplash.com/photo-1539252554453-80ab65ce3586?w=600&auto=format&fit=crop', // Tajine
-      'https://images.unsplash.com/photo-1541532713592-79a0317b6b77?w=600&auto=format&fit=crop', // Moroccan Mint Tea
-      'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=600&auto=format&fit=crop', // Moroccan Interior Riad
-      'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&auto=format&fit=crop'  // Courtyard dining
-    ];
-    while (list.length < 4) {
-      list.push(stock[list.length % stock.length]);
-    }
-    return Array.from(new Set(list));
-  }, [resolvedImages]);
 
   // Dynamic Trust Scores calculations (avoiding any static emptiness)
   const hygieneScore = useMemo(() => {
@@ -250,7 +210,6 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
     "@type": "Restaurant",
     "name": name,
     "description": description,
-    "image": finalImages,
     "address": {
       "@type": "PostalAddress",
       "streetAddress": item?.exactAddressAndCoordinates?.address || '',
@@ -276,7 +235,7 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
       "opens": openTime,
       "closes": closeTime
     }
-  }), [name, description, finalImages, item, city, reservationContact, website, googleMapsUrl, calculatedPriceRange, foodStyles, rating, reviewCount, openTime, closeTime]);
+  }), [name, description, item, city, reservationContact, website, googleMapsUrl, calculatedPriceRange, foodStyles, rating, reviewCount, openTime, closeTime]);
 
   if (!item) {
     return (
@@ -289,22 +248,12 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
     );
   }
 
-  const handleItineraryAdd = () => {
-    // Add activity to plan store
-    addCustomActivity(item.city, 'evening', 'eat', name);
-    console.log(`Added ${name} directly to your evening itinerary!`);
-    if (ref === 'planner') {
-      navigate('/planner');
-    }
-  };
-
   const handleToggleBookmark = () => {
     toggleBookmark({
       id: id,
       type: 'eat',
       name: name,
-      city: item.city || city || 'marrakech',
-      image: finalImages[0]
+      city: item.city || city || 'marrakech'
     });
   };
 
@@ -355,18 +304,12 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
         {/* MAIN COLUMN */}
         <div id="eat-main-content" className="space-y-6">
           
-          {/* A: Hero Panel */}
-          <div className="relative w-full h-[280px] md:h-[320px] rounded-3xl overflow-hidden bg-gradient-to-br from-[#2C1810] to-[#5C3520] shadow-xl">
-            <img
-              src={finalImages[0]}
-              alt={name}
-              className="w-full h-full object-cover opacity-90 mix-blend-normal"
-              referrerPolicy="no-referrer"
-              data-fallbacks={JSON.stringify(resolvedImages.fallbackUrls)}
-              onError={(e) => handleListingImageError(e, resolvedImages.fallbackUrls, 'eat')}
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-transparent to-black/30 pointer-events-none" />
-            
+          {/* A: Hero Panel — no hosted image, decorative gradient + Google Maps photos link */}
+          <div className="relative w-full h-[280px] md:h-[320px] rounded-3xl overflow-hidden bg-gradient-to-br from-[#2C1810] to-[#8B4A2A] shadow-xl flex flex-col items-center justify-center gap-4">
+            {/* Decorative Moroccan pattern */}
+            <div className="absolute inset-0 bg-[radial-gradient(rgba(201,168,76,0.15)_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+
             {/* Tag Badges Overlay */}
             <div className="absolute top-4 left-4 flex gap-2 flex-wrap" id="eat-hero-badges">
               <span className="flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#10b478]/95 text-white shadow-sm">
@@ -385,34 +328,27 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
               onClick={handleToggleBookmark}
               id={`eat-btn-bookmark-${id}`}
               className={cn(
-                "absolute top-4 right-4 w-10 h-10 rounded-full flex items-center justify-center transition-all bg-white/90 backdrop-blur-md shadow-md",
+                "absolute top-4 right-4 w-10 h-10 rounded-full flex items-center justify-center transition-all bg-white/90 backdrop-blur-md shadow-md z-10",
                 bookmarked ? "text-red-500 scale-110" : "text-stone-600 hover:text-red-500 hover:scale-105"
               )}
             >
               <Heart className={cn("w-5 h-5", bookmarked && "fill-current")} />
             </button>
-          </div>
 
-          {/* Multiple Photo Strip */}
-          <div className="grid grid-cols-4 gap-2" id="eat-photo-strip">
-            {finalImages.slice(0, 4).map((img, i) => (
-              <div 
-                key={i} 
-                className="relative h-16 rounded-xl bg-stone-100 overflow-hidden border border-stone-200/60 shadow-sm"
+            {/* Center CTA */}
+            <div className="relative z-10 flex flex-col items-center gap-3 text-center">
+              <p className="text-white/70 text-xs font-bold uppercase tracking-widest">Photos</p>
+              <a
+                href={googleMapsUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${name} ${city} Morocco`)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/90 hover:bg-white text-[#29231F] text-sm font-bold shadow-md hover:shadow-lg transition-all cursor-pointer"
               >
-                <img 
-                  src={img} 
-                  alt="" 
-                  className="w-full h-full object-cover" 
-                  referrerPolicy="no-referrer"
-                />
-                {i === 3 && images.length > 4 && (
-                  <div className="absolute inset-0 bg-stone-950/65 flex items-center justify-center text-white text-xs font-bold font-sans">
-                    +{images.length - 4}
-                  </div>
-                )}
-              </div>
-            ))}
+                <MapPin className="w-4 h-4 text-[#C2613C]" />
+                View photos on Google Maps
+                <ExternalLink className="w-3.5 h-3.5 opacity-60" />
+              </a>
+            </div>
           </div>
 
           {/* Identity & Basic Stats */}
@@ -454,63 +390,25 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
               {placeIntel && (
                 <>
                   <span className="text-stone-300">·</span>
-                  <button onClick={() => navigate(`/savvy/${item.city || 'marrakech'}/eat/${id}`)} className="cursor-pointer hover:opacity-80 transition-opacity">
+                  <div className="flex items-center">
                     <SavvyBadge placeId={id} size="sm" />
-                  </button>
+                  </div>
                 </>
               )}
             </div>
           </div>
 
           {/* Core Actions */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 py-2" id="eat-action-row">
-            <button
-              onClick={() => {
-                navigate(`/transport/go?city=${encodeURIComponent(item.city || city || 'marrakech')}&dest=${encodeURIComponent(name)}`);
-              }}
-              className="flex flex-col items-center justify-center gap-1 py-3 px-3 rounded-2xl bg-stone-900 hover:bg-[#C9A84C] text-white font-bold text-center transition-all shadow-md cursor-pointer group"
-            >
-              <Navigation className="w-5 h-5 text-[#C9A84C] group-hover:text-stone-900 transition-colors" />
-              <span className="text-xs">Transport</span>
-            </button>
-
+          <div className="grid grid-cols-1 gap-2 py-2" id="eat-action-row">
             <a
               href={googleMapsUrl || `https://maps.google.com/?q=${encodeURIComponent(name + ' ' + city)}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex flex-col items-center justify-center gap-1 py-3 px-3 rounded-2xl bg-[#D4863A] hover:bg-[#ba7530] text-white font-bold text-center transition-all shadow-md cursor-pointer group"
+              className="flex items-center justify-center gap-2 py-3 px-4 rounded-2xl bg-[#D4863A] hover:bg-[#ba7530] text-white font-bold text-center transition-all shadow-md cursor-pointer group"
             >
-              <Navigation className="w-5 h-5 text-white group-hover:scale-110 transition-transform" />
-              <span className="text-xs">Map</span>
+              <Navigation className="w-5 h-5 group-hover:scale-110 transition-transform" />
+              <span className="text-xs uppercase tracking-wider">Open in Google Maps</span>
             </a>
-            
-            <a
-              href={reservationContact ? `tel:${reservationContact}` : undefined}
-              onClick={() => {
-                if (!reservationContact) console.log("Phone reservations not configured for this specific listing. Please use online options.");
-              }}
-              className={cn(
-                "flex flex-col items-center justify-center gap-1 py-3 px-3 rounded-2xl border bg-white font-bold text-center transition-all shadow-sm",
-                reservationContact ? "border-stone-200 text-stone-800 hover:bg-stone-50 cursor-pointer" : "opacity-50 text-stone-400 cursor-not-allowed"
-              )}
-            >
-              <Phone className="w-5 h-5 text-stone-600" />
-              <span className="text-xs">{reservationContact ? 'Call' : 'No Phone'}</span>
-            </a>
-
-            <button
-              onClick={() => {
-                if (reservationMethod.includes('online')) {
-                  window.open(googleMapsUrl || `https://maps.google.com/?q=${encodeURIComponent(name)}`, '_blank');
-                } else {
-                  console.log(`Reservation requires directly calling ${reservationContact || 'the restaurant'}.`);
-                }
-              }}
-              className="flex flex-col items-center justify-center gap-1 py-3 px-3 rounded-2xl border border-stone-200 bg-white hover:bg-stone-50 text-stone-800 font-bold text-center transition-all shadow-sm cursor-pointer"
-            >
-              <Calendar className="w-5 h-5 text-stone-600" />
-              <span className="text-xs">Reserve</span>
-            </button>
           </div>
 
           {/* Description */}
@@ -518,94 +416,6 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
             <div className="bg-white border border-stone-100 rounded-3xl p-6 shadow-sm">
               <h3 className="text-xs font-black uppercase tracking-[0.2em] text-[#C9A84C] mb-3">About the Experience</h3>
               <p className="text-stone-600 text-base leading-relaxed leading-7">{description}</p>
-            </div>
-          )}
-
-          {/* Savvy Intelligence Core Block */}
-          {placeIntel && (
-            <div className="bg-stone-900 text-white rounded-3xl p-6 shadow-xl border border-stone-850 space-y-4">
-              <div className="flex justify-between items-center pb-3 border-b border-stone-800">
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 bg-[#C9A84C]/10 border border-[#C9A84C]/30 rounded-xl flex items-center justify-center text-[#C9A84C]">
-                    <Award className="w-5 h-5 animate-pulse" />
-                  </div>
-                  <div>
-                    <span className="text-[9px] uppercase tracking-wider text-stone-400 block font-bold">Morocco Savvy Verified</span>
-                    <h4 className="text-sm font-black tracking-tight text-white uppercase tracking-widest">Savvy Intelligence Code</h4>
-                  </div>
-                </div>
-                <div className="flex items-center gap-1 bg-[#C9A84C]/10 border border-[#C9A84C]/25 px-2.5 py-1 rounded-full text-[#C9A84C] font-mono text-xs font-bold">
-                  Score {placeIntel.savvyScore}
-                </div>
-              </div>
-
-              {/* Savvy Tip */}
-              {placeIntel.savvyTips && placeIntel.savvyTips.length > 0 && (
-                <div className="space-y-1.5">
-                  <div className="text-[10px] uppercase font-bold text-[#C9A84C] tracking-wider">💡 Street-Smart Hack</div>
-                  <p className="text-xs text-stone-300 leading-relaxed font-sans">{placeIntel.savvyTips[0]}</p>
-                </div>
-              )}
-
-              {/* Price Guidelines */}
-              {placeIntel.fairPriceGuidelines && (
-                <div className="space-y-1.5 pt-2 border-t border-stone-800/50">
-                  <div className="text-[10px] uppercase font-bold text-[#C9A84C] tracking-wider">💶 Local Price Benchmarks</div>
-                  <div className="bg-stone-950/60 p-3 rounded-xl border border-stone-800 text-xs flex justify-between gap-4 font-mono">
-                    <div>
-                      <div className="text-[9px] text-stone-500 uppercase font-bold">Expat Average</div>
-                      <div className="text-stone-200 font-bold mt-0.5">{placeIntel.fairPriceGuidelines.avgExpatSpend} MAD</div>
-                    </div>
-                    <div>
-                      <div className="text-[9px] text-stone-500 uppercase font-bold">Souk Markup</div>
-                      <div className="text-stone-200 font-bold mt-0.5">{placeIntel.fairPriceGuidelines.markupAlertThreshold}</div>
-                    </div>
-                    <div>
-                      <div className="text-[9px] text-stone-500 uppercase font-bold">Pricing Policy</div>
-                      <div className="text-emerald-400 font-bold mt-0.5 capitalize">{placeIntel.fairPriceGuidelines.negotiability}</div>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* Darija Escape Scripts */}
-              {placeIntel.darijaEscapeScripts && placeIntel.darijaEscapeScripts.length > 0 && (
-                <div className="space-y-2 pt-2 border-t border-stone-800/50">
-                  <div className="text-[10px] uppercase font-bold text-[#C9A84C] tracking-wider">🎙️ Exit Script (Darija)</div>
-                  <div className="bg-stone-950/40 border border-stone-800 p-3.5 rounded-xl space-y-1 relative">
-                    <div className="text-sm font-bold text-white tracking-wide">{placeIntel.darijaEscapeScripts[0].script}</div>
-                    <div className="text-[10px] italic text-stone-400">"{placeIntel.darijaEscapeScripts[0].translation}"</div>
-                    {/* Audio not available placeholder to adhere strictly to AGENTS.md rule 2 */}
-                    <button 
-                      disabled
-                      className="absolute top-2.5 right-2.5 p-1.5 bg-stone-900 border border-stone-800 rounded-lg text-stone-500 cursor-not-allowed hover:bg-stone-900 transition-colors"
-                      title="Audio not available yet"
-                    >
-                      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-volume-2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
-                    </button>
-                  </div>
-                </div>
-              )}
-
-              <div className="pt-2">
-                <button
-                  onClick={() => {
-                    if (hasSavvyPage) {
-                      navigate(`/savvy/${item.city || 'marrakech'}/eat/${id}`);
-                    }
-                  }}
-                  disabled={!hasSavvyPage}
-                  className={cn(
-                    "w-full py-2.5 rounded-xl text-[10px] font-black uppercase tracking-wider transition-all flex items-center justify-center gap-2 border",
-                    hasSavvyPage 
-                      ? "bg-[#C9A84C] hover:bg-[#b0913e] text-stone-900 border-[#C9A84C] cursor-pointer"
-                      : "bg-stone-800 text-stone-500 border-stone-700 cursor-not-allowed opacity-50"
-                  )}
-                >
-                  <Award className="w-3.5 h-3.5" />
-                  {hasSavvyPage ? "View Savvy Intelligence Page" : "Savvy Page Not Available"}
-                </button>
-              </div>
             </div>
           )}
 
@@ -685,14 +495,12 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
               <h3 className="text-xs font-black uppercase tracking-[0.2em] text-[#C9A84C] flex items-center gap-2">
                 <UtensilsCrossed className="w-4 h-4" /> Highly Recommended Plates
               </h3>
-              {fullMenu && (
-                <button 
-                  onClick={() => setShowMenuModal(true)}
-                  className="text-[10px] font-bold text-[#D4863A] hover:text-[#ba7530] flex items-center gap-1 border-b border-[#D4863A]/30 pb-0.5 cursor-pointer"
-                >
-                  <BookOpen className="w-3 h-3" /> View full menu
-                </button>
-              )}
+              <button
+                onClick={() => setShowMenuModal(true)}
+                className="text-[10px] font-bold text-[#D4863A] hover:text-[#ba7530] flex items-center gap-1 border-b border-[#D4863A]/30 pb-0.5 cursor-pointer"
+              >
+                <BookOpen className="w-3 h-3" /> View full menu
+              </button>
             </div>
 
             {/* Horizontal slides card */}
@@ -702,10 +510,9 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
                   key={idx} 
                   className="flex-shrink-0 w-36 rounded-xl border border-stone-200/70 p-3 bg-stone-50/50 flex flex-col justify-between"
                 >
-                  <div className="w-full h-20 rounded-lg bg-cover bg-center mb-2 flex items-center justify-center relative overflow-hidden"
-                    style={{ backgroundImage: `url('${finalImages[(idx + 1) % finalImages.length]}')` }}
-                  >
-                    <div className="absolute inset-0 bg-black/10" />
+                  <div className="w-full h-20 rounded-lg mb-2 flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-[#F5EDE4] to-[#EDE0D0] border border-[#E2D4C2]">
+                    <div className="absolute inset-0 bg-[radial-gradient(#C9A84C_0.5px,transparent_0.5px)] [background-size:14px_14px] opacity-10 pointer-events-none" />
+                    <UtensilsCrossed className="w-6 h-6 text-[#C2613C] relative z-10" />
                   </div>
                   <div>
                     <h5 className="text-xs font-bold text-stone-900 line-clamp-2 min-h-[32px] leading-tight">
@@ -812,25 +619,12 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
                 rel="noopener noreferrer"
                 className="flex-1 h-[60px] rounded-2xl bg-stone-100 border border-stone-200 hover:border-stone-400 relative overflow-hidden transition-all group flex items-center justify-center gap-2"
               >
-                <div className="absolute inset-0 bg-cover bg-center opacity-85 group-hover:scale-105 transition-transform"
-                  style={{ backgroundImage: `url('https://images.unsplash.com/photo-1524661135-423995f22d0b?w=600&auto=format&fit=crop')` }}
-                />
+                <div className="absolute inset-0 bg-gradient-to-br from-[#2C1810] to-[#5C3520] group-hover:scale-105 transition-transform" />
+                <div className="absolute inset-0 bg-[radial-gradient(rgba(201,168,76,0.3)_1px,transparent_1px)] [background-size:14px_14px] pointer-events-none" />
                 <div className="absolute inset-0 bg-stone-900/40" />
                 <Navigation className="w-5 h-5 text-amber-400 group-hover:scale-110 transition-all drop-shadow-md z-10" />
                 <span className="text-sm font-bold text-white tracking-tight drop-shadow-sm z-10">Google Maps</span>
               </a>
-              <button
-                onClick={() => {
-                  useTransportStore.getState().setRoute(null, `${name}, ${city}`);
-                  navigate('/transport/exploring-city/plan-route');
-                }}
-                className="flex-1 h-[60px] rounded-2xl bg-stone-900 text-white hover:bg-stone-800 transition-all flex flex-col items-center justify-center gap-1 shadow-md active:scale-95 border border-stone-700"
-              >
-                <div className="flex items-center gap-2">
-                  <span className="text-sm font-bold tracking-tight">Plan Route</span>
-                </div>
-                <span className="text-[10px] text-stone-400 uppercase tracking-widest font-black">Get Here</span>
-              </button>
             </div>
 
             {/* Travel details summary list */}
@@ -963,7 +757,7 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
 
             <div className="space-y-3">
               {placeIntel && placeIntel.socialHighlights && placeIntel.socialHighlights.length > 0 ? (
-                placeIntel.socialHighlights.map((highlight, index) => {
+                placeIntel.socialHighlights.map((highlight: any, index: number) => {
                   const sourceLabels: Record<string, string> = {
                     reddit: 'Reddit AI Mine',
                     tripadvisor: 'TripAdvisor Audit',
@@ -1244,102 +1038,9 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
             </AnimatePresence>
           </div>
 
-          {/* Action Tools for Trip */}
-          <div className="space-y-2.5" id="eat-tools-widgets">
-            <span className="block text-[10px] font-bold tracking-[0.08em] text-stone-400 uppercase">Interactive Tools</span>
 
-            <button 
-              onClick={() => {
-                navigate(`/transport/fare-calculator?city=${(item.city || 'marrakech').toLowerCase()}&distance=3&mode=petit_taxi`);
-              }}
-              className="w-full flex items-center justify-between p-3.5 bg-white border border-stone-200/80 hover:border-stone-400 rounded-2xl shadow-sm text-left transition-colors cursor-pointer"
-            >
-              <div className="flex gap-2.5 items-center">
-                <div className="w-8 h-8 rounded-xl bg-amber-50 flex items-center justify-center">
-                  <DollarSign className="w-4 h-4 text-[#D4863A]" />
-                </div>
-                <div>
-                  <span className="block text-xs font-bold text-stone-800 leading-tight">Taxi Fare to Here</span>
-                  <span className="block text-[10px] text-stone-400">Avoid overcharging</span>
-                </div>
-              </div>
-              <ChevronRight className="w-4 h-4 text-stone-400" />
-            </button>
 
-            <button 
-              onClick={() => {
-                navigate('/language/situations/restaurant');
-              }}
-              className="w-full flex items-center justify-between p-3.5 bg-white border border-stone-200/80 hover:border-stone-400 rounded-2xl shadow-sm text-left transition-colors cursor-pointer"
-            >
-              <div className="flex gap-2.5 items-center">
-                <div className="w-8 h-8 rounded-xl bg-amber-50 flex items-center justify-center">
-                  <Globe className="w-4 h-4 text-[#D4863A]" />
-                </div>
-                <div>
-                  <span className="block text-xs font-bold text-stone-800 leading-tight">Darija Phrases</span>
-                  <span className="block text-[10px] text-stone-400">Ordering like a local</span>
-                </div>
-              </div>
-              <ChevronRight className="w-4 h-4 text-stone-400" />
-            </button>
 
-            <button 
-              onClick={() => {
-                navigate(`/savvy/${item.city || 'marrakech'}/scams`);
-              }}
-              className="w-full flex items-center justify-between p-3.5 bg-white border border-stone-200/80 hover:border-stone-400 rounded-2xl shadow-sm text-left transition-colors cursor-pointer"
-            >
-              <div className="flex gap-2.5 items-center">
-                <div className="w-8 h-8 rounded-xl bg-amber-50 flex items-center justify-center">
-                  <ShieldAlert className="w-4 h-4 text-[#D4863A]" />
-                </div>
-                <div>
-                  <span className="block text-xs font-bold text-stone-800 leading-tight">Scam prevention guide</span>
-                  <span className="block text-[10px] text-stone-400">Eat peacefully and securely</span>
-                </div>
-              </div>
-              <ChevronRight className="w-4 h-4 text-stone-400" />
-            </button>
-
-            {item.city && (
-              <button 
-                onClick={() => {
-                  navigate(`/transport/go?city=${encodeURIComponent(item.city)}&dest=${encodeURIComponent(name)}`);
-                }}
-                className="w-full flex items-center justify-between p-3.5 bg-white border border-[#C9A84C]/30 hover:border-[#C9A84C] rounded-2xl shadow-sm text-left transition-colors cursor-pointer"
-              >
-                <div className="flex gap-2.5 items-center">
-                  <div className="w-8 h-8 rounded-xl bg-amber-50 flex items-center justify-center">
-                    <Navigation className="w-4 h-4 text-[#C9A84C]" />
-                  </div>
-                  <div>
-                    <span className="block text-xs font-bold text-stone-800 leading-tight">Estimate Transit Fare</span>
-                    <span className="block text-[10px] text-stone-400">Calculate taxi & bus fare via MoveAssure</span>
-                  </div>
-                </div>
-                <ChevronRight className="w-4 h-4 text-stone-400" />
-              </button>
-            )}
-
-            {item.city && (
-              <button 
-                onClick={handleItineraryAdd}
-                className="w-full flex items-center justify-between p-3.5 bg-white border border-stone-200/80 hover:border-stone-400 rounded-2xl shadow-sm text-left transition-colors cursor-pointer"
-              >
-                <div className="flex gap-2.5 items-center">
-                  <div className="w-8 h-8 rounded-xl bg-amber-50 flex items-center justify-center">
-                    <Calendar className="w-4 h-4 text-[#D4863A]" />
-                  </div>
-                  <div>
-                    <span className="block text-xs font-bold text-stone-800 leading-tight">Add to Itinerary</span>
-                    <span className="block text-[10px] text-stone-400">Save for planning</span>
-                  </div>
-                </div>
-                <ChevronRight className="w-4 h-4 text-stone-400" />
-              </button>
-            )}
-          </div>
 
           {/* Peer Eat Listings (Nearby) */}
           {nearbyListings.length > 0 && (
@@ -1376,7 +1077,7 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
 
       {/* Menu Modal */}
       <AnimatePresence>
-        {showMenuModal && fullMenu && (
+        {showMenuModal && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -1410,18 +1111,36 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
               </div>
 
               <div className="flex-1 overflow-y-auto p-0 scrollbar-thin">
-                {fullMenu.type === 'image' ? (
+                {fullMenu?.type === 'image' && fullMenu.content ? (
                   <img
                     src={fullMenu.content}
                     alt={`${name} menu`}
                     className="w-full h-auto object-contain"
                     referrerPolicy="no-referrer"
                   />
-                ) : (
+                ) : fullMenu?.type === 'text' && fullMenu.content ? (
                   <div className="p-8 prose prose-stone max-w-none">
                     <pre className="whitespace-pre-wrap font-sans text-stone-800 text-sm leading-relaxed">
                       {fullMenu.content}
                     </pre>
+                  </div>
+                ) : (
+                  <div className="p-10 text-center space-y-4">
+                    <BookOpen className="w-8 h-8 text-stone-300 mx-auto" />
+                    <p className="text-sm font-bold text-stone-800">Menu not collected yet</p>
+                    <p className="text-xs text-stone-500 max-w-sm mx-auto leading-relaxed">
+                      The full menu for this place is still being collected. You can already see it on Google Maps.
+                    </p>
+                    <a
+                      href={googleMapsUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${name} ${city} Morocco`)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-stone-900 hover:bg-[#C2613C] text-white text-xs font-bold transition-colors cursor-pointer"
+                    >
+                      <MapPin className="w-3.5 h-3.5" />
+                      See menu on Google Maps
+                      <ExternalLink className="w-3 h-3 opacity-60" />
+                    </a>
                   </div>
                 )}
               </div>

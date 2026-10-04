@@ -1,6 +1,6 @@
 import { SHOPPING_CATEGORIES } from '../../data/travel/finderCurated';
 import { Sparkles, ShoppingBag, Leaf, Gift, Grid, ArrowRight, HelpCircle, Compass } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 
 interface ShoppingCategoryPageProps {
   onSelectCategory: (categoryId: string) => void;

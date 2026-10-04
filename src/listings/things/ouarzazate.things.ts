@@ -38,16 +38,15 @@ export const ouarzazateThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "cultural-tour",
-      "desert",
-      "instagrammable"
-    ],
+    "tags": ["cultural-tour", "desert", "instagrammable", "walk-in"],
     "archetypeAffinity": [
       "first-timer",
       "culture"
     ],
-    "tip": "Go early or stay late to enjoy the ksar outside midday tour-bus peaks."
+    "tip": "Go early or stay late to enjoy the ksar outside midday tour-bus peaks.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     "id": "ouarzazate-atlas-studios",
@@ -87,16 +86,15 @@ export const ouarzazateThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": true,
     "isPhotographyFriendly": false,
-    "tags": [
-      "cultural-tour",
-      "urban",
-      "instagrammable"
-    ],
+    "tags": ["cultural-tour", "instagrammable", "relaxed", "urban", "walk-in"],
     "archetypeAffinity": [
       "first-timer",
       "culture"
     ],
-    "tip": "A guide adds a lot here because many sets look similar without context."
+    "tip": "A guide adds a lot here because many sets look similar without context.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     "id": "ouarzazate-taourirt-kasbah",
@@ -135,16 +133,15 @@ export const ouarzazateThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "cultural-tour",
-      "instagrammable",
-      "urban"
-    ],
+    "tags": ["cultural-tour", "instagrammable", "private", "urban", "walk-in"],
     "archetypeAffinity": [
       "first-timer",
       "culture"
     ],
-    "tip": "Visit with the nearby cinema museum to avoid extra backtracking."
+    "tip": "Visit with the nearby cinema museum to avoid extra backtracking.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: false
   },
   {
     "id": "ouarzazate-cinema-museum",
@@ -184,15 +181,15 @@ export const ouarzazateThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": true,
     "isPhotographyFriendly": false,
-    "tags": [
-      "cultural-tour",
-      "urban"
-    ],
+    "tags": ["cultural-tour", "private", "relaxed", "urban", "walk-in"],
     "archetypeAffinity": [
       "culture",
       "nomad"
     ],
-    "tip": "It is small enough to pair comfortably with Taourirt Kasbah."
+    "tip": "It is small enough to pair comfortably with Taourirt Kasbah.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: false
   },
   {
     "id": "ouarzazate-fint-oasis",
@@ -231,17 +228,15 @@ export const ouarzazateThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "nature",
-      "desert",
-      "instagrammable",
-      "off-the-beaten-path"
-    ],
+    "tags": ["desert", "instagrammable", "nature", "off-the-beaten-path", "walk-in"],
     "archetypeAffinity": [
       "adventure",
       "nomad"
     ],
-    "tip": "A driver who knows the tracks saves time and makes the outing much smoother."
+    "tip": "A driver who knows the tracks saves time and makes the outing much smoother.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     "id": "ouarzazate-kasbah-of-tifoultoute",
@@ -280,16 +275,15 @@ export const ouarzazateThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "cultural-tour",
-      "desert",
-      "off-the-beaten-path"
-    ],
+    "tags": ["cultural-tour", "desert", "off-the-beaten-path", "private", "walk-in"],
     "archetypeAffinity": [
       "culture",
       "nomad"
     ],
-    "tip": "Good add-on if you want a quieter kasbah after Taourirt."
+    "tip": "Good add-on if you want a quieter kasbah after Taourirt.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: false
   },
   {
     "id": "ouarzazate-cla-studios-ouarzazate",
@@ -329,16 +323,15 @@ export const ouarzazateThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": true,
     "isPhotographyFriendly": false,
-    "tags": [
-      "cultural-tour",
-      "urban",
-      "instagrammable"
-    ],
+    "tags": ["cultural-tour", "instagrammable", "relaxed", "urban", "walk-in"],
     "archetypeAffinity": [
       "culture",
       "nomad"
     ],
-    "tip": "Check availability ahead because access can depend on productions."
+    "tip": "Check availability ahead because access can depend on productions.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     "id": "ouarzazate-old-synagogue-and-mellah-walk",
@@ -377,17 +370,15 @@ export const ouarzazateThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "cultural-tour",
-      "authentic",
-      "urban",
-      "off-the-beaten-path"
-    ],
+    "tags": ["authentic", "cultural-tour", "off-the-beaten-path", "urban", "walk-in"],
     "archetypeAffinity": [
       "culture",
       "nomad"
     ],
-    "tip": "A local guide can enrich the stories behind the quarter."
+    "tip": "A local guide can enrich the stories behind the quarter.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     "id": "ouarzazate-kasbah-amridil",
@@ -426,17 +417,15 @@ export const ouarzazateThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "cultural-tour",
-      "nature",
-      "instagrammable",
-      "desert"
-    ],
+    "tags": ["cultural-tour", "desert", "instagrammable", "nature", "private", "walk-in"],
     "archetypeAffinity": [
       "culture",
       "first-timer"
     ],
-    "tip": "Skoura works best in cooler months or early in the day."
+    "tip": "Skoura works best in cooler months or early in the day.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: false
   },
   {
     "id": "ouarzazate-skoura-palm-grove-bike-loop",
@@ -472,16 +461,15 @@ export const ouarzazateThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "nature",
-      "desert",
-      "off-the-beaten-path"
-    ],
+    "tags": ["active", "desert", "nature", "off-the-beaten-path", "private", "walk-in"],
     "archetypeAffinity": [
       "adventure",
       "nomad"
     ],
-    "tip": "Bring more water than you think you need, even for a short ride."
+    "tip": "Bring more water than you think you need, even for a short ride.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: false
   },
   {
     "id": "ouarzazate-mansour-eddahbi-reservoir-viewpoint",
@@ -519,16 +507,15 @@ export const ouarzazateThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "nature",
-      "desert",
-      "instagrammable"
-    ],
+    "tags": ["desert", "instagrammable", "nature", "private", "relaxed", "sunset", "walk-in"],
     "archetypeAffinity": [
       "nomad",
       "adventure"
     ],
-    "tip": "Best light usually comes later in the day when the hills soften."
+    "tip": "Best light usually comes later in the day when the hills soften.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: true
   },
   {
     "id": "ouarzazate-noor-ouarzazate-solar-complex-viewpoint",
@@ -566,16 +553,15 @@ export const ouarzazateThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "desert",
-      "urban",
-      "off-the-beaten-path"
-    ],
+    "tags": ["desert", "off-the-beaten-path", "relaxed", "sunset", "urban", "walk-in"],
     "archetypeAffinity": [
       "nomad",
       "adventure"
     ],
-    "tip": "Access rules can change, so treat this as a viewpoint stop rather than a guaranteed tour."      
+    "tip": "Access rules can change, so treat this as a viewpoint stop rather than a guaranteed tour.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: true
   },
   {
     "id": "ouarzazate-telouet-kasbah-day-trip",
@@ -614,17 +600,15 @@ export const ouarzazateThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "cultural-tour",
-      "mountain",
-      "off-the-beaten-path",
-      "instagrammable"
-    ],
+    "tags": ["cultural-tour", "instagrammable", "mountain", "off-the-beaten-path", "private", "walk-in"],
     "archetypeAffinity": [
       "culture",
       "adventure"
     ],
-    "tip": "Combine with Aït Ben Haddou only if you start early and don't mind a long day."
+    "tip": "Combine with Aït Ben Haddou only if you start early and don't mind a long day.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: false
   },
   {
     "id": "ouarzazate-ounila-valley-scenic-drive",
@@ -663,17 +647,15 @@ export const ouarzazateThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "nature",
-      "mountain",
-      "instagrammable",
-      "off-the-beaten-path"
-    ],
+    "tags": ["instagrammable", "mountain", "nature", "off-the-beaten-path", "private", "walk-in"],
     "archetypeAffinity": [
       "adventure",
       "nomad"
     ],
-    "tip": "Bring cash for tea stops and small local purchases."
+    "tip": "Bring cash for tea stops and small local purchases.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: false
   },
   {
     "id": "ouarzazate-draa-valley-to-agdz",
@@ -712,17 +694,15 @@ export const ouarzazateThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "nature",
-      "desert",
-      "authentic",
-      "instagrammable"
-    ],
+    "tags": ["authentic", "desert", "instagrammable", "nature", "private", "walk-in"],
     "archetypeAffinity": [
       "nomad",
       "adventure"
     ],
-    "tip": "This route shines in late afternoon when the palms and kasbahs glow."
+    "tip": "This route shines in late afternoon when the palms and kasbahs glow.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: false
   },
   {
     "id": "ouarzazate-tizi-ntichka-panoramic-drive",
@@ -761,16 +741,15 @@ export const ouarzazateThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "mountain",
-      "instagrammable",
-      "nature"
-    ],
+    "tags": ["instagrammable", "mountain", "nature", "sunset", "walk-in"],
     "archetypeAffinity": [
       "adventure",
       "first-timer"
     ],
-    "tip": "If you are driving yourself, allow extra time for curves and viewpoint breaks."
+    "tip": "If you are driving yourself, allow extra time for curves and viewpoint breaks.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: true
   },
   {
     "id": "ouarzazate-kart-aventure-desert-circuit",
@@ -806,14 +785,14 @@ export const ouarzazateThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "climbing-adventure",
-      "desert"
-    ],
+    "tags": ["active", "climbing-adventure", "desert", "walk-in"],
     "archetypeAffinity": [
       "adventure"
     ],
-    "tip": "Wear eye protection and expect dust even on calmer days."
+    "tip": "Wear eye protection and expect dust even on calmer days.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     "id": "ouarzazate-museum-theatre-memory-of-ouarzazate",
@@ -853,16 +832,15 @@ export const ouarzazateThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": true,
     "isPhotographyFriendly": false,
-    "tags": [
-      "cultural-tour",
-      "urban",
-      "off-the-beaten-path"
-    ],
+    "tags": ["cultural-tour", "off-the-beaten-path", "private", "relaxed", "urban", "walk-in"],
     "archetypeAffinity": [
       "culture",
       "nomad"
     ],
-    "tip": "Best for travelers staying longer than one night in the region."
+    "tip": "Best for travelers staying longer than one night in the region.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: false
   },
   {
     "id": "ouarzazate-saharan-dinner-and-stargazing-camp",
@@ -898,16 +876,15 @@ export const ouarzazateThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "desert",
-      "authentic",
-      "instagrammable"
-    ],
+    "tags": ["authentic", "desert", "instagrammable", "relaxed", "walk-in"],
     "archetypeAffinity": [
       "adventure",
       "luxury"
     ],
-    "tip": "Even warm days can turn cool after sunset, so pack a layer."
+    "tip": "Even warm days can turn cool after sunset, so pack a layer.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     "id": "ouarzazate-taourirt-kasbah-rooftop-tea-stop",
@@ -946,15 +923,14 @@ export const ouarzazateThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": true,
     "isPhotographyFriendly": true,
-    "tags": [
-      "authentic",
-      "instagrammable",
-      "urban"
-    ],
+    "tags": ["authentic", "instagrammable", "private", "sunset", "urban", "walk-in"],
     "archetypeAffinity": [
       "nomad",
       "luxury"
     ],
-    "tip": "Aim for the last hour before sunset when the light turns soft on the walls."
+    "tip": "Aim for the last hour before sunset when the light turns soft on the walls.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: true
   }
 ]

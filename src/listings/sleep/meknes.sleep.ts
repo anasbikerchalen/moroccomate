@@ -192,13 +192,15 @@ export const meknesSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family"],
     tip: "Ask the hosts for a rooftop orientation; they can point out the historic gates and minarets of the imperial city.",
     vibeTags: ["Authentic", "Family-Run", "Historic", "Panoramic"],
-    locationSummary: "Heart of the Medina",
+    locationSummary: "Historic Medina & Place El-Hedim",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Dar+Meknes+Tresor",
     address: "Riad Dar Meknes Tresor, Meknes Medina, Meknes 50000, Morocco",
@@ -265,6 +267,11 @@ export const meknesSleep: SleepListing[] = [
       business: "Good WiFi in the courtyard and rooftop.",
       nomad: "A peaceful spot to work with a view of the city.",
     },
+    coordinates: {
+      lat: 33.89523,
+      lng: -5.566176
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "mk-sleep-2",
@@ -302,13 +309,15 @@ export const meknesSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "friends"],
     tip: "The breakfast is considered one of the best in Meknes, with homemade jams and local pastries.",
     vibeTags: ["Chic", "Artistic", "Modern-Moroccan", "Intimate"],
-    locationSummary: "Medina - Near Dar Jamai Museum",
+    locationSummary: "Historic Medina & Place El-Hedim",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Yamcha+Meknes",
     address: "Riad Yamcha, Meknes Medina, Meknes 50000, Morocco",
@@ -375,6 +384,11 @@ export const meknesSleep: SleepListing[] = [
       business: "Fast WiFi and comfortable communal areas.",
       nomad: "A great aesthetic spot for digital work.",
     },
+    coordinates: {
+      lat: 33.895925,
+      lng: -5.568195
+    },
+    tags: ["heritage"]
   },
   {
     id: "mk-sleep-3",
@@ -412,13 +426,15 @@ export const meknesSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "seniors", "friends"],
     tip: "Book the Senior Suite for a private lounge in imperial style; the rooftop has rare views toward the royal golf course.",
     vibeTags: ["Imperial", "Historic", "Opulent", "Central"],
-    locationSummary: "Medina - Near Bab Mansour",
+    locationSummary: "Historic Medina & Place El-Hedim",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Yacout+Meknes",
     address: "22 Place Lalla Aouda, Meknes 50000, Morocco",
@@ -485,6 +501,11 @@ export const meknesSleep: SleepListing[] = [
       business: "Quiet enough for meetings with reliable WiFi.",
       nomad: "Inspiring imperial atmosphere for focused work.",
     },
+    coordinates: {
+      lat: 33.893641,
+      lng: -5.562787
+    },
+    tags: ["heritage"]
   },
   {
     id: "mk-sleep-4",
@@ -522,13 +543,15 @@ export const meknesSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "friends"],
     tip: "The owner is a wonderful source of local history; chat over tea for hidden gems.",
     vibeTags: ["Cozy", "Personal", "Budget", "Local"],
-    locationSummary: "Medina - Quiet Guesthouse",
+    locationSummary: "Historic Medina & Place El-Hedim",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Maison+Olga+Meknes",
     address: "Maison Olga, Meknes Medina, Meknes 50000, Morocco",
@@ -595,6 +618,11 @@ export const meknesSleep: SleepListing[] = [
       business: "Good enough for emails and planning routes.",
       nomad: "A low-cost medina base for light remote work.",
     },
+    coordinates: {
+      lat: 33.89403,
+      lng: -5.567542
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "mk-sleep-5",
@@ -632,13 +660,15 @@ export const meknesSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Request an upper-level room to be closer to the peaceful rooftop breakfast area.",
     vibeTags: ["Bright", "Restored", "Zellij", "Central"],
-    locationSummary: "Medina - Steps from Bab Mansour",
+    locationSummary: "Historic Medina & Place El-Hedim",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Zyna+Meknes",
     address: "Riad Zyna, Meknes Medina, Meknes 50000, Morocco",
@@ -705,6 +735,11 @@ export const meknesSleep: SleepListing[] = [
       business: "Quiet rooftop is good for light laptop work.",
       nomad: "A balanced riad for nomads who want central access and calm mornings.",
     },
+    coordinates: {
+      lat: 33.888592,
+      lng: -5.57312
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "mk-sleep-6",
@@ -742,13 +777,15 @@ export const meknesSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["couple", "solo", "seniors", "business-friendly"],
     tip: "Take a guided tour of the historical wine cellars and enjoy a sunset tasting on the terrace.",
     vibeTags: ["Vineyard", "Relais-Châteaux", "Spa", "Countryside-Luxe"],
-    locationSummary: "Meknes Wine Country - El Hajeb Road",
+    locationSummary: "Hamria - Ville Nouvelle",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Chateau+Roslane+Boutique+Hotel+Spa+Meknes",
     address: "Domaine Roslane, El Hajeb Road, Meknes 50000, Morocco",
@@ -815,6 +852,11 @@ export const meknesSleep: SleepListing[] = [
       business: "Excellent for executive retreats and quiet meetings.",
       nomad: "A serene workation base if you want countryside calm.",
     },
+    coordinates: {
+      lat: 33.758701,
+      lng: -5.438871
+    },
+    tags: []
   },
   {
     id: "mk-sleep-7",
@@ -925,6 +967,11 @@ export const meknesSleep: SleepListing[] = [
       business: "Reliable WiFi and quiet corners for work.",
       nomad: "A scenic riad base for focused work and rooftop breaks.",
     },
+    coordinates: {
+      lat: 33.852355,
+      lng: -5.57884
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "mk-sleep-8",
@@ -962,13 +1009,15 @@ export const meknesSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Enjoy morning mint tea on the rooftop to watch the neighborhood come to life.",
     vibeTags: ["Budget", "Courtyard", "Rooftop", "Local"],
-    locationSummary: "Medina - Bab Berdaine",
+    locationSummary: "Historic Medina & Place El-Hedim",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Bab+Berdaine+Meknes",
     address: "7 Derb Moussa, Bab Berdaine, Meknes 50000, Morocco",
@@ -1035,6 +1084,11 @@ export const meknesSleep: SleepListing[] = [
       business: "Rooftop works for light work sessions.",
       nomad: "A low-cost medina base for nomads on a budget.",
     },
+    coordinates: {
+      lat: 33.899413,
+      lng: -5.567292
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "mk-sleep-9",
@@ -1072,13 +1126,15 @@ export const meknesSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family", "seniors"],
     tip: "Relax on the rooftop with fresh mint tea for sweeping views of the historic ramparts.",
     vibeTags: ["Citrus-Courtyard", "Historic", "Calm", "Traditional"],
-    locationSummary: "Medina - Historic Courtyard Riad",
+    locationSummary: "Historic Medina & Place El-Hedim",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Ryad+Bahia+Meknes",
     address: "N13 Tiberbarine, Meknes Medina, Meknes 50000, Morocco",
@@ -1145,6 +1201,11 @@ export const meknesSleep: SleepListing[] = [
       business: "Common areas are quiet enough for focused work.",
       nomad: "A balanced medina base for slow remote work.",
     },
+    coordinates: {
+      lat: 33.8943,
+      lng: -5.56623
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "mk-sleep-10",
@@ -1182,13 +1243,15 @@ export const meknesSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "friends"],
     tip: "The riad is located on a very quiet side alley, making it perfect for guests sensitive to street noise.",
     vibeTags: ["Quiet", "Cozy", "Stone-Arches", "Private"],
-    locationSummary: "Medina - Quiet Side Alley",
+    locationSummary: "Historic Medina & Place El-Hedim",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Dar+Zidane+Meknes",
     address: "Riad Dar Zidane, Meknes Medina, Meknes 50000, Morocco",
@@ -1255,6 +1318,11 @@ export const meknesSleep: SleepListing[] = [
       business: "High-speed WiFi and quiet corners support remote work.",
       nomad: "A calm, private base for focused nomad days.",
     },
+    coordinates: {
+      lat: 33.899413,
+      lng: -5.567292
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "mk-sleep-11",
@@ -1292,13 +1360,15 @@ export const meknesSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["couple", "family", "seniors", "solo"],
     tip: "Spend time on the rooftop terrace, which directly overlooks the Royal Golf Course.",
     vibeTags: ["Palatial", "Moorish", "Historic", "Royal-Views"],
-    locationSummary: "Medina - Palace Near Royal Golf",
+    locationSummary: "Historic Medina & Place El-Hedim",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Palais+Didi+Meknes",
     address: "7 Dar Lakbira, Meknes Medina, Meknes 50000, Morocco",
@@ -1365,6 +1435,11 @@ export const meknesSleep: SleepListing[] = [
       business: "Quiet palace corners support business calls and laptop time.",
       nomad: "A regal medina base for creative remote work.",
     },
+    coordinates: {
+      lat: 33.89058,
+      lng: -5.561973
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "mk-sleep-12",
@@ -1402,13 +1477,15 @@ export const meknesSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family"],
     tip: "The host can arrange highly informative custom day trips to the Roman ruins of Volubilis.",
     vibeTags: ["Cheerful", "Family-Run", "Citrus", "Boutique"],
-    locationSummary: "Medina - Citrus Patio",
+    locationSummary: "Historic Medina & Place El-Hedim",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Menthe+Et+Citron+Meknes",
     address: "Riad Menthe Et Citron, Meknes Medina, Meknes 50000, Morocco",
@@ -1475,6 +1552,11 @@ export const meknesSleep: SleepListing[] = [
       business: "Quiet enough for light work in common spaces.",
       nomad: "A friendly medina base for slow travel and day-trip planning.",
     },
+    coordinates: {
+      lat: 33.895611,
+      lng: -5.56333
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "mk-sleep-13",
@@ -1512,13 +1594,15 @@ export const meknesSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["couple", "family", "solo"],
     tip: "Perfect for couples; the master suite offers a cozy private fireplace.",
     vibeTags: ["Traditional", "Cedarwood", "Romantic", "Rooftop"],
-    locationSummary: "Medina - Traditional Riad",
+    locationSummary: "Historic Medina & Place El-Hedim",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Atika+Mek+Meknes",
     address: "Riad Atika Mek, Meknes Medina, Meknes 50000, Morocco",
@@ -1591,6 +1675,11 @@ export const meknesSleep: SleepListing[] = [
       business: "Rooftop and courtyard are good for light laptop work.",
       nomad: "A traditional setting for slow, focused remote work.",
     },
+    coordinates: {
+      lat: 33.89477,
+      lng: -5.566406
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "mk-sleep-14",
@@ -1628,13 +1717,15 @@ export const meknesSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Go up to the high rooftop terrace in the evening for views of the old town minarets.",
     vibeTags: ["Family-Run", "Zellij", "Merchant-House", "Warm"],
-    locationSummary: "Medina - Historic Merchant House",
+    locationSummary: "Historic Medina & Place El-Hedim",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Ritaj+Meknes",
     address: "Riad Ritaj, Meknes Medina, Meknes 50000, Morocco",
@@ -1701,6 +1792,11 @@ export const meknesSleep: SleepListing[] = [
       business: "Quiet lounge spaces work for emails and planning.",
       nomad: "A friendly riad for light remote work and medina life.",
     },
+    coordinates: {
+      lat: 33.89387,
+      lng: -5.565986
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "mk-sleep-15",
@@ -1738,13 +1834,15 @@ export const meknesSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "business-friendly", "family"],
     tip: "Enjoy a relaxed evening at the on-site lounge, which often features live piano music on weekends.",
     vibeTags: ["Modern", "Business", "City-Views", "Convenient"],
-    locationSummary: "Ville Nouvelle - Modern Center",
+    locationSummary: "Hamria - Ville Nouvelle",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Barcelo+Meknes",
     address: "2 Rue d’Accra, Ville Nouvelle, Meknes 50000, Morocco",
@@ -1811,6 +1909,11 @@ export const meknesSleep: SleepListing[] = [
       business: "Strong meeting spaces and reliable WiFi.",
       nomad: "A practical nomad base with workspace and modern services.",
     },
+    coordinates: {
+      lat: 33.865135,
+      lng: -5.576339
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "mk-sleep-16",
@@ -1848,13 +1951,15 @@ export const meknesSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "This riad is exceptionally easy to locate compared to others hidden deep in the medina.",
     vibeTags: ["Budget", "Blue-Zellij", "Easy-Access", "Traditional"],
-    locationSummary: "Medina - Easy Access Riad",
+    locationSummary: "Historic Medina & Place El-Hedim",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Zahraa+Al+Ismailia+Meknes",
     address: "Riad Zahraa Al Ismailia, Meknes Medina, Meknes 50000, Morocco",
@@ -1921,6 +2026,7 @@ export const meknesSleep: SleepListing[] = [
       business: "Rooftop is usable for light work.",
       nomad: "A low-cost medina base for practical remote work.",
     },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "mk-sleep-17",
@@ -1958,13 +2064,15 @@ export const meknesSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "business-friendly"],
     tip: "Opt for a suite with private balcony facing the interior gardens for a quieter stay.",
     vibeTags: ["Garden-Hotel", "Spa", "Valley-View", "Business"],
-    locationSummary: "Ville Nouvelle - Valley View",
+    locationSummary: "Hamria - Ville Nouvelle",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Zaki+Suites+Hotel+Spa+Meknes",
     address: "Boulevard Al Massira, Meknes 50000, Morocco",
@@ -2031,6 +2139,11 @@ export const meknesSleep: SleepListing[] = [
       business: "Strong parking and meeting comfort for business travelers.",
       nomad: "A practical workation base with pool and garden breaks.",
     },
+    coordinates: {
+      lat: 33.881045,
+      lng: -5.533418
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "mk-sleep-18",
@@ -2068,13 +2181,15 @@ export const meknesSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Strong choice with a rental car thanks to secure on-site parking.",
     vibeTags: ["Modern", "Garden-Pool", "Parking", "Family"],
-    locationSummary: "Ville Nouvelle - Garden Hotel",
+    locationSummary: "Hamria - Ville Nouvelle",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Hotel+Menzeh+Dalia+Meknes",
     address: "Domaine Izmar, Meknes 50000, Morocco",
@@ -2141,6 +2256,11 @@ export const meknesSleep: SleepListing[] = [
       business: "Works well for business drivers and meetings.",
       nomad: "A practical hotel base for nomads needing parking and pool downtime.",
     },
+    coordinates: {
+      lat: 33.857595,
+      lng: -5.585847
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "mk-sleep-19",
@@ -2178,13 +2298,15 @@ export const meknesSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "seniors", "business-friendly"],
     tip: "Take an evening stroll through the gardens to watch sunset over the medina.",
     vibeTags: ["Historic-Hotel", "Mid-Century", "Gardens", "City-Views"],
-    locationSummary: "Ville Nouvelle - Park and Medina Views",
+    locationSummary: "Hamria - Ville Nouvelle",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Hotel+Transatlantique+Meknes",
     address: "Avenue des FAR, Meknes 50000, Morocco",
@@ -2251,6 +2373,11 @@ export const meknesSleep: SleepListing[] = [
       business: "Quiet lounges and parking suit business travel.",
       nomad: "A classic hotel base for work with garden breaks.",
     },
+    coordinates: {
+      lat: 33.903402,
+      lng: -5.560149
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "mk-sleep-20",
@@ -2288,13 +2415,15 @@ export const meknesSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "friends", "business-friendly"],
     tip: "Its proximity to Meknes-Al Amir Abdelkader train station makes it highly convenient for train travelers.",
     vibeTags: ["Reliable", "Budget", "Chain-Hotel", "Transit-Friendly"],
-    locationSummary: "Ville Nouvelle - Near Train Station",
+    locationSummary: "Hamria - Ville Nouvelle",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=ibis+Meknes+Hotel",
     address: "Avenue des FAR, Meknes 50000, Morocco",
@@ -2361,5 +2490,10 @@ export const meknesSleep: SleepListing[] = [
       business: "Good for business travelers who need train access.",
       nomad: "A reliable budget base with workspace and easy transport.",
     },
+    coordinates: {
+      lat: 33.894666,
+      lng: -5.549977
+    },
+    tags: ["family-favorite"]
   }
 ]

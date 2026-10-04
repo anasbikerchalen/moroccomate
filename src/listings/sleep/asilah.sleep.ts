@@ -154,6 +154,8 @@ export const asilahSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: true,
     nearMosque: false,
     safetyLevel: 5,
@@ -161,7 +163,7 @@ export const asilahSleep: SleepListing[] = [
     // googlePlaceId: "PLACE_ID_HERE",
     tip: 'Spend a quiet afternoon in the clifftop hammam, which offers a deep therapeutic experience overlooking the Atlantic.',
     vibeTags: ['Eco-Luxury', 'Secluded', 'Italian-Style', 'Oceanfront'],
-    locationSummary: 'Oceanfront Cliffs',
+    locationSummary: "Wild Atlantic Coast - Khemis Sahel",
     availabilityText: 'Check dates for availability',
     googleMapsUrl: 'https://www.google.com/maps/place/35.405567,-6.112458',
     address: 'Sahel Chamali, Asilah, Morocco',
@@ -204,7 +206,12 @@ export const asilahSleep: SleepListing[] = [
       families: 'Great for older families seeking quiet luxury.',
       business: 'Excellent retreat venue with reliable satellite Wi-Fi.',
       nomad: 'High-speed satellite internet for remote work.'
-    }
+    },
+    coordinates: {
+      lat: 35.443279,
+      lng: -6.051271
+    },
+    tags: ["family-favorite"]
   },
   {
     id: 'as-sleep-2',
@@ -241,7 +248,9 @@ export const asilahSleep: SleepListing[] = [
     taxesIncluded: false,
     freeCancellation: true,
     kidsStayFree: true,
-    nearMedina: true,
+    nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: true,
     nearMosque: true,
     safetyLevel: 5,
@@ -249,7 +258,7 @@ export const asilahSleep: SleepListing[] = [
     // googlePlaceId: "PLACE_ID_HERE",
     tip: 'Book an apartment with a sea view to enjoy the sunset directly from your private balcony.',
     vibeTags: ['Coastal', 'Modern', 'Family-Friendly', 'Convenient'],
-    locationSummary: 'Beachfront',
+    locationSummary: "Asilah Marina Waterfront",
     availabilityText: 'Available tonight',
     googleMapsUrl: 'https://www.google.com/maps/place/35.467432,-6.031245',
     address: 'Avenue Moulay Hassan Ben Mehdi, Asilah 90050, Morocco',
@@ -292,7 +301,12 @@ export const asilahSleep: SleepListing[] = [
       families: 'The kitchen facilities are a lifesaver with kids.',
       business: 'Good location for local meetings; fast internet.',
       nomad: 'Great for long-term remote stays.'
-    }
+    },
+    coordinates: {
+      lat: 35.443279,
+      lng: -6.051271
+    },
+    tags: ["family-favorite"]
   },
   {
     id: 'as-sleep-3',
@@ -330,6 +344,8 @@ export const asilahSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
@@ -337,7 +353,7 @@ export const asilahSleep: SleepListing[] = [
     // googlePlaceId: "PLACE_ID_HERE",
     tip: 'Head up to the rooftop terrace for breakfast to enjoy a refreshing morning breeze and sweeping sea views.',
     vibeTags: ['Authentic', 'Green', 'Peaceful', 'Boutique'],
-    locationSummary: 'Medina',
+    locationSummary: "Asilah Historic Medina",
     availabilityText: 'Available tonight',
     googleMapsUrl: 'https://www.google.com/maps/place/35.464523,-6.034567',
     address: '7 Rue Ahmed El Mansour, Asilah 90050, Morocco',
@@ -380,7 +396,12 @@ export const asilahSleep: SleepListing[] = [
       families: 'Quiet courtyard is great for kids to relax.',
       business: 'A peaceful retreat after a long day of travel.',
       nomad: 'Good meditaion-style workspace.'
-    }
+    },
+    coordinates: {
+      lat: 35.465042,
+      lng: -6.038228
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: 'as-sleep-4',
@@ -418,6 +439,8 @@ export const asilahSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
@@ -425,7 +448,7 @@ export const asilahSleep: SleepListing[] = [
     // googlePlaceId: "PLACE_ID_HERE",
     tip: 'Dine at their newly opened onsite restaurant, which serves exceptional, freshly prepared local seafood tagines.',
     vibeTags: ['White-and-Blue', 'Breezy', 'Artistic', 'Central'],
-    locationSummary: 'Medina',
+    locationSummary: "Asilah Historic Medina",
     availabilityText: 'Available tonight',
     googleMapsUrl: 'https://www.google.com/maps/place/35.465123,-6.035123',
     address: '8 Rue Tijara, Asilah 90050, Morocco',
@@ -467,7 +490,12 @@ export const asilahSleep: SleepListing[] = [
       families: 'Cozy and safe for a small family stay.',
       business: 'Good Wi-Fi for working on the terrace.',
       nomad: 'Artistic vibe for creative work.'
-    }
+    },
+    coordinates: {
+      lat: 35.763453,
+      lng: -5.836498
+    },
+    tags: ["family-favorite"]
   },
   {
     id: 'as-sleep-5',
@@ -505,6 +533,8 @@ export const asilahSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
@@ -512,7 +542,7 @@ export const asilahSleep: SleepListing[] = [
     // googlePlaceId: "PLACE_ID_HERE",
     tip: 'The rooftop features cozy Moroccan haimas (nomadic tents); spend your evening there over a glass of mint tea.',
     vibeTags: ['Architectural', 'Serene', 'Boutique', 'Chic'],
-    locationSummary: 'Medina',
+    locationSummary: "Asilah Historic Medina",
     availabilityText: 'Available tonight',
     googleMapsUrl: 'https://www.google.com/maps/place/35.464890,-6.034234',
     address: 'Rue de la Kasbah, Asilah 90050, Morocco',
@@ -554,7 +584,12 @@ export const asilahSleep: SleepListing[] = [
       families: 'Great for a small group of adults.',
       business: 'Boutique luxury with good connection speeds.',
       nomad: 'Perfect for focused writing work.'
-    }
+    },
+    coordinates: {
+      lat: 35.464288,
+      lng: -6.039951
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: 'as-sleep-6',
@@ -592,6 +627,8 @@ export const asilahSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: true,
     nearMosque: true,
     safetyLevel: 5,
@@ -599,7 +636,7 @@ export const asilahSleep: SleepListing[] = [
     // googlePlaceId: "PLACE_ID_HERE",
     tip: 'Request an upper-floor apartment with a private balcony to enjoy uninterrupted views of the sunset over the ocean.',
     vibeTags: ['Modern', 'Sleek', 'Ocean-View', 'Apartment'],
-    locationSummary: 'Seafront Promenade',
+    locationSummary: "Asilah Historic Medina",
     availabilityText: 'Available tonight',
     googleMapsUrl: 'https://www.google.com/maps/place/35.468123,-6.030567',
     address: '32 Avenue Moulay Hassan Ben Mehdi, Asilah 90050, Morocco',
@@ -641,7 +678,12 @@ export const asilahSleep: SleepListing[] = [
       families: 'A bit tight for large families but great location.',
       business: 'Good workspace and stable fiber internet.',
       nomad: 'Kitchen + sea view = perfect long stay.'
-    }
+    },
+    coordinates: {
+      lat: 35.461928,
+      lng: -6.036545
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: 'as-sleep-7',
@@ -679,6 +721,8 @@ export const asilahSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: true,
     nearMosque: true,
     safetyLevel: 5,
@@ -686,7 +730,7 @@ export const asilahSleep: SleepListing[] = [
     // googlePlaceId: "PLACE_ID_HERE",
     tip: 'Book their traditional hammam beldi experience in advance to unwind after a day of exploring the medina.',
     vibeTags: ['Boutique', 'Charming', 'Hammam', 'Gourmet'],
-    locationSummary: 'New Town - Near Beach',
+    locationSummary: "Asilah Historic Medina",
     availabilityText: 'Available tonight',
     googleMapsUrl: 'https://www.google.com/maps/place/35.467890,-6.028900',
     address: 'Lot. Nakhla 1, Asilah 90050, Morocco',
@@ -728,7 +772,12 @@ export const asilahSleep: SleepListing[] = [
       families: 'The triple rooms are spacious and well-maintained.',
       business: 'Quiet enough for calls and very helpful staff.',
       nomad: 'Good restaurant and workspace combo.'
-    }
+    },
+    coordinates: {
+      lat: 35.470971,
+      lng: -6.028359
+    },
+    tags: ["family-favorite"]
   },
   {
     id: 'as-sleep-8',
@@ -766,6 +815,8 @@ export const asilahSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
@@ -773,7 +824,7 @@ export const asilahSleep: SleepListing[] = [
     // googlePlaceId: "PLACE_ID_HERE",
     tip: 'The helpful host, Achraf, is exceptionally knowledgeable; ask him for his favorite secret restaurants in town.',
     vibeTags: ['Warm', 'Authentic', 'Budget-Friendly', 'Hospitable'],
-    locationSummary: 'Medina',
+    locationSummary: "Asilah Historic Medina",
     availabilityText: 'Available tonight',
     googleMapsUrl: 'https://www.google.com/maps/place/35.464123,-6.035567',
     address: '8 Rue Tijara, Asilah 90050, Morocco',
@@ -815,7 +866,12 @@ export const asilahSleep: SleepListing[] = [
       families: 'A bit traditional but the kids loved exploring the medina alleys.',
       business: 'Decent Wi-Fi in the common area.',
       nomad: 'Budget-friendly long stay base.'
-    }
+    },
+    coordinates: {
+      lat: 35.465042,
+      lng: -6.038228
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: 'as-sleep-9',
@@ -853,6 +909,8 @@ export const asilahSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
@@ -860,7 +918,7 @@ export const asilahSleep: SleepListing[] = [
     // googlePlaceId: "PLACE_ID_HERE",
     tip: 'Use the fully equipped kitchen to cook fresh fish purchased from the nearby local harbor market.',
     vibeTags: ['Artistic', 'Homely', 'Seaview', 'Creative'],
-    locationSummary: 'New Town - Near Medina',
+    locationSummary: "Asilah Historic Medina",
     availabilityText: 'Available tonight',
     googleMapsUrl: 'https://www.google.com/maps/place/35.467123,-6.029876',
     address: 'Rue de la Kasbah, Asilah 90050, Morocco',
@@ -902,7 +960,12 @@ export const asilahSleep: SleepListing[] = [
       families: 'The washing machine was a huge help.',
       business: 'Quiet and comfortable with good internet.',
       nomad: 'Kitchen makes long stays easy.'
-    }
+    },
+    coordinates: {
+      lat: 35.464288,
+      lng: -6.039951
+    },
+    tags: ["family-favorite"]
   },
   {
     id: 'as-sleep-10',
@@ -940,6 +1003,8 @@ export const asilahSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: true,
     nearMosque: true,
     safetyLevel: 4,
@@ -947,7 +1012,7 @@ export const asilahSleep: SleepListing[] = [
     // googlePlaceId: "PLACE_ID_HERE",
     tip: 'Wake up early to catch a breathtaking sunrise over the ocean directly from the shared rooftop terrace.',
     vibeTags: ['Vibrant', 'Social', 'Medina-Core', 'Simple'],
-    locationSummary: 'Medina - Near Ramparts',
+    locationSummary: "Asilah Historic Medina",
     availabilityText: 'Available tonight',
     googleMapsUrl: 'https://www.google.com/maps/place/35.464567,-6.035890',
     address: 'Rue Ahmed El Mansour, Asilah 90050, Morocco',
@@ -989,7 +1054,12 @@ export const asilahSleep: SleepListing[] = [
       families: 'Great for a budget family adventure.',
       business: 'Okay for a night, but quite traditional.',
       nomad: 'Budget base for exploring.'
-    }
+    },
+    coordinates: {
+      lat: 35.464584,
+      lng: -6.039407
+    },
+    tags: ["family-favorite"]
   },
   {
     id: 'as-sleep-11',
@@ -1026,7 +1096,9 @@ export const asilahSleep: SleepListing[] = [
     taxesIncluded: false,
     freeCancellation: true,
     kidsStayFree: true,
-    nearMedina: false,
+    nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
@@ -1034,7 +1106,7 @@ export const asilahSleep: SleepListing[] = [
     // googlePlaceId: "PLACE_ID_HERE",
     tip: 'This place is perfect if you want to unwind in nature; it\'s an eco-friendly stay with farm animals just 5 km from the beach.',
     vibeTags: ['Eco-Friendly', 'Rural', 'Sustainable', 'Peaceful'],
-    locationSummary: 'Countryside',
+    locationSummary: "Asilah Historic Medina",
     availabilityText: 'Available tonight',
     googleMapsUrl: 'https://www.google.com/maps/place/35.421234,-6.012345',
     address: 'Douar Berbari, Asilah 90050, Morocco',
@@ -1076,7 +1148,12 @@ export const asilahSleep: SleepListing[] = [
       families: 'Great for kids to see the farm animals.',
       business: 'Not recommended if you need high-speed internet continuously.',
       nomad: 'Digital detox paradise.'
-    }
+    },
+    coordinates: {
+      lat: 35.415891,
+      lng: -6.008196
+    },
+    tags: ["family-favorite"]
   },
   {
     id: 'as-sleep-12',
@@ -1114,6 +1191,8 @@ export const asilahSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: true,
     nearMosque: true,
     safetyLevel: 4,
@@ -1121,7 +1200,7 @@ export const asilahSleep: SleepListing[] = [
     // googlePlaceId: "PLACE_ID_HERE",
     tip: 'The property is managed beautifully; reach out to the host to coordinate custom grocery drops before you arrive.',
     vibeTags: ['Luxury', 'Wellness', 'Panoramic', 'Medina-Chic'],
-    locationSummary: 'Medina - Sea View',
+    locationSummary: "Asilah Historic Medina",
     availabilityText: 'Available tonight',
     googleMapsUrl: 'https://www.google.com/maps/place/35.464890,-6.035567',
     address: 'Rue de la Kasbah, Asilah 90050, Morocco',
@@ -1163,7 +1242,12 @@ export const asilahSleep: SleepListing[] = [
       families: 'Great for a small high-end family retreat.',
       business: 'Excellent fiber connection and very quiet.',
       nomad: 'Luxury workspace with a view.'
-    }
+    },
+    coordinates: {
+      lat: 35.466311,
+      lng: -6.037083
+    },
+    tags: ["family-favorite"]
   },
   {
     id: 'as-sleep-13',
@@ -1200,7 +1284,9 @@ export const asilahSleep: SleepListing[] = [
     taxesIncluded: false,
     freeCancellation: true,
     kidsStayFree: true,
-    nearMedina: false,
+    nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: true,
     nearMosque: false,
     safetyLevel: 5,
@@ -1208,7 +1294,7 @@ export const asilahSleep: SleepListing[] = [
     // googlePlaceId: "PLACE_ID_HERE",
     tip: 'Ask the helpful host, Abderahmane, to set up the outdoor barbecue and provide charcoal in advance.',
     vibeTags: ['Palatial', 'Private', 'Indoor-Pool', 'Manicured'],
-    locationSummary: 'Residential - Near Beach',
+    locationSummary: "Asilah Historic Medina",
     availabilityText: 'Check dates',
     googleMapsUrl: 'https://www.google.com/maps/place/35.462345,-6.028900',
     address: 'Rue de la Kasbah, Asilah 90050, Morocco',
@@ -1250,7 +1336,12 @@ export const asilahSleep: SleepListing[] = [
       families: 'The kids lived in the indoor pool.',
       business: 'Great for a small team offsite.',
       nomad: 'Best for group retreats.'
-    }
+    },
+    coordinates: {
+      lat: 35.465909,
+      lng: -6.037641
+    },
+    tags: ["family-favorite"]
   },
   {
     id: 'as-sleep-14',
@@ -1287,7 +1378,9 @@ export const asilahSleep: SleepListing[] = [
     taxesIncluded: false,
     freeCancellation: true,
     kidsStayFree: true,
-    nearMedina: false,
+    nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: true,
     nearMosque: false,
     safetyLevel: 5,
@@ -1295,7 +1388,7 @@ export const asilahSleep: SleepListing[] = [
     // googlePlaceId: "PLACE_ID_HERE",
     tip: 'Perfect place for complete digital disconnection; the location is serene, quiet, and surrounded by untouched coastal nature.',
     vibeTags: ['Boutique', 'Panoramic', 'Nature', 'Infinity-Pool'],
-    locationSummary: 'Valley - Ocean View',
+    locationSummary: "Asilah Historic Medina",
     availabilityText: 'Available tonight',
     googleMapsUrl: 'https://www.google.com/maps/place/35.408900,-6.102345',
     address: 'Douar El Hanchat, Asilah 90050, Morocco',
@@ -1337,7 +1430,12 @@ export const asilahSleep: SleepListing[] = [
       families: 'Great for a quiet family getaway.',
       business: 'Good for deep work retreats.',
       nomad: 'Nature-focused remote work.'
-    }
+    },
+    coordinates: {
+      lat: 35.408325,
+      lng: -6.020334
+    },
+    tags: ["family-favorite"]
   },
   {
     id: 'as-sleep-15',
@@ -1375,6 +1473,8 @@ export const asilahSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: true,
     nearMosque: true,
     safetyLevel: 5,
@@ -1382,7 +1482,7 @@ export const asilahSleep: SleepListing[] = [
     // googlePlaceId: "PLACE_ID_HERE",
     tip: 'Take advantage of their paid walking tours and local hiking excursions coordinated by the host.',
     vibeTags: ['Modern-Luxury', 'Infinity-Pool', 'Sporty', 'Upscale'],
-    locationSummary: 'Gated Community - Beach',
+    locationSummary: "Asilah Historic Medina",
     availabilityText: 'Available tonight',
     googleMapsUrl: 'https://www.google.com/maps/place/35.467890,-6.028900',
     address: 'Lotissement Widadiya, Asilah 90050, Morocco',
@@ -1424,7 +1524,12 @@ export const asilahSleep: SleepListing[] = [
       families: 'The kids loved the infinity pool and space.',
       business: 'Very professional management and fast internet.',
       nomad: 'Secure and comfortable for long stays.'
-    }
+    },
+    coordinates: {
+      lat: 35.747449,
+      lng: -5.768112
+    },
+    tags: ["family-favorite"]
   },
   {
     id: 'as-sleep-16',
@@ -1462,6 +1567,8 @@ export const asilahSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
@@ -1469,7 +1576,7 @@ export const asilahSleep: SleepListing[] = [
     // googlePlaceId: "PLACE_ID_HERE",
     tip: 'Book the room on the top floor to have the easiest access to the panoramic sunset rooftop.',
     vibeTags: ['Historic', 'Artistic', 'Old-World', 'Intimate'],
-    locationSummary: 'Medina',
+    locationSummary: "Asilah Historic Medina",
     availabilityText: 'Available tonight',
     googleMapsUrl: 'https://www.google.com/maps/place/35.464567,-6.035123',
     address: 'Place Zelaka, Asilah 90050, Morocco',
@@ -1511,7 +1618,12 @@ export const asilahSleep: SleepListing[] = [
       families: 'Simple and authentic, the kids liked the tilework.',
       business: 'Good for a night of peace.',
       nomad: 'Cultural inspiration for creatives.'
-    }
+    },
+    coordinates: {
+      lat: 35.467905,
+      lng: -6.031041
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: 'as-sleep-17',
@@ -1549,6 +1661,8 @@ export const asilahSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: true,
     nearMosque: true,
     safetyLevel: 4,
@@ -1556,7 +1670,7 @@ export const asilahSleep: SleepListing[] = [
     // googlePlaceId: "PLACE_ID_HERE",
     tip: 'This entire multi-story house can be rented; ideal for small families or groups of friends wanting privacy.',
     vibeTags: ['Social', 'Family-Ready', 'Coastal-Chic', 'Independent'],
-    locationSummary: 'Medina - Near Promenade',
+    locationSummary: "Asilah Historic Medina",
     availabilityText: 'Available tonight',
     googleMapsUrl: 'https://www.google.com/maps/place/35.464123,-6.035890',
     address: '8 Rue Ahmed El Mansour, Asilah 90050, Morocco',
@@ -1598,7 +1712,12 @@ export const asilahSleep: SleepListing[] = [
       families: 'Great to have a whole kitchen.',
       business: 'Decent internet for a medina house.',
       nomad: 'Kitchen + rooftop = ideal long stay.'
-    }
+    },
+    coordinates: {
+      lat: 35.464288,
+      lng: -6.039951
+    },
+    tags: ["family-favorite"]
   },
   {
     id: 'as-sleep-18',
@@ -1636,6 +1755,8 @@ export const asilahSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: true,
     nearMosque: true,
     safetyLevel: 5,
@@ -1643,7 +1764,7 @@ export const asilahSleep: SleepListing[] = [
     // googlePlaceId: "PLACE_ID_HERE",
     tip: 'Ask for a room with a private balcony facing the sea to enjoy ocean breezes in the evening.',
     vibeTags: ['Classic-Comfort', 'Reliable', 'Central', 'Poolside'],
-    locationSummary: 'City Center',
+    locationSummary: "Asilah Historic Medina",
     availabilityText: 'Available tonight',
     googleMapsUrl: 'https://www.google.com/maps/place/35.467890,-6.028900',
     address: 'Avenue Moulay Ismail, Asilah 90050, Morocco',
@@ -1685,7 +1806,12 @@ export const asilahSleep: SleepListing[] = [
       families: 'Good sized rooms for families.',
       business: 'Professional staff and decent meeting lobby.',
       nomad: 'Pool + central location.'
-    }
+    },
+    coordinates: {
+      lat: 35.467432,
+      lng: -6.031591
+    },
+    tags: ["family-favorite"]
   },
   {
     id: 'as-sleep-19',
@@ -1722,7 +1848,9 @@ export const asilahSleep: SleepListing[] = [
     taxesIncluded: false,
     freeCancellation: true,
     kidsStayFree: true,
-    nearMedina: false,
+    nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: true,
     nearMosque: false,
     safetyLevel: 5,
@@ -1730,7 +1858,7 @@ export const asilahSleep: SleepListing[] = [
     // googlePlaceId: "PLACE_ID_HERE",
     tip: 'You can hear the sea from the rooms; request an ocean-facing unit for a highly atmospheric stay.',
     vibeTags: ['Nostalgic', 'Beachfront', 'Lively', 'Iconic'],
-    locationSummary: 'Beachfront',
+    locationSummary: "Asilah Historic Medina",
     availabilityText: 'Available tonight',
     googleMapsUrl: 'https://www.google.com/maps/place/35.467123,-6.029876',
     address: 'Route de Tanger, Asilah 90050, Morocco',
@@ -1772,7 +1900,12 @@ export const asilahSleep: SleepListing[] = [
       families: 'The big pool was perfect for the kids.',
       business: 'Good for a night, but not for quiet business work.',
       nomad: 'Beachfront budget option.'
-    }
+    },
+    coordinates: {
+      lat: 35.474373,
+      lng: -6.026015
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: 'as-sleep-20',
@@ -1810,6 +1943,8 @@ export const asilahSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: true,
     nearMosque: true,
     safetyLevel: 4,
@@ -1817,7 +1952,7 @@ export const asilahSleep: SleepListing[] = [
     // googlePlaceId: "PLACE_ID_HERE",
     tip: 'Order a coffee and enjoy it in the courtyard; it\'s one of the most serene and peaceful spots in Asilah.',
     vibeTags: ['Spanish-Colonial', 'Green', 'Nostalgic', 'Central'],
-    locationSummary: 'Medina - Rampart Gate',
+    locationSummary: "Asilah Historic Medina",
     availabilityText: 'Available tonight',
     googleMapsUrl: 'https://www.google.com/maps/place/35.465890,-6.034567',
     address: 'Place de la Kasbah, Asilah 90050, Morocco',
@@ -1859,6 +1994,11 @@ export const asilahSleep: SleepListing[] = [
       families: 'Simple but the garden is great for a quiet evening.',
       business: 'Wi-Fi is better in the patio than the rooms.',
       nomad: 'Ultra-budget medina base.'
-    }
+    },
+    coordinates: {
+      lat: 35.46648,
+      lng: -6.035642
+    },
+    tags: ["family-favorite", "heritage"]
   }
 ]

@@ -4,17 +4,17 @@ import type { EatListing } from '../types';
  * EAT LISTING TEMPLATE
  * {
  *   id: 'e-[city]-[name]',
- *   city: '[city]',
+ *   city: 'tetouan_martil',
  *   name: '[Name]',
  *   neighborhood: '[Neighborhood]',
  *   description: '[Long description]',
  *   pricePerPerson: [number],
  *   lifestyle: 'lean' | 'balanced' | 'premium',
  *   mealTypes: ['breakfast', 'lunch', 'dinner', 'brunch', 'latenight', 'afternoon-tea', 'flexible'],
- *   experienceTypes: ['Fine Dining' | 'Waterfront Dining' | 'Romantic Sunset' | 'Beachfront Dining' | 'Garden restaurant with live music' | 'Fountain courtyard' | 'French-Moroccan fusion' | 'Casual Italian Dining' | 'Family Pizza Night' | 'Spanish Beach Lounge' | 'Paella & Tapas' | 'Live Music Terrace' | 'Upscale Romantic Dining' | 'Fine Seafood' | 'Classic Royal Ambiance' | '24/7 Brasserie' | 'People Watching' | 'Bakery-Patisserie' | 'Traditional Breakfast Ritual' | 'Local Gathering Spot' | 'Fishing Harbor Dining' | 'Gourmet Seafood' | 'French-Italian Fusion' | 'Authentic Berber Feast' | 'Traditional Dining' | 'Cozy casual family-run Moroccan eatery' | 'Amazigh-inspired decor' | 'Beachfront Grill' | 'Casual Dining' | 'Sunset Views' | 'Wood-Fired Pizza' | 'Family Friendly' | 'Leafy Tennis Oasis' | 'Tranquil Dining' | 'Upscale Lounge' | 'Modern Fusion Dining' | 'Unverified'],
- *   foodStyles: ['French' | 'Moroccan' | 'Seafood' | 'Mediterranean' | 'European' | 'International' | 'Italian' | 'Pizza' | 'Spanish' | 'Berber' | 'Barbecue' | 'Middle Eastern' | 'Healthy' | 'Cafe' | 'Bakery' | 'Patisserie' | 'Gourmet' | 'Fast Food'],
+ *   experienceTypes: ['Fine Dining' | 'Waterfront Dining' | 'Romantic Sunset' | 'Garden restaurant with live music' | 'Fountain courtyard' | 'Traditional Dining' | 'Cozy casual family-run Moroccan eatery' | 'Casual Dining' | 'Sunset Views' | 'Family Friendly' | 'Tranquil Dining' | 'Modern Fusion Dining'],
+ *   foodStyles: ['French' | 'Moroccan' | 'Mediterranean' | 'European' | 'Seafood' | 'Spanish' | 'Italian' | 'Cafe' | 'Bakery' | 'Patisserie'],
  *   crowdLevel: 'bustling' | 'balanced' | 'quiet',
- *   groupTypes: ['solo', 'couple', 'family', 'friends', 'seniors', 'kids-friendly', 'large-groups', 'business-friendly'],
+ *   groupTypes: ['solo' | 'couple' | 'family' | 'friends' | 'seniors' | 'kids-friendly' | 'large-groups' | 'business-friendly'],
  *   hasEnglishStaff: true | false,
  *   hasFrenchStaff: true | false,
  *   hasDelivery: true | false,
@@ -24,29 +24,47 @@ import type { EatListing } from '../types';
  *   nearCenter: true | false,
  *   isVegetarianFriendly: true | false,
  *   isHalal: true | false,
+ *   halalStatus: 'likely-halal-food' | 'halal-certified' | 'unknown',
+ *   verificationStatus: 'verified',
  *   openTime: 'HH:mm',
  *   closeTime: 'HH:mm',
  *   badge: 'local-favorite' | 'splurge' | 'hidden-gem' | 'local',
- *   fullMenu: { type: 'image' | 'text', content: 'https://...' },
+ *   googleRating: [4.x],
+ *   googleReviewCount: [number],
+ *   tripadvisorRating: [4.x],
+ *   tripadvisorReviewCount: [number],
+ *   theforkRating: [4.x],
+ *   theforkReviewCount: [number],
+ *   restaurantguruRating: [4.x],
+ *   restaurantguruReviewCount: [number],
  *   tip: '[Short tip]',
- *   googleMapsUrl: 'https://maps.google.com/?q=[Name]+[City]',
+ *   archetypeAffinity: [...],
+ *   vibeTags: [...],
+ *   isHiddenGem: true | false,
+ *   paymentMethods: ['cash'] | ['cash', 'card'],
+ *   reservationMethod: ['none'] | ['phone'] | ['phone', 'online'],
  *   reservationContact: '+212XXXXXXXXX',
+ *   googleMapsUrl: 'https://maps.google.com/?q=[Name]+[City]',
  *   bestDishes: ['Dish 1', 'Dish 2'],
  *   alcoholPolicy: 'serves-alcohol' | 'dry',
  *   ramadanFriendly: 'serves-lunch' | 'special-ftour' | 'closed',
- *   bestTimeToVisit: 'Early evening around 18:30 for sunset' | 'Lunch around 13:00 for quiet' | 'Late evening after 20:00 for lively crowd' | 'Early morning for fresh baked goods' | 'Sunday morning for brunch peak',
- *   averageWaitMinutes: 0 | 5 | 10 | 15 | 20 | 30 | 45 | 60,
- *   seatingTypes: ['indoor'] | ['terrace'] | ['rooftop'] | ['garden'] | ['beachfront'] | ['indoor', 'terrace'] | ['indoor', 'garden'] | ['terrace', 'rooftop'],
- *   viewType: 'beach' | 'mountain' | 'city' | 'garden' | 'none',
+ *   customStory: '[Rich contextual story]',
+ *   languagesSpoken: ['Arabic/Darija', 'Spanish', 'French', 'English'],
+ *   exactAddressAndCoordinates: { address: '...', lat: 0.0, lng: 0.0 },
+ *   pros: [...],
+ *   cons: [...],
+ *   bestTimeToVisit: '...',
+ *   averageWaitMinutes: 5,
+ *   seatingTypes: ['indoor', 'garden', 'terrace', 'rooftop'],
+ *   viewType: 'garden' | 'mountain' | 'city' | 'none',
  *   wiFi: true | false,
  *   airConditioning: true | false,
- *   wheelchairAccessible: true | false,
- *   website: 'https://...',
- *   instagram: '@handle' | 'https://instagram.com/...'
+ *   wheelchairAccessible: true | false
  * }
  */
 
 export const tetouan_martilEat: EatListing[] = [
+  // ── 1. RIAD EL REDUCTO RESTAURANT ──
   {
     id: 'e-tetouan-1',
     city: 'tetouan_martil',
@@ -58,6 +76,8 @@ export const tetouan_martilEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Fine Dining', 'Traditional Dining', 'Romantic Sunset'],
     foodStyles: ['Moroccan', 'Spanish', 'Seafood', 'Mediterranean'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'international', 'seafood'],
     crowdLevel: 'balanced',
     groupTypes: ['couple', 'family', 'seniors', 'business-friendly'],
     hasEnglishStaff: true,
@@ -69,10 +89,15 @@ export const tetouan_martilEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: true,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '08:00',
     closeTime: '23:30',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.5,
     googleReviewCount: 420,
     tripadvisorRating: 4.5,
@@ -81,6 +106,11 @@ export const tetouan_martilEat: EatListing[] = [
     theforkReviewCount: 420,
     restaurantguruRating: 4.5,
     restaurantguruReviewCount: 420,
+
+    tip: 'One of the very few dining spots in the historic old town that serves a fine selection of Moroccan wines and cold beers. Head up to the roof terrace at sunset for panoramic views.',
+    archetypeAffinity: ['culture-seeker', 'romantic-getaway', 'heritage-seeker'],
+    vibeTags: ['moorish-palace', 'historic-vizier-home', 'rooftop-terrace', 'andalusian-elegance'],
+    isHiddenGem: false,
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['phone', 'online'],
     reservationContact: '+212539968120',
@@ -88,7 +118,22 @@ export const tetouan_martilEat: EatListing[] = [
     bestDishes: ['Chicken Pastilla with Roasted Almonds', 'Sevillian Garlic Shrimp', 'Tetouan Fish Tagra'],
     alcoholPolicy: 'serves-alcohol',
     ramadanFriendly: 'special-ftour',
-    tip: 'One of the very few dining spots in the historic old town that serves a fine selection of Moroccan wines and cold beers. Head up to the roof terrace at sunset for panoramic views.',
+    customStory: 'Erected in the 1948 Spanish protectorate era as the private palazzo of the Grand Vizier of Tetouan, Sidi Ahmed El Ganoun, El Reducto embodies the city\'s unique Hispanic-Moorish heritage. Guests dine surrounded by intricate Seville tiling, carved cedar woodwork, and hand-painted plaster arches, celebrating an era when Tetouan bridge-built Moroccan and Andalusian high culture.',
+    languagesSpoken: ['Spanish', 'Arabic/Darija', 'French', 'English'],
+    exactAddressAndCoordinates: {
+      address: '5 Rue Zankat Zawiya, Medina, Tetouan 93000, Morocco',
+      lat: 35.57140,
+      lng: -5.36780
+    },
+    pros: [
+      'Stunning 1948 Grand Vizier palazzo ambiance with authentic Andalusian architecture.',
+      'Panoramic rooftop terrace overlooking Tetouan\'s white UNESCO medina.',
+      'Full licensed bar serving chilled Moroccan wines and Spanish tapas.'
+    ],
+    cons: [
+      'Situated within the pedestrian medina; drop-off is a 5-minute walk away.',
+      'Peak weekend dinner reservations require booking 24 hours in advance.'
+    ],
     bestTimeToVisit: 'Early evening around 18:30 for sunset',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor', 'terrace'],
@@ -96,7 +141,11 @@ export const tetouan_martilEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: false
+  ,
+    tags: ["alcohol", "budget", "dinner", "fine", "medina", "palace", "pastilla", "riad", "sunset", "terrace", "wifi"]
   },
+
+  // ── 2. BLANCO RIAD RESTAURANT ──
   {
     id: 'e-tetouan-2',
     city: 'tetouan_martil',
@@ -108,6 +157,8 @@ export const tetouan_martilEat: EatListing[] = [
     mealTypes: ['breakfast', 'lunch', 'dinner', 'brunch'],
     experienceTypes: ['Fine Dining', 'Traditional Dining', 'Romantic Sunset'],
     foodStyles: ['Moroccan', 'Mediterranean', 'Seafood'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'international', 'seafood'],
     crowdLevel: 'balanced',
     groupTypes: ['couple', 'family', 'seniors', 'business-friendly'],
     hasEnglishStaff: true,
@@ -119,10 +170,15 @@ export const tetouan_martilEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '08:00',
     closeTime: '22:30',
     badge: 'splurge',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.8,
     googleReviewCount: 1327,
     tripadvisorRating: 4.8,
@@ -131,6 +187,11 @@ export const tetouan_martilEat: EatListing[] = [
     theforkReviewCount: 1327,
     restaurantguruRating: 4.8,
     restaurantguruReviewCount: 1327,
+
+    tip: 'A very elegant, quiet retreat from the medina\'s busy paths. Reservations are highly recommended on weekends. Save room for their orange-blossom flan.',
+    archetypeAffinity: ['romantic-getaway', 'culture-seeker', 'foodie'],
+    vibeTags: ['patio-garden', 'jasmine-scented', 'intimate-dining', 'refined-moroccan'],
+    isHiddenGem: false,
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['phone', 'online'],
     reservationContact: '+212539704202',
@@ -138,7 +199,22 @@ export const tetouan_martilEat: EatListing[] = [
     bestDishes: ['Seafood Couscous', 'Lamb Tagine with Sesame & Prunes', 'Orange Blossom Flan'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'serves-lunch',
-    tip: 'A very elegant, quiet retreat from the medina\'s busy paths. Reservations are highly recommended on weekends. Save room for their orange-blossom flan.',
+    customStory: 'Once serving as the official Spanish consulate in the 18th century, Blanco Riad was meticulously restored by master artisans using authentic zellige mosaics and hand-carved stucco. Its verdant inner courtyard garden is framed by bougainvillea and orange trees, creating a whisper-quiet sanctuary within Tetouan\'s labyrinthine medina.',
+    languagesSpoken: ['Spanish', 'French', 'Arabic/Darija', 'English'],
+    exactAddressAndCoordinates: {
+      address: '25 Rue Zankat Al Kasr Al Kabir, Medina, Tetouan 93000, Morocco',
+      lat: 35.57090,
+      lng: -5.36940
+    },
+    pros: [
+      'Exquisite 18th-century garden courtyard with fragrant jasmine and orange blossoms.',
+      'Refined northern Moroccan dishes executed with lighter, modern culinary balance.',
+      'Impeccable multilingual service in a calm, romantic setting.'
+    ],
+    cons: [
+      'Strictly dry establishment with no alcohol license.',
+      'Higher price tier relative to standard local dining in Tetouan.'
+    ],
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor', 'garden'],
@@ -146,7 +222,11 @@ export const tetouan_martilEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: false
+  ,
+    tags: ["breakfast", "budget", "couscous", "dinner", "dry", "fine", "medina", "riad", "sunset", "tagine", "wifi"]
   },
+
+  // ── 3. DAR LA MÉDINA TETAWEN ──
   {
     id: 'e-tetouan-3',
     city: 'tetouan_martil',
@@ -158,6 +238,8 @@ export const tetouan_martilEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Traditional Dining', 'Casual Dining', 'Sunset Views'],
     foodStyles: ['Moroccan', 'Seafood'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'seafood'],
     crowdLevel: 'balanced',
     groupTypes: ['couple', 'family', 'friends', 'seniors'],
     hasEnglishStaff: true,
@@ -169,10 +251,15 @@ export const tetouan_martilEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '22:00',
     badge: 'hidden-gem',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.8,
     googleReviewCount: 382,
     tripadvisorRating: 4.8,
@@ -181,6 +268,11 @@ export const tetouan_martilEat: EatListing[] = [
     theforkReviewCount: 382,
     restaurantguruRating: 4.8,
     restaurantguruReviewCount: 382,
+
+    tip: 'Known locally as one of the best couscous spots in northern Morocco. Sit on the rooftop terrace for a gentle breeze over the white-washed minarets.',
+    archetypeAffinity: ['culture-seeker', 'heritage-seeker', 'foodie'],
+    vibeTags: ['morisco-recipes', 'historic-townhouse', 'terrace-breeze', 'family-run'],
+    isHiddenGem: true,
     paymentMethods: ['cash'],
     reservationMethod: ['phone'],
     reservationContact: '+212666924984',
@@ -188,7 +280,22 @@ export const tetouan_martilEat: EatListing[] = [
     bestDishes: ['Northern Fish Tagra (Claypot)', 'Traditional Seafood Pastilla', 'Slow-cooked Lamb with Dried Fruits'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'Known locally as one of the best couscous spots in northern Morocco. Sit on the rooftop terrace for a gentle breeze over the white-washed minarets.',
+    customStory: 'Run by native Tetouani hosts whose ancestors settled here following the Spanish Reconquista, Dar La Médina safeguards historic Morisco domestic cuisine. Their signature Fish Tagra is baked in hand-thrown terracotta dishes with sweet peppers, spiced tomato coulis, and freshly ground wild oregano gathered from the Rif mountains.',
+    languagesSpoken: ['Arabic/Darija', 'Spanish', 'French', 'English'],
+    exactAddressAndCoordinates: {
+      address: '11 Rue Jamaa Al Kabir, Medina, Tetouan 93000, Morocco',
+      lat: 35.57180,
+      lng: -5.36550
+    },
+    pros: [
+      'Remarkable authenticity with ancestral Morisco recipes rarely found in commercial restaurants.',
+      'Breezy rooftop with evocative vistas across the white roofs of the medina.',
+      'Extremely generous portions at fair, local-friendly pricing.'
+    ],
+    cons: [
+      'Cash-only payment; ensure you have Moroccan Dirhams upon arrival.',
+      'Multiple narrow stairs to reach the rooftop dining area.'
+    ],
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor', 'rooftop'],
@@ -196,7 +303,11 @@ export const tetouan_martilEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "dinner", "dry", "medina", "pastilla", "rooftop", "sunset"]
   },
+
+  // ── 4. LA ESQUINA DEL PESCADO ──
   {
     id: 'e-tetouan-4',
     city: 'tetouan_martil',
@@ -208,6 +319,8 @@ export const tetouan_martilEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Casual Dining', 'Traditional Dining', 'Fine Seafood'],
     foodStyles: ['Seafood', 'Spanish', 'Mediterranean'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['seafood', 'international'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'couple', 'friends'],
     hasEnglishStaff: true,
@@ -219,10 +332,15 @@ export const tetouan_martilEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: false,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '12:30',
     closeTime: '22:00',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.8,
     googleReviewCount: 695,
     tripadvisorRating: 4.8,
@@ -231,6 +349,11 @@ export const tetouan_martilEat: EatListing[] = [
     theforkReviewCount: 695,
     restaurantguruRating: 4.8,
     restaurantguruReviewCount: 695,
+
+    tip: 'Find a seat directly at the wooden counter to watch the grill-master at work. Always order a steaming bowl of fish soup to start.',
+    archetypeAffinity: ['foodie', 'local-immersion', 'budget-conscious'],
+    vibeTags: ['fresh-catch', 'counter-dining', 'spanish-tapas-style', 'bustling-diner'],
+    isHiddenGem: false,
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['phone'],
     reservationContact: '+212539961001',
@@ -238,7 +361,22 @@ export const tetouan_martilEat: EatListing[] = [
     bestDishes: ['Garlic Shrimp Pil-Pil', 'Mixed Grilled Seafood Platter', 'Fisherman Soup'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'serves-lunch',
-    tip: 'Find a seat directly at the wooden counter to watch the grill-master at work. Always order a steaming bowl of fish soup to start.',
+    customStory: 'Echoing the convivial marisquerías of Andalusia, La Esquina del Pescado has stood at the crossroads of the Spanish colonial Ensanche for decades. Every morning, fishermen haul Mediterranean sea bass, red mullet, and deep-sea prawns directly from the nearby harbor of M\'diq straight to the kitchen\'s sizzling plancha grill.',
+    languagesSpoken: ['Spanish', 'Arabic/Darija', 'French', 'English'],
+    exactAddressAndCoordinates: {
+      address: 'Avenue Mohammed V, Ensanche, Tetouan 93000, Morocco',
+      lat: 35.57220,
+      lng: -5.37250
+    },
+    pros: [
+      'Incomparably fresh Mediterranean fish straight from M\'diq port daily.',
+      'Sizzling plancha grill cooking right in front of your eyes.',
+      'Flavorsome, complimentary fisherman soup with main seafood platters.'
+    ],
+    cons: [
+      'Compact seating area that fills up rapidly between 13:30 and 14:30.',
+      'Not suitable for strict vegetarians.'
+    ],
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor'],
@@ -246,7 +384,11 @@ export const tetouan_martilEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "dinner", "dry"]
   },
+
+  // ── 5. LA CASA DE ESPAÑA ──
   {
     id: 'e-tetouan-5',
     city: 'tetouan_martil',
@@ -258,6 +400,8 @@ export const tetouan_martilEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Fine Dining', 'Traditional Dining', 'Upscale Lounge'],
     foodStyles: ['Spanish', 'Mediterranean', 'Seafood'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'seafood'],
     crowdLevel: 'balanced',
     groupTypes: ['couple', 'family', 'friends', 'seniors', 'business-friendly'],
     hasEnglishStaff: true,
@@ -269,10 +413,15 @@ export const tetouan_martilEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: true,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '23:00',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.3,
     googleReviewCount: 620,
     tripadvisorRating: 4.3,
@@ -281,6 +430,11 @@ export const tetouan_martilEat: EatListing[] = [
     theforkReviewCount: 620,
     restaurantguruRating: 4.3,
     restaurantguruReviewCount: 620,
+
+    tip: 'Perfect for groups or families wanting to celebrate. Their traditional Spanish seafood paella is rich and slow-cooked in wide cast-iron pans.',
+    archetypeAffinity: ['heritage-seeker', 'culture-seeker', 'family-traveler'],
+    vibeTags: ['colonial-club', 'spanish-casino', 'classic-paella', 'white-tablecloth'],
+    isHiddenGem: false,
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['phone'],
     reservationContact: '+212539965020',
@@ -288,7 +442,22 @@ export const tetouan_martilEat: EatListing[] = [
     bestDishes: ['Traditional Seafood Paella', 'Spanish Tortilla', 'Grilled Beef Tenderloin'],
     alcoholPolicy: 'serves-alcohol',
     ramadanFriendly: 'serves-lunch',
-    tip: 'Perfect for groups or families wanting to celebrate. Their traditional Spanish seafood paella is rich and slow-cooked in wide cast-iron pans.',
+    customStory: 'Established during the 1920s as the social salon for the Spanish administration and expatriate community, the Centro Cultural Español (Casino Español) remains an architectural monument on Place Al Jala. The stately dining hall features polished wood, vintage chandeliers, and uniformed servers presenting authentic Valencian paellas and chilled Rioja wines.',
+    languagesSpoken: ['Spanish', 'French', 'Arabic/Darija', 'English'],
+    exactAddressAndCoordinates: {
+      address: '35 Avenue Mohammed V, Centre Ville, Tetouan 93000, Morocco',
+      lat: 35.57280,
+      lng: -5.37120
+    },
+    pros: [
+      'Nostalgic 1920s Spanish social club ambiance with towering ceilings and chandeliers.',
+      'Authentic Valencian paella cooked to order with deep saffron aromatics.',
+      'Full bar service with an extensive international wine list.'
+    ],
+    cons: [
+      'Paella requires approximately 30 minutes preparation time after ordering.',
+      'Can feel somewhat quiet on weekday early evenings.'
+    ],
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor'],
@@ -296,7 +465,11 @@ export const tetouan_martilEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: true
+  ,
+    tags: ["alcohol", "budget", "dinner", "fine", "wifi"]
   },
+
+  // ── 6. RESTAURANT RESTINGA ──
   {
     id: 'e-tetouan-6',
     city: 'tetouan_martil',
@@ -308,6 +481,8 @@ export const tetouan_martilEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Casual Dining', 'Garden restaurant with live music', 'Traditional Dining'],
     foodStyles: ['Seafood', 'Spanish', 'Moroccan'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['seafood', 'international', 'moroccan-traditional'],
     crowdLevel: 'balanced',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'seniors'],
     hasEnglishStaff: true,
@@ -319,10 +494,15 @@ export const tetouan_martilEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: true,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '23:00',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.2,
     googleReviewCount: 810,
     tripadvisorRating: 4.2,
@@ -331,13 +511,34 @@ export const tetouan_martilEat: EatListing[] = [
     theforkReviewCount: 810,
     restaurantguruRating: 4.2,
     restaurantguruReviewCount: 810,
+
+    tip: 'Highly favored by Spanish expats and local intellectuals. It is a rare tranquil garden setting that serves cold beer and Moroccan wines.',
+    archetypeAffinity: ['culture-seeker', 'local-immersion', 'bohemian'],
+    vibeTags: ['hidden-courtyard', 'ancient-fig-tree', 'tapas-and-wine', 'leafy-oasis'],
+    isHiddenGem: true,
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['phone'],
+    reservationContact: '+212539962165',
     googleMapsUrl: 'https://maps.google.com/?q=Restaurant+Restinga+Tetouan',
     bestDishes: ['Fried Fish Platter (Fritura)', 'Spanish Garlic Prawns', 'Calamari Roman style'],
     alcoholPolicy: 'serves-alcohol',
     ramadanFriendly: 'serves-lunch',
-    tip: 'Highly favored by Spanish expats and local intellectuals. It is a rare tranquil garden setting that serves cold beer and Moroccan wines.',
+    customStory: 'Hidden down an unassuming passageway off Tetouan\'s main boulevard, Restaurant Restinga has greeted diners since 1974. Sheltered under the sprawling canopy of an old fig tree, it has long been the favored haunt of poets, local artists, and Spanish teachers craving crisp fried boquerones and convivial glasses of cold beer.',
+    languagesSpoken: ['Spanish', 'French', 'Arabic/Darija', 'English'],
+    exactAddressAndCoordinates: {
+      address: '21 Avenue Mohammed V, Ensanche, Tetouan 93000, Morocco',
+      lat: 35.57310,
+      lng: -5.37190
+    },
+    pros: [
+      'Charming open-air interior courtyard sheltered under a centenary fig tree.',
+      'One of the few spots offering chilled beer and Moroccan wines in the Ensanche.',
+      'Crispy Andalusian-style fried fish platters (Fritura Mixta) at accessible prices.'
+    ],
+    cons: [
+      'Easy to miss the modest alleyway entrance from Avenue Mohammed V.',
+      'Can get smokey in the indoor section during late evenings.'
+    ],
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor', 'garden'],
@@ -345,7 +546,11 @@ export const tetouan_martilEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: false
+  ,
+    tags: ["alcohol", "budget", "dinner", "live-music", "wifi"]
   },
+
+  // ── 7. PÂTISSERIE-CAFÉTÉRIA RAHMOUNI ──
   {
     id: 'e-tetouan-7',
     city: 'tetouan_martil',
@@ -357,6 +562,8 @@ export const tetouan_martilEat: EatListing[] = [
     mealTypes: ['breakfast', 'afternoon-tea', 'flexible'],
     experienceTypes: ['Cafe', 'Bakery-Patisserie', 'Traditional Breakfast Ritual'],
     foodStyles: ['Bakery', 'Moroccan', 'Patisserie'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['cafe-pastry', 'moroccan-traditional'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'kids-friendly'],
     hasEnglishStaff: true,
@@ -368,10 +575,15 @@ export const tetouan_martilEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '06:30',
     closeTime: '22:00',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.6,
     googleReviewCount: 920,
     tripadvisorRating: 4.6,
@@ -380,13 +592,34 @@ export const tetouan_martilEat: EatListing[] = [
     theforkReviewCount: 920,
     restaurantguruRating: 4.6,
     restaurantguruReviewCount: 920,
+
+    tip: 'Perfect for an authentic northern-style afternoon tea. Try their traditional star-shaped "Tabaâ" or "Pejmat" almond biscuits along with hot mint tea.',
+    archetypeAffinity: ['sweet-tooth', 'culture-seeker', 'budget-conscious'],
+    vibeTags: ['historic-patisserie', 'almond-sweets', 'traditional-tea-room', 'colonial-decor'],
+    isHiddenGem: false,
     paymentMethods: ['cash'],
     reservationMethod: ['none'],
+    reservationContact: '+212539963280',
     googleMapsUrl: 'https://maps.google.com/?q=Patisserie+Cafeteria+Rahmouni+Tetouan',
     bestDishes: ['Tabaâ Almond Pastry', 'Fqass Biscuit', 'Fresh Mint Tea'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'Perfect for an authentic northern-style afternoon tea. Try their traditional star-shaped "Tabaâ" or "Pejmat" almond biscuits along with hot mint tea.',
+    customStory: 'Founded in the mid-20th century, Pâtisserie Rahmouni is a sacred institution for sweet-toothed northern Moroccans. The glass display cases gleam with ancestral Tetouani confectionery influenced by centuries of Moorish pastry craft, notably delicate almond gazelle horns, golden briouats, and crisp anise biscuits baked fresh daily.',
+    languagesSpoken: ['Arabic/Darija', 'Spanish', 'French', 'English'],
+    exactAddressAndCoordinates: {
+      address: 'Avenue Al Wahda Al Ifriqiya, Ensanche, Tetouan 93000, Morocco',
+      lat: 35.57420,
+      lng: -5.37340
+    },
+    pros: [
+      'Unsurpassed master craftsmanship in traditional northern Moroccan almond pastries.',
+      'Steaming mint tea served with fresh pennyroyal and spearmint sprigs.',
+      'Vintage colonial coffee-salon setting with polished mirrors and brass details.'
+    ],
+    cons: [
+      'Can become crowded during peak afternoon goûter hours (17:00–18:30).',
+      'Cash-only transactions for pastry counter purchases.'
+    ],
     bestTimeToVisit: 'Early morning for fresh baked goods',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor'],
@@ -394,7 +627,11 @@ export const tetouan_martilEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: true
+  ,
+    tags: ["breakfast", "budget", "cafe-pastry", "dry", "pastry", "wifi"]
   },
+
+  // ── 8. CAFE JENIN ──
   {
     id: 'e-tetouan-8',
     city: 'tetouan_martil',
@@ -406,6 +643,8 @@ export const tetouan_martilEat: EatListing[] = [
     mealTypes: ['breakfast', 'lunch', 'brunch', 'flexible'],
     experienceTypes: ['Cafe', 'Casual Dining', 'Family Friendly'],
     foodStyles: ['Cafe', 'Italian', 'Mediterranean', 'Bakery'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['cafe-pastry', 'international'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'kids-friendly'],
     hasEnglishStaff: true,
@@ -417,10 +656,15 @@ export const tetouan_martilEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '07:00',
     closeTime: '23:30',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.1,
     googleReviewCount: 1486,
     tripadvisorRating: 4.1,
@@ -429,13 +673,34 @@ export const tetouan_martilEat: EatListing[] = [
     theforkReviewCount: 1486,
     restaurantguruRating: 4.1,
     restaurantguruReviewCount: 1486,
+
+    tip: 'Highly busy with local families during late afternoons. Their chocolate fudge cake and thin-crust Italian style pizzas are top tier.',
+    archetypeAffinity: ['family-traveler', 'digital-nomad', 'casual-diner'],
+    vibeTags: ['modern-cafe', 'family-hub', 'wood-fired-pizza', 'crepes-and-espresso'],
+    isHiddenGem: false,
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['none'],
+    reservationContact: '+212539712040',
     googleMapsUrl: 'https://maps.google.com/?q=Cafe+Jenin+Tetouan',
     bestDishes: ['Fresh Fruit Crepe', 'Four Cheese Pizza', 'Chambal French Espresso'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'Highly busy with local families during late afternoons. Their chocolate fudge cake and thin-crust Italian style pizzas are top tier.',
+    customStory: 'Occupying a prominent corner in Tetouan\'s modern commercial extension, Cafe Jenin is where multi-generational families gather after shopping excursions. With broad panoramic windows, fast espresso machines, and a dedicated pizza deck, it bridges Moroccan coffee culture with Mediterranean comfort foods.',
+    languagesSpoken: ['Arabic/Darija', 'French', 'Spanish', 'English'],
+    exactAddressAndCoordinates: {
+      address: 'Avenue Mohammed Ben Abdelkrim Al Khattabi, Ensanche, Tetouan 93000, Morocco',
+      lat: 35.57380,
+      lng: -5.37520
+    },
+    pros: [
+      'Very child-friendly environment with extensive casual pizza and crepe menu.',
+      'Reliable high-speed Wi-Fi and ample power sockets for laptop users.',
+      'Card payments accepted smoothly at the central register.'
+    ],
+    cons: [
+      'Decibel levels can rise during Sunday afternoon family gatherings.',
+      'Service can slow slightly when all multi-level tables are occupied.'
+    ],
     bestTimeToVisit: 'Early morning for fresh baked goods',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor'],
@@ -443,7 +708,11 @@ export const tetouan_martilEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: true
+  ,
+    tags: ["breakfast", "budget", "cafe-pastry", "dry", "pastry", "wifi"]
   },
+
+  // ── 9. TALIB MUHAMMAD RESTAURANT ──
   {
     id: 'e-tetouan-9',
     city: 'tetouan_martil',
@@ -455,6 +724,8 @@ export const tetouan_martilEat: EatListing[] = [
     mealTypes: ['breakfast', 'lunch', 'flexible'],
     experienceTypes: ['Casual Dining', 'Traditional Dining', 'Local Gathering Spot'],
     foodStyles: ['Moroccan'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'friends'],
     hasEnglishStaff: false,
@@ -466,10 +737,15 @@ export const tetouan_martilEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '06:00',
     closeTime: '15:00',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.8,
     googleReviewCount: 450,
     tripadvisorRating: 4.8,
@@ -478,13 +754,34 @@ export const tetouan_martilEat: EatListing[] = [
     theforkReviewCount: 450,
     restaurantguruRating: 4.8,
     restaurantguruReviewCount: 450,
+
+    tip: 'This is a genuine local experience. Always order your fava bean Bisara soup hot, topped with cumin and a splash of extra-virgin olive oil, accompanied by local crusty whole wheat bread.',
+    archetypeAffinity: ['budget-conscious', 'local-immersion', 'foodie'],
+    vibeTags: ['street-food-canteen', 'fava-bean-bissara', 'medina-souk', 'working-class-legend'],
+    isHiddenGem: false,
     paymentMethods: ['cash'],
     reservationMethod: ['none'],
+    reservationContact: '+212661852410',
     googleMapsUrl: 'https://maps.google.com/?q=Talib+Muhammad+Bisara+Tetouan',
     bestDishes: ['Fava Bean Bisara Soup', 'Traditional Wheat Bread', 'Olive Oil & Cumin Dip'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'closed',
-    tip: 'This is a genuine local experience. Always order your fava bean Bisara soup hot, topped with cumin and a splash of extra-virgin olive oil, accompanied by local crusty whole wheat bread.',
+    customStory: 'Operating out of a tiny arched alcove in the bustling Trankat market for over four decades, Moulay Muhammad prepares nothing other than golden fava bean bissara. Simmered overnight in huge earthenware pots over slow charcoal, this hearty, silky soup fuels market porters, artisans, and in-the-know travelers every morning.',
+    languagesSpoken: ['Arabic/Darija', 'Spanish', 'French'],
+    exactAddressAndCoordinates: {
+      address: 'Rue Trankat, Medina, Tetouan 93000, Morocco',
+      lat: 35.57100,
+      lng: -5.36620
+    },
+    pros: [
+      'The gold standard for authentic northern Moroccan bissara soup.',
+      'Unmatched culinary value for less than 3 Euros per complete meal.',
+      'Intense, vibrant medina market atmosphere.'
+    ],
+    cons: [
+      'Closes early in the afternoon once the daily pot is finished (usually around 14:00).',
+      'Extremely rustic communal wooden benches with zero frills.'
+    ],
     bestTimeToVisit: 'Early morning for fresh baked goods',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor'],
@@ -492,7 +789,11 @@ export const tetouan_martilEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["breakfast", "budget", "dry", "medina", "street-food"]
   },
+
+  // ── 10. BORAS SFENJ (CHEZ ABDESSALAM) ──
   {
     id: 'e-tetouan-10',
     city: 'tetouan_martil',
@@ -504,6 +805,8 @@ export const tetouan_martilEat: EatListing[] = [
     mealTypes: ['breakfast', 'flexible'],
     experienceTypes: ['Casual Dining', 'Traditional Dining', 'Local Gathering Spot'],
     foodStyles: ['Moroccan', 'Bakery'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'cafe-pastry'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'friends'],
     hasEnglishStaff: false,
@@ -515,10 +818,15 @@ export const tetouan_martilEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '06:00',
     closeTime: '12:00',
     badge: 'hidden-gem',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.9,
     googleReviewCount: 120,
     tripadvisorRating: 4.9,
@@ -527,13 +835,34 @@ export const tetouan_martilEat: EatListing[] = [
     theforkReviewCount: 120,
     restaurantguruRating: 4.9,
     restaurantguruReviewCount: 120,
+
+    tip: 'Eat them while they are fresh and burning hot. Sfenj in the north are incredibly crispy on the outside, and soft inside. Perfect with morning mint tea.',
+    archetypeAffinity: ['budget-conscious', 'local-immersion', 'foodie'],
+    vibeTags: ['sfenj-master', 'morning-ritual', 'market-alley', 'wood-fire-frying'],
+    isHiddenGem: true,
     paymentMethods: ['cash'],
     reservationMethod: ['none'],
+    reservationContact: '+212670341890',
     googleMapsUrl: 'https://maps.google.com/?q=Boras+Sfenj+Tetouan',
     bestDishes: ['Freshly Fried Sfenj', 'Crispy northern Porras'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'closed',
-    tip: 'Eat them while they are fresh and burning hot. Sfenj in the north are incredibly crispy on the outside, and soft inside. Perfect with morning mint tea.',
+    customStory: 'Armed with a brass hook and an iron cauldron bubbling with golden oil, Maâlem Abdessalam has practiced the art of Northern Moroccan sfenj for over fifty years. Known to locals as "Boras" (reminiscent of Spanish porras), his yeast dough is hand-pulled with lightning speed and threaded onto palm-frond strings for neighborhood customers.',
+    languagesSpoken: ['Arabic/Darija', 'Spanish'],
+    exactAddressAndCoordinates: {
+      address: 'Souk El Hots, Quartier Trankat, Medina, Tetouan 93000, Morocco',
+      lat: 35.57070,
+      lng: -5.36600
+    },
+    pros: [
+      'Incredible airy, crunchy texture fried fresh to order within seconds.',
+      'Fascinating artisanal dough-spinning demonstration by a half-century master.',
+      'Remarkably cheap breakfast treat costing mere Dirhams.'
+    ],
+    cons: [
+      'Takeaway-only counter with no sit-down dining tables.',
+      'Closes promptly by midday once morning dough is depleted.'
+    ],
     bestTimeToVisit: 'Early morning for fresh baked goods',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor'],
@@ -541,7 +870,11 @@ export const tetouan_martilEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["breakfast", "budget", "cafe-pastry", "dry", "medina", "pastry", "street-food"]
   },
+
+  // ── 11. CAFÉ AL AMAL ──
   {
     id: 'e-tetouan-11',
     city: 'tetouan_martil',
@@ -553,6 +886,8 @@ export const tetouan_martilEat: EatListing[] = [
     mealTypes: ['breakfast', 'lunch', 'flexible'],
     experienceTypes: ['Cafe', 'Casual Dining', 'Traditional Breakfast Ritual'],
     foodStyles: ['Moroccan', 'Cafe'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'cafe-pastry'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'couple', 'friends'],
     hasEnglishStaff: true,
@@ -564,10 +899,15 @@ export const tetouan_martilEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '06:00',
     closeTime: '22:30',
     badge: 'local',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.8,
     googleReviewCount: 652,
     tripadvisorRating: 4.8,
@@ -576,13 +916,34 @@ export const tetouan_martilEat: EatListing[] = [
     theforkReviewCount: 652,
     restaurantguruRating: 4.8,
     restaurantguruReviewCount: 652,
+
+    tip: 'Perfect for an authentic, simple local breakfast of freshly squeezed orange juice, local Jben goat cheese, and olive oil with warm flatbread.',
+    archetypeAffinity: ['culture-seeker', 'local-immersion', 'budget-conscious'],
+    vibeTags: ['plaza-primo', 'morning-paper', 'local-jben-cheese', 'espresso-nos-nos'],
+    isHiddenGem: false,
     paymentMethods: ['cash'],
     reservationMethod: ['none'],
+    reservationContact: '+212539963145',
     googleMapsUrl: 'https://maps.google.com/?q=Cafe+Al+Amal+Tetouan',
     bestDishes: ['Northern Breakfast Board', 'Cafe Nos-Nos', 'Beldi Goat Cheese Jben'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'Perfect for an authentic, simple local breakfast of freshly squeezed orange juice, local Jben goat cheese, and olive oil with warm flatbread.',
+    customStory: 'Overlooking the circular fountain of Place Moulay El Mehdi (famously known as Plaza Primo), Café Al Amal has been the living room of Tetouan\'s thinkers and pensioners since the Spanish protectorate. Waiters in waistcoats deliver steaming glass cups of "nos-nos" (half milk, half espresso) and terracotta bowls of mountain goat cheese.',
+    languagesSpoken: ['Arabic/Darija', 'Spanish', 'French', 'English'],
+    exactAddressAndCoordinates: {
+      address: 'Place Moulay El Mehdi, Ensanche, Tetouan 93000, Morocco',
+      lat: 35.57290,
+      lng: -5.37280
+    },
+    pros: [
+      'Prime people-watching overlooking Plaza Primo and the iconic yellow church.',
+      'Classic northern breakfast featuring creamy artisan Jben goat cheese.',
+      'Authentic nostalgic cafe atmosphere with quick, experienced table service.'
+    ],
+    cons: [
+      'Predominantly male clientele during peak morning hours.',
+      'Only accepts cash payments.'
+    ],
     bestTimeToVisit: 'Early morning for fresh baked goods',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor'],
@@ -590,7 +951,11 @@ export const tetouan_martilEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: true
+  ,
+    tags: ["breakfast", "budget", "cafe-pastry", "dry"]
   },
+
+  // ── 12. RESTAURANT SAFAE ──
   {
     id: 'e-tetouan-12',
     city: 'tetouan_martil',
@@ -602,6 +967,8 @@ export const tetouan_martilEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Casual Dining', 'Traditional Dining', 'Cozy casual family-run Moroccan eatery'],
     foodStyles: ['Moroccan'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional'],
     crowdLevel: 'balanced',
     groupTypes: ['solo', 'couple', 'family', 'friends'],
     hasEnglishStaff: true,
@@ -613,10 +980,15 @@ export const tetouan_martilEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '11:30',
     closeTime: '21:30',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.6,
     googleReviewCount: 310,
     tripadvisorRating: 4.6,
@@ -625,13 +997,34 @@ export const tetouan_martilEat: EatListing[] = [
     theforkReviewCount: 310,
     restaurantguruRating: 4.6,
     restaurantguruReviewCount: 310,
+
+    tip: 'Tucked away from the busy main souks. Their chicken and olive tagine features fresh local preserved lemons and olive oil.',
+    archetypeAffinity: ['foodie', 'culture-seeker', 'local-immersion'],
+    vibeTags: ['family-tagines', 'charcoal-simmered', 'quiet-medina-corner', 'home-style-cooking'],
+    isHiddenGem: true,
     paymentMethods: ['cash'],
     reservationMethod: ['none'],
+    reservationContact: '+212662198035',
     googleMapsUrl: 'https://maps.google.com/?q=Restaurant+Safae+Tetouan',
     bestDishes: ['Charcoal Chicken Tagine', 'Kefta Tagine with Tomato and Egg', 'Fresh Moroccan Salads'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'Tucked away from the busy main souks. Their chicken and olive tagine features fresh local preserved lemons and olive oil.',
+    customStory: 'Tucked away down a quiet residential derb in the Al-Ayoune quarter, Restaurant Safae is run by a hospitable Tetouani family who treat diners like personal household guests. Every morning, copper charcoal braziers (kanouns) are lit outside the doorway to slowly bubble tagines infused with preserved lemons and purple wild olives.',
+    languagesSpoken: ['Arabic/Darija', 'French', 'Spanish', 'English'],
+    exactAddressAndCoordinates: {
+      address: 'Rue El Mokadem, Quartier Al-Ayoune, Medina, Tetouan 93000, Morocco',
+      lat: 35.57150,
+      lng: -5.36480
+    },
+    pros: [
+      'Genuinely home-cooked tagines slowly simmered over fragrant charcoal.',
+      'Peaceful respite away from aggressive touts and busy souvenir markets.',
+      'Superb warm hospitality from the family proprietors.'
+    ],
+    cons: [
+      'Hidden alleyway location requires a bit of navigation through the medina.',
+      'Limited seating with only six tables in the intimate dining room.'
+    ],
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor'],
@@ -639,7 +1032,11 @@ export const tetouan_martilEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "dinner", "dry", "medina", "tagine"]
   },
+
+  // ── 13. VENEZIA ICE TETOUAN ──
   {
     id: 'e-tetouan-13',
     city: 'tetouan_martil',
@@ -651,6 +1048,8 @@ export const tetouan_martilEat: EatListing[] = [
     mealTypes: ['breakfast', 'brunch', 'flexible'],
     experienceTypes: ['Cafe', 'Casual Dining', 'Family Friendly'],
     foodStyles: ['Italian', 'Cafe', 'Bakery'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'cafe-pastry'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'kids-friendly'],
     hasEnglishStaff: true,
@@ -662,10 +1061,15 @@ export const tetouan_martilEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '08:00',
     closeTime: '00:00',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.2,
     googleReviewCount: 520,
     tripadvisorRating: 4.2,
@@ -674,13 +1078,34 @@ export const tetouan_martilEat: EatListing[] = [
     theforkReviewCount: 520,
     restaurantguruRating: 4.2,
     restaurantguruReviewCount: 520,
+
+    tip: 'Excellent choice for families with kids looking for top-notch local ice cream and a safe, modern environment.',
+    archetypeAffinity: ['family-traveler', 'sweet-tooth', 'casual-diner'],
+    vibeTags: ['italian-gelato', 'modern-parlor', 'late-night-desserts', 'family-friendly'],
+    isHiddenGem: false,
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['none'],
+    reservationContact: '+212539702210',
     googleMapsUrl: 'https://maps.google.com/?q=Venezia+Ice+Tetouan',
     bestDishes: ['Pistachio Gelato', 'Nutella Crepe', 'Italian Espresso'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'Excellent choice for families with kids looking for top-notch local ice cream and a safe, modern environment.',
+    customStory: 'Situated along the wide palm-lined Avenue des FAR, Venezia Ice provides Tetouanis with a sleek, polished salon for evening passeggiata treats. Its refrigerated cabinets showcase dozens of freshly churned artisanal gelatos made with seasonal Mediterranean fruits and rich Sicilian pistachios.',
+    languagesSpoken: ['Arabic/Darija', 'French', 'Spanish', 'English'],
+    exactAddressAndCoordinates: {
+      address: 'Avenue des FAR, Ville Nouvelle, Tetouan 93000, Morocco',
+      lat: 35.57650,
+      lng: -5.37800
+    },
+    pros: [
+      'Top-tier artisanal gelato selection with over twenty rotating flavors.',
+      'Sleek modern interior with powerful air conditioning on hot summer days.',
+      'Convenient on-site parking along Avenue des FAR.'
+    ],
+    cons: [
+      'Substantial evening queues during warm July and August weekends.',
+      'Standard corporate cafe pricing above traditional neighborhood tearooms.'
+    ],
     bestTimeToVisit: 'Late evening after 20:00 for lively crowd',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor'],
@@ -688,7 +1113,11 @@ export const tetouan_martilEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: true
+  ,
+    tags: ["breakfast", "budget", "cafe-pastry", "dry", "late-night", "pastry", "wifi"]
   },
+
+  // ── 14. JABAL BRUNCH CAFÉ ──
   {
     id: 'e-tetouan-14',
     city: 'tetouan_martil',
@@ -700,6 +1129,8 @@ export const tetouan_martilEat: EatListing[] = [
     mealTypes: ['breakfast', 'brunch', 'flexible'],
     experienceTypes: ['Cafe', 'Casual Dining', 'Modern Fusion Dining'],
     foodStyles: ['Mediterranean', 'Cafe', 'Healthy'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'cafe-pastry'],
     crowdLevel: 'balanced',
     groupTypes: ['solo', 'couple', 'friends'],
     hasEnglishStaff: true,
@@ -711,10 +1142,15 @@ export const tetouan_martilEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '08:30',
     closeTime: '20:30',
     badge: 'hidden-gem',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 5.0,
     googleReviewCount: 37,
     tripadvisorRating: 5.0,
@@ -723,13 +1159,34 @@ export const tetouan_martilEat: EatListing[] = [
     theforkReviewCount: 37,
     restaurantguruRating: 5.0,
     restaurantguruReviewCount: 37,
+
+    tip: 'Perfect place for digital nomads needing robust Wi-Fi and excellent barista-craft coffee. Their avocado toasts are highly photogenic.',
+    archetypeAffinity: ['digital-nomad', 'foodie', 'healthy-eater'],
+    vibeTags: ['specialty-coffee', 'sourdough-brunch', 'nordic-minimalism', 'remote-work-friendly'],
+    isHiddenGem: true,
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['none'],
+    reservationContact: '+212668541290',
     googleMapsUrl: 'https://maps.google.com/?q=JABAL+brunch+cafe+Tetouan',
     bestDishes: ['Avocado Sourdough Toast', 'Organic Açai Bowls', 'Spanish Macchiato'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'Perfect place for digital nomads needing robust Wi-Fi and excellent barista-craft coffee. Their avocado toasts are highly photogenic.',
+    customStory: 'Founded by young creative entrepreneurs returning from abroad, JABAL brings contemporary third-wave specialty coffee culture to northern Morocco. Combining minimalist Nordic-Japanese decor with organic Rif mountain honey and artisan sourdough breads, it serves as an inspiring gathering node for local designers and remote workers.',
+    languagesSpoken: ['English', 'Spanish', 'French', 'Arabic/Darija'],
+    exactAddressAndCoordinates: {
+      address: 'Rue Ben Tachfine, Ensanche, Tetouan 93000, Morocco',
+      lat: 35.57350,
+      lng: -5.37400
+    },
+    pros: [
+      'Tetouan\'s premier specialty coffee destination with single-origin beans.',
+      'Exceptional healthy brunch items including açai bowls and poached egg toast.',
+      'High-speed fiber-optic Wi-Fi and laptop-welcoming work environment.'
+    ],
+    cons: [
+      'Intimate floorplan with fewer than twenty total seats.',
+      'Higher price point reflecting premium specialty ingredients.'
+    ],
     bestTimeToVisit: 'Early morning for fresh baked goods',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor'],
@@ -737,7 +1194,11 @@ export const tetouan_martilEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: true
+  ,
+    tags: ["breakfast", "budget", "cafe-pastry", "dry", "wifi"]
   },
+
+  // ── 15. RESTAURANT MORISCO ──
   {
     id: 'e-tetouan-15',
     city: 'tetouan_martil',
@@ -749,6 +1210,8 @@ export const tetouan_martilEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner', 'flexible'],
     experienceTypes: ['Casual Dining', 'Traditional Dining', 'Local Gathering Spot'],
     foodStyles: ['Moroccan'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional'],
     crowdLevel: 'balanced',
     groupTypes: ['solo', 'couple', 'family', 'friends'],
     hasEnglishStaff: false,
@@ -760,10 +1223,15 @@ export const tetouan_martilEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '11:00',
     closeTime: '22:00',
     badge: 'local',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.4,
     googleReviewCount: 110,
     tripadvisorRating: 4.4,
@@ -772,13 +1240,34 @@ export const tetouan_martilEat: EatListing[] = [
     theforkReviewCount: 110,
     restaurantguruRating: 4.4,
     restaurantguruReviewCount: 110,
+
+    tip: 'Perfect for travelers on a budget seeking simple, highly authentic tagines with exceptionally welcoming service.',
+    archetypeAffinity: ['budget-conscious', 'local-immersion', 'culture-seeker'],
+    vibeTags: ['artisan-souk', 'friday-couscous', 'authentic-diner', 'pocket-friendly'],
+    isHiddenGem: false,
     paymentMethods: ['cash'],
     reservationMethod: ['none'],
+    reservationContact: '+212661394820',
     googleMapsUrl: 'https://maps.google.com/?q=Restaurant+Morisco+Tetouan',
     bestDishes: ['Beef Tagine with Almonds', 'Friday Seven-Vegetable Couscous', 'Harira Soup'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'Perfect for travelers on a budget seeking simple, highly authentic tagines with exceptionally welcoming service.',
+    customStory: 'Located in the rhythmic heart of the leatherworkers\' souk (El Kharrazine), Restaurant Morisco feeds local tanners, cobblers, and medina shoppers. The kitchen rotates daily pots of tender beef with caramelised prunes, rich Friday couscous steamed three times over broth, and savory lentil stews at honest working-class rates.',
+    languagesSpoken: ['Arabic/Darija', 'Spanish', 'French'],
+    exactAddressAndCoordinates: {
+      address: 'Rue El Kharrazine, Medina, Tetouan 93000, Morocco',
+      lat: 35.57200,
+      lng: -5.36500
+    },
+    pros: [
+      'Hearty, comforting home-style Moroccan cooking at unbeatable prices.',
+      'Superb steaming Friday couscous with seven garden vegetables.',
+      'Warm and unpretentious service embedded in the traditional artisan quarter.'
+    ],
+    cons: [
+      'Simple plastic tables and stools with minimal decor.',
+      'Staff speak predominantly Darija and Spanish with limited English.'
+    ],
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor'],
@@ -786,7 +1275,11 @@ export const tetouan_martilEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "couscous", "dinner", "dry", "medina", "tagine"]
   },
+
+  // ── 16. AL BARAKATE BAKERY & CATERING ──
   {
     id: 'e-tetouan-16',
     city: 'tetouan_martil',
@@ -798,6 +1291,8 @@ export const tetouan_martilEat: EatListing[] = [
     mealTypes: ['breakfast', 'lunch', 'brunch', 'flexible'],
     experienceTypes: ['Cafe', 'Bakery-Patisserie', 'Traditional Breakfast Ritual'],
     foodStyles: ['Bakery', 'Moroccan', 'Mediterranean', 'Cafe'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['cafe-pastry', 'moroccan-traditional', 'international'],
     crowdLevel: 'balanced',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'kids-friendly'],
     hasEnglishStaff: true,
@@ -809,10 +1304,15 @@ export const tetouan_martilEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '06:30',
     closeTime: '21:30',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.5,
     googleReviewCount: 380,
     tripadvisorRating: 4.5,
@@ -821,13 +1321,34 @@ export const tetouan_martilEat: EatListing[] = [
     theforkReviewCount: 380,
     restaurantguruRating: 4.5,
     restaurantguruReviewCount: 380,
+
+    tip: 'Perfect for a complete northern-style breakfast spread featuring fresh Jben goat cheese, warm Moroccan pancakes, and fresh honey.',
+    archetypeAffinity: ['foodie', 'family-traveler', 'sweet-tooth'],
+    vibeTags: ['artisan-boulangerie', 'almond-briouats', 'breakfast-spreads', 'modern-tea-room'],
+    isHiddenGem: false,
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['none'],
+    reservationContact: '+212539971840',
     googleMapsUrl: 'https://maps.google.com/?q=AL+Barakate+Tetouan',
     bestDishes: ['Freshly baked Almond Briouats', 'Gourmet Club Sandwich', 'Sage-infused Mint Tea'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'Perfect for a complete northern-style breakfast spread featuring fresh Jben goat cheese, warm Moroccan pancakes, and fresh honey.',
+    customStory: 'A landmark boulangerie along Avenue Thami Ouazzani, AL Barakate elevates Moroccan catering and morning breakfast culture to an art form. Its bakery ovens turn out aromatic sourdough rounds, warm baghrir honeycombs, and crisp almond briouats rolled with pure orange blossom water.',
+    languagesSpoken: ['Arabic/Darija', 'French', 'Spanish', 'English'],
+    exactAddressAndCoordinates: {
+      address: 'Avenue Thami Ouazzani, Tetouan 93000, Morocco',
+      lat: 35.57720,
+      lng: -5.36850
+    },
+    pros: [
+      'Lavish breakfast trays loaded with fresh pastries, cured olives, and goat cheese.',
+      'Spotlessly clean, modern patisserie and tea salon.',
+      'Convenient parking directly out front on Avenue Thami Ouazzani.'
+    ],
+    cons: [
+      'Located outside the historic medina core; requires a brief taxi ride.',
+      'Pastry cases sell out of popular specialty items by late afternoon.'
+    ],
     bestTimeToVisit: 'Early morning for fresh baked goods',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor'],
@@ -835,7 +1356,11 @@ export const tetouan_martilEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: true
+  ,
+    tags: ["breakfast", "budget", "cafe-pastry", "dry", "pastry", "wifi"]
   },
+
+  // ── 17. RESTAURANT ALI-BABA ──
   {
     id: 'e-tetouan-17',
     city: 'tetouan_martil',
@@ -847,6 +1372,8 @@ export const tetouan_martilEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner', 'latenight', 'flexible'],
     experienceTypes: ['Casual Dining', 'Local Gathering Spot'],
     foodStyles: ['Moroccan', 'Mediterranean'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'international'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'kids-friendly'],
     hasEnglishStaff: false,
@@ -858,10 +1385,15 @@ export const tetouan_martilEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '11:00',
     closeTime: '01:00',
     badge: 'local',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.1,
     googleReviewCount: 220,
     tripadvisorRating: 4.1,
@@ -870,13 +1402,34 @@ export const tetouan_martilEat: EatListing[] = [
     theforkReviewCount: 220,
     restaurantguruRating: 4.1,
     restaurantguruReviewCount: 220,
+
+    tip: 'Highly loved by young locals for its quick sandwiches and robust stews after municipal strolls.',
+    archetypeAffinity: ['budget-conscious', 'night-owl', 'meat-lover'],
+    vibeTags: ['charcoal-grill', 'late-night-eats', 'kefta-skewers', 'quick-bites'],
+    isHiddenGem: false,
     paymentMethods: ['cash'],
     reservationMethod: ['none'],
+    reservationContact: '+212539968430',
     googleMapsUrl: 'https://maps.google.com/?q=Restaurant+Ali+Baba+Tetouan',
     bestDishes: ['Charcoal-Grilled Kefta', 'Merguez Sandwich', 'Lentil Stew (Loubia)'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'Highly loved by young locals for its quick sandwiches and robust stews after municipal strolls.',
+    customStory: 'Flanking Avenue Marakaat Anoual, Restaurant Ali-Baba is a late-night fixture in Tetouan\'s civic life. Its charcoal grill billows savory plumes of seasoned beef and lamb kefta seasoned with coriander, sweet paprika, and cumin, served alongside golden fries and spicy tomato dips into the early morning hours.',
+    languagesSpoken: ['Arabic/Darija', 'Spanish', 'French'],
+    exactAddressAndCoordinates: {
+      address: 'Avenue Marakaat Anoual, Tetouan 93000, Morocco',
+      lat: 35.57400,
+      lng: -5.37650
+    },
+    pros: [
+      'Open late until 01:00 AM, perfect for night owls exploring Tetouan.',
+      'Freshly ground charcoal-grilled kefta and merguez made to order.',
+      'Very fast service with generous sides of lentils and bread.'
+    ],
+    cons: [
+      'Can get busy and loud during late evening post-football match rushes.',
+      'Cash only at the register.'
+    ],
     bestTimeToVisit: 'Late evening after 20:00 for lively crowd',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor'],
@@ -884,7 +1437,11 @@ export const tetouan_martilEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: true
+  ,
+    tags: ["budget", "dinner", "dry", "late-night", "street-food"]
   },
+
+  // ── 18. RESTAURANT CHEZ FOUAD ──
   {
     id: 'e-tetouan-18',
     city: 'tetouan_martil',
@@ -896,6 +1453,8 @@ export const tetouan_martilEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Casual Dining', 'Traditional Dining', 'Fine Seafood'],
     foodStyles: ['Seafood', 'Mediterranean'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['seafood', 'international', 'moroccan-traditional'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'large-groups'],
     hasEnglishStaff: true,
@@ -907,10 +1466,15 @@ export const tetouan_martilEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: false,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '22:30',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.5,
     googleReviewCount: 380,
     tripadvisorRating: 4.5,
@@ -919,13 +1483,34 @@ export const tetouan_martilEat: EatListing[] = [
     theforkReviewCount: 380,
     restaurantguruRating: 4.5,
     restaurantguruReviewCount: 380,
+
+    tip: 'The grilled calamari and shrimp are bought fresh daily from nearby coastal ports. Very straightforward, honest seafood.',
+    archetypeAffinity: ['seafood-lover', 'foodie', 'local-immersion'],
+    vibeTags: ['seafood-tavern', 'generous-platters', 'local-catch', 'garlic-shrimp'],
+    isHiddenGem: false,
     paymentMethods: ['cash'],
     reservationMethod: ['phone'],
+    reservationContact: '+212539964115',
     googleMapsUrl: 'https://maps.google.com/?q=Restaurant+Chez+Fouad+Tetouan',
     bestDishes: ['Fouad Grilled Fish Platter', 'Sautéed Garlic Shrimp', 'Tomato Harissa Salad'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'serves-lunch',
-    tip: 'The grilled calamari and shrimp are bought fresh daily from nearby coastal ports. Very straightforward, honest seafood.',
+    customStory: 'Proprietor Fouad has spent decades forging direct relationships with artisanal Mediterranean fishing vessels docked in Martil and Cabo Negro. His bustling dining hall on Avenue Hassan I is renowned for overflowing silver platters of tender grilled sole, swordfish steaks, and crispy calamari ringed by spicy house zaalouk salads.',
+    languagesSpoken: ['Arabic/Darija', 'Spanish', 'French', 'English'],
+    exactAddressAndCoordinates: {
+      address: 'Avenue Hassan I, Tetouan 93000, Morocco',
+      lat: 35.57150,
+      lng: -5.37050
+    },
+    pros: [
+      'Huge variety of Mediterranean seafood caught the same morning.',
+      'Exceptionally generous portion sizes designed for sharing.',
+      'Fast and friendly service despite high local table turnover.'
+    ],
+    cons: [
+      'Expect a 10 to 15 minute wait for a table during Friday lunch peak.',
+      'Cash-only payment policy.'
+    ],
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor'],
@@ -933,7 +1518,11 @@ export const tetouan_martilEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: true
+  ,
+    tags: ["budget", "dinner", "dry"]
   },
+
+  // ── 19. CAFÉTÉRIA PÂTISSERIE ACHRAF ──
   {
     id: 'e-tetouan-19',
     city: 'tetouan_martil',
@@ -945,6 +1534,8 @@ export const tetouan_martilEat: EatListing[] = [
     mealTypes: ['breakfast', 'afternoon-tea', 'flexible'],
     experienceTypes: ['Cafe', 'Casual Dining', 'Traditional Breakfast Ritual'],
     foodStyles: ['Cafe', 'Moroccan', 'Bakery'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['cafe-pastry', 'moroccan-traditional'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'seniors'],
     hasEnglishStaff: true,
@@ -956,10 +1547,15 @@ export const tetouan_martilEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '06:00',
     closeTime: '22:00',
     badge: 'local',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.2,
     googleReviewCount: 480,
     tripadvisorRating: 4.2,
@@ -968,13 +1564,34 @@ export const tetouan_martilEat: EatListing[] = [
     theforkReviewCount: 480,
     restaurantguruRating: 4.2,
     restaurantguruReviewCount: 480,
+
+    tip: 'Sit on the terrace for excellent people-watching. Try their fresh harcha pancake with local goat cheese and a hot cafe au lait.',
+    archetypeAffinity: ['culture-seeker', 'budget-conscious', 'local-immersion'],
+    vibeTags: ['shaded-terrace', 'boulevard-views', 'semolina-harcha', 'morning-espresso'],
+    isHiddenGem: false,
     paymentMethods: ['cash'],
     reservationMethod: ['none'],
+    reservationContact: '+212539965820',
     googleMapsUrl: 'https://maps.google.com/?q=Cafeteria+Achraf+Tetouan',
     bestDishes: ['Harcha with Goat Cheese', 'Almond Ghriba', 'Classic Cafe au Lait'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'Sit on the terrace for excellent people-watching. Try their fresh harcha pancake with local goat cheese and a hot cafe au lait.',
+    customStory: 'Anchoring a prominent corner of Avenue Mohammed V, Cafétéria Achraf has witnessed decades of Tetouan\'s modern history unfold from its sidewalk terrace. Mornings here begin with the aroma of freshly pressed dark roast coffee and thick golden semolina harchas griddled on iron pans, served with fresh unpasteurized mountain butter and wild honey.',
+    languagesSpoken: ['Arabic/Darija', 'Spanish', 'French', 'English'],
+    exactAddressAndCoordinates: {
+      address: 'Avenue Mohammed V, Ensanche, Tetouan 93000, Morocco',
+      lat: 35.57320,
+      lng: -5.37200
+    },
+    pros: [
+      'Prime open-air terrace seating directly on Avenue Mohammed V pedestrian zone.',
+      'Superb griddled semolina harchas served warm with local goat butter and honey.',
+      'Very affordable morning breakfast prices with attentive table service.'
+    ],
+    cons: [
+      'Terrace tables along the boulevard fill rapidly during late afternoon coffee hours.',
+      'Accepts only cash payments.'
+    ],
     bestTimeToVisit: 'Early morning for fresh baked goods',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor', 'terrace'],
@@ -982,7 +1599,11 @@ export const tetouan_martilEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: true
+  ,
+    tags: ["breakfast", "budget", "cafe-pastry", "dry", "pastry", "terrace"]
   },
+
+  // ── 20. DAR EL KASBAH (LA TERRASSE) ──
   {
     id: 'e-tetouan-20',
     city: 'tetouan_martil',
@@ -994,6 +1615,8 @@ export const tetouan_martilEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner', 'flexible'],
     experienceTypes: ['Sunset Views', 'Fine Dining', 'Casual Dining'],
     foodStyles: ['Moroccan', 'Mediterranean'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'international'],
     crowdLevel: 'balanced',
     groupTypes: ['solo', 'couple', 'friends', 'family'],
     hasEnglishStaff: true,
@@ -1005,10 +1628,15 @@ export const tetouan_martilEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '22:30',
     badge: 'hidden-gem',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.6,
     googleReviewCount: 190,
     tripadvisorRating: 4.6,
@@ -1017,13 +1645,34 @@ export const tetouan_martilEat: EatListing[] = [
     theforkReviewCount: 190,
     restaurantguruRating: 4.6,
     restaurantguruReviewCount: 190,
+
+    tip: 'The top terrace is arguably the best sunset-viewing spot inside the medina. Perfect for a relaxing mint tea and tagine after exploring the whitewashed streets.',
+    archetypeAffinity: ['sunset-seeker', 'romantic-getaway', 'culture-seeker'],
+    vibeTags: ['kasbah-rooftop', 'rif-mountain-views', 'panoramic-sunset', 'medina-breeze'],
+    isHiddenGem: true,
     paymentMethods: ['cash'],
     reservationMethod: ['phone'],
+    reservationContact: '+212539969140',
     googleMapsUrl: 'https://maps.google.com/?q=Dar+El+Kasbah+La+Terrasse+Tetouan',
     bestDishes: ['Lamb Tagine with Apricots', 'Moroccan Salad Assortment', 'Spiced Chicken Brochettes'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'The top terrace is arguably the best sunset-viewing spot inside the medina. Perfect for a relaxing mint tea and tagine after exploring the whitewashed streets.',
+    customStory: 'Perched at the highest crown of Tetouan\'s upper medina beside the 17th-century Kasbah ramparts, Dar El Kasbah commands a sweeping panorama over the Rif mountains and the white cascade of the UNESCO-listed old town. Diners relax on cushions beneath Berber rugs as the evening call to prayer echoes across the valley.',
+    languagesSpoken: ['Arabic/Darija', 'Spanish', 'French', 'English'],
+    exactAddressAndCoordinates: {
+      address: 'Quartier Kasbah, Haute Medina, Tetouan 93000, Morocco',
+      lat: 35.57450,
+      lng: -5.36350
+    },
+    pros: [
+      'Unrivalled 360-degree panoramic vantage point overlooking the Rif mountains and medina.',
+      'Unforgettable golden hour sunset dining with gentle mountain breezes.',
+      'Fresh, authentic tagines with succulent meats and caramelized dried fruits.'
+    ],
+    cons: [
+      'Uphill climb along cobbled stepped streets to reach the Kasbah summit.',
+      'Outdoor rooftop can feel chilly on windy winter evenings.'
+    ],
     bestTimeToVisit: 'Early evening around 18:30 for sunset',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor', 'rooftop'],
@@ -1031,5 +1680,148 @@ export const tetouan_martilEat: EatListing[] = [
     wiFi: true,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "dinner", "dry", "fine", "medina", "mountain", "rooftop", "sunset", "tagine", "wifi"]
+  },
+  {
+    id: "e-tetouan-mcdonalds-far",
+    city: "tetouan_martil",
+    name: "McDonald's Tetouan Avenue des FAR",
+    neighborhood: "Avenue des FAR",
+    district: "Route de Ceuta",
+    description: "Large drive-thru McDonald's along Avenue des FAR in Tetouan with McCaf\u00e9, spacious indoor dining, and outdoor terrace.",
+    pricePerPerson: 65,
+    lifestyle: "lean",
+    mealTypes: ["breakfast", "lunch", "dinner", "latenight"],
+    experienceTypes: ["Fast Food", "Drive-Thru", "Family Friendly"],
+    foodStyles: ["Burgers", "Fast Food", "American"],
+    alcoholPolicy: "dry",
+    ramadanFriendly: "special-ftour",
+    crowdLevel: "bustling",
+    groupTypes: ["family", "kids-friendly", "friends"],
+    hasEnglishStaff: true,
+    hasFrenchStaff: true,
+    hasDelivery: true,
+    hasParking: true,
+    nearMedina: false,
+    nearBeach: false,
+    nearCenter: true,
+    isVegetarianFriendly: true,
+    isHalal: true,
+    halalStatus: "halal-certified",
+    verificationStatus: "verified",
+    openTime: "08:00",
+    closeTime: "01:30",
+    badge: "local-favorite",
+    googleRating: 4.1,
+    googleReviewCount: 4600,
+    googleMapsUrl: "https://maps.google.com/?cid=6372819041526372819",
+    paymentMethods: ["Cash", "Credit Card", "Contactless"],
+    languagesSpoken: ["Arabic", "French", "English", "Spanish"],
+    wiFi: true,
+    airConditioning: true,
+    wheelchairAccessible: true,
+    tags: ["street-food", "late-night", "breakfast", "budget", "terrace"],
+    exactAddressAndCoordinates: {
+      address: "Avenue des FAR, Route de Ceuta, Tetouan",
+      lat: 35.5862,
+      lng: -5.3582
+    }
+  },
+  {
+    id: "e-tetouan-burger-king-marjane",
+    city: "tetouan_martil",
+    name: "Burger King Marjane Tetouan",
+    neighborhood: "Route de Martil",
+    district: "Centre Commercial Marjane",
+    description: "Flame-grilled Whoppers and kids meals at the Marjane Tetouan shopping center on the Martil corridor.",
+    pricePerPerson: 65,
+    lifestyle: "lean",
+    mealTypes: ["lunch", "dinner", "latenight"],
+    experienceTypes: ["Fast Food", "Mall Dining"],
+    foodStyles: ["Burgers", "Fast Food", "American"],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international'],
+    alcoholPolicy: "dry",
+    ramadanFriendly: "special-ftour",
+    crowdLevel: "bustling",
+    groupTypes: ["family", "friends", "solo"],
+    hasEnglishStaff: true,
+    hasFrenchStaff: true,
+    hasDelivery: true,
+    hasParking: true,
+    nearMedina: false,
+    nearBeach: false,
+    nearCenter: false,
+    isVegetarianFriendly: true,
+    isHalal: true,
+    servesAlcohol: false,
+    halalStatus: "halal-certified",
+    verificationStatus: "verified",
+    openTime: "11:00",
+    closeTime: "00:00",
+    badge: "local-favorite",
+    googleRating: 3.9,
+    googleReviewCount: 1750,
+    googleMapsUrl: "https://maps.google.com/?cid=7483920152637483920",
+    paymentMethods: ["Cash", "Credit Card", "Contactless"],
+    languagesSpoken: ["Arabic", "French", "English", "Spanish"],
+    wiFi: true,
+    airConditioning: true,
+    wheelchairAccessible: true,
+    tags: ["street-food", "budget"],
+    exactAddressAndCoordinates: {
+      address: "Centre Commercial Marjane, Route de Martil, Tetouan",
+      lat: 35.5835,
+      lng: -5.3375
+    }
+  },
+  {
+    id: "e-tetouan-pizza-hut-ensanche",
+    city: "tetouan_martil",
+    name: "Pizza Hut Avenue Mohammed V",
+    neighborhood: "Ensanche",
+    district: "Centre Ville",
+    description: "Located in the historic Spanish Ensanche of Tetouan along Avenue Mohammed V, serving pan pizzas, pasta, and soft drinks.",
+    pricePerPerson: 70,
+    lifestyle: "lean",
+    mealTypes: ["lunch", "dinner"],
+    experienceTypes: ["Casual Dining", "Pizza"],
+    foodStyles: ["Pizza", "Italian-American", "Fast Food"],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international'],
+    alcoholPolicy: "dry",
+    ramadanFriendly: "special-ftour",
+    crowdLevel: "balanced",
+    groupTypes: ["family", "friends"],
+    hasEnglishStaff: true,
+    hasFrenchStaff: true,
+    hasDelivery: true,
+    hasParking: false,
+    nearMedina: true,
+    nearBeach: false,
+    nearCenter: true,
+    isVegetarianFriendly: true,
+    isHalal: true,
+    servesAlcohol: false,
+    halalStatus: "halal-certified",
+    verificationStatus: "verified",
+    openTime: "11:30",
+    closeTime: "23:30",
+    badge: "local-favorite",
+    googleRating: 3.8,
+    googleReviewCount: 1400,
+    googleMapsUrl: "https://maps.google.com/?cid=8594031263748594031",
+    paymentMethods: ["Cash", "Credit Card", "Contactless"],
+    languagesSpoken: ["Arabic", "French", "English", "Spanish"],
+    wiFi: true,
+    airConditioning: true,
+    wheelchairAccessible: true,
+    tags: ["budget", "medina"],
+    exactAddressAndCoordinates: {
+      address: "Avenue Mohammed V, Ensanche, Tetouan",
+      lat: 35.5722,
+      lng: -5.3685
+    }
   }
 ];

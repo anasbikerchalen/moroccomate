@@ -192,13 +192,15 @@ export const ouarzazateSleep: SleepListing[] = [
     freeCancellation: false,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "seniors"],
     tip: "There are no menus or fixed restaurants; your private butler arranges unique dining experiences from garden to rooftop.",
     vibeTags: ["Bespoke", "Minimalist-Luxury", "Secluded", "Palmeraie"],
-    locationSummary: "Skoura Oasis - 40 mins from Ouarzazate",
+    locationSummary: "Skoura Palm Grove & Ait Benhaddou",
     availabilityText: "Available tonight - Exclusive",
     googleMapsUrl: "https://maps.google.com/?q=Dar+Ahlam+Skoura",
     address: "Dar Ahlam, Skoura Palmeraie, Skoura 45502, Morocco",
@@ -265,6 +267,11 @@ export const ouarzazateSleep: SleepListing[] = [
       business: "Excellent for high-level creative retreats.",
       nomad: "Inspiring silence, though most guests come to disconnect.",
     },
+    coordinates: {
+      lat: 31.071412,
+      lng: -6.576048
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "ou-sleep-2",
@@ -375,6 +382,11 @@ export const ouarzazateSleep: SleepListing[] = [
       business: "A great place for a writing retreat.",
       nomad: "A beautiful escape to work offline for a few days.",
     },
+    coordinates: {
+      lat: 30.975088,
+      lng: -7.097728
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "ou-sleep-3",
@@ -412,13 +424,15 @@ export const ouarzazateSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Spend an afternoon by the pool; the distant Atlas views through the palms are magnificent.",
     vibeTags: ["Garden", "French-Design", "Oasis", "Peaceful"],
-    locationSummary: "Skoura Palmeraie - Garden Guesthouse",
+    locationSummary: "Skoura Palm Grove & Ait Benhaddou",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Les+Jardins+de+Skoura",
     address: "Les Jardins de Skoura, Skoura Palmeraie, Skoura 45502, Morocco",
@@ -485,6 +499,11 @@ export const ouarzazateSleep: SleepListing[] = [
       business: "Quiet enough for writing and focused work.",
       nomad: "A strong offline work retreat in a garden setting.",
     },
+    coordinates: {
+      lat: 30.904236,
+      lng: -6.911074
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "ou-sleep-4",
@@ -522,13 +541,15 @@ export const ouarzazateSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "friends", "business-friendly"],
     tip: "Book the Lawrence of Arabia suite for a stay amid cinematic props and film-set ambience.",
     vibeTags: ["Cinematic", "Thematic", "Artisanal", "Luxury"],
-    locationSummary: "Ouarzazate - Near Cinema Museum",
+    locationSummary: "Ouarzazate Center & Movie Studios",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Le+Temple+Des+Arts+Ouarzazate",
     address: "173-174 Hay Al Wahda, Ouarzazate 45000, Morocco",
@@ -595,6 +616,7 @@ export const ouarzazateSleep: SleepListing[] = [
       business: "Good WiFi and meeting spaces available.",
       nomad: "A creative and central base for exploring the region.",
     },
+    tags: ["family-favorite"]
   },
   {
     id: "ou-sleep-5",
@@ -632,13 +654,15 @@ export const ouarzazateSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Enjoy a late-afternoon drink on the roof deck to watch sunset over Ait Benhaddou, then arrange a guided Ounila Valley walk.",
     vibeTags: ["Desert-Chic", "Panoramic", "Modern-Kasbah", "Serene"],
-    locationSummary: "Ait Benhaddou - Valley Edge",
+    locationSummary: "Skoura Palm Grove & Ait Benhaddou",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Ksar+Ighnda+Ait+Benhaddou",
     address: "Douar Asfalou, Ait Benhaddou 45122, Morocco",
@@ -705,6 +729,11 @@ export const ouarzazateSleep: SleepListing[] = [
       business: "A quiet and inspiring setting for deep work.",
       nomad: "An upscale base for exploring the Draa Valley region.",
     },
+    coordinates: {
+      lat: 31.065718,
+      lng: -7.142779
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "ou-sleep-6",
@@ -742,13 +771,15 @@ export const ouarzazateSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "seniors"],
     tip: "Take a morning walk through the vegetable gardens and request a custom farm-to-table lunch.",
     vibeTags: ["Kasbah", "Olive-Grove", "Spa", "Stargazing"],
-    locationSummary: "Skoura - Restored Kasbah Estate",
+    locationSummary: "Skoura Palm Grove & Ait Benhaddou",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Ksar+El+Kabbaba+Skoura",
     address: "Ksar El Kabbaba, Skoura 45502, Morocco",
@@ -815,6 +846,11 @@ export const ouarzazateSleep: SleepListing[] = [
       business: "Quiet enough for focused work or a retreat.",
       nomad: "A peaceful workation base in the Skoura oasis.",
     },
+    coordinates: {
+      lat: 30.900513,
+      lng: -6.907657
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "ou-sleep-7",
@@ -851,14 +887,16 @@ export const ouarzazateSleep: SleepListing[] = [
     taxesIncluded: true,
     freeCancellation: true,
     kidsStayFree: true,
-    nearMedina: false,
+    nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Borrow one of their canoes for a peaceful paddle on nearby El Mansour lake.",
     vibeTags: ["Fairytale", "Mud-Brick", "Lake-Views", "Eco"],
-    locationSummary: "Tassoumaat - Lake and Desert Edge",
+    locationSummary: "Taourirt Kasbah Quarter",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Dar+Daif+Ouarzazate",
     address: "Douar Talmasla, Tassoumaat, Ouarzazate 45000, Morocco",
@@ -925,6 +963,11 @@ export const ouarzazateSleep: SleepListing[] = [
       business: "Quiet terraces are good for writing and planning.",
       nomad: "A creative, atmospheric base for remote workers with a car.",
     },
+    coordinates: {
+      lat: 30.921699,
+      lng: -6.92682
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "ou-sleep-8",
@@ -962,13 +1005,15 @@ export const ouarzazateSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Wake up early to watch sunrise cast a golden glow on the mud walls of Ait Benhaddou.",
     vibeTags: ["Fortress", "Kasbah-Views", "Fireplace", "Stargazing"],
-    locationSummary: "Ait Benhaddou - Ksar View",
+    locationSummary: "Skoura Palm Grove & Ait Benhaddou",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Kasbah+Ellouze+Ait+Benhaddou",
     address: "Ait Benhaddou 45122, Morocco",
@@ -1035,6 +1080,11 @@ export const ouarzazateSleep: SleepListing[] = [
       business: "Quiet enough for light work between sightseeing.",
       nomad: "A scenic base for nomads exploring the Ounila Valley.",
     },
+    coordinates: {
+      lat: 31.086456,
+      lng: -7.146231
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "ou-sleep-9",
@@ -1145,6 +1195,11 @@ export const ouarzazateSleep: SleepListing[] = [
       business: "Not business-oriented, but calm for writing.",
       nomad: "A good low-cost eco base for offline-focused work.",
     },
+    coordinates: {
+      lat: 30.906177,
+      lng: -6.857565
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "ou-sleep-10",
@@ -1181,14 +1236,16 @@ export const ouarzazateSleep: SleepListing[] = [
     taxesIncluded: true,
     freeCancellation: true,
     kidsStayFree: true,
-    nearMedina: false,
+    nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "business-friendly"],
     tip: "Stroll through the lobby to admire authentic movie props and photos of world-famous directors.",
     vibeTags: ["Cinema-History", "Resort", "Classic", "Fortress"],
-    locationSummary: "Ouarzazate Center - Hollywood Base",
+    locationSummary: "Taourirt Kasbah Quarter",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Le+Berbere+Palace+Ouarzazate",
     address: "Quartier Mansour Eddahbi, Ouarzazate 45000, Morocco",
@@ -1255,6 +1312,11 @@ export const ouarzazateSleep: SleepListing[] = [
       business: "Good facilities for meetings and production stays.",
       nomad: "A practical upscale base for work between regional excursions.",
     },
+    coordinates: {
+      lat: 30.923899,
+      lng: -6.909308
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "ou-sleep-11",
@@ -1291,14 +1353,16 @@ export const ouarzazateSleep: SleepListing[] = [
     taxesIncluded: true,
     freeCancellation: true,
     kidsStayFree: true,
-    nearMedina: false,
+    nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Your stay includes access to Atlas Film Studios next door; go early to beat tourist buses.",
     vibeTags: ["Cinema", "Studio-Access", "Themed", "Family-Friendly"],
-    locationSummary: "Next to Atlas Film Studios",
+    locationSummary: "Taourirt Kasbah Quarter",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Oscar+Hotel+by+Atlas+Studios",
     address: "Atlas Film Studios, Ouarzazate 45000, Morocco",
@@ -1365,6 +1429,11 @@ export const ouarzazateSleep: SleepListing[] = [
       business: "Good for production-related business stays.",
       nomad: "A playful base for nomads exploring film locations.",
     },
+    coordinates: {
+      lat: 30.941782,
+      lng: -6.966914
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "ou-sleep-12",
@@ -1401,14 +1470,16 @@ export const ouarzazateSleep: SleepListing[] = [
     taxesIncluded: true,
     freeCancellation: true,
     kidsStayFree: true,
-    nearMedina: false,
+    nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Opt for a second-floor room for the best morning light and views of the snow-capped Atlas peaks.",
     vibeTags: ["Minimalist", "Kasbah", "Atlas-Views", "Pool"],
-    locationSummary: "Tabount - Atlas View Riad",
+    locationSummary: "Taourirt Kasbah Quarter",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Dar+Chamaa+Ouarzazate",
     address: "Tajda, Tabount, Ouarzazate 45000, Morocco",
@@ -1475,6 +1546,11 @@ export const ouarzazateSleep: SleepListing[] = [
       business: "Quiet enough for remote work or writing.",
       nomad: "A balanced Ouarzazate base for nomads seeking calm.",
     },
+    coordinates: {
+      lat: 30.903726,
+      lng: -6.895812
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "ou-sleep-13",
@@ -1511,14 +1587,16 @@ export const ouarzazateSleep: SleepListing[] = [
     taxesIncluded: true,
     freeCancellation: true,
     kidsStayFree: true,
-    nearMedina: false,
+    nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Its secure parking and quiet neighborhood make it excellent for self-drive road trippers.",
     vibeTags: ["Modern-Kasbah", "Secure-Parking", "Pool", "Road-Trip"],
-    locationSummary: "Tabount - Secure Kasbah Hotel",
+    locationSummary: "Taourirt Kasbah Quarter",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Ksar+Ben+Youssef+Ouarzazate",
     address: "Tabount, Ouarzazate 45000, Morocco",
@@ -1585,6 +1663,11 @@ export const ouarzazateSleep: SleepListing[] = [
       business: "Secure parking and WiFi suit work road trips.",
       nomad: "A practical base for nomads traveling by car.",
     },
+    coordinates: {
+      lat: 30.893413,
+      lng: -6.898527
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "ou-sleep-14",
@@ -1621,14 +1704,16 @@ export const ouarzazateSleep: SleepListing[] = [
     taxesIncluded: true,
     freeCancellation: true,
     kidsStayFree: true,
-    nearMedina: false,
+    nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Ask hosts to arrange a local guide for a scenic afternoon palmeraie walk.",
     vibeTags: ["Quiet", "Vaulted-Ceilings", "Private", "Stargazing"],
-    locationSummary: "Tabount - Quiet Palm Area",
+    locationSummary: "Taourirt Kasbah Quarter",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Bouchedor+Ouarzazate",
     address: "Tabount, Ouarzazate 45000, Morocco",
@@ -1695,6 +1780,11 @@ export const ouarzazateSleep: SleepListing[] = [
       business: "Quiet enough for focused work.",
       nomad: "A calm base for nomads with a car or taxi plan.",
     },
+    coordinates: {
+      lat: 30.896759,
+      lng: -6.894726
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "ou-sleep-15",
@@ -1731,14 +1821,16 @@ export const ouarzazateSleep: SleepListing[] = [
     taxesIncluded: true,
     freeCancellation: true,
     kidsStayFree: true,
-    nearMedina: false,
+    nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Visit nearby Taourirt Kasbah, located just a short convenient walk away.",
     vibeTags: ["Traditional", "Town-Riad", "Tadelakt", "Central"],
-    locationSummary: "Ouarzazate Center - Near Taourirt",
+    locationSummary: "Taourirt Kasbah Quarter",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Ouarzazate",
     address: "Ouarzazate Center, Ouarzazate 45000, Morocco",
@@ -1805,6 +1897,11 @@ export const ouarzazateSleep: SleepListing[] = [
       business: "Reliable WiFi for emails and trip planning.",
       nomad: "A practical central base for nomads exploring by day.",
     },
+    coordinates: {
+      lat: 30.929411,
+      lng: -6.898686
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "ou-sleep-16",
@@ -1841,14 +1938,16 @@ export const ouarzazateSleep: SleepListing[] = [
     taxesIncluded: true,
     freeCancellation: true,
     kidsStayFree: true,
-    nearMedina: false,
+    nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Spend time chatting with the host over mint tea for the best local tips.",
     vibeTags: ["Colorful", "Homey", "Personal", "Central"],
-    locationSummary: "Ouarzazate Center - Cozy Riad",
+    locationSummary: "Taourirt Kasbah Quarter",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Dar+Rita+Ouarzazate",
     address: "Ouarzazate Center, Ouarzazate 45000, Morocco",
@@ -1915,6 +2014,11 @@ export const ouarzazateSleep: SleepListing[] = [
       business: "Quiet shared spaces help with light work.",
       nomad: "A friendly city base for planning longer routes.",
     },
+    coordinates: {
+      lat: 30.922739,
+      lng: -6.931838
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "ou-sleep-17",
@@ -1951,14 +2055,16 @@ export const ouarzazateSleep: SleepListing[] = [
     taxesIncluded: true,
     freeCancellation: true,
     kidsStayFree: true,
-    nearMedina: false,
+    nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Its central location makes it easy to catch a taxi or walk to local restaurants.",
     vibeTags: ["Reliable", "Central", "Pool", "Road-Trip"],
-    locationSummary: "Ouarzazate Center - Practical Hotel",
+    locationSummary: "Taourirt Kasbah Quarter",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Rose+Valley+Hotel+Ouarzazate",
     address: "Ouarzazate Center, Ouarzazate 45000, Morocco",
@@ -2025,6 +2131,11 @@ export const ouarzazateSleep: SleepListing[] = [
       business: "Reliable enough for work stopovers.",
       nomad: "A practical low-cost base for nomads on the road.",
     },
+    coordinates: {
+      lat: 30.934882,
+      lng: -6.907898
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "ou-sleep-18",
@@ -2061,14 +2172,16 @@ export const ouarzazateSleep: SleepListing[] = [
     taxesIncluded: true,
     freeCancellation: true,
     kidsStayFree: true,
-    nearMedina: false,
+    nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "business-friendly"],
     tip: "Book the traditional massage in advance to unwind immediately after a long drive.",
     vibeTags: ["Modern", "Spa", "Pool", "Stopover"],
-    locationSummary: "Ouarzazate Center - Spa Stopover",
+    locationSummary: "Taourirt Kasbah Quarter",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Amanar+Hotel+Spa+Ouarzazate",
     address: "Ouarzazate Center, Ouarzazate 45000, Morocco",
@@ -2135,6 +2248,11 @@ export const ouarzazateSleep: SleepListing[] = [
       business: "Works well for business stopovers and road-trip logistics.",
       nomad: "A practical nomad base with spa recovery after drives.",
     },
+    coordinates: {
+      lat: 30.924591,
+      lng: -6.907938
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "ou-sleep-19",
@@ -2245,6 +2363,11 @@ export const ouarzazateSleep: SleepListing[] = [
       business: "Good WiFi supports basic work and planning.",
       nomad: "A low-cost, practical base for digital road trippers.",
     },
+    coordinates: {
+      lat: 30.918607,
+      lng: -6.901897
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "ou-sleep-20",
@@ -2281,14 +2404,16 @@ export const ouarzazateSleep: SleepListing[] = [
     taxesIncluded: true,
     freeCancellation: true,
     kidsStayFree: true,
-    nearMedina: false,
+    nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "friends", "business-friendly"],
     tip: "Ask the front desk for favorite affordable local street-food diners nearby.",
     vibeTags: ["Budget", "Simple", "Central", "Transit-Friendly"],
-    locationSummary: "Ouarzazate Center - Budget Hotel",
+    locationSummary: "Taourirt Kasbah Quarter",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Hotel+Marmar+Ouarzazate",
     address: "Ouarzazate Center, Ouarzazate 45000, Morocco",
@@ -2355,5 +2480,10 @@ export const ouarzazateSleep: SleepListing[] = [
       business: "Good for budget business or film-location stopovers.",
       nomad: "A no-frills nomad base with WiFi and easy food nearby.",
     },
+    coordinates: {
+      lat: 30.924591,
+      lng: -6.907938
+    },
+    tags: ["family-favorite"]
   }
 ]

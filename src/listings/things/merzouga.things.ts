@@ -28,9 +28,12 @@ export const merzougaThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: false,
     isPhotographyFriendly: true,
-    tags: ["climbing-adventure", "nature", "desert", "authentic", "instagrammable"],
+    tags: ["authentic", "climbing-adventure", "desert", "instagrammable", "nature", "private", "sunset"],
     archetypeAffinity: ["first-timer", "adventure"],
-    tip: "Wear long pants to prevent saddle chafing, and secure your camera in a sealable bag to protect it from fine desert dust."
+    tip: "Wear long pants to prevent saddle chafing, and secure your camera in a sealable bag to protect it from fine desert dust.",
+    walkInOkay: false,
+    hasPrivateOption: true,
+    hasSunsetView: true
   },
   {
     id: "merzouga-gnawa-music",
@@ -59,9 +62,12 @@ export const merzougaThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ["cultural-tour", "authentic", "workshop", "off-the-beaten-path"],
+    tags: ["authentic", "cultural-tour", "off-the-beaten-path", "relaxed", "walk-in", "workshop"],
     archetypeAffinity: ["culture", "first-timer"],
-    tip: "While entry and performance are free, it is highly customary to buy a CD or leave a small tip (around 5 to 10 EUR) to support the village musicians."
+    tip: "While entry and performance are free, it is highly customary to buy a CD or leave a small tip (around 5 to 10 EUR) to support the village musicians.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     id: "merzouga-quad-adventure",
@@ -90,9 +96,12 @@ export const merzougaThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: false,
     isPhotographyFriendly: true,
-    tags: ["climbing-adventure", "nature", "desert", "instagrammable"],
+    tags: ["active", "climbing-adventure", "desert", "instagrammable", "nature", "private", "sunset"],
     archetypeAffinity: ["adventure", "nomad"],
-    tip: "Book your ride for late afternoon to catch the soft \"golden hour\" lighting on the dunes while avoiding the daytime heat."
+    tip: "Book your ride for late afternoon to catch the soft \"golden hour\" lighting on the dunes while avoiding the daytime heat.",
+    walkInOkay: false,
+    hasPrivateOption: true,
+    hasSunsetView: true
   },
   {
     id: "merzouga-glamping",
@@ -121,9 +130,12 @@ export const merzougaThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: false,
     isPhotographyFriendly: true,
-    tags: ["desert", "nature", "instagrammable", "authentic", "wellness"],
+    tags: ["authentic", "desert", "instagrammable", "nature", "private", "relaxed", "wellness"],
     archetypeAffinity: ["luxury", "first-timer"],
-    tip: "Even in the height of summer, desert temperatures drop significantly after sunset—be sure to pack a thick fleece jacket."
+    tip: "Even in the height of summer, desert temperatures drop significantly after sunset—be sure to pack a thick fleece jacket.",
+    walkInOkay: false,
+    hasPrivateOption: true,
+    hasSunsetView: false
   },
   {
     id: "merzouga-dayet-srji",
@@ -152,9 +164,12 @@ export const merzougaThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ["nature", "desert", "off-the-beaten-path"],
+    tags: ["desert", "morning", "nature", "off-the-beaten-path", "relaxed", "sunset", "walk-in"],
     archetypeAffinity: ["nomad", "culture"],
-    tip: "Ask locals about water levels before heading out, as this seasonal lake frequently runs dry between June and September."
+    tip: "Ask locals about water levels before heading out, as this seasonal lake frequently runs dry between June and September.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: true
   },
   {
     id: "merzouga-mifis-mines",
@@ -183,9 +198,12 @@ export const merzougaThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: false,
     isPhotographyFriendly: true,
-    tags: ["cultural-tour", "desert", "off-the-beaten-path", "authentic"],
+    tags: ["authentic", "cultural-tour", "desert", "off-the-beaten-path", "sunset", "walk-in"],
     archetypeAffinity: ["adventure", "culture"],
-    tip: "Climb to the edge of the plateau for an eye-catching contrast between the black volcanic stone desert (hamada) and the golden sands of Erg Chebbi."
+    tip: "Climb to the edge of the plateau for an eye-catching contrast between the black volcanic stone desert (hamada) and the golden sands of Erg Chebbi.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: true
   },
   {
     id: "merzouga-sandboarding",
@@ -214,9 +232,12 @@ export const merzougaThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: false,
     isPhotographyFriendly: true,
-    tags: ["climbing-adventure", "nature", "desert", "instagrammable"],
+    tags: ["active", "climbing-adventure", "desert", "instagrammable", "nature", "sunset", "walk-in"],
     archetypeAffinity: ["adventure", "first-timer"],
-    tip: "Rub candle wax on the bottom of your board to make the surface slick, which prevents the sand from sticking and increases your speed."
+    tip: "Rub candle wax on the bottom of your board to make the surface slick, which prevents the sand from sticking and increases your speed.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: true
   },
   {
     id: "merzouga-auto-museum",
@@ -245,9 +266,12 @@ export const merzougaThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ["off-the-beaten-path", "authentic", "desert"],
+    tags: ["authentic", "desert", "off-the-beaten-path", "private", "relaxed", "walk-in"],
     archetypeAffinity: ["culture", "first-timer"],
-    tip: "Look for the massive double-wide Jeep Wrangler—it is fully functional and remains one of the most eccentric photo ops in the desert."
+    tip: "Look for the massive double-wide Jeep Wrangler—it is fully functional and remains one of the most eccentric photo ops in the desert.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: false
   },
   {
     id: "merzouga-hassi-labied-oasis",
@@ -276,9 +300,12 @@ export const merzougaThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ["nature", "authentic", "desert", "off-the-beaten-path"],
+    tags: ["authentic", "desert", "nature", "off-the-beaten-path", "relaxed", "walk-in"],
     archetypeAffinity: ["nomad", "culture"],
-    tip: "Take a walk in the morning when local farmers are out tending to their palm plots; they are friendly and often happy to show you how the gravity-fed canal gates work."
+    tip: "Take a walk in the morning when local farmers are out tending to their palm plots; they are friendly and often happy to show you how the gravity-fed canal gates work.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     id: "merzouga-nomad-family",
@@ -307,9 +334,12 @@ export const merzougaThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: false,
     isPhotographyFriendly: true,
-    tags: ["cultural-tour", "authentic", "desert", "off-the-beaten-path"],
+    tags: ["authentic", "cultural-tour", "desert", "off-the-beaten-path", "walk-in"],
     archetypeAffinity: ["culture", "nomad"],
-    tip: "Rather than tipping cash directly, offer a practical gift such as loose tea, sugar cones, or writing notebooks for the children."
+    tip: "Rather than tipping cash directly, offer a practical gift such as loose tea, sugar cones, or writing notebooks for the children.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     id: "merzouga-rissani-souk",
@@ -338,9 +368,12 @@ export const merzougaThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ["shopping", "cultural-tour", "authentic", "off-the-beaten-path"],
+    tags: ["authentic", "cultural-tour", "morning", "off-the-beaten-path", "shopping", "walk-in"],
     archetypeAffinity: ["culture", "first-timer"],
-    tip: "Plan your excursion for a Tuesday, Thursday, or Sunday—these are the designated market days when rural desert dwellers ride in to trade."
+    tip: "Plan your excursion for a Tuesday, Thursday, or Sunday—these are the designated market days when rural desert dwellers ride in to trade.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     id: "merzouga-madfouna",
@@ -369,9 +402,12 @@ export const merzougaThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ["authentic", "desert"],
+    tags: ["authentic", "desert", "relaxed", "walk-in"],
     archetypeAffinity: ["culture", "first-timer"],
-    tip: "Madfouna is exceptionally rich and hearty; one standard-sized pie is easily enough to share among two to three people."
+    tip: "Madfouna is exceptionally rich and hearty; one standard-sized pie is easily enough to share among two to three people.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     id: "merzouga-stargazing",
@@ -400,9 +436,12 @@ export const merzougaThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: false,
     isPhotographyFriendly: true,
-    tags: ["nature", "desert", "instagrammable", "off-the-beaten-path"],
+    tags: ["desert", "instagrammable", "nature", "off-the-beaten-path", "private", "relaxed", "walk-in"],
     archetypeAffinity: ["luxury", "nomad"],
-    tip: "Download a sky-mapping app beforehand to help you match Saharan constellations with your camera's night exposure frames."
+    tip: "Download a sky-mapping app beforehand to help you match Saharan constellations with your camera's night exposure frames.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: false
   },
   {
     id: "merzouga-cooking-class",
@@ -431,9 +470,12 @@ export const merzougaThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ["workshop", "authentic", "cultural-tour"],
+    tags: ["authentic", "cultural-tour", "private", "workshop"],
     archetypeAffinity: ["culture", "first-timer"],
-    tip: "Ask your host for the secrets of preserving lemons and handling the exact ratio of Ras el Hanout spices—the base flavor of authentic Saharan cooking."
+    tip: "Ask your host for the secrets of preserving lemons and handling the exact ratio of Ras el Hanout spices—the base flavor of authentic Saharan cooking.",
+    walkInOkay: false,
+    hasPrivateOption: true,
+    hasSunsetView: false
   },
   {
     id: "merzouga-sand-bath",
@@ -462,9 +504,12 @@ export const merzougaThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: false,
     isPhotographyFriendly: true,
-    tags: ["wellness", "desert", "authentic", "off-the-beaten-path"],
+    tags: ["authentic", "desert", "off-the-beaten-path", "relaxed", "walk-in", "wellness"],
     archetypeAffinity: ["adventure", "culture"],
-    tip: "This traditional treatment is only available during the hot summer months of July and August; keep hydrated and limit your sand burial to a maximum of 15 minutes."
+    tip: "This traditional treatment is only available during the hot summer months of July and August; keep hydrated and limit your sand burial to a maximum of 15 minutes.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     id: "merzouga-hammam",
@@ -493,9 +538,12 @@ export const merzougaThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: false,
     isPhotographyFriendly: true,
-    tags: ["wellness", "desert", "instagrammable"],
+    tags: ["desert", "instagrammable", "private", "relaxed", "walk-in", "wellness"],
     archetypeAffinity: ["luxury", "first-timer"],
-    tip: "Schedule your hammam immediately after your multi-day desert trek or ATV tour to effectively clear dry dust from your pores and relax tired muscles."
+    tip: "Schedule your hammam immediately after your multi-day desert trek or ATV tour to effectively clear dry dust from your pores and relax tired muscles.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: false
   },
   {
     id: "merzouga-safari",
@@ -524,9 +572,12 @@ export const merzougaThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: false,
     isPhotographyFriendly: true,
-    tags: ["climbing-adventure", "desert", "nature", "instagrammable"],
+    tags: ["active", "climbing-adventure", "desert", "instagrammable", "nature", "private"],
     archetypeAffinity: ["adventure", "nomad"],
-    tip: "Request your driver to stop by the dry riverbeds to hunt for wild, ancient fossilized seashells resting directly on top of the desert dirt."
+    tip: "Request your driver to stop by the dry riverbeds to hunt for wild, ancient fossilized seashells resting directly on top of the desert dirt.",
+    walkInOkay: false,
+    hasPrivateOption: true,
+    hasSunsetView: false
   },
   {
     id: "merzouga-horse-riding",
@@ -555,9 +606,12 @@ export const merzougaThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: false,
     isPhotographyFriendly: true,
-    tags: ["climbing-adventure", "nature", "desert", "instagrammable"],
+    tags: ["active", "climbing-adventure", "desert", "instagrammable", "nature", "private", "sunset", "walk-in"],
     archetypeAffinity: ["adventure", "luxury"],
-    tip: "Communicate your riding experience to the guides in advance; Saharan horses are highly spirited and reactive to subtle leg cues."
+    tip: "Communicate your riding experience to the guides in advance; Saharan horses are highly spirited and reactive to subtle leg cues.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: true
   },
   {
     id: "merzouga-fossil-hunting",
@@ -586,9 +640,12 @@ export const merzougaThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ["cultural-tour", "off-the-beaten-path", "authentic", "workshop"],
+    tags: ["authentic", "cultural-tour", "off-the-beaten-path", "private", "relaxed", "workshop"],
     archetypeAffinity: ["culture", "first-timer"],
-    tip: "Ask the artisans for a quick demonstration with their pneumatic tools; they are highly skilled and can show you how they carve intricate fossils out of hard marble."
+    tip: "Ask the artisans for a quick demonstration with their pneumatic tools; they are highly skilled and can show you how they carve intricate fossils out of hard marble.",
+    walkInOkay: false,
+    hasPrivateOption: true,
+    hasSunsetView: false
   },
   {
     id: "merzouga-chez-artistes",
@@ -617,8 +674,11 @@ export const merzougaThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ["shopping", "authentic", "desert", "off-the-beaten-path"],
+    tags: ["authentic", "desert", "off-the-beaten-path", "relaxed", "shopping", "walk-in"],
     archetypeAffinity: ["nomad", "culture"],
-    tip: "Order a glass of their signature spiced herbal tea and find a shady corner to chat with the local artists about the folklore behind their artwork."
+    tip: "Order a glass of their signature spiced herbal tea and find a shady corner to chat with the local artists about the folklore behind their artwork.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   }
 ]

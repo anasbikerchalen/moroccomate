@@ -36,6 +36,8 @@ export const tetouan_martilSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 5,
@@ -50,10 +52,15 @@ export const tetouan_martilSleep: SleepListing[] = [
     amenities: ['Free WiFi', 'Breakfast Included', 'Rooftop Terrace', 'Air Conditioning', 'Ensuite Bathroom', 'Restaurant'],
     tip: 'Request a upper-floor suite for mountain views and optimal morning light over the medina rooftops.',
     vibeTags: ['Hispano-Moorish', 'Romantic', 'UNESCO Medina', 'Rooftop Views'],
-    locationSummary: 'Located at Bab El Oukla medina entrance, 5 minutes walk from Place El Mechouar',
+    locationSummary: "UNESCO Medina of Tetouan",
     availabilityText: 'Popular on weekends—book 2 weeks in advance',
     googleMapsUrl: 'https://maps.google.com/?q=Riad+El+Reducto+Tetouan',
-    address: '27 Rue Zaouia Kadiria, Medina, Tetouan'
+    address: '27 Rue Zaouia Kadiria, Medina, Tetouan',
+    coordinates: {
+      lat: 35.570967,
+      lng: -5.369959
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: 's-tetouan-hotel-blanco-riad',
@@ -90,6 +97,8 @@ export const tetouan_martilSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 5,
@@ -104,10 +113,15 @@ export const tetouan_martilSleep: SleepListing[] = [
     amenities: ['Free High-Speed WiFi', 'Gourmet Breakfast', 'Garden Patio', 'Rooftop Terrace', 'Air Conditioning', 'Fine Dining Restaurant'],
     tip: 'Dine at the courtyard restaurant in the evening for an unbeatable candlelit Andalusian atmosphere.',
     vibeTags: ['Boutique Luxury', 'Historical Consulate', 'Garden Courtyard', 'Fine Dining'],
-    locationSummary: 'In the heart of Tetouan Medina, 2 minutes from Plaza Primo and royal palace',
+    locationSummary: "UNESCO Medina of Tetouan",
     availabilityText: 'High demand during spring and summer',
     googleMapsUrl: 'https://maps.google.com/?q=Hotel+Blanco+Riad+Tetouan',
-    address: '25 Rue Del Consulado, Medina, Tetouan'
+    address: '25 Rue Del Consulado, Medina, Tetouan',
+    coordinates: {
+      lat: 35.570753,
+      lng: -5.370132
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: 's-tetouan-riad-benyara',
@@ -144,6 +158,8 @@ export const tetouan_martilSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 5,
@@ -158,10 +174,15 @@ export const tetouan_martilSleep: SleepListing[] = [
     amenities: ['Plunge Pool', 'Free WiFi', 'Homemade Breakfast', 'Rooftop Solarium', 'Air Conditioning'],
     tip: 'The plunge pool in the central courtyard is refreshing after a warm afternoon exploring the artisan souks.',
     vibeTags: ['Plunge Pool', 'Authentic Hospitality', 'Quiet Oasis', 'Value Luxury'],
-    locationSummary: 'Tucked away in a quiet residential alley inside Tetouan Medina',
+    locationSummary: "UNESCO Medina of Tetouan",
     availabilityText: 'Available most dates',
     googleMapsUrl: 'https://maps.google.com/?q=Riad+Benyara+Tetouan',
-    address: 'Derb Benyara, Medina, Tetouan'
+    address: 'Derb Benyara, Medina, Tetouan',
+    coordinates: {
+      lat: 35.61853,
+      lng: -5.299971
+    },
+    tags: ["family-favorite"]
   },
   {
     id: 's-martil-riad-salt-river',
@@ -198,6 +219,8 @@ export const tetouan_martilSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: true,
     nearMosque: true,
     safetyLevel: 4,
@@ -212,9 +235,14 @@ export const tetouan_martilSleep: SleepListing[] = [
     amenities: ['Indoor Swimming Pool', 'Free WiFi', 'Balcony Sea Views', 'Air Conditioning', 'Kitchenette'],
     tip: 'Ideal for families or groups seeking beach proximity and self-catering flexibility near Martil corniche.',
     vibeTags: ['Beachfront Access', 'Family Friendly', 'Apartment Suites', 'Coastal Breeze'],
-    locationSummary: '1.5 km from Martil city center and 300 meters from Martil Beach',
+    locationSummary: "Martil Seaside Promenade",
     availabilityText: 'Peak summer availability fills early',
     googleMapsUrl: 'https://maps.google.com/?q=Riad+Salt+River+Martil',
-    address: 'Avenue Oued Laou, Martil'
+    address: 'Avenue Oued Laou, Martil',
+    coordinates: {
+      lat: 35.557742,
+      lng: -5.369806
+    },
+    tags: ["family-favorite"]
   }
 ];

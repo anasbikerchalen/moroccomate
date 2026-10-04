@@ -192,13 +192,15 @@ export const essaouiraSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: true,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ["couple", "solo", "seniors"],
     tip: "The rooftop terrace is the only place in the medina with a pool and such high panoramic views—perfect for sunset cocktails.",
     vibeTags: ["Palatial", "Historic", "Colonial", "Sophisticated"],
-    locationSummary: "Medina - Near Bab Marrakech",
+    locationSummary: "Medina Ramparts & Port Quarter",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Heure+Bleue+Palais+Essaouira",
     address: "2 Rue de la Kasbah, Essaouira 44000, Morocco",
@@ -269,6 +271,11 @@ export const essaouiraSleep: SleepListing[] = [
       business: "Excellent service and a prestigious atmosphere.",
       nomad: "The library is a quiet and inspiring place to work.",
     },
+    coordinates: {
+      lat: 31.512984,
+      lng: -9.77108
+    },
+    tags: ["heritage"]
   },
   {
     id: "e-sleep-2",
@@ -306,13 +313,15 @@ export const essaouiraSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["couple", "family", "seniors", "solo"],
     tip: "The Sunday lunch is a legendary local event—book a week in advance and use the shuttle to visit the medina without driving.",
     vibeTags: ["Botanical", "Serene", "Idyllic", "Chic"],
-    locationSummary: "15 min drive from Medina",
+    locationSummary: "Ida Ougourd Countryside & Hills",
     availabilityText: "Available tonight - Guest Favorite",
     googleMapsUrl: "https://maps.google.com/?q=Le+Jardin+des+Douars+Essaouira",
     address: "Le Jardin des Douars, Essaouira Outskirts, Essaouira 44000, Morocco",
@@ -379,6 +388,11 @@ export const essaouiraSleep: SleepListing[] = [
       business: "Excellent WiFi throughout common areas.",
       nomad: "An inspiring, quiet base for deep work sessions.",
     },
+    coordinates: {
+      lat: 31.495071,
+      lng: -9.760809
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "e-sleep-3",
@@ -416,13 +430,15 @@ export const essaouiraSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: true,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["couple", "solo", "friends"],
     tip: "Book a cooking class on-site to learn the secrets of Essaouira’s seafood-focused Moroccan cuisine.",
     vibeTags: ["Minimalist", "Chic", "Culinary", "Oceanfront"],
-    locationSummary: "Medina - Behind the Ramparts",
+    locationSummary: "Medina Ramparts & Port Quarter",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Madada+Mogador+Essaouira",
     address: "Madada Mogador, Medina, Essaouira 44000, Morocco",
@@ -489,6 +505,11 @@ export const essaouiraSleep: SleepListing[] = [
       business: "A quiet and inspiring spot with good WiFi in common areas.",
       nomad: "The sun terrace is a perfect morning office in Essaouira.",
     },
+    coordinates: {
+      lat: 31.399435,
+      lng: -9.682864
+    },
+    tags: []
   },
   {
     id: "e-sleep-4",
@@ -526,13 +547,15 @@ export const essaouiraSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: true,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["couple", "family", "solo"],
     tip: "Book the Beldi room for a traditional experience and do not miss the candlelit fish tagine dinner.",
     vibeTags: ["Authentic", "Bohemian", "Historic", "Cozy"],
-    locationSummary: "Medina - Near the Port",
+    locationSummary: "Medina Ramparts & Port Quarter",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Villa+Maroc+Essaouira",
     address: "Villa Maroc, Medina, Essaouira 44000, Morocco",
@@ -599,6 +622,11 @@ export const essaouiraSleep: SleepListing[] = [
       business: "A quiet atmosphere, though WiFi is best in the courtyard.",
       nomad: "The rooftop terrace is a legendary spot to work and watch the sea.",
     },
+    coordinates: {
+      lat: 31.511869,
+      lng: -9.771237
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "e-sleep-5",
@@ -636,13 +664,15 @@ export const essaouiraSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: true,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["couple", "friends", "solo"],
     tip: "Book a rooftop lunch even if you are not staying; the sea-wall views and octopus salad are incredible.",
     vibeTags: ["Colorful", "Eclectic", "Artistic", "Vibrant"],
-    locationSummary: "Medina - On the Sea Wall",
+    locationSummary: "Medina Ramparts & Port Quarter",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Salut+Maroc+Essaouira",
     address: "Salut Maroc!, Medina, Essaouira 44000, Morocco",
@@ -709,6 +739,11 @@ export const essaouiraSleep: SleepListing[] = [
       business: "Good WiFi and plenty of inspiring nooks for work.",
       nomad: "A perfect creative hub with incredible views.",
     },
+    coordinates: {
+      lat: 31.513847,
+      lng: -9.772292
+    },
+    tags: ["heritage"]
   },
   {
     id: "e-sleep-6",
@@ -746,13 +781,15 @@ export const essaouiraSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["couple", "family", "solo"],
     tip: "Book a room with a private terrace. Dinner here—especially the slow-cooked lamb—is worth staying in for every night.",
     vibeTags: ["Earthy", "Peaceful", "Authentic", "Gastronomic"],
-    locationSummary: "10 min drive from Essaouira",
+    locationSummary: "Ida Ougourd Countryside & Hills",
     availabilityText: "Available tonight - Hidden Gem",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Baoussala+Essaouira",
     address: "Riad Baoussala, Essaouira Outskirts, Essaouira 44000, Morocco",
@@ -819,6 +856,11 @@ export const essaouiraSleep: SleepListing[] = [
       business: "Quiet and serene, though town is a short drive away.",
       nomad: "An inspiring country retreat for focused work.",
     },
+    coordinates: {
+      lat: 31.431173,
+      lng: -9.755045
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "e-sleep-7",
@@ -856,13 +898,15 @@ export const essaouiraSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: true,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["solo", "friends"],
     tip: "Join the communal family dinners—it is the best way to meet travelers and try home-cooked Moroccan food.",
     vibeTags: ["Social", "Nomad-Friendly", "Vibrant", "Budget-Friendly"],
-    locationSummary: "Medina Center",
+    locationSummary: "Medina Ramparts & Port Quarter",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Essaouira+Youth+Hostel+Social+Travel",
     address: "Essaouira Youth Hostel & Social Travel, Medina, Essaouira 44000, Morocco",
@@ -929,6 +973,7 @@ export const essaouiraSleep: SleepListing[] = [
       business: "Excellent WiFi and coworking space.",
       nomad: "The best social hub in Essaouira for working and meeting people.",
     },
+    tags: ["dorm"]
   },
   {
     id: "e-sleep-8",
@@ -966,13 +1011,15 @@ export const essaouiraSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: true,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["couple", "family", "seniors"],
     tip: "Ask for a room with an open fireplace; it is magical on cool Atlantic evenings.",
     vibeTags: ["Romantic", "Palatial", "Traditional", "Quiet"],
-    locationSummary: "Medina - Near Ramparts",
+    locationSummary: "Medina Ramparts & Port Quarter",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Chbanate+Essaouira",
     address: "Riad Chbanate, Medina, Essaouira 44000, Morocco",
@@ -1039,6 +1086,11 @@ export const essaouiraSleep: SleepListing[] = [
       business: "Quiet nooks for work and reliable WiFi in the lounge.",
       nomad: "A beautiful historic environment for creative reflection.",
     },
+    coordinates: {
+      lat: 31.513714,
+      lng: -9.76529
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "e-sleep-9",
@@ -1075,14 +1127,16 @@ export const essaouiraSleep: SleepListing[] = [
     taxesIncluded: false,
     freeCancellation: true,
     kidsStayFree: true,
-    nearMedina: false,
+    nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: true,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["family", "couple", "seniors", "business-friendly"],
     tip: "Book a sea-view room to watch surfers and kite-flyers from your balcony.",
     vibeTags: ["Beachfront", "Modern", "Expansive", "Resort-Style"],
-    locationSummary: "Beachfront Promenade",
+    locationSummary: "Medina Ramparts & Port Quarter",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Atlas+Essaouira+Spa",
     address: "Atlas Essaouira & Spa, Beachfront, Essaouira 44000, Morocco",
@@ -1149,6 +1203,11 @@ export const essaouiraSleep: SleepListing[] = [
       business: "Excellent business facilities and reliable WiFi.",
       nomad: "Good for working by the pool on warm afternoons.",
     },
+    coordinates: {
+      lat: 31.501181,
+      lng: -9.76208
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "e-sleep-10",
@@ -1186,13 +1245,15 @@ export const essaouiraSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: true,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["couple", "solo"],
     tip: "Enjoy the heated rooftop pool in the evening with stars over the Atlantic.",
     vibeTags: ["Elegant", "Minimalist", "Serene", "Refined"],
-    locationSummary: "Quiet North Medina",
+    locationSummary: "Medina Ramparts & Port Quarter",
     availabilityText: "Available tonight - Boutique Choice",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Dar+Maya+Essaouira",
     address: "Riad Dar Maya, Medina, Essaouira 44000, Morocco",
@@ -1253,6 +1314,11 @@ export const essaouiraSleep: SleepListing[] = [
       business: "A quiet and inspiring setting with good WiFi.",
       nomad: "The courtyard is a dream for quiet afternoon work.",
     },
+    coordinates: {
+      lat: 31.515301,
+      lng: -9.769648
+    },
+    tags: []
   },
   {
     id: "e-sleep-11",
@@ -1290,13 +1356,15 @@ export const essaouiraSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: true,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["couple", "solo", "seniors"],
     tip: "Book the O suite for a private terrace with direct views of the Atlantic ramparts.",
     vibeTags: ["Refined", "Colonial", "Boutique", "Panoramic"],
-    locationSummary: "Medina - Near the Port",
+    locationSummary: "Medina Ramparts & Port Quarter",
     availabilityText: "Only 1 room left",
     googleMapsUrl: "https://maps.google.com/?q=Villa+de+l%27O+Essaouira",
     address: "Villa de l’O, Medina, Essaouira 44000, Morocco",
@@ -1363,6 +1431,11 @@ export const essaouiraSleep: SleepListing[] = [
       business: "Quiet and professional with good WiFi.",
       nomad: "The rooftop is an inspiring place to work with ocean sounds.",
     },
+    coordinates: {
+      lat: 31.511291,
+      lng: -9.77019
+    },
+    tags: ["heritage"]
   },
   {
     id: "e-sleep-12",
@@ -1400,13 +1473,15 @@ export const essaouiraSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: true,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["solo", "friends"],
     tip: "The budget surf rentals are great value—ask staff for local spots and tide times.",
     vibeTags: ["Social", "Surfer-Hub", "Vibrant", "Budget-Friendly"],
-    locationSummary: "Medina Center",
+    locationSummary: "Medina Ramparts & Port Quarter",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=The+Atlantic+Hostel+Essaouira",
     address: "The Atlantic Hostel, Medina, Essaouira 44000, Morocco",
@@ -1473,6 +1548,11 @@ export const essaouiraSleep: SleepListing[] = [
       business: "Only for the very budget-conscious business traveler.",
       nomad: "Good social vibes, but WiFi can be busy in the evenings.",
     },
+    coordinates: {
+      lat: 31.514712,
+      lng: -9.766856
+    },
+    tags: ["dorm"]
   },
   {
     id: "e-sleep-13",
@@ -1510,13 +1590,15 @@ export const essaouiraSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: true,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["couple", "family", "seniors"],
     tip: "Ask staff about the musicians who stayed here in the 60s and 70s; they have wonderful stories.",
     vibeTags: ["Historic", "Bohemian", "Atmospheric", "Grand"],
-    locationSummary: "Heart of the Medina",
+    locationSummary: "Medina Ramparts & Port Quarter",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Al+Madina+Essaouira",
     address: "Riad Al Madina, Medina, Essaouira 44000, Morocco",
@@ -1583,6 +1665,11 @@ export const essaouiraSleep: SleepListing[] = [
       business: "A bit noisy for work, but location is unbeatable.",
       nomad: "Inspiring for creative work, though WiFi can be patchy in rooms.",
     },
+    coordinates: {
+      lat: 31.513397,
+      lng: -9.770598
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "e-sleep-14",
@@ -1619,14 +1706,16 @@ export const essaouiraSleep: SleepListing[] = [
     taxesIncluded: false,
     freeCancellation: true,
     kidsStayFree: true,
-    nearMedina: false,
+    nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: true,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["family", "couple", "seniors", "business-friendly"],
     tip: "Use the free shuttle into the medina—it is regular and saves taxi hassle.",
     vibeTags: ["Luxurious", "Sporty", "Modern", "Expansive"],
-    locationSummary: "Mogador Estate",
+    locationSummary: "Medina Ramparts & Port Quarter",
     availabilityText: "Available tonight - Luxury Choice",
     googleMapsUrl: "https://maps.google.com/?q=Sofitel+Essaouira+Mogador+Golf+Spa",
     address: "Sofitel Essaouira Mogador Golf & Spa, Mogador, Essaouira 44000, Morocco",
@@ -1693,6 +1782,11 @@ export const essaouiraSleep: SleepListing[] = [
       business: "Excellent business facilities and reliable WiFi throughout.",
       nomad: "Good for a workation—quiet with great facilities.",
     },
+    coordinates: {
+      lat: 31.469635,
+      lng: -9.767385
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "e-sleep-15",
@@ -1730,13 +1824,15 @@ export const essaouiraSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: true,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["couple", "solo"],
     tip: "Do not miss the homemade breakfast on the sunny terrace, especially fresh amlou and local honey.",
     vibeTags: ["Charming", "Personalized", "Peaceful", "Homely"],
-    locationSummary: "Quiet Medina Alley",
+    locationSummary: "Medina Ramparts & Port Quarter",
     availabilityText: "Available tonight - Guest Favorite",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Emotion+Essaouira",
     address: "Riad Emotion, Medina, Essaouira 44000, Morocco",
@@ -1797,6 +1893,11 @@ export const essaouiraSleep: SleepListing[] = [
       business: "A quiet and inspiring setting with good WiFi.",
       nomad: "The courtyard is a dream for quiet afternoon work.",
     },
+    coordinates: {
+      lat: 31.515369,
+      lng: -9.768073
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "e-sleep-16",
@@ -1834,13 +1935,15 @@ export const essaouiraSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: true,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "seniors"],
     tip: "Book dinner at least 24 hours in advance—it is widely considered one of the best meals in Essaouira.",
     vibeTags: ["Gastronomic", "Intellectual", "Warm", "Authentic"],
-    locationSummary: "Medina - Central and Quiet",
+    locationSummary: "Medina Ramparts & Port Quarter",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Malaika+Essaouira",
     address: "Riad Malaika, Medina, Essaouira 44000, Morocco",
@@ -1901,6 +2004,11 @@ export const essaouiraSleep: SleepListing[] = [
       business: "A quiet and inspiring alternative to corporate hotels.",
       nomad: "The library is one of the best work spots in the medina.",
     },
+    coordinates: {
+      lat: 31.514355,
+      lng: -9.771061
+    },
+    tags: []
   },
   {
     id: "e-sleep-17",
@@ -2011,6 +2119,11 @@ export const essaouiraSleep: SleepListing[] = [
       business: "Quiet and inspiring for working by the ocean.",
       nomad: "One of the best workation options: space, kitchen, and views.",
     },
+    coordinates: {
+      lat: 31.513583,
+      lng: -9.772511
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "e-sleep-18",
@@ -2121,6 +2234,11 @@ export const essaouiraSleep: SleepListing[] = [
       business: "A quiet professional atmosphere with good WiFi.",
       nomad: "The courtyard is a dream for quiet afternoon work.",
     },
+    coordinates: {
+      lat: 31.5113,
+      lng: -9.770314
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "e-sleep-19",
@@ -2158,13 +2276,15 @@ export const essaouiraSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: true,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family", "seniors"],
     tip: "Book an ocean-front room—the sound of waves crashing against the walls at night is unforgettable.",
     vibeTags: ["Oceanfront", "Historic", "Atmospheric", "Regal"],
-    locationSummary: "Medina - On the Sea Wall",
+    locationSummary: "Medina Ramparts & Port Quarter",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Mimouna+Essaouira",
     address: "Riad Mimouna, Medina, Essaouira 44000, Morocco",
@@ -2231,6 +2351,11 @@ export const essaouiraSleep: SleepListing[] = [
       business: "A peaceful and inspiring place to work by the sea.",
       nomad: "Good WiFi and wave sounds make it a strong creative base.",
     },
+    coordinates: {
+      lat: 31.515734,
+      lng: -9.770301
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "e-sleep-20",
@@ -2268,13 +2393,15 @@ export const essaouiraSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: true,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "friends"],
     tip: "Book a massage on-site—the therapists are excellent and the massage room is a sanctuary of calm.",
     vibeTags: ["Minimalist", "Stylish", "Peaceful", "Bohemian"],
-    locationSummary: "Medina - Near the Skala",
+    locationSummary: "Medina Ramparts & Port Quarter",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Baladin+Essaouira",
     address: "Riad Baladin, Medina, Essaouira 44000, Morocco",
@@ -2335,5 +2462,10 @@ export const essaouiraSleep: SleepListing[] = [
       business: "A serene environment for creative work with good WiFi.",
       nomad: "The rooftop is one of the best quiet spots to work in the city.",
     },
+    coordinates: {
+      lat: 31.514564,
+      lng: -9.771354
+    },
+    tags: []
   }
 ]

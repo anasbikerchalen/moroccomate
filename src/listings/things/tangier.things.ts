@@ -28,9 +28,12 @@ export const tangierThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: false,
     isPhotographyFriendly: true,
-    tags: ["authentic", "nature", "coastal", "instagrammable", "photo-spot", "port-express"],
+    tags: ["authentic", "coastal", "instagrammable", "nature", "photo-spot", "port-express", "sunset", "walk-in"],
     archetypeAffinity: ["first-timer", "culture"],
-    tip: "Bring cash in Moroccan Dirham (80 MAD) as international cards are rarely accepted at the ticket counter."
+    tip: "Bring cash in Moroccan Dirham (80 MAD) as international cards are rarely accepted at the ticket counter.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: true
   },
   {
     id: "tangier-cap-spartel",
@@ -59,9 +62,12 @@ export const tangierThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ["coastal", "nature", "authentic", "instagrammable", "photo-spot", "golden-hour", "sunset-view", "port-express", "step-free"],
+    tags: ["authentic", "coastal", "golden-hour", "instagrammable", "nature", "photo-spot", "port-express", "private", "relaxed", "step-free", "sunset", "sunset-view", "walk-in"],
     archetypeAffinity: ["first-timer", "culture"],
-    tip: "Visit during sunset to watch the golden glow light up the meeting point of the two seas."
+    tip: "Visit during sunset to watch the golden glow light up the meeting point of the two seas.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: true
   },
   {
     id: "tangier-kasbah-museum",
@@ -90,9 +96,12 @@ export const tangierThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ["cultural-tour", "authentic", "medina", "instagrammable", "photo-spot", "port-express", "step-free"],
+    tags: ["authentic", "cultural-tour", "instagrammable", "medina", "photo-spot", "port-express", "private", "relaxed", "step-free", "walk-in"],
     archetypeAffinity: ["culture"],
-    tip: "Your ticket also grants free entry to the nearby Contemporary Art Space, making it an excellent two-for-one deal."
+    tip: "Your ticket also grants free entry to the nearby Contemporary Art Space, making it an excellent two-for-one deal.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: false
   },
   {
     id: "tangier-legation-museum",
@@ -121,9 +130,12 @@ export const tangierThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ["cultural-tour", "authentic", "medina", "instagrammable"],
+    tags: ["authentic", "cultural-tour", "instagrammable", "medina", "private", "relaxed", "walk-in"],
     archetypeAffinity: ["culture", "first-timer"],
-    tip: "Ask the staff to show you the \"Moroccan Mona Lisa\" painting by James McBey—it is the crown jewel of the collection."
+    tip: "Ask the staff to show you the \"Moroccan Mona Lisa\" painting by James McBey—it is the crown jewel of the collection.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: false
   },
   {
     id: "tangier-cafe-hafa",
@@ -152,9 +164,12 @@ export const tangierThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: false,
     isPhotographyFriendly: true,
-    tags: ["authentic", "coastal", "off-the-beaten-path", "instagrammable"],
+    tags: ["authentic", "coastal", "instagrammable", "off-the-beaten-path", "relaxed", "sunset", "walk-in"],
     archetypeAffinity: ["first-timer", "nomad"],
-    tip: "Order the traditional Moroccan mint tea and be prepared to find your own table, as service here is famously laid-back."
+    tip: "Order the traditional Moroccan mint tea and be prepared to find your own table, as service here is famously laid-back.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: true
   },
   {
     id: "tangier-grand-socco",
@@ -183,9 +198,12 @@ export const tangierThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ["authentic", "medina", "shopping", "instagrammable"],
+    tags: ["authentic", "instagrammable", "medina", "shopping", "walk-in"],
     archetypeAffinity: ["first-timer", "nomad"],
-    tip: "Take a seat on a cafe terrace on the square around dusk to experience the local transition from day to night."
+    tip: "Take a seat on a cafe terrace on the square around dusk to experience the local transition from day to night.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     id: "tangier-petit-socco",
@@ -214,9 +232,12 @@ export const tangierThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ["authentic", "medina", "cultural-tour", "off-the-beaten-path"],
+    tags: ["authentic", "cultural-tour", "medina", "morning", "off-the-beaten-path", "private", "relaxed", "walk-in"],
     archetypeAffinity: ["culture", "nomad"],
-    tip: "Head to the iconic Gran Café Central directly on the square, which was once a favorite haunt of William S. Burroughs."
+    tip: "Head to the iconic Gran Café Central directly on the square, which was once a favorite haunt of William S. Burroughs.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: false
   },
   {
     id: "tangier-perdicaris-park",
@@ -245,9 +266,12 @@ export const tangierThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ["nature", "coastal", "authentic", "off-the-beaten-path"],
+    tags: ["authentic", "coastal", "nature", "off-the-beaten-path", "sunset", "walk-in"],
     archetypeAffinity: ["nomad", "adventure"],
-    tip: "Pack a light lunch; the park is a favorite weekend picnic spot for locals and has fantastic designated overlook tables."
+    tip: "Pack a light lunch; the park is a favorite weekend picnic spot for locals and has fantastic designated overlook tables.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: true
   },
   {
     id: "tangier-phoenician-tombs",
@@ -276,9 +300,12 @@ export const tangierThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ["off-the-beaten-path", "coastal", "authentic", "nature"],
+    tags: ["authentic", "coastal", "nature", "off-the-beaten-path", "relaxed", "sunset", "walk-in"],
     archetypeAffinity: ["culture", "nomad"],
-    tip: "This is a highly popular, completely free spot where locals gather to play guitars and watch the sunset; arrive in the late afternoon for the best vibe."
+    tip: "This is a highly popular, completely free spot where locals gather to play guitars and watch the sunset; arrive in the late afternoon for the best vibe.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: true
   },
   {
     id: "tangier-st-andrew",
@@ -307,9 +334,12 @@ export const tangierThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ["cultural-tour", "authentic", "medina", "off-the-beaten-path"],
+    tags: ["authentic", "cultural-tour", "medina", "off-the-beaten-path", "relaxed", "walk-in"],
     archetypeAffinity: ["culture"],
-    tip: "Speak to the resident caretaker, who is a local Muslim maintaining this Christian church, and ask to see the historic gravestones in the lush backyard cemetery."
+    tip: "Speak to the resident caretaker, who is a local Muslim maintaining this Christian church, and ask to see the historic gravestones in the lush backyard cemetery.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     id: "tangier-villa-harris",
@@ -338,9 +368,12 @@ export const tangierThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ["cultural-tour", "instagrammable", "nature", "off-the-beaten-path"],
+    tags: ["cultural-tour", "instagrammable", "nature", "off-the-beaten-path", "private", "relaxed", "walk-in"],
     archetypeAffinity: ["culture", "luxury"],
-    tip: "Placed in Malabata, this museum features trilingual informational placards (including English), making it highly accessible for international visitors."
+    tip: "Placed in Malabata, this museum features trilingual informational placards (including English), making it highly accessible for international visitors.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: false
   },
   {
     id: "tangier-dar-niaba",
@@ -369,9 +402,12 @@ export const tangierThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ["cultural-tour", "authentic", "medina", "off-the-beaten-path"],
+    tags: ["authentic", "cultural-tour", "medina", "off-the-beaten-path", "private", "relaxed", "walk-in"],
     archetypeAffinity: ["culture"],
-    tip: "Take a slow stroll through the peaceful central courtyard downstairs, which features a beautiful array of orange trees."
+    tip: "Take a slow stroll through the peaceful central courtyard downstairs, which features a beautiful array of orange trees.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: false
   },
   {
     id: "tangier-cinematheque",
@@ -400,9 +436,12 @@ export const tangierThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ["authentic", "workshop", "shopping", "instagrammable"],
+    tags: ["authentic", "instagrammable", "relaxed", "shopping", "walk-in", "workshop"],
     archetypeAffinity: ["nomad", "culture"],
-    tip: "If you don't have time to watch a movie, you can still grab a local verbena tea or coffee on their outdoor terrace overlooking the Grand Socco."
+    tip: "If you don't have time to watch a movie, you can still grab a local verbena tea or coffee on their outdoor terrace overlooking the Grand Socco.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     id: "tangier-terrasse-paresseux",
@@ -431,9 +470,12 @@ export const tangierThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ["coastal", "authentic", "instagrammable", "nature"],
+    tags: ["authentic", "coastal", "instagrammable", "nature", "relaxed", "sunset", "walk-in"],
     archetypeAffinity: ["first-timer", "nomad"],
-    tip: "Keep an eye out for binoculars along the terrace wall on clear days; you can drop a small coin in to get a sharp view of the Spanish coastline."
+    tip: "Keep an eye out for binoculars along the terrace wall on clear days; you can drop a small coin in to get a sharp view of the Spanish coastline.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: true
   },
   {
     id: "tangier-moshe-nahon",
@@ -462,9 +504,12 @@ export const tangierThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ["cultural-tour", "authentic", "medina", "off-the-beaten-path"],
+    tags: ["authentic", "cultural-tour", "medina", "off-the-beaten-path", "relaxed", "walk-in"],
     archetypeAffinity: ["culture"],
-    tip: "The synagogue is tucked deep inside an alleyway; look out for a local caretaker nearby who holds the key and will unlock it for a small tip."
+    tip: "The synagogue is tucked deep inside an alleyway; look out for a local caretaker nearby who holds the key and will unlock it for a small tip.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     id: "tangier-mendoubia-gardens",
@@ -493,9 +538,12 @@ export const tangierThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ["nature", "authentic", "off-the-beaten-path", "cultural-tour"],
+    tags: ["authentic", "cultural-tour", "nature", "off-the-beaten-path", "private", "relaxed", "walk-in"],
     archetypeAffinity: ["first-timer", "nomad"],
-    tip: "It's a peaceful place to relax on a bench in the late afternoon while children play football and friendly local street cats wander by."
+    tip: "It's a peaceful place to relax on a bench in the late afternoon while children play football and friendly local street cats wander by.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: false
   },
   {
     id: "tangier-jewish-cemetery",
@@ -524,9 +572,12 @@ export const tangierThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ["cultural-tour", "authentic", "medina", "off-the-beaten-path"],
+    tags: ["authentic", "cultural-tour", "medina", "off-the-beaten-path", "private", "relaxed", "walk-in"],
     archetypeAffinity: ["culture"],
-    tip: "While the main iron gates on Rue Portugal are kept locked, knock gently and the friendly resident caretaker will let you in. A small tip of 20 MAD is customary."
+    tip: "While the main iron gates on Rue Portugal are kept locked, knock gently and the friendly resident caretaker will let you in. A small tip of 20 MAD is customary.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: false
   },
   {
     id: "tangier-ibn-battouta-tomb",
@@ -555,9 +606,12 @@ export const tangierThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ["cultural-tour", "authentic", "medina", "off-the-beaten-path"],
+    tags: ["authentic", "cultural-tour", "medina", "off-the-beaten-path", "relaxed", "walk-in"],
     archetypeAffinity: ["culture", "adventure"],
-    tip: "The tomb is located inside a small maze of residential streets in the medina. Feel free to ask a local shopkeeper for \"Qabr Ibn Battouta\" if you lose your way."
+    tip: "The tomb is located inside a small maze of residential streets in the medina. Feel free to ask a local shopkeeper for \"Qabr Ibn Battouta\" if you lose your way.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     id: "tangier-achakkar-beach",
@@ -586,9 +640,12 @@ export const tangierThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ["coastal", "nature", "authentic", "instagrammable"],
+    tags: ["authentic", "coastal", "instagrammable", "nature", "sunset", "walk-in"],
     archetypeAffinity: ["first-timer", "adventure"],
-    tip: "Local owners offer short camel rides directly along the surf; you can typically negotiate a 10-to-15 minute ride with photo ops for about 2 to 3 EUR (20-30 MAD)."
+    tip: "Local owners offer short camel rides directly along the surf; you can typically negotiate a 10-to-15 minute ride with photo ops for about 2 to 3 EUR (20-30 MAD).",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: true
   },
   {
     id: "tangier-darna-association",
@@ -617,8 +674,11 @@ export const tangierThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ["authentic", "cultural-tour", "shopping", "wellness"],
+    tags: ["authentic", "cultural-tour", "relaxed", "shopping", "walk-in", "wellness"],
     archetypeAffinity: ["culture", "nomad"],
-    tip: "Make sure to visit their small on-site artisan shop afterward, where they sell beautiful hand-woven textiles and crafts made directly by the women of the association."
+    tip: "Make sure to visit their small on-site artisan shop afterward, where they sell beautiful hand-woven textiles and crafts made directly by the women of the association.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   }
 ]

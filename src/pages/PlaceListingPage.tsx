@@ -1,0 +1,130 @@
+import { useParams, useNavigate, useLocation } from 'react-router-dom';
+import { ArrowLeft } from 'lucide-react';
+import { SEO } from '../components/ui/SEO';
+import DetailView from '../components/finder/DetailView';
+import {
+  getPlaceBySlug,
+  normalizePlaceCategory,
+  PLACE_CATEGORY_LABEL,
+  PLACE_SCHEMA_TYPE,
+  type PlaceUrlCategory,
+} from '../listings/placeRoutes';
+import { getListingRating } from '../listings/utils';
+import { cityMap } from '../data/cities';
+
+/**
+ * Morocco Finder — individual place page.
+ * Route: /place/:city/:category/:slug  -> a real, shareable, indexable page
+ * for every Eat / Sleep / Shopping listing. The URL uses the place NAME
+ * (e.g. /place/marrakech/food/le-jardin), never a random id.
+ */
+export default function PlaceListingPage() {
+  const { city, category: categoryParam, slug } = useParams<{ city: string; category: string; slug: string }>();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const category: PlaceUrlCategory | null = normalizePlaceCategory(categoryParam);
+  const listing = city && category && slug ? getPlaceBySlug(city, category, slug) : undefined;
+
+  // Not found fallback
+  if (!listing) {
+    return (
+      <div className="min-h-screen bg-[#FAF9F5] flex flex-col">
+        <SEO title="Place not found" />
+        <div className="flex-1 flex flex-col items-center justify-center px-4 text-center">
+          <h1 className="font-display text-3xl font-bold text-[#173042]">Place not found</h1>
+          <p className="mt-2 text-sm text-[#66757D] max-w-sm">
+            This place may have been moved or removed. Discover other places in Morocco instead.
+          </p>
+          <button
+            type="button"
+            onClick={() => navigate('/')}
+            className="mt-6 inline-flex items-center gap-2 rounded-xl bg-[#DFAF4F] px-6 py-3 text-sm font-bold text-[#173042] shadow-xs transition-all hover:bg-[#d09c39] cursor-pointer"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Back to Home
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  const cityKey = String(city || '').toLowerCase();
+  const cityLabel = cityMap[cityKey]?.name || (cityKey ? cityKey.charAt(0).toUpperCase() + cityKey.slice(1).replace(/_/g, ' ') : 'Morocco');
+  const placeName = listing.name || listing.title || 'Place';
+  const categoryLabel = PLACE_CATEGORY_LABEL[category!];
+  const description = String(listing.description || listing.short_description || '').slice(0, 155);
+  const rating = getListingRating(listing);
+  const image = listing.nonCopyrightImage || listing.images?.[0] || undefined;
+  const canonical = `/place/${cityKey}/${category}/${slug}`;
+
+  // Structured data for Google rich results
+  const schemaData: Record<string, any> = {
+    name: placeName,
+    description,
+    address: listing.address || `${listing.neighborhood || cityLabel}, Morocco`,
+    ...(listing.coordinates ? { geo: { latitude: listing.coordinates.lat, longitude: listing.coordinates.lng } } : {}),
+    ...(rating && rating.averageRating > 0 && rating.totalReviews > 0
+      ? { aggregateRating: { '@type': 'AggregateRating', ratingValue: rating.averageRating, reviewCount: rating.totalReviews } }
+      : {}),
+  };
+
+  const handleBack = () => {
+    if (window.history.length > 1 && location.key !== 'default') {
+      navigate(-1);
+    } else {
+      // Direct visit (e.g. from Google) — send to the city browse page
+      navigate(`/finder/${cityKey}/${category}`);
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-[#FAF9F5] flex flex-col">
+      <SEO
+        title={`${placeName} — ${categoryLabel} in ${cityLabel}`}
+        description={description}
+        canonical={canonical}
+        type="article"
+        image={image}
+        schemaType={PLACE_SCHEMA_TYPE[category!]}
+        schemaData={schemaData}
+        breadcrumbs={[
+          { name: 'Morocco Finder', item: '/' },
+          { name: `${categoryLabel} in ${cityLabel}`, item: `/finder/${cityKey}/${category}` },
+          { name: placeName, item: canonical },
+        ]}
+      />
+
+      {/* Minimal header: back navigation + wordmark */}
+      <header className="sticky top-0 z-40 bg-[#FAF9F5]/95 backdrop-blur-sm border-b border-[#ece4d5]">
+        <div className="mx-auto w-full max-w-6xl flex items-center justify-between px-4 py-3.5 sm:px-6 lg:px-8">
+          <button
+            type="button"
+            onClick={handleBack}
+            className="inline-flex items-center gap-2 text-sm font-semibold text-[#66757D] hover:text-[#173042] transition-colors cursor-pointer"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Back
+          </button>
+          <span className="font-display text-base font-bold text-[#173042]">Morocco Finder</span>
+          <span className="w-14" aria-hidden="true" />
+        </div>
+      </header>
+
+      {/* Main content: the full place detail */}
+      <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-8 sm:px-6 lg:px-8">
+        <DetailView item={listing} onBack={handleBack} />
+      </main>
+
+      {/* Footer strip */}
+      <footer className="border-t border-[#ece4d5] bg-white">
+        <div className="mx-auto w-full max-w-6xl flex flex-col sm:flex-row items-center justify-between gap-2 px-4 py-5 sm:px-6 lg:px-8">
+          <span className="font-display text-sm font-bold text-[#173042]">Morocco Finder</span>
+          <span className="text-xs text-[#66757D] capitalize">
+            {categoryLabel} · {listing.neighborhood || cityLabel} · {cityLabel}
+          </span>
+        </div>
+      </footer>
+    </div>
+  );
+}

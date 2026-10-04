@@ -99,6 +99,8 @@ export const chefchaouenEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Traditional Dining', 'Cozy casual family-run Moroccan eatery', 'Sunset Views'],
     foodStyles: ['Moroccan', 'Berber'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
     crowdLevel: 'bustling',
@@ -112,20 +114,23 @@ export const chefchaouenEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '22:00',
     badge: 'local',
     // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.3,
-    googleReviewCount: 3205,
-    tripadvisorRating: 4.3,
+    googleRating: 4.5,
+    googleReviewCount: 1951,
+    tripadvisorRating: 4.4,
     tripadvisorReviewCount: 1529,
-    theforkRating: 4.3,
-    theforkReviewCount: 1529,
-    restaurantguruRating: 4.3,
-    restaurantguruReviewCount: 3205,
+    theforkRating: 4.4,
+    theforkReviewCount: 300,
+    restaurantguruRating: 4.8,
+    restaurantguruReviewCount: 1681,
 
     paymentMethods: ['cash-only'],
     reservationMethod: ['phone', 'walk-in-only'],
@@ -142,6 +147,8 @@ export const chefchaouenEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "dinner", "dry", "medina", "mountain", "rooftop", "sunset", "tagine"]
   },
 
   {
@@ -155,6 +162,8 @@ export const chefchaouenEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Traditional Dining', 'Cozy casual family-run Moroccan eatery'],
     foodStyles: ['Moroccan', 'Healthy'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'international'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'serves-lunch',
     crowdLevel: 'balanced',
@@ -168,18 +177,21 @@ export const chefchaouenEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '22:00',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.6,
-    googleReviewCount: 52,
+    googleRating: 4.5,
+    googleReviewCount: 1200,
     tripadvisorRating: 4.5,
     tripadvisorReviewCount: 1042,
     theforkRating: 4.5,
-    theforkReviewCount: 1042,
+    theforkReviewCount: 250,
     restaurantguruRating: 4.5,
     restaurantguruReviewCount: 2141,
 
@@ -198,6 +210,8 @@ export const chefchaouenEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "dinner", "dry", "medina", "tagine", "terrace"]
   },
 
   {
@@ -211,6 +225,8 @@ export const chefchaouenEat: EatListing[] = [
     mealTypes: ['breakfast', 'brunch', 'lunch', 'dinner', 'afternoon-tea'],
     experienceTypes: ['Cafe', 'Sunset Views', 'Traditional Dining'],
     foodStyles: ['Moroccan', 'International', 'Cafe'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'international', 'cafe-pastry'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
     crowdLevel: 'bustling',
@@ -224,6 +240,9 @@ export const chefchaouenEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '09:00',
     closeTime: '22:30',
     badge: 'local-favorite',
@@ -231,13 +250,13 @@ export const chefchaouenEat: EatListing[] = [
 
     // ── RATINGS ──
     googleRating: 4.5,
-    googleReviewCount: 1985,
+    googleReviewCount: 2176,
     tripadvisorRating: 4.5,
     tripadvisorReviewCount: 481,
     theforkRating: 4.5,
-    theforkReviewCount: 481,
-    restaurantguruRating: 4.5,
-    restaurantguruReviewCount: 1985,
+    theforkReviewCount: 220,
+    restaurantguruRating: 4.7,
+    restaurantguruReviewCount: 2176,
 
     paymentMethods: ['cash-only', 'credit-cards'],
     reservationMethod: ['walk-in-only'],
@@ -254,6 +273,8 @@ export const chefchaouenEat: EatListing[] = [
     wiFi: true,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["breakfast", "budget", "cafe-pastry", "dinner", "dry", "medina", "mountain", "riad", "rooftop", "sunset", "wifi"]
   },
 
   {
@@ -267,6 +288,8 @@ export const chefchaouenEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Traditional Dining', 'Cozy casual family-run Moroccan eatery'],
     foodStyles: ['Moroccan'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
     crowdLevel: 'quiet',
@@ -280,20 +303,23 @@ export const chefchaouenEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: false,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '22:00',
     badge: 'hidden-gem',
     // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.4,
-    googleReviewCount: 1043,
-    tripadvisorRating: 4.2,
-    tripadvisorReviewCount: 489,
-    theforkRating: 4.4,
-    theforkReviewCount: 489,
-    restaurantguruRating: 4.4,
-    restaurantguruReviewCount: 1043,
+    googleRating: 4.2,
+    googleReviewCount: 563,
+    tripadvisorRating: 4.3,
+    tripadvisorReviewCount: 495,
+    theforkRating: 4.3,
+    theforkReviewCount: 120,
+    restaurantguruRating: 4.3,
+    restaurantguruReviewCount: 563,
 
     paymentMethods: ['cash-only', 'credit-cards'],
     reservationMethod: ['phone'],
@@ -310,6 +336,8 @@ export const chefchaouenEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "couscous", "dinner", "dry", "medina", "mountain", "pastilla", "quiet", "tagine"]
   },
 
   {
@@ -323,7 +351,10 @@ export const chefchaouenEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner', 'flexible'],
     experienceTypes: ['Fine Dining', 'Romantic Sunset', 'Upscale Lounge'],
     foodStyles: ['Spanish', 'Mediterranean', 'Moroccan', 'Seafood'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'moroccan-traditional', 'seafood', 'cafe-pastry'],
     alcoholPolicy: 'serves-alcohol',
+    servesAlcohol: true,
     ramadanFriendly: 'serves-lunch',
     crowdLevel: 'balanced',
     groupTypes: ['couple', 'business-friendly', 'friends'],
@@ -336,20 +367,22 @@ export const chefchaouenEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: false,
     isHalal: false,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '23:00',
     badge: 'splurge',
     // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 3.6,
-    googleReviewCount: 233,
+    googleRating: 3.8,
+    googleReviewCount: 1605,
     tripadvisorRating: 3.6,
-    tripadvisorReviewCount: 233,
+    tripadvisorReviewCount: 264,
     theforkRating: 3.6,
-    theforkReviewCount: 233,
-    restaurantguruRating: 3.6,
-    restaurantguruReviewCount: 233,
+    theforkReviewCount: 80,
+    restaurantguruRating: 4.9,
+    restaurantguruReviewCount: 1837,
 
     paymentMethods: ['credit-cards', 'cash-only'],
     reservationMethod: ['phone', 'instagram'],
@@ -366,6 +399,8 @@ export const chefchaouenEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: false
+  ,
+    tags: ["alcohol", "budget", "cafe-pastry", "dinner", "fine", "medina", "mountain", "rooftop", "sunset", "terrace", "wifi"]
   },
 
   {
@@ -379,6 +414,8 @@ export const chefchaouenEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Traditional Dining', 'Sunset Views'],
     foodStyles: ['Moroccan', 'Mediterranean'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'international'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'serves-lunch',
     crowdLevel: 'bustling',
@@ -392,20 +429,23 @@ export const chefchaouenEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: false,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '23:00',
     badge: 'local',
     // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.1,
-    googleReviewCount: 800,
-    tripadvisorRating: 4.1,
-    tripadvisorReviewCount: 1600,
-    theforkRating: 4.1,
-    theforkReviewCount: 1600,
-    restaurantguruRating: 4.1,
-    restaurantguruReviewCount: 800,
+    googleRating: 3.9,
+    googleReviewCount: 916,
+    tripadvisorRating: 4.0,
+    tripadvisorReviewCount: 1540,
+    theforkRating: 4.0,
+    theforkReviewCount: 300,
+    restaurantguruRating: 4.0,
+    restaurantguruReviewCount: 916,
 
     paymentMethods: ['credit-cards', 'cash-only'],
     reservationMethod: ['phone', 'instagram'],
@@ -422,6 +462,8 @@ export const chefchaouenEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "dinner", "dry", "medina", "pastilla", "rooftop", "sunset", "tagine"]
   },
 
   {
@@ -435,6 +477,8 @@ export const chefchaouenEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Traditional Dining', 'Cozy casual family-run Moroccan eatery'],
     foodStyles: ['Moroccan', 'Mediterranean'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'international'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'serves-lunch',
     crowdLevel: 'bustling',
@@ -448,6 +492,9 @@ export const chefchaouenEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: false,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '22:00',
     badge: 'local',
@@ -455,13 +502,13 @@ export const chefchaouenEat: EatListing[] = [
 
     // ── RATINGS ──
     googleRating: 4.3,
-    googleReviewCount: 600,
+    googleReviewCount: 850,
     tripadvisorRating: 4.3,
-    tripadvisorReviewCount: 1200,
+    tripadvisorReviewCount: 1180,
     theforkRating: 4.3,
-    theforkReviewCount: 1200,
+    theforkReviewCount: 320,
     restaurantguruRating: 4.3,
-    restaurantguruReviewCount: 600,
+    restaurantguruReviewCount: 850,
 
     paymentMethods: ['credit-cards', 'cash-only'],
     reservationMethod: ['phone'],
@@ -478,6 +525,8 @@ export const chefchaouenEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "couscous", "dinner", "dry", "medina", "tagine"]
   },
 
   {
@@ -491,7 +540,10 @@ export const chefchaouenEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner', 'brunch'],
     experienceTypes: ['Fine Dining', 'Garden restaurant with live music'],
     foodStyles: ['Moroccan', 'Berber', 'Mediterranean', 'Gourmet'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'international'],
     alcoholPolicy: 'serves-alcohol',
+    servesAlcohol: true,
     ramadanFriendly: 'serves-lunch',
     crowdLevel: 'balanced',
     groupTypes: ['couple', 'family', 'seniors', 'business-friendly'],
@@ -504,6 +556,8 @@ export const chefchaouenEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '22:00',
     badge: 'splurge',
@@ -515,7 +569,7 @@ export const chefchaouenEat: EatListing[] = [
     tripadvisorRating: 4.2,
     tripadvisorReviewCount: 193,
     theforkRating: 4.2,
-    theforkReviewCount: 193,
+    theforkReviewCount: 60,
     restaurantguruRating: 4.2,
     restaurantguruReviewCount: 240,
 
@@ -534,6 +588,8 @@ export const chefchaouenEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: false
+  ,
+    tags: ["alcohol", "breakfast", "budget", "dinner", "fine", "live-music", "mountain", "tagine", "terrace", "wifi"]
   },
 
   {
@@ -547,6 +603,8 @@ export const chefchaouenEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Casual Italian Dining', 'Family Pizza Night'],
     foodStyles: ['Italian', 'Pizza', 'International'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'serves-lunch',
     crowdLevel: 'bustling',
@@ -560,20 +618,23 @@ export const chefchaouenEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '22:00',
     badge: 'local',
     // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.5,
-    googleReviewCount: 400,
-    tripadvisorRating: 4.5,
-    tripadvisorReviewCount: 800,
-    theforkRating: 4.5,
-    theforkReviewCount: 800,
-    restaurantguruRating: 4.5,
-    restaurantguruReviewCount: 400,
+    googleRating: 4.4,
+    googleReviewCount: 1450,
+    tripadvisorRating: 4.1,
+    tripadvisorReviewCount: 784,
+    theforkRating: 4.2,
+    theforkReviewCount: 180,
+    restaurantguruRating: 4.4,
+    restaurantguruReviewCount: 1450,
 
     paymentMethods: ['cash-only', 'credit-cards'],
     reservationMethod: ['phone', 'walk-in-only'],
@@ -590,6 +651,8 @@ export const chefchaouenEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: true
+  ,
+    tags: ["budget", "dinner", "dry", "medina", "terrace"]
   },
 
   {
@@ -603,6 +666,8 @@ export const chefchaouenEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Traditional Dining', 'Sunset Views'],
     foodStyles: ['Moroccan', 'Healthy'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'international'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'serves-lunch',
     crowdLevel: 'quiet',
@@ -616,6 +681,9 @@ export const chefchaouenEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '22:00',
     badge: 'local',
@@ -623,13 +691,13 @@ export const chefchaouenEat: EatListing[] = [
 
     // ── RATINGS ──
     googleRating: 4.4,
-    googleReviewCount: 350,
-    tripadvisorRating: 4.4,
-    tripadvisorReviewCount: 700,
-    theforkRating: 4.4,
-    theforkReviewCount: 700,
+    googleReviewCount: 133,
+    tripadvisorRating: 4.0,
+    tripadvisorReviewCount: 85,
+    theforkRating: 4.1,
+    theforkReviewCount: 40,
     restaurantguruRating: 4.4,
-    restaurantguruReviewCount: 350,
+    restaurantguruReviewCount: 133,
 
     paymentMethods: ['cash-only'],
     reservationMethod: ['phone'],
@@ -646,6 +714,8 @@ export const chefchaouenEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "couscous", "dinner", "dry", "medina", "mountain", "quiet", "riad", "rooftop", "sunset", "terrace"]
   },
 
   {
@@ -659,6 +729,8 @@ export const chefchaouenEat: EatListing[] = [
     mealTypes: ['breakfast', 'lunch', 'dinner'],
     experienceTypes: ['Fine Dining', 'Garden restaurant with live music', 'Romantic Sunset'],
     foodStyles: ['Mediterranean', 'International', 'Healthy'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'serves-lunch',
     crowdLevel: 'quiet',
@@ -672,6 +744,9 @@ export const chefchaouenEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '08:00',
     closeTime: '23:00',
     badge: 'splurge',
@@ -679,13 +754,13 @@ export const chefchaouenEat: EatListing[] = [
 
     // ── RATINGS ──
     googleRating: 4.7,
-    googleReviewCount: 200,
-    tripadvisorRating: 4.7,
-    tripadvisorReviewCount: 400,
-    theforkRating: 4.7,
-    theforkReviewCount: 400,
+    googleReviewCount: 1200,
+    tripadvisorRating: 4.5,
+    tripadvisorReviewCount: 160,
+    theforkRating: 4.5,
+    theforkReviewCount: 90,
     restaurantguruRating: 4.7,
-    restaurantguruReviewCount: 200,
+    restaurantguruReviewCount: 1200,
 
     paymentMethods: ['credit-cards', 'cash-only'],
     reservationMethod: ['phone', 'instagram'],
@@ -702,6 +777,8 @@ export const chefchaouenEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: false
+  ,
+    tags: ["breakfast", "budget", "dinner", "dry", "fine", "live-music", "medina", "mountain", "quiet", "sunset", "wifi"]
   },
 
   {
@@ -715,6 +792,8 @@ export const chefchaouenEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner', 'latenight'],
     experienceTypes: ['Casual Dining', 'People Watching'],
     foodStyles: ['International', 'Moroccan'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'moroccan-traditional'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'serves-lunch',
     crowdLevel: 'bustling',
@@ -728,20 +807,23 @@ export const chefchaouenEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: false,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '11:00',
     closeTime: '23:30',
     badge: 'local',
     // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.0,
-    googleReviewCount: 500,
-    tripadvisorRating: 4.0,
-    tripadvisorReviewCount: 1000,
-    theforkRating: 4.0,
-    theforkReviewCount: 1000,
-    restaurantguruRating: 4.0,
-    restaurantguruReviewCount: 500,
+    googleRating: 4.3,
+    googleReviewCount: 1526,
+    tripadvisorRating: 4.5,
+    tripadvisorReviewCount: 137,
+    theforkRating: 4.3,
+    theforkReviewCount: 80,
+    restaurantguruRating: 4.3,
+    restaurantguruReviewCount: 1526,
 
     paymentMethods: ['cash-only', 'credit-cards'],
     reservationMethod: ['phone', 'walk-in-only'],
@@ -758,6 +840,8 @@ export const chefchaouenEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "dinner", "dry", "late-night", "medina", "tagine", "terrace"]
   },
 
   {
@@ -771,6 +855,8 @@ export const chefchaouenEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Traditional Dining', 'Cozy casual family-run Moroccan eatery'],
     foodStyles: ['Moroccan'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
     crowdLevel: 'balanced',
@@ -784,20 +870,23 @@ export const chefchaouenEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: false,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '11:00',
     closeTime: '22:00',
     badge: 'local',
     // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.6,
-    googleReviewCount: 300,
-    tripadvisorRating: 4.6,
-    tripadvisorReviewCount: 600,
-    theforkRating: 4.6,
-    theforkReviewCount: 600,
-    restaurantguruRating: 4.6,
-    restaurantguruReviewCount: 300,
+    googleRating: 4.7,
+    googleReviewCount: 436,
+    tripadvisorRating: 4.8,
+    tripadvisorReviewCount: 65,
+    theforkRating: 4.7,
+    theforkReviewCount: 45,
+    restaurantguruRating: 4.7,
+    restaurantguruReviewCount: 436,
 
     paymentMethods: ['cash-only'],
     reservationMethod: ['phone', 'walk-in-only'],
@@ -814,6 +903,8 @@ export const chefchaouenEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "couscous", "dinner", "dry", "medina", "tagine"]
   },
 
   {
@@ -827,6 +918,8 @@ export const chefchaouenEat: EatListing[] = [
     mealTypes: ['breakfast', 'lunch', 'dinner'],
     experienceTypes: ['Cafe', 'Traditional Breakfast Ritual', 'Casual Dining'],
     foodStyles: ['Moroccan', 'Mediterranean'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'international'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'serves-lunch',
     crowdLevel: 'bustling',
@@ -840,20 +933,23 @@ export const chefchaouenEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '08:00',
     closeTime: '22:00',
     badge: 'local',
     // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.2,
-    googleReviewCount: 400,
-    tripadvisorRating: 4.2,
-    tripadvisorReviewCount: 800,
-    theforkRating: 4.2,
-    theforkReviewCount: 800,
-    restaurantguruRating: 4.2,
-    restaurantguruReviewCount: 400,
+    googleRating: 4.1,
+    googleReviewCount: 1365,
+    tripadvisorRating: 4.0,
+    tripadvisorReviewCount: 462,
+    theforkRating: 4.0,
+    theforkReviewCount: 180,
+    restaurantguruRating: 4.1,
+    restaurantguruReviewCount: 1365,
 
     paymentMethods: ['cash-only', 'credit-cards'],
     reservationMethod: ['phone', 'walk-in-only'],
@@ -870,6 +966,8 @@ export const chefchaouenEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["breakfast", "budget", "cafe-pastry", "dinner", "dry", "medina", "mountain", "tagine", "terrace"]
   },
 
   {
@@ -883,6 +981,8 @@ export const chefchaouenEat: EatListing[] = [
     mealTypes: ['breakfast', 'lunch', 'dinner'],
     experienceTypes: ['Casual Dining', 'Local Gathering Spot'],
     foodStyles: ['Moroccan'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
     crowdLevel: 'bustling',
@@ -896,20 +996,23 @@ export const chefchaouenEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: false,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '09:00',
     closeTime: '21:00',
     badge: 'local',
     // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.3,
-    googleReviewCount: 350,
-    tripadvisorRating: 4.3,
-    tripadvisorReviewCount: 700,
-    theforkRating: 4.3,
-    theforkReviewCount: 700,
-    restaurantguruRating: 4.3,
-    restaurantguruReviewCount: 350,
+    googleRating: 4.5,
+    googleReviewCount: 1764,
+    tripadvisorRating: 4.1,
+    tripadvisorReviewCount: 209,
+    theforkRating: 4.2,
+    theforkReviewCount: 95,
+    restaurantguruRating: 4.5,
+    restaurantguruReviewCount: 1764,
 
     paymentMethods: ['cash-only'],
     reservationMethod: ['phone', 'walk-in-only'],
@@ -926,6 +1029,8 @@ export const chefchaouenEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["breakfast", "budget", "dinner", "dry", "medina", "tagine"]
   },
 
   {
@@ -939,6 +1044,8 @@ export const chefchaouenEat: EatListing[] = [
     mealTypes: ['breakfast', 'lunch', 'dinner', 'flexible'],
     experienceTypes: ['Cafe', 'Sunset Views', 'People Watching'],
     foodStyles: ['Moroccan', 'Cafe'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'cafe-pastry'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'serves-lunch',
     crowdLevel: 'balanced',
@@ -952,6 +1059,9 @@ export const chefchaouenEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '08:00',
     closeTime: '21:00',
     badge: 'local',
@@ -959,13 +1069,13 @@ export const chefchaouenEat: EatListing[] = [
 
     // ── RATINGS ──
     googleRating: 4.1,
-    googleReviewCount: 600,
-    tripadvisorRating: 4.1,
-    tripadvisorReviewCount: 1200,
-    theforkRating: 4.1,
-    theforkReviewCount: 1200,
+    googleReviewCount: 887,
+    tripadvisorRating: 4.0,
+    tripadvisorReviewCount: 415,
+    theforkRating: 4.0,
+    theforkReviewCount: 150,
     restaurantguruRating: 4.1,
-    restaurantguruReviewCount: 600,
+    restaurantguruReviewCount: 887,
 
     paymentMethods: ['cash-only'],
     reservationMethod: ['walk-in-only'],
@@ -982,6 +1092,8 @@ export const chefchaouenEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["breakfast", "budget", "cafe-pastry", "dinner", "dry", "medina", "mountain", "rooftop", "sunset"]
   },
 
   {
@@ -995,6 +1107,8 @@ export const chefchaouenEat: EatListing[] = [
     mealTypes: ['breakfast', 'brunch'],
     experienceTypes: ['Cafe', 'Traditional Breakfast Ritual'],
     foodStyles: ['Moroccan', 'Cafe', 'Bakery'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'cafe-pastry'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
     crowdLevel: 'quiet',
@@ -1008,20 +1122,23 @@ export const chefchaouenEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '07:00',
     closeTime: '18:00',
     badge: 'hidden-gem',
     // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.7,
-    googleReviewCount: 200,
+    googleRating: 4.8,
+    googleReviewCount: 188,
     tripadvisorRating: 4.7,
-    tripadvisorReviewCount: 400,
+    tripadvisorReviewCount: 45,
     theforkRating: 4.7,
-    theforkReviewCount: 400,
-    restaurantguruRating: 4.7,
-    restaurantguruReviewCount: 200,
+    theforkReviewCount: 20,
+    restaurantguruRating: 4.8,
+    restaurantguruReviewCount: 188,
 
     paymentMethods: ['cash-only'],
     reservationMethod: ['walk-in-only'],
@@ -1038,6 +1155,8 @@ export const chefchaouenEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["breakfast", "budget", "cafe-pastry", "dry", "medina", "pastry", "quiet"]
   },
 
   {
@@ -1051,6 +1170,8 @@ export const chefchaouenEat: EatListing[] = [
     mealTypes: ['breakfast', 'lunch', 'dinner', 'afternoon-tea'],
     experienceTypes: ['Cafe', 'Sunset Views', 'Modern Fusion Dining'],
     foodStyles: ['Mediterranean', 'Healthy', 'Cafe'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'cafe-pastry'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'serves-lunch',
     crowdLevel: 'balanced',
@@ -1064,6 +1185,9 @@ export const chefchaouenEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '09:00',
     closeTime: '22:00',
     badge: 'local-favorite',
@@ -1071,13 +1195,13 @@ export const chefchaouenEat: EatListing[] = [
 
     // ── RATINGS ──
     googleRating: 4.5,
-    googleReviewCount: 300,
+    googleReviewCount: 450,
     tripadvisorRating: 4.5,
-    tripadvisorReviewCount: 600,
+    tripadvisorReviewCount: 247,
     theforkRating: 4.5,
-    theforkReviewCount: 600,
+    theforkReviewCount: 90,
     restaurantguruRating: 4.5,
-    restaurantguruReviewCount: 300,
+    restaurantguruReviewCount: 450,
 
     paymentMethods: ['cash-only', 'credit-cards'],
     reservationMethod: ['phone', 'instagram'],
@@ -1094,6 +1218,8 @@ export const chefchaouenEat: EatListing[] = [
     wiFi: true,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["breakfast", "budget", "cafe-pastry", "dinner", "dry", "medina", "mountain", "rooftop", "sunset", "wifi"]
   },
 
   {
@@ -1107,6 +1233,8 @@ export const chefchaouenEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Traditional Dining', 'Cozy casual family-run Moroccan eatery'],
     foodStyles: ['Moroccan'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'serves-lunch',
     crowdLevel: 'quiet',
@@ -1120,20 +1248,23 @@ export const chefchaouenEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '22:00',
     badge: 'hidden-gem',
     // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.3,
-    googleReviewCount: 250,
-    tripadvisorRating: 4.3,
-    tripadvisorReviewCount: 500,
-    theforkRating: 4.3,
-    theforkReviewCount: 500,
-    restaurantguruRating: 4.3,
-    restaurantguruReviewCount: 250,
+    googleRating: 4.4,
+    googleReviewCount: 375,
+    tripadvisorRating: 4.5,
+    tripadvisorReviewCount: 180,
+    theforkRating: 4.4,
+    theforkReviewCount: 70,
+    restaurantguruRating: 4.4,
+    restaurantguruReviewCount: 375,
 
     paymentMethods: ['cash-only'],
     reservationMethod: ['phone', 'walk-in-only'],
@@ -1150,6 +1281,8 @@ export const chefchaouenEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "dinner", "dry", "medina", "pastilla", "quiet", "rooftop", "tagine"]
   },
 
   {
@@ -1163,6 +1296,8 @@ export const chefchaouenEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner', 'flexible'],
     experienceTypes: ['Casual Italian Dining', 'Family Friendly'],
     foodStyles: ['Italian', 'Pizza', 'International'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'serves-lunch',
     crowdLevel: 'balanced',
@@ -1176,6 +1311,9 @@ export const chefchaouenEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: false,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '22:00',
     badge: 'local',
@@ -1183,13 +1321,13 @@ export const chefchaouenEat: EatListing[] = [
 
     // ── RATINGS ──
     googleRating: 4.2,
-    googleReviewCount: 300,
-    tripadvisorRating: 4.2,
-    tripadvisorReviewCount: 600,
-    theforkRating: 4.2,
-    theforkReviewCount: 600,
+    googleReviewCount: 390,
+    tripadvisorRating: 4.0,
+    tripadvisorReviewCount: 80,
+    theforkRating: 4.1,
+    theforkReviewCount: 40,
     restaurantguruRating: 4.2,
-    restaurantguruReviewCount: 300,
+    restaurantguruReviewCount: 390,
 
     paymentMethods: ['cash-only', 'credit-cards'],
     reservationMethod: ['phone'],
@@ -1206,5 +1344,7 @@ export const chefchaouenEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: true
+  ,
+    tags: ["budget", "dinner", "dry", "juice", "medina", "terrace"]
   }
 ];

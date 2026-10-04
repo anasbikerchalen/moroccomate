@@ -38,16 +38,15 @@ export const saidiaThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "coastal",
-      "nature",
-      "instagrammable"
-    ],
+    "tags": ["coastal", "instagrammable", "nature", "relaxed", "sunset", "walk-in"],
     "archetypeAffinity": [
       "first-timer",
       "nomad"
     ],
-    "tip": "Walk farther from the center if you want more space in peak summer."
+    "tip": "Walk farther from the center if you want more space in peak summer.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: true
   },
   {
     "id": "saidia-marina-sa-dia-promenade",
@@ -86,16 +85,15 @@ export const saidiaThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": true,
     "isPhotographyFriendly": true,
-    "tags": [
-      "coastal",
-      "urban",
-      "instagrammable"
-    ],
+    "tags": ["coastal", "instagrammable", "relaxed", "sunset", "urban", "walk-in"],
     "archetypeAffinity": [
       "luxury",
       "nomad"
     ],
-    "tip": "Come at sunset when the marina lights and sea breeze improve the mood."
+    "tip": "Come at sunset when the marina lights and sea breeze improve the mood.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: true
   },
   {
     "id": "saidia-med-sa-dia-corniche-bike-ride",
@@ -131,16 +129,15 @@ export const saidiaThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "coastal",
-      "urban",
-      "authentic"
-    ],
+    "tags": ["active", "authentic", "coastal", "sunset", "urban", "walk-in"],
     "archetypeAffinity": [
       "nomad",
       "adventure"
     ],
-    "tip": "Go early or late to avoid the strongest sun and busiest promenade hours."
+    "tip": "Go early or late to avoid the strongest sun and busiest promenade hours.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: true
   },
   {
     "id": "saidia-souk-de-sa-dia",
@@ -178,16 +175,15 @@ export const saidiaThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "shopping",
-      "authentic",
-      "urban"
-    ],
+    "tags": ["authentic", "morning", "shopping", "urban", "walk-in"],
     "archetypeAffinity": [
       "culture",
       "nomad"
     ],
-    "tip": "Cash is easiest here, especially for smaller purchases."
+    "tip": "Cash is easiest here, especially for smaller purchases.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     "id": "saidia-sunday-open-air-souk",
@@ -225,17 +221,15 @@ export const saidiaThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "shopping",
-      "authentic",
-      "urban",
-      "off-the-beaten-path"
-    ],
+    "tags": ["authentic", "morning", "off-the-beaten-path", "shopping", "urban", "walk-in"],
     "archetypeAffinity": [
       "culture",
       "nomad"
     ],
-    "tip": "Go earlier in the morning before heat and crowds build."
+    "tip": "Go earlier in the morning before heat and crowds build.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     "id": "saidia-march-couvert",
@@ -273,16 +267,15 @@ export const saidiaThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "shopping",
-      "authentic",
-      "urban"
-    ],
+    "tags": ["authentic", "morning", "shopping", "urban", "walk-in"],
     "archetypeAffinity": [
       "nomad",
       "culture"
     ],
-    "tip": "This is a practical stop, so morning works best."
+    "tip": "This is a practical stop, so morning works best.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     "id": "saidia-sa-dia-kasbah",
@@ -321,16 +314,15 @@ export const saidiaThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "cultural-tour",
-      "urban",
-      "off-the-beaten-path"
-    ],
+    "tags": ["cultural-tour", "off-the-beaten-path", "private", "sunset", "urban", "walk-in"],
     "archetypeAffinity": [
       "culture",
       "first-timer"
     ],
-    "tip": "Treat it as a short heritage stop before returning to the waterfront."
+    "tip": "Treat it as a short heritage stop before returning to the waterfront.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: true
   },
   {
     "id": "saidia-moulouya-estuary-birdwatching",
@@ -368,16 +360,15 @@ export const saidiaThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "nature",
-      "coastal",
-      "off-the-beaten-path"
-    ],
+    "tags": ["coastal", "morning", "nature", "off-the-beaten-path", "relaxed", "walk-in"],
     "archetypeAffinity": [
       "nomad",
       "adventure"
     ],
-    "tip": "Bring binoculars and go in softer morning or late-day light."
+    "tip": "Bring binoculars and go in softer morning or late-day light.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     "id": "saidia-moulouya-national-park-walk",
@@ -416,16 +407,15 @@ export const saidiaThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "nature",
-      "coastal",
-      "off-the-beaten-path"
-    ],
+    "tags": ["coastal", "nature", "off-the-beaten-path", "sunset", "walk-in"],
     "archetypeAffinity": [
       "adventure",
       "nomad"
     ],
-    "tip": "Best with your own water and sun protection because facilities are limited."
+    "tip": "Best with your own water and sun protection because facilities are limited.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: true
   },
   {
     "id": "saidia-eucalyptus-beachfront-walk",
@@ -464,16 +454,15 @@ export const saidiaThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": true,
     "isPhotographyFriendly": true,
-    "tags": [
-      "coastal",
-      "urban",
-      "nature"
-    ],
+    "tags": ["coastal", "nature", "sunset", "urban", "walk-in"],
     "archetypeAffinity": [
       "first-timer",
       "nomad"
     ],
-    "tip": "A good option in the final hour before dinner."
+    "tip": "A good option in the final hour before dinner.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: true
   },
   {
     "id": "saidia-jet-ski-session-at-sa-dia-beach",
@@ -509,14 +498,14 @@ export const saidiaThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "climbing-adventure",
-      "coastal"
-    ],
+    "tags": ["active", "climbing-adventure", "coastal", "sunset", "walk-in"],
     "archetypeAffinity": [
       "adventure"
     ],
-    "tip": "Choose licensed operators and confirm session length before paying."
+    "tip": "Choose licensed operators and confirm session length before paying.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: true
   },
   {
     "id": "saidia-sailing-lesson-from-marina-sa-dia",
@@ -552,16 +541,15 @@ export const saidiaThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "climbing-adventure",
-      "coastal",
-      "nature"
-    ],
+    "tags": ["active", "climbing-adventure", "coastal", "nature", "private", "sunset", "walk-in"],
     "archetypeAffinity": [
       "adventure",
       "luxury"
     ],
-    "tip": "Wind is usually kinder earlier or later in the day than at midday."
+    "tip": "Wind is usually kinder earlier or later in the day than at midday.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: true
   },
   {
     "id": "saidia-alpamare-water-park",
@@ -600,15 +588,15 @@ export const saidiaThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": true,
     "isPhotographyFriendly": true,
-    "tags": [
-      "climbing-adventure",
-      "urban"
-    ],
+    "tags": ["active", "climbing-adventure", "sunset", "urban", "walk-in"],
     "archetypeAffinity": [
       "first-timer",
       "nomad"
     ],
-    "tip": "It is busiest in the hottest part of summer, so expect queues then."
+    "tip": "It is busiest in the hottest part of summer, so expect queues then.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: true
   },
   {
     "id": "saidia-sa-dia-golf-round",
@@ -644,16 +632,15 @@ export const saidiaThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": true,
     "isPhotographyFriendly": true,
-    "tags": [
-      "coastal",
-      "nature",
-      "urban"
-    ],
+    "tags": ["active", "coastal", "nature", "sunset", "urban", "walk-in"],
     "archetypeAffinity": [
       "luxury",
       "nomad"
     ],
-    "tip": "Morning tee times are usually more comfortable than midday."
+    "tip": "Morning tee times are usually more comfortable than midday.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: true
   },
   {
     "id": "saidia-beni-snassen-quad-ride",
@@ -689,15 +676,14 @@ export const saidiaThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "climbing-adventure",
-      "mountain",
-      "nature"
-    ],
+    "tags": ["active", "climbing-adventure", "mountain", "nature", "private", "sunset", "walk-in"],
     "archetypeAffinity": [
       "adventure"
     ],
-    "tip": "Wear eye protection and avoid the hottest midday slot."
+    "tip": "Wear eye protection and avoid the hottest midday slot.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: true
   },
   {
     "id": "saidia-kiss-river-border-viewpoint",
@@ -735,16 +721,15 @@ export const saidiaThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "coastal",
-      "nature",
-      "off-the-beaten-path"
-    ],
+    "tags": ["coastal", "nature", "off-the-beaten-path", "relaxed", "sunset", "walk-in"],
     "archetypeAffinity": [
       "nomad",
       "culture"
     ],
-    "tip": "Bring ID if you are exploring close to formal border-control areas."
+    "tip": "Bring ID if you are exploring close to formal border-control areas.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: true
   },
   {
     "id": "saidia-cap-de-leau-beach-trip",
@@ -783,16 +768,15 @@ export const saidiaThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "coastal",
-      "nature",
-      "off-the-beaten-path"
-    ],
+    "tags": ["coastal", "nature", "off-the-beaten-path", "sunset", "walk-in"],
     "archetypeAffinity": [
       "nomad",
       "adventure"
     ],
-    "tip": "Pair it with seafood rather than trying to over-schedule the day."
+    "tip": "Pair it with seafood rather than trying to over-schedule the day.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: true
   },
   {
     "id": "saidia-berkane-orange-market-day-trip",
@@ -831,16 +815,15 @@ export const saidiaThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "shopping",
-      "authentic",
-      "urban"
-    ],
+    "tags": ["authentic", "morning", "private", "shopping", "urban", "walk-in"],
     "archetypeAffinity": [
       "culture",
       "nomad"
     ],
-    "tip": "Good if you are staying several nights and want a break from the beach."
+    "tip": "Good if you are staying several nights and want a break from the beach.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: false
   },
   {
     "id": "saidia-sunset-seafood-at-the-marina",
@@ -879,16 +862,15 @@ export const saidiaThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": true,
     "isPhotographyFriendly": true,
-    "tags": [
-      "coastal",
-      "authentic",
-      "urban"
-    ],
+    "tags": ["authentic", "coastal", "sunset", "urban", "walk-in"],
     "archetypeAffinity": [
       "luxury",
       "nomad"
     ],
-    "tip": "Ask for the catch of the day instead of default menu staples."
+    "tip": "Ask for the catch of the day instead of default menu staples.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: true
   },
   {
     "id": "saidia-parc-sa-dia-family-stroll",
@@ -927,14 +909,14 @@ export const saidiaThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": true,
     "isPhotographyFriendly": true,
-    "tags": [
-      "nature",
-      "urban"
-    ],
+    "tags": ["nature", "relaxed", "urban", "walk-in"],
     "archetypeAffinity": [
       "first-timer",
       "nomad"
     ],
-    "tip": "Best used as a short evening reset, not a half-day plan."
+    "tip": "Best used as a short evening reset, not a half-day plan.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   }
 ]

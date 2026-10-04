@@ -58,6 +58,8 @@ export const tangierEat: EatListing[] = [
     mealTypes: ['breakfast', 'afternoon-tea', 'flexible'],
     experienceTypes: ['Cafe', 'Traditional Dining', 'Sunset Views'],
     foodStyles: ['Moroccan', 'Cafe'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'cafe-pastry'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'couple', 'friends', 'family', 'kids-friendly'],
     hasEnglishStaff: true,
@@ -69,25 +71,51 @@ export const tangierEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '09:00',
     closeTime: '23:00',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.4,
     googleReviewCount: 4800,
-    tripadvisorRating: 4.4,
-    tripadvisorReviewCount: 4800,
+    tripadvisorRating: 4.3,
+    tripadvisorReviewCount: 1450,
     theforkRating: 4.4,
     theforkReviewCount: 4800,
     restaurantguruRating: 4.4,
     restaurantguruReviewCount: 4800,
+
+    tip: 'Find a seat on the lower terraces at sunset, order a glass of sweet Northern mint tea, and try their traditional fava bean bissara soup.',
+    archetypeAffinity: ['culture-seeker', 'sunset-seeker', 'budget-conscious'],
+    vibeTags: ['strait-views', 'cliffside-terraces', 'historic-cafe', 'mint-tea-ritual'],
+    isHiddenGem: false,
     paymentMethods: ['cash'],
     reservationMethod: ['none'],
+    reservationContact: '+212539939522',
     googleMapsUrl: 'https://maps.google.com/?q=Cafe+Hafa+Tangier',
     bestDishes: ['Maghrebi Mint Tea', 'Northern Bissara Soup', 'Harcha Bread with Honey'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'Find a seat on the lower terraces at sunset, order a glass of sweet Northern mint tea, and try their traditional fava bean bissara soup.',
+    customStory: 'Carved into the rugged cliffs of Marchan since 1921, Café Hafa looks out across the Strait of Gibraltar toward the Spanish coastline. Generation after generation of international beatniks, rock legends, writers, and local Tangerois have sat on its tiered blue-and-white stone steps, sipping steaming mint tea with fresh sprigs of pennyroyal.',
+    languagesSpoken: ['Arabic/Darija', 'French', 'Spanish', 'English'],
+    exactAddressAndCoordinates: {
+      address: 'Rue Hafa, Quartier Marchan, Tanger 90000, Morocco',
+      lat: 35.79155,
+      lng: -5.82365
+    },
+    pros: [
+      'Iconic multi-tiered outdoor terrace overlooking the Strait of Gibraltar to Tarifa.',
+      'Extremely affordable tea, snacks, and traditional breakfast pastries.',
+      'Unsurpassed century-old bohemian artistic atmosphere.'
+    ],
+    cons: [
+      'Cash only payment.',
+      'Steep stone stairs and no wheelchair accessibility.'
+    ],
     bestTimeToVisit: 'Early evening around 18:30 for sunset',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor', 'terrace'],
@@ -95,6 +123,8 @@ export const tangierEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["breakfast", "budget", "cafe-pastry", "dry", "sunset", "terrace"]
   },
   {
     id: 'e-tangier-2',
@@ -107,6 +137,8 @@ export const tangierEat: EatListing[] = [
     mealTypes: ['breakfast', 'afternoon-tea', 'flexible'],
     experienceTypes: ['Cafe', 'Traditional Dining', 'People Watching'],
     foodStyles: ['Cafe', 'French', 'Bakery'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['cafe-pastry', 'international'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'couple', 'friends', 'seniors'],
     hasEnglishStaff: true,
@@ -118,25 +150,51 @@ export const tangierEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '07:00',
     closeTime: '23:00',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.0,
     googleReviewCount: 3100,
     tripadvisorRating: 4.0,
-    tripadvisorReviewCount: 3100,
+    tripadvisorReviewCount: 880,
     theforkRating: 4.0,
     theforkReviewCount: 3100,
     restaurantguruRating: 4.0,
     restaurantguruReviewCount: 3100,
+
+    tip: 'Sit on the leather banquettes indoors or get a street-facing window seat to experience classic "people-watching," just as Paul Bowles and William S. Burroughs did.',
+    archetypeAffinity: ['culture-seeker', 'solo-traveler', 'history-buff'],
+    vibeTags: ['art-deco', 'literary-landmark', 'people-watching', 'parisian-grand-cafe'],
+    isHiddenGem: false,
     paymentMethods: ['cash'],
     reservationMethod: ['none'],
+    reservationContact: '+212539931089',
     googleMapsUrl: 'https://maps.google.com/?q=Gran+Cafe+de+Paris+Tangier',
     bestDishes: ['Cafe au Lait', 'Croissant aux Amandes', 'Espresso Chamali'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'Sit on the leather banquettes indoors or get a street-facing window seat to experience classic "people-watching," just as Paul Bowles and William S. Burroughs did.',
+    customStory: 'Opening in 1927 at the crossroads of French Boulevard Pasteur, Gran Café de Paris preserves the vintage grandeur of Tangier\'s International Zone era. Formica tables, amber-colored wood, and worn leather banquettes have witnessed wartime intrigue, international spy exchanges, and generations of literary salons hosted by expatriate icons.',
+    languagesSpoken: ['French', 'Arabic/Darija', 'Spanish', 'English'],
+    exactAddressAndCoordinates: {
+      address: 'Place de France, Boulevard Pasteur, Tanger 90000, Morocco',
+      lat: 35.78280,
+      lng: -5.81432
+    },
+    pros: [
+      'Unmatched historical pedigree and Art Deco preservation since the 1920s.',
+      'Superb vantage point on Place de France for watching city life.',
+      'Classic formal Moroccan-French waiter service in vests and bowties.'
+    ],
+    cons: [
+      'Smoking is permitted in indoor sections, which can be heavy at peak times.',
+      'Cash only payment.'
+    ],
     bestTimeToVisit: 'Early morning for fresh baked goods',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor', 'terrace'],
@@ -144,6 +202,8 @@ export const tangierEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: true
+  ,
+    tags: ["breakfast", "budget", "cafe-pastry", "dry", "pastry", "terrace", "wifi"]
   },
   {
     id: 'e-tangier-3',
@@ -156,6 +216,8 @@ export const tangierEat: EatListing[] = [
     mealTypes: ['breakfast', 'afternoon-tea', 'flexible'],
     experienceTypes: ['Cafe', 'Traditional Dining', 'Local Gathering Spot'],
     foodStyles: ['Moroccan', 'Cafe'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'cafe-pastry'],
     crowdLevel: 'balanced',
     groupTypes: ['solo', 'couple', 'friends'],
     hasEnglishStaff: true,
@@ -167,25 +229,51 @@ export const tangierEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '09:00',
     closeTime: '23:30',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.2,
     googleReviewCount: 1200,
     tripadvisorRating: 4.2,
-    tripadvisorReviewCount: 1200,
+    tripadvisorReviewCount: 390,
     theforkRating: 4.2,
     theforkReviewCount: 1200,
     restaurantguruRating: 4.2,
     restaurantguruReviewCount: 1200,
+
+    tip: 'Look at the historic photos on the walls, including Keith Richards and Jimi Hendrix chilling right where you are sitting.',
+    archetypeAffinity: ['bohemian', 'music-lover', 'culture-seeker'],
+    vibeTags: ['rock-and-roll-history', 'kasbah-den', 'mint-tea', 'nostalgic-hangout'],
+    isHiddenGem: false,
     paymentMethods: ['cash'],
     reservationMethod: ['none'],
+    reservationContact: '+212661884422',
     googleMapsUrl: 'https://maps.google.com/?q=Cafe+Baba+Tangier',
     bestDishes: ['Maghrebi Mint Tea', 'Cafe Noir', 'Local Moroccan Pastries'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'Look at the historic photos on the walls, including Keith Richards and Jimi Hendrix chilling right where you are sitting.',
+    customStory: 'Deep within the steep winding whitewashed alleys of the Kasbah, Café Baba opened in 1943 and remains virtually frozen in time. The cozy, smoke-tinted interior is lined with framed newspaper clippings and candid black-and-white photos of Keith Richards, Kofi Annan, and international artists lounging on its velvet-cushioned benches.',
+    languagesSpoken: ['Arabic/Darija', 'French', 'English', 'Spanish'],
+    exactAddressAndCoordinates: {
+      address: '1 Rue Zaitouni, Kasbah, Tanger 90000, Morocco',
+      lat: 35.78920,
+      lng: -5.81260
+    },
+    pros: [
+      'Legendary rock-and-roll cultural history inside the Kasbah walls.',
+      'Superb spiced mint tea served hot in vintage glassware.',
+      'Warm, welcoming host who loves sharing tales of Tangier\'s bohemian golden age.'
+    ],
+    cons: [
+      'Cash only payment.',
+      'Intimate space that allows indoor tobacco smoking.'
+    ],
     bestTimeToVisit: 'Early evening around 18:30 for sunset',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor'],
@@ -193,6 +281,8 @@ export const tangierEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["breakfast", "budget", "cafe-pastry", "dry", "medina"]
   },
   {
     id: 'e-tangier-4',
@@ -205,6 +295,8 @@ export const tangierEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Traditional Dining', 'Casual Dining', 'Cozy casual family-run Moroccan eatery'],
     foodStyles: ['Seafood', 'Moroccan'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['seafood', 'moroccan-traditional'],
     crowdLevel: 'bustling',
     groupTypes: ['couple', 'family', 'friends', 'large-groups'],
     hasEnglishStaff: true,
@@ -216,25 +308,51 @@ export const tangierEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: false,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '12:30',
     closeTime: '22:30',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.5,
     googleReviewCount: 2200,
-    tripadvisorRating: 4.5,
-    tripadvisorReviewCount: 2200,
+    tripadvisorRating: 4.4,
+    tripadvisorReviewCount: 840,
     theforkRating: 4.5,
     theforkReviewCount: 2200,
     restaurantguruRating: 4.5,
     restaurantguruReviewCount: 2200,
+
+    tip: 'There is no written menu; you sit down and get served a multi-course meal starting with dynamic fish soup and ending with a special honey-nut dessert.',
+    archetypeAffinity: ['foodie', 'culture-seeker', 'seafood-lover'],
+    vibeTags: ['set-menu-seafood', 'rustic-tavern', 'clay-pot-tagine', 'herbal-nectar'],
+    isHiddenGem: false,
     paymentMethods: ['cash'],
     reservationMethod: ['none'],
+    reservationContact: '+212539336326',
     googleMapsUrl: 'https://maps.google.com/?q=Saveur+de+Poisson+Tangier',
     bestDishes: ['Herbal Fish Soup', 'Skewered Shark & Tuna', 'Clay-Pot Fish Tagine'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'There is no written menu; you sit down and get served a multi-course meal starting with dynamic fish soup and ending with a special honey-nut dessert.',
+    customStory: 'Conceived by owner-chef Mohammed Belhadj who spent decades studying medicinal herbs and Atlantic marine catches, Saveur de Poisson offers a one-of-a-kind dining journey. Housed in a rustic stone tavern lined with hand-carved olive wood tools, every diner receives the same set feast of wild-herb fish broth, charred fish skewers over oak embers, and a slow-baked baby shark and sea bass tagine.',
+    languagesSpoken: ['French', 'Arabic/Darija', 'Spanish', 'English'],
+    exactAddressAndCoordinates: {
+      address: '2 Escalier Waller, Tanger 90000, Morocco',
+      lat: 35.78415,
+      lng: -5.81308
+    },
+    pros: [
+      'Renowned multi-course fixed feast celebrating North African fishing heritage.',
+      'Unique homemade wildflower and wild berry nectar drink served alongside meals.',
+      'Warm communal hospitality and wooden spoons carved by hand.'
+    ],
+    cons: [
+      'Fixed non-customizable menu: unsuitable for vegetarians or shellfish allergies.',
+      'Cash only payment; queues form quickly at 12:30 and 19:30.'
+    ],
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 15,
     seatingTypes: ['indoor'],
@@ -242,6 +360,8 @@ export const tangierEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "dinner", "dry", "juice", "medina", "tagine"]
   },
   {
     id: 'e-tangier-5',
@@ -254,6 +374,8 @@ export const tangierEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner', 'latenight'],
     experienceTypes: ['Fine Dining', 'Romantic Sunset', 'Upscale Lounge'],
     foodStyles: ['French', 'Mediterranean', 'Moroccan', 'Gourmet'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'moroccan-traditional'],
     crowdLevel: 'balanced',
     groupTypes: ['couple', 'friends', 'business-friendly'],
     hasEnglishStaff: true,
@@ -265,18 +387,28 @@ export const tangierEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: true,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '01:00',
     badge: 'splurge',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.5,
     googleReviewCount: 1400,
     tripadvisorRating: 4.5,
-    tripadvisorReviewCount: 1400,
+    tripadvisorReviewCount: 510,
     theforkRating: 4.5,
     theforkReviewCount: 1400,
     restaurantguruRating: 4.5,
     restaurantguruReviewCount: 1400,
+
+    tip: 'Book in advance for a dinner reservation upstairs, then head down to the cozy subterranean piano bar for a cocktail after 10 PM.',
+    archetypeAffinity: ['luxury-traveler', 'romantic-getaway', 'jazz-and-cocktails'],
+    vibeTags: ['kasbah-palace', 'piano-bar', 'ficus-tree-terrace', 'jazz-lounge'],
+    isHiddenGem: false,
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['phone', 'online'],
     reservationContact: '+212539913318',
@@ -284,7 +416,22 @@ export const tangierEat: EatListing[] = [
     bestDishes: ['John Dory with Saffron Risotto', 'Slow-Cooked Duck Confit', 'Seared Octopus with Puree'],
     alcoholPolicy: 'serves-alcohol',
     ramadanFriendly: 'serves-lunch',
-    tip: 'Book in advance for a dinner reservation upstairs, then head down to the cozy subterranean piano bar for a cocktail after 10 PM.',
+    customStory: 'Framed by the monumental branches of a century-old ficus tree on Place du Tabor, El Morocco Club is the epicenter of Kasbah chic. Designed with tasteful velvet cushions, houndstooth banquettes, and dim candlelight, the upstairs restaurant marries French culinary precision with Moroccan spices before guests drift downstairs to the late-night jazz piano bar.',
+    languagesSpoken: ['French', 'English', 'Spanish', 'Arabic/Darija'],
+    exactAddressAndCoordinates: {
+      address: 'Place du Tabor, Kasbah, Tanger 90000, Morocco',
+      lat: 35.78985,
+      lng: -5.81380
+    },
+    pros: [
+      'Exquisite Kasbah setting under the branches of an illuminated ancient ficus tree.',
+      'Lively subterranean piano bar offering classic cocktails and live jazz.',
+      'Refined French-Moroccan gastronomy with impeccable table service.'
+    ],
+    cons: [
+      'Premium pricing reflecting its high-end boutique status.',
+      'Advanced reservations are mandatory for prime dinner slots.'
+    ],
     bestTimeToVisit: 'Late evening after 20:00 for lively crowd',
     averageWaitMinutes: 0,
     seatingTypes: ['indoor', 'garden'],
@@ -292,6 +439,8 @@ export const tangierEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: false
+  ,
+    tags: ["alcohol", "budget", "dinner", "fine", "late-night", "medina", "sunset", "wifi"]
   },
   {
     id: 'e-tangier-6',
@@ -315,18 +464,27 @@ export const tangierEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: false,
+    halalStatus: 'unknown',
+    verificationStatus: 'verified',
     openTime: '12:30',
     closeTime: '23:00',
     badge: 'splurge',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.4,
     googleReviewCount: 780,
     tripadvisorRating: 4.4,
-    tripadvisorReviewCount: 780,
+    tripadvisorReviewCount: 290,
     theforkRating: 4.4,
     theforkReviewCount: 780,
     restaurantguruRating: 4.4,
     restaurantguruReviewCount: 780,
+
+    tip: 'Stroll around the palace grounds before sitting down. Their house-made pastas and fresh seafood salads are favored heavily by local elites.',
+    archetypeAffinity: ['italian-food-lover', 'romantic-getaway', 'heritage-seeker'],
+    vibeTags: ['palace-courtyard', 'italian-institution', 'garden-dining', 'historic-grounds'],
+    isHiddenGem: true,
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['phone'],
     reservationContact: '+212539335020',
@@ -334,7 +492,22 @@ export const tangierEat: EatListing[] = [
     bestDishes: ['Handmade Seafood Linguine', 'Wood-Fired Pizza Margherita', 'Classic Panna Cotta'],
     alcoholPolicy: 'serves-alcohol',
     ramadanFriendly: 'serves-lunch',
-    tip: 'Stroll around the palace grounds before sitting down. Their house-made pastas and fresh seafood salads are favored heavily by local elites.',
+    customStory: 'Hidden inside the grandiose 1914 Palais Moulay Hafid (Palace of Italian Institutions) in Marchan, Casa d\'Italia offers an enchanting Roman dining experience. Dining tables are scattered across towering marble porticos and leafy private courtyards, serving authentic regional pastas, delicate carpaccios, and Italian estate wines.',
+    languagesSpoken: ['Italian', 'French', 'Arabic/Darija', 'English'],
+    exactAddressAndCoordinates: {
+      address: 'Palais Moulay Hafid, 23 Rue Mohammed Ben Abdelouhab, Tanger 90000, Morocco',
+      lat: 35.78760,
+      lng: -5.81980
+    },
+    pros: [
+      'Stunning palace setting with soaring colonnades and secluded gardens.',
+      'Authentic Italian ingredients with freshly hand-rolled pasta dishes.',
+      'Peaceful, aristocratic escape from city street noise.'
+    ],
+    cons: [
+      'Dishes may include non-halal Italian cured meats (pork selections clearly noted).',
+      'Advanced booking recommended during sunny weekend lunches.'
+    ],
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor', 'garden'],
@@ -342,6 +515,8 @@ export const tangierEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: true
+  ,
+    tags: ["alcohol", "budget", "dinner", "fine", "live-music", "palace", "sunset", "terrace", "wifi"]
   },
   {
     id: 'e-tangier-7',
@@ -354,6 +529,8 @@ export const tangierEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Fine Dining', 'Waterfront Dining', 'Romantic Sunset'],
     foodStyles: ['French', 'Mediterranean', 'Seafood', 'European'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'seafood'],
     crowdLevel: 'balanced',
     groupTypes: ['couple', 'friends', 'family', 'business-friendly'],
     hasEnglishStaff: true,
@@ -365,18 +542,28 @@ export const tangierEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: true,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '23:30',
     badge: 'splurge',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.3,
     googleReviewCount: 950,
     tripadvisorRating: 4.3,
-    tripadvisorReviewCount: 950,
+    tripadvisorReviewCount: 340,
     theforkRating: 4.3,
     theforkReviewCount: 950,
     restaurantguruRating: 4.3,
     restaurantguruReviewCount: 950,
+
+    tip: 'Book a table on the oceanfront terrace. Their signature beef tenderloin features an 18-herb secret brasserie sauce.',
+    archetypeAffinity: ['luxury-traveler', 'meat-enthusiast', 'romantic-getaway'],
+    vibeTags: ['bay-views', 'steak-frites', 'french-brasserie', 'sunset-terrace'],
+    isHiddenGem: false,
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['phone', 'online'],
     reservationContact: '+212539331819',
@@ -384,7 +571,22 @@ export const tangierEat: EatListing[] = [
     bestDishes: ['Steak Frites with Secret Herb Sauce', 'Spiced Red Tuna Steak', 'Warm Apple Tarte Tatin'],
     alcoholPolicy: 'serves-alcohol',
     ramadanFriendly: 'serves-lunch',
-    tip: 'Book a table on the oceanfront terrace. Their signature beef tenderloin features an 18-herb secret brasserie sauce.',
+    customStory: 'Overlooking the curved crescent of the Bay of Tangier and the glittering harbor lights, Le Relais de Paris transports the timeless French entrecôte brasserie ritual to the Strait. Premium aged beef cuts arrive sizzling on food-warmers blanketed in a rich butter-herb sauce, flanked by bottomless golden frites.',
+    languagesSpoken: ['French', 'English', 'Arabic/Darija', 'Spanish'],
+    exactAddressAndCoordinates: {
+      address: 'Complexe Dawliz, Rue de la Hollande, Tanger 90000, Morocco',
+      lat: 35.78110,
+      lng: -5.80780
+    },
+    pros: [
+      'Expansive wooden deck terrace with sweeping panoramas of Tangier Bay.',
+      'Signature secret-herb butter steak frites served on tabletop warmers.',
+      'Comprehensive wine and cocktail list.'
+    ],
+    cons: [
+      'Premium pricing catering to business and upscale leisure clientele.',
+      'Can get breezy on the terrace during brisk Atlantic evenings.'
+    ],
     bestTimeToVisit: 'Early evening around 18:30 for sunset',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor', 'terrace'],
@@ -392,6 +594,8 @@ export const tangierEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: true
+  ,
+    tags: ["alcohol", "budget", "dinner", "fine", "sunset", "terrace", "wifi"]
   },
   {
     id: 'e-tangier-8',
@@ -404,6 +608,8 @@ export const tangierEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Casual Dining', 'Local Gathering Spot', 'Cozy casual family-run Moroccan eatery'],
     foodStyles: ['Moroccan', 'Seafood'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'seafood'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'couple', 'friends', 'family', 'kids-friendly'],
     hasEnglishStaff: true,
@@ -415,25 +621,51 @@ export const tangierEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '11:30',
     closeTime: '23:00',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.6,
     googleReviewCount: 980,
     tripadvisorRating: 4.6,
-    tripadvisorReviewCount: 980,
+    tripadvisorReviewCount: 310,
     theforkRating: 4.6,
     theforkReviewCount: 980,
     restaurantguruRating: 4.6,
     restaurantguruReviewCount: 980,
+
+    tip: 'They serve the finest complimentary house-marinated harissa olives in town. Don\'t miss the grilled calamari plate.',
+    archetypeAffinity: ['budget-conscious', 'culture-seeker', 'seafood-lover'],
+    vibeTags: ['kasbah-gates', 'charcoal-grill', 'neighborhood-diner', 'fresh-seafood'],
+    isHiddenGem: false,
     paymentMethods: ['cash'],
     reservationMethod: ['none'],
+    reservationContact: '+212662057799',
     googleMapsUrl: 'https://maps.google.com/?q=Chez+Hassan+Bab+Kasbah+Tangier',
     bestDishes: ['Grilled Calamari', 'Mixed Seafood Brochette Platter', 'Marinated Beef Skewers'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'They serve the finest complimentary house-marinated harissa olives in town. Don\'t miss the grilled calamari plate.',
+    customStory: 'Standing sentinel right beside the monumental horseshoe arch of Bab Kasbah, Chez Hassan is a beloved Tangerois institution. Locals and savvy travelers crowd the small tables as Hassan and his crew char succulent calamari, swordfish steaks, and spiced kefta over white-hot coals with boundless good humor.',
+    languagesSpoken: ['Arabic/Darija', 'French', 'Spanish', 'English'],
+    exactAddressAndCoordinates: {
+      address: '8 Rue de la Kasbah, Bab Kasbah, Tanger 90000, Morocco',
+      lat: 35.78850,
+      lng: -5.81395
+    },
+    pros: [
+      'Genuinely authentic neighborhood prices right by the historic Kasbah gate.',
+      'Sizzling charcoal grilled seafood and meats with legendary marinated olives.',
+      'Enthusiastic, welcoming family hospitality.'
+    ],
+    cons: [
+      'Cash only payment.',
+      'Compact dining space that fills quickly at lunch.'
+    ],
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor'],
@@ -441,6 +673,8 @@ export const tangierEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "dinner", "dry", "medina", "tagine"]
   },
   {
     id: 'e-tangier-9',
@@ -453,6 +687,8 @@ export const tangierEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner', 'flexible'],
     experienceTypes: ['Casual Dining', 'Quick Bites', 'Local Gathering Spot'],
     foodStyles: ['Middle Eastern', 'Mediterranean'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'friends', 'couple'],
     hasEnglishStaff: true,
@@ -464,25 +700,51 @@ export const tangierEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '11:00',
     closeTime: '22:00',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.8,
     googleReviewCount: 1600,
     tripadvisorRating: 4.8,
-    tripadvisorReviewCount: 1600,
+    tripadvisorReviewCount: 420,
     theforkRating: 4.8,
     theforkReviewCount: 1600,
     restaurantguruRating: 4.8,
     restaurantguruReviewCount: 1600,
+
+    tip: 'Order the mixed dip platter, which comes with freshly baked Lebanese flatbread, hummus, and two styles of baba ganoush.',
+    archetypeAffinity: ['budget-conscious', 'vegan-friendly', 'solo-traveler'],
+    vibeTags: ['authentic-syrian', 'crisp-falafel', 'warm-hummus', 'student-favorite'],
+    isHiddenGem: false,
     paymentMethods: ['cash'],
     reservationMethod: ['none'],
+    reservationContact: '+212678912345',
     googleMapsUrl: 'https://maps.google.com/?q=Abou+Tayssir+Syrian+Tangier',
     bestDishes: ['Handmade Crispy Falafel', 'Syrian Chicken Shawarma', 'Mixed Dips with Lebanese Bread'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'Order the mixed dip platter, which comes with freshly baked Lebanese flatbread, hummus, and two styles of baba ganoush.',
+    customStory: 'Run with immense warmth by Abou Tayssir, this tiny hole-in-the-wall spot just off Grand Socco has achieved near-mythic status in Tangier. The golden falafel balls are dropped into hot oil to order, coming out shattering-crisp on the outside and bright herb-green inside, dressed with silky tahini and pomegranate molasses.',
+    languagesSpoken: ['Arabic/Darija', 'French', 'English'],
+    exactAddressAndCoordinates: {
+      address: 'Rue d\'Italie, Near Grand Socco, Tanger 90000, Morocco',
+      lat: 35.78520,
+      lng: -5.81310
+    },
+    pros: [
+      'Widely regarded as the best, freshest falafel and creamy hummus in northern Morocco.',
+      'Exceptional value for money with hearty portions.',
+      'Heartfelt hospitality with complimentary Syrian tea.'
+    ],
+    cons: [
+      'Very limited indoor seating (only 4 small tables); takeout is popular.',
+      'Cash only payment.'
+    ],
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor'],
@@ -490,6 +752,8 @@ export const tangierEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "dinner", "dry", "medina", "street-food"]
   },
   {
     id: 'e-tangier-10',
@@ -502,6 +766,8 @@ export const tangierEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Traditional Dining', 'Casual Dining', 'Cozy casual family-run Moroccan eatery'],
     foodStyles: ['Moroccan'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional'],
     crowdLevel: 'balanced',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'seniors'],
     hasEnglishStaff: true,
@@ -513,25 +779,51 @@ export const tangierEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '22:30',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.6,
     googleReviewCount: 950,
     tripadvisorRating: 4.6,
-    tripadvisorReviewCount: 950,
+    tripadvisorReviewCount: 390,
     theforkRating: 4.6,
     theforkReviewCount: 950,
     restaurantguruRating: 4.6,
     restaurantguruReviewCount: 950,
+
+    tip: 'Perfect for travelers with dietary needs; they have excellent, carefully labeled gluten-free, vegetarian, and vegan options.',
+    archetypeAffinity: ['culture-seeker', 'family', 'dietary-sensitive'],
+    vibeTags: ['medina-retreat', 'slow-cooked-tagines', 'family-hospitality', 'friday-couscous'],
+    isHiddenGem: true,
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['phone'],
+    reservationContact: '+212539933758',
     googleMapsUrl: 'https://maps.google.com/?q=Restaurante+Rif+Kebdani+Tangier',
     bestDishes: ['Swordfish Tagine', 'Seven-Vegetable Couscous', 'Traditional Harira Soup'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'Perfect for travelers with dietary needs; they have excellent, carefully labeled gluten-free, vegetarian, and vegan options.',
+    customStory: 'Tucked down a quiet Medina alleyway decorated with blue tiles and handwoven Berber tapestries, Restaurant Rif Kebdani feels like dining in an authentic Moroccan home. The kitchen takes great pride in gentle, balanced seasoning, cooking tender swordfish steaks in tomato chermoula and steaming fragrant semolina couscous.',
+    languagesSpoken: ['Arabic/Darija', 'English', 'French', 'Spanish'],
+    exactAddressAndCoordinates: {
+      address: 'Rue Dar Dbagh, Medina, Tanger 90000, Morocco',
+      lat: 35.78650,
+      lng: -5.81080
+    },
+    pros: [
+      'Very accommodating of vegetarian, vegan, and gluten-free diets.',
+      'Card payments accepted inside the medina.',
+      'Warm, calm ambiance away from the medina market hustle.'
+    ],
+    cons: [
+      'Slightly tucked away; navigation through winding alleys required.',
+      'Can be busy on Friday lunch for the traditional couscous service.'
+    ],
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor'],
@@ -539,6 +831,8 @@ export const tangierEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "couscous", "dinner", "dry", "medina", "tagine"]
   },
   {
     id: 'e-tangier-11',
@@ -551,6 +845,8 @@ export const tangierEat: EatListing[] = [
     mealTypes: ['breakfast', 'dinner'],
     experienceTypes: ['Fine Dining', 'Romantic Sunset', 'Upscale Lounge'],
     foodStyles: ['French', 'Italian', 'Mediterranean', 'Gourmet'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international'],
     crowdLevel: 'quiet',
     groupTypes: ['couple', 'seniors', 'business-friendly'],
     hasEnglishStaff: true,
@@ -562,18 +858,28 @@ export const tangierEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: true,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '19:00',
     closeTime: '23:30',
     badge: 'splurge',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.7,
     googleReviewCount: 120,
     tripadvisorRating: 4.7,
-    tripadvisorReviewCount: 120,
+    tripadvisorReviewCount: 65,
     theforkRating: 4.7,
     theforkReviewCount: 120,
     restaurantguruRating: 4.7,
     restaurantguruReviewCount: 120,
+
+    tip: 'Children under 5 are not permitted. Dress strictly elegant and reserve well in advance for a magical, candlelit dinner in their historic gardens.',
+    archetypeAffinity: ['luxury-traveler', 'romantic-getaway', 'architecture-enthusiast'],
+    vibeTags: ['ysl-heritage', 'clifftop-estate', 'fine-dining', 'lush-botanical-gardens'],
+    isHiddenGem: true,
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['phone', 'online'],
     reservationContact: '+212666600488',
@@ -581,7 +887,22 @@ export const tangierEat: EatListing[] = [
     bestDishes: ['John Dory Goujons with Tartar Sauce', 'Risotto Primavera with Asparagus', 'Towering Vanilla Meringue Cake'],
     alcoholPolicy: 'serves-alcohol',
     ramadanFriendly: 'serves-lunch',
-    tip: 'Children under 5 are not permitted. Dress strictly elegant and reserve well in advance for a magical, candlelit dinner in their historic gardens.',
+    customStory: 'Once the private sanctuary of couturier Yves Saint Laurent and Pierre Bergé, Villa Mabrouka was lovingly restored by British designer Jasper Conran into a boutique hotel and restaurant. Set amidst lush subtropical clifftop gardens overlooking the Strait, dining here is an intimate, cinematic reverie.',
+    languagesSpoken: ['French', 'English', 'Arabic/Darija'],
+    exactAddressAndCoordinates: {
+      address: '1 Rue Sidi Bouknadel, Tanger 90000, Morocco',
+      lat: 35.79010,
+      lng: -5.81720
+    },
+    pros: [
+      'Breathtaking Yves Saint Laurent historical estate with sweeping Strait views.',
+      'Refined Riviera-inspired cuisine executed with delicate precision.',
+      'Lush botanical garden setting with emerald swimming pool terrace.'
+    ],
+    cons: [
+      'Very high price tier; strictly reservation only.',
+      'Age policy: children under 5 are not admitted.'
+    ],
     bestTimeToVisit: 'Early evening around 18:30 for sunset',
     averageWaitMinutes: 0,
     seatingTypes: ['indoor', 'garden'],
@@ -589,6 +910,8 @@ export const tangierEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: false
+  ,
+    tags: ["alcohol", "breakfast", "dinner", "fine", "medina", "quiet", "sunset", "wifi"]
   },
   {
     id: 'e-tangier-12',
@@ -601,6 +924,8 @@ export const tangierEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Casual Dining', 'Local Gathering Spot', 'Cozy casual family-run Moroccan eatery'],
     foodStyles: ['Moroccan'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'kids-friendly'],
     hasEnglishStaff: false,
@@ -612,25 +937,51 @@ export const tangierEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '11:00',
     closeTime: '23:00',
     badge: 'local',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.5,
     googleReviewCount: 3400,
     tripadvisorRating: 4.5,
-    tripadvisorReviewCount: 3400,
+    tripadvisorReviewCount: 780,
     theforkRating: 4.5,
     theforkReviewCount: 3400,
     restaurantguruRating: 4.5,
     restaurantguruReviewCount: 3400,
+
+    tip: 'Perfect for an honest, extremely hearty local meal. Walk past the open cooking station at the entrance to see their famous spit-roasted chickens.',
+    archetypeAffinity: ['budget-conscious', 'culture-seeker', 'solo-traveler'],
+    vibeTags: ['rotisserie-chicken', 'comfort-food', 'bustling-local-diner', 'tangier-staple'],
+    isHiddenGem: false,
     paymentMethods: ['cash'],
     reservationMethod: ['none'],
+    reservationContact: '+212539942088',
     googleMapsUrl: 'https://maps.google.com/?q=Restaurant+Bachir+Tangier',
     bestDishes: ['Spit-Roasted Rotisserie Chicken', 'Loubia (White Beans in Spiced Tomato)', 'Beef Tagine with Peas'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'Perfect for an honest, extremely hearty local meal. Walk past the open cooking station at the entrance to see their famous spit-roasted chickens.',
+    customStory: 'Since 1968, Restaurant Bachir has fed generations of Tangerois workers, families, and students. Just steps from Boulevard Pasteur, the aroma of crackling golden rotisserie chickens roasted over open flames draws perpetual queues for fast, steaming plates of chicken, fries, and slow-braised white bean loubia.',
+    languagesSpoken: ['Arabic/Darija', 'French'],
+    exactAddressAndCoordinates: {
+      address: 'Avenue Prince Moulay Abdallah, Tanger 90000, Morocco',
+      lat: 35.78095,
+      lng: -5.81185
+    },
+    pros: [
+      'Sensational spit-roasted chicken with crispy skin and fragrant spices.',
+      'Unbeatable low prices in the city center.',
+      'Speedy, efficient table turnover.'
+    ],
+    cons: [
+      'Cash only payment.',
+      'Can get loud and crowded during lunch rush hours.'
+    ],
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor'],
@@ -638,6 +989,8 @@ export const tangierEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: true
+  ,
+    tags: ["budget", "dinner", "dry", "tagine"]
   },
   {
     id: 'e-tangier-13',
@@ -650,6 +1003,8 @@ export const tangierEat: EatListing[] = [
     mealTypes: ['breakfast', 'afternoon-tea', 'flexible'],
     experienceTypes: ['Cafe', 'Traditional Dining', 'People Watching'],
     foodStyles: ['Moroccan', 'Cafe', 'Bakery'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'cafe-pastry'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'couple', 'friends', 'seniors'],
     hasEnglishStaff: true,
@@ -661,25 +1016,51 @@ export const tangierEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '06:00',
     closeTime: '23:00',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.1,
     googleReviewCount: 1500,
     tripadvisorRating: 4.1,
-    tripadvisorReviewCount: 1500,
+    tripadvisorReviewCount: 460,
     theforkRating: 4.1,
     theforkReviewCount: 1500,
     restaurantguruRating: 4.1,
     restaurantguruReviewCount: 1500,
+
+    tip: 'Try to secure a terrace seat facing the historic square. Order a "café nos-nos" (half milk, half coffee) and watch the vibrant daily life of the souks.',
+    archetypeAffinity: ['culture-seeker', 'solo-traveler', 'history-buff'],
+    vibeTags: ['petit-socco', 'historic-square', 'people-watching', 'nos-nos-coffee'],
+    isHiddenGem: false,
     paymentMethods: ['cash'],
     reservationMethod: ['none'],
+    reservationContact: '+212539931880',
     googleMapsUrl: 'https://maps.google.com/?q=Cafe+Tingis+Tangier',
     bestDishes: ['Moroccan Cafe Nos-Nos', 'Sweet Mint Tea', 'Harcha Flatbread'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'Try to secure a terrace seat facing the historic square. Order a "café nos-nos" (half milk, half coffee) and watch the vibrant daily life of the souks.',
+    customStory: 'Overlooking the intimate crossroads of Petit Socco, Café Tingis was a favorite haunt of Tennessee Williams, Paul Bowles, and William Burroughs during the International Zone epoch. Its outdoor wicker chairs spill onto the cobblestones, granting front-row seats to street musicians, carpet merchants, and passing travelers.',
+    languagesSpoken: ['Arabic/Darija', 'French', 'Spanish', 'English'],
+    exactAddressAndCoordinates: {
+      address: 'Place du Petit Socco, Medina, Tanger 90000, Morocco',
+      lat: 35.78580,
+      lng: -5.81050
+    },
+    pros: [
+      'Prime people-watching hub in the historic heart of the Petit Socco.',
+      'Rich literary heritage and authentic old-world café atmosphere.',
+      'Cheap espresso, fresh mint tea, and Moroccan breakfast snacks.'
+    ],
+    cons: [
+      'Street performers and hawkers frequently pass by terrace tables.',
+      'Cash only payment.'
+    ],
     bestTimeToVisit: 'Early morning for fresh baked goods',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor', 'terrace'],
@@ -687,6 +1068,8 @@ export const tangierEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["breakfast", "budget", "cafe-pastry", "dry", "medina", "pastry", "terrace"]
   },
   {
     id: 'e-tangier-14',
@@ -699,6 +1082,8 @@ export const tangierEat: EatListing[] = [
     mealTypes: ['breakfast', 'lunch', 'afternoon-tea', 'flexible'],
     experienceTypes: ['Cafe', 'Casual Dining', 'People Watching'],
     foodStyles: ['Cafe', 'Mediterranean', 'Bakery'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['cafe-pastry', 'international'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'couple', 'friends'],
     hasEnglishStaff: true,
@@ -710,25 +1095,51 @@ export const tangierEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '08:00',
     closeTime: '23:30',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.3,
     googleReviewCount: 2600,
     tripadvisorRating: 4.3,
-    tripadvisorReviewCount: 2600,
+    tripadvisorReviewCount: 680,
     theforkRating: 4.3,
     theforkReviewCount: 2600,
     restaurantguruRating: 4.3,
     restaurantguruReviewCount: 2600,
+
+    tip: 'Extremely laptop-friendly inside, while the bustling outdoor plaza seats offer excellent views of the historic Grand Socco gates.',
+    archetypeAffinity: ['digital-nomad', 'creative', 'culture-seeker'],
+    vibeTags: ['cinematheque', 'art-deco', 'grand-socco-terrace', 'creative-community'],
+    isHiddenGem: false,
     paymentMethods: ['cash'],
     reservationMethod: ['none'],
+    reservationContact: '+212539934683',
     googleMapsUrl: 'https://maps.google.com/?q=Cinema+Rif+Tangier',
     bestDishes: ['Freshly Squeezed Orange Juice', 'Avocado Shake', 'Msemen with Cream Cheese'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'Extremely laptop-friendly inside, while the bustling outdoor plaza seats offer excellent views of the historic Grand Socco gates.',
+    customStory: 'Rescued and converted into the Cinémathèque de Tanger in the mid-2000s, this historic 1938 movie theatre anchors the Grand Socco. Its red-and-chrome retro café buzzes with young filmmakers, indie screenwriters, and local intellectuals debating cinema over fresh juices and espresso.',
+    languagesSpoken: ['French', 'Arabic/Darija', 'English', 'Spanish'],
+    exactAddressAndCoordinates: {
+      address: 'Place du 9 Avril 1947 (Grand Socco), Tanger 90000, Morocco',
+      lat: 35.78440,
+      lng: -5.81390
+    },
+    pros: [
+      'Inspiring cultural atmosphere inside the city\'s historic art-house cinematheque.',
+      'Plaza terrace facing the animated palm trees and fountain of Grand Socco.',
+      'Laptop-friendly work tables with dependable Wi-Fi inside.'
+    ],
+    cons: [
+      'Cash only payment at the counter.',
+      'Terrace tables fill up rapidly on pleasant sunny afternoons.'
+    ],
     bestTimeToVisit: 'Early morning for fresh baked goods',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor', 'terrace'],
@@ -736,6 +1147,8 @@ export const tangierEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: true
+  ,
+    tags: ["breakfast", "budget", "cafe-pastry", "dry", "juice", "medina", "pastry", "terrace", "wifi"]
   },
   {
     id: 'e-tangier-15',
@@ -748,6 +1161,8 @@ export const tangierEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Traditional Dining', 'Cozy casual family-run Moroccan eatery'],
     foodStyles: ['Moroccan', 'Seafood'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'seafood'],
     crowdLevel: 'quiet',
     groupTypes: ['solo', 'couple', 'family', 'friends'],
     hasEnglishStaff: true,
@@ -759,25 +1174,51 @@ export const tangierEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '22:00',
     badge: 'hidden-gem',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.7,
     googleReviewCount: 320,
     tripadvisorRating: 4.7,
-    tripadvisorReviewCount: 320,
+    tripadvisorReviewCount: 160,
     theforkRating: 4.7,
     theforkReviewCount: 320,
     restaurantguruRating: 4.7,
     restaurantguruReviewCount: 320,
+
+    tip: 'Tucked away in a quiet alley. The seafood tajine is loaded with fresh herbs, olives, and preserves, offering a lighter Northern taste.',
+    archetypeAffinity: ['budget-conscious', 'hidden-gem-hunter', 'family-run-lover'],
+    vibeTags: ['family-hospitality', 'seafood-tagine', 'quiet-medina-alley', 'authentic-chamali'],
+    isHiddenGem: true,
     paymentMethods: ['cash'],
     reservationMethod: ['none'],
+    reservationContact: '+212670845322',
     googleMapsUrl: 'https://maps.google.com/?q=Restaurant+Ahlen+Tangier',
     bestDishes: ['Northern Fish Soup', 'Spiced Seafood Tajine', 'Lamb Kefta with Tomatoes'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'Tucked away in a quiet alley. The seafood tajine is loaded with fresh herbs, olives, and preserves, offering a lighter Northern taste.',
+    customStory: 'Managed by a devoted husband-and-wife duo down a calm residential lane of the old medina, Restaurant Ahlen exemplifies northern Moroccan warmth ("Ahlen" means welcome). Diners are welcomed like relatives into a snug room with hand-embroidered tablecloths, savoring freshly simmered fish tagines that taste like home cooking.',
+    languagesSpoken: ['Arabic/Darija', 'French', 'English', 'Spanish'],
+    exactAddressAndCoordinates: {
+      address: '8 Rue des Postes, Medina, Tanger 90000, Morocco',
+      lat: 35.78560,
+      lng: -5.81170
+    },
+    pros: [
+      'Genuinely heartfelt and attentive family-run service.',
+      'Exceptional fresh seafood tagine packed with aromatic local herbs and lemon.',
+      'Relaxed, intimate quiet dining without tourist hustle.'
+    ],
+    cons: [
+      'Small venue with only five tables; can fill up quickly.',
+      'Cash only payment.'
+    ],
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor'],
@@ -785,6 +1226,8 @@ export const tangierEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "dinner", "dry", "medina", "quiet", "tagine"]
   },
   {
     id: 'e-tangier-16',
@@ -808,25 +1251,50 @@ export const tangierEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '23:30',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.4,
     googleReviewCount: 810,
     tripadvisorRating: 4.4,
-    tripadvisorReviewCount: 810,
+    tripadvisorReviewCount: 310,
     theforkRating: 4.4,
     theforkReviewCount: 810,
     restaurantguruRating: 4.4,
     restaurantguruReviewCount: 810,
+
+    tip: 'Perfect for families. Their wood-fired pizzas feature fresh buffalo mozzarella and authentic, imported Italian flour.',
+    archetypeAffinity: ['pizza-enthusiast', 'beachfront-diner', 'family'],
+    vibeTags: ['beach-promenade', 'wood-fired-pizza', 'seafront-terrace', 'family-italian'],
+    isHiddenGem: false,
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['phone'],
+    reservationContact: '+212539343360',
     googleMapsUrl: 'https://maps.google.com/?q=Dall+Italiano+Tangier',
     bestDishes: ['Seafood Risotto', 'Prosciutto wood-fired Pizza', 'Handmade Ravioli with Spinach'],
     alcoholPolicy: 'serves-alcohol',
     ramadanFriendly: 'serves-lunch',
-    tip: 'Perfect for families. Their wood-fired pizzas feature fresh buffalo mozzarella and authentic, imported Italian flour.',
+    customStory: 'Positioned right along the seaside promenade of Boulevard Mohamed VI, Dall\'Italiano brings coastal Italian warmth to Tangier. The wood-fired brick oven churns out thin-crust Neapolitan-style pizzas alongside steaming bowls of squid-ink pasta and creamy saffron seafood risotto.',
+    languagesSpoken: ['French', 'Italian', 'English', 'Arabic/Darija'],
+    exactAddressAndCoordinates: {
+      address: 'Boulevard Mohamed VI, Corniche, Tanger 90000, Morocco',
+      lat: 35.77610,
+      lng: -5.79520
+    },
+    pros: [
+      'Authentic wood-fired stone oven pizzas with premium cheeses.',
+      'Prime beach promenade location with outdoor seaside terrace.',
+      'Extensive menu accommodating kids and varied dietary preferences.'
+    ],
+    cons: [
+      'Busy on summer evenings with potential waits for outdoor tables.',
+      'Corniche traffic can be lively during peak holiday seasons.'
+    ],
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor', 'terrace'],
@@ -834,6 +1302,8 @@ export const tangierEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: true
+  ,
+    tags: ["alcohol", "budget", "dinner", "terrace", "wifi"]
   },
   {
     id: 'e-tangier-17',
@@ -846,6 +1316,8 @@ export const tangierEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Traditional Dining', 'Live Music Terrace', 'Fine Dining'],
     foodStyles: ['Moroccan'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional'],
     crowdLevel: 'balanced',
     groupTypes: ['couple', 'family', 'seniors', 'large-groups'],
     hasEnglishStaff: true,
@@ -857,25 +1329,51 @@ export const tangierEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '11:30',
     closeTime: '23:00',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.2,
     googleReviewCount: 1600,
     tripadvisorRating: 4.2,
-    tripadvisorReviewCount: 1600,
+    tripadvisorReviewCount: 520,
     theforkRating: 4.2,
     theforkReviewCount: 1600,
     restaurantguruRating: 4.2,
     restaurantguruReviewCount: 1600,
+
+    tip: 'Popular with tour groups but still highly valued by locals for the consistency of their sweet lamb tagines and the authentic Andalusian music played during dinner.',
+    archetypeAffinity: ['culture-seeker', 'music-lover', 'traditional-flavor'],
+    vibeTags: ['andalusian-music', 'palace-interiors', 'pigeon-pastilla', 'live-oud'],
+    isHiddenGem: false,
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['phone'],
+    reservationContact: '+212539934514',
     googleMapsUrl: 'https://maps.google.com/?q=Restaurant+Hammadi+Tangier',
     bestDishes: ['Royal Pigeon Pastilla', 'Lamb Tagine with Caramelized Apricots', 'Harira Soup'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'Popular with tour groups but still highly valued by locals for the consistency of their sweet lamb tagines and the authentic Andalusian music played during dinner.',
+    customStory: 'Stepping through the carved cedar doors of Restaurant Hammadi transports guests into an Andalusian-Moroccan palace setting. Musicians in traditional djellabas pluck the oud and violin while waiters present ornate silver tagines of fork-tender lamb studded with almonds and toasted sesame seeds.',
+    languagesSpoken: ['French', 'English', 'Arabic/Darija', 'Spanish'],
+    exactAddressAndCoordinates: {
+      address: '2 Rue de la Kasbah, Tanger 90000, Morocco',
+      lat: 35.78790,
+      lng: -5.81340
+    },
+    pros: [
+      'Atmospheric live Andalusian lute and violin music during evening service.',
+      'Superb sweet-and-savory pigeon pastilla with flaky warka pastry.',
+      'Elaborate Moorish zellige tilework and hand-painted wood ceilings.'
+    ],
+    cons: [
+      'Frequently hosts tour groups during peak travel seasons.',
+      'Can feel more tourist-oriented than smaller neighborhood hidden gems.'
+    ],
     bestTimeToVisit: 'Late evening after 20:00 for lively crowd',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor'],
@@ -883,6 +1381,8 @@ export const tangierEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: true
+  ,
+    tags: ["budget", "dinner", "dry", "fine", "live-music", "medina", "palace", "pastilla", "tagine", "wifi"]
   },
   {
     id: 'e-tangier-18',
@@ -895,6 +1395,8 @@ export const tangierEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Waterfront Dining', 'Fine Seafood', 'Fine Dining'],
     foodStyles: ['Seafood', 'Spanish', 'Mediterranean'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['seafood', 'international'],
     crowdLevel: 'balanced',
     groupTypes: ['couple', 'family', 'friends', 'business-friendly'],
     hasEnglishStaff: true,
@@ -906,25 +1408,51 @@ export const tangierEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: true,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '23:30',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.3,
     googleReviewCount: 1100,
     tripadvisorRating: 4.3,
-    tripadvisorReviewCount: 1100,
+    tripadvisorReviewCount: 410,
     theforkRating: 4.3,
     theforkReviewCount: 1100,
     restaurantguruRating: 4.3,
     restaurantguruReviewCount: 1100,
+
+    tip: 'Perfect for seafood lovers who appreciate Spanish cooking. Their grilled squid and baked sea bass are cooked to perfection.',
+    archetypeAffinity: ['seafood-lover', 'spanish-cuisine', 'waterfront-diner'],
+    vibeTags: ['spanish-paella', 'atlantic-catch', 'corniche-dining', 'seafood-platter'],
+    isHiddenGem: false,
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['phone'],
+    reservationContact: '+212539943973',
     googleMapsUrl: 'https://maps.google.com/?q=El+Tangerino+Tangier',
     bestDishes: ['Spanish Seafood Paella', 'Grilled Calamari', 'Salt-Baked Whole Sea Bass'],
     alcoholPolicy: 'serves-alcohol',
     ramadanFriendly: 'serves-lunch',
-    tip: 'Perfect for seafood lovers who appreciate Spanish cooking. Their grilled squid and baked sea bass are cooked to perfection.',
+    customStory: 'Honoring Tangier\'s deep historical connection to Andalusia and the Iberian coast, El Tangerino is a revered maritime institution on the bay. Crisp white linen tables face the sparkling Mediterranean as seasoned waiters serve steaming paelleras laden with jumbo prawns, clams, and freshly grilled whole wild turbot.',
+    languagesSpoken: ['Spanish', 'French', 'English', 'Arabic/Darija'],
+    exactAddressAndCoordinates: {
+      address: '186 Boulevard Mohamed VI, Tanger 90000, Morocco',
+      lat: 35.77450,
+      lng: -5.79230
+    },
+    pros: [
+      'Outstanding seafood paella prepared with freshly harvested shellfish.',
+      'Prime maritime views across the bay towards Cape Malabata.',
+      'Extensive cellar of fine Spanish and Moroccan wines.'
+    ],
+    cons: [
+      'Upper-tier pricing compared to casual harbor eateries.',
+      'Advance reservations recommended for ocean-facing window tables.'
+    ],
     bestTimeToVisit: 'Early evening around 18:30 for sunset',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor', 'terrace'],
@@ -932,6 +1460,8 @@ export const tangierEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: true
+  ,
+    tags: ["alcohol", "budget", "dinner", "fine", "terrace", "wifi"]
   },
   {
     id: 'e-tangier-19',
@@ -944,6 +1474,8 @@ export const tangierEat: EatListing[] = [
     mealTypes: ['breakfast', 'lunch', 'dinner', 'brunch', 'afternoon-tea'],
     experienceTypes: ['Sunset Views', 'Scenic Views', 'Cafe'],
     foodStyles: ['Mediterranean', 'Moroccan', 'Healthy'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'moroccan-traditional'],
     crowdLevel: 'balanced',
     groupTypes: ['solo', 'couple', 'friends', 'family'],
     hasEnglishStaff: true,
@@ -955,25 +1487,51 @@ export const tangierEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '10:00',
     closeTime: '22:00',
     badge: 'hidden-gem',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.6,
     googleReviewCount: 290,
     tripadvisorRating: 4.6,
-    tripadvisorReviewCount: 290,
+    tripadvisorReviewCount: 110,
     theforkRating: 4.6,
     theforkReviewCount: 290,
     restaurantguruRating: 4.6,
     restaurantguruReviewCount: 290,
+
+    tip: 'Check out their small artisanal shop selling handcrafted clothing and bags downstairs before heading up to the tranquil rooftop.',
+    archetypeAffinity: ['bohemian', 'healthy-eater', 'sunset-seeker'],
+    vibeTags: ['kasbah-rooftop', 'artisan-boutique', 'panoramic-terrace', 'organic-salads'],
+    isHiddenGem: true,
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['phone'],
+    reservationContact: '+212539934764',
     googleMapsUrl: 'https://maps.google.com/?q=Dar+El+Kasbah+Kasbart+Tangier',
     bestDishes: ['Tangier Spiced Lamb Tagine', 'Assorted Moroccan Dips', 'Fresh Avocado Orange Juice'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'Check out their small artisanal shop selling handcrafted clothing and bags downstairs before heading up to the tranquil rooftop.',
+    customStory: 'Perched in the highest aerie of the Kasbah inside the boutique hotel Dar El Kasbah, Kasbart combines contemporary Moroccan craftsmanship with rooftop dining tranquility. Guests relax under canvas umbrellas surrounded by potted succulents, gazing out over the whitewashed Medina rooftops to the blue waters of the Strait.',
+    languagesSpoken: ['French', 'English', 'Spanish', 'Arabic/Darija'],
+    exactAddressAndCoordinates: {
+      address: '64 Rue de la Kasbah, Tanger 90000, Morocco',
+      lat: 35.78910,
+      lng: -5.81320
+    },
+    pros: [
+      'Serene rooftop sanctuary with 360-degree Kasbah and bay panoramas.',
+      'Clean, colorful presentation of healthy Mediterranean and Moroccan fare.',
+      'Downstairs artisanal boutique showcasing local design and craftsmanship.'
+    ],
+    cons: [
+      'Stair access only to the rooftop; not wheelchair accessible.',
+      'Limited seating can mean waiting during sunset golden hour.'
+    ],
     bestTimeToVisit: 'Early evening around 18:30 for sunset',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor', 'rooftop'],
@@ -981,6 +1539,8 @@ export const tangierEat: EatListing[] = [
     wiFi: true,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["breakfast", "budget", "cafe-pastry", "dinner", "dry", "juice", "medina", "riad", "rooftop", "street-food", "sunset", "tagine", "wifi"]
   },
   {
     id: 'e-tangier-20',
@@ -993,6 +1553,8 @@ export const tangierEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner', 'latenight', 'flexible'],
     experienceTypes: ['Casual Dining', 'Quick Bites', 'Local Gathering Spot'],
     foodStyles: ['Moroccan', 'Fast Food'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'international'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'friends'],
     hasEnglishStaff: false,
@@ -1004,25 +1566,51 @@ export const tangierEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '10:00',
     closeTime: '02:00',
     badge: 'local',
     // googlePlaceId: "PLACE_ID_HERE",
+
+    // ── RATINGS ──
     googleRating: 4.5,
     googleReviewCount: 850,
     tripadvisorRating: 4.5,
-    tripadvisorReviewCount: 850,
+    tripadvisorReviewCount: 220,
     theforkRating: 4.5,
     theforkReviewCount: 850,
     restaurantguruRating: 4.5,
     restaurantguruReviewCount: 850,
+
+    tip: 'Perfect for a rapid, satisfying street bite. Order their custom tuna bocadillo with egg, olives, fries, and spicy northern harissa sauce stuffed inside.',
+    archetypeAffinity: ['budget-conscious', 'street-food-lover', 'late-night-eater'],
+    vibeTags: ['tangier-bocadillo', 'street-food-legend', 'grand-socco', 'late-night-bites'],
+    isHiddenGem: false,
     paymentMethods: ['cash'],
     reservationMethod: ['none'],
+    reservationContact: '+212661559988',
     googleMapsUrl: 'https://maps.google.com/?q=Snack+Hassan+Grand+Socco+Tangier',
     bestDishes: ['Spicy Tuna Bocadillo', 'Kefta and Fries Wrap', 'Northern Harissa Chicken Sandwich'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
-    tip: 'Perfect for a rapid, satisfying street bite. Order their custom tuna bocadillo with egg, olives, fries, and spicy northern harissa sauce stuffed inside.',
+    customStory: 'Every Tangerois has a cherished memory of a midnight bocadillo from Snack Hassan. Anchoring the entry steps to Grand Socco, the cooks slice crisp French baguettes with lightning speed, loading them with flaked Atlantic tuna, soft-boiled eggs, golden French fries, and a fiery homemade harissa sauce.',
+    languagesSpoken: ['Arabic/Darija', 'French', 'Spanish'],
+    exactAddressAndCoordinates: {
+      address: 'Rue de la Liberté, Near Grand Socco, Tanger 90000, Morocco',
+      lat: 35.78390,
+      lng: -5.81360
+    },
+    pros: [
+      'Quintessential northern Moroccan bocadillo sandwich experience.',
+      'Extremely economical price under 30-35 MAD for a loaded baguette.',
+      'Open late into the night until 02:00 AM.'
+    ],
+    cons: [
+      'Standing room and counter only; minimal seating.',
+      'Cash only payment.'
+    ],
     bestTimeToVisit: 'Late evening after 20:00 for lively crowd',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor'],
@@ -1030,5 +1618,241 @@ export const tangierEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "dinner", "dry", "late-night", "medina", "street-food"]
+  },
+  {
+    id: "e-tangier-mcdonalds-city-mall",
+    city: "tangier",
+    name: "McDonald's Tanger City Mall",
+    neighborhood: "Malabata",
+    district: "Place du Maghreb Arabe",
+    description: "Bustling McDonald's branch inside the Tanger City Mall facing the Bay of Tangier, offering McCaf\u00e9 treats, burgers, and mall shopping convenience.",
+    pricePerPerson: 65,
+    lifestyle: "lean",
+    mealTypes: ["breakfast", "lunch", "dinner", "latenight"],
+    experienceTypes: ["Fast Food", "Mall Dining", "Ocean Views"],
+    foodStyles: ["Burgers", "Fast Food", "American"],
+    alcoholPolicy: "dry",
+    ramadanFriendly: "special-ftour",
+    crowdLevel: "bustling",
+    groupTypes: ["family", "kids-friendly", "friends"],
+    hasEnglishStaff: true,
+    hasFrenchStaff: true,
+    hasDelivery: true,
+    hasParking: true,
+    nearMedina: false,
+    nearBeach: true,
+    nearCenter: true,
+    isVegetarianFriendly: true,
+    isHalal: true,
+    halalStatus: "halal-certified",
+    verificationStatus: "verified",
+    openTime: "08:00",
+    closeTime: "01:00",
+    badge: "local-favorite",
+    googleRating: 4.1,
+    googleReviewCount: 5400,
+    googleMapsUrl: "https://maps.google.com/?cid=4756192837465019283",
+    paymentMethods: ["Cash", "Credit Card", "Contactless"],
+    languagesSpoken: ["Arabic", "French", "English", "Spanish"],
+    wiFi: true,
+    airConditioning: true,
+    wheelchairAccessible: true,
+    tags: ["street-food", "late-night", "breakfast", "budget"],
+    exactAddressAndCoordinates: {
+      address: "Tanger City Mall, Place du Maghreb Arabe, Malabata, Tangier",
+      lat: 35.7765,
+      lng: -5.7925
+    }
+  },
+  {
+    id: "e-tangier-kfc-city-mall",
+    city: "tangier",
+    name: "KFC Tanger City Mall",
+    neighborhood: "Malabata",
+    district: "Tanger City Mall Food Court",
+    description: "Second-floor food court KFC in Tanger City Mall serving hot crispy chicken wings, Colonel burgers, and coleslaw.",
+    pricePerPerson: 60,
+    lifestyle: "lean",
+    mealTypes: ["lunch", "dinner"],
+    experienceTypes: ["Fast Food", "Mall Dining"],
+    foodStyles: ["Fried Chicken", "Fast Food", "American"],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international'],
+    alcoholPolicy: "dry",
+    ramadanFriendly: "special-ftour",
+    crowdLevel: "bustling",
+    groupTypes: ["family", "friends", "solo"],
+    hasEnglishStaff: true,
+    hasFrenchStaff: true,
+    hasDelivery: true,
+    hasParking: true,
+    nearMedina: false,
+    nearBeach: true,
+    nearCenter: true,
+    isVegetarianFriendly: false,
+    isHalal: true,
+    servesAlcohol: false,
+    halalStatus: "halal-certified",
+    verificationStatus: "verified",
+    openTime: "11:00",
+    closeTime: "23:30",
+    badge: "local-favorite",
+    googleRating: 3.9,
+    googleReviewCount: 1980,
+    googleMapsUrl: "https://maps.google.com/?cid=5869403827164920193",
+    paymentMethods: ["Cash", "Credit Card", "Contactless"],
+    languagesSpoken: ["Arabic", "French", "English", "Spanish"],
+    wiFi: true,
+    airConditioning: true,
+    wheelchairAccessible: true,
+    tags: ["street-food", "budget"],
+    exactAddressAndCoordinates: {
+      address: "Tanger City Mall, Place du Maghreb Arabe, Malabata, Tangier",
+      lat: 35.7765,
+      lng: -5.7925
+    }
+  },
+  {
+    id: "e-tangier-burger-king-city-mall",
+    city: "tangier",
+    name: "Burger King Tanger City Mall",
+    neighborhood: "Malabata",
+    district: "Tanger City Mall Food Court",
+    description: "Flame-grilled burger hub located in Tanger City Mall food court, serving Whoppers, chicken nuggets, and onion rings.",
+    pricePerPerson: 65,
+    lifestyle: "lean",
+    mealTypes: ["lunch", "dinner"],
+    experienceTypes: ["Fast Food", "Mall Dining"],
+    foodStyles: ["Burgers", "Fast Food", "American"],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international'],
+    alcoholPolicy: "dry",
+    ramadanFriendly: "special-ftour",
+    crowdLevel: "bustling",
+    groupTypes: ["family", "friends", "solo"],
+    hasEnglishStaff: true,
+    hasFrenchStaff: true,
+    hasDelivery: true,
+    hasParking: true,
+    nearMedina: false,
+    nearBeach: true,
+    nearCenter: true,
+    isVegetarianFriendly: true,
+    isHalal: true,
+    servesAlcohol: false,
+    halalStatus: "halal-certified",
+    verificationStatus: "verified",
+    openTime: "11:00",
+    closeTime: "23:30",
+    badge: "local-favorite",
+    googleRating: 4.0,
+    googleReviewCount: 2200,
+    googleMapsUrl: "https://maps.google.com/?cid=6970514938275039284",
+    paymentMethods: ["Cash", "Credit Card", "Contactless"],
+    languagesSpoken: ["Arabic", "French", "English", "Spanish"],
+    wiFi: true,
+    airConditioning: true,
+    wheelchairAccessible: true,
+    tags: ["street-food", "budget"],
+    exactAddressAndCoordinates: {
+      address: "Tanger City Mall, Place du Maghreb Arabe, Malabata, Tangier",
+      lat: 35.7765,
+      lng: -5.7925
+    }
+  },
+  {
+    id: "e-tangier-pizza-hut-pasteur",
+    city: "tangier",
+    name: "Pizza Hut Boulevard Pasteur",
+    neighborhood: "Centre Ville",
+    district: "Boulevard Pasteur",
+    description: "Prime downtown Tangier Pizza Hut situated along Boulevard Pasteur, offering classic pan pizzas and quick takeaway.",
+    pricePerPerson: 70,
+    lifestyle: "lean",
+    mealTypes: ["lunch", "dinner", "latenight"],
+    experienceTypes: ["Casual Dining", "Pizza"],
+    foodStyles: ["Pizza", "Italian-American", "Fast Food"],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international'],
+    alcoholPolicy: "dry",
+    ramadanFriendly: "special-ftour",
+    crowdLevel: "balanced",
+    groupTypes: ["family", "friends"],
+    hasEnglishStaff: true,
+    hasFrenchStaff: true,
+    hasDelivery: true,
+    hasParking: false,
+    nearMedina: true,
+    nearBeach: false,
+    nearCenter: true,
+    isVegetarianFriendly: true,
+    isHalal: true,
+    servesAlcohol: false,
+    halalStatus: "halal-certified",
+    verificationStatus: "verified",
+    openTime: "11:30",
+    closeTime: "00:30",
+    badge: "local-favorite",
+    googleRating: 3.8,
+    googleReviewCount: 1650,
+    googleMapsUrl: "https://maps.google.com/?cid=7081625049386140395",
+    paymentMethods: ["Cash", "Credit Card", "Contactless"],
+    languagesSpoken: ["Arabic", "French", "English", "Spanish"],
+    wiFi: true,
+    airConditioning: true,
+    wheelchairAccessible: true,
+    tags: ["late-night", "budget", "medina"],
+    exactAddressAndCoordinates: {
+      address: "Boulevard Pasteur, Centre Ville, Tangier",
+      lat: 35.7802,
+      lng: -5.8112
+    }
+  },
+  {
+    id: "e-tangier-dominos-mohammed-v",
+    city: "tangier",
+    name: "Domino's Pizza Boulevard Mohammed V",
+    neighborhood: "Centre Ville",
+    district: "Boulevard Mohammed V",
+    description: "Centrally positioned Domino's on Boulevard Mohammed V with counter service, carry-out specials, and fast delivery.",
+    pricePerPerson: 60,
+    lifestyle: "lean",
+    mealTypes: ["lunch", "dinner", "latenight"],
+    experienceTypes: ["Takeaway", "Delivery", "Pizza"],
+    foodStyles: ["Pizza", "Fast Food", "American"],
+    alcoholPolicy: "dry",
+    ramadanFriendly: "special-ftour",
+    crowdLevel: "balanced",
+    groupTypes: ["friends", "solo", "family"],
+    hasEnglishStaff: true,
+    hasFrenchStaff: true,
+    hasDelivery: true,
+    hasParking: false,
+    nearMedina: false,
+    nearBeach: false,
+    nearCenter: true,
+    isVegetarianFriendly: true,
+    isHalal: true,
+    halalStatus: "halal-certified",
+    verificationStatus: "verified",
+    openTime: "11:30",
+    closeTime: "01:00",
+    badge: "local-favorite",
+    googleRating: 3.9,
+    googleReviewCount: 1300,
+    googleMapsUrl: "https://maps.google.com/?cid=8192736150497251406",
+    paymentMethods: ["Cash", "Credit Card", "Contactless"],
+    languagesSpoken: ["Arabic", "French", "English", "Spanish"],
+    wiFi: true,
+    airConditioning: true,
+    wheelchairAccessible: true,
+    tags: ["late-night", "budget"],
+    exactAddressAndCoordinates: {
+      address: "Boulevard Mohammed V, Centre Ville, Tangier",
+      lat: 35.7792,
+      lng: -5.8085
+    }
   }
 ];

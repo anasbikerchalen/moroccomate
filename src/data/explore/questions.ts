@@ -14,6 +14,7 @@ export interface QuizQuestion {
   options: QuizOption[];
   multiSelect?: boolean;
   isContext?: boolean; // Whether this is a shared context question
+  weight?: 'hard' | 'strong' | 'soft'; // Scoring priority tier: hard = non-negotiable, strong = 2x, soft = 1x (default)
 }
 
 export const BASE_QUESTIONS: QuizQuestion[] = [
@@ -21,6 +22,7 @@ export const BASE_QUESTIONS: QuizQuestion[] = [
     id: 'base-lifestyle',
     question: "What's your spending style for this trip?",
     isContext: true,
+    weight: 'hard', // Non-negotiable: a budget traveler at a luxury spot = bad match
     options: [
       { id: 'lean', label: 'Lean & Local', tag: 'lean', sub: 'Best value, local gems, authentic savings' },
       { id: 'balanced', label: 'Balanced & Sweet', tag: 'balanced', sub: 'Comfort meets authenticity, mid-range gems' },
@@ -31,6 +33,7 @@ export const BASE_QUESTIONS: QuizQuestion[] = [
     id: 'base-group',
     question: "Who are you exploring with?",
     isContext: true,
+    weight: 'strong', // Family needs weigh double, but less absolute than budget
     options: [
       { id: 'solo', label: 'Solo', tag: 'solo', icon: '👤' },
       { id: 'couple', label: 'Couple', tag: 'couple', icon: '👩‍❤️‍👨' },
@@ -67,6 +70,7 @@ export const CATEGORY_QUESTIONS: Record<Exclude<ExploreCategory, 'photos'>, Quiz
     {
       id: 'setting',
       question: "Where would you like to be?",
+      weight: 'strong', // Location matters a lot for activities
       options: [
         { id: 'medina', label: 'Medina', tag: 'medina', icon: '🏘️', sub: 'Historic old city centers' },
         { id: 'nature', label: 'Nature & Rural', tag: 'nature', icon: '🌿', sub: 'Mountains, oases, and countryside' },
@@ -96,7 +100,7 @@ export const CATEGORY_QUESTIONS: Record<Exclude<ExploreCategory, 'photos'>, Quiz
     },
     {
       id: 'vibe',
-      question: "Who do you want to meet along the way?",
+      question: "What kind of experiences are you drawn to?",
       multiSelect: true,
       options: [
         { id: 'authentic', label: 'Local & Genuine', tag: 'authentic', icon: '🧿', sub: 'Genuine, non-touristy experiences' },
@@ -122,10 +126,21 @@ export const CATEGORY_QUESTIONS: Record<Exclude<ExploreCategory, 'photos'>, Quiz
       id: 'food-diet',
       question: "Any dietary preferences?",
       multiSelect: true,
+      weight: 'hard', // Dietary needs are non-negotiable
       options: [
         { id: 'halal', label: 'Halal Only', tag: 'halal', icon: '🥩' },
         { id: 'vegetarian', label: 'Vegetarian Friendly', tag: 'vegetarian', icon: '🥬' },
         { id: 'alcohol', label: 'Serves Alcohol', tag: 'alcohol', icon: '🍷' }
+      ]
+    },
+    {
+      id: 'food-cuisine',
+      question: "What kind of food are you craving?",
+      options: [
+        { id: 'moroccan-traditional', label: 'Traditional Moroccan', tag: 'moroccan-traditional', icon: '🍲', sub: 'Tagine, couscous, pastilla, the real deal' },
+        { id: 'international', label: 'International & Fusion', tag: 'international', icon: '🌍', sub: 'Italian, Asian, French, or creative fusion' },
+        { id: 'cafe-pastry', label: 'Café & Pastries', tag: 'cafe-pastry', icon: '☕', sub: 'Coffee spots, patisseries, and sweet treats' },
+        { id: 'seafood', label: 'Fresh Seafood', tag: 'seafood', icon: '🐟', sub: 'Ocean-fresh catch and coastal dishes' }
       ]
     },
     {
@@ -144,11 +159,22 @@ export const CATEGORY_QUESTIONS: Record<Exclude<ExploreCategory, 'photos'>, Quiz
     {
       id: 'sleep-type',
       question: "Where do you want to wake up?",
+      weight: 'strong', // Strong preference, not an absolute dealbreaker
       options: [
         { id: 'riad', label: 'Heritage Riad', tag: 'riad', icon: '🏺', sub: 'Traditional medina palace' },
         { id: 'hotel', label: 'Modern Boutique', tag: 'hotel', icon: '🏨', sub: 'Contemporary comfort' },
         { id: 'desert-camp', label: 'Desert Escape', tag: 'desert-camp', icon: '🏜️', sub: 'Under the stars' },
         { id: 'kasbah', label: 'Ancient Kasbah', tag: 'kasbah', icon: '🏰', sub: 'Fortified desert stone' }
+      ]
+    },
+    {
+      id: 'sleep-location',
+      question: "Where should your stay be?",
+      weight: 'strong', // Location matters a lot for where you sleep
+      options: [
+        { id: 'medina-heart', label: 'Heart of the Medina', tag: 'medina-heart', icon: '🏘️', sub: 'Inside the historic walls, steps from the action' },
+        { id: 'ville-nouvelle', label: 'Modern City District', tag: 'ville-nouvelle', icon: '🌆', sub: 'Wide streets, familiar comfort, easy parking' },
+        { id: 'countryside', label: 'Countryside & Nature', tag: 'countryside', icon: '🌿', sub: 'Peaceful, surrounded by palms or mountains' }
       ]
     },
     {
@@ -173,6 +199,15 @@ export const CATEGORY_QUESTIONS: Record<Exclude<ExploreCategory, 'photos'>, Quiz
         { id: 'leather', label: 'Leather & Textiles', tag: 'leather', icon: '👜' },
         { id: 'ceramics', label: 'Ceramics & Decor', tag: 'ceramics', icon: '🏺' },
         { id: 'spices', label: 'Spices & Oils', tag: 'spices', icon: '🌶️' }
+      ]
+    },
+    {
+      id: 'shop-style',
+      question: "What kind of shopping do you enjoy?",
+      options: [
+        { id: 'live-workshop', label: 'Watch Artisans Work', tag: 'live-workshop', icon: '🔨', sub: 'Live craft workshops' },
+        { id: 'fixed-price', label: 'Relaxed Fixed Prices', tag: 'fixed-price', icon: '🏷️', sub: 'No haggling needed' },
+        { id: 'local-favorite', label: 'Local Favorites', tag: 'local-favorite', icon: '❤️', sub: 'Where locals actually shop' }
       ]
     }
   ],
@@ -803,6 +838,17 @@ export function getSubCategoryQuestions(
   ];
 }
 
+// Extra tag sources registered at runtime by auxiliary question datasets
+// (e.g. the pre-quiz quick-shortcut mini-quizzes in preQuizShortcuts.ts) so
+// tag lookups resolve against them without creating a circular import.
+const EXTRA_TAG_SOURCES: QuizQuestion[] = [];
+
+export function registerTagSource(questions: QuizQuestion[]): void {
+  for (const q of questions) {
+    if (!EXTRA_TAG_SOURCES.some(s => s.id === q.id)) EXTRA_TAG_SOURCES.push(q);
+  }
+}
+
 /**
  * Helper to find the tag associated with a specific option ID across all questions
  */
@@ -813,7 +859,8 @@ export const getTagForOptionId = (optionId: string): string => {
     ...BASE_QUESTIONS,
     ...PRACTICAL_SPORT_QUESTIONS,
     ...EXPERIENCE_SPORT_QUESTIONS,
-    ...Object.values(SUB_SPECIFIC_QUESTIONS).flat()
+    ...Object.values(SUB_SPECIFIC_QUESTIONS).flat(),
+    ...EXTRA_TAG_SOURCES
   ];
 
   for (const q of allQuestions) {
@@ -822,4 +869,44 @@ export const getTagForOptionId = (optionId: string): string => {
   }
 
   return optionId;
+};
+
+// Stop-words skipped when matching multi-part quiz answer IDs against listing
+// data, because tiny fragments like 'off' or 'the' create false matches
+// (e.g. 'off' inside 'coffee')
+export const QUIZ_STOP_WORDS = new Set(['the', 'of', 'and', 'a', 'an', 'in', 'to']);
+
+// Scoring weight tier for a quiz question (declared via the question's weight field).
+// hard = non-negotiable (gains 3, penalizes 2 on a confirmed miss),
+// strong = 2x signal, soft = 1x normal weight (default)
+export const getQuizWeightForQuestionId = (questionId: string): 'hard' | 'strong' | 'soft' => {
+  const allQuestions = [
+    ...Object.values(CATEGORY_QUESTIONS).flat(),
+    ...Object.values(PATH_SPECIFIC_QUESTIONS).flat(),
+    ...BASE_QUESTIONS,
+    ...PRACTICAL_SPORT_QUESTIONS,
+    ...EXPERIENCE_SPORT_QUESTIONS,
+    ...Object.values(SUB_SPECIFIC_QUESTIONS).flat(),
+    ...EXTRA_TAG_SOURCES
+  ];
+  const question = allQuestions.find(q => q.id === questionId);
+  return question?.weight || 'soft';
+};
+
+// Flat list of every quiz question across all categories (for answer pill editors
+// and label lookups)
+export const getAllQuizQuestions = (): QuizQuestion[] => [
+  ...Object.values(CATEGORY_QUESTIONS).flat(),
+  ...Object.values(PATH_SPECIFIC_QUESTIONS).flat(),
+  ...BASE_QUESTIONS,
+  ...PRACTICAL_SPORT_QUESTIONS,
+  ...EXPERIENCE_SPORT_QUESTIONS,
+  ...Object.values(SUB_SPECIFIC_QUESTIONS).flat()
+];
+
+// Pretty label for a specific quiz answer (used on result cards and answer pills)
+export const getQuizOptionLabel = (questionId: string, answerId: string): string => {
+  const question = getAllQuizQuestions().find(q => q.id === questionId);
+  const option = question?.options.find(o => o.id === answerId);
+  return option?.label || answerId;
 };

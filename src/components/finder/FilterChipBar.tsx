@@ -2,6 +2,7 @@ import { motion } from 'motion/react';
 import { Filter, Sparkles, X, Check } from 'lucide-react';
 import { useExploreStore } from '../../state/exploreStore';
 import { useProfileStore } from '../../state/profileStore';
+import { cn } from '../../utils/cn';
 import { getTravelModeConfig } from '../../types/modes';
 
 export interface FilterChipOption {
@@ -9,7 +10,7 @@ export interface FilterChipOption {
   label: string;
   icon: string;
   tag: string;
-  flagKey?: 'isVegetarian' | 'isHalal' | 'isWheelchairAccessible' | 'isFixedPrice' | 'isKidFriendly';
+  flagKey?: 'isVegetarian' | 'isHalal' | 'isWheelchairAccessible' | 'isFixedPrice' | 'isKidFriendly' | 'isWorkshop' | 'isLocalFav';
 }
 
 const CATEGORY_CHIPS: Record<string, FilterChipOption[]> = {
@@ -17,8 +18,9 @@ const CATEGORY_CHIPS: Record<string, FilterChipOption[]> = {
     { id: 'family-rooms', label: 'Family Rooms', icon: '👨‍👩‍👧', tag: 'family-friendly', flagKey: 'isKidFriendly' },
     { id: 'luxury-riad', label: 'Luxury Riad', icon: '🏰', tag: 'luxury' },
     { id: 'desert-camp', label: 'Desert Camp', icon: '🎪', tag: 'desert' },
-    { id: 'mountain-gite', label: 'Mountain Gite', icon: '🏔️', tag: 'mountain' },
-    { id: 'coworking-wifi', label: 'Coworking Wi-Fi', icon: '💻', tag: 'coworking' },
+    { id: 'rooftop-terrace', label: 'Rooftop Terrace', icon: '🌅', tag: 'rooftop' },
+    { id: 'garden-courtyard', label: 'Garden/Courtyard', icon: '🌿', tag: 'courtyard' },
+    { id: 'coworking-wifi', label: 'Coworking Wi-Fi', icon: '💻', tag: 'wifi' },
     { id: 'step-free', label: 'Step-Free', icon: '♿', tag: 'step-free', flagKey: 'isWheelchairAccessible' }
   ],
   things: [
@@ -26,32 +28,50 @@ const CATEGORY_CHIPS: Record<string, FilterChipOption[]> = {
     { id: 'golden-hour', label: 'Golden Hour', icon: '🌅', tag: 'golden-hour' },
     { id: 'surf-break', label: 'Surf Break', icon: '🏄', tag: 'surf' },
     { id: 'trekking', label: 'Trekking', icon: '🥾', tag: 'trekking' },
-    { id: 'festival-venue', label: 'Festival Venue', icon: '🎭', tag: 'festival' },
+    { id: 'cultural-heritage', label: 'Cultural Heritage', icon: '🏛️', tag: 'heritage' },
     { id: 'wellness-spa', label: 'Wellness/Spa', icon: '🌿', tag: 'wellness' },
     { id: 'step-free', label: 'Accessible', icon: '♿', tag: 'step-free', flagKey: 'isWheelchairAccessible' }
   ],
   food: [
     { id: 'vegetarian', label: 'Vegetarian/Vegan', icon: '🥗', tag: 'vegetarian', flagKey: 'isVegetarian' },
     { id: 'halal', label: 'Halal Verified', icon: '🌙', tag: 'halal', flagKey: 'isHalal' },
-    { id: 'kosher', label: 'Kosher', icon: '✡️', tag: 'kosher' },
     { id: 'seafood', label: 'Seafood', icon: '🐟', tag: 'seafood' },
     { id: 'fine-dining', label: 'Fine Dining', icon: '✨', tag: 'fine-dining' },
-    { id: 'street-food', label: 'Street Food', icon: '🍢', tag: 'street-food' }
+    { id: 'street-food', label: 'Street Food', icon: '🍢', tag: 'street-food' },
+    { id: 'traditional-moroccan', label: 'Traditional Moroccan', icon: '🏠', tag: 'traditional' },
+    { id: 'rooftop-views', label: 'Rooftop Views', icon: '🌇', tag: 'rooftop' },
+    { id: 'kid-friendly', label: 'Kid Friendly', icon: '👶', tag: 'family-friendly', flagKey: 'isKidFriendly' }
   ],
   shopping: [
     { id: 'fixed-price', label: 'Fixed Price', icon: '🏷️', tag: 'fixed-price', flagKey: 'isFixedPrice' },
     { id: 'souk-stalls', label: 'Souk Stalls', icon: '🛍️', tag: 'souk' },
-    { id: 'cooperatives', label: 'Cooperatives', icon: '🤝', tag: 'cooperative' },
-    { id: 'artisanal', label: 'Local Crafts', icon: '🎨', tag: 'artisanal' }
+    { id: 'cooperatives', label: 'Cooperatives', icon: '🤝', tag: 'fair-trade' },
+    { id: 'artisanal', label: 'Local Crafts', icon: '🎨', tag: 'artisanal' },
+    { id: 'live-workshop', label: 'Live Workshop', icon: '🔨', tag: 'live-workshop', flagKey: 'isWorkshop' },
+    { id: 'local-favorite', label: 'Local Favorite', icon: '❤️', tag: 'local-favorite', flagKey: 'isLocalFav' }
   ]
 };
 
 interface FilterChipBarProps {
   category?: string;
   className?: string;
+  resultCounts?: Record<string, number>;
 }
 
-export default function FilterChipBar({ category = 'things', className = '' }: FilterChipBarProps) {
+// Real-time "Open Now" chip - shown for every category
+const OPEN_NOW_CHIP: FilterChipOption = { id: 'open-now', label: 'Open Now', icon: '🕐', tag: 'open-now' };
+
+// All chips (Open Now + category specialties) for a normalized category -
+// also used by the results page to compute live per-chip match counts
+export const getAllChipsForCategory = (category: string): FilterChipOption[] => {
+  const normalizedCategory =
+    category === 'eat' || category === 'food' ? 'food' :
+    category === 'sleep' ? 'sleep' :
+    category === 'shopping' || category === 'shop' ? 'shopping' : 'things';
+  return [OPEN_NOW_CHIP, ...(CATEGORY_CHIPS[normalizedCategory] || CATEGORY_CHIPS.things)];
+};
+
+export default function FilterChipBar({ category = 'things', className = '', resultCounts }: FilterChipBarProps) {
   const { filters, setFilter } = useExploreStore();
   const { travelMode } = useProfileStore();
   const activeModeConfig = getTravelModeConfig(travelMode);
@@ -61,10 +81,15 @@ export default function FilterChipBar({ category = 'things', className = '' }: F
     category === 'sleep' ? 'sleep' :
     category === 'shopping' || category === 'shop' ? 'shopping' : 'things';
 
-  const availableChips = CATEGORY_CHIPS[normalizedCategory] || CATEGORY_CHIPS.things;
+  const availableChips = getAllChipsForCategory(normalizedCategory);
   const activeVibes = filters.vibes || [];
 
   const handleToggleChip = (chip: FilterChipOption) => {
+    // Open Now is a real-time flag, not a vibe tag
+    if (chip.id === 'open-now') {
+      setFilter('isOpenNow', !filters.isOpenNow);
+      return;
+    }
     const isCurrentlyActive = activeVibes.includes(chip.tag);
     let newVibes: string[];
 
@@ -83,6 +108,7 @@ export default function FilterChipBar({ category = 'things', className = '' }: F
   };
 
   const handleClearAll = () => {
+    setFilter('isOpenNow', false);
     setFilter('vibes', []);
     setFilter('isVegetarian', false);
     setFilter('isHalal', false);
@@ -91,7 +117,7 @@ export default function FilterChipBar({ category = 'things', className = '' }: F
     setFilter('isKidFriendly', false);
   };
 
-  const activeCount = availableChips.filter(chip => activeVibes.includes(chip.tag)).length;
+  const activeCount = availableChips.filter(chip => chip.id === 'open-now' ? !!filters.isOpenNow : activeVibes.includes(chip.tag)).length;
 
   return (
     <div className={`w-full space-y-2 ${className}`}>
@@ -132,7 +158,8 @@ export default function FilterChipBar({ category = 'things', className = '' }: F
       {/* Horizontal Scrollable Chips */}
       <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-1">
         {availableChips.map((chip) => {
-          const isActive = activeVibes.includes(chip.tag);
+          const isActive = chip.id === 'open-now' ? !!filters.isOpenNow : activeVibes.includes(chip.tag);
+          const liveCount = resultCounts ? resultCounts[chip.id] : undefined;
 
           return (
             <motion.button
@@ -148,6 +175,11 @@ export default function FilterChipBar({ category = 'things', className = '' }: F
             >
               <span className="text-xs">{chip.icon}</span>
               <span>{chip.label}</span>
+              {liveCount !== undefined && (
+                <span className={cn("text-[9px] font-black px-1 rounded-full", isActive ? "bg-white/20" : "bg-stone-100 dark:bg-stone-700 text-stone-500 dark:text-stone-400")}>
+                  {liveCount}
+                </span>
+              )}
               {isActive && <Check className="w-3 h-3 ml-0.5" />}
             </motion.button>
           );

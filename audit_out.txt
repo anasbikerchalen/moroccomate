@@ -1,0 +1,116 @@
+
+> morocco-finder-website@1.0.0 audit
+> tsx scripts/audit-tags.ts
+
+
+=== SLEEP — 448 places across 24 cities ===
+  [!!] Missing tags (data exists, tag absent): 4944
+       - [agadir] Sofitel Agadir Thalassa Sea & Spa — structured data says 'pool' but the tag is missing from its tags array
+       - [agadir] Sofitel Agadir Thalassa Sea & Spa — structured data says 'breakfast' but the tag is missing from its tags array
+       - [agadir] Sofitel Agadir Thalassa Sea & Spa — structured data says 'ac' but the tag is missing from its tags array
+       - [agadir] Sofitel Agadir Thalassa Sea & Spa — structured data says 'heating' but the tag is missing from its tags array
+       - [agadir] Sofitel Agadir Thalassa Sea & Spa — structured data says 'ensuite' but the tag is missing from its tags array
+       - [agadir] Sofitel Agadir Thalassa Sea & Spa — structured data says 'spa' but the tag is missing from its tags array
+       - [agadir] Sofitel Agadir Thalassa Sea & Spa — structured data says 'wifi' but the tag is missing from its tags array
+       - [agadir] Sofitel Agadir Thalassa Sea & Spa — structured data says 'quiet' but the tag is missing from its tags array
+       - [agadir] Sofitel Agadir Thalassa Sea & Spa — structured data says 'hotel' but the tag is missing from its tags array
+       - [agadir] Sofitel Agadir Thalassa Sea & Spa — structured data says 'family' but the tag is missing from its tags array
+       ... and 4934 more
+  [!!] Missing fields: 21
+       - [al_hoceima] Royal Rif Alhoceima — no coordinates — distance & proximity features fall back
+       - [al_hoceima] Appart Hotel Puerto Marino — no coordinates — distance & proximity features fall back
+       - [dakhla] La Crique Nature & Spa — no coordinates — distance & proximity features fall back
+       - [essaouira] Essaouira Youth Hostel & Social Travel — no coordinates — distance & proximity features fall back
+       - [ifrane_azrou] Maurice Bonjean — no coordinates — distance & proximity features fall back
+       - [ifrane_azrou] Auberge Jomana Park — no coordinates — distance & proximity features fall back
+       - [ifrane_azrou] Rise In Valley — no coordinates — distance & proximity features fall back
+       - [meknes] Riad Zahraa Al Ismailia — no coordinates — distance & proximity features fall back
+       - [merzouga] Riad Madu Desert Camps — no coordinates — distance & proximity features fall back
+       - [merzouga] Dream Luxury Majestic Camp — no coordinates — distance & proximity features fall back
+       ... and 11 more
+  [OK] Data quality issues: none
+
+=== EAT — 431 places across 20 cities ===
+  [!!] Missing tags (data exists, tag absent): 3201
+       - [agadir] Pure Passion Restaurant — structured data says 'vegetarian' but the tag is missing from its tags array
+       - [agadir] Pure Passion Restaurant — structured data says 'halal' but the tag is missing from its tags array
+       - [agadir] Pure Passion Restaurant — structured data says 'lunch' but the tag is missing from its tags array
+       - [agadir] Pure Passion Restaurant — structured data says 'beach' but the tag is missing from its tags array
+       - [agadir] Pure Passion Restaurant — structured data says 'parking' but the tag is missing from its tags array
+       - [agadir] Pure Passion Restaurant — structured data says 'couple' but the tag is missing from its tags array
+       - [agadir] Les Blancs Agadir — structured data says 'vegetarian' but the tag is missing from its tags array
+       - [agadir] Les Blancs Agadir — structured data says 'halal' but the tag is missing from its tags array
+       - [agadir] Les Blancs Agadir — structured data says 'lunch' but the tag is missing from its tags array
+       - [agadir] Les Blancs Agadir — structured data says 'beach' but the tag is missing from its tags array
+       ... and 3191 more
+  [!!] Missing fields: 287
+       - [agadir] Café Jour et Nuit — no exact address & coordinates — distance features fall back
+       - [agadir] Kounouz (Unverified) — no rating found
+       - [agadir] Kounouz (Unverified) — no exact address & coordinates — distance features fall back
+       - [agadir] Kounouz (Unverified) — no price per person
+       - [agadir] Kounouz (Unverified) — no Google Maps link
+       - [agadir] Kounouz (Unverified) — halal status unknown
+       - [agadir] O'Bleu (Unverified) — no rating found
+       - [agadir] O'Bleu (Unverified) — no exact address & coordinates — distance features fall back
+       - [agadir] O'Bleu (Unverified) — no price per person
+       - [agadir] O'Bleu (Unverified) — no Google Maps link
+       ... and 277 more
+  [!!] Data quality issues: 16
+       - [agadir] Kounouz (Unverified) — temporarily hidden
+       - [agadir] O'Bleu (Unverified) — temporarily hidden
+       - [agadir] Snack Founty (Unverified) — temporarily hidden
+       - [al_hoceima] Restaurant El Pueblo — temporarily hidden
+       - [al_hoceima] Restaurant Snack Romesco — temporarily hidden
+       - [al_hoceima] Restaurant Marhaba — temporarily hidden
+       - [al_hoceima] Snack Oualid — temporarily hidden
+       - [al_hoceima] Pizzeria La Mama — temporarily hidden
+       - [asilah] The Blue Door Café — temporarily hidden
+       - [asilah] Bab Ssour Restaurant — marked wrong-city — fix or remove
+       ... and 6 more
+
+=== THINGS — 449 places across 19 cities ===
+  [!!] Missing tags (data exists, tag absent): 1628
+       - [agadir] Agadir Oufella Ruins — structured data says 'family' but the tag is missing from its tags array
+       - [agadir] Agadir Oufella Ruins — structured data says 'photography' but the tag is missing from its tags array
+       - [agadir] Agadir Oufella Ruins — structured data says 'french-guide' but the tag is missing from its tags array
+       - [agadir] Souk El Had — structured data says 'family' but the tag is missing from its tags array
+       - [agadir] Souk El Had — structured data says 'wheelchair-accessible' but the tag is missing from its tags array
+       - [agadir] Souk El Had — structured data says 'photography' but the tag is missing from its tags array
+       - [agadir] Souk El Had — structured data says 'rainy-day-ok' but the tag is missing from its tags array
+       - [agadir] Souk El Had — structured data says 'french-guide' but the tag is missing from its tags array
+       - [agadir] Agadir Cable Car — structured data says 'family' but the tag is missing from its tags array
+       - [agadir] Agadir Cable Car — structured data says 'wheelchair-accessible' but the tag is missing from its tags array
+       ... and 1618 more
+  [!!] Missing fields: 169
+       - [agadir] Souk El Had — no ticket price
+       - [agadir] Agadir Beach — no ticket price
+       - [agadir] Marina d'Agadir — no ticket price
+       - [agadir] Jardin d'Olhão — no ticket price
+       - [agadir] Paradise Valley — no ticket price
+       - [agadir] Dinosaur Footprints at Anza Beach — no ticket price
+       - [agadir] Grande Mosquée Mohammed V — no ticket price
+       - [agadir] Le Port d'Agadir — no ticket price
+       - [agadir] Devil's Rock — no ticket price
+       - [agadir] Tifnit Fishing Village — no ticket price
+       ... and 159 more
+  [OK] Data quality issues: none
+
+=== SHOP — 332 places across 21 cities ===
+  [!!] Missing tags (data exists, tag absent): 506
+       - [marrakech] Ensemble Artisanal — structured data says 'verified' but the tag is missing from its tags array
+       - [marrakech] Ensemble Artisanal — structured data says 'workshop' but the tag is missing from its tags array
+       - [marrakech] Ensemble Artisanal — structured data says 'cooperative' but the tag is missing from its tags array
+       - [marrakech] Max & Jan — structured data says 'verified' but the tag is missing from its tags array
+       - [marrakech] 33 Rue Majorelle — structured data says 'verified' but the tag is missing from its tags array
+       - [marrakech] Mustapha Blaoui — structured data says 'verified' but the tag is missing from its tags array
+       - [marrakech] Mustapha Blaoui — structured data says 'boutique' but the tag is missing from its tags array
+       - [marrakech] Herboriste Des Amis — structured data says 'verified' but the tag is missing from its tags array
+       - [marrakech] Akbar Delights — structured data says 'verified' but the tag is missing from its tags array
+       - [marrakech] Akbar Delights — structured data says 'workshop' but the tag is missing from its tags array
+       ... and 496 more
+  [!!] Missing fields: 3
+       - [agadir] Boutique Bijoux Tiznit Silver — no rating found
+       - [agadir] Agadir Beach Promenade Artisans — no rating found
+       - [agadir] Boutique & Showroom Tapis Tazenakht Agadir — no rating found
+  [OK] Data quality issues: none
+

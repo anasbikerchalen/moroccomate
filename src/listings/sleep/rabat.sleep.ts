@@ -192,13 +192,15 @@ export const rabatSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "seniors", "business-friendly"],
     tip: "Book a garden-facing terrace suite to enjoy tranquil morning bird calls from the adjacent forest.",
     vibeTags: ["Palatial", "Secluded", "Golf-Luxe", "Sophisticated"],
-    locationSummary: "Souissi - Near Royal Golf",
+    locationSummary: "Dar Es Salam Royal Golf Estate",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=The+Ritz-Carlton+Rabat+Dar+Es+Salam",
     address: "Royal Golf Dar Es Salam, Souissi, Rabat 10100, Morocco",
@@ -265,6 +267,11 @@ export const rabatSleep: SleepListing[] = [
       business: "Discreet and prestigious for top-level diplomacy.",
       nomad: "Fast WiFi in the lobby, with quieter work pockets around the gardens.",
     },
+    coordinates: {
+      lat: 33.920364,
+      lng: -6.840915
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "r-sleep-2",
@@ -302,13 +309,15 @@ export const rabatSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "friends", "business-friendly"],
     tip: "Request a high-floor room for spectacular night views of city lights and the distant Atlantic.",
     vibeTags: ["Urban-Chic", "Panoramic", "Modern", "Sleek"],
-    locationSummary: "Hay Riad - Heart of the Business District",
+    locationSummary: "Souissi / Hassan Modern District",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=The+View+Rabat",
     address: "Avenue Annakhil, Hay Riad, Rabat 10100, Morocco",
@@ -375,6 +384,11 @@ export const rabatSleep: SleepListing[] = [
       business: "The best business facilities and location in the capital.",
       nomad: "Fastest WiFi in Rabat and strong lounge work vibes.",
     },
+    coordinates: {
+      lat: 33.955018,
+      lng: -6.867267
+    },
+    tags: []
   },
   {
     id: "r-sleep-3",
@@ -412,13 +426,15 @@ export const rabatSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["couple", "solo", "seniors"],
     tip: "Book a private underground hammam session—it is one of the most beautifully designed in Rabat.",
     vibeTags: ["Modern-Riad", "Luminous", "Sophisticated", "Boutique"],
-    locationSummary: "Medina - Near Bab El Had Gate",
+    locationSummary: "Historic Medina & Kasbah des Oudayas",
     availabilityText: "Only 1 room left",
     googleMapsUrl: "https://maps.google.com/?q=Euphoriad+Rabat",
     address: "7-9 Impasse Caïd Bargach, Rabat Medina, Rabat 10030, Morocco",
@@ -485,6 +501,11 @@ export const rabatSleep: SleepListing[] = [
       business: "A refreshing quiet alternative to corporate hotels.",
       nomad: "The courtyard is a beautiful quiet space to work from.",
     },
+    coordinates: {
+      lat: 34.027441,
+      lng: -6.839085
+    },
+    tags: ["heritage"]
   },
   {
     id: "r-sleep-4",
@@ -522,13 +543,15 @@ export const rabatSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "seniors"],
     tip: "Enjoy morning coffee in the courtyard to take in the citrus aromas.",
     vibeTags: ["Boutique", "Serene", "Garden-Oasis", "Charming"],
-    locationSummary: "Souissi Residential District",
+    locationSummary: "Souissi / Hassan Modern District",
     availabilityText: "Only 2 rooms left",
     googleMapsUrl: "https://maps.google.com/?q=Villa+Mandarine+Rabat",
     address: "19 Rue Ouled Bousbaa, Souissi, Rabat 10000, Morocco",
@@ -595,6 +618,11 @@ export const rabatSleep: SleepListing[] = [
       business: "A refreshing alternative to corporate hotels.",
       nomad: "Working from the shaded terrace is a dream.",
     },
+    coordinates: {
+      lat: 33.964868,
+      lng: -6.847702
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "r-sleep-5",
@@ -632,13 +660,15 @@ export const rabatSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family"],
     tip: "Ask the hosts to map out the best local street-food stalls hidden in nearby souks.",
     vibeTags: ["Family-Run", "Luminous", "Cozy", "Authentic"],
-    locationSummary: "Medina - Central and Bright",
+    locationSummary: "Historic Medina & Kasbah des Oudayas",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Amaris+Rabat",
     address: "10 Rue Lalla Hannou, Rabat Medina, Rabat 10030, Morocco",
@@ -705,6 +735,11 @@ export const rabatSleep: SleepListing[] = [
       business: "A quiet bright alternative to corporate hotels with great WiFi.",
       nomad: "The rooftop terrace is a peaceful sunny work spot.",
     },
+    coordinates: {
+      lat: 34.02511,
+      lng: -6.840177
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "r-sleep-6",
@@ -815,6 +850,11 @@ export const rabatSleep: SleepListing[] = [
       business: "A quiet and unique setting with reliable WiFi.",
       nomad: "The rooftop is an inspiring place to work with medina views.",
     },
+    coordinates: {
+      lat: 34.027159,
+      lng: -6.840476
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "r-sleep-7",
@@ -852,13 +892,15 @@ export const rabatSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "seniors"],
     tip: "Request a ground-floor courtyard room for direct garden access and a villa feel.",
     vibeTags: ["Boutique-Oasis", "Andalusian-Elegance", "Secluded", "Refined"],
-    locationSummary: "Souissi - Elite Diplomatic Quarter",
+    locationSummary: "Souissi / Hassan Modern District",
     availabilityText: "Only 2 rooms left",
     googleMapsUrl: "https://maps.google.com/?q=STORY+Rabat",
     address: "Angle Rue Bani Yadder et Rue Jebala, Souissi, Rabat 10000, Morocco",
@@ -925,6 +967,11 @@ export const rabatSleep: SleepListing[] = [
       business: "A prestigious quiet alternative for business meetings in Souissi.",
       nomad: "Working from the poolside garden is a dream.",
     },
+    coordinates: {
+      lat: 33.943656,
+      lng: -6.815736
+    },
+    tags: ["heritage"]
   },
   {
     id: "r-sleep-8",
@@ -962,13 +1009,15 @@ export const rabatSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["couple", "seniors", "family"],
     tip: "Visit the nearby Kasbah of the Udayas early in the morning to beat crowds and enjoy ocean views.",
     vibeTags: ["Royal", "Historic", "Authentic", "Grand"],
-    locationSummary: "Medina - Near Kasbah Udayas",
+    locationSummary: "Historic Medina & Kasbah des Oudayas",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Dar+El+Kebira+Rabat",
     address: "1 Rue des Consuls, Rabat Medina, Rabat 10030, Morocco",
@@ -1035,6 +1084,11 @@ export const rabatSleep: SleepListing[] = [
       business: "A quiet unique setting for business travelers who value culture.",
       nomad: "The second courtyard is usually quiet and perfect for work.",
     },
+    coordinates: {
+      lat: 34.028225,
+      lng: -6.835939
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "r-sleep-9",
@@ -1072,13 +1126,15 @@ export const rabatSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: true,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["couple", "family", "solo"],
     tip: "The courtyard pool is a rare luxury in the medina—perfect after a morning of exploring.",
     vibeTags: ["Palatial", "Historic", "Sophisticated", "Refreshing"],
-    locationSummary: "Medina - Near Ramparts",
+    locationSummary: "Historic Medina & Kasbah des Oudayas",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Kalaa+Rabat",
     address: "3-5 Rue Zebdi, Rabat Medina, Rabat 10030, Morocco",
@@ -1145,6 +1201,11 @@ export const rabatSleep: SleepListing[] = [
       business: "A quiet inspiring alternative with good business facilities.",
       nomad: "The rooftop is an incredible breezy work spot.",
     },
+    coordinates: {
+      lat: 34.027892,
+      lng: -6.837525
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "r-sleep-10",
@@ -1182,13 +1243,15 @@ export const rabatSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family", "friends", "seniors"],
     tip: "If you have an early flight, staff can prepare a portable breakfast box if requested the night before.",
     vibeTags: ["Elegant", "Serene", "Historic", "Hospitality"],
-    locationSummary: "Medina - Near the River Bank",
+    locationSummary: "Historic Medina & Kasbah des Oudayas",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Dar+Soufa+Rabat",
     address: "7 Derb Souaf Legza, Rabat Medina, Rabat 10030, Morocco",
@@ -1255,6 +1318,11 @@ export const rabatSleep: SleepListing[] = [
       business: "A quiet and bright alternative to central business hotels.",
       nomad: "The rooftop terrace is a peaceful high-view work spot.",
     },
+    coordinates: {
+      lat: 34.024241,
+      lng: -6.839629
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "r-sleep-11",
@@ -1292,13 +1360,15 @@ export const rabatSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "friends"],
     tip: "Have breakfast on the rooftop terrace to enjoy ocean breezes as the medina wakes up.",
     vibeTags: ["Boho-Chic", "Stylish", "Panoramic", "Artisanal"],
-    locationSummary: "Medina - Near the Atlantic Coast",
+    locationSummary: "Historic Medina & Kasbah des Oudayas",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Dar+Shaan+Rabat",
     address: "24 Rue Jirari, Rabat Medina, Rabat 10030, Morocco",
@@ -1365,6 +1435,11 @@ export const rabatSleep: SleepListing[] = [
       business: "A quiet alternative to business hotels with great WiFi.",
       nomad: "The rooftop terrace is a dream for morning remote work.",
     },
+    coordinates: {
+      lat: 34.13945,
+      lng: -6.725164
+    },
+    tags: ["heritage"]
   },
   {
     id: "r-sleep-12",
@@ -1402,13 +1477,15 @@ export const rabatSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: true,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "friends", "business-friendly"],
     tip: "Book 99 Sushi Bar early for a prime sunset oceanfront table.",
     vibeTags: ["Seaside-Minimalism", "Dramatic", "Coastal-Luxe", "Serene"],
-    locationSummary: "Harhoura - Oceanfront Cliffside",
+    locationSummary: "Souissi / Hassan Modern District",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Conrad+Rabat+Arzana",
     address: "Plage Val d’Or, Harhoura, Rabat 12040, Morocco",
@@ -1475,6 +1552,11 @@ export const rabatSleep: SleepListing[] = [
       business: "A refreshing quiet alternative to central business hotels.",
       nomad: "Working with ocean sound and fast WiFi is a luxury.",
     },
+    coordinates: {
+      lat: 33.900296,
+      lng: -6.998432
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "r-sleep-13",
@@ -1512,13 +1594,15 @@ export const rabatSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["solo", "couple"],
     tip: "This adults-only riad is ideal for couples or digital nomads seeking silence.",
     vibeTags: ["Zen", "Minimalist", "Quiet", "Adults-Only"],
-    locationSummary: "Medina - Central and Quiet",
+    locationSummary: "Historic Medina & Kasbah des Oudayas",
     availabilityText: "Only 2 rooms left",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Dar+Zen+Rabat",
     address: "5 Rue Frej, Rabat Medina, Rabat 10030, Morocco",
@@ -1585,6 +1669,11 @@ export const rabatSleep: SleepListing[] = [
       business: "Excellent WiFi and a very quiet work environment.",
       nomad: "The library and courtyard are among the best work spots in the medina.",
     },
+    coordinates: {
+      lat: 34.022499,
+      lng: -6.838039
+    },
+    tags: []
   },
   {
     id: "r-sleep-14",
@@ -1621,14 +1710,16 @@ export const rabatSleep: SleepListing[] = [
     taxesIncluded: false,
     freeCancellation: true,
     kidsStayFree: false,
-    nearMedina: true,
+    nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "friends", "seniors", "business-friendly"],
     tip: "Use the tram two minutes away at Place Al Joulane to explore the city quickly.",
     vibeTags: ["Chic", "Art-Deco", "Historic-Center", "Sophisticated"],
-    locationSummary: "Hassan District - Near Hassan Tower",
+    locationSummary: "Souissi / Hassan Modern District",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Le+Diwan+Hotel+Rabat+MGallery",
     address: "Place de l’Unité Africaine, Hassan, Rabat 10005, Morocco",
@@ -1695,6 +1786,11 @@ export const rabatSleep: SleepListing[] = [
       business: "Reliable MGallery standards near government offices.",
       nomad: "The lobby lounge is stylish and quiet for work.",
     },
+    coordinates: {
+      lat: 34.017433,
+      lng: -6.828154
+    },
+    tags: ["heritage"]
   },
   {
     id: "r-sleep-15",
@@ -1732,13 +1828,15 @@ export const rabatSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: true,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Book the Hassan V suite for spacious family accommodation with a traditional touch.",
     vibeTags: ["Ocean-Inspired", "Authentic", "Welcoming", "Budget-Friendly"],
-    locationSummary: "Ocean District - Near Bab El Had",
+    locationSummary: "Historic Medina & Kasbah des Oudayas",
     availabilityText: "Only 3 rooms left",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Meftaha+Rabat",
     address: "15 Rue Iran, Quartier de l’Océan, Rabat 10000, Morocco",
@@ -1805,6 +1903,11 @@ export const rabatSleep: SleepListing[] = [
       business: "A quiet reliable place with good WiFi for short business trips.",
       nomad: "The courtyard is peaceful for morning work.",
     },
+    coordinates: {
+      lat: 34.025508,
+      lng: -6.84253
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "r-sleep-16",
@@ -1842,13 +1945,15 @@ export const rabatSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "friends"],
     tip: "Enjoy mint tea on check-in while relaxing in the stone courtyard.",
     vibeTags: ["Budget-Friendly", "Authentic", "Quiet", "Historic"],
-    locationSummary: "Medina - Near the Historic Center",
+    locationSummary: "Historic Medina & Kasbah des Oudayas",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Dar+Fassi+Rabat",
     address: "Rabat Medina, Rabat 10030, Morocco",
@@ -1915,6 +2020,11 @@ export const rabatSleep: SleepListing[] = [
       business: "Good for a quick overnight, less ideal for long work.",
       nomad: "Basic but peaceful for work in the shared courtyard.",
     },
+    coordinates: {
+      lat: 34.026641,
+      lng: -6.835068
+    },
+    tags: ["heritage"]
   },
   {
     id: "r-sleep-17",
@@ -1952,13 +2062,15 @@ export const rabatSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["couple", "friends", "seniors", "family"],
     tip: "Dine by the pool at night for a romantic candlelit atmosphere in the medina.",
     vibeTags: ["Historic", "Moorish", "Authentic", "Atmospheric"],
-    locationSummary: "Medina - Near the Andalusian Wall",
+    locationSummary: "Historic Medina & Kasbah des Oudayas",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Kalaa+Rabat",
     address: "Rabat Medina, Rabat 10030, Morocco",
@@ -2025,6 +2137,11 @@ export const rabatSleep: SleepListing[] = [
       business: "Quiet enough for work, with good WiFi in common areas.",
       nomad: "A beautiful place to work from rooftop or courtyards.",
     },
+    coordinates: {
+      lat: 34.027892,
+      lng: -6.837525
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "r-sleep-18",
@@ -2062,13 +2179,15 @@ export const rabatSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "friends", "seniors"],
     tip: "One of the few medina riads with an elevator, ideal if you dislike carrying heavy bags up stairs.",
     vibeTags: ["Authentic", "Accessible", "Historic", "Budget-Friendly"],
-    locationSummary: "Medina - Near Bab Chellah",
+    locationSummary: "Historic Medina & Kasbah des Oudayas",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+El+Maati+Rabat",
     address: "15 Rue Sidi El Maati, Rabat Medina, Rabat 10030, Morocco",
@@ -2135,6 +2254,11 @@ export const rabatSleep: SleepListing[] = [
       business: "Good budget location near the city center.",
       nomad: "Decent WiFi and a large rooftop to work from.",
     },
+    coordinates: {
+      lat: 34.026152,
+      lng: -6.83484
+    },
+    tags: ["heritage"]
   },
   {
     id: "r-sleep-19",
@@ -2172,13 +2296,15 @@ export const rabatSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["solo", "friends"],
     tip: "Order a packed lunch for budget-friendly day trips to Salé or Kenitra.",
     vibeTags: ["Social", "Budget-Friendly", "Lively", "Young"],
-    locationSummary: "City Center - Near Rabat Ville Station",
+    locationSummary: "Historic Medina & Kasbah des Oudayas",
     availabilityText: "Beds available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Hostel+Capital+Rabat",
     address: "Rabat City Center, Rabat 10000, Morocco",
@@ -2245,6 +2371,11 @@ export const rabatSleep: SleepListing[] = [
       business: "Too noisy for serious business trips.",
       nomad: "Good for meeting people, but find a cafe for quiet work.",
     },
+    coordinates: {
+      lat: 34.026378,
+      lng: -6.834424
+    },
+    tags: ["dorm", "heritage"]
   },
   {
     id: "r-sleep-20",
@@ -2282,13 +2413,15 @@ export const rabatSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "friends"],
     tip: "Head to the rooftop at twilight to hear the call to prayer echoing from surrounding minarets.",
     vibeTags: ["Budget-Friendly", "Simple", "Local", "Relaxed"],
-    locationSummary: "Medina - Authentic Residential Area",
+    locationSummary: "Historic Medina & Kasbah des Oudayas",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Jbara+Rabat",
     address: "Rabat Medina, Rabat 10030, Morocco",
@@ -2355,5 +2488,10 @@ export const rabatSleep: SleepListing[] = [
       business: "Not recommended for business stays.",
       nomad: "Good for social nomads on a tight budget, though WiFi can be spotty.",
     },
+    coordinates: {
+      lat: 34.026834,
+      lng: -6.835832
+    },
+    tags: []
   }
 ]

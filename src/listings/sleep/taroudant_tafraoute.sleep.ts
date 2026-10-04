@@ -36,6 +36,8 @@ export const taroudant_tafraouteSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 5,
@@ -50,10 +52,15 @@ export const taroudant_tafraouteSleep: SleepListing[] = [
     amenities: ['Free WiFi', 'Homemade Breakfast Included', 'Orange Tree Courtyard', 'Rooftop Solarium', 'Air Conditioning', 'Traditional Restaurant'],
     tip: 'Make sure to order Latifah\'s homemade dinner pastilla on arrival day.',
     vibeTags: ['Family Run', 'Orange Garden Patio', 'Authentic Southerner Hospitality', 'Gourmet Gastronomy'],
-    locationSummary: 'Inside Taroudant Medina, 3 minutes walk from the central souks and Bab El Kasbah',
+    locationSummary: "Taroudant Ramparts & Medina",
     availabilityText: 'High demand—book ahead for spring and autumn',
     googleMapsUrl: 'https://maps.google.com/?q=Riad+Maryam+Taroudant',
-    address: 'Derb Fkih, Medina, Taroudant'
+    address: 'Derb Fkih, Medina, Taroudant',
+    coordinates: {
+      lat: 30.468992,
+      lng: -8.886579
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: 's-taroudant-dar-zitoune',
@@ -90,6 +97,8 @@ export const taroudant_tafraouteSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
@@ -104,10 +113,15 @@ export const taroudant_tafraouteSleep: SleepListing[] = [
     amenities: ['Large Heated Swimming Pool', 'Spa & Hammam', 'Organic Garden Restaurant', 'Free WiFi', 'Private Parking', 'Air Conditioning'],
     tip: 'Perfect peaceful retreat after exploring the bustling souks of Taroudant.',
     vibeTags: ['Olive Grove Retreat', 'Heated Pool', 'Spa Hammam', 'Eco Luxury'],
-    locationSummary: 'Located 2 km south of Taroudant ramparts in a quiet agricultural oasis',
+    locationSummary: "Anti-Atlas Mountains & Countryside",
     availabilityText: 'Recommended for multi-day relaxation stays',
     googleMapsUrl: 'https://maps.google.com/?q=Dar+Zitoune+Taroudant',
-    address: 'Route de Ouarzazate, BP 823, Taroudant'
+    address: 'Route de Ouarzazate, BP 823, Taroudant',
+    coordinates: {
+      lat: 30.452155,
+      lng: -8.88022
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: 's-tafraoute-les-amandiers',
@@ -144,6 +158,8 @@ export const taroudant_tafraouteSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 5,
@@ -158,10 +174,15 @@ export const taroudant_tafraouteSleep: SleepListing[] = [
     amenities: ['Outdoor Swimming Pool', 'Panoramic Mountain View Terrace', 'Free WiFi', 'Free Parking', 'Restaurant & Bar', 'Air Conditioning'],
     tip: 'Sunset from the poolside terrace over the illuminated pink granite peaks is breathtaking.',
     vibeTags: ['Panoramic Mountain Views', 'Pool Terrace', 'Anti-Atlas Base', 'Almond Blossom'],
-    locationSummary: 'Perched on the hill overlooking central Tafraoute, 5 minutes walk to town center',
+    locationSummary: "Anti-Atlas Mountains & Countryside",
     availabilityText: 'Peak season during February-March almond blossom festival',
     googleMapsUrl: 'https://maps.google.com/?q=Hotel+Les+Amandiers+Tafraoute',
-    address: 'Place Al Massira, Tafraoute'
+    address: 'Place Al Massira, Tafraoute',
+    coordinates: {
+      lat: 29.71778,
+      lng: -8.974484
+    },
+    tags: ["family-favorite"]
   },
   {
     id: 's-taroudant-palais-salam',
@@ -198,6 +219,8 @@ export const taroudant_tafraouteSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 5,
@@ -212,9 +235,14 @@ export const taroudant_tafraouteSleep: SleepListing[] = [
     amenities: ['Two Outdoor Swimming Pools', 'Sub-tropical Palm Gardens', 'Free WiFi', 'Restaurant & Bar', 'Air Conditioning', 'Free Parking'],
     tip: 'Walk through the lush palm gardens inside the historic ramparts for a glimpse into 16th-century royal Moroccan architecture.',
     vibeTags: ['16th Century Pasha Palace', 'Sub-tropical Gardens', 'Rampart Walls', 'Historic Landmark'],
-    locationSummary: 'Built directly inside Bab El Kasbah rampart gates in central Taroudant',
+    locationSummary: "Taroudant Ramparts & Medina",
     availabilityText: 'Available year round',
     googleMapsUrl: 'https://maps.google.com/?q=Palais+Salam+Taroudant',
-    address: 'Bab Kasbah, Taroudant'
+    address: 'Bab Kasbah, Taroudant',
+    coordinates: {
+      lat: 30.472915,
+      lng: -8.871303
+    },
+    tags: ["family-favorite", "heritage"]
   }
 ];

@@ -29,9 +29,12 @@ export const essaouiraThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ["cultural-tour", "authentic", "instagrammable", "medina", "coastal"],
+    tags: ["authentic", "coastal", "cultural-tour", "instagrammable", "medina", "relaxed", "sunset", "walk-in"],
     archetypeAffinity: ["culture", "first-timer"],
-    tip: "Visit in the late afternoon to catch the sunset, and look for the circular stone openings which were featured as backdrops in the Game of Thrones series."
+    tip: "Visit in the late afternoon to catch the sunset, and look for the circular stone openings which were featured as backdrops in the Game of Thrones series.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: true
   },
   {
     id: "essaouira-sqala-port",
@@ -61,9 +64,12 @@ export const essaouiraThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ["cultural-tour", "authentic", "coastal", "medina", "instagrammable"],
+    tags: ["authentic", "coastal", "cultural-tour", "instagrammable", "medina", "private", "sunset", "walk-in"],
     archetypeAffinity: ["culture", "first-timer"],
-    tip: "Watch your footing as the port is highly active with fresh catch preparations, but make sure to stop by the nearby stalls to try freshly grilled sardines."
+    tip: "Watch your footing as the port is highly active with fresh catch preparations, but make sure to stop by the nearby stalls to try freshly grilled sardines.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: true
   },
   {
     id: "essaouira-medina",
@@ -93,9 +99,12 @@ export const essaouiraThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ["cultural-tour", "shopping", "authentic", "medina", "instagrammable"],
+    tags: ["authentic", "cultural-tour", "instagrammable", "medina", "private", "shopping", "walk-in"],
     archetypeAffinity: ["culture", "first-timer"],
-    tip: "Seek out the hidden workshops in the side alleys specializing in Thuya wood carving, a highly fragrant local wood native only to this region."
+    tip: "Seek out the hidden workshops in the side alleys specializing in Thuya wood carving, a highly fragrant local wood native only to this region.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: false
   },
   {
     id: "essaouira-sidi-kaouki",
@@ -125,9 +134,12 @@ export const essaouiraThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ["climbing-adventure", "nature", "coastal", "off-the-beaten-path"],
+    tags: ["active", "climbing-adventure", "coastal", "nature", "off-the-beaten-path", "sunset", "walk-in"],
     archetypeAffinity: ["adventure", "nomad"],
-    tip: "Take the local Souiri bus from the main station for a low-cost, authentic transit experience, and check return bus schedules with the driver."
+    tip: "Take the local Souiri bus from the main station for a low-cost, authentic transit experience, and check return bus schedules with the driver.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: true
   },
   {
     id: "essaouira-beach",
@@ -157,9 +169,12 @@ export const essaouiraThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ["climbing-adventure", "coastal", "nature", "instagrammable"],
+    tags: ["climbing-adventure", "coastal", "instagrammable", "nature", "sunset", "walk-in"],
     archetypeAffinity: ["first-timer", "nomad"],
-    tip: "If you walk far enough south away from the crowds, you will find a quiet estuary where you can often spot migratory birds resting in the shallow waters."
+    tip: "If you walk far enough south away from the crowds, you will find a quiet estuary where you can often spot migratory birds resting in the shallow waters.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: true
   },
   {
     id: "essaouira-borj-el-baroud",
@@ -189,9 +204,12 @@ export const essaouiraThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ["nature", "coastal", "off-the-beaten-path", "authentic"],
+    tags: ["active", "authentic", "coastal", "nature", "off-the-beaten-path", "private", "sunset", "walk-in"],
     archetypeAffinity: ["adventure", "culture"],
-    tip: "Time your walk at low tide so you can cross the riverbed easily and walk directly up to the decaying stone battlements."
+    tip: "Time your walk at low tide so you can cross the riverbed easily and walk directly up to the decaying stone battlements.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: true
   },
   {
     id: "essaouira-galerie-damgaard",
@@ -221,9 +239,12 @@ export const essaouiraThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ["cultural-tour", "authentic", "medina", "workshop"],
+    tags: ["authentic", "cultural-tour", "medina", "relaxed", "walk-in", "workshop"],
     archetypeAffinity: ["culture", "nomad"],
-    tip: "The resident curators are incredibly knowledgeable; ask them about the symbolic meaning behind the Gnaoua motifs integrated into the local canvases."
+    tip: "The resident curators are incredibly knowledgeable; ask them about the symbolic meaning behind the Gnaoua motifs integrated into the local canvases.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     id: "essaouira-cooking-class",
@@ -253,9 +274,12 @@ export const essaouiraThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ["workshop", "cultural-tour", "authentic", "medina"],
+    tags: ["authentic", "cultural-tour", "medina", "morning", "private", "workshop"],
     archetypeAffinity: ["culture", "first-timer"],
-    tip: "If you prefer sweet over savory, they also offer a specialized pastry class where you can learn to make delicate 'gazelle horns'."
+    tip: "If you prefer sweet over savory, they also offer a specialized pastry class where you can learn to make delicate 'gazelle horns'.",
+    walkInOkay: false,
+    hasPrivateOption: true,
+    hasSunsetView: false
   },
   {
     id: "essaouira-horse-riding",
@@ -285,9 +309,12 @@ export const essaouiraThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: false,
     isPhotographyFriendly: true,
-    tags: ["climbing-adventure", "nature", "coastal", "off-the-beaten-path"],
+    tags: ["active", "climbing-adventure", "coastal", "nature", "off-the-beaten-path", "private", "sunset", "walk-in"],
     archetypeAffinity: ["adventure", "luxury"],
-    tip: "Reserve a late afternoon ride to enjoy the tranquility of galloping along the shoreline while the sun dips below the ocean horizon."
+    tip: "Reserve a late afternoon ride to enjoy the tranquility of galloping along the shoreline while the sun dips below the ocean horizon.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: true
   },
   {
     id: "essaouira-slat-lkahal",
@@ -317,9 +344,12 @@ export const essaouiraThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ["cultural-tour", "authentic", "medina", "off-the-beaten-path"],
+    tags: ["authentic", "cultural-tour", "medina", "off-the-beaten-path", "relaxed", "walk-in"],
     archetypeAffinity: ["culture"],
-    tip: "The synagogue is closed during Shabbat, which lasts from Friday afternoon until Sunday morning."
+    tip: "The synagogue is closed during Shabbat, which lasts from Friday afternoon until Sunday morning.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     id: "essaouira-mellah",
@@ -349,9 +379,12 @@ export const essaouiraThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ["cultural-tour", "authentic", "medina", "off-the-beaten-path"],
+    tags: ["authentic", "cultural-tour", "medina", "off-the-beaten-path", "sunset", "walk-in"],
     archetypeAffinity: ["culture"],
-    tip: "Walking along the sea-facing edge of this district provides a prime viewing angle for the powerful waves crashing against the stone fortifications."
+    tip: "Walking along the sea-facing edge of this district provides a prime viewing angle for the powerful waves crashing against the stone fortifications.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: true
   },
   {
     id: "essaouira-kitesurfing",
@@ -381,9 +414,12 @@ export const essaouiraThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: false,
     isPhotographyFriendly: true,
-    tags: ["climbing-adventure", "coastal", "nature"],
+    tags: ["active", "climbing-adventure", "coastal", "nature", "private", "sunset", "walk-in"],
     archetypeAffinity: ["adventure", "nomad"],
-    tip: "Wind speeds generally peak in the mid-afternoon, making the morning hours the ideal window for beginners seeking calmer ocean waters."
+    tip: "Wind speeds generally peak in the mid-afternoon, making the morning hours the ideal window for beginners seeking calmer ocean waters.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: true
   },
   {
     id: "essaouira-hammam-mounia",
@@ -413,9 +449,12 @@ export const essaouiraThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: false,
     isPhotographyFriendly: true,
-    tags: ["wellness", "authentic", "medina"],
+    tags: ["authentic", "medina", "relaxed", "walk-in", "wellness"],
     archetypeAffinity: ["culture", "nomad"],
-    tip: "They offer an excellent couple's package that includes hot mint tea and traditional Moroccan sweets at the end of the session."
+    tip: "They offer an excellent couple's package that includes hot mint tea and traditional Moroccan sweets at the end of the session.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     id: "essaouira-bayt-dakira",
@@ -445,9 +484,12 @@ export const essaouiraThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ["cultural-tour", "authentic", "medina", "off-the-beaten-path"],
+    tags: ["authentic", "cultural-tour", "medina", "off-the-beaten-path", "private", "relaxed", "sunset", "walk-in"],
     archetypeAffinity: ["culture"],
-    tip: "Since most information boards are displayed in French or Arabic, use your smartphone's camera translation tool to fully appreciate the historic texts."
+    tip: "Since most information boards are displayed in French or Arabic, use your smartphone's camera translation tool to fully appreciate the historic texts.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: true
   },
   {
     id: "essaouira-had-draa-souk",
@@ -477,9 +519,12 @@ export const essaouiraThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: false,
     isPhotographyFriendly: true,
-    tags: ["cultural-tour", "off-the-beaten-path", "authentic", "nature"],
+    tags: ["active", "authentic", "cultural-tour", "morning", "nature", "off-the-beaten-path", "walk-in"],
     archetypeAffinity: ["adventure", "culture"],
-    tip: "Ensure you arrive before 10:00 AM if you want to observe the animal trading area, as livestock sales wrap up early in the morning."
+    tip: "Ensure you arrive before 10:00 AM if you want to observe the animal trading area, as livestock sales wrap up early in the morning.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     id: "essaouira-marjana-cooperative",
@@ -509,9 +554,12 @@ export const essaouiraThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ["workshop", "cultural-tour", "authentic", "nature"],
+    tags: ["authentic", "cultural-tour", "nature", "relaxed", "walk-in", "workshop"],
     archetypeAffinity: ["culture", "first-timer"],
-    tip: "Take the time to sample their homemade culinary Amlou, a highly addictive Moroccan dip made from argan oil, almonds, and honey."
+    tip: "Take the time to sample their homemade culinary Amlou, a highly addictive Moroccan dip made from argan oil, almonds, and honey.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     id: "essaouira-val-d-argan",
@@ -541,9 +589,12 @@ export const essaouiraThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ["nature", "authentic", "off-the-beaten-path"],
+    tags: ["authentic", "nature", "off-the-beaten-path", "private", "relaxed", "walk-in"],
     archetypeAffinity: ["luxury", "nomad"],
-    tip: "Book a vineyard lunch; they famously employ camels rather than machinery to gently till the soil surrounding the grapevines."
+    tip: "Book a vineyard lunch; they famously employ camels rather than machinery to gently till the soil surrounding the grapevines.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: false
   },
   {
     id: "essaouira-quad-attitude",
@@ -573,9 +624,12 @@ export const essaouiraThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: false,
     isPhotographyFriendly: true,
-    tags: ["climbing-adventure", "nature", "coastal"],
+    tags: ["active", "climbing-adventure", "coastal", "nature", "private", "sunset"],
     archetypeAffinity: ["adventure"],
-    tip: "Wear full pants and sturdy, closed shoes, as the combination of quad speed and coastal winds will whip sand against your legs."
+    tip: "Wear full pants and sturdy, closed shoes, as the combination of quad speed and coastal winds will whip sand against your legs.",
+    walkInOkay: false,
+    hasPrivateOption: true,
+    hasSunsetView: true
   },
   {
     id: "essaouira-patisserie-driss",
@@ -605,9 +659,12 @@ export const essaouiraThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ["authentic", "medina", "shopping"],
+    tags: ["authentic", "medina", "private", "relaxed", "shopping", "walk-in"],
     archetypeAffinity: ["first-timer", "nomad"],
-    tip: "Walk past the crowded front glass counters and head directly into the back garden courtyard to secure a peaceful table."
+    tip: "Walk past the crowded front glass counters and head directly into the back garden courtyard to secure a peaceful table.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: false
   },
   {
     id: "essaouira-dar-souiri",
@@ -637,8 +694,11 @@ export const essaouiraThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ["cultural-tour", "authentic", "medina", "off-the-beaten-path"],
+    tags: ["authentic", "cultural-tour", "medina", "off-the-beaten-path", "private", "relaxed", "sunset", "walk-in"],
     archetypeAffinity: ["culture", "nomad"],
-    tip: "Check the notice board near the entryway as they regularly update schedules for free, intimate evening acoustic performances in the central courtyard."
+    tip: "Check the notice board near the entryway as they regularly update schedules for free, intimate evening acoustic performances in the central courtyard.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: true
   }
 ]

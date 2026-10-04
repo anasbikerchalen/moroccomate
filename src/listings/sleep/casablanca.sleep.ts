@@ -192,13 +192,15 @@ export const casablancaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ['solo', 'couple', 'seniors', 'business-friendly'],
     tip: 'The garden brunch on Sundays is one of the most stylish events in Casablanca; book a table even if you aren’t staying.',
     vibeTags: ['Art-Deco', 'Glamorous', 'Garden-Oasis', 'Prestigious'],
-    locationSummary: 'Upscale Anfa District',
+    locationSummary: "City Center & Gauthier Business District",
     availabilityText: 'Available tonight',
     googleMapsUrl: '[https://www.google.com/maps/place/Le+Casablanca+Hotel/@33.5912,-7.6445,17z](https://www.google.com/maps/place/Le+Casablanca+Hotel/@33.5912,-7.6445,17z)',
     address: '19 Boulevard Moulay Rachid, Casablanca 20000, Morocco',
@@ -242,7 +244,12 @@ export const casablancaSleep: SleepListing[] = [
       families: 'Quiet and upscale, better for couples.',
       business: 'Prestigious for high-level meetings.',
       nomad: 'Fast internet and inspiring garden corners to work.'
-    }
+    },
+    coordinates: {
+      lat: 33.58683,
+      lng: -7.621331
+    },
+    tags: []
   },
   {
     id: 'c-sleep-2',
@@ -280,13 +287,15 @@ export const casablancaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ['solo', 'couple', 'seniors'],
     tip: 'Take a short walk to the "Villa des Arts" nearby—it’s one of the best cultural spots in the city for contemporary Moroccan art.',
     vibeTags: ['Boutique', 'Art-Deco', 'Sophisticated', 'Local'],
-    locationSummary: 'Trendy Gauthier Neighborhood',
+    locationSummary: "City Center & Gauthier Business District",
     availabilityText: 'Available tonight',
     googleMapsUrl: '[https://www.google.com/maps/place/Gauthier+Art+Deco+Hotel/@33.5875,-7.6245,17z](https://www.google.com/maps/place/Gauthier+Art+Deco+Hotel/@33.5875,-7.6245,17z)',
     address: "4 Rue de l'Aisne, Casablanca 20000, Morocco",
@@ -330,7 +339,12 @@ export const casablancaSleep: SleepListing[] = [
       families: 'Better suited for couples or business travelers.',
       business: 'Quiet and central with reliable WiFi.',
       nomad: 'The lounge is a great spot for afternoon work sessions.'
-    }
+    },
+    coordinates: {
+      lat: 33.587944,
+      lng: -7.627771
+    },
+    tags: ["heritage"]
   },
   {
     id: 'c-sleep-3',
@@ -368,13 +382,15 @@ export const casablancaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: true,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ['couple', 'family', 'business-friendly', 'seniors'],
     tip: 'The "Mint" terrace is the best place in the city for sunset tea; arrive 30 minutes before sunset to secure a front-row seat.',
     vibeTags: ['Oceanfront', 'Modern-Luxury', 'Resort-Style', 'Sunset-Views'],
-    locationSummary: 'Beachfront - Anfa Place',
+    locationSummary: "Ain Diab Corniche & Anfa",
     availabilityText: 'Available tonight',
     googleMapsUrl: '[https://www.google.com/maps/place/Four+Seasons+Hotel+Casablanca/@33.5978,-7.6645,17z](https://www.google.com/maps/place/Four+Seasons+Hotel+Casablanca/@33.5978,-7.6645,17z)',
     address: 'Boulevard de la Corniche, Casablanca 20050, Morocco',
@@ -418,7 +434,12 @@ export const casablancaSleep: SleepListing[] = [
       families: 'Great kids amenities and spacious suites.',
       business: 'Exceptional business facilities and networking spots.',
       nomad: 'High-speed fiber and multiple quiet spots with ocean views.'
-    }
+    },
+    coordinates: {
+      lat: 33.599545,
+      lng: -7.663758
+    },
+    tags: ["family-favorite"]
   },
   {
     id: 'c-sleep-4',
@@ -456,13 +477,15 @@ export const casablancaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 3,
     groupTypes: ['solo', 'friends'],
     tip: "Casablanca's old medina is a real working neighborhood. It's gritty and authentic—be respectful and stay on the main paths after dark.",
     vibeTags: ['Authentic', 'Social', 'Gritty', 'Budget-Friendly'],
-    locationSummary: 'Inside the Old Medina',
+    locationSummary: "Ancienne Médina",
     availabilityText: 'Available tonight',
     googleMapsUrl: '[https://www.google.com/maps/place/Medina+Hostel+Casablanca/@33.5975,-7.6185,17z](https://www.google.com/maps/place/Medina+Hostel+Casablanca/@33.5975,-7.6185,17z)',
     address: '50 Place Ahmed el Bidaoui, Casablanca 20000, Morocco',
@@ -506,7 +529,12 @@ export const casablancaSleep: SleepListing[] = [
       families: 'Not recommended for families with young children.',
       business: 'Good for a quick overnight if you are on a budget.',
       nomad: 'The rooftop view is incredible, but WiFi can be spotty in the alleys.'
-    }
+    },
+    coordinates: {
+      lat: 33.600342,
+      lng: -7.617355
+    },
+    tags: ["dorm", "heritage"]
   },
   {
     id: 'c-sleep-5',
@@ -544,13 +572,15 @@ export const casablancaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ['business-friendly', 'couple', 'solo'],
     tip: 'The rooftop bar is one of the best spots in the city for a sunset cocktail with a modern vibe.',
     vibeTags: ['Modern', 'Chic', 'Urban', 'Sophisticated'],
-    locationSummary: 'Boulevard Mohamed V',
+    locationSummary: "City Center & Gauthier Business District",
     availabilityText: 'Available tonight',
     googleMapsUrl: '[https://www.google.com/maps/place/Radisson+Blu+Hotel,+Casablanca+City+Center/@33.5925,-7.6125,17z](https://www.google.com/maps/place/Radisson+Blu+Hotel,+Casablanca+City+Center/@33.5925,-7.6125,17z)',
     address: '02 Boulevard Mohamed V, Casablanca 20000, Morocco',
@@ -594,7 +624,12 @@ export const casablancaSleep: SleepListing[] = [
       families: 'Good facilities, though better suited for business or couples.',
       business: 'Excellent business center and the WiFi was flawless.',
       nomad: 'The rooftop is a great place to work with a view.'
-    }
+    },
+    coordinates: {
+      lat: 33.587944,
+      lng: -7.627771
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: 'c-sleep-6',
@@ -631,14 +666,16 @@ export const casablancaSleep: SleepListing[] = [
     taxesIncluded: false,
     freeCancellation: true,
     kidsStayFree: true,
-    nearMedina: true,
+    nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ['couple', 'solo', 'business-friendly'],
     tip: 'Grab a drink at the Dar Beida lounge featuring live music on weekends.',
     vibeTags: ['Iconic', 'Business', 'Central', 'Classic'],
-    locationSummary: 'City Center - Place des Nations Unies',
+    locationSummary: "City Center & Gauthier Business District",
     availabilityText: 'Available tonight',
     googleMapsUrl: '[https://www.google.com/maps/place/Hyatt+Regency+Casablanca/@33.5951,-7.6186,17z](https://www.google.com/maps/place/Hyatt+Regency+Casablanca/@33.5951,-7.6186,17z)',
     address: 'Place des Nations Unies, Casablanca 20000, Morocco',
@@ -682,7 +719,12 @@ export const casablancaSleep: SleepListing[] = [
       families: 'A bit corporate but safe and central.',
       business: 'Top-tier executive lounge and meeting spaces.',
       nomad: 'Reliable fast internet in the business lounge.'
-    }
+    },
+    coordinates: {
+      lat: 33.596087,
+      lng: -7.618828
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: 'c-sleep-7',
@@ -719,14 +761,16 @@ export const casablancaSleep: SleepListing[] = [
     taxesIncluded: false,
     freeCancellation: true,
     kidsStayFree: true,
-    nearMedina: true,
+    nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ['couple', 'solo', 'seniors', 'business-friendly'],
     tip: 'The "Bar Casart" on the top floor offers the best sunset view of the Hassan II Mosque in the entire city.',
     vibeTags: ['Chic', 'Contemporary', 'Panoramic', 'Vibrant'],
-    locationSummary: 'City Center - Opposite Medina',
+    locationSummary: "City Center & Gauthier Business District",
     availabilityText: 'Available tonight',
     googleMapsUrl: '[https://www.google.com/maps/place/Sofitel+Casablanca+Tour+Blanche/@33.5955,-7.6165,17z](https://www.google.com/maps/place/Sofitel+Casablanca+Tour+Blanche/@33.5955,-7.6165,17z)',
     address: 'Rue Sidi Belyout, Casablanca 20000, Morocco',
@@ -770,7 +814,12 @@ export const casablancaSleep: SleepListing[] = [
       families: 'Great suites and very accommodating staff.',
       business: 'The best executive lounge and meeting facilities in Casa.',
       nomad: 'Fast internet and incredible views to keep you inspired while working.'
-    }
+    },
+    coordinates: {
+      lat: 33.598617,
+      lng: -7.613284
+    },
+    tags: ["family-favorite"]
   },
   {
     id: 'c-sleep-8',
@@ -808,13 +857,15 @@ export const casablancaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ['couple', 'friends', 'solo', 'business-friendly'],
     tip: 'Book a "Sky View" room on a floor above the 20th for a truly unforgettable perspective of Casablanca’s sprawling urban landscape.',
     vibeTags: ['Iconic', 'Urban', 'Panoramic', 'Business'],
-    locationSummary: 'Maarif - Twin Center',
+    locationSummary: "City Center & Gauthier Business District",
     availabilityText: 'Available tonight',
     googleMapsUrl: '[https://www.google.com/maps/place/Kenzi+Tower+Hotel/@33.5855,-7.6325,17z](https://www.google.com/maps/place/Kenzi+Tower+Hotel/@33.5855,-7.6325,17z)',
     address: 'Twin Center, Boulevard Mohamed Zerktouni, Casablanca 20000, Morocco',
@@ -858,7 +909,12 @@ export const casablancaSleep: SleepListing[] = [
       families: 'Great central location and huge rooms for the price.',
       business: 'Excellent facilities and very well known for meetings.',
       nomad: 'The business lounge has the best views and decent WiFi.'
-    }
+    },
+    coordinates: {
+      lat: 33.586587,
+      lng: -7.632085
+    },
+    tags: ["family-favorite"]
   },
   {
     id: 'c-sleep-9',
@@ -896,13 +952,15 @@ export const casablancaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ['couple', 'solo', 'business-friendly'],
     tip: 'The rooftop terrace "B-Heaven" is one of the most vibrant spots in the city for an evening cocktail with a view.',
     vibeTags: ['Modern', 'High-Tech', 'Vibrant', 'Central'],
-    locationSummary: 'Boulevard d’Anfa - Business Hub',
+    locationSummary: "Ain Diab Corniche & Anfa",
     availabilityText: 'Available tonight',
     googleMapsUrl: '[https://www.google.com/maps/place/Barcel%C3%B3+Anfa+Casablanca/@33.5885,-7.6285,17z](https://www.google.com/maps/place/Barcel%C3%B3+Anfa+Casablanca/@33.5885,-7.6285,17z)',
     address: '44 Boulevard d’Anfa, Casablanca 20000, Morocco',
@@ -946,7 +1004,12 @@ export const casablancaSleep: SleepListing[] = [
       families: 'Modern and safe, but better suited for business or couples.',
       business: 'Excellent WiFi and very modern meeting spaces.',
       nomad: 'High-speed internet and the rooftop bar is a great place to work.'
-    }
+    },
+    coordinates: {
+      lat: 33.591096,
+      lng: -7.635382
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: 'c-sleep-10',
@@ -984,13 +1047,15 @@ export const casablancaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: true,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ['family', 'friends', 'solo', 'business-friendly'],
     tip: 'Request a "Mosque View" studio on the higher floors—the view of the minaret lit up at night is absolutely magical.',
     vibeTags: ['Practical', 'Spacious', 'Scenic', 'Convenient'],
-    locationSummary: 'Near Hassan II Mosque',
+    locationSummary: "City Center & Gauthier Business District",
     availabilityText: 'Available tonight',
     googleMapsUrl: '[https://www.google.com/maps/place/Melliber+Appart+Hotel/@33.6015,-7.6245,17z](https://www.google.com/maps/place/Melliber+Appart+Hotel/@33.6015,-7.6245,17z)',
     address: '138 Boulevard Moulay Youssef, Casablanca 20000, Morocco',
@@ -1034,7 +1099,12 @@ export const casablancaSleep: SleepListing[] = [
       families: 'The kitchen was a lifesaver for our trip with children.',
       business: 'A quiet and practical alternative to standard hotels.',
       nomad: 'Good WiFi and the extra space is great for a long stay.'
-    }
+    },
+    coordinates: {
+      lat: 33.604304,
+      lng: -7.632784
+    },
+    tags: ["family-favorite"]
   },
   {
     id: 'c-sleep-11',
@@ -1071,14 +1141,16 @@ export const casablancaSleep: SleepListing[] = [
     taxesIncluded: false,
     freeCancellation: true,
     kidsStayFree: true,
-    nearMedina: true,
+    nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ['solo', 'friends', 'business-friendly'],
     tip: 'Ideal for those arriving by the Al-Boraq high-speed train; you can walk from the platform to your room in less than 5 minutes.',
     vibeTags: ['Practical', 'Efficient', 'Modern', 'Central'],
-    locationSummary: 'Next to Casa Port Station',
+    locationSummary: "City Center & Gauthier Business District",
     availabilityText: 'Available tonight',
     googleMapsUrl: '[https://www.google.com/maps/place/Ibis+Casablanca+City+Center/@33.5985,-7.6145,17z](https://www.google.com/maps/place/Ibis+Casablanca+City+Center/@33.5985,-7.6145,17z)',
     address: 'Angle Zaid ou Hmad, Rue Sidi Belyout, Casablanca 20190, Morocco',
@@ -1122,7 +1194,12 @@ export const casablancaSleep: SleepListing[] = [
       families: 'A bit small for families, but very central.',
       business: 'The best choice for those using the high-speed train.',
       nomad: 'Good WiFi in the lobby and very central for exploring.'
-    }
+    },
+    coordinates: {
+      lat: 33.598617,
+      lng: -7.613284
+    },
+    tags: ["family-favorite"]
   },
   {
     id: 'c-sleep-12',
@@ -1160,13 +1237,15 @@ export const casablancaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ['couple', 'solo', 'seniors'],
     tip: 'Habous is famous for its bakeries—ask the riad staff where to find the best "Corne de Gazelle" cookies nearby.',
     vibeTags: ['Authentic', 'Quiet', 'Historic', 'Charming'],
-    locationSummary: 'Traditional Habous Quarter',
+    locationSummary: "City Center & Gauthier Business District",
     availabilityText: 'Available tonight',
     googleMapsUrl: '[https://www.google.com/maps/place/Riad+Jnane+Sherazade/@33.5785,-7.6045,17z](https://www.google.com/maps/place/Riad+Jnane+Sherazade/@33.5785,-7.6045,17z)',
     address: '8 Rue de la Mosquée, Habous, Casablanca 20000, Morocco',
@@ -1210,7 +1289,12 @@ export const casablancaSleep: SleepListing[] = [
       families: 'Better suited for older children who will appreciate the history.',
       business: 'A refreshing and quiet alternative to corporate hotels.',
       nomad: 'The courtyard is an inspiring and quiet place for remote work.'
-    }
+    },
+    coordinates: {
+      lat: 33.698302,
+      lng: -7.388962
+    },
+    tags: ["heritage"]
   },
   {
     id: 'c-sleep-13',
@@ -1248,13 +1332,15 @@ export const casablancaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ['couple', 'seniors', 'solo'],
     tip: 'Enjoy a slow dinner in their garden—it’s one of the quietest and most relaxing dining spots in the entire city.',
     vibeTags: ['Intimate', 'Green', 'Quiet', 'Homey'],
-    locationSummary: 'Residential Oasis District',
+    locationSummary: "City Center & Gauthier Business District",
     availabilityText: 'Available tonight',
     googleMapsUrl: '[https://www.google.com/maps/place/Riad+21/@33.5685,-7.6345,17z](https://www.google.com/maps/place/Riad+21/@33.5685,-7.6345,17z)',
     address: '21 Rue de la Meuse, Oasis, Casablanca 20000, Morocco',
@@ -1298,7 +1384,12 @@ export const casablancaSleep: SleepListing[] = [
       families: 'Great for families who want a quiet home-base.',
       business: 'A refreshing and quiet alternative to business hotels.',
       nomad: 'The garden is a dream for quiet afternoon work.'
-    }
+    },
+    coordinates: {
+      lat: 33.551677,
+      lng: -7.610422
+    },
+    tags: []
   },
   {
     id: 'c-sleep-14',
@@ -1336,13 +1427,15 @@ export const casablancaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: true,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ['family', 'couple', 'business-friendly'],
     tip: 'The direct access to Anfa Place Mall means you have dozens of dining and shopping options literally at your doorstep.',
     vibeTags: ['Beachfront', 'Spacious', 'Convenient', 'Modern'],
-    locationSummary: 'Beachfront - Anfa Place',
+    locationSummary: "City Center & Gauthier Business District",
     availabilityText: 'Available tonight',
     googleMapsUrl: '[https://www.google.com/maps/place/Pestana+Casablanca/@33.5985,-7.6622,17z](https://www.google.com/maps/place/Pestana+Casablanca/@33.5985,-7.6622,17z)',
     address: 'Anfa Place, Boulevard de la Corniche, Casablanca 20000, Morocco',
@@ -1386,7 +1479,12 @@ export const casablancaSleep: SleepListing[] = [
       families: 'The best choice for families in Casablanca—lots of space and easy food.',
       business: 'Excellent WiFi and practical for long-term business stays.',
       nomad: 'The extra space and proximity to the mall make it a perfect "workation" spot.'
-    }
+    },
+    coordinates: {
+      lat: 33.597788,
+      lng: -7.666643
+    },
+    tags: ["family-favorite"]
   },
   {
     id: 'c-sleep-15',
@@ -1424,13 +1522,15 @@ export const casablancaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ['couple', 'solo', 'business-friendly'],
     tip: 'The "La Bodega" bar downstairs is a Casablanca institution for live music and a vibrant local atmosphere.',
     vibeTags: ['Eco-Luxe', 'Artistic', 'Modern', 'Social'],
-    locationSummary: 'Artistic Gauthier District',
+    locationSummary: "City Center & Gauthier Business District",
     availabilityText: 'Available tonight',
     googleMapsUrl: '[https://www.google.com/maps/place/JM+Suites+Hotel/@33.5875,-7.6225,17z](https://www.google.com/maps/place/JM+Suites+Hotel/@33.5875,-7.6225,17z)',
     address: '161 Angle Boulevard Rachidi & Moulay Hassan I, Casablanca 20070, Morocco',
@@ -1474,7 +1574,12 @@ export const casablancaSleep: SleepListing[] = [
       families: 'The suites are spacious and great for older children.',
       business: 'Excellent location and very reliable service.',
       nomad: 'Fast internet and great social vibes at the rooftop bar.'
-    }
+    },
+    coordinates: {
+      lat: 33.592352,
+      lng: -7.625553
+    },
+    tags: []
   },
   {
     id: 'c-sleep-16',
@@ -1511,14 +1616,16 @@ export const casablancaSleep: SleepListing[] = [
     taxesIncluded: false,
     freeCancellation: true,
     kidsStayFree: false,
-    nearMedina: true,
+    nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ['couple', 'solo'],
     tip: 'Spend an hour in the library lounge—it’s one of the quietest and most inspiring spots in downtown Casablanca.',
     vibeTags: ['Artistic', 'Chic', 'Intimate', 'Central'],
-    locationSummary: 'City Center - Near Casa Port',
+    locationSummary: "City Center & Gauthier Business District",
     availabilityText: 'Available tonight',
     googleMapsUrl: '[https://www.google.com/maps/place/Odyssee+Boutique+Hotel/@33.5955,-7.6145,17z](https://www.google.com/maps/place/Odyssee+Boutique+Hotel/@33.5955,-7.6145,17z)',
     address: 'Angle Rue Kamal Mohamed, Rue de l’Aisne, Casablanca 20000, Morocco',
@@ -1562,7 +1669,12 @@ export const casablancaSleep: SleepListing[] = [
       families: 'Better suited for couples or solo travelers.',
       business: 'A refreshing and quiet alternative to corporate hotels.',
       nomad: 'The library is a dream for quiet work sessions.'
-    }
+    },
+    coordinates: {
+      lat: 33.593196,
+      lng: -7.640998
+    },
+    tags: []
   },
   {
     id: 'c-sleep-17',
@@ -1599,14 +1711,16 @@ export const casablancaSleep: SleepListing[] = [
     taxesIncluded: false,
     freeCancellation: true,
     kidsStayFree: true,
-    nearMedina: true,
+    nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ['solo', 'couple', 'business-friendly'],
     tip: 'Perfect for those who want to be within walking distance of both the modern business district and the artisan markets of the old medina.',
     vibeTags: ['Classic', 'Central', 'Traditional', 'Convenient'],
-    locationSummary: 'City Center - Near Medina',
+    locationSummary: "City Center & Gauthier Business District",
     availabilityText: 'Available tonight',
     googleMapsUrl: '[https://www.google.com/maps/place/Oum+Palace+Hotel+%26+Spa/@33.5955,-7.6145,17z](https://www.google.com/maps/place/Oum+Palace+Hotel+%26+Spa/@33.5955,-7.6145,17z)',
     address: '12 Rue Sidi Belyout, Casablanca 20000, Morocco',
@@ -1650,7 +1764,12 @@ export const casablancaSleep: SleepListing[] = [
       families: 'Good central location and very helpful staff.',
       business: 'A practical and well-located choice for work trips.',
       nomad: 'Good WiFi and the central location makes it easy to work and explore.'
-    }
+    },
+    coordinates: {
+      lat: 33.596253,
+      lng: -7.614328
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: 'c-sleep-18',
@@ -1688,13 +1807,15 @@ export const casablancaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ['couple', 'family', 'business-friendly'],
     tip: 'Take a morning stroll in the Arab League Park right across the street—it’s the most beautiful green space in Casablanca.',
     vibeTags: ['Prestigious', 'Spacious', 'Modern', 'Quiet'],
-    locationSummary: 'Gauthier - Overlooking Park',
+    locationSummary: "City Center & Gauthier Business District",
     availabilityText: 'Available tonight',
     googleMapsUrl: '[https://www.google.com/maps/place/Suite+Hotel+Casa+Diamond/@33.5875,-7.6245,17z](https://www.google.com/maps/place/Suite+Hotel+Casa+Diamond/@33.5875,-7.6245,17z)',
     address: 'Angle Avenue Hassan II et Rue Osmane Ben Affane, Casablanca 20000, Morocco',
@@ -1738,7 +1859,12 @@ export const casablancaSleep: SleepListing[] = [
       families: 'The extra space and the park nearby are perfect for kids.',
       business: 'The best business suites in Casablanca.',
       nomad: 'Fast internet and incredible views to work from.'
-    }
+    },
+    coordinates: {
+      lat: 33.585698,
+      lng: -7.622651
+    },
+    tags: ["family-favorite"]
   },
   {
     id: 'c-sleep-19',
@@ -1776,13 +1902,15 @@ export const casablancaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ['couple', 'friends', 'solo', 'business-friendly'],
     tip: 'The surrounding Maarif streets are filled with the best local boutiques and cafes—perfect for an afternoon of exploring and people-watching.',
     vibeTags: ['Vibrant', 'Modern', 'Social', 'Central'],
-    locationSummary: 'Maarif Shopping District',
+    locationSummary: "City Center & Gauthier Business District",
     availabilityText: 'Available tonight',
     googleMapsUrl: '[https://www.google.com/maps/place/Down+Town+Hotel+By+Business+%26+Leisure+Hotels/@33.5855,-7.6325,17z](https://www.google.com/maps/place/Down+Town+Hotel+By+Business+%26+Leisure+Hotels/@33.5855,-7.6325,17z)',
     address: '14 Rue El Kadi Iass, Maarif, Casablanca 20100, Morocco',
@@ -1826,7 +1954,12 @@ export const casablancaSleep: SleepListing[] = [
       families: 'Great for families who want a modern and central base.',
       business: 'Excellent WiFi and very practical for work trips.',
       nomad: 'The best spot in Casa for a "workation"—fast internet and great cafes nearby.'
-    }
+    },
+    coordinates: {
+      lat: 33.586168,
+      lng: -7.636068
+    },
+    tags: ["family-favorite"]
   },
   {
     id: 'c-sleep-20',
@@ -1863,14 +1996,16 @@ export const casablancaSleep: SleepListing[] = [
     taxesIncluded: false,
     freeCancellation: true,
     kidsStayFree: false,
-    nearMedina: true,
+    nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 3,
     groupTypes: ['solo', 'friends'],
     tip: 'A great place to meet fellow travelers before heading out to the desert or Marrakech; check the community board for shared taxi offers.',
     vibeTags: ['Social', 'Budget-Friendly', 'Central', 'Vibrant'],
-    locationSummary: 'City Center - Near Medina',
+    locationSummary: "City Center & Gauthier Business District",
     availabilityText: 'Available tonight',
     googleMapsUrl: '[https://www.google.com/maps/place/Auberge+de+Jeunesse+Casablanca/@33.5975,-7.6165,17z](https://www.google.com/maps/place/Auberge+de+Jeunesse+Casablanca/@33.5975,-7.6165,17z)',
     address: '6 Place Ahmed el Bidaoui, Old Medina, Casablanca 20000, Morocco',
@@ -1914,6 +2049,11 @@ export const casablancaSleep: SleepListing[] = [
       families: 'Not recommended for families.',
       business: 'Only for the very budget-conscious business traveler.',
       nomad: 'Good social vibes, but the WiFi can be busy in the evenings.'
-    }
+    },
+    coordinates: {
+      lat: 33.582028,
+      lng: -7.619518
+    },
+    tags: ["dorm"]
   }
 ]

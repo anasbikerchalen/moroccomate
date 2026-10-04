@@ -192,13 +192,15 @@ export const dakhlaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: true,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ["couple", "seniors", "solo"],
     tip: "Book a lagoon-front villa to enjoy the calm waters right from your doorstep and experience candlelit dinners on the private pier.",
     vibeTags: ["Palatial", "Minimalist", "Serene", "Lagoon-Front"],
-    locationSummary: "Lagoon Edge - Near Dakhla Center",
+    locationSummary: "Dakhla Waterfront & Peninsula",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Le+Palais+Rhoul+Dakhla",
     address: "Palais Rhoul & Spa Dakhla, Lagoon Front, Dakhla 73000, Morocco",
@@ -265,6 +267,11 @@ export const dakhlaSleep: SleepListing[] = [
       business: "Prestigious for hosting or high-end retreats.",
       nomad: "Inspiring architecture but internet is best in the common areas.",
     },
+    coordinates: {
+      lat: 23.694045,
+      lng: -15.933445
+    },
+    tags: ["heritage"]
   },
   {
     id: "da-sleep-2",
@@ -302,13 +309,15 @@ export const dakhlaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: true,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "friends"],
     tip: "Ask the team to arrange a downwinder trip to the nearby White Dune for a scenic kitesurfing experience.",
     vibeTags: ["Eco", "Quiet", "Lagoon-Views", "Unplugged"],
-    locationSummary: "Quiet Southern Lagoon",
+    locationSummary: "Dakhla Lagoon / Kitesurf Bay",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Heliophora+Eco-Lodge+Dakhla",
     address: "Heliophora Eco-Lodge, Dakhla Lagoon, Dakhla 73000, Morocco",
@@ -375,6 +384,11 @@ export const dakhlaSleep: SleepListing[] = [
       business: "Good for disconnecting rather than formal work calls.",
       nomad: "Best for nomads who kite first and work in short offline-focused blocks.",
     },
+    coordinates: {
+      lat: 23.914589,
+      lng: -15.763504
+    },
+    tags: []
   },
   {
     id: "da-sleep-3",
@@ -485,6 +499,11 @@ export const dakhlaSleep: SleepListing[] = [
       business: "Decent WiFi in main areas, but best for disconnecting.",
       nomad: "Inspiring environment, though remote.",
     },
+    coordinates: {
+      lat: 23.73745,
+      lng: -15.783587
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "da-sleep-4",
@@ -522,13 +541,15 @@ export const dakhlaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: true,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "At low tide, you can walk or take a quick boat shuttle over to Dragon Island to explore its untouched sandbanks. The Pink Flamingo bar is the heart of the resort social life.",
     vibeTags: ["Vibrant", "Social", "Sport-Centric", "Iconic"],
-    locationSummary: "Northern Lagoon - Windward Side",
+    locationSummary: "Dakhla Lagoon / Kitesurf Bay",
     availabilityText: "Available tonight - Very Popular",
     googleMapsUrl: "https://maps.google.com/?q=Dakhla+Attitude",
     address: "Dakhla Attitude, Dakhla Lagoon, Dakhla 73000, Morocco",
@@ -595,6 +616,11 @@ export const dakhlaSleep: SleepListing[] = [
       business: "WiFi in main bar area is decent for checking emails.",
       nomad: "A high-energy hub for working nomads who kite.",
     },
+    coordinates: {
+      lat: 23.893369,
+      lng: -15.771072
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "da-sleep-5",
@@ -632,13 +658,15 @@ export const dakhlaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: true,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "friends"],
     tip: "Join the outdoor cinema nights under the desert stars. The property is designed for creative nomads and has some of the best WiFi on the lagoon for those who need to work.",
     vibeTags: ["Bohemian-Chic", "Wellness", "Artistic", "Communal"],
-    locationSummary: "Quiet Lagoon Stretch",
+    locationSummary: "Dakhla Lagoon / Kitesurf Bay",
     availabilityText: "Available tonight - Exclusive",
     googleMapsUrl: "https://maps.google.com/?q=Caravan+by+Habitas+Dakhla",
     address: "Caravan by Habitas Dakhla, Dakhla Lagoon, Dakhla 73000, Morocco",
@@ -705,6 +733,11 @@ export const dakhlaSleep: SleepListing[] = [
       business: "The best office on the lagoon with high-speed WiFi.",
       nomad: "The gold standard for the modern digital nomad in Morocco.",
     },
+    coordinates: {
+      lat: 23.91391,
+      lng: -15.781348
+    },
+    tags: []
   },
   {
     id: "da-sleep-6",
@@ -742,13 +775,15 @@ export const dakhlaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: true,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["couple", "family", "seniors"],
     tip: "Book an ocean-view suite to watch the sunset directly over the waves of Foum Labouir from your private balcony. The surf here is excellent for advanced surfers.",
     vibeTags: ["Organic-Architecture", "Cliffside", "Serene", "Oceanfront"],
-    locationSummary: "Ocean Side - Foum Labouir Surf Spot",
+    locationSummary: "Dakhla Lagoon / Kitesurf Bay",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=La+Crique+Nature+%26+Spa+Dakhla",
     address: "La Crique Nature & Spa, Foum Labouir, Dakhla 73000, Morocco",
@@ -815,6 +850,7 @@ export const dakhlaSleep: SleepListing[] = [
       business: "Good WiFi and inspiring ocean views for creative work.",
       nomad: "A beautiful spot to work while overlooking the Atlantic surf.",
     },
+    tags: ["family-favorite"]
   },
   {
     id: "da-sleep-7",
@@ -852,13 +888,15 @@ export const dakhlaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: true,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "friends"],
     tip: "Opt for a front-row bungalow to step straight from your private terrace onto the sand every morning.",
     vibeTags: ["Stylish", "Beachfront", "Kitesurf", "Relaxed"],
-    locationSummary: "Lagoon Front - PK25",
+    locationSummary: "Dakhla Waterfront & Peninsula",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=PK25+Dakhla",
     address: "PK25 Dakhla, Dakhla Lagoon, Dakhla 73000, Morocco",
@@ -925,6 +963,11 @@ export const dakhlaSleep: SleepListing[] = [
       business: "WiFi is practical for light work in common areas.",
       nomad: "Good for nomads who want to kite daily and work between sessions.",
     },
+    coordinates: {
+      lat: 23.901666,
+      lng: -15.785099
+    },
+    tags: []
   },
   {
     id: "da-sleep-8",
@@ -962,13 +1005,15 @@ export const dakhlaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: true,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "friends", "business-friendly"],
     tip: "Take advantage of the hotel's on-site gym and wellness spa to soothe your muscles after a long day of kiting.",
     vibeTags: ["Modern", "Sporty", "Spa", "Lagoon-Resort"],
-    locationSummary: "Dakhla Lagoon Resort Zone",
+    locationSummary: "Dakhla Waterfront & Peninsula",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Dakhla+Club+Hotel+%26+Spa",
     address: "Dakhla Club Hotel & Spa, Dakhla Lagoon, Dakhla 73000, Morocco",
@@ -1035,6 +1080,11 @@ export const dakhlaSleep: SleepListing[] = [
       business: "Reliable enough for light work between activities.",
       nomad: "A practical premium camp for nomads who need better facilities.",
     },
+    coordinates: {
+      lat: 23.694045,
+      lng: -15.933445
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "da-sleep-9",
@@ -1072,13 +1122,15 @@ export const dakhlaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: true,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "friends"],
     tip: "This property is great for those looking for seclusion; go on a morning walk through the surrounding limestone canyons.",
     vibeTags: ["Secluded", "Canyon-Views", "Eco", "Quiet"],
-    locationSummary: "Lagoon Canyons",
+    locationSummary: "Dakhla Waterfront & Peninsula",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=White+Dune+Canyon+Dakhla",
     address: "White Dune Canyon, Dakhla Lagoon, Dakhla 73000, Morocco",
@@ -1145,6 +1197,11 @@ export const dakhlaSleep: SleepListing[] = [
       business: "Good for creative retreats, not formal business travel.",
       nomad: "Excellent for deep-focus work if you can handle the remote setting.",
     },
+    coordinates: {
+      lat: 23.807154,
+      lng: -15.734392
+    },
+    tags: []
   },
   {
     id: "da-sleep-10",
@@ -1182,13 +1239,15 @@ export const dakhlaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: true,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["solo", "friends"],
     tip: "Their all-inclusive packages offer excellent value; consider joining their guided boat trips to remote flat-water kiting spots.",
     vibeTags: ["Budget", "Kitesurf", "Friendly", "Community"],
-    locationSummary: "Lagoon Kite Camp",
+    locationSummary: "Dakhla Waterfront & Peninsula",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=New+Spirit+Dakhla",
     address: "New Spirit Dakhla, Dakhla Lagoon, Dakhla 73000, Morocco",
@@ -1255,6 +1314,11 @@ export const dakhlaSleep: SleepListing[] = [
       business: "Basic WiFi is fine for messages, not heavy calls.",
       nomad: "Good for budget nomads who prioritize kiting over comfort.",
     },
+    coordinates: {
+      lat: 23.90384,
+      lng: -15.785464
+    },
+    tags: ["dorm"]
   },
   {
     id: "da-sleep-11",
@@ -1292,13 +1356,15 @@ export const dakhlaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: true,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ["couple", "family", "seniors"],
     tip: "Spend your afternoon on the 170m² rooftop terrace with a fresh mint tea to enjoy the breeze and views of the bay.",
     vibeTags: ["Boutique", "Riad-Inspired", "Terrace", "City-Base"],
-    locationSummary: "Dakhla City Center - Bay View",
+    locationSummary: "Dakhla Waterfront & Peninsula",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Oasis+Dakhla",
     address: "Oasis Dakhla, Dakhla City Center, Dakhla 73000, Morocco",
@@ -1365,6 +1431,11 @@ export const dakhlaSleep: SleepListing[] = [
       business: "Good for business travelers needing town access.",
       nomad: "Better for nomads who need cafes, errands, and stable town logistics.",
     },
+    coordinates: {
+      lat: 23.6306,
+      lng: -15.8605
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "da-sleep-12",
@@ -1402,13 +1473,15 @@ export const dakhlaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: true,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["couple", "family", "friends", "seniors"],
     tip: "Visit the nearby ranch to arrange a scenic horseback ride along the shoreline during the golden hour.",
     vibeTags: ["Eco", "Family-Friendly", "Lagoon-Garden", "Relaxed"],
-    locationSummary: "Eco Lagoon Camp",
+    locationSummary: "Dakhla Waterfront & Peninsula",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Lagon+Energy+Dakhla",
     address: "Lagon Energy Dakhla, Dakhla Lagoon, Dakhla 73000, Morocco",
@@ -1475,6 +1548,11 @@ export const dakhlaSleep: SleepListing[] = [
       business: "Good for informal retreats and light work.",
       nomad: "A comfortable balanced option for nomads traveling with family or friends.",
     },
+    coordinates: {
+      lat: 23.778893,
+      lng: -15.900659
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "da-sleep-13",
@@ -1512,13 +1590,15 @@ export const dakhlaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: true,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "friends"],
     tip: "This is a great spot for wave surfing; check local tide charts to catch the clean right-hand point break right in front of the lodge.",
     vibeTags: ["Surf", "Cliffside", "Eco", "Ocean-Views"],
-    locationSummary: "Foum Labouir Surf Coast",
+    locationSummary: "Dakhla Waterfront & Peninsula",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Westpoint+Dakhla",
     address: "Westpoint Dakhla, Foum Labouir, Dakhla 73000, Morocco",
@@ -1585,6 +1665,11 @@ export const dakhlaSleep: SleepListing[] = [
       business: "Basic for business, but scenic for creative work.",
       nomad: "Good for surf-focused nomads who do not need city convenience.",
     },
+    coordinates: {
+      lat: 23.768461,
+      lng: -15.924448
+    },
+    tags: []
   },
   {
     id: "da-sleep-14",
@@ -1622,13 +1707,15 @@ export const dakhlaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: true,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "friends"],
     tip: "Head down to the beach bar in the evening to swap tips with other kiters and enjoy the local music events.",
     vibeTags: ["Community", "Kite-Camp", "Yoga", "Down-to-Earth"],
-    locationSummary: "Lagoon Kite Camp",
+    locationSummary: "Dakhla Waterfront & Peninsula",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Dakhla+Spirit",
     address: "Dakhla Spirit, Dakhla Lagoon, Dakhla 73000, Morocco",
@@ -1695,6 +1782,11 @@ export const dakhlaSleep: SleepListing[] = [
       business: "Works for light laptop tasks in common areas.",
       nomad: "A sociable base for nomads who want community more than quiet luxury.",
     },
+    coordinates: {
+      lat: 23.90384,
+      lng: -15.785464
+    },
+    tags: []
   },
   {
     id: "da-sleep-15",
@@ -1732,13 +1824,15 @@ export const dakhlaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: true,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "friends"],
     tip: "A highly cost-effective choice for solo travelers; the shared common space is a friendly place to meet other water sports enthusiasts.",
     vibeTags: ["Artistic", "Homey", "Budget", "Lagoon-View"],
-    locationSummary: "Dakhla City Center - Lagoon View",
+    locationSummary: "Dakhla Waterfront & Peninsula",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Kite+House+Dakhla",
     address: "Kite House Dakhla, Dakhla City Center, Dakhla 73000, Morocco",
@@ -1805,6 +1899,11 @@ export const dakhlaSleep: SleepListing[] = [
       business: "Good for basic work thanks to town access.",
       nomad: "A cost-effective nomad base if you plan to work in town and kite by shuttle.",
     },
+    coordinates: {
+      lat: 23.735002,
+      lng: -15.915758
+    },
+    tags: []
   },
   {
     id: "da-sleep-16",
@@ -1842,13 +1941,15 @@ export const dakhlaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: true,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "friends"],
     tip: "Lassarga is famous for its long, peeling wave, making it an excellent spot for wave riding and strapless kiting.",
     vibeTags: ["Castaway", "Surf", "Eco", "Adventure"],
-    locationSummary: "Lassarga - Peninsula Tip",
+    locationSummary: "Dakhla Lagoon / Kitesurf Bay",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Ocean+Vagabond+Lassarga+Dakhla",
     address: "Ocean Vagabond Lassarga, Lassarga, Dakhla 73000, Morocco",
@@ -1915,6 +2016,11 @@ export const dakhlaSleep: SleepListing[] = [
       business: "Not a business hotel, but scenic for creative work.",
       nomad: "Good for nomads who want surf, remoteness, and a castaway rhythm.",
     },
+    coordinates: {
+      lat: 23.634622,
+      lng: -15.99804
+    },
+    tags: []
   },
   {
     id: "da-sleep-17",
@@ -1952,13 +2058,15 @@ export const dakhlaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: true,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "friends", "seniors"],
     tip: "Ask the wonderful host Fatima for her local recommendations, especially for dining at the nearby oyster farms.",
     vibeTags: ["Family-Run", "Warm", "Budget", "Lagoon-View"],
-    locationSummary: "Dakhla City Center",
+    locationSummary: "Dakhla Waterfront & Peninsula",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Dar+Rio+Oro+Dakhla",
     address: "Dar Rio Oro, Dakhla City Center, Dakhla 73000, Morocco",
@@ -2025,6 +2133,11 @@ export const dakhlaSleep: SleepListing[] = [
       business: "Practical for quick work trips in town.",
       nomad: "A low-cost town base for nomads who arrange their own kite transfers.",
     },
+    coordinates: {
+      lat: 23.703255,
+      lng: -15.925559
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "da-sleep-18",
@@ -2062,13 +2175,15 @@ export const dakhlaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: true,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "seniors"],
     tip: "This hotel is a convenient base for travelers who want to explore Dakhla’s local markets, cafes, and restaurants on foot.",
     vibeTags: ["Clean", "Central", "Practical", "Value"],
-    locationSummary: "Dakhla City Center",
+    locationSummary: "Dakhla Waterfront & Peninsula",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Boutique+Hotel+Albaraka+Dakhla",
     address: "Boutique Hôtel Albaraka, Dakhla City Center, Dakhla 73000, Morocco",
@@ -2135,6 +2250,11 @@ export const dakhlaSleep: SleepListing[] = [
       business: "Good for business because of central location and 24-hour desk.",
       nomad: "A reliable town base for nomads who need errands, cafes, and airport access.",
     },
+    coordinates: {
+      lat: 23.702199,
+      lng: -15.926604
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "da-sleep-19",
@@ -2172,13 +2292,15 @@ export const dakhlaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: true,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["couple", "family", "friends"],
     tip: "Spend a quiet evening at the private beach loungers, which offer a great viewpoint for watching the birds along the lagoon.",
     vibeTags: ["Modern", "Beach-Area", "Comfortable", "Relaxed"],
-    locationSummary: "South Bay - City Edge",
+    locationSummary: "Dakhla Waterfront & Peninsula",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Dakhla+South+Bay",
     address: "Dakhla South Bay, Dakhla City Center, Dakhla 73000, Morocco",
@@ -2245,6 +2367,11 @@ export const dakhlaSleep: SleepListing[] = [
       business: "A decent option for business travelers needing comfort and access.",
       nomad: "Works well for nomads who prefer hotel infrastructure over camp life.",
     },
+    coordinates: {
+      lat: 23.766536,
+      lng: -15.906809
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "da-sleep-20",
@@ -2282,13 +2409,15 @@ export const dakhlaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: true,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["couple", "family", "friends", "seniors"],
     tip: "Take advantage of the well-equipped gym and on-site spa center for active recovery days between surf sessions.",
     vibeTags: ["Resort", "Beachfront", "Family", "Wellness"],
-    locationSummary: "Foum Labouir Beachfront",
+    locationSummary: "Dakhla Waterfront & Peninsula",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Tulum+Beach+Resort+Dakhla",
     address: "Tulum Beach Resort Dakhla, Foum Labouir, Dakhla 73000, Morocco",
@@ -2355,5 +2484,10 @@ export const dakhlaSleep: SleepListing[] = [
       business: "Practical for meetings or work if you need standard hotel services.",
       nomad: "Better for nomads who want comfort and gym access more than camp community.",
     },
+    coordinates: {
+      lat: 23.771302,
+      lng: -15.923677
+    },
+    tags: ["family-favorite"]
   }
 ]

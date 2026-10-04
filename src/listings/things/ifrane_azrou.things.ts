@@ -27,9 +27,12 @@ export const ifrane_azrouThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ['iconic-landmark', 'photospot', 'alpine-park', 'atlas-history'],
+    tags: ["alpine-park", "atlas-history", "iconic-landmark", "photospot", "relaxed", "walk-in"],
     archetypeAffinity: ['first-timer', 'family', 'nature'],
-    tip: 'Visit early in the morning for quiet photo ops without tour bus crowds.'
+    tip: 'Visit early in the morning for quiet photo ops without tour bus crowds.',
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     id: 'azrou-cedre-gouraud-forest',
@@ -57,9 +60,12 @@ export const ifrane_azrouThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: false,
     isPhotographyFriendly: true,
-    tags: ['wildlife-encounter', 'cedar-forest', 'barbary-macaques', 'nature-walk'],
+    tags: ["barbary-macaques", "cedar-forest", "nature-walk", "walk-in", "wildlife-encounter"],
     archetypeAffinity: ['nature', 'wildlife', 'family'],
-    tip: 'Keep food in bags and treat the macaques with respectful distance—do not feed them human processed snacks.'
+    tip: 'Keep food in bags and treat the macaques with respectful distance—do not feed them human processed snacks.',
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     id: 'ifrane-ain-vittel',
@@ -87,9 +93,12 @@ export const ifrane_azrouThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: false,
     isPhotographyFriendly: true,
-    tags: ['waterfall', 'spring-water', 'nature-walk', 'horse-riding'],
+    tags: ["horse-riding", "nature-walk", "private", "relaxed", "spring-water", "waterfall"],
     archetypeAffinity: ['nature', 'relaxation', 'family'],
-    tip: 'In spring, local horse owners offer scenic 20-minute trail rides along the river for a small fee.'
+    tip: 'In spring, local horse owners offer scenic 20-minute trail rides along the river for a small fee.',
+    walkInOkay: false,
+    hasPrivateOption: true,
+    hasSunsetView: false
   },
   {
     id: 'ifrane-michlifen-ski-resort',
@@ -117,9 +126,12 @@ export const ifrane_azrouThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: false,
     isPhotographyFriendly: true,
-    tags: ['winter-sports', 'ski-resort', 'snow-sledding', 'volcanic-crater'],
+    tags: ["active", "private", "ski-resort", "snow-sledding", "volcanic-crater", "walk-in", "winter-sports"],
     archetypeAffinity: ['adventure', 'family', 'nature'],
-    tip: 'Snow season runs typically from January to late February. Equipment rentals are available at the base.'
+    tip: 'Snow season runs typically from January to late February. Equipment rentals are available at the base.',
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: false
   },
   {
     id: 'ifrane-dayet-aoua-lake',
@@ -147,8 +159,11 @@ export const ifrane_azrouThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ['mountain-lake', 'birdwatching', 'pedal-boating', 'picnic-spot'],
+    tags: ["birdwatching", "morning", "mountain-lake", "pedal-boating", "picnic-spot", "private", "relaxed", "sunset", "walk-in"],
     archetypeAffinity: ['nature', 'relaxation', 'family'],
-    tip: 'Rent a pedal boat in late afternoon for golden hour views across the cedar-reflected waters.'
+    tip: 'Rent a pedal boat in late afternoon for golden hour views across the cedar-reflected waters.',
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: true
   }
 ]

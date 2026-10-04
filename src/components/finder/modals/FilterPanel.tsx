@@ -1,6 +1,6 @@
 import { SlidersHorizontal, Star, X, Check, Sparkles, User, Shield, Zap, Heart, Plus, ChevronDown, ChevronUp } from 'lucide-react';
 import { cn } from '../../../utils/cn';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'motion/react';
 import { useState, useEffect } from 'react';
 import { useExploreStore } from '../../../state/exploreStore';
 import { ARCHETYPE_METADATA } from '../../../data/explore/archetypes';
@@ -35,7 +35,7 @@ const FilterSection = ({ label, children, icon }: { label: string, children: Rea
   </div>
 );
 
-const ToggleButton = ({ active, onClick, label, icon }: { active: boolean, onClick: () => void, label: string, icon?: string }) => (
+const ToggleButton = ({ active, onClick, label, icon, count }: { active: boolean, onClick: () => void, label: string, icon?: string, count?: number }) => (
   <button
     onClick={(e) => { e.stopPropagation(); onClick(); }}
     className={cn(
@@ -47,6 +47,9 @@ const ToggleButton = ({ active, onClick, label, icon }: { active: boolean, onCli
   >
     {icon && <span>{icon}</span>}
     {label}
+    {typeof count === 'number' && (
+      <span className={cn("text-[9px] font-black px-1 rounded-full", active ? "bg-white/20" : "bg-stone-100 text-stone-500")}>{count}</span>
+    )}
     {active && <Check className="w-3 h-3" />}
   </button>
 );
@@ -56,11 +59,34 @@ interface FilterPanelProps {
   filters: any;
   onChange: (newFilters: any) => void;
   onClose: () => void;
+  items?: any[];
 }
 
-export default function FilterPanel({ category, filters, onChange, onClose }: FilterPanelProps) {
+export default function FilterPanel({ category, filters, onChange, onClose, items }: FilterPanelProps) {
   const { archetype, setArchetype } = useExploreStore();
   const [showMore, setShowMore] = useState(false);
+
+  // Live result counts: prevents 0-match dead ends when toggling filters
+  const countFor = (predicate: (item: any) => boolean): number | undefined =>
+    items ? items.filter(predicate).length : undefined;
+  const flagCount = (key: string): number | undefined => {
+    const predicates: Record<string, (item: any) => boolean> = {
+      isVegetarian: (item: any) => item.isVegetarianFriendly === true,
+      isHalal: (item: any) => item.isHalal === true,
+      servesAlcohol: (item: any) => item.servesAlcohol === true,
+      hasPool: (item: any) => item.hasPool === true,
+      hasAC: (item: any) => item.hasAC === true,
+      isKidFriendly: (item: any) => item.isKidFriendly === true || (Array.isArray(item.vibeTags) && item.vibeTags.some((v: string) => v.toLowerCase().includes('family'))),
+      isWheelchairAccessible: (item: any) => item.isWheelchairAccessible === true || (Array.isArray(item.vibeTags) && item.vibeTags.some((v: string) => v.toLowerCase().includes('step-free'))),
+      isVerified: (item: any) => item.isVerified === true,
+      isFixedPrice: (item: any) => item.pricingModel === 'fixed',
+      isNoHassle: (item: any) => item.pricingModel === 'fixed',
+      isWorkshop: (item: any) => (Array.isArray(item.tags) && item.tags.some((t: string) => t.toLowerCase().includes('workshop'))) || (Array.isArray(item.experienceTypes) && item.experienceTypes.some((t: any) => String(t).toLowerCase().includes('workshop'))),
+      isLocalFav: (item: any) => (Array.isArray(item.tags) && item.tags.some((t: string) => t.toLowerCase().includes('local-favorite'))) || (Array.isArray(item.vibeTags) && item.vibeTags.some((v: string) => v.toLowerCase().includes('local favorite')))
+    };
+    const predicate = predicates[key];
+    return predicate ? countFor(predicate) : undefined;
+  };
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -148,6 +174,15 @@ export default function FilterPanel({ category, filters, onChange, onClose }: Fi
               const label = tag?.label || tagId;
               const icon = tag?.icon;
               const isActive = filters.vibes?.includes(tagId);
+              // Live result count: prevents 0-match dead ends
+              const liveCount = items
+                ? items.filter((item: any) =>
+                    (Array.isArray(item.tags) && item.tags.some((t: string) => String(t).toLowerCase() === tagId.toLowerCase()))
+                    || (Array.isArray(item.vibeTags) && item.vibeTags.some((t: string) => String(t).toLowerCase() === tagId.toLowerCase()))
+                    || (Array.isArray(item.archetypeAffinity) && item.archetypeAffinity.some((t: string) => String(t).toLowerCase() === tagId.toLowerCase()))
+                    || (item.description || '').toLowerCase().includes(tagId.toLowerCase())
+                  ).length
+                : undefined;
 
               return (
                 <button
@@ -163,6 +198,9 @@ export default function FilterPanel({ category, filters, onChange, onClose }: Fi
                   {isActive && <Check className="w-3.5 h-3.5" />}
                   {icon && <span>{icon}</span>}
                   {label}
+                  {typeof liveCount === 'number' && (
+                    <span className={cn("text-[9px] font-black px-1 rounded-full", isActive ? "bg-[#C9A84C]/20" : "bg-stone-100 text-stone-500")}>{liveCount}</span>
+                  )}
                 </button>
               );
             })}
@@ -171,28 +209,30 @@ export default function FilterPanel({ category, filters, onChange, onClose }: Fi
           <FilterSection label="Must-Have Features" icon={<Zap className="w-3 h-3" />}>
             {isEat && (
               <>
-                <ToggleButton active={!!filters.isVegetarian} onClick={() => updateFilter('isVegetarian', !filters.isVegetarian)} label="Vegetarian" icon="🥬" />
-                <ToggleButton active={!!filters.isHalal} onClick={() => updateFilter('isHalal', !filters.isHalal)} label="Halal" icon="🥩" />
-                <ToggleButton active={!!filters.servesAlcohol} onClick={() => updateFilter('servesAlcohol', !filters.servesAlcohol)} label="Serves Alcohol" icon="🍷" />
+                <ToggleButton active={!!filters.isVegetarian} onClick={() => updateFilter('isVegetarian', !filters.isVegetarian)} label="Vegetarian" count={flagCount('isVegetarian')} icon="🥬" />
+                <ToggleButton active={!!filters.isHalal} onClick={() => updateFilter('isHalal', !filters.isHalal)} label="Halal" count={flagCount('isHalal')} icon="🥩" />
+                <ToggleButton active={!!filters.servesAlcohol} onClick={() => updateFilter('servesAlcohol', !filters.servesAlcohol)} label="Serves Alcohol" count={flagCount('servesAlcohol')} icon="🍷" />
               </>
             )}
             {isSleep && (
               <>
-                <ToggleButton active={!!filters.hasPool} onClick={() => updateFilter('hasPool', !filters.hasPool)} label="Pool" icon="🏊" />
-                <ToggleButton active={!!filters.hasAC} onClick={() => updateFilter('hasAC', !filters.hasAC)} label="A/C" icon="❄️" />
+                <ToggleButton active={!!filters.hasPool} onClick={() => updateFilter('hasPool', !filters.hasPool)} label="Pool" count={flagCount('hasPool')} icon="🏊" />
+                <ToggleButton active={!!filters.hasAC} onClick={() => updateFilter('hasAC', !filters.hasAC)} label="A/C" count={flagCount('hasAC')} icon="❄️" />
               </>
             )}
             {isThings && (
               <>
-                <ToggleButton active={!!filters.isKidFriendly} onClick={() => updateFilter('isKidFriendly', !filters.isKidFriendly)} label="Kid Friendly" icon="👶" />
-                <ToggleButton active={!!filters.isWheelchairAccessible} onClick={() => updateFilter('isWheelchairAccessible', !filters.isWheelchairAccessible)} label="Accessible" icon="♿" />
+                <ToggleButton active={!!filters.isKidFriendly} onClick={() => updateFilter('isKidFriendly', !filters.isKidFriendly)} label="Kid Friendly" count={flagCount('isKidFriendly')} icon="👶" />
+                <ToggleButton active={!!filters.isWheelchairAccessible} onClick={() => updateFilter('isWheelchairAccessible', !filters.isWheelchairAccessible)} label="Accessible" count={flagCount('isWheelchairAccessible')} icon="♿" />
               </>
             )}
             {isShopping && (
               <>
-                <ToggleButton active={!!filters.isVerified} onClick={() => updateFilter('isVerified', !filters.isVerified)} label="Verified Authentic" icon="🛡️" />
-                <ToggleButton active={!!filters.isFixedPrice} onClick={() => updateFilter('isFixedPrice', !filters.isFixedPrice)} label="Fixed Price Only" icon="🏷️" />
-                <ToggleButton active={!!filters.isNoHassle} onClick={() => updateFilter('isNoHassle', !filters.isNoHassle)} label="Low Pressure" icon="😌" />
+                <ToggleButton active={!!filters.isVerified} onClick={() => updateFilter('isVerified', !filters.isVerified)} label="Verified Authentic" count={flagCount('isVerified')} icon="🛡️" />
+                <ToggleButton active={!!filters.isFixedPrice} onClick={() => updateFilter('isFixedPrice', !filters.isFixedPrice)} label="Fixed Price Only" count={flagCount('isFixedPrice')} icon="🏷️" />
+                <ToggleButton active={!!filters.isNoHassle} onClick={() => updateFilter('isNoHassle', !filters.isNoHassle)} label="Low Pressure" count={flagCount('isNoHassle')} icon="😌" />
+                <ToggleButton active={!!filters.isWorkshop} onClick={() => updateFilter('isWorkshop', !filters.isWorkshop)} label="Live Workshop" count={flagCount('isWorkshop')} icon="🔨" />
+                <ToggleButton active={!!filters.isLocalFav} onClick={() => updateFilter('isLocalFav', !filters.isLocalFav)} label="Local Favorite" count={flagCount('isLocalFav')} icon="❤️" />
               </>
             )}
           </FilterSection>
@@ -290,6 +330,8 @@ export default function FilterPanel({ category, filters, onChange, onClose }: Fi
                 isVerified: false,
                 isFixedPrice: false,
                 isNoHassle: false,
+                isWorkshop: false,
+                isLocalFav: false,
               });
               onClose();
             }}

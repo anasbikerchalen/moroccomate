@@ -1,17 +1,14 @@
 // src/components/finder/DetailView.tsx
-import { useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { 
   Star, MapPin, Clock, Users, ExternalLink, ArrowLeft, 
   Wifi, Wind, Waves, Coffee, CheckCircle2, Tag, Lightbulb,
-  ChevronRight, Heart, Car
+  ChevronRight, Heart
 } from 'lucide-react';
 import { cn } from '../../utils/cn';
-import { handleImageError } from '../../utils/imageUtils';
-import { resolveListingImages, handleListingImageError } from '../../utils/imageResolver';
 import { useExploreStore } from '../../state/exploreStore';
 import EatDetailView from './EatDetailView';
-import SleepDetailView from './SleepDetailView';
+import StayDetailView from './StayDetailView';
 import ShopDetailView from './ShopDetailView';
 import ActivityDetailView from './ActivityDetailView';
 import SavvyBadge from '../savvy/SavvyBadge';
@@ -56,7 +53,6 @@ function RatingStars({ rating }: { rating: number }) {
 }
 
 export default function DetailView({ item, onBack }: DetailViewProps) {
-  const navigate = useNavigate();
   const { omitGoogleImage } = useExploreStore();
 
   if (!item) {
@@ -79,7 +75,7 @@ export default function DetailView({ item, onBack }: DetailViewProps) {
   // Check if it is a sleep listing
   const isSleep = item.id?.startsWith('s-') || item.pricePerNight !== undefined || ['riad', 'hotel', 'villa', 'hostel', 'apartment'].includes(item.type);
   if (isSleep) {
-    return <SleepDetailView item={item} onBack={onBack} />;
+    return <StayDetailView item={item} onBack={onBack} />;
   }
 
   // Check if it is a shop listing
@@ -106,16 +102,6 @@ export default function DetailView({ item, onBack }: DetailViewProps) {
   const displayName = name || title || 'Unnamed Listing';
   const displayRating = googleRating || rating || 0;
 
-  const resolvedImage = resolveListingImages({
-    id: item?.id,
-    googlePlaceId: item?.googlePlaceId,
-    images: item?.images,
-    nonCopyrightImage: item?.nonCopyrightImage,
-    category: item?.category || 'things',
-    omitGooglePlaceApi: omitGoogleImage
-  });
-
-  const primaryImage = resolvedImage.url;
   const finalLifestyle = Array.isArray(lifestyle) ? lifestyle[0] : lifestyle;
   const displayPrice = pricePerNight 
     ? `${pricePerNight} MAD/night` 
@@ -159,51 +145,46 @@ export default function DetailView({ item, onBack }: DetailViewProps) {
         Back to results
       </button>
 
-      {/* Hero image */}
-      {primaryImage && (
-        <div className="relative w-full h-72 md:h-96 rounded-[32px] overflow-hidden mb-8 shadow-2xl">
-          <img
-            src={primaryImage}
-            alt={displayName}
-            className="w-full h-full object-cover"
-            data-fallbacks={JSON.stringify(resolvedImage.fallbackUrls)}
-            onError={(e) => handleListingImageError(e, resolvedImage.fallbackUrls, item?.category || 'things')}
-            referrerPolicy="no-referrer"
-          />
-          {/* Image gallery row */}
-          {images.length > 1 && (
-            <div className="absolute bottom-4 left-4 flex gap-2">
-              {images.slice(1, 4).map((img: string, i: number) => (
-                <div key={i} className="w-16 h-16 rounded-2xl overflow-hidden border-2 border-white/60 shadow-md">
-                  <img src={img} alt="" className="w-full h-full object-cover" onError={handleImageError} referrerPolicy="no-referrer" />
-                </div>
-              ))}
-              {images.length > 4 && (
-                <div className="w-16 h-16 rounded-2xl bg-black/50 backdrop-blur-sm border-2 border-white/60 flex items-center justify-center text-white font-bold text-sm">
-                  +{images.length - 4}
-                </div>
-              )}
-            </div>
-          )}
-          {/* Lifestyle badge on image */}
-          {finalLifestyle && (
-            <div className={cn(
-              'absolute top-4 left-4 px-3 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest',
-              LIFESTYLE_COLOR[finalLifestyle] || 'bg-stone-100 text-stone-700'
-            )}>
-              {LIFESTYLE_LABEL[finalLifestyle] || finalLifestyle}
-            </div>
-          )}
-          {badge && (
-            <div className={cn(
-              'absolute top-4 right-4 px-3 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest',
-              BADGE_COLOR[badge] || 'bg-stone-100 text-stone-700'
-            )}>
-              {badge.replace('-', ' ')}
-            </div>
-          )}
+      {/* Hero panel — no hosted image, decorative gradient + Google Maps photos link */}
+      <div className="relative w-full h-72 md:h-96 rounded-[32px] overflow-hidden mb-8 shadow-2xl
+        bg-gradient-to-br from-[#2C1810] to-[#8B4A2A] flex flex-col items-center justify-center gap-4">
+        {/* Decorative Moroccan pattern */}
+        <div className="absolute inset-0 bg-[radial-gradient(rgba(201,168,76,0.15)_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+
+        {/* Lifestyle badge */}
+        {finalLifestyle && (
+          <div className={cn(
+            'absolute top-4 left-4 px-3 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest',
+            LIFESTYLE_COLOR[finalLifestyle] || 'bg-stone-100 text-stone-700'
+          )}>
+            {LIFESTYLE_LABEL[finalLifestyle] || finalLifestyle}
+          </div>
+        )}
+        {badge && (
+          <div className={cn(
+            'absolute top-4 right-4 px-3 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest',
+            BADGE_COLOR[badge] || 'bg-stone-100 text-stone-700'
+          )}>
+            {badge.replace('-', ' ')}
+          </div>
+        )}
+
+        {/* Center CTA */}
+        <div className="relative z-10 flex flex-col items-center gap-3 text-center">
+          <p className="text-white/70 text-xs font-bold uppercase tracking-widest">Photos</p>
+          <a
+            href={googleMapsUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${displayName} ${city || ''} Morocco`)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/90 hover:bg-white text-[#29231F] text-sm font-bold shadow-md hover:shadow-lg transition-all cursor-pointer"
+          >
+            <MapPin className="w-4 h-4 text-[#C2613C]" />
+            View photos on Google Maps
+            <ExternalLink className="w-3.5 h-3.5 opacity-60" />
+          </a>
         </div>
-      )}
+      </div>
 
       {/* Header */}
       <div className="mb-8">
@@ -233,10 +214,7 @@ export default function DetailView({ item, onBack }: DetailViewProps) {
                 </span>
               )}
               {item.id && (
-                <div 
-                  onClick={() => navigate(`/savvy/${city || 'marrakech'}/activity/${item.id}`)}
-                  className="cursor-pointer hover:opacity-80 transition-opacity"
-                >
+                <div className="flex items-center">
                   <SavvyBadge placeId={item.id} size="sm" />
                 </div>
               )}
@@ -353,23 +331,8 @@ export default function DetailView({ item, onBack }: DetailViewProps) {
         </div>
       )}
 
-      {/* Action Buttons: Transport Options & Google Maps */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
-        <button
-          onClick={() => {
-            navigate(`/transport/go?city=${encodeURIComponent(city || 'marrakech')}&dest=${encodeURIComponent(displayName)}`);
-          }}
-          className="w-full flex items-center justify-between bg-stone-900 hover:bg-[#C9A84C] text-white rounded-[32px] p-6 transition-all shadow-xl group cursor-pointer"
-        >
-          <div className="text-left">
-            <p className="text-[10px] font-black uppercase tracking-widest text-[#C9A84C] group-hover:text-stone-900 mb-1 transition-colors">Transport Hub</p>
-            <p className="text-xl font-display">Get Transport Options</p>
-          </div>
-          <div className="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center group-hover:bg-stone-900/20 transition-all shrink-0">
-            <Car className="w-5 h-5 text-[#C9A84C] group-hover:text-stone-900 transition-colors" />
-          </div>
-        </button>
-
+      {/* Action Buttons: Google Maps */}
+      <div className="grid grid-cols-1 gap-4 my-6">
         {googleMapsUrl && (
           <a
             href={googleMapsUrl}

@@ -1,6 +1,6 @@
 import { FINDER_CURATED_DATA } from '../../data/travel/finderCurated';
 import { Sparkles, BedDouble, Users, HelpCircle, Compass, ArrowRight } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import FilterChipBar from './FilterChipBar';
 
 interface SleepCuratedViewProps {

@@ -6,8 +6,13 @@ dist
 
 # Logs
 *.log
+*.local
 dev-log.txt
+dev_out.txt
 build-log.txt
+
+# Vite temporary files
+vite.config.ts.timestamp-*
 
 # Local helper scripts
 dev-task.cmd

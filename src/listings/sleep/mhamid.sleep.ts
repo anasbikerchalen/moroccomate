@@ -192,13 +192,15 @@ export const mhamidSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "The owner is a local nomad who can help arrange highly affordable, authentic wild desert camping.",
     vibeTags: ["Family-Run", "Budget", "Desert-Base", "Nomad-Hospitality"],
-    locationSummary: "M'hamid Center - Village Guesthouse",
+    locationSummary: "Mhamid El Ghizlane Oasis",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Dar+Mhamid",
     address: "Dar Mhamid, Mhamid El Ghizlane 47402, Morocco",
@@ -265,6 +267,11 @@ export const mhamidSleep: SleepListing[] = [
       business: "Good WiFi makes it practical for planning and remote admin.",
       nomad: "A strong budget base for nomads organizing deeper Sahara trips.",
     },
+    coordinates: {
+      lat: 29.826809,
+      lng: -5.724011
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "mh-sleep-2",
@@ -375,6 +382,11 @@ export const mhamidSleep: SleepListing[] = [
       business: "Not suited to normal business work; ideal for complete disconnection.",
       nomad: "A premium digital-detox base for deep creative thinking.",
     },
+    coordinates: {
+      lat: 29.836463,
+      lng: -5.738189
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "mh-sleep-3",
@@ -412,13 +424,15 @@ export const mhamidSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "friends", "family"],
     tip: "Walk into the village at dusk to watch the sunset paint the distant dunes gold.",
     vibeTags: ["Budget-Camp", "Nomadic", "Campfire", "Stargazing"],
-    locationSummary: "Small Dunes near Mhamid",
+    locationSummary: "Erg Chigaga Desert Dunes",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Desert+Camp+Chraika+Mhamid",
     address: "Small dunes near Mhamid, Mhamid El Ghizlane 47402, Morocco",
@@ -485,6 +499,11 @@ export const mhamidSleep: SleepListing[] = [
       business: "Not suitable for business beyond basic messages.",
       nomad: "A low-cost digital-detox camp for nomads seeking silence.",
     },
+    coordinates: {
+      lat: 29.838571,
+      lng: -5.73814
+    },
+    tags: ["dorm", "family-favorite"]
   },
   {
     id: "mh-sleep-4",
@@ -522,13 +541,15 @@ export const mhamidSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["couple", "family", "friends"],
     tip: "Perfect if you want a premium desert vibe without making the long 3-hour journey to Erg Chigaga.",
     vibeTags: ["Boutique-Camp", "Comfort", "Short-Transfer", "Berber"],
-    locationSummary: "Near-Village Luxury Camp",
+    locationSummary: "Erg Chigaga Desert Dunes",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Mhamid+Luxury+Camps",
     address: "Desert Oasis near Mhamid, Mhamid El Ghizlane 47402, Morocco",
@@ -595,6 +616,11 @@ export const mhamidSleep: SleepListing[] = [
       business: "Not a business stay, but quiet for planning.",
       nomad: "A balanced camp for nomads who want inspiration with easier access.",
     },
+    coordinates: {
+      lat: 29.827921,
+      lng: -5.667453
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "mh-sleep-5",
@@ -632,13 +658,15 @@ export const mhamidSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["couple", "family", "friends"],
     tip: "Make use of the camp’s unique indoor pool to cool off during hot desert afternoons.",
     vibeTags: ["Luxury-Camp", "Pool", "Sunset", "Glamping"],
-    locationSummary: "Desert Oasis - Pool Camp",
+    locationSummary: "Erg Chigaga Desert Dunes",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Sky+Luxury+Camp+Mhamid",
     address: "Desert Oasis near Mhamid, Mhamid El Ghizlane 47402, Morocco",
@@ -705,6 +733,11 @@ export const mhamidSleep: SleepListing[] = [
       business: "Not designed for business, but quiet for retreat time.",
       nomad: "A comfortable low-connectivity base for creative work.",
     },
+    coordinates: {
+      lat: 29.809028,
+      lng: -5.734266
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "mh-sleep-6",
@@ -742,13 +775,15 @@ export const mhamidSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ["couple", "family", "friends", "business-friendly"],
     tip: "Enjoy a dip in the courtyard pool after a dusty desert drive to cool down before dinner.",
     vibeTags: ["Kasbah-Palace", "Pool", "Spa", "Desert-Gateway"],
-    locationSummary: "M'hamid Center - Palace Riad",
+    locationSummary: "Mhamid El Ghizlane Oasis",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Sbai+Palace+Mhamid",
     address: "Sbai Palace, Mhamid El Ghizlane 47402, Morocco",
@@ -815,6 +850,11 @@ export const mhamidSleep: SleepListing[] = [
       business: "Useful facilities for meetings and expedition planning.",
       nomad: "A comfortable base for remote work before a desert disconnect.",
     },
+    coordinates: {
+      lat: 29.825457,
+      lng: -5.680737
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "mh-sleep-7",
@@ -852,13 +892,15 @@ export const mhamidSleep: SleepListing[] = [
     freeCancellation: false,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["couple", "family", "friends", "solo"],
     tip: "This camp sits in a zero-light-pollution zone, perfect for night-sky astrophotography.",
     vibeTags: ["Luxury-Camp", "Astrophotography", "Remote", "Full-Board"],
-    locationSummary: "Deep Erg Chigaga - Zero Light Pollution",
+    locationSummary: "Erg Chigaga Desert Dunes",
     availabilityText: "Available on selected dates",
     googleMapsUrl: "https://maps.google.com/?q=Desert+Luxury+Camp+Erg+Chigaga",
     address: "Erg Chigaga Dunes, Mhamid El Ghizlane 47402, Morocco",
@@ -925,6 +967,11 @@ export const mhamidSleep: SleepListing[] = [
       business: "Not business-friendly, but ideal for complete digital detox.",
       nomad: "Excellent for creative thinking away from connectivity.",
     },
+    coordinates: {
+      lat: 29.838571,
+      lng: -5.73814
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "mh-sleep-8",
@@ -962,13 +1009,15 @@ export const mhamidSleep: SleepListing[] = [
     freeCancellation: false,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["couple", "solo", "friends"],
     tip: "Request a private candlelit dinner on the crest of a nearby sand dune.",
     vibeTags: ["Exclusive", "Canvas-Suites", "Stargazing", "Copper-Details"],
-    locationSummary: "Erg Chigaga - Exclusive Canvas Camp",
+    locationSummary: "Erg Chigaga Desert Dunes",
     availabilityText: "Available on selected dates",
     googleMapsUrl: "https://maps.google.com/?q=Nubia+Luxury+Camp+Erg+Chigaga",
     address: "Erg Chigaga Dunes, Mhamid El Ghizlane 47402, Morocco",
@@ -1035,6 +1084,11 @@ export const mhamidSleep: SleepListing[] = [
       business: "Not suited to business, ideal for retreat-style focus.",
       nomad: "A beautiful low-connectivity camp for reflective creative work.",
     },
+    coordinates: {
+      lat: 29.836463,
+      lng: -5.738189
+    },
+    tags: []
   },
   {
     id: "mh-sleep-9",
@@ -1072,13 +1126,15 @@ export const mhamidSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["solo", "friends", "couple", "family"],
     tip: "Bring a headlight, as the camp minimizes artificial lighting to enhance stargazing.",
     vibeTags: ["Budget", "Nomadic", "Unplugged", "Stargazing"],
-    locationSummary: "Small Dunes - Simple Bivouac",
+    locationSummary: "Mhamid El Ghizlane Oasis",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Bivouac+Beaute+du+desert+Mhamid",
     address: "Desert Oasis near Mhamid, Mhamid El Ghizlane 47402, Morocco",
@@ -1145,6 +1201,11 @@ export const mhamidSleep: SleepListing[] = [
       business: "Not suitable for business connectivity.",
       nomad: "A perfect low-cost digital detox for nomads.",
     },
+    coordinates: {
+      lat: 29.809028,
+      lng: -5.734266
+    },
+    tags: ["dorm", "family-favorite"]
   },
   {
     id: "mh-sleep-10",
@@ -1182,13 +1243,15 @@ export const mhamidSleep: SleepListing[] = [
     freeCancellation: false,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["couple", "friends", "solo"],
     tip: "Don’t miss the daily evening manager’s reception over local tea.",
     vibeTags: ["Personalized", "Luxury-Camp", "Sundowners", "Chegaga"],
-    locationSummary: "Erg Chigaga - Personalized Luxury Camp",
+    locationSummary: "Erg Chigaga Desert Dunes",
     availabilityText: "Available on selected dates",
     googleMapsUrl: "https://maps.google.com/?q=Le+Sand+Luxury+Camp+Chegaga",
     address: "Erg Chigaga Dunes, Mhamid El Ghizlane 47402, Morocco",
@@ -1255,6 +1318,11 @@ export const mhamidSleep: SleepListing[] = [
       business: "Not practical for business; excellent for retreat-style thinking.",
       nomad: "A low-connectivity luxury base for creative reset.",
     },
+    coordinates: {
+      lat: 29.836463,
+      lng: -5.738189
+    },
+    tags: []
   },
   {
     id: "mh-sleep-11",
@@ -1292,13 +1360,15 @@ export const mhamidSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ["couple", "family", "seniors", "solo"],
     tip: "Ask for a room in the Saharienne wing to experience styling inspired by nomadic tents.",
     vibeTags: ["Boutique-Hotel", "Palm-Grove", "Pool", "Saharan-Chic"],
-    locationSummary: "Palm Grove - Boutique Desert Hotel",
+    locationSummary: "Mhamid El Ghizlane Oasis",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Dar+Azawad+Mhamid",
     address: "Palm Grove, Mhamid El Ghizlane 47402, Morocco",
@@ -1365,6 +1435,11 @@ export const mhamidSleep: SleepListing[] = [
       business: "Works well for planning expeditions and remote work.",
       nomad: "A balanced base for nomads before disconnecting in the dunes.",
     },
+    coordinates: {
+      lat: 29.825084,
+      lng: -5.719808
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "mh-sleep-12",
@@ -1402,13 +1477,15 @@ export const mhamidSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Sign up for their traditional bread-making class to learn how nomads bake bread in the sand.",
     vibeTags: ["Mud-Brick", "Culinary", "Budget", "Guesthouse"],
-    locationSummary: "Village Border - Mud-Brick Inn",
+    locationSummary: "Mhamid El Ghizlane Oasis",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Auberge+Kasbah+Dar+Sahara+Tours",
     address: "Village Border, Mhamid El Ghizlane 47402, Morocco",
@@ -1475,6 +1552,11 @@ export const mhamidSleep: SleepListing[] = [
       business: "High-speed WiFi helps with planning and work.",
       nomad: "A budget-friendly nomad base with practical WiFi and culture.",
     },
+    coordinates: {
+      lat: 29.825084,
+      lng: -5.719808
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "mh-sleep-13",
@@ -1512,13 +1594,15 @@ export const mhamidSleep: SleepListing[] = [
     freeCancellation: false,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["couple", "family", "friends", "solo"],
     tip: "Book the 4x4 safari starting at 4 PM to capture the desert’s changing colors on the way to camp.",
     vibeTags: ["Royal-Camp", "4x4-Safari", "Nomad-Music", "Deep-Desert"],
-    locationSummary: "Erg Chigaga - Dar Azawad Camp",
+    locationSummary: "Erg Chigaga Desert Dunes",
     availabilityText: "Available on selected dates",
     googleMapsUrl: "https://maps.google.com/?q=Dar+Azawad+Royal+Desert+Camp",
     address: "Erg Chigaga Dunes, Mhamid El Ghizlane 47402, Morocco",
@@ -1585,6 +1669,11 @@ export const mhamidSleep: SleepListing[] = [
       business: "Not suitable for standard work, but excellent for disconnecting.",
       nomad: "A remote creative retreat with minimal connectivity.",
     },
+    coordinates: {
+      lat: 29.836463,
+      lng: -5.738189
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "mh-sleep-14",
@@ -1622,13 +1711,15 @@ export const mhamidSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Request an upper-floor garden-facing room for a peaceful palm-oasis view.",
     vibeTags: ["Practical", "Mud-Brick", "Garden-View", "Value"],
-    locationSummary: "Village Border - Palm Garden Views",
+    locationSummary: "Mhamid El Ghizlane Oasis",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Hotel+Carrefour+des+Nomades+Mhamid",
     address: "Village Border, Mhamid El Ghizlane 47402, Morocco",
@@ -1695,6 +1786,11 @@ export const mhamidSleep: SleepListing[] = [
       business: "Good WiFi for travel planning and admin.",
       nomad: "A practical low-cost base for nomads before desert tours.",
     },
+    coordinates: {
+      lat: 29.829348,
+      lng: -5.663746
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "mh-sleep-15",
@@ -1732,13 +1828,15 @@ export const mhamidSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ["couple", "family", "friends", "seniors"],
     tip: "Book a traditional clay bungalow for a cooler, more insulated night’s sleep.",
     vibeTags: ["Palmeraie", "Bungalows", "Pool", "Desert-Hotel"],
-    locationSummary: "Palm Grove - Oasis Pool Hotel",
+    locationSummary: "Mhamid El Ghizlane Oasis",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Chez+Le+Pacha+Mhamid",
     address: "Palm Grove, Mhamid El Ghizlane 47402, Morocco",
@@ -1805,6 +1903,11 @@ export const mhamidSleep: SleepListing[] = [
       business: "Good for planning multi-day expeditions with WiFi.",
       nomad: "A comfortable work base before heading offline into the dunes.",
     },
+    coordinates: {
+      lat: 29.825084,
+      lng: -5.719808
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "mh-sleep-16",
@@ -1842,13 +1945,15 @@ export const mhamidSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Ask the host to organize a traditional henna tattooing session in the riad courtyard.",
     vibeTags: ["Homey", "Courtyard", "Stargazing", "Warm"],
-    locationSummary: "Mhamid Center - Courtyard Riad",
+    locationSummary: "Mhamid El Ghizlane Oasis",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+ma+bonne+etoile+Mhamid",
     address: "Mhamid Center, Mhamid El Ghizlane 47402, Morocco",
@@ -1915,6 +2020,11 @@ export const mhamidSleep: SleepListing[] = [
       business: "Good WiFi for travel planning and light work.",
       nomad: "A balanced village base for nomads seeking warmth and quiet.",
     },
+    coordinates: {
+      lat: 29.833017,
+      lng: -5.668361
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "mh-sleep-17",
@@ -1952,13 +2062,15 @@ export const mhamidSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "friends", "business-friendly"],
     tip: "Use the on-site travel desk to coordinate custom multi-day camel treks deep into the Sahara.",
     vibeTags: ["Basecamp", "Pool", "Expedition-Hub", "Saharan"],
-    locationSummary: "Mhamid Entrance - Desert Expedition Hotel",
+    locationSummary: "Mhamid El Ghizlane Oasis",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Hotel+Kasbah+Sahara+Services+Mhamid",
     address: "Mhamid Center, Mhamid El Ghizlane 47402, Morocco",
@@ -2025,6 +2137,11 @@ export const mhamidSleep: SleepListing[] = [
       business: "Useful for logistics-heavy work and expedition planning.",
       nomad: "A practical base for remote workers before deep-desert offline days.",
     },
+    coordinates: {
+      lat: 29.828929,
+      lng: -5.713361
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "mh-sleep-18",
@@ -2062,13 +2179,15 @@ export const mhamidSleep: SleepListing[] = [
     freeCancellation: false,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Gather around the campfire at night to hear ancient nomad stories passed down through generations.",
     vibeTags: ["Traditional-Bivouac", "Erg-Lihoudi", "Music", "Camel-Trek"],
-    locationSummary: "Erg Lihoudi Dunes",
+    locationSummary: "Mhamid El Ghizlane Oasis",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Bivouac+El+Mezouaria+Mhamid",
     address: "Erg Lihoudi, Mhamid El Ghizlane 47402, Morocco",
@@ -2135,6 +2254,11 @@ export const mhamidSleep: SleepListing[] = [
       business: "Not business-friendly, but good for disconnecting.",
       nomad: "A balanced digital-detox camp for creative reflection.",
     },
+    coordinates: {
+      lat: 29.872776,
+      lng: -5.687676
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "mh-sleep-19",
@@ -2245,6 +2369,11 @@ export const mhamidSleep: SleepListing[] = [
       business: "Practical for route planning and light work.",
       nomad: "A balanced base for nomads who want comfort before desert tours.",
     },
+    coordinates: {
+      lat: 29.834136,
+      lng: -5.73584
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "mh-sleep-20",
@@ -2282,13 +2411,15 @@ export const mhamidSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ["couple", "family", "solo", "friends"],
     tip: "Have breakfast on the terrace at sunrise for golden views over the Draa river basin.",
     vibeTags: ["Fortress", "Draa-Views", "Pool", "Excursion-Base"],
-    locationSummary: "Village Border - Draa Valley Views",
+    locationSummary: "Mhamid El Ghizlane Oasis",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Hotel+Kasbah+Azalay+Mhamid",
     address: "Village Border, Mhamid El Ghizlane 47402, Morocco",
@@ -2355,5 +2486,10 @@ export const mhamidSleep: SleepListing[] = [
       business: "Quiet enough for light work and planning.",
       nomad: "A comfortable village-edge base for work before heading offline.",
     },
+    coordinates: {
+      lat: 29.821101,
+      lng: -5.718188
+    },
+    tags: ["family-favorite", "heritage"]
   }
 ]

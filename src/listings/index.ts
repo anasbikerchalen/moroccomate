@@ -1,4 +1,8 @@
 // Auto-generated registry - do not edit manually
+// Tag rules are delegated to the category controllers (src/data/controllers):
+// every listing read here is enriched at read time, so global tag updates
+// apply instantly to the quiz, results, and filters.
+import { enrichListingTags } from '../data/controllers';
 import { agadirSleep } from './sleep/agadir.sleep'
 import { alHoceimaSleep } from './sleep/al_hoceima.sleep'
 import { asilahSleep } from './sleep/asilah.sleep'
@@ -62,28 +66,8 @@ import { tangierThings } from './things/tangier.things'
 import { tetouan_martilThings } from './things/tetouan_martil.things'
 import { ifrane_azrouThings } from './things/ifrane_azrou.things'
 import { taroudant_tafraouteThings } from './things/taroudant_tafraoute.things'
-import { marrakechShops } from './shop/marrakech.shop'
-import { fesShopListings } from './shop/fes.shop'
-import { casablancaShopListings } from './shop/casablanca.shop'
-import { tangierShopListings } from './shop/tangier.shop'
-import { rabatShopListings } from './shop/rabat.shop'
-import { essaouiraShopListings } from './shop/essaouira.shop'
-import { chefchaouenShopListings } from './shop/chefchaouen.shop'
-import { agadirShopListings } from './shop/agadir.shop'
-import { merzougaShops } from './shop/merzouga.shop'
-import { ouarzazateShops } from './shop/ouarzazate.shop'
-import { meknesShops } from './shop/meknes.shop'
-import { dakhlaShops } from './shop/dakhla.shop'
-import { ifraneShops } from './shop/ifrane.shop'
-import { tetouanShops } from './shop/tetouan.shop'
-import { asilahShops } from './shop/asilah.shop'
-import { taroudantShops } from './shop/taroudant.shop'
-import { elJadidaShops } from './shop/el_jadida.shop'
-import { zagoraShops } from './shop/zagora.shop'
-import { alHoceimaShops } from './shop/al_hoceima.shop'
-import { oualidiaShops } from './shop/oualidia.shop'
-import { saidiaShops } from './shop/saidia.shop'
-import { taghazoutShops } from './shop/taghazout.shop'
+// Shop data — delegated to the canonical shop module backend (single source of truth)
+import { SHOPS_BY_CITY } from '../shop';
 
 
 export const listingsRegistry: Record<string, any[]> = {
@@ -157,31 +141,32 @@ export const listingsRegistry: Record<string, any[]> = {
   'ifrane_azrou-things': ifrane_azrouThings,
   'taroudant-things': taroudant_tafraouteThings,
   'taroudant_tafraoute-things': taroudant_tafraouteThings,
-  'marrakech-shop': marrakechShops,
-  'fes-shop': fesShopListings,
-  'casablanca-shop': casablancaShopListings,
-  'tangier-shop': tangierShopListings,
-  'rabat-shop': rabatShopListings,
-  'essaouira-shop': essaouiraShopListings,
-  'chefchaouen-shop': chefchaouenShopListings,
-  'agadir-shop': agadirShopListings,
-  'merzouga-shop': merzougaShops,
-  'ouarzazate-shop': ouarzazateShops,
-  'meknes-shop': meknesShops,
-  'dakhla-shop': dakhlaShops,
-  'ifrane-shop': ifraneShops,
-  'ifrane_azrou-shop': ifraneShops,
-  'tetouan-shop': tetouanShops,
-  'tetouan_martil-shop': tetouanShops,
-  'asilah-shop': asilahShops,
-  'taroudant-shop': taroudantShops,
-  'taroudant_tafraoute-shop': taroudantShops,
-  'el_jadida-shop': elJadidaShops,
-  'zagora-shop': zagoraShops,
-  'al_hoceima-shop': alHoceimaShops,
-  'oualidia-shop': oualidiaShops,
-  'saidia-shop': saidiaShops,
-  'taghazout-shop': taghazoutShops,
+  // Shop data — delegated to the canonical shop module backend (single source of truth)
+  'marrakech-shop': SHOPS_BY_CITY.marrakech ?? [],
+  'fes-shop': SHOPS_BY_CITY.fes ?? [],
+  'casablanca-shop': SHOPS_BY_CITY.casablanca ?? [],
+  'tangier-shop': SHOPS_BY_CITY.tangier ?? [],
+  'rabat-shop': SHOPS_BY_CITY.rabat ?? [],
+  'essaouira-shop': SHOPS_BY_CITY.essaouira ?? [],
+  'chefchaouen-shop': SHOPS_BY_CITY.chefchaouen ?? [],
+  'agadir-shop': SHOPS_BY_CITY.agadir ?? [],
+  'merzouga-shop': SHOPS_BY_CITY.merzouga ?? [],
+  'ouarzazate-shop': SHOPS_BY_CITY.ouarzazate ?? [],
+  'meknes-shop': SHOPS_BY_CITY.meknes ?? [],
+  'dakhla-shop': SHOPS_BY_CITY.dakhla ?? [],
+  'ifrane-shop': SHOPS_BY_CITY.ifrane ?? [],
+  'ifrane_azrou-shop': SHOPS_BY_CITY.ifrane ?? [],
+  'tetouan-shop': SHOPS_BY_CITY.tetouan ?? [],
+  'tetouan_martil-shop': SHOPS_BY_CITY.tetouan ?? [],
+  'asilah-shop': SHOPS_BY_CITY.asilah ?? [],
+  'taroudant-shop': SHOPS_BY_CITY.taroudant ?? [],
+  'taroudant_tafraoute-shop': SHOPS_BY_CITY.taroudant ?? [],
+  'el_jadida-shop': SHOPS_BY_CITY.el_jadida ?? [],
+  'zagora-shop': SHOPS_BY_CITY.zagora ?? [],
+  'al_hoceima-shop': SHOPS_BY_CITY.al_hoceima ?? [],
+  'oualidia-shop': SHOPS_BY_CITY.oualidia ?? [],
+  'saidia-shop': SHOPS_BY_CITY.saidia ?? [],
+  'taghazout-shop': SHOPS_BY_CITY.taghazout ?? [],
 }
 
 const hierarchy = {
@@ -254,7 +239,7 @@ export function getListings(city?: string, focus?: string): any[] {
   
   return listings
     .filter(Boolean)
-    .map(item => ({
+    .map(item => enrichListingTags({
       ...item,
       title: item.title || item.name
     }));

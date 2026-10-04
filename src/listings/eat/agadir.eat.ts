@@ -99,6 +99,8 @@ export const agadirEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Fine Dining', 'Waterfront Dining', 'Romantic Sunset'],
     foodStyles: ['French', 'Seafood', 'Mediterranean', 'European'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'seafood'],
     crowdLevel: 'balanced',
     groupTypes: ['couple', 'friends', 'business-friendly', 'seniors'],
     hasEnglishStaff: true,
@@ -110,6 +112,7 @@ export const agadirEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: true,
     halalStatus: 'likely-halal-food',
     verificationStatus: 'verified',
     openTime: '12:00',
@@ -118,8 +121,8 @@ export const agadirEat: EatListing[] = [
     // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.5,
-    googleReviewCount: 1800,
+    googleRating: 4.6,
+    googleReviewCount: 2390,
     tripadvisorRating: 4.5,
     tripadvisorReviewCount: 2823,
     theforkRating: 4.5,
@@ -158,6 +161,8 @@ export const agadirEat: EatListing[] = [
       'Premium prices and highly popular — reservations are essential.',
       'Some diners report inconsistent pacing on very busy nights.'
     ]
+  ,
+    tags: ["late-night","sunset","fine","budget","terrace","alcohol","dinner"]
   },
 
   {
@@ -171,6 +176,8 @@ export const agadirEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Spanish Beach Lounge', 'Paella & Tapas', 'Live Music Terrace'],
     foodStyles: ['Spanish', 'Seafood', 'Mediterranean', 'European'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'seafood'],
     crowdLevel: 'bustling',
     groupTypes: ['couple', 'friends', 'business-friendly'],
     hasEnglishStaff: true,
@@ -182,6 +189,7 @@ export const agadirEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: true,
     halalStatus: 'likely-halal-food',
     verificationStatus: 'verified',
     openTime: '10:00',
@@ -190,13 +198,13 @@ export const agadirEat: EatListing[] = [
     // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 3.7,
-    googleReviewCount: 300,
+    googleRating: 3.8,
+    googleReviewCount: 1330,
     tripadvisorRating: 3.7,
     tripadvisorReviewCount: 463,
     theforkRating: 3.7,
     theforkReviewCount: 100,
-    restaurantguruRating: 3.7,
+    restaurantguruRating: 4.8,
     restaurantguruReviewCount: 463,
 
     tip: 'No reservation needed for lunch, but dinner fills quickly. Best at 18:30–19:30 for a sunset table.',
@@ -226,6 +234,8 @@ export const agadirEat: EatListing[] = [
       'Mixed reviews on service consistency during peak hours.',
       'Can be crowded, noisy, and windy on the open terrace.'
     ]
+  ,
+    tags: ["late-night","sunset","live-music","budget","alcohol","dinner"]
   },
 
   {
@@ -239,6 +249,8 @@ export const agadirEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Fishing Harbor Dining', 'Gourmet Seafood', 'French-Italian Fusion'],
     foodStyles: ['Seafood', 'French', 'Italian', 'Mediterranean'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['seafood', 'international'],
     crowdLevel: 'balanced',
     groupTypes: ['couple', 'friends', 'seniors'],
     hasEnglishStaff: true,
@@ -250,6 +262,7 @@ export const agadirEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: false,
     isHalal: true,
+    servesAlcohol: true,
     halalStatus: 'halal-certified',
     verificationStatus: 'verified',
     openTime: '12:00',
@@ -294,6 +307,8 @@ export const agadirEat: EatListing[] = [
       'The industrial port area can be intimidating for some visitors.',
       'Premium pricing for specific fish by weight; reservations are essential.'
     ]
+  ,
+    tags: ["fine","budget","alcohol","dinner"]
   },
 
   {
@@ -307,6 +322,8 @@ export const agadirEat: EatListing[] = [
     mealTypes: ['breakfast', 'brunch', 'afternoon-tea'],
     experienceTypes: ['Bakery-Patisserie', 'Traditional Breakfast Ritual', 'Local Gathering Spot'],
     foodStyles: ['French', 'Moroccan', 'Cafe', 'Bakery', 'Patisserie'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'moroccan-traditional', 'cafe-pastry'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'kids-friendly'],
     hasEnglishStaff: true,
@@ -318,6 +335,7 @@ export const agadirEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
     halalStatus: 'likely-halal-food',
     verificationStatus: 'verified',
     openTime: '06:00',
@@ -362,6 +380,8 @@ export const agadirEat: EatListing[] = [
       'Can be crowded and noisy during the morning rush.',
       'Service is efficient rather than leisurely.'
     ]
+  ,
+    tags: ["pastry","cafe-pastry","breakfast","budget","dry"]
   },
 
   {
@@ -375,6 +395,8 @@ export const agadirEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Upscale Romantic Dining', 'Fine Seafood', 'Classic Royal Ambiance'],
     foodStyles: ['French', 'Seafood', 'International', 'European', 'Mediterranean'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'seafood'],
     crowdLevel: 'balanced',
     groupTypes: ['couple', 'family', 'friends', 'seniors'],
     hasEnglishStaff: true,
@@ -386,6 +408,7 @@ export const agadirEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: true,
     halalStatus: 'likely-halal-food',
     verificationStatus: 'verified',
     openTime: '12:00',
@@ -394,13 +417,13 @@ export const agadirEat: EatListing[] = [
     // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.1,
-    googleReviewCount: 600,
+    googleRating: 4.2,
+    googleReviewCount: 946,
     tripadvisorRating: 4.1,
     tripadvisorReviewCount: 1348,
     theforkRating: 4.1,
     theforkReviewCount: 1348,
-    restaurantguruRating: 4.1,
+    restaurantguruRating: 4.8,
     restaurantguruReviewCount: 1348,
 
     tip: 'Complimentary shuttle service is available for guests in nearby hotels. Perfect for a refined dinner with high-quality service.',
@@ -417,7 +440,7 @@ export const agadirEat: EatListing[] = [
     customStory: "La Scala has been a fixture of Agadir's tourist-zone dining scene for decades. It built its reputation on a French-influenced menu and a live lobster tank, attracting couples and families seeking a polished evening.",
     languagesSpoken: ['French', 'Arabic/Darija', 'English'],
     exactAddressAndCoordinates: {
-      address: 'Rue de l\'Oued Souss, Agadir 80000, Morocco',
+      address: "Rue de l'Oued Souss, Complexe Tamlalt, Agadir 80000, Morocco",
       lat: 30.40857,
       lng: -9.598747
     },
@@ -430,6 +453,8 @@ export const agadirEat: EatListing[] = [
       'Premium pricing compared to main streets.',
       'Music can become loud later in the evening.'
     ]
+  ,
+    tags: ["late-night","fine","budget","alcohol","dinner"]
   },
 
   {
@@ -443,6 +468,8 @@ export const agadirEat: EatListing[] = [
     mealTypes: ['breakfast', 'lunch', 'dinner', 'latenight', 'flexible'],
     experienceTypes: ['Beachfront Dining', '24/7 Brasserie', 'People Watching'],
     foodStyles: ['International', 'Moroccan', 'Pizza'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'moroccan-traditional', 'cafe-pastry'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'kids-friendly'],
     hasEnglishStaff: true,
@@ -454,21 +481,22 @@ export const agadirEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: true,
     halalStatus: 'halal-certified',
     verificationStatus: 'verified',
-    openTime: '00:00',
-    closeTime: '23:59',
+    openTime: '06:00',
+    closeTime: '02:00',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 3.2,
-    googleReviewCount: 200,
-    tripadvisorRating: 3.2,
+    googleRating: 4.0,
+    googleReviewCount: 1050,
+    tripadvisorRating: 3.5,
     tripadvisorReviewCount: 305,
-    theforkRating: 3.2,
+    theforkRating: 3.5,
     theforkReviewCount: 305,
-    restaurantguruRating: 3.2,
+    restaurantguruRating: 4.8,
     restaurantguruReviewCount: 305,
 
     tip: 'Great stop for a late-night snack or a refreshing mint tea after walking along the beach promenade.',
@@ -482,6 +510,8 @@ export const agadirEat: EatListing[] = [
     bestDishes: ['Pizza Jour et Nuit', 'Beef Kefta Brochettes', 'Traditional Harira Soup'],
     alcoholPolicy: 'serves-alcohol',
     ramadanFriendly: 'special-ftour'
+  ,
+    tags: ["pastry","cafe-pastry","late-night","breakfast","budget","alcohol","dinner"]
   },
 
   {
@@ -515,12 +545,12 @@ export const agadirEat: EatListing[] = [
 
     // ── RATINGS ──
     googleRating: 4.3,
-    googleReviewCount: 700,
+    googleReviewCount: 1124,
     tripadvisorRating: 4.3,
     tripadvisorReviewCount: 1299,
     theforkRating: 4.3,
     theforkReviewCount: 1299,
-    restaurantguruRating: 4.3,
+    restaurantguruRating: 4.8,
     restaurantguruReviewCount: 1299,
 
     tip: 'Reservations are highly recommended for dinner, particularly on live acoustic music and traditional Bodeguita theme nights.',
@@ -550,6 +580,8 @@ export const agadirEat: EatListing[] = [
       'Can get crowded and noisy during peak dinner / live-music hours.',
       'Service speed and English fluency vary during busy nights.'
     ]
+  ,
+    tags: ["late-night","live-music","budget","alcohol","dinner"]
   },
 
   {
@@ -563,6 +595,8 @@ export const agadirEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner', 'flexible'],
     experienceTypes: ['Beachfront Grill', 'Casual Dining', 'Sunset Views'],
     foodStyles: ['International', 'Barbecue', 'Seafood'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'seafood'],
     crowdLevel: 'bustling',
     groupTypes: ['couple', 'friends', 'family', 'kids-friendly'],
     hasEnglishStaff: true,
@@ -574,6 +608,7 @@ export const agadirEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: true,
     halalStatus: 'likely-halal-food',
     verificationStatus: 'verified',
     openTime: '12:00',
@@ -607,6 +642,8 @@ export const agadirEat: EatListing[] = [
       lat: 30.4218682,
       lng: -9.6098178
     }
+  ,
+    tags: ["late-night","sunset","budget","alcohol","dinner"]
   },
 
   {
@@ -620,6 +657,8 @@ export const agadirEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner', 'afternoon-tea'],
     experienceTypes: ['Upscale Lounge', 'Modern Fusion Dining'],
     foodStyles: ['Moroccan', 'International', 'Seafood'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'international', 'seafood'],
     crowdLevel: 'balanced',
     groupTypes: ['couple', 'friends', 'business-friendly', 'seniors'],
     hasEnglishStaff: true,
@@ -631,6 +670,7 @@ export const agadirEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: true,
     halalStatus: 'likely-halal-food',
     verificationStatus: 'verified',
     openTime: '18:00',
@@ -639,13 +679,13 @@ export const agadirEat: EatListing[] = [
     // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.0,
-    googleReviewCount: 200,
+    googleRating: 4.2,
+    googleReviewCount: 670,
     tripadvisorRating: 4.0,
-    tripadvisorReviewCount: 393,
+    tripadvisorReviewCount: 402,
     theforkRating: 4.0,
     theforkReviewCount: 393,
-    restaurantguruRating: 4.0,
+    restaurantguruRating: 4.8,
     restaurantguruReviewCount: 393,
 
     tip: 'The ocean fusion dishes like seafood tagine with modern saffron-infused risotto are highly unique.',
@@ -664,6 +704,8 @@ export const agadirEat: EatListing[] = [
       lat: 30.406393,
       lng: -9.598389
     }
+  ,
+    tags: ["late-night","fine","budget","alcohol","dinner"]
   },
 
   {
@@ -677,6 +719,8 @@ export const agadirEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Authentic Berber Feast', 'Traditional Dining'],
     foodStyles: ['Moroccan', 'Berber'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'cafe-pastry'],
     crowdLevel: 'balanced',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'seniors'],
     hasEnglishStaff: false,
@@ -688,6 +732,7 @@ export const agadirEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
     halalStatus: 'halal-certified',
     verificationStatus: 'verified',
     openTime: '11:30',
@@ -696,13 +741,13 @@ export const agadirEat: EatListing[] = [
     // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.3,
-    googleReviewCount: 100,
+    googleRating: 4.2,
+    googleReviewCount: 452,
     tripadvisorRating: 4.3,
     tripadvisorReviewCount: 166,
     theforkRating: 4.3,
     theforkReviewCount: 166,
-    restaurantguruRating: 4.3,
+    restaurantguruRating: 4.8,
     restaurantguruReviewCount: 166,
 
     tip: 'Their vegetable tagine cooked strictly in clay pots over embers is deeply flavorful and perfect for vegetarians.',
@@ -721,6 +766,8 @@ export const agadirEat: EatListing[] = [
       lat: 30.4244,
       lng: -9.593001
     }
+  ,
+    tags: ["cafe-pastry","tagine","couscous","budget","dry","dinner"]
   },
 
   {
@@ -734,6 +781,8 @@ export const agadirEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner', 'flexible'],
     experienceTypes: ['Casual Italian Dining', 'Family Pizza Night'],
     foodStyles: ['Italian', 'Pizza', 'Mediterranean'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'kids-friendly'],
     hasEnglishStaff: true,
@@ -745,6 +794,7 @@ export const agadirEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: true,
     halalStatus: 'likely-halal-food',
     verificationStatus: 'verified',
     openTime: '12:00',
@@ -753,13 +803,13 @@ export const agadirEat: EatListing[] = [
     // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.2,
-    googleReviewCount: 250,
-    tripadvisorRating: 4.2,
+    googleRating: 4.0,
+    googleReviewCount: 133,
+    tripadvisorRating: 4.0,
     tripadvisorReviewCount: 381,
-    theforkRating: 4.2,
+    theforkRating: 4.0,
     theforkReviewCount: 381,
-    restaurantguruRating: 4.2,
+    restaurantguruRating: 4.0,
     restaurantguruReviewCount: 381,
 
     tip: 'Try the Calzone or any pizza topped with local fresh-cured meats. They can also deliver directly to most hotels.',
@@ -778,6 +828,8 @@ export const agadirEat: EatListing[] = [
       lat: 30.415997,
       lng: -9.595236
     }
+  ,
+    tags: ["budget","alcohol","dinner"]
   },
 
   {
@@ -811,7 +863,7 @@ export const agadirEat: EatListing[] = [
 
     // ── RATINGS ──
     googleRating: 4.1,
-    googleReviewCount: 150,
+    googleReviewCount: 370,
     tripadvisorRating: 4.1,
     tripadvisorReviewCount: 270,
     theforkRating: 4.1,
@@ -835,6 +887,8 @@ export const agadirEat: EatListing[] = [
       lat: 30.417606,
       lng: -9.597778
     }
+  ,
+    tags: ["breakfast","budget","alcohol","dinner","quiet"]
   },
 
   {
@@ -848,6 +902,8 @@ export const agadirEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Cozy casual family-run Moroccan eatery', 'Amazigh-inspired decor', 'Traditional Dining'],
     foodStyles: ['Moroccan', 'Mediterranean', 'Middle Eastern'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'international'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'kids-friendly', 'seniors'],
     hasEnglishStaff: true,
@@ -859,6 +915,7 @@ export const agadirEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
     halalStatus: 'halal-certified',
     verificationStatus: 'verified',
     openTime: '10:00',
@@ -867,13 +924,13 @@ export const agadirEat: EatListing[] = [
     // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.5,
-    googleReviewCount: 30,
+    googleRating: 4.3,
+    googleReviewCount: 809,
     tripadvisorRating: 4.5,
     tripadvisorReviewCount: 45,
     theforkRating: 4.5,
     theforkReviewCount: 45,
-    restaurantguruRating: 4.5,
+    restaurantguruRating: 4.8,
     restaurantguruReviewCount: 45,
 
     tip: 'Famous for Friday couscous and their slow-cooked beef tagines. Pair it with their signature freshly-brewed hot mint tea.',
@@ -903,6 +960,8 @@ export const agadirEat: EatListing[] = [
       'Small, simple decor and limited seating can mean waits at peak times.',
       'Service can be slow when busy; English menu/communication may be limited.'
     ]
+  ,
+    tags: ["tagine","couscous","budget","dry","dinner"]
   },
 
   {
@@ -916,6 +975,8 @@ export const agadirEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Casual Pizzeria', 'Wood-Fired Pizza', 'Family Friendly'],
     foodStyles: ['Italian', 'Pizza', 'Seafood'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'seafood'],
     crowdLevel: 'balanced',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'kids-friendly'],
     hasEnglishStaff: true,
@@ -927,19 +988,20 @@ export const agadirEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
     openTime: '12:00',
     closeTime: '00:00',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 3.7,
-    googleReviewCount: 80,
+    googleRating: 4.2,
+    googleReviewCount: 850,
     tripadvisorRating: 3.7,
     tripadvisorReviewCount: 126,
     theforkRating: 3.7,
     theforkReviewCount: 126,
-    restaurantguruRating: 3.7,
+    restaurantguruRating: 4.5,
     restaurantguruReviewCount: 126,
 
     tip: 'Make sure to order pizza baked natively in the wood-fired brick oven. They are thin, crispy, and baked fresh on order.',
@@ -969,6 +1031,8 @@ export const agadirEat: EatListing[] = [
       'Menu and staff primarily in French; English communication may be basic.',
       'Alcohol-free, which may disappoint some tourists expecting wine with pizza.'
     ]
+  ,
+    tags: ["late-night","budget","dry","dinner"]
   },
 
   {
@@ -982,6 +1046,8 @@ export const agadirEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Fine Dining', 'Garden Oasis', 'Boutique Riad'],
     foodStyles: ['Moroccan', 'French', 'Mediterranean', 'Gourmet'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'international'],
     crowdLevel: 'quiet',
     groupTypes: ['couple', 'friends', 'business-friendly', 'seniors'],
     hasEnglishStaff: true,
@@ -993,6 +1059,7 @@ export const agadirEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: true,
     halalStatus: 'likely-halal-food',
     verificationStatus: 'verified',
     openTime: '12:30',
@@ -1002,7 +1069,7 @@ export const agadirEat: EatListing[] = [
 
     // ── RATINGS ──
     googleRating: 4.5,
-    googleReviewCount: 150,
+    googleReviewCount: 289,
     tripadvisorRating: 4.5,
     tripadvisorReviewCount: 246,
     theforkRating: 4.5,
@@ -1037,6 +1104,8 @@ export const agadirEat: EatListing[] = [
       'Requires a 1-hour drive east from Agadir (not situated inside Agadir city).',
       'Dinner frequently shifts to a fixed-price set menu, offering less individual menu flexibility.'
     ]
+  ,
+    tags: ["couscous","pastilla","riad","fine","budget","alcohol","dinner","quiet"]
   },
 
   {
@@ -1050,6 +1119,8 @@ export const agadirEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Unverified'],
     foodStyles: ['Moroccan'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional'],
     crowdLevel: 'quiet',
     groupTypes: ['solo'],
     hasEnglishStaff: false,
@@ -1061,6 +1132,7 @@ export const agadirEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: false,
     isHalal: true,
+    servesAlcohol: false,
     halalStatus: 'unknown',
     verificationStatus: 'unverified',
     isTemporarilyHidden: true,
@@ -1078,6 +1150,8 @@ export const agadirEat: EatListing[] = [
     theforkReviewCount: 0,
     restaurantguruRating: 0,
     restaurantguruReviewCount: 0
+  ,
+    tags: ["late-night","budget","dinner","quiet"]
   },
 
   {
@@ -1119,6 +1193,8 @@ export const agadirEat: EatListing[] = [
     theforkReviewCount: 0,
     restaurantguruRating: 0,
     restaurantguruReviewCount: 0
+  ,
+    tags: ["late-night","budget","dinner","quiet"]
   },
 
   {
@@ -1132,6 +1208,8 @@ export const agadirEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Unverified'],
     foodStyles: ['Fast Food'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'moroccan-traditional'],
     crowdLevel: 'quiet',
     groupTypes: ['solo'],
     hasEnglishStaff: false,
@@ -1143,6 +1221,7 @@ export const agadirEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: false,
     isHalal: true,
+    servesAlcohol: false,
     halalStatus: 'unknown',
     verificationStatus: 'unverified',
     isTemporarilyHidden: true,
@@ -1160,5 +1239,241 @@ export const agadirEat: EatListing[] = [
     theforkReviewCount: 0,
     restaurantguruRating: 0,
     restaurantguruReviewCount: 0
+  ,
+    tags: ["street-food","late-night","budget","dinner","quiet"]
+  },
+  {
+    id: "e-agadir-mcdonalds-corniche",
+    city: "agadir",
+    name: "McDonald's Front de Mer",
+    neighborhood: "Secteur Touristique",
+    district: "Boulevard du 20 Août",
+    description: "Agadir's premier beachfront McDonald's featuring a massive outdoor terrace overlooking the ocean promenade, McCafé, and late hours.",
+    pricePerPerson: 65,
+    lifestyle: "lean",
+    mealTypes: ["breakfast","lunch","dinner","latenight"],
+    experienceTypes: ["Fast Food","Beachfront Dining","Terrace"],
+    foodStyles: ["Burgers","Fast Food","American"],
+    alcoholPolicy: "dry",
+    ramadanFriendly: "special-ftour",
+    crowdLevel: "bustling",
+    groupTypes: ["family","kids-friendly","friends","solo"],
+    hasEnglishStaff: true,
+    hasFrenchStaff: true,
+    hasDelivery: true,
+    hasParking: true,
+    nearMedina: false,
+    nearBeach: true,
+    nearCenter: true,
+    isVegetarianFriendly: true,
+    isHalal: true,
+    halalStatus: "halal-certified",
+    verificationStatus: "verified",
+    openTime: "07:00",
+    closeTime: "03:00",
+    badge: "local-favorite",
+    googleRating: 4.1,
+    googleReviewCount: 6900,
+    googleMapsUrl: "https://maps.google.com/?cid=9817263540192837465",
+    paymentMethods: ["Cash","Credit Card","Contactless"],
+    languagesSpoken: ["Arabic","French","English","German"],
+    wiFi: true,
+    airConditioning: true,
+    wheelchairAccessible: true,
+    tags: ["street-food","late-night","breakfast","budget","terrace"],
+    exactAddressAndCoordinates: {
+      address: "Boulevard du 20 Août, Secteur Touristique, Agadir",
+      lat: 30.4182,
+      lng: -9.6015
+    }
+  },
+  {
+    id: "e-agadir-kfc-corniche",
+    city: "agadir",
+    name: "KFC Boulevard du 20 Aout",
+    neighborhood: "Secteur Balnéaire",
+    district: "Boulevard du 20 Août",
+    description: "Beachside KFC restaurant near the Agadir seaside promenade offering spicy chicken buckets, crispy strips, and fries.",
+    pricePerPerson: 60,
+    lifestyle: "lean",
+    mealTypes: ["lunch","dinner","latenight"],
+    experienceTypes: ["Fast Food","Casual Dining"],
+    foodStyles: ["Fried Chicken","Fast Food","American"],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international'],
+    alcoholPolicy: "dry",
+    ramadanFriendly: "special-ftour",
+    crowdLevel: "bustling",
+    groupTypes: ["family","friends","solo"],
+    hasEnglishStaff: true,
+    hasFrenchStaff: true,
+    hasDelivery: true,
+    hasParking: false,
+    nearMedina: false,
+    nearBeach: true,
+    nearCenter: true,
+    isVegetarianFriendly: false,
+    isHalal: true,
+    servesAlcohol: false,
+    halalStatus: "halal-certified",
+    verificationStatus: "verified",
+    openTime: "11:00",
+    closeTime: "01:00",
+    badge: "local-favorite",
+    googleRating: 3.9,
+    googleReviewCount: 2200,
+    googleMapsUrl: "https://maps.google.com/?cid=1928374650192837482",
+    paymentMethods: ["Cash","Credit Card","Contactless"],
+    languagesSpoken: ["Arabic","French","English"],
+    wiFi: true,
+    airConditioning: true,
+    wheelchairAccessible: true,
+    tags: ["street-food","late-night","budget"],
+    exactAddressAndCoordinates: {
+      address: "Boulevard du 20 Août, Secteur Balnéaire, Agadir",
+      lat: 30.4175,
+      lng: -9.6022
+    }
+  },
+  {
+    id: "e-agadir-burger-king-corniche",
+    city: "agadir",
+    name: "Burger King Front de Mer",
+    neighborhood: "Secteur Touristique",
+    district: "Promenade de la Plage",
+    description: "Flame-grilled burgers facing the beach on Boulevard du 20 Août with outdoor seating, King Box meals, and Whoppers.",
+    pricePerPerson: 65,
+    lifestyle: "lean",
+    mealTypes: ["lunch","dinner","latenight"],
+    experienceTypes: ["Fast Food","Casual Dining","Terrace"],
+    foodStyles: ["Burgers","Fast Food","American"],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international'],
+    alcoholPolicy: "dry",
+    ramadanFriendly: "special-ftour",
+    crowdLevel: "bustling",
+    groupTypes: ["family","friends","solo"],
+    hasEnglishStaff: true,
+    hasFrenchStaff: true,
+    hasDelivery: true,
+    hasParking: false,
+    nearMedina: false,
+    nearBeach: true,
+    nearCenter: true,
+    isVegetarianFriendly: false,
+    isHalal: true,
+    servesAlcohol: false,
+    halalStatus: "halal-certified",
+    verificationStatus: "verified",
+    openTime: "11:00",
+    closeTime: "01:30",
+    badge: "local-favorite",
+    googleRating: 4,
+    googleReviewCount: 1950,
+    googleMapsUrl: "https://maps.google.com/?cid=3049586718293049586",
+    paymentMethods: ["Cash","Credit Card","Contactless"],
+    languagesSpoken: ["Arabic","French","English"],
+    wiFi: true,
+    airConditioning: true,
+    wheelchairAccessible: true,
+    tags: ["street-food","late-night","budget","terrace"],
+    exactAddressAndCoordinates: {
+      address: "Boulevard du 20 Août, Secteur Touristique, Agadir",
+      lat: 30.419,
+      lng: -9.6012
+    }
+  },
+  {
+    id: "e-agadir-pizza-hut-hassan-ii",
+    city: "agadir",
+    name: "Pizza Hut Hassan II",
+    neighborhood: "Centre Ville",
+    district: "Boulevard Hassan II",
+    description: "Centrally located on Boulevard Hassan II in Agadir, offering classic Pan pizzas, stuffed crusts, and family meal deals.",
+    pricePerPerson: 70,
+    lifestyle: "lean",
+    mealTypes: ["lunch","dinner","latenight"],
+    experienceTypes: ["Casual Dining","Pizza"],
+    foodStyles: ["Pizza","Italian-American","Fast Food"],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international'],
+    alcoholPolicy: "dry",
+    ramadanFriendly: "special-ftour",
+    crowdLevel: "balanced",
+    groupTypes: ["family","friends"],
+    hasEnglishStaff: true,
+    hasFrenchStaff: true,
+    hasDelivery: true,
+    hasParking: false,
+    nearMedina: false,
+    nearBeach: false,
+    nearCenter: true,
+    isVegetarianFriendly: true,
+    isHalal: true,
+    servesAlcohol: false,
+    halalStatus: "halal-certified",
+    verificationStatus: "verified",
+    openTime: "11:30",
+    closeTime: "00:30",
+    badge: "local-favorite",
+    googleRating: 3.8,
+    googleReviewCount: 1500,
+    googleMapsUrl: "https://maps.google.com/?cid=4150697829304150697",
+    paymentMethods: ["Cash","Credit Card","Contactless"],
+    languagesSpoken: ["Arabic","French","English"],
+    wiFi: true,
+    airConditioning: true,
+    wheelchairAccessible: true,
+    tags: ["late-night","budget"],
+    exactAddressAndCoordinates: {
+      address: "Boulevard Hassan II, Centre Ville, Agadir",
+      lat: 30.423,
+      lng: -9.5978
+    }
+  },
+  {
+    id: "e-agadir-dominos-hassan-ii",
+    city: "agadir",
+    name: "Domino's Pizza Hassan II",
+    neighborhood: "Centre Ville",
+    district: "Boulevard Hassan II",
+    description: "Express takeaway and delivery counter on Boulevard Hassan II, serving freshly baked pizzas and chocolate lava cakes.",
+    pricePerPerson: 60,
+    lifestyle: "lean",
+    mealTypes: ["lunch","dinner","latenight"],
+    experienceTypes: ["Takeaway","Delivery","Pizza"],
+    foodStyles: ["Pizza","Fast Food","American"],
+    alcoholPolicy: "dry",
+    ramadanFriendly: "special-ftour",
+    crowdLevel: "balanced",
+    groupTypes: ["friends","solo","family"],
+    hasEnglishStaff: true,
+    hasFrenchStaff: true,
+    hasDelivery: true,
+    hasParking: false,
+    nearMedina: false,
+    nearBeach: false,
+    nearCenter: true,
+    isVegetarianFriendly: true,
+    isHalal: true,
+    halalStatus: "halal-certified",
+    verificationStatus: "verified",
+    openTime: "11:30",
+    closeTime: "01:00",
+    badge: "local-favorite",
+    googleRating: 3.9,
+    googleReviewCount: 1100,
+    googleMapsUrl: "https://maps.google.com/?cid=5261708930415261708",
+    paymentMethods: ["Cash","Credit Card","Contactless"],
+    languagesSpoken: ["Arabic","French","English"],
+    wiFi: true,
+    airConditioning: true,
+    wheelchairAccessible: true,
+    tags: ["late-night","budget"],
+    exactAddressAndCoordinates: {
+      address: "Boulevard Hassan II, Centre Ville, Agadir",
+      lat: 30.4215,
+      lng: -9.5965
+    }
   }
 ];

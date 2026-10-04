@@ -195,13 +195,15 @@ export const todra_dadesSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Book the deluxe family master suite for a huge private terrace overlooking canyon walls.",
     vibeTags: ["Modern-Riad", "Mountain-Pool", "Clay-Architecture", "Stargazing"],
-    locationSummary: "Dades Valley - Canyon View Riad",
+    locationSummary: "Dades Valley & Gorge",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Dades+Paradise",
     address: "Dades Valley, Boumalne Dades 45150, Morocco",
@@ -272,6 +274,11 @@ export const todra_dadesSleep: SleepListing[] = [
       business: "Quiet enough for focused laptop work between drives.",
       nomad: "A balanced Dades workation base if you have a car.",
     },
+    coordinates: {
+      lat: 31.50273,
+      lng: -5.946036
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "td-sleep-2",
@@ -309,13 +316,15 @@ export const todra_dadesSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "solo"],
     tip: "Dine here even if not staying; the five-course dinner is one of the valley’s best culinary experiences.",
     vibeTags: ["Gourmet", "Cliffside", "Riverside-Garden", "Iconic"],
-    locationSummary: "Dades Valley - Cliffside Gourmet Auberge",
+    locationSummary: "Dades Valley & Gorge",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Auberge+Chez+Pierre+Dades",
     address: "Dades Gorge Road, Boumalne Dades 45150, Morocco",
@@ -386,6 +395,11 @@ export const todra_dadesSleep: SleepListing[] = [
       business: "Quiet terraces support work and reading.",
       nomad: "A premium valley retreat for food-focused remote work.",
     },
+    coordinates: {
+      lat: 31.511465,
+      lng: -5.936727
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "td-sleep-3",
@@ -423,13 +437,15 @@ export const todra_dadesSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "friends", "friends"],
     tip: "Book a cave room for a naturally cooled and uniquely quiet night’s sleep.",
     vibeTags: ["Cave-Rooms", "Eco-Lodge", "Climbing", "Canyon"],
-    locationSummary: "Todra Gorge - Cliffside Cave Lodge",
+    locationSummary: "Todra Gorge - High Atlas",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Auberge+Le+Festival+Todra+Gorge",
     address: "Todra Gorge, Tinghir 45800, Morocco",
@@ -500,6 +516,11 @@ export const todra_dadesSleep: SleepListing[] = [
       business: "Not business-oriented, but inspiring for creative work.",
       nomad: "A unique low-distraction base for climbing nomads.",
     },
+    coordinates: {
+      lat: 31.548327,
+      lng: -5.581136
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "td-sleep-4",
@@ -537,13 +558,15 @@ export const todra_dadesSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "friends", "solo"],
     tip: "Sit by the fireplace in the evening to enjoy authentic live Gnaoua music from the hosts.",
     vibeTags: ["Artistic", "Music", "Riverside", "Berber"],
-    locationSummary: "Dades Valley - Riverside Music Guesthouse",
+    locationSummary: "Dades Valley & Gorge",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Dar+Blues+Dades",
     address: "Dades Valley, Boumalne Dades 45150, Morocco",
@@ -614,6 +637,11 @@ export const todra_dadesSleep: SleepListing[] = [
       business: "Quiet daytime terraces suit light work.",
       nomad: "A creative base for nomads who love music and canyon views.",
     },
+    coordinates: {
+      lat: 31.37143,
+      lng: -5.986998
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "td-sleep-5",
@@ -651,13 +679,15 @@ export const todra_dadesSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Head to the roof at dusk to see the mountains glow copper.",
     vibeTags: ["Tadelakt", "Courtyard-Pool", "Sunset", "Family-Friendly"],
-    locationSummary: "Dades Valley - Red Hills Pool Riad",
+    locationSummary: "Dades Valley & Gorge",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Rihana+Dades",
     address: "Dades Valley, Boumalne Dades 45150, Morocco",
@@ -728,6 +758,11 @@ export const todra_dadesSleep: SleepListing[] = [
       business: "Good WiFi and quiet terraces for light work.",
       nomad: "A balanced stop for nomads driving the valley.",
     },
+    coordinates: {
+      lat: 31.448968,
+      lng: -5.975935
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "td-sleep-6",
@@ -765,13 +800,15 @@ export const todra_dadesSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "seniors"],
     tip: "A highly secure and peaceful high-end retreat during a road trip.",
     vibeTags: ["Fortress", "Panoramic", "Luxury-Kasbah", "Infinity-Pool"],
-    locationSummary: "Dades Valley - Ridge View Ksar",
+    locationSummary: "Dades Valley & Gorge",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Ksar+Sultan+Dades",
     address: "Dades Valley, Boumalne Dades 45150, Morocco",
@@ -842,6 +879,11 @@ export const todra_dadesSleep: SleepListing[] = [
       business: "Quiet enough for work or executive retreat time.",
       nomad: "A premium road-trip workation base with views.",
     },
+    coordinates: {
+      lat: 31.390036,
+      lng: -5.982079
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "td-sleep-7",
@@ -879,13 +921,15 @@ export const todra_dadesSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "seniors"],
     tip: "Ask for a guided morning walk through the ancient palm fields from the riad garden.",
     vibeTags: ["Palm-Grove", "Historic", "Pool", "Todra-Base"],
-    locationSummary: "Tinghir - Palm Grove Riad",
+    locationSummary: "Todra Gorge - High Atlas",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Dar+Bab+Todra",
     address: "Tinghir Palm Grove, Tinghir 45800, Morocco",
@@ -956,6 +1000,11 @@ export const todra_dadesSleep: SleepListing[] = [
       business: "Quiet gardens work well for light remote work.",
       nomad: "A premium Tinghir base for nomads exploring Todra.",
     },
+    coordinates: {
+      lat: 31.524661,
+      lng: -5.545481
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "td-sleep-8",
@@ -1070,6 +1119,11 @@ export const todra_dadesSleep: SleepListing[] = [
       business: "Quiet terrace is useful for work and planning.",
       nomad: "A scenic valley base for nomads with a car.",
     },
+    coordinates: {
+      lat: 31.4675,
+      lng: -5.96796
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "td-sleep-9",
@@ -1107,13 +1161,15 @@ export const todra_dadesSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Ask hosts where to buy authentic Berber jewelry near Tinghir artisan workshops.",
     vibeTags: ["Restored", "Pool-Patio", "Todra-Base", "Tadelakt"],
-    locationSummary: "Tinghir - Near Todra Gorge Entrance",
+    locationSummary: "Dades Valley & Gorge",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Sephora+Tinghir",
     address: "Tinghir, 45800, Morocco",
@@ -1184,6 +1240,11 @@ export const todra_dadesSleep: SleepListing[] = [
       business: "Mountain terrace suits light work and planning.",
       nomad: "A practical Tinghir base for remote workers on the road.",
     },
+    coordinates: {
+      lat: 31.508061,
+      lng: -5.618009
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "td-sleep-10",
@@ -1221,13 +1282,15 @@ export const todra_dadesSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "business-friendly"],
     tip: "Explore the lobby library for French colonial-era maps and historical texts.",
     vibeTags: ["Historic-Fort", "Palm-Garden", "Pool", "Tinghir-Classic"],
-    locationSummary: "Tinghir - Restored Clay Fort",
+    locationSummary: "Dades Valley & Gorge",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Hotel+Tomboctou+Tinghir",
     address: "Tinghir 45800, Morocco",
@@ -1298,6 +1361,11 @@ export const todra_dadesSleep: SleepListing[] = [
       business: "Useful for business stopovers with reliable logistics.",
       nomad: "A practical and atmospheric base for nomads visiting Todra.",
     },
+    coordinates: {
+      lat: 31.515483,
+      lng: -5.533497
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "td-sleep-11",
@@ -1335,13 +1403,15 @@ export const todra_dadesSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "large-groups"],
     tip: "Excellent for families with children thanks to extensive safe garden and play spaces.",
     vibeTags: ["Resort", "Panoramic", "Family", "Spa"],
-    locationSummary: "Boumalne Dades - High Plateau Resort",
+    locationSummary: "Dades Valley & Gorge",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Hotel+Xaluca+Dades",
     address: "Boumalne Dades 45150, Morocco",
@@ -1412,6 +1482,11 @@ export const todra_dadesSleep: SleepListing[] = [
       business: "Good for group meetings and road-trip logistics.",
       nomad: "A practical resort workation base with reliable facilities.",
     },
+    coordinates: {
+      lat: 31.374311,
+      lng: -5.982667
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "td-sleep-12",
@@ -1449,13 +1524,15 @@ export const todra_dadesSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["couple", "family", "friends", "seniors"],
     tip: "One of the few traditional riads in the valley with a licensed bar; enjoy a sunset roof drink.",
     vibeTags: ["Palace-Riad", "Licensed-Bar", "Pool", "Tadelakt"],
-    locationSummary: "Boumalne Dades - Gorge Crossroads",
+    locationSummary: "Dades Valley & Gorge",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+BaHammou+Dades",
     address: "Boumalne Dades 45150, Morocco",
@@ -1526,6 +1603,11 @@ export const todra_dadesSleep: SleepListing[] = [
       business: "Quiet lounges support work and road planning.",
       nomad: "A premium Boumalne base for nomads with a car.",
     },
+    coordinates: {
+      lat: 31.49975,
+      lng: -5.943984
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "td-sleep-13",
@@ -1563,13 +1645,15 @@ export const todra_dadesSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "friends", "solo"],
     tip: "Sign up for the private guided hike through the narrow canyons of the Monkey Fingers rock formations early in the morning.",
     vibeTags: ["Budget", "Hiker-Base", "Monkey-Fingers", "Friendly"],
-    locationSummary: "Dades Valley - Monkey Fingers Trailhead",
+    locationSummary: "Dades Valley & Gorge",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Monkey+Fingers+House+Dades",
     address: "Monkey Fingers, Dades Valley, Boumalne Dades 45150, Morocco",
@@ -1640,6 +1724,11 @@ export const todra_dadesSleep: SleepListing[] = [
       business: "High-speed WiFi makes it useful for planning and work.",
       nomad: "A strong budget base for hiking nomads.",
     },
+    coordinates: {
+      lat: 31.444564,
+      lng: -5.980598
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "td-sleep-14",
@@ -1754,6 +1843,11 @@ export const todra_dadesSleep: SleepListing[] = [
       business: "Quiet enough for writing and route planning.",
       nomad: "A low-cost eco base for offline-focused nomads.",
     },
+    coordinates: {
+      lat: 31.37143,
+      lng: -5.986998
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "td-sleep-15",
@@ -1791,13 +1885,15 @@ export const todra_dadesSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Spend an afternoon by the pool; High Atlas views through the palms are spectacular.",
     vibeTags: ["Garden", "Todra-Palmeraie", "Pool", "Climbing"],
-    locationSummary: "Todra Palmeraie - Garden Guesthouse",
+    locationSummary: "Todra Gorge - High Atlas",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Les+Jardins+de+Todgha",
     address: "Todra Palmeraie, Tinghir 45800, Morocco",
@@ -1868,6 +1964,11 @@ export const todra_dadesSleep: SleepListing[] = [
       business: "Quiet terraces support light remote work.",
       nomad: "A balanced Todra base for nomads who climb or hike.",
     },
+    coordinates: {
+      lat: 31.576696,
+      lng: -5.585492
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "td-sleep-16",
@@ -1905,13 +2006,15 @@ export const todra_dadesSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family", "solo"],
     tip: "Ask hosts to coordinate a day trip to remote nomadic caves in the higher valleys.",
     vibeTags: ["Clay-Kasbah", "Rustic", "Panoramic", "Trekking"],
-    locationSummary: "Dades Valley - Traditional Kasbah",
+    locationSummary: "Dades Valley & Gorge",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Kasbah+Ait+Kassi+Dades",
     address: "Dades Valley, Boumalne Dades 45150, Morocco",
@@ -1982,6 +2085,11 @@ export const todra_dadesSleep: SleepListing[] = [
       business: "Rooftop is good for planning and light work.",
       nomad: "A traditional base for nomads exploring remote valleys.",
     },
+    coordinates: {
+      lat: 31.309842,
+      lng: -6.02437
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "td-sleep-17",
@@ -2019,13 +2127,15 @@ export const todra_dadesSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "business-friendly"],
     tip: "Request a ground-floor room to step directly onto the shared pool lawn and garden path.",
     vibeTags: ["Practical", "River-Views", "Pool", "Crossroads"],
-    locationSummary: "Boumalne Dades - River View Gardens",
+    locationSummary: "Dades Valley & Gorge",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Hotel+Kasbah+de+Dades+Chems",
     address: "Boumalne Dades 45150, Morocco",
@@ -2096,6 +2206,11 @@ export const todra_dadesSleep: SleepListing[] = [
       business: "Good for work stopovers and logistics.",
       nomad: "A reliable Boumalne base for nomads on the road.",
     },
+    coordinates: {
+      lat: 31.366539,
+      lng: -5.987078
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "td-sleep-18",
@@ -2133,13 +2248,15 @@ export const todra_dadesSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "business-friendly"],
     tip: "Its location in Tinghir town makes it easy to walk to local cafes and markets.",
     vibeTags: ["Reliable", "Town-Hotel", "Budget", "Pool"],
-    locationSummary: "Tinghir Center - Practical Todra Base",
+    locationSummary: "Dades Valley & Gorge",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Hotel+Amazigh+Tinghir",
     address: "Tinghir 45800, Morocco",
@@ -2210,6 +2327,11 @@ export const todra_dadesSleep: SleepListing[] = [
       business: "A practical town option for business stopovers.",
       nomad: "A low-cost base for nomads needing market access and WiFi.",
     },
+    coordinates: {
+      lat: 31.680151,
+      lng: -5.534802
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "td-sleep-19",
@@ -2247,13 +2369,15 @@ export const todra_dadesSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Perfect for quick, hassle-free layovers on your way through the Dades Gorges.",
     vibeTags: ["Budget", "Stopover", "Rooftop", "Road-Trip"],
-    locationSummary: "Dades Valley - Budget Stopover",
+    locationSummary: "Dades Valley & Gorge",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Valentine+Valley+Dades",
     address: "Dades Valley, Boumalne Dades 45150, Morocco",
@@ -2324,6 +2448,11 @@ export const todra_dadesSleep: SleepListing[] = [
       business: "Works for quick emails and travel planning.",
       nomad: "A practical budget base for road-trip nomads.",
     },
+    coordinates: {
+      lat: 31.578133,
+      lng: -5.587717
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "td-sleep-20",
@@ -2361,13 +2490,15 @@ export const todra_dadesSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["solo", "friends", "solo", "friends"],
     tip: "Wake early to hike the gorge walls before day-trippers and tour buses arrive around 10 AM.",
     vibeTags: ["Budget", "Riverside", "Climber-Basecamp", "Gorge"],
-    locationSummary: "Todra Gorge - Riverside Climber Base",
+    locationSummary: "Dades Valley & Gorge",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Auberge+Camping+Atlas+Todra",
     address: "Todra Gorge, Tinghir 45800, Morocco",
@@ -2438,5 +2569,10 @@ export const todra_dadesSleep: SleepListing[] = [
       business: "Not suitable for business travel.",
       nomad: "A bare-bones climber base for budget nomads.",
     },
+    coordinates: {
+      lat: 31.548327,
+      lng: -5.581136
+    },
+    tags: ["dorm", "family-favorite"]
   }
 ]

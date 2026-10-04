@@ -192,13 +192,15 @@ export const merzougaSleep: SleepListing[] = [
     freeCancellation: false,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["couple", "family", "friends", "solo"],
     tip: "Book the Royal Tent for the most secluded location and the best sunrise views of the high dunes.",
     vibeTags: ["Glamping", "Immersive", "Romantic", "Stargazing"],
-    locationSummary: "Deep Dunes - Erg Chebbi",
+    locationSummary: "Erg Chebbi Desert Dunes",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Merzouga+Luxury+Desert+Camp",
     address: "Erg Chebbi Dunes, Merzouga 52202, Morocco",
@@ -265,6 +267,11 @@ export const merzougaSleep: SleepListing[] = [
       business: "A great place to truly disconnect from the digital world.",
       nomad: "Limited connectivity, but perfect for a creative sabbatical.",
     },
+    coordinates: {
+      lat: 31.08945,
+      lng: -3.965227
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "me-sleep-2",
@@ -302,13 +309,15 @@ export const merzougaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Ask the hosts to organize a local music night.",
     vibeTags: ["Family-Run", "Local", "Budget-Friendly", "Dune-Access"],
-    locationSummary: "Merzouga Village - Dune Base",
+    locationSummary: "Merzouga / Hassi Labied Oasis",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Local+Nomad+Guesthouse+Merzouga",
     address: "Merzouga Village, Merzouga 52202, Morocco",
@@ -375,6 +384,11 @@ export const merzougaSleep: SleepListing[] = [
       business: "Basic but workable for emails and planning.",
       nomad: "A low-cost village base for nomads arranging desert excursions.",
     },
+    coordinates: {
+      lat: 31.056466,
+      lng: -4.019328
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "me-sleep-3",
@@ -412,13 +426,15 @@ export const merzougaSleep: SleepListing[] = [
     freeCancellation: false,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["couple", "family", "friends"],
     tip: "Take advantage of their sunset camel trek—it is often cited as the highlight of the stay.",
     vibeTags: ["Chic", "Eco-Conscious", "Authentic", "Boutique"],
-    locationSummary: "Erg Chebbi Dunes",
+    locationSummary: "Erg Chebbi Desert Dunes",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Kam+Kam+Dunes+Merzouga",
     address: "Erg Chebbi, Merzouga 52202, Morocco",
@@ -485,6 +501,11 @@ export const merzougaSleep: SleepListing[] = [
       business: "Not ideal for work, but perfect for a digital detox.",
       nomad: "Low connectivity, but high inspiration.",
     },
+    coordinates: {
+      lat: 31.173397,
+      lng: -3.940539
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "me-sleep-4",
@@ -522,13 +543,15 @@ export const merzougaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["couple", "family", "solo"],
     tip: "Book a room with a dune view to watch the sunset from your window.",
     vibeTags: ["Quiet", "Dune-View", "Modern-Riad", "Pool"],
-    locationSummary: "Merzouga Edge - Dune View",
+    locationSummary: "Merzouga / Hassi Labied Oasis",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Serai+Merzouga",
     address: "Merzouga Edge, Merzouga 52202, Morocco",
@@ -595,6 +618,11 @@ export const merzougaSleep: SleepListing[] = [
       business: "Good WiFi for planning and light work.",
       nomad: "A comfortable village-edge base for working between excursions.",
     },
+    coordinates: {
+      lat: 31.13958,
+      lng: -4.022909
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "me-sleep-5",
@@ -632,13 +660,15 @@ export const merzougaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family"],
     tip: "Enjoy the peaceful garden after a hot day in the dunes.",
     vibeTags: ["Garden-Oasis", "Peaceful", "Family-Friendly", "Dune-Edge"],
-    locationSummary: "Taouz Road - Garden Oasis",
+    locationSummary: "Merzouga / Hassi Labied Oasis",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Les+Jardins+De+Merzouga",
     address: "Taouz Road, Merzouga 52202, Morocco",
@@ -705,6 +735,11 @@ export const merzougaSleep: SleepListing[] = [
       business: "Quiet garden corners work for light laptop work.",
       nomad: "A pleasant base for nomads who want greenery at the desert edge.",
     },
+    coordinates: {
+      lat: 31.13958,
+      lng: -4.022909
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "me-sleep-6",
@@ -742,13 +777,15 @@ export const merzougaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["couple", "family", "seniors", "solo"],
     tip: "Treat yourself to a spa treatment after your camel trek.",
     vibeTags: ["Kasbah", "Spa", "Comfort", "Dune-Base"],
-    locationSummary: "Merzouga Village - Kasbah Hotel",
+    locationSummary: "Merzouga / Hassi Labied Oasis",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Kasbah+Azalay+Merzouga",
     address: "Merzouga Village, Merzouga 52202, Morocco",
@@ -815,6 +852,11 @@ export const merzougaSleep: SleepListing[] = [
       business: "Reliable WiFi and services for business planning.",
       nomad: "One of the more comfortable Merzouga bases for remote work.",
     },
+    coordinates: {
+      lat: 31.089533,
+      lng: -4.004971
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "me-sleep-7",
@@ -852,13 +894,15 @@ export const merzougaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Book your desert camping excursion directly with the hotel for a hassle-free experience.",
     vibeTags: ["Kasbah", "Budget-Friendly", "Pool", "Excursions"],
-    locationSummary: "Merzouga Edge - Excursion Base",
+    locationSummary: "Merzouga / Hassi Labied Oasis",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Kasbah+Mohayut+Merzouga",
     address: "Merzouga Edge, Merzouga 52202, Morocco",
@@ -925,6 +969,11 @@ export const merzougaSleep: SleepListing[] = [
       business: "Good WiFi for organizing onward travel.",
       nomad: "A budget-friendly base for nomads between desert tours.",
     },
+    coordinates: {
+      lat: 31.131494,
+      lng: -4.016547
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "me-sleep-8",
@@ -962,13 +1011,15 @@ export const merzougaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Have dinner at the guesthouse to try some of the best home-cooked Berber food.",
     vibeTags: ["Berber-Kitchen", "Warm", "Dune-Near", "Guesthouse"],
-    locationSummary: "Merzouga Village - Near Dunes",
+    locationSummary: "Merzouga / Hassi Labied Oasis",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Dar+Tafouyte+Merzouga",
     address: "Merzouga Village, Merzouga 52202, Morocco",
@@ -1035,6 +1086,11 @@ export const merzougaSleep: SleepListing[] = [
       business: "Good for light work and trip planning.",
       nomad: "A hospitable village base for remote workers between excursions.",
     },
+    coordinates: {
+      lat: 31.11069,
+      lng: -4.011867
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "me-sleep-9",
@@ -1070,15 +1126,17 @@ export const merzougaSleep: SleepListing[] = [
     isWheelchairAccessible: false,
     taxesIncluded: true,
     freeCancellation: true,
-    kidsStayFree: true,
+    kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["solo", "friends", "solo"],
     tip: "Great spot to meet other backpackers to share the cost of a desert tour.",
     vibeTags: ["Backpacker", "Social", "Budget", "Shared-Kitchen"],
-    locationSummary: "Merzouga Center - Backpacker Base",
+    locationSummary: "Merzouga / Hassi Labied Oasis",
     availabilityText: "Beds available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Merzouga+Hostel",
     address: "Merzouga Center, Merzouga 52202, Morocco",
@@ -1145,6 +1203,11 @@ export const merzougaSleep: SleepListing[] = [
       business: "Not suitable for business travel beyond messages.",
       nomad: "A bare-bones budget base for nomads pooling desert tours.",
     },
+    coordinates: {
+      lat: 30.764892,
+      lng: -4.172767
+    },
+    tags: ["dorm"]
   },
   {
     id: "me-sleep-10",
@@ -1180,15 +1243,17 @@ export const merzougaSleep: SleepListing[] = [
     isWheelchairAccessible: false,
     taxesIncluded: true,
     freeCancellation: true,
-    kidsStayFree: true,
+    kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["solo", "friends", "couple"],
     tip: "Enjoy the pool to cool off during the peak heat of the day.",
     vibeTags: ["Social", "Budget", "Pool", "Riad-Hostel"],
-    locationSummary: "Merzouga Center - Desert Social Hub",
+    locationSummary: "Merzouga / Hassi Labied Oasis",
     availabilityText: "Beds available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Suerteloca+Merzouga",
     address: "Merzouga Center, Merzouga 52202, Morocco",
@@ -1255,6 +1320,11 @@ export const merzougaSleep: SleepListing[] = [
       business: "Basic for work, but WiFi is useful for planning.",
       nomad: "A cheap social base for nomads between desert trips.",
     },
+    coordinates: {
+      lat: 31.13958,
+      lng: -4.022909
+    },
+    tags: ["dorm"]
   },
   {
     id: "me-sleep-11",
@@ -1292,13 +1362,15 @@ export const merzougaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family"],
     tip: "Ask Youssef for recommendations on alternative routes into the dunes.",
     vibeTags: ["Central", "Private", "Local", "Dune-Access"],
-    locationSummary: "Merzouga Center - Local Riad",
+    locationSummary: "Merzouga / Hassi Labied Oasis",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Chez+Youssef+Merzouga",
     address: "Merzouga Center, Merzouga 52202, Morocco",
@@ -1365,6 +1437,11 @@ export const merzougaSleep: SleepListing[] = [
       business: "Good for planning, emails, and route research.",
       nomad: "A low-cost central base for nomads who want local guidance.",
     },
+    coordinates: {
+      lat: 31.10004,
+      lng: -4.007933
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "me-sleep-12",
@@ -1402,13 +1479,15 @@ export const merzougaSleep: SleepListing[] = [
     freeCancellation: false,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["couple", "solo", "friends"],
     tip: "Perfect for a romantic getaway; the evening stargazing is unparalleled.",
     vibeTags: ["Eco-Luxury", "Romantic", "Yoga", "Stargazing"],
-    locationSummary: "Erg Chebbi - Eco Luxury Camp",
+    locationSummary: "Erg Chebbi Desert Dunes",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Tiziri+Luxury+Camp+Merzouga",
     address: "Erg Chebbi, Merzouga 52202, Morocco",
@@ -1475,6 +1554,11 @@ export const merzougaSleep: SleepListing[] = [
       business: "Not suited to normal business work, but great for retreat thinking.",
       nomad: "A low-connectivity inspiration base for creative nomads.",
     },
+    coordinates: {
+      lat: 31.057991,
+      lng: -3.989364
+    },
+    tags: []
   },
   {
     id: "me-sleep-13",
@@ -1512,13 +1596,15 @@ export const merzougaSleep: SleepListing[] = [
     freeCancellation: false,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["couple", "family", "friends"],
     tip: "Combine your stay here with a night at Riad Madu in Hassi Labied for the full experience.",
     vibeTags: ["Authentic", "Berber-Music", "Comfortable", "Camp"],
-    locationSummary: "Erg Chebbi - Riad Madu Camp",
+    locationSummary: "Erg Chebbi Desert Dunes",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Madu+Desert+Camp+Merzouga",
     address: "Erg Chebbi, Merzouga 52202, Morocco",
@@ -1585,6 +1671,7 @@ export const merzougaSleep: SleepListing[] = [
       business: "Not ideal for business, but good for a digital reset.",
       nomad: "Low connectivity but strong atmosphere for reflective work.",
     },
+    tags: ["family-favorite"]
   },
   {
     id: "me-sleep-14",
@@ -1622,13 +1709,15 @@ export const merzougaSleep: SleepListing[] = [
     freeCancellation: false,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["couple", "solo", "family"],
     tip: "Take advantage of the hot showers, a true luxury deep in the Sahara.",
     vibeTags: ["Lavish", "Luxury-Camp", "Personalized", "Dune-Views"],
-    locationSummary: "Erg Chebbi - Majestic Dune Location",
+    locationSummary: "Erg Chebbi Desert Dunes",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Dream+Luxury+Majestic+Camp+Merzouga",
     address: "Erg Chebbi, Merzouga 52202, Morocco",
@@ -1695,6 +1784,7 @@ export const merzougaSleep: SleepListing[] = [
       business: "Not a business stay, but calm for disconnecting.",
       nomad: "A high-inspiration camp for low-connectivity creative work.",
     },
+    tags: ["family-favorite"]
   },
   {
     id: "me-sleep-15",
@@ -1732,13 +1822,15 @@ export const merzougaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Try sandboarding down the dunes just behind the camp.",
     vibeTags: ["Adventure", "Berber", "Campfire", "Value"],
-    locationSummary: "Erg Chebbi - Adventure Camp",
+    locationSummary: "Erg Chebbi Desert Dunes",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Orient+Desert+Camp+Merzouga",
     address: "Erg Chebbi, Merzouga 52202, Morocco",
@@ -1805,6 +1897,11 @@ export const merzougaSleep: SleepListing[] = [
       business: "Not suitable for business work.",
       nomad: "A value camp for nomads seeking digital detox and inspiration.",
     },
+    coordinates: {
+      lat: 31.087191,
+      lng: -3.966015
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "me-sleep-16",
@@ -1842,13 +1939,15 @@ export const merzougaSleep: SleepListing[] = [
     freeCancellation: false,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["couple", "family", "friends"],
     tip: "Wake up early to catch the sunrise—the colors on the sand are incredible.",
     vibeTags: ["Immersive", "Boutique", "Camel-Trek", "Sunrise"],
-    locationSummary: "Erg Chebbi - Immersive Camp",
+    locationSummary: "Erg Chebbi Desert Dunes",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Kam+Kam+Dunes+Merzouga",
     address: "Erg Chebbi, Merzouga 52202, Morocco",
@@ -1915,6 +2014,11 @@ export const merzougaSleep: SleepListing[] = [
       business: "Not ideal for business; best for disconnecting.",
       nomad: "Low connectivity but high creative inspiration.",
     },
+    coordinates: {
+      lat: 31.173397,
+      lng: -3.940539
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "me-sleep-17",
@@ -1952,13 +2056,15 @@ export const merzougaSleep: SleepListing[] = [
     freeCancellation: false,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["couple", "family", "friends", "solo"],
     tip: "Join the evening campfire for drumming and singing with the local Berber staff.",
     vibeTags: ["Magical", "Berber-Drumming", "Service", "Stargazing"],
-    locationSummary: "Erg Chebbi - Desert Palace Camp",
+    locationSummary: "Erg Chebbi Desert Dunes",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Ali+Sara+Desert+Palace+Merzouga",
     address: "Erg Chebbi, Merzouga 52202, Morocco",
@@ -2025,6 +2131,7 @@ export const merzougaSleep: SleepListing[] = [
       business: "Not for regular business, but great for disconnecting.",
       nomad: "A memorable low-connectivity creative reset.",
     },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "me-sleep-18",
@@ -2062,13 +2169,15 @@ export const merzougaSleep: SleepListing[] = [
     freeCancellation: false,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["couple", "solo", "family"],
     tip: "Enjoy a private candlelit dinner outside your tent upon request.",
     vibeTags: ["1001-Nights", "Romantic", "Eco-Aware", "Luxury"],
-    locationSummary: "Erg Chebbi - Luxury Oasis",
+    locationSummary: "Erg Chebbi Desert Dunes",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Luxury+Oasis+Camp+Merzouga",
     address: "Erg Chebbi, Merzouga 52202, Morocco",
@@ -2135,6 +2244,11 @@ export const merzougaSleep: SleepListing[] = [
       business: "Not suited to business work.",
       nomad: "A low-connectivity base for deep creative thinking.",
     },
+    coordinates: {
+      lat: 31.216994,
+      lng: -3.978941
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "me-sleep-19",
@@ -2172,13 +2286,15 @@ export const merzougaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["solo", "friends", "couple", "family"],
     tip: "Bring warm clothes for the night; the desert gets surprisingly cold after sunset.",
     vibeTags: ["Traditional", "Affordable", "Camel-Trek", "Basic"],
-    locationSummary: "Erg Chebbi - Sunrise Camp",
+    locationSummary: "Erg Chebbi Desert Dunes",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Sunrise+Sahara+Camp+Merzouga",
     address: "Erg Chebbi, Merzouga 52202, Morocco",
@@ -2245,6 +2361,11 @@ export const merzougaSleep: SleepListing[] = [
       business: "Not suited to business travel.",
       nomad: "A budget digital-detox camp for nomads who want sunrise inspiration.",
     },
+    coordinates: {
+      lat: 31.08945,
+      lng: -3.965227
+    },
+    tags: ["dorm", "family-favorite"]
   },
   {
     id: "me-sleep-20",
@@ -2282,13 +2403,15 @@ export const merzougaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Relax by the pool during midday heat before heading to the dunes in late afternoon.",
     vibeTags: ["Kasbah", "Fortress", "Pool", "Dune-Views"],
-    locationSummary: "Merzouga Village - Fortress Riad",
+    locationSummary: "Merzouga / Hassi Labied Oasis",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Kasbah+Aiour+Merzouga",
     address: "Merzouga Village, Merzouga 52202, Morocco",
@@ -2355,5 +2478,10 @@ export const merzougaSleep: SleepListing[] = [
       business: "Reliable enough for light work and route planning.",
       nomad: "A practical riad base for nomads between desert excursions.",
     },
+    coordinates: {
+      lat: 31.132232,
+      lng: -4.01657
+    },
+    tags: ["family-favorite", "heritage"]
   }
 ]

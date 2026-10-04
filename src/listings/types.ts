@@ -8,12 +8,12 @@ export type CityId =
   | 'todra_dades' | 'ouarzazate' | 'paradise_valley' | 'taghazout' | 'imsouane' | 'dakhla' 
   | 'asilah' | 'saidia' | 'al_hoceima' | 'ifrane_azrou' | 'oukaimeden' | 'el_jadida' 
   | 'tetouan' | 'tetouan_martil' | 'taroudant_tafraoute' | 'skoura_draa' | 'moulay_idriss'
-  | 'ifrane' | 'taroudant'
+  | 'ifrane' | 'taroudant' | 'zagora' | 'oualidia'
 
 export type LifestyleComfort = 'lean' | 'balanced' | 'premium'
 
 export type GroupType =
-  | 'solo' | 'couple' | 'couples' | 'family' | 'families' | 'friends' | 'seniors' | 'kids-friendly' | 'large-groups' | 'business-friendly' | 'business'
+  | 'solo' | 'couple' | 'couples' | 'family' | 'families' | 'friends' | 'seniors' | 'kids-friendly' | 'large-groups' | 'business-friendly' | 'business' | 'nature-lover'
 
 export type CrowdLevel = 'bustling' | 'balanced' | 'quiet'
 
@@ -94,6 +94,11 @@ export interface SleepListing {
   isHiddenGem?: boolean
   // New fields for Stay Detail View
   locationSummary?: string // e.g. "Beachfront", "City Center"
+  // Sleep-location quiz question tag ("Where should your stay be?"):
+  // 'medina-heart' | 'ville-nouvelle' | 'countryside' - the results scoring
+  // uses this tag first (then nearMedina/locationSummary/neighborhood as
+  // fallback) so travelers get the best-listed stay for their location choice
+  locationFeel?: 'medina-heart' | 'ville-nouvelle' | 'countryside'
   availabilityText?: string // e.g. "2 rooms left", "Available tonight"
   googleMapsUrl?: string
   paymentMethods?: string[]
@@ -136,6 +141,16 @@ export interface SleepListing {
     time?: string
     icon?: string
   }[]
+  /**
+   * Geographic coordinates of the stay (verified via web search / data entry).
+   * When present, the proximity engine computes real distance + direction
+   * (bearing) for the walking-distance radar map. When absent, the map falls
+   * back to the collected neighborhood distance data.
+   */
+  coordinates?: {
+    lat: number
+    lng: number
+  }
   cancellationPolicy?: string
   childPolicy?: string
   officialWebsite?: string
@@ -171,6 +186,10 @@ export interface EatListing {
   mealTypes: MealType[]
   experienceTypes: string[]
   foodStyles: string[]
+  // Food-cuisine quiz question tag ("What kind of food are you craving?"):
+  // 'moroccan-traditional' | 'international' | 'cafe-pastry' | 'seafood' -
+  // the results scoring uses this tag first (then foodStyles as fallback)
+  cuisineTags?: string[]
   crowdLevel: CrowdLevel
   groupTypes: GroupType[]
   hasEnglishStaff: boolean
@@ -182,7 +201,7 @@ export interface EatListing {
   nearCenter: boolean
   isVegetarianFriendly: boolean
   isHalal: boolean
-  halalStatus?: 'likely-halal-food' | 'halal-certified' | 'unknown'
+  halalStatus?: 'likely-halal-food' | 'halal-certified' | 'unknown' | 'non-halal'
   verificationStatus?: 'verified' | 'unverified' | 'possibly-closed' | 'wrong-city'
   isTemporarilyHidden?: boolean
   openTime: string

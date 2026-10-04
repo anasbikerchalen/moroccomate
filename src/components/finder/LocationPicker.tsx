@@ -1,4 +1,4 @@
-import { useState, useMemo, useRef, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { MapPin, ChevronDown, Search, X, Compass, Map, Sparkles } from 'lucide-react';
 import { useParameterStore } from '../../state/parameterStore';
@@ -9,6 +9,9 @@ import { getListings } from '../../listings';
 import { useExploreStore } from '../../state/exploreStore';
 import { cn } from '../../utils/cn';
 
+// The most-visited cities, shown first in the picker
+const RECOMMENDED_CITY_NAMES = ['Marrakech', 'Fes', 'Chefchaouen', 'Essaouira', 'Agadir'];
+
 export default function LocationPicker() {
   const { city, neighborhood, setCity, setNeighborhood } = useParameterStore();
   const { activeCategory } = useExploreStore();
@@ -16,18 +19,8 @@ export default function LocationPicker() {
   const [isOpen, setIsOpen] = useState<'hub' | 'spoke' | null>(null);
   const [citySearch, setCitySearch] = useState('');
   const [areaSearch, setAreaSearch] = useState('');
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  // Close on outside click
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
-        setIsOpen(null);
-      }
-    };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
+  // "More Cities" is collapsed behind a toggle until the visitor opens it
+  const [showMoreCities, setShowMoreCities] = useState(false);
 
   const touristicCityIds = useMemo(() => getPrimaryCitiesWithTouristicAreas(), []);
   
@@ -115,8 +108,62 @@ export default function LocationPicker() {
     }
   };
 
+  // Organized city groups: most-visited first, then the rest
+  const recommendedCities = useMemo(() => filteredCities.filter(c => RECOMMENDED_CITY_NAMES.includes(c.name)), [filteredCities]);
+  const otherCities = useMemo(() => filteredCities.filter(c => !RECOMMENDED_CITY_NAMES.includes(c.name)), [filteredCities]);
+
+  const renderCityCard = (h: any, compact = false) => {
+    const count = getListings(h.id).length;
+    const isSelected = city === h.id;
+    if (compact) {
+      // Simple compact card — no emoji icon, just the city name + count
+      return (
+        <button
+          key={h.id}
+          onClick={() => handleCitySelect(h.id)}
+          className={cn(
+            "flex items-center justify-between gap-2 px-3.5 py-2.5 rounded-xl border transition-all text-left cursor-pointer",
+            isSelected
+              ? "bg-stone-900 border-stone-900 text-white"
+              : "bg-white border-stone-200/70 hover:border-[#C9A84C] hover:bg-stone-50/50"
+          )}
+        >
+          <span className="text-xs font-bold tracking-tight truncate">{h.name}</span>
+          <span className={cn("text-[9px] font-medium shrink-0", isSelected ? "text-stone-300" : "text-stone-400")}>
+            {count} {count === 1 ? 'place' : 'places'}
+          </span>
+        </button>
+      );
+    }
+    return (
+      <button
+        key={h.id}
+        onClick={() => handleCitySelect(h.id)}
+        className={cn(
+          "flex flex-col items-center justify-center p-3.5 rounded-2xl border transition-all text-center gap-1.5 group cursor-pointer relative",
+          isSelected 
+            ? "bg-stone-900 border-stone-900 text-white shadow-lg shadow-stone-900/15" 
+            : "bg-white border-stone-200/70 hover:border-[#C9A84C] hover:bg-stone-50/50 hover:shadow-xs"
+        )}
+      >
+        <div className={cn(
+          "w-10 h-10 rounded-xl flex items-center justify-center text-lg transition-transform group-hover:scale-110",
+          isSelected ? "bg-white/10" : "bg-stone-100/70"
+        )}>
+          {getCityIcon(h.id)}
+        </div>
+        <div>
+          <div className="text-xs font-bold tracking-tight line-clamp-1">{h.name}</div>
+          <div className={cn("text-[9px] font-medium mt-0.5", isSelected ? "text-stone-300" : "text-stone-400")}>
+            {count} {count === 1 ? 'place' : 'places'}
+          </div>
+        </div>
+      </button>
+    );
+  };
+
   return (
-    <div className="relative w-full" ref={containerRef}>
+    <div className="relative w-full">
       {/* Outer Container with harmonized border radius (Outer 28px - Padding 6px = Inner 22px) */}
       <div className="bg-stone-50/80 rounded-[28px] p-1.5 border border-stone-200/60 shadow-xs flex flex-col md:flex-row items-stretch gap-1">
         
@@ -178,7 +225,7 @@ export default function LocationPicker() {
             initial={{ opacity: 0, y: 10, scale: 0.97 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.97 }}
-            className="absolute top-full left-0 right-0 mt-3 bg-white rounded-[28px] shadow-2xl border border-stone-200/80 z-[100] overflow-hidden"
+            className="mt-3 bg-white rounded-[28px] shadow-2xl border border-stone-200/80 overflow-hidden"
           >
             {/* Header with Inline Search Box */}
             <div className="p-4 bg-stone-50/80 border-b border-stone-100 space-y-3">
@@ -217,42 +264,60 @@ export default function LocationPicker() {
               </div>
             </div>
             
-            {/* City Grid */}
-            <div className="p-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2.5 max-h-[360px] overflow-y-auto custom-scrollbar">
-              {filteredCities.length > 0 ? (
-                filteredCities.map((h) => {
-                  const count = getListings(h.id).length;
-                  const isSelected = city === h.id;
-                  return (
-                    <button
-                      key={h.id}
-                      onClick={() => handleCitySelect(h.id)}
-                      className={cn(
-                        "flex flex-col items-center justify-center p-3.5 rounded-2xl border transition-all text-center gap-1.5 group cursor-pointer relative",
-                        isSelected 
-                          ? "bg-stone-900 border-stone-900 text-white shadow-lg shadow-stone-900/15" 
-                          : "bg-white border-stone-200/70 hover:border-[#C9A84C] hover:bg-stone-50/50 hover:shadow-xs"
-                      )}
-                    >
-                      <div className={cn(
-                        "w-10 h-10 rounded-xl flex items-center justify-center text-lg transition-transform group-hover:scale-110",
-                        isSelected ? "bg-white/10" : "bg-stone-100/70"
-                      )}>
-                        {getCityIcon(h.id)}
-                      </div>
-                      <div>
-                        <div className="text-xs font-bold tracking-tight line-clamp-1">{h.name}</div>
-                        <div className={cn("text-[9px] font-medium mt-0.5", isSelected ? "text-stone-300" : "text-stone-400")}>
-                          {count} {count === 1 ? 'place' : 'places'}
-                        </div>
-                      </div>
-                    </button>
-                  );
-                })
-              ) : (
-                <div className="col-span-full py-8 text-center text-stone-400 text-xs italic">
+            {/* City List — always fits the screen, scrolls inside with a visible scrollbar */}
+            <div className="p-4 pt-3 space-y-4 max-h-[50vh] overflow-y-auto">
+              {filteredCities.length === 0 ? (
+                <div className="py-8 text-center text-stone-400 text-xs italic">
                   No cities found matching "{citySearch}"
                 </div>
+              ) : (
+                <>
+                  {recommendedCities.length > 0 && (
+                    <div>
+                      <div className="pb-2 text-[9px] font-black uppercase tracking-[0.25em] text-stone-400">Most Visited</div>
+                      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2.5">
+                        {recommendedCities.map((h) => renderCityCard(h))}
+                      </div>
+                    </div>
+                  )}
+                  {otherCities.length > 0 && (
+                    <div>
+                      <button
+                        onClick={() => setShowMoreCities(!showMoreCities)}
+                        className={cn(
+                          "w-full flex items-center justify-center gap-2 py-2.5 rounded-xl border transition-all group cursor-pointer",
+                          (showMoreCities || citySearch.trim() !== '')
+                            ? "bg-transparent border-transparent hover:bg-stone-50"
+                            : "bg-[#C9A84C]/10 border-[#C9A84C]/40 hover:bg-[#C9A84C]/20 animate-[pulse-glow_2.5s_ease-in-out_infinite]"
+                        )}
+                        aria-expanded={showMoreCities || citySearch.trim() !== ''}
+                      >
+                        <Compass className={cn(
+                          "w-3.5 h-3.5 shrink-0 transition-colors",
+                          (showMoreCities || citySearch.trim() !== '') ? "text-stone-400" : "text-[#C9A84C]"
+                        )} />
+                        <span className={cn(
+                          "text-[10px] font-black uppercase tracking-[0.2em] transition-colors",
+                          (showMoreCities || citySearch.trim() !== '') ? "text-stone-400 group-hover:text-stone-600" : "text-[#C9A84C]"
+                        )}>
+                          {(showMoreCities || citySearch.trim() !== '')
+                            ? 'More Cities'
+                            : `Show ${otherCities.length} more cities`}
+                        </span>
+                        <ChevronDown className={cn(
+                          "w-3.5 h-3.5 shrink-0 transition-transform",
+                          (showMoreCities || citySearch.trim() !== '') ? "text-stone-400 group-hover:text-stone-600" : "text-[#C9A84C]",
+                          (showMoreCities || citySearch.trim() !== '') && "rotate-180"
+                        )} />
+                      </button>
+                      {(showMoreCities || citySearch.trim() !== '') && (
+                        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                          {otherCities.map((h) => renderCityCard(h, true))}
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </>
               )}
             </div>
           </motion.div>
@@ -264,7 +329,7 @@ export default function LocationPicker() {
             initial={{ opacity: 0, y: 10, scale: 0.97 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.97 }}
-            className="absolute top-full left-0 right-0 mt-3 bg-white rounded-[28px] shadow-2xl border border-stone-200/80 z-[100] overflow-hidden flex flex-col max-h-[480px]"
+            className="mt-3 bg-white rounded-[28px] shadow-2xl border border-stone-200/80 overflow-hidden flex flex-col max-h-[480px]"
           >
             {/* Header with Neighborhood Search */}
             <div className="p-4 bg-stone-50/80 border-b border-stone-100 space-y-3">
@@ -299,7 +364,7 @@ export default function LocationPicker() {
               </div>
             </div>
 
-            <div className="overflow-y-auto custom-scrollbar p-2">
+            <div className="overflow-y-auto p-2">
               <button
                 onClick={() => handleAreaSelect(null)}
                 className={cn(

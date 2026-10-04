@@ -22,56 +22,35 @@ export const SEO: React.FC<SEOProps> = ({
   description, 
   canonical, 
   type = 'website',
-  image = '/assets/home/backgrounds/homepage_default_image.png', // Default rich preview image
+  image = '/assets/home/backgrounds/homepage_default_image.jpg', // Default rich preview image (ships locally in public/)
   breadcrumbs,
   schemaType,
   schemaData
 }) => {
-  const BASE_URL = 'https://moroccofriend.com';
-  const siteName = 'MoroccoFriend';
+  const BASE_URL = 'https://moroccomate.com';
+  const siteName = 'Morocco Finder';
   const fullTitle = title ? `${title} | ${siteName}` : siteName;
   const defaultDescription = 'Your honest guide to Morocco — city by city. Feel the vibe first, trust the data second, decide third.';
   const metaDescription = description || defaultDescription;
   const url = typeof window !== 'undefined' ? window.location.href : '';
   const pathname = typeof window !== 'undefined' ? window.location.pathname : '';
-  const search = typeof window !== 'undefined' ? window.location.search : '';
 
-  const canonicalUrl = canonical || (typeof window !== 'undefined' ? `${BASE_URL}${pathname}` : BASE_URL);
+  const canonicalUrl = canonical
+    ? (canonical.startsWith('http') ? canonical : `${BASE_URL}${canonical.startsWith('/') ? '' : '/'}${canonical}`)
+    : (typeof window !== 'undefined' ? `${BASE_URL}${pathname}` : BASE_URL);
   const fullImageUrl = image.startsWith('http') ? image : `${BASE_URL}${image.startsWith('/') ? '' : '/'}${image}`;
 
   // Helper to construct alternate hreflang URLs
-  const getHrefForLang = (lang: string) => {
-    const params = new URLSearchParams(search);
-    params.set('lng', lang);
-    return `${BASE_URL}${pathname}?${params.toString()}`;
-  };
 
   const baseJsonLd = {
     "@context": "https://schema.org",
-    "@type": schemaType || "TravelAgency",
+    "@type": schemaType || "WebSite",
     "name": fullTitle,
     "description": metaDescription,
     "url": url,
-    "logo": `${BASE_URL}/ma.svg`,
+    "logo": `${BASE_URL}/favicon.svg`,
     ...(schemaData || {
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Marrakech",
-        "addressCountry": "MA"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 31.7917,
-        "longitude": -7.0926
-      },
-      "areaServed": {
-        "@type": "AdministrativeArea",
-        "name": "Morocco",
-        "geo": {
-          "@type": "GeoShape",
-          "box": "21.33 -17.02 35.92 -1.02"
-        }
-      }
+      "inLanguage": ["en", "fr", "ar"]
     })
   };
 
@@ -94,11 +73,8 @@ export const SEO: React.FC<SEOProps> = ({
       <meta name="description" content={metaDescription} />
       <link rel="canonical" href={canonicalUrl} />
 
-      {/* Multilingual Alternate Links (hreflang) */}
-      <link rel="alternate" href={getHrefForLang('en')} hrefLang="en" />
-      <link rel="alternate" href={getHrefForLang('fr')} hrefLang="fr" />
-      <link rel="alternate" href={getHrefForLang('ar')} hrefLang="ar" />
-      <link rel="alternate" href={`${BASE_URL}${pathname}`} hrefLang="x-default" />
+      {/* Multilingual Alternate Links (hreflang) — removed: language switches in place,
+          so there are no separate per-language pages for crawlers to index */}
 
       {/* Geographic Metadata Tags */}
       <meta name="geo.region" content="MA" />

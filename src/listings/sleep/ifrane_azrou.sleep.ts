@@ -192,13 +192,15 @@ export const ifrane_azrouSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["couple", "family", "seniors", "solo", "business-friendly"],
     tip: "The indoor pool is one of the most beautiful in Africa; visit in winter to watch snow fall through the glass while swimming in heated water.",
     vibeTags: ["Alpine-Chic", "Palatial", "Cozy", "Elite"],
-    locationSummary: "Mountain Heights - Ifrane",
+    locationSummary: "Middle Atlas Cedar Forest & Hills",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Michlifen+Resort+Golf+Ifrane",
     address: "Avenue Hassan II, Ifrane 53000, Morocco",
@@ -265,6 +267,11 @@ export const ifrane_azrouSleep: SleepListing[] = [
       business: "Prestigious venue for top-tier corporate retreats.",
       nomad: "Great WiFi and many cozy corners to work by the fire.",
     },
+    coordinates: {
+      lat: 33.411416,
+      lng: -5.078405
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "ia-sleep-2",
@@ -302,13 +309,15 @@ export const ifrane_azrouSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["couple", "family", "seniors", "solo"],
     tip: "The hotel sits right by the entrance to the cedar forest; take an early morning walk to spot Barbary macaques when active.",
     vibeTags: ["Forest-View", "Alpine", "Peaceful", "Wellness"],
-    locationSummary: "Cedar Forest Edge - Azrou",
+    locationSummary: "Middle Atlas Cedar Forest & Hills",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Le+Palais+des+Cerisiers+Azrou",
     address: "Route d’Ifrane, Azrou 53100, Morocco",
@@ -375,6 +384,11 @@ export const ifrane_azrouSleep: SleepListing[] = [
       business: "Quiet enough for focused work between hikes.",
       nomad: "A balanced remote-work base if you have a car.",
     },
+    coordinates: {
+      lat: 33.443967,
+      lng: -5.180024
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "ia-sleep-3",
@@ -412,13 +426,15 @@ export const ifrane_azrouSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["couple", "solo", "family", "friends"],
     tip: "Speak with the manager, Ismail, for the best local hiking path recommendations directly behind the property.",
     vibeTags: ["Rustic", "Eco-Friendly", "Cozy", "Private"],
-    locationSummary: "Stone Guesthouse - Cedar Forest",
+    locationSummary: "Ifrane Alpine Town Center",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Maurice+Bonjean+Azrou",
     address: "Cedar Forest Road, Azrou 53100, Morocco",
@@ -485,6 +501,7 @@ export const ifrane_azrouSleep: SleepListing[] = [
       business: "Quiet enough for creative work, but remote.",
       nomad: "Good for nomads wanting nature, silence, and simple comfort.",
     },
+    tags: ["family-favorite"]
   },
   {
     id: "ia-sleep-4",
@@ -522,13 +539,15 @@ export const ifrane_azrouSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Don’t miss their slow-cooked beef tagine with local plums, cooked on hot coals in the fireplace.",
     vibeTags: ["Berber", "Mountain", "Fireplace", "Value"],
-    locationSummary: "Ben Smim - Forest Valley",
+    locationSummary: "Middle Atlas Cedar Forest & Hills",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Le+Gite+du+Barrage+Ben+Smim",
     address: "Ben Smim, Azrou 53100, Morocco",
@@ -595,6 +614,11 @@ export const ifrane_azrouSleep: SleepListing[] = [
       business: "Basic but quiet for light work.",
       nomad: "Best for offline-focused nomads who want mountain calm.",
     },
+    coordinates: {
+      lat: 33.4747,
+      lng: -5.247636
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "ia-sleep-5",
@@ -705,6 +729,11 @@ export const ifrane_azrouSleep: SleepListing[] = [
       business: "Not a business hotel, but calm for writing or planning.",
       nomad: "A budget nature base for nomads who can work with simple facilities.",
     },
+    coordinates: {
+      lat: 33.450729,
+      lng: -5.229569
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "ia-sleep-6",
@@ -742,13 +771,15 @@ export const ifrane_azrouSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["couple", "family", "friends", "business-friendly"],
     tip: "The property has vast manicured flower gardens; grab tea and enjoy a peaceful stroll at sunset.",
     vibeTags: ["Modern", "Garden", "Alpine", "Family-Friendly"],
-    locationSummary: "Ifrane Center - Garden Hotel",
+    locationSummary: "Ifrane Alpine Town Center",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=ZEPHYR+Ifrane",
     address: "Avenue Mohammed VI, Ifrane 53000, Morocco",
@@ -815,6 +846,11 @@ export const ifrane_azrouSleep: SleepListing[] = [
       business: "Useful for business stays with parking and modern rooms.",
       nomad: "Good for nomads who want apartment-style comfort and garden breaks.",
     },
+    coordinates: {
+      lat: 33.50583,
+      lng: -5.154719
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "ia-sleep-7",
@@ -925,6 +961,11 @@ export const ifrane_azrouSleep: SleepListing[] = [
       business: "Quiet enough for focused reading or work.",
       nomad: "Ideal for nature-first nomads with a car.",
     },
+    coordinates: {
+      lat: 33.440752,
+      lng: -5.225613
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "ia-sleep-8",
@@ -962,13 +1003,15 @@ export const ifrane_azrouSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Rent a local bicycle and complete the 8-kilometer loop around Dayet Aoua lake and surrounding forest.",
     vibeTags: ["Lakeside", "Rustic", "Farm", "Peaceful"],
-    locationSummary: "Dayet Aoua Lake Area",
+    locationSummary: "Ifrane Alpine Town Center",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Le+Gite+Dayet+Aoua",
     address: "Dayet Aoua, Ifrane 53000, Morocco",
@@ -1035,6 +1078,11 @@ export const ifrane_azrouSleep: SleepListing[] = [
       business: "Not suited to formal business, but calm for planning.",
       nomad: "Best for nomads seeking lake walks and simple offline time.",
     },
+    coordinates: {
+      lat: 33.653362,
+      lng: -5.011236
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "ia-sleep-9",
@@ -1072,13 +1120,15 @@ export const ifrane_azrouSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Excellent for exploring town on foot; walk to see Ennour Mosque and local Berber rug weavers.",
     vibeTags: ["Traditional", "Budget", "Town-Center", "Rooftop"],
-    locationSummary: "Azrou Center - Market Area",
+    locationSummary: "Middle Atlas Cedar Forest & Hills",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Azrou",
     address: "Azrou Center, Azrou 53100, Morocco",
@@ -1145,6 +1195,11 @@ export const ifrane_azrouSleep: SleepListing[] = [
       business: "Basic but workable for short laptop sessions.",
       nomad: "A budget town base for nomads arranging forest day trips.",
     },
+    coordinates: {
+      lat: 33.434868,
+      lng: -5.220344
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "ia-sleep-10",
@@ -1182,13 +1237,15 @@ export const ifrane_azrouSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["solo", "friends", "couple", "family"],
     tip: "A great budget base for mountain bikers looking to tackle the rugged Middle Atlas forest trails.",
     vibeTags: ["Budget", "Alpine", "Forest", "Adventure"],
-    locationSummary: "Cedar Forest Trail Base",
+    locationSummary: "Ifrane Alpine Town Center",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Auberge+Jomana+Park+Azrou",
     address: "Cedar Forest Road, Azrou 53100, Morocco",
@@ -1255,6 +1312,7 @@ export const ifrane_azrouSleep: SleepListing[] = [
       business: "Not ideal for business, but quiet for basic work.",
       nomad: "A budget-friendly forest base for outdoorsy nomads.",
     },
+    tags: ["family-favorite"]
   },
   {
     id: "ia-sleep-11",
@@ -1292,13 +1350,15 @@ export const ifrane_azrouSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Great for pet lovers; this riad is pet-friendly, so you can travel with dogs into the surrounding woods.",
     vibeTags: ["Modern-Riad", "Pet-Friendly", "Pool", "Mountain-View"],
-    locationSummary: "Azrou Center - Quiet Quarter",
+    locationSummary: "Ifrane Alpine Town Center",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Gold+Azrou",
     address: "Azrou Center, Azrou 53100, Morocco",
@@ -1365,6 +1425,11 @@ export const ifrane_azrouSleep: SleepListing[] = [
       business: "Quiet enough for light work and planning.",
       nomad: "A balanced town base for nomads traveling with pets.",
     },
+    coordinates: {
+      lat: 33.434868,
+      lng: -5.220344
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "ia-sleep-12",
@@ -1402,13 +1467,15 @@ export const ifrane_azrouSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Ask the staff to help book a local quad-biking tour across the rocky Atlas plateaus.",
     vibeTags: ["Valley", "Adventure", "Family", "Rustic-Modern"],
-    locationSummary: "Middle Atlas Valley",
+    locationSummary: "Ifrane Alpine Town Center",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Rise+In+Valley+Azrou",
     address: "Middle Atlas Valley, Azrou 53100, Morocco",
@@ -1475,6 +1542,7 @@ export const ifrane_azrouSleep: SleepListing[] = [
       business: "Not business-focused, but calm for light remote tasks.",
       nomad: "A good base for nomads who mix work with hiking or quad rides.",
     },
+    tags: ["family-favorite"]
   },
   {
     id: "ia-sleep-13",
@@ -1512,13 +1580,15 @@ export const ifrane_azrouSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family", "seniors"],
     tip: "Perfect for quiet recovery; take a relaxing dawn walk along the nearby pine trails.",
     vibeTags: ["Stone-Inn", "Quiet", "Mountain", "Restorative"],
-    locationSummary: "Pine Valley Retreat",
+    locationSummary: "Ifrane Alpine Town Center",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Hotel+Tamanoucht+Azrou",
     address: "Pine Valley Road, Azrou 53100, Morocco",
@@ -1585,6 +1655,11 @@ export const ifrane_azrouSleep: SleepListing[] = [
       business: "Not business-oriented, but calm for writing or reading.",
       nomad: "Best for nomads seeking quiet recovery and nature walks.",
     },
+    coordinates: {
+      lat: 33.433476,
+      lng: -5.2262
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "ia-sleep-14",
@@ -1695,6 +1770,11 @@ export const ifrane_azrouSleep: SleepListing[] = [
       business: "Central and practical for meetings or university visits.",
       nomad: "A comfortable town base with decent work corners.",
     },
+    coordinates: {
+      lat: 33.529342,
+      lng: -5.107502
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "ia-sleep-15",
@@ -1732,13 +1812,15 @@ export const ifrane_azrouSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "business-friendly"],
     tip: "Rent one of their bicycles to explore the pristine forest roads leading toward Ras El Maa waterfalls.",
     vibeTags: ["Pine-Garden", "Cycling", "Quiet", "Value"],
-    locationSummary: "Ifrane - Near Vittel Spring",
+    locationSummary: "Ifrane Alpine Town Center",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Hotel+Relais+Ras+El+Maa+Ifrane",
     address: "Route de Ras El Maa, Ifrane 53000, Morocco",
@@ -1805,6 +1887,11 @@ export const ifrane_azrouSleep: SleepListing[] = [
       business: "Meeting space makes it useful for small work trips.",
       nomad: "A simple, calm base for nomads who enjoy cycling breaks.",
     },
+    coordinates: {
+      lat: 33.464258,
+      lng: -5.148528
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "ia-sleep-16",
@@ -1842,13 +1929,15 @@ export const ifrane_azrouSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "business-friendly"],
     tip: "Walk to nearby Al Akhawayn University to admire its pristine European-style architecture.",
     vibeTags: ["Central", "Alpine", "Cozy", "Value"],
-    locationSummary: "Ifrane Center",
+    locationSummary: "Ifrane Alpine Town Center",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Hotel+Perce+Neige+Ifrane",
     address: "Ifrane Center, Ifrane 53000, Morocco",
@@ -1915,6 +2004,11 @@ export const ifrane_azrouSleep: SleepListing[] = [
       business: "Convenient for university or town meetings.",
       nomad: "A practical budget town base for light remote work.",
     },
+    coordinates: {
+      lat: 33.518382,
+      lng: -5.133075
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "ia-sleep-17",
@@ -1952,13 +2046,15 @@ export const ifrane_azrouSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Request a room overlooking Parc la Prairie for sunrise views of pine trees.",
     vibeTags: ["Classic", "Alpine", "Central", "Budget"],
-    locationSummary: "Ifrane Center - Parc la Prairie",
+    locationSummary: "Ifrane Alpine Town Center",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Le+Chamonix+Ifrane",
     address: "Ifrane Center, Ifrane 53000, Morocco",
@@ -2025,6 +2121,11 @@ export const ifrane_azrouSleep: SleepListing[] = [
       business: "Basic but central for quick work or meetings.",
       nomad: "A budget Ifrane base for nomads who value location over polish.",
     },
+    coordinates: {
+      lat: 33.528516,
+      lng: -5.106531
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "ia-sleep-18",
@@ -2062,13 +2163,15 @@ export const ifrane_azrouSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Walk up the hill behind the guesthouse in late afternoon for a peaceful sunset over the valley of Azrou.",
     vibeTags: ["Hillside", "Homey", "Budget", "Quiet"],
-    locationSummary: "Azrou Hillside",
+    locationSummary: "Ifrane Alpine Town Center",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Maison+Duffal+Azrou",
     address: "Azrou Hillside, Azrou 53100, Morocco",
@@ -2135,6 +2238,11 @@ export const ifrane_azrouSleep: SleepListing[] = [
       business: "A calm place for light work with views.",
       nomad: "A low-cost nomad base if you do not mind being outside the center.",
     },
+    coordinates: {
+      lat: 33.43652,
+      lng: -5.214161
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "ia-sleep-19",
@@ -2172,13 +2280,15 @@ export const ifrane_azrouSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family", "business-friendly"],
     tip: "The training restaurant is highly recommended; order a fresh Moroccan tagine prepared by culinary students.",
     vibeTags: ["Student-Run", "Budget", "Clean", "Educational"],
-    locationSummary: "Azrou Center - Hospitality School",
+    locationSummary: "Middle Atlas Cedar Forest & Hills",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Hotel+School+Ersat+Azrou",
     address: "Azrou Center, Azrou 53100, Morocco",
@@ -2245,6 +2355,11 @@ export const ifrane_azrouSleep: SleepListing[] = [
       business: "Surprisingly practical for budget work trips.",
       nomad: "A very affordable base for nomads who need clean basics.",
     },
+    coordinates: {
+      lat: 33.438661,
+      lng: -5.231223
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "ia-sleep-20",
@@ -2282,13 +2397,15 @@ export const ifrane_azrouSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["family", "friends", "couple", "large-groups"],
     tip: "A great budget choice for large families; book a detached stone chalet for a private garden entrance.",
     vibeTags: ["Budget", "Chalet-Complex", "Family", "Pine-Forest"],
-    locationSummary: "Ifrane Pine Hillside",
+    locationSummary: "Ifrane Alpine Town Center",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Farah+Inn+Ifrane",
     address: "Station Biladi, Ifrane 53000, Morocco",
@@ -2355,5 +2472,10 @@ export const ifrane_azrouSleep: SleepListing[] = [
       business: "Not ideal for business except longer practical stays.",
       nomad: "Useful for budget nomads who want kitchenette space and do not need polish.",
     },
+    coordinates: {
+      lat: 33.518382,
+      lng: -5.133075
+    },
+    tags: ["family-favorite"]
   }
 ]

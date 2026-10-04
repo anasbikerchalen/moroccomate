@@ -2,17 +2,17 @@ import { motion, AnimatePresence } from 'motion/react';
 import { X, Search, Sparkles } from 'lucide-react';
 import { useExploreStore } from '../../state/exploreStore';
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
-import { useEffect, useMemo } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import CategoryListing from './CategoryListing';
 import ResultPage from './ResultPage';
 import { SEO } from '../ui/SEO';
 import { cityMap } from '../../data/cities';
 import { useParameterStore } from '../../state/parameterStore';
-import { useProfileStore } from '../../state/profileStore';
-import { getTravelModeConfig } from '../../types/modes';
 import { getSubCategoryQuestions, CATEGORY_QUESTIONS } from '../../data/explore/questions';
 import { ExploreCategory, ThingsToDoSubCategory } from '../../types';
 import { getListings } from '../../listings';
+import { getListingUrl, getPlaceUrlById, normalizePlaceCategory } from '../../listings/placeRoutes';
+import { getActivityById } from '../../things-to-do';
 import CategoryQuiz from './CategoryQuiz';
 import DetailView from './DetailView';
 import { listingsRegistry } from '../../listings';
@@ -23,6 +23,13 @@ import SleepCuratedView from './SleepCuratedView';
 import ThingsCuratedView from './ThingsCuratedView';
 import ShoppingCategoryPage from './ShoppingCategoryPage';
 import FreeScrollView from './FreeScrollView';
+import type { ExploreView } from '../../state/exploreStore';
+
+// Screens that can appear in the URL as ?view=... (shareable, refresh-safe, Back-friendly)
+const VIEW_PARAM_VALUES: string[] = [
+  'quiz', 'results', 'subcategory', 'sport-path', 'listing', 'detail',
+  'free-scroll', 'curated-eat', 'curated-sleep', 'curated-things', 'shopping-categories', 'hub'
+];
 
 interface ExplorePageProps {
   onClose: () => void;
@@ -37,6 +44,7 @@ export default function ExplorePage({ onClose }: ExplorePageProps) {
   const { 
     view, 
     setView, 
+    pushView, 
     popView, 
     history, 
     setActiveCategory, 
@@ -52,38 +60,57 @@ export default function ExplorePage({ onClose }: ExplorePageProps) {
     sportIntent
   } = useExploreStore();
   
+  const modalOpen = useExploreStore((state) => state.modalOpen);
   const { param1, param2 } = useParams();
   const navigate = useNavigate();
   const location = useLocation();
   
+  // Keep the URL in sync with the current screen (quiz, results, ...) so
+  // refreshing or sharing restores the same screen and browser Back works
+  const pendingUrlSync = useRef<ExploreView | null>(null);
+  const changeView = (next: ExploreView, pushHistory = false) => {
+    pendingUrlSync.current = next;
+    if (pushHistory) pushView(next);
+    else setView(next);
+  };
+
+  useEffect(() => {
+    if (!pendingUrlSync.current || pendingUrlSync.current !== view) return;
+    const params = new URLSearchParams(location.search);
+    params.set('view', view);
+    params.delete('start');
+    navigate(`${location.pathname}?${params.toString()}`, { replace: false });
+    pendingUrlSync.current = null;
+  }, [view, location.pathname, location.search, navigate]);
+
   const hasRef = useMemo(() => new URLSearchParams(location.search).get('ref'), [location.search]);
   const cityId = useParameterStore((state) => state.city);
-  const travelMode = useProfileStore((state) => state.travelMode);
-
-  // Phase 2-B: Automatically apply relevant filter chips on Finder open based on active mode
-  useEffect(() => {
-    if (travelMode) {
-      const modeConfig = getTravelModeConfig(travelMode);
-      if (modeConfig && modeConfig.autoFilterTags?.length > 0) {
-        const currentVibes = useExploreStore.getState().filters.vibes || [];
-        const missingTags = modeConfig.autoFilterTags.filter(tag => !currentVibes.includes(tag));
-        if (missingTags.length > 0) {
-          useExploreStore.getState().setFilter('vibes', [...currentVibes, ...missingTags]);
-        }
-        if (travelMode === 'family') {
-          useExploreStore.getState().setFilter('isKidFriendly', true);
-          useExploreStore.getState().setFilter('isWheelchairAccessible', true);
-        } else if (travelMode === 'foodie') {
-          useExploreStore.getState().setFilter('isHalal', true);
-        }
-      }
-    }
-  }, [travelMode]);
-
   // Sync URL params with store
   useEffect(() => {
     window.scrollTo(0, 0);
     const params = new URLSearchParams(location.search);
+
+    // A ?view= marker in the URL is authoritative (refresh / share / browser Back):
+    // restore that exact screen instead of re-deriving it
+    const viewParam = params.get('view');
+    if (viewParam && VIEW_PARAM_VALUES.includes(viewParam)) {
+      // Sync the category from the URL without wiping saved quiz answers
+      const urlCategory = (param2 || param1 || '').toLowerCase();
+      const mapped: any =
+        urlCategory === 'food' || urlCategory === 'eat' ? 'food' :
+        urlCategory === 'sleep' || urlCategory === 'stay' ? 'sleep' :
+        urlCategory === 'shopping' || urlCategory === 'shop' ? 'shopping' :
+        urlCategory === 'things' || urlCategory === 'things-to-do' ? 'things-to-do' :
+        null;
+      if (mapped && useExploreStore.getState().activeCategory !== mapped) {
+        useExploreStore.setState({ activeCategory: mapped });
+      }
+      if (useExploreStore.getState().view !== viewParam) {
+        setView(viewParam as any);
+      }
+      return;
+    }
+
     const mode = params.get('mode');
 
     const ensureQuizView = () => { 
@@ -143,6 +170,19 @@ export default function ExplorePage({ onClose }: ExplorePageProps) {
             }
             
             setActiveCategory(categoryId);
+            // Named place/things URLs are canonical — redirect old id-based
+            // links to the new pages so each place has exactly one URL
+            if (categoryId === 'things-to-do') {
+              const activitySlug = getActivityById(param2)?.slug || param2;
+              navigate(`/things/${param1.toLowerCase()}/${activitySlug}`, { replace: true });
+              return;
+            }
+            const placeCategory = normalizePlaceCategory(categoryId);
+            const placeUrl = placeCategory ? getPlaceUrlById(placeCategory, param2) : null;
+            if (placeUrl) {
+              navigate(placeUrl, { replace: true });
+              return;
+            }
             setActiveItem(param2);
             setView('detail');
           } else {
@@ -260,17 +300,17 @@ export default function ExplorePage({ onClose }: ExplorePageProps) {
   const handleBack = () => {
     if (history.length > 0) {
       popView();
-    } else {
-      const activeItemId = useExploreStore.getState().activeItemId;
-      if (activeItemId) {
-        let cat = 'things-to-do';
-        if (activeItemId.startsWith('sh-')) cat = 'shopping';
-        else if (activeItemId.startsWith('e-')) cat = 'food';
-        else if (activeItemId.startsWith('s-')) cat = 'sleep';
-        navigate(`/finder/${cityId || 'marrakech'}/${cat}`);
-      } else {
-        navigate('/finder');
+      // Align the URL with the restored screen (in-app back)
+      const restored = useExploreStore.getState().view;
+      const backParams = new URLSearchParams(location.search);
+      if (VIEW_PARAM_VALUES.includes(restored) && backParams.get('view') !== restored) {
+        backParams.set('view', restored);
+        navigate(`${location.pathname}?${backParams.toString()}`, { replace: true });
       }
+    } else {
+      // No in-app history: this standalone flow always starts at the homepage,
+      // so never fall back to the old finder hub
+      navigate('/');
     }
   };
 
@@ -299,7 +339,20 @@ export default function ExplorePage({ onClose }: ExplorePageProps) {
     return null;
   }, [activeItemId]);
 
+  // Things To Do uses the dedicated listing page (/things/:city/:slug).
+  // Any flow that requests a things detail view is redirected there,
+  // so every entry point (quiz results, shared URLs, ?attraction=...) lands on the new page.
+  useEffect(() => {
+    if (view === 'detail' && activeCategory === 'things-to-do' && activeItemId) {
+      const activitySlug = getActivityById(activeItemId)?.slug || activeItemId;
+      navigate(`/things/${cityId || 'marrakech'}/${activitySlug}`, { replace: true });
+    }
+  }, [view, activeCategory, activeItemId, cityId, navigate]);
+
   const displayCategory = (param1 || activeCategory || '').toString();
+  // Include the city name in the page title so search results read
+  // "Food in Marrakech" instead of a generic "Food"
+  const cityLabel = cityId ? (cityMap[cityId]?.name || cityId) : '';
 
   if (view === 'free-scroll') {
     return (
@@ -307,8 +360,9 @@ export default function ExplorePage({ onClose }: ExplorePageProps) {
         initialCategory={activeCategory || 'stay'}
         initialCity={cityId || 'marrakech'}
         onSelectListing={(item) => {
-          setActiveItem(item.id);
-          setView('detail');
+          // Every listing opens on its own name-based page
+          // (/place/:city/:category/:name or /things/:city/:name)
+          navigate(getListingUrl(item) || `/things/${item.city || cityId || 'marrakech'}/${item.id}`);
         }}
         onSwitchToQuiz={(cat) => {
           setActiveCategory(cat as any);
@@ -325,8 +379,16 @@ export default function ExplorePage({ onClose }: ExplorePageProps) {
   return (
     <div className="min-h-screen bg-[#FAF7F2] font-sans relative">
       <SEO 
-        title={displayCategory ? `${displayCategory.charAt(0).toUpperCase() + displayCategory.slice(1).replace('-', ' ')} | Finder` : "Finder | MoroccoFriend"} 
-        description={displayCategory ? `Find the best ${displayCategory.replace('-', ' ')} in Morocco with our personalized finder.` : "The definitive guide to discovering Morocco - personalized for your rhythm."}
+        title={
+          displayCategory
+            ? `${displayCategory.charAt(0).toUpperCase() + displayCategory.slice(1).replace('-', ' ')}${cityLabel ? ` in ${cityLabel}` : ' in Morocco'}`
+            : "Finder"
+        } 
+        description={
+          displayCategory
+            ? `Find the best ${displayCategory.replace('-', ' ')} in ${cityLabel || 'Morocco'} with our personalized finder.`
+            : "Pick your city, answer a short quiz, and get personalized local recommendations for food, stays, things to do, and shopping in Morocco."
+        }
       />
       
       {/* Background Texture */}
@@ -357,14 +419,17 @@ export default function ExplorePage({ onClose }: ExplorePageProps) {
         </div>
         
         <div className="flex items-center gap-2">
-          <button 
-            onClick={onClose}
-            className="w-10 h-10 bg-stone-100 hover:bg-stone-200 text-stone-500 hover:text-stone-900 rounded-xl transition-all flex items-center justify-center cursor-pointer"
-            title="Close Finder"
-            aria-label="Close Finder"
-          >
-            <X className="w-5 h-5" />
-          </button>
+          {/* Hidden while any popup is open — only ONE close icon visible at a time */}
+          {!modalOpen && (
+            <button 
+              onClick={onClose}
+              className="w-10 h-10 bg-stone-100 hover:bg-stone-200 text-stone-500 hover:text-stone-900 rounded-xl transition-all flex items-center justify-center cursor-pointer"
+              title="Close Finder"
+              aria-label="Close Finder"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          )}
         </div>
       </header>
 
@@ -385,16 +450,16 @@ export default function ExplorePage({ onClose }: ExplorePageProps) {
                   onSelect={(sub) => {
                     setActiveSubCategory(sub);
                     if (sub === 'sport') {
-                      setView('sport-path');
+                      changeView('sport-path');
                     } else {
                       // Pre-fill interests question with selection if standard things quiz uses it
                       setQuizAnswer('interests', sub === 'culture' ? 'culture' : sub === 'wellness' ? 'slow' : sub === 'desert-nature' ? 'adventure' : sub === 'photography' ? 'photography-interest' : sub === 'social' ? 'social' : 'adventure');
-                      setView('quiz');
+                      changeView('quiz');
                     }
                   }}
                   onBrowseAll={() => {
                     setActiveSubCategory(null);
-                    setView('quiz');
+                    changeView('quiz');
                   }}
                   onBack={handleBack}
                 />
@@ -407,18 +472,18 @@ export default function ExplorePage({ onClose }: ExplorePageProps) {
                     setSportIntent('practical');
                     setSportFacilityType(type);
                     setQuizAnswer('sport-facility-needs', [type]);
-                    setView('quiz');
+                    changeView('quiz');
                   }}
                   onFindNearby={() => {
                     setSportIntent('practical');
-                    setView('quiz');
+                    changeView('quiz');
                   }}
                   onBookExperience={() => {
                     setSportIntent('experience');
-                    setView('quiz');
+                    changeView('quiz');
                   }}
                   onBack={() => {
-                    setView('subcategory');
+                    changeView('subcategory');
                   }}
                 />
               )}
@@ -441,7 +506,8 @@ export default function ExplorePage({ onClose }: ExplorePageProps) {
                         // Complete clicked: set the actual answers
                         Object.entries(answers).forEach(([id, val]) => setQuizAnswer(id, val));
                       }
-                      setView('results');
+                      // Go to results with a real URL + history entry (refresh-safe, Back-friendly)
+                      changeView('results', true);
                     }}
                   />
                 </div>
@@ -452,12 +518,6 @@ export default function ExplorePage({ onClose }: ExplorePageProps) {
               {view === 'listing' && <CategoryListing />}
 
               {view === 'detail' && <DetailView item={activeItem} onBack={handleBack} />}
-
-              {view === 'gallery' && <div>Gallery view coming soon</div>}
-
-              {view === 'decision' ? <ResultPage /> : null}
-
-              {view === 'hub' ? <ResultPage /> : null}
             </>
           </motion.div>
         </AnimatePresence>

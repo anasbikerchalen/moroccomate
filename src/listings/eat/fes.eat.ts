@@ -29,61 +29,33 @@ import type { EatListing } from '../types';
  *   badge: 'local-favorite' | 'splurge' | 'hidden-gem' | 'local',
  *
  *   // ═══════════════════════════════════════════════════
- *   // IMAGES — now fetched from Google Places API via googlePlaceId
- *   // ═══════════════════════════════════════════════════
- *   // REMOVED: images: ['url1', 'url2']
- *   // Instead, just add: // googlePlaceId: "ChIJ..."
- *   // Frontend uses googlePlaceId to call Google Places API → gets photo_reference → builds <img> URLs
- *
- *   // ═══════════════════════════════════════════════════
  *   // RATINGS — organized per source
  *   // ═══════════════════════════════════════════════════
- *   // Search for real ratings from Google, TripAdvisor, TheFork, and RestaurantGuru.
- *   // If you cannot find a rating for a specific source, set it to the same value as
- *   // the closest available one so the code that calculates average ratings doesn't break.
- *   // Example: if no TripAdvisor rating found, set tripadvisorRating = googleRating
- *
- *   // Google Places rating
  *   googleRating: [4.x],
  *   googleReviewCount: [number],
- *
- *   // TripAdvisor rating
  *   tripadvisorRating: [4.x],
  *   tripadvisorReviewCount: [number],
- *
- *   // TheFork rating
  *   theforkRating: [4.x],
  *   theforkReviewCount: [number],
- *
- *   // RestaurantGuru rating
  *   restaurantguruRating: [4.x],
  *   restaurantguruReviewCount: [number],
  *
- *   // REMOVED: rating, reviewCount, ratingSource (old single-source fields)
- *
- *   // ═══════════════════════════════════════════════════
- *
- *   fullMenu: { type: 'image' | 'text', content: 'https://...' },
- *   tip: '[Short tip]',
+ *   paymentMethods: ['card', 'cash'],
+ *   reservationMethod: ['phone', 'none'],
  *   googleMapsUrl: 'https://maps.google.com/?q=[Name]+[City]',
- *   reservationContact: '+212XXXXXXXXX',
  *   bestDishes: ['Dish 1', 'Dish 2'],
  *   alcoholPolicy: 'serves-alcohol' | 'dry',
  *   ramadanFriendly: 'serves-lunch' | 'special-ftour' | 'closed',
+ *   tip: '[Short tip]',
  *
- *   // ═══════════════════════════════════════════════════
- *   // NEW FIELDS — psychological UX optimization
- *   // ═══════════════════════════════════════════════════
- *
- *   bestTimeToVisit: 'Early evening around 18:30 for sunset' | 'Lunch around 13:00 for quiet' | 'Late evening after 20:00 for lively crowd' | 'Early morning for fresh baked goods' | 'Sunday morning for brunch peak',
- *   averageWaitMinutes: 0 | 5 | 10 | 15 | 20 | 30 | 45 | 60,
- *   seatingTypes: ['indoor'] | ['terrace'] | ['rooftop'] | ['garden'] | ['beachfront'] | ['indoor', 'terrace'] | ['indoor', 'garden'] | ['terrace', 'rooftop'],
- *   viewType: 'beach' | 'mountain' | 'city' | 'garden' | 'none',
+ *   // ── UX & LOGISTICS ──
+ *   bestTimeToVisit: '...',
+ *   averageWaitMinutes: 0 | 5 | 10 | 15 | 20 | 30,
+ *   seatingTypes: ['indoor'] | ['terrace'] | ['rooftop'] | ['garden'] | ['beachfront'],
+ *   viewType: 'city' | 'garden' | 'none',
  *   wiFi: true | false,
  *   airConditioning: true | false,
- *   wheelchairAccessible: true | false,
- *   website: 'https://...',
- *   instagram: '@handle' | 'https://instagram.com/...'
+ *   wheelchairAccessible: true | false
  * }
  */
 
@@ -99,7 +71,10 @@ export const fesEat: EatListing[] = [
     mealTypes: ['dinner'],
     experienceTypes: ['Fine Dining', 'Traditional Dining', 'Garden restaurant with live music'],
     foodStyles: ['Moroccan', 'Mediterranean', 'Gourmet'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'international'],
     alcoholPolicy: 'serves-alcohol',
+    servesAlcohol: true,
     ramadanFriendly: 'serves-lunch',
     crowdLevel: 'quiet',
     groupTypes: ['couple', 'friends', 'seniors'],
@@ -112,29 +87,30 @@ export const fesEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '19:00',
     closeTime: '23:00',
     badge: 'splurge',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.5,
+    googleRating: 4.6,
     googleReviewCount: 554,
     tripadvisorRating: 4.5,
-    tripadvisorReviewCount: 554,
+    tripadvisorReviewCount: 390,
     theforkRating: 4.5,
-    theforkReviewCount: 554,
-    restaurantguruRating: 4.5,
-    restaurantguruReviewCount: 554,
+    theforkReviewCount: 80,
+    restaurantguruRating: 4.6,
+    restaurantguruReviewCount: 520,
 
-    paymentMethods: ['credit-cards', 'cash-only'],
+    paymentMethods: ['card', 'cash'],
     reservationMethod: ['phone', 'whatsapp'],
     reservationContact: '+212535741637',
     googleMapsUrl: 'https://maps.google.com/?q=Dar+Roumana+Fes',
     bestDishes: ['Rabbit with Potato Puree', 'Almond Lemon Cake with Lemon Sorbet', 'Roasted Beetroot Salad'],
     tip: 'Reserve several weeks in advance since there are very few courtyard tables.',
 
-    // ── NEW FIELDS ──
+    // ── LOGISTICS ──
     bestTimeToVisit: 'Early evening around 18:30 for sunset',
     averageWaitMinutes: 0,
     seatingTypes: ['indoor', 'garden'],
@@ -142,6 +118,8 @@ export const fesEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: false
+  ,
+    tags: ["alcohol", "budget", "dinner", "fine", "live-music", "medina", "quiet", "riad", "wifi"]
   },
 
   {
@@ -155,6 +133,8 @@ export const fesEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Garden restaurant with live music', 'Modern Fusion Dining', 'Casual Dining'],
     foodStyles: ['Moroccan', 'Healthy', 'Mediterranean'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'international'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'serves-lunch',
     crowdLevel: 'balanced',
@@ -168,29 +148,31 @@ export const fesEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '22:00',
     badge: 'hidden-gem',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
     googleRating: 4.3,
     googleReviewCount: 2526,
-    tripadvisorRating: 4.3,
-    tripadvisorReviewCount: 2526,
+    tripadvisorRating: 4.4,
+    tripadvisorReviewCount: 1850,
     theforkRating: 4.2,
     theforkReviewCount: 581,
-    restaurantguruRating: 4.2,
-    restaurantguruReviewCount: 581,
+    restaurantguruRating: 4.3,
+    restaurantguruReviewCount: 2400,
 
-    paymentMethods: ['cash-only', 'credit-cards'],
+    paymentMethods: ['cash', 'card'],
     reservationMethod: ['phone', 'instagram'],
     reservationContact: '+212535633237',
     googleMapsUrl: 'https://maps.google.com/?q=The+Ruined+Garden+Fes',
     bestDishes: ['Slow-cooked Lamb Mechoui', 'Fassi Fried Sardines', 'Vegetarian Mezze Platter'],
     tip: 'Order the slow-cooked Lamb Mechoui at least 24 hours prior to your visit.',
 
-    // ── NEW FIELDS ──
+    // ── LOGISTICS ──
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 10,
     seatingTypes: ['garden', 'terrace'],
@@ -198,6 +180,8 @@ export const fesEat: EatListing[] = [
     wiFi: true,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "dinner", "dry", "live-music", "medina", "terrace", "wifi"]
   },
 
   {
@@ -211,6 +195,8 @@ export const fesEat: EatListing[] = [
     mealTypes: ['breakfast', 'brunch', 'lunch', 'dinner', 'afternoon-tea'],
     experienceTypes: ['Cafe', 'Sunset Views', 'Modern Fusion Dining'],
     foodStyles: ['Moroccan', 'International', 'Cafe'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'international', 'cafe-pastry'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
     crowdLevel: 'bustling',
@@ -224,29 +210,31 @@ export const fesEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '09:00',
     closeTime: '22:00',
     badge: 'local-favorite',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
     googleRating: 4.5,
-    googleReviewCount: 1200,
+    googleReviewCount: 2100,
     tripadvisorRating: 4.5,
-    tripadvisorReviewCount: 1200,
-    theforkRating: 4.5,
-    theforkReviewCount: 1200,
+    tripadvisorReviewCount: 1820,
+    theforkRating: 4.3,
+    theforkReviewCount: 210,
     restaurantguruRating: 4.5,
-    restaurantguruReviewCount: 1200,
+    restaurantguruReviewCount: 1950,
 
-    paymentMethods: ['cash-only'],
-    reservationMethod: ['walk-in-only'],
+    paymentMethods: ['cash'],
+    reservationMethod: ['none'],
     reservationContact: 'None',
     googleMapsUrl: 'https://maps.google.com/?q=Cafe+Clock+Fes',
     bestDishes: ['Camel Burger', 'Berber Omelet', 'Almond Date Milkshake'],
     tip: 'Check their bulletin board for local workshops, calligraphy classes, and hikayat storytelling nights.',
 
-    // ── NEW FIELDS ──
+    // ── LOGISTICS ──
     bestTimeToVisit: 'Early evening around 18:30 for sunset',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor', 'rooftop'],
@@ -254,6 +242,8 @@ export const fesEat: EatListing[] = [
     wiFi: true,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["breakfast", "budget", "cafe-pastry", "dinner", "dry", "medina", "rooftop", "sunset", "wifi"]
   },
 
   {
@@ -267,7 +257,10 @@ export const fesEat: EatListing[] = [
     mealTypes: ['dinner'],
     experienceTypes: ['Fine Dining', 'Modern Fusion Dining', 'Upscale Lounge'],
     foodStyles: ['Gourmet', 'Moroccan', 'Seafood'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'moroccan-traditional', 'seafood'],
     alcoholPolicy: 'serves-alcohol',
+    servesAlcohol: true,
     ramadanFriendly: 'serves-lunch',
     crowdLevel: 'quiet',
     groupTypes: ['couple', 'business-friendly'],
@@ -280,29 +273,30 @@ export const fesEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: false,
     isHalal: true,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '19:00',
     closeTime: '23:00',
     badge: 'splurge',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.7,
-    googleReviewCount: 200,
-    tripadvisorRating: 4.7,
-    tripadvisorReviewCount: 200,
-    theforkRating: 4.7,
-    theforkReviewCount: 200,
-    restaurantguruRating: 4.7,
-    restaurantguruReviewCount: 200,
+    googleRating: 4.6,
+    googleReviewCount: 220,
+    tripadvisorRating: 4.5,
+    tripadvisorReviewCount: 180,
+    theforkRating: 4.6,
+    theforkReviewCount: 45,
+    restaurantguruRating: 4.6,
+    restaurantguruReviewCount: 210,
 
-    paymentMethods: ['credit-cards'],
+    paymentMethods: ['card'],
     reservationMethod: ['phone'],
     reservationContact: '+212661472213',
     googleMapsUrl: 'https://maps.google.com/?q=NUR+Fes',
     bestDishes: ['Fried Octopus with Zaalouk', 'Seaweed Tacos', 'Moroccan Halba Cake'],
     tip: 'Go without looking at the menu; it changes daily depending on what Najat finds in the souk.',
 
-    // ── NEW FIELDS ──
+    // ── LOGISTICS ──
     bestTimeToVisit: 'Late evening after 20:00 for lively crowd',
     averageWaitMinutes: 0,
     seatingTypes: ['indoor'],
@@ -310,6 +304,8 @@ export const fesEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: false
+  ,
+    tags: ["alcohol", "dinner", "fine", "medina", "quiet", "wifi"]
   },
 
   {
@@ -324,6 +320,7 @@ export const fesEat: EatListing[] = [
     experienceTypes: ['Fine Dining', 'Sunset Views', 'Traditional Dining'],
     foodStyles: ['Moroccan', 'Mediterranean', 'Gourmet'],
     alcoholPolicy: 'serves-alcohol',
+    servesAlcohol: true,
     ramadanFriendly: 'special-ftour',
     crowdLevel: 'balanced',
     groupTypes: ['couple', 'business-friendly', 'seniors'],
@@ -336,29 +333,30 @@ export const fesEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '23:00',
     badge: 'splurge',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.6,
+    googleRating: 4.7,
     googleReviewCount: 1237,
-    tripadvisorRating: 4.6,
-    tripadvisorReviewCount: 1237,
-    theforkRating: 4.6,
-    theforkReviewCount: 1237,
-    restaurantguruRating: 4.6,
-    restaurantguruReviewCount: 1237,
+    tripadvisorRating: 4.9,
+    tripadvisorReviewCount: 499,
+    theforkRating: 4.7,
+    theforkReviewCount: 190,
+    restaurantguruRating: 4.7,
+    restaurantguruReviewCount: 1180,
 
-    paymentMethods: ['credit-cards'],
+    paymentMethods: ['card', 'cash'],
     reservationMethod: ['phone', 'instagram'],
     reservationContact: '+212535635356',
     googleMapsUrl: 'https://maps.google.com/?q=L+Amandier+Palais+Faraj+Fes',
     bestDishes: ['Fassi Pigeon Pastilla', 'Royal Lamb Tagine', 'Trio of Moroccan Salads'],
     tip: 'Request a table right on the balcony edge just before sunset to watch the medina light up.',
 
-    // ── NEW FIELDS ──
+    // ── LOGISTICS ──
     bestTimeToVisit: 'Early evening around 18:30 for sunset',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor', 'terrace'],
@@ -366,6 +364,8 @@ export const fesEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: false
+  ,
+    tags: ["alcohol", "budget", "dinner", "fine", "medina", "palace", "pastilla", "rooftop", "sunset", "tagine", "terrace", "wifi"]
   },
 
   {
@@ -379,7 +379,10 @@ export const fesEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner', 'brunch'],
     experienceTypes: ['Fine Dining', 'Garden restaurant with live music', 'Traditional Dining'],
     foodStyles: ['Moroccan', 'Healthy', 'Gourmet'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'international'],
     alcoholPolicy: 'serves-alcohol',
+    servesAlcohol: true,
     ramadanFriendly: 'serves-lunch',
     crowdLevel: 'quiet',
     groupTypes: ['couple', 'family', 'seniors'],
@@ -392,29 +395,30 @@ export const fesEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '23:00',
     badge: 'splurge',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
     googleRating: 4.6,
-    googleReviewCount: 400,
+    googleReviewCount: 420,
     tripadvisorRating: 4.6,
-    tripadvisorReviewCount: 400,
-    theforkRating: 4.6,
-    theforkReviewCount: 400,
+    tripadvisorReviewCount: 310,
+    theforkRating: 4.5,
+    theforkReviewCount: 95,
     restaurantguruRating: 4.6,
-    restaurantguruReviewCount: 400,
+    restaurantguruReviewCount: 390,
 
-    paymentMethods: ['credit-cards'],
+    paymentMethods: ['card', 'cash'],
     reservationMethod: ['phone', 'whatsapp'],
     reservationContact: '+212535633209',
     googleMapsUrl: 'https://maps.google.com/?q=Eden+Palais+Amani+Fes',
     bestDishes: ['Chicken Tagine with Preserved Lemons', 'Slow-Roasted Lamb Shoulder', 'Seasonal Citrus Sorbet'],
     tip: 'Combine your reservation with a private cooking class held at their rooftop Fez Cooking School.',
 
-    // ── NEW FIELDS ──
+    // ── LOGISTICS ──
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor', 'garden'],
@@ -422,6 +426,8 @@ export const fesEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: false
+  ,
+    tags: ["alcohol", "breakfast", "budget", "dinner", "fine", "live-music", "medina", "palace", "quiet", "tagine", "wifi"]
   },
 
   {
@@ -435,7 +441,10 @@ export const fesEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner', 'brunch'],
     experienceTypes: ['Traditional Dining', 'Sunset Views', 'Casual Dining'],
     foodStyles: ['Mediterranean', 'Moroccan', 'Healthy'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'moroccan-traditional'],
     alcoholPolicy: 'serves-alcohol',
+    servesAlcohol: true,
     ramadanFriendly: 'serves-lunch',
     crowdLevel: 'balanced',
     groupTypes: ['couple', 'friends', 'solo'],
@@ -448,29 +457,30 @@ export const fesEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '23:00',
     badge: 'local-favorite',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.5,
-    googleReviewCount: 300,
-    tripadvisorRating: 4.5,
-    tripadvisorReviewCount: 300,
+    googleRating: 4.6,
+    googleReviewCount: 340,
+    tripadvisorRating: 4.7,
+    tripadvisorReviewCount: 280,
     theforkRating: 4.5,
-    theforkReviewCount: 300,
-    restaurantguruRating: 4.5,
-    restaurantguruReviewCount: 300,
+    theforkReviewCount: 60,
+    restaurantguruRating: 4.6,
+    restaurantguruReviewCount: 320,
 
-    paymentMethods: ['credit-cards', 'cash-only'],
+    paymentMethods: ['card', 'cash'],
     reservationMethod: ['phone', 'whatsapp'],
     reservationContact: '+212662187103',
     googleMapsUrl: 'https://maps.google.com/?q=Riad+Laaroussa+Fes',
     bestDishes: ['Pan-seared Fresh Fish', 'Moroccan Orange Salad', 'Grilled Lamb Skewers'],
     tip: 'On colder winter nights, request to dine by the crackling open fireplace in their indoor lounge.',
 
-    // ── NEW FIELDS ──
+    // ── LOGISTICS ──
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor', 'rooftop'],
@@ -478,6 +488,8 @@ export const fesEat: EatListing[] = [
     wiFi: true,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["alcohol", "breakfast", "budget", "dinner", "medina", "riad", "rooftop", "sunset", "terrace", "wifi"]
   },
 
   {
@@ -491,7 +503,10 @@ export const fesEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Fine Dining', 'Traditional Dining', 'Garden restaurant with live music'],
     foodStyles: ['Moroccan', 'French', 'Mediterranean'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'international'],
     alcoholPolicy: 'serves-alcohol',
+    servesAlcohol: true,
     ramadanFriendly: 'serves-lunch',
     crowdLevel: 'quiet',
     groupTypes: ['couple', 'family', 'seniors'],
@@ -504,29 +519,30 @@ export const fesEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: false,
     isHalal: true,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '11:00',
     closeTime: '00:00',
     badge: 'splurge',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.2,
+    googleRating: 4.3,
     googleReviewCount: 154,
     tripadvisorRating: 4.2,
-    tripadvisorReviewCount: 154,
+    tripadvisorReviewCount: 110,
     theforkRating: 4.2,
-    theforkReviewCount: 154,
-    restaurantguruRating: 4.2,
-    restaurantguruReviewCount: 154,
+    theforkReviewCount: 40,
+    restaurantguruRating: 4.3,
+    restaurantguruReviewCount: 145,
 
-    paymentMethods: ['credit-cards'],
+    paymentMethods: ['card', 'cash'],
     reservationMethod: ['phone'],
     reservationContact: '+212535741012',
     googleMapsUrl: 'https://maps.google.com/?q=Restaurant+Gayza+Riad+Fes',
     bestDishes: ['Lamb Tagine with Prunes', 'Beef Pastilla', 'Gourmet Fassi Eggplant Zaalouk'],
     tip: 'Arrive early to sip a local Moroccan wine poolside in their exquisitely designed orange tree courtyard.',
 
-    // ── NEW FIELDS ──
+    // ── LOGISTICS ──
     bestTimeToVisit: 'Early evening around 18:30 for sunset',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor', 'garden'],
@@ -534,6 +550,8 @@ export const fesEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: false
+  ,
+    tags: ["alcohol", "dinner", "fine", "late-night", "live-music", "medina", "pastilla", "quiet", "riad", "tagine", "wifi"]
   },
 
   {
@@ -547,6 +565,8 @@ export const fesEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Modern Fusion Dining', 'Casual Dining', 'Cafe'],
     foodStyles: ['Moroccan', 'International', 'Mediterranean'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'international'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'serves-lunch',
     crowdLevel: 'balanced',
@@ -560,29 +580,31 @@ export const fesEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '23:00',
     badge: 'local-favorite',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
     googleRating: 4.8,
     googleReviewCount: 350,
-    tripadvisorRating: 4.8,
-    tripadvisorReviewCount: 350,
-    theforkRating: 4.8,
-    theforkReviewCount: 350,
-    restaurantguruRating: 4.8,
-    restaurantguruReviewCount: 350,
+    tripadvisorRating: 4.5,
+    tripadvisorReviewCount: 45,
+    theforkRating: 4.6,
+    theforkReviewCount: 30,
+    restaurantguruRating: 4.7,
+    restaurantguruReviewCount: 310,
 
-    paymentMethods: ['cash-only', 'credit-cards'],
+    paymentMethods: ['card', 'cash'],
     reservationMethod: ['phone', 'instagram'],
     reservationContact: '+212660564505',
     googleMapsUrl: 'https://maps.google.com/?q=Restaurant+Ishq+Fes',
     bestDishes: ['Moroccan Braised Lamb Shank', 'Avocado-Date Smoothie', 'Seasonal Vegetable Tagine'],
     tip: 'The restaurant features stunning wall murals that make it an exceptionally photogenic backdrop.',
 
-    // ── NEW FIELDS ──
+    // ── LOGISTICS ──
     bestTimeToVisit: 'Late evening after 20:00 for lively crowd',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor'],
@@ -590,6 +612,8 @@ export const fesEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "cafe-pastry", "dinner", "dry", "juice", "medina", "tagine", "wifi"]
   },
 
   {
@@ -603,6 +627,8 @@ export const fesEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Traditional Dining', 'Cozy casual family-run Moroccan eatery', 'Local Gathering Spot'],
     foodStyles: ['Moroccan'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'cafe-pastry'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
     crowdLevel: 'bustling',
@@ -616,29 +642,31 @@ export const fesEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: false,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '10:00',
     closeTime: '23:00',
     badge: 'local',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.4,
+    googleRating: 4.3,
     googleReviewCount: 500,
-    tripadvisorRating: 4.4,
-    tripadvisorReviewCount: 500,
-    theforkRating: 4.4,
-    theforkReviewCount: 500,
-    restaurantguruRating: 4.4,
-    restaurantguruReviewCount: 500,
+    tripadvisorRating: 4.1,
+    tripadvisorReviewCount: 140,
+    theforkRating: 4.0,
+    theforkReviewCount: 35,
+    restaurantguruRating: 4.2,
+    restaurantguruReviewCount: 470,
 
-    paymentMethods: ['cash-only'],
-    reservationMethod: ['walk-in-only'],
+    paymentMethods: ['cash'],
+    reservationMethod: ['none'],
     reservationContact: 'None',
     googleMapsUrl: 'https://maps.google.com/?q=Cafe+Restaurant+Moulay+Idriss+Fes',
     bestDishes: ['Sizzling Kefta Tagine', 'Friday Couscous', 'Moroccan Harira Soup'],
     tip: 'Grab one of the limited second-story balcony seats for stellar people-watching over the medina walkway.',
 
-    // ── NEW FIELDS ──
+    // ── LOGISTICS ──
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor', 'terrace'],
@@ -646,6 +674,8 @@ export const fesEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "cafe-pastry", "couscous", "dinner", "dry", "medina", "tagine", "terrace"]
   },
 
   {
@@ -659,6 +689,8 @@ export const fesEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner', 'flexible'],
     experienceTypes: ['Cafe', 'Casual Dining', 'Modern Fusion Dining'],
     foodStyles: ['Moroccan', 'Mediterranean', 'International'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'international'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'serves-lunch',
     crowdLevel: 'bustling',
@@ -672,29 +704,31 @@ export const fesEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '11:00',
     closeTime: '23:00',
     badge: 'local-favorite',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
     googleRating: 4.6,
-    googleReviewCount: 300,
+    googleReviewCount: 2211,
     tripadvisorRating: 4.6,
-    tripadvisorReviewCount: 300,
-    theforkRating: 4.6,
-    theforkReviewCount: 300,
+    tripadvisorReviewCount: 601,
+    theforkRating: 4.5,
+    theforkReviewCount: 180,
     restaurantguruRating: 4.6,
-    restaurantguruReviewCount: 300,
+    restaurantguruReviewCount: 2100,
 
-    paymentMethods: ['cash-only', 'credit-cards'],
+    paymentMethods: ['card', 'cash'],
     reservationMethod: ['phone', 'instagram'],
     reservationContact: '+212624556434',
     googleMapsUrl: 'https://maps.google.com/?q=Le+Tarbouche+Fes',
     bestDishes: ['Chicken Kefta Wraps', 'Fresh Avocado Salad', 'Beef Pastilla'],
     tip: 'Their air-conditioned indoor seating is a sanctuary during scorching hot summer afternoons in Fes.',
 
-    // ── NEW FIELDS ──
+    // ── LOGISTICS ──
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor'],
@@ -702,6 +736,8 @@ export const fesEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "cafe-pastry", "dinner", "dry", "medina", "pastilla", "wifi"]
   },
 
   {
@@ -715,6 +751,8 @@ export const fesEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Traditional Dining', 'Cozy casual family-run Moroccan eatery', 'Garden restaurant with live music'],
     foodStyles: ['Moroccan', 'Berber'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
     crowdLevel: 'balanced',
@@ -728,29 +766,31 @@ export const fesEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '22:00',
     badge: 'hidden-gem',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.9,
-    googleReviewCount: 200,
-    tripadvisorRating: 4.9,
-    tripadvisorReviewCount: 200,
-    theforkRating: 4.9,
-    theforkReviewCount: 200,
-    restaurantguruRating: 4.9,
-    restaurantguruReviewCount: 200,
+    googleRating: 4.8,
+    googleReviewCount: 414,
+    tripadvisorRating: 4.7,
+    tripadvisorReviewCount: 180,
+    theforkRating: 4.6,
+    theforkReviewCount: 50,
+    restaurantguruRating: 4.8,
+    restaurantguruReviewCount: 390,
 
-    paymentMethods: ['cash-only'],
-    reservationMethod: ['phone', 'walk-in-only'],
+    paymentMethods: ['cash'],
+    reservationMethod: ['phone', 'none'],
     reservationContact: '+212613345543',
     googleMapsUrl: 'https://maps.google.com/?q=La+Morille+Fes',
     bestDishes: ['Beef Tagine with Sweet Plums', 'Lemon Chicken Olives', 'Homemade Flaky Pastilla'],
     tip: 'Look out carefully for their sign in the alley; the courtyard entrance is extremely easy to miss.',
 
-    // ── NEW FIELDS ──
+    // ── LOGISTICS ──
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor', 'garden'],
@@ -758,6 +798,8 @@ export const fesEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "dinner", "dry", "live-music", "medina", "pastilla", "tagine"]
   },
 
   {
@@ -771,7 +813,10 @@ export const fesEat: EatListing[] = [
     mealTypes: ['dinner'],
     experienceTypes: ['Fine Dining', 'Traditional Dining', 'Live Music Terrace'],
     foodStyles: ['Moroccan', 'Gourmet'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'international'],
     alcoholPolicy: 'serves-alcohol',
+    servesAlcohol: true,
     ramadanFriendly: 'special-ftour',
     crowdLevel: 'quiet',
     groupTypes: ['couple', 'family', 'seniors'],
@@ -784,29 +829,30 @@ export const fesEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '19:00',
     closeTime: '23:30',
     badge: 'splurge',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
     googleRating: 4.6,
     googleReviewCount: 400,
-    tripadvisorRating: 4.6,
-    tripadvisorReviewCount: 400,
-    theforkRating: 4.6,
-    theforkReviewCount: 400,
+    tripadvisorRating: 4.5,
+    tripadvisorReviewCount: 310,
+    theforkRating: 4.5,
+    theforkReviewCount: 80,
     restaurantguruRating: 4.6,
-    restaurantguruReviewCount: 400,
+    restaurantguruReviewCount: 370,
 
-    paymentMethods: ['credit-cards'],
+    paymentMethods: ['card', 'cash'],
     reservationMethod: ['phone'],
     reservationContact: '+212535741843',
     googleMapsUrl: 'https://maps.google.com/?q=La+Maison+Bleue+Fes',
     bestDishes: ['Royal Chicken Pastilla', 'Slow-cooked Beef M\'rouzia', 'Traditional Fassi Salads'],
     tip: 'This is a fixed-price multi-course dining experience; make sure to arrive with a very healthy appetite.',
 
-    // ── NEW FIELDS ──
+    // ── LOGISTICS ──
     bestTimeToVisit: 'Late evening after 20:00 for lively crowd',
     averageWaitMinutes: 0,
     seatingTypes: ['indoor'],
@@ -814,6 +860,8 @@ export const fesEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: false
+  ,
+    tags: ["alcohol", "dinner", "fine", "live-music", "medina", "palace", "pastilla", "quiet", "riad", "wifi"]
   },
 
   {
@@ -827,7 +875,10 @@ export const fesEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Traditional Dining', 'Sunset Views', 'Fine Dining'],
     foodStyles: ['Moroccan', 'Gourmet'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'international'],
     alcoholPolicy: 'serves-alcohol',
+    servesAlcohol: true,
     ramadanFriendly: 'special-ftour',
     crowdLevel: 'bustling',
     groupTypes: ['couple', 'family', 'large-groups'],
@@ -840,29 +891,30 @@ export const fesEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: false,
     isHalal: true,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '23:00',
     badge: 'splurge',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
     googleRating: 4.4,
     googleReviewCount: 600,
-    tripadvisorRating: 4.4,
-    tripadvisorReviewCount: 600,
-    theforkRating: 4.4,
-    theforkReviewCount: 600,
+    tripadvisorRating: 4.3,
+    tripadvisorReviewCount: 380,
+    theforkRating: 4.2,
+    theforkReviewCount: 98,
     restaurantguruRating: 4.4,
-    restaurantguruReviewCount: 600,
+    restaurantguruReviewCount: 560,
 
-    paymentMethods: ['credit-cards', 'cash-only'],
+    paymentMethods: ['card', 'cash'],
     reservationMethod: ['phone'],
     reservationContact: '+212535761590',
     googleMapsUrl: 'https://maps.google.com/?q=Palais+de+Fes+Dar+Tazi',
     bestDishes: ['Authentic Pigeon Pastilla', 'Chicken Tagine with Almonds', 'Couscous Royal'],
     tip: 'Plan a lunch visit to capture the most brilliant, unshadowed photos of the sprawling medina alleys below.',
 
-    // ── NEW FIELDS ──
+    // ── LOGISTICS ──
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor', 'rooftop'],
@@ -870,6 +922,8 @@ export const fesEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: false
+  ,
+    tags: ["alcohol", "budget", "couscous", "dinner", "fine", "medina", "palace", "pastilla", "rooftop", "sunset", "tagine", "wifi"]
   },
 
   {
@@ -884,6 +938,7 @@ export const fesEat: EatListing[] = [
     experienceTypes: ['Fine Dining', 'Upscale Lounge', 'Traditional Dining'],
     foodStyles: ['Moroccan', 'Mediterranean', 'Gourmet'],
     alcoholPolicy: 'serves-alcohol',
+    servesAlcohol: true,
     ramadanFriendly: 'serves-lunch',
     crowdLevel: 'quiet',
     groupTypes: ['couple', 'business-friendly', 'seniors'],
@@ -896,29 +951,30 @@ export const fesEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '23:00',
     badge: 'splurge',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
     googleRating: 4.6,
     googleReviewCount: 300,
     tripadvisorRating: 4.6,
-    tripadvisorReviewCount: 300,
-    theforkRating: 4.6,
-    theforkReviewCount: 300,
+    tripadvisorReviewCount: 220,
+    theforkRating: 4.5,
+    theforkReviewCount: 70,
     restaurantguruRating: 4.6,
-    restaurantguruReviewCount: 300,
+    restaurantguruReviewCount: 280,
 
-    paymentMethods: ['credit-cards'],
+    paymentMethods: ['card', 'cash'],
     reservationMethod: ['phone'],
     reservationContact: '+212535947610',
     googleMapsUrl: 'https://maps.google.com/?q=Riad+Fes+L+Ambre',
     bestDishes: ['Sea Bass with Argan Oil', 'Slow-cooked Beef Cheek', 'Modern Crisp Pastilla'],
     tip: 'Dress in smart-casual attire and enjoy a signature cocktail at their rooftop bar before dining.',
 
-    // ── NEW FIELDS ──
+    // ── LOGISTICS ──
     bestTimeToVisit: 'Early evening around 18:30 for sunset',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor', 'rooftop'],
@@ -926,6 +982,8 @@ export const fesEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: false
+  ,
+    tags: ["alcohol", "dinner", "fine", "medina", "pastilla", "quiet", "riad", "rooftop", "wifi"]
   },
 
   {
@@ -939,7 +997,10 @@ export const fesEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Fine Dining', 'Upscale Lounge', 'Modern Fusion Dining'],
     foodStyles: ['French', 'Mediterranean', 'European'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international'],
     alcoholPolicy: 'serves-alcohol',
+    servesAlcohol: true,
     ramadanFriendly: 'serves-lunch',
     crowdLevel: 'balanced',
     groupTypes: ['couple', 'business-friendly', 'friends'],
@@ -952,29 +1013,30 @@ export const fesEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '23:00',
     badge: 'splurge',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.7,
+    googleRating: 4.3,
     googleReviewCount: 250,
-    tripadvisorRating: 4.7,
-    tripadvisorReviewCount: 250,
-    theforkRating: 4.7,
-    theforkReviewCount: 250,
-    restaurantguruRating: 4.7,
-    restaurantguruReviewCount: 250,
+    tripadvisorRating: 4.0,
+    tripadvisorReviewCount: 120,
+    theforkRating: 4.1,
+    theforkReviewCount: 45,
+    restaurantguruRating: 3.8,
+    restaurantguruReviewCount: 81,
 
-    paymentMethods: ['credit-cards'],
+    paymentMethods: ['card', 'cash'],
     reservationMethod: ['phone'],
     reservationContact: '+212535930112',
     googleMapsUrl: 'https://maps.google.com/?q=La+Maison+Blanche+Fes',
     bestDishes: ['Linguini Foie Gras', 'Crispy Vegetable Tempura', 'Entrecote Steak with French Fries'],
     tip: 'This is hands-down the premier venue in Fes for selecting premium imported French wines.',
 
-    // ── NEW FIELDS ──
+    // ── LOGISTICS ──
     bestTimeToVisit: 'Late evening after 20:00 for lively crowd',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor'],
@@ -982,6 +1044,8 @@ export const fesEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: true
+  ,
+    tags: ["alcohol", "budget", "dinner", "fine", "tagine", "wifi"]
   },
 
   {
@@ -995,6 +1059,8 @@ export const fesEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner', 'flexible'],
     experienceTypes: ['Cafe', 'Casual Dining', 'Modern Fusion Dining'],
     foodStyles: ['International', 'Healthy', 'Mediterranean'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'serves-lunch',
     crowdLevel: 'bustling',
@@ -1008,29 +1074,31 @@ export const fesEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '11:00',
     closeTime: '22:00',
     badge: 'local-favorite',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.5,
-    googleReviewCount: 250,
-    tripadvisorRating: 4.5,
-    tripadvisorReviewCount: 250,
-    theforkRating: 4.5,
-    theforkReviewCount: 250,
-    restaurantguruRating: 4.5,
-    restaurantguruReviewCount: 250,
+    googleRating: 4.7,
+    googleReviewCount: 1366,
+    tripadvisorRating: 4.8,
+    tripadvisorReviewCount: 386,
+    theforkRating: 4.6,
+    theforkReviewCount: 120,
+    restaurantguruRating: 4.7,
+    restaurantguruReviewCount: 1300,
 
-    paymentMethods: ['cash-only', 'credit-cards'],
+    paymentMethods: ['card', 'cash'],
     reservationMethod: ['phone', 'instagram'],
     reservationContact: '+212613148762',
     googleMapsUrl: 'https://maps.google.com/?q=Culture+Box+Fes',
     bestDishes: ['Healthy Falafel Bowl', 'Spiced Camel Burger', 'Creamy Beetroot Hummus'],
     tip: 'Their fresh, cold-pressed vegetable juices are pressed on-demand and make for a perfect afternoon pick-me-up.',
 
-    // ── NEW FIELDS ──
+    // ── LOGISTICS ──
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor'],
@@ -1038,6 +1106,8 @@ export const fesEat: EatListing[] = [
     wiFi: true,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "cafe-pastry", "dinner", "dry", "medina", "wifi"]
   },
 
   {
@@ -1051,6 +1121,8 @@ export const fesEat: EatListing[] = [
     mealTypes: ['breakfast', 'brunch', 'lunch', 'dinner', 'latenight'],
     experienceTypes: ['Cafe', 'Casual Dining', 'Family Friendly'],
     foodStyles: ['International', 'Italian', 'Healthy'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'cafe-pastry'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'serves-lunch',
     crowdLevel: 'bustling',
@@ -1064,29 +1136,31 @@ export const fesEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '08:00',
     closeTime: '23:30',
     badge: 'local-favorite',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
     googleRating: 4.4,
     googleReviewCount: 400,
-    tripadvisorRating: 4.4,
-    tripadvisorReviewCount: 400,
-    theforkRating: 4.4,
-    theforkReviewCount: 400,
-    restaurantguruRating: 4.4,
-    restaurantguruReviewCount: 400,
+    tripadvisorRating: 4.3,
+    tripadvisorReviewCount: 210,
+    theforkRating: 4.2,
+    theforkReviewCount: 55,
+    restaurantguruRating: 4.3,
+    restaurantguruReviewCount: 380,
 
-    paymentMethods: ['cash-only', 'credit-cards'],
+    paymentMethods: ['card', 'cash'],
     reservationMethod: ['phone', 'instagram'],
     reservationContact: '+212535741406',
     googleMapsUrl: 'https://maps.google.com/?q=Cinema+Cafe+Fes',
     bestDishes: ['Wood-fired Pizza', 'Vegetarian Lasagna', 'Fez Camel Burger'],
     tip: 'Stay tuned to their social media pages to catch their cozy evening cinema and film screenings.',
 
-    // ── NEW FIELDS ──
+    // ── LOGISTICS ──
     bestTimeToVisit: 'Early evening around 18:30 for sunset',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor', 'terrace'],
@@ -1094,6 +1168,8 @@ export const fesEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: false
+  ,
+    tags: ["breakfast", "budget", "cafe-pastry", "dinner", "dry", "late-night", "medina", "terrace", "wifi"]
   },
 
   {
@@ -1107,7 +1183,10 @@ export const fesEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Fine Dining', 'Garden restaurant with live music', 'Traditional Dining'],
     foodStyles: ['French', 'Mediterranean', 'Moroccan'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'moroccan-traditional', 'cafe-pastry'],
     alcoholPolicy: 'serves-alcohol',
+    servesAlcohol: true,
     ramadanFriendly: 'serves-lunch',
     crowdLevel: 'balanced',
     groupTypes: ['couple', 'friends', 'seniors'],
@@ -1120,29 +1199,30 @@ export const fesEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '23:00',
     badge: 'local-favorite',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.5,
-    googleReviewCount: 350,
-    tripadvisorRating: 4.5,
-    tripadvisorReviewCount: 350,
-    theforkRating: 4.5,
-    theforkReviewCount: 350,
-    restaurantguruRating: 4.5,
-    restaurantguruReviewCount: 350,
+    googleRating: 4.2,
+    googleReviewCount: 402,
+    tripadvisorRating: 4.3,
+    tripadvisorReviewCount: 260,
+    theforkRating: 4.2,
+    theforkReviewCount: 75,
+    restaurantguruRating: 4.3,
+    restaurantguruReviewCount: 380,
 
-    paymentMethods: ['credit-cards', 'cash-only'],
+    paymentMethods: ['card', 'cash'],
     reservationMethod: ['phone'],
     reservationContact: '+212535741008',
     googleMapsUrl: 'https://maps.google.com/?q=Fez+Cafe+Le+Jardin+des+Biehn+Fes',
     bestDishes: ['Filet de Boeuf', 'Herb-Crusted Lamb', 'Organic Vegetable Soup'],
     tip: 'Give yourself thirty minutes before your meal to stroll through their gorgeous Andalusian garden oasis.',
 
-    // ── NEW FIELDS ──
+    // ── LOGISTICS ──
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor', 'garden'],
@@ -1150,6 +1230,8 @@ export const fesEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: false
+  ,
+    tags: ["alcohol", "budget", "cafe-pastry", "dinner", "fine", "live-music", "medina", "wifi"]
   },
 
   {
@@ -1163,6 +1245,8 @@ export const fesEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner', 'brunch'],
     experienceTypes: ['Cafe', 'Casual Dining', 'Modern Fusion Dining'],
     foodStyles: ['Healthy', 'Mediterranean', 'Cafe'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'cafe-pastry'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'serves-lunch',
     crowdLevel: 'balanced',
@@ -1176,29 +1260,31 @@ export const fesEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '11:00',
     closeTime: '21:00',
     badge: 'hidden-gem',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
     googleRating: 4.9,
-    googleReviewCount: 150,
+    googleReviewCount: 1040,
     tripadvisorRating: 4.9,
-    tripadvisorReviewCount: 150,
-    theforkRating: 4.9,
-    theforkReviewCount: 150,
+    tripadvisorReviewCount: 1664,
+    theforkRating: 4.8,
+    theforkReviewCount: 110,
     restaurantguruRating: 4.9,
-    restaurantguruReviewCount: 150,
+    restaurantguruReviewCount: 980,
 
-    paymentMethods: ['cash-only'],
-    reservationMethod: ['phone', 'walk-in-only'],
+    paymentMethods: ['cash'],
+    reservationMethod: ['phone', 'none'],
     reservationContact: '+212700867997',
     googleMapsUrl: 'https://maps.google.com/?q=Veggie+Pause+Fes',
     bestDishes: ['Vegan Kefta Tajine', 'Fresh Avocado Toast', 'Lentil Quinoa Salad'],
     tip: 'Ask their lovely staff about daily off-menu vegan cakes and organic bakery treats.',
 
-    // ── NEW FIELDS ──
+    // ── LOGISTICS ──
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor'],
@@ -1206,5 +1292,241 @@ export const fesEat: EatListing[] = [
     wiFi: true,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["breakfast", "budget", "cafe-pastry", "dinner", "dry", "medina", "tagine", "wifi"]
+  },
+  {
+    id: "fes-eat-mcdonalds-borj-fez",
+    city: "fes",
+    name: "McDonald's Borj Fez",
+    neighborhood: "Ville Nouvelle",
+    district: "Borj Fez Mall",
+    description: "Modern McDonald's in the Borj Fez shopping complex, offering digital kiosks, McCaf\u00e9 beverages, Happy Meals, and outdoor terrace seating overlooking the city.",
+    pricePerPerson: 65,
+    lifestyle: "lean",
+    mealTypes: ["breakfast", "lunch", "dinner"],
+    experienceTypes: ["Fast Food", "Mall Dining", "Terrace"],
+    foodStyles: ["Burgers", "Fast Food", "American"],
+    alcoholPolicy: "dry",
+    ramadanFriendly: "special-ftour",
+    crowdLevel: "bustling",
+    groupTypes: ["family", "kids-friendly", "friends"],
+    hasEnglishStaff: true,
+    hasFrenchStaff: true,
+    hasDelivery: true,
+    hasParking: true,
+    nearMedina: false,
+    nearBeach: false,
+    nearCenter: true,
+    isVegetarianFriendly: true,
+    isHalal: true,
+    halalStatus: "halal-certified",
+    verificationStatus: "verified",
+    openTime: "08:30",
+    closeTime: "23:30",
+    badge: "local-favorite",
+    googleRating: 4.0,
+    googleReviewCount: 4200,
+    googleMapsUrl: "https://maps.google.com/?cid=9203847261508362517",
+    paymentMethods: ["Cash", "Credit Card", "Contactless"],
+    languagesSpoken: ["Arabic", "French", "English"],
+    wiFi: true,
+    airConditioning: true,
+    wheelchairAccessible: true,
+    tags: ["street-food", "breakfast", "budget", "terrace"],
+    exactAddressAndCoordinates: {
+      address: "Centre Commercial Borj Fez, Boulevard Allal Ben Abdellah, Fes",
+      lat: 34.0392,
+      lng: -4.9968
+    }
+  },
+  {
+    id: "fes-eat-kfc-borj-fez",
+    city: "fes",
+    name: "KFC Borj Fez",
+    neighborhood: "Ville Nouvelle",
+    district: "Borj Fez Mall",
+    description: "Top-floor food court KFC in Borj Fez serving crispy fried chicken pieces, strips, fries, and soft drinks.",
+    pricePerPerson: 60,
+    lifestyle: "lean",
+    mealTypes: ["lunch", "dinner"],
+    experienceTypes: ["Fast Food", "Mall Dining"],
+    foodStyles: ["Fried Chicken", "Fast Food", "American"],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international'],
+    alcoholPolicy: "dry",
+    ramadanFriendly: "special-ftour",
+    crowdLevel: "bustling",
+    groupTypes: ["family", "friends", "solo"],
+    hasEnglishStaff: true,
+    hasFrenchStaff: true,
+    hasDelivery: true,
+    hasParking: true,
+    nearMedina: false,
+    nearBeach: false,
+    nearCenter: true,
+    isVegetarianFriendly: false,
+    isHalal: true,
+    servesAlcohol: false,
+    halalStatus: "halal-certified",
+    verificationStatus: "verified",
+    openTime: "11:00",
+    closeTime: "23:00",
+    badge: "local-favorite",
+    googleRating: 3.8,
+    googleReviewCount: 1550,
+    googleMapsUrl: "https://maps.google.com/?cid=1039485736251948263",
+    paymentMethods: ["Cash", "Credit Card", "Contactless"],
+    languagesSpoken: ["Arabic", "French", "English"],
+    wiFi: true,
+    airConditioning: true,
+    wheelchairAccessible: true,
+    tags: ["street-food", "budget"],
+    exactAddressAndCoordinates: {
+      address: "Centre Commercial Borj Fez, Boulevard Allal Ben Abdellah, Fes",
+      lat: 34.0392,
+      lng: -4.9968
+    }
+  },
+  {
+    id: "fes-eat-burger-king-borj-fez",
+    city: "fes",
+    name: "Burger King Borj Fez",
+    neighborhood: "Ville Nouvelle",
+    district: "Borj Fez Mall",
+    description: "Food court Burger King in Borj Fez Mall offering signature flame-broiled Whoppers, chicken royal, and onion rings.",
+    pricePerPerson: 65,
+    lifestyle: "lean",
+    mealTypes: ["lunch", "dinner"],
+    experienceTypes: ["Fast Food", "Mall Dining"],
+    foodStyles: ["Burgers", "Fast Food", "American"],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international'],
+    alcoholPolicy: "dry",
+    ramadanFriendly: "special-ftour",
+    crowdLevel: "bustling",
+    groupTypes: ["family", "friends", "solo"],
+    hasEnglishStaff: true,
+    hasFrenchStaff: true,
+    hasDelivery: true,
+    hasParking: true,
+    nearMedina: false,
+    nearBeach: false,
+    nearCenter: true,
+    isVegetarianFriendly: true,
+    isHalal: true,
+    servesAlcohol: false,
+    halalStatus: "halal-certified",
+    verificationStatus: "verified",
+    openTime: "11:00",
+    closeTime: "23:00",
+    badge: "local-favorite",
+    googleRating: 3.9,
+    googleReviewCount: 1800,
+    googleMapsUrl: "https://maps.google.com/?cid=2140596847362059374",
+    paymentMethods: ["Cash", "Credit Card", "Contactless"],
+    languagesSpoken: ["Arabic", "French", "English"],
+    wiFi: true,
+    airConditioning: true,
+    wheelchairAccessible: true,
+    tags: ["street-food", "budget"],
+    exactAddressAndCoordinates: {
+      address: "Centre Commercial Borj Fez, Boulevard Allal Ben Abdellah, Fes",
+      lat: 34.0392,
+      lng: -4.9968
+    }
+  },
+  {
+    id: "fes-eat-pizza-hut-borj-fez",
+    city: "fes",
+    name: "Pizza Hut Borj Fez",
+    neighborhood: "Ville Nouvelle",
+    district: "Borj Fez Mall",
+    description: "Convenient Pizza Hut in the Borj Fez food court serving hot pan pizzas, garlic breadsticks, and family combo meals.",
+    pricePerPerson: 70,
+    lifestyle: "lean",
+    mealTypes: ["lunch", "dinner"],
+    experienceTypes: ["Casual Dining", "Mall Dining", "Pizza"],
+    foodStyles: ["Pizza", "Italian-American", "Fast Food"],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international'],
+    alcoholPolicy: "dry",
+    ramadanFriendly: "special-ftour",
+    crowdLevel: "balanced",
+    groupTypes: ["family", "friends"],
+    hasEnglishStaff: true,
+    hasFrenchStaff: true,
+    hasDelivery: true,
+    hasParking: true,
+    nearMedina: false,
+    nearBeach: false,
+    nearCenter: true,
+    isVegetarianFriendly: true,
+    isHalal: true,
+    servesAlcohol: false,
+    halalStatus: "halal-certified",
+    verificationStatus: "verified",
+    openTime: "11:30",
+    closeTime: "23:00",
+    badge: "local-favorite",
+    googleRating: 3.7,
+    googleReviewCount: 1200,
+    googleMapsUrl: "https://maps.google.com/?cid=3251607958473160485",
+    paymentMethods: ["Cash", "Credit Card", "Contactless"],
+    languagesSpoken: ["Arabic", "French", "English"],
+    wiFi: true,
+    airConditioning: true,
+    wheelchairAccessible: true,
+    tags: ["budget"],
+    exactAddressAndCoordinates: {
+      address: "Centre Commercial Borj Fez, Boulevard Allal Ben Abdellah, Fes",
+      lat: 34.0392,
+      lng: -4.9968
+    }
+  },
+  {
+    id: "fes-eat-dominos-atlas",
+    city: "fes",
+    name: "Domino's Pizza Atlas",
+    neighborhood: "Atlas",
+    district: "Avenue des FAR",
+    description: "Fast carry-out and delivery branch located on Avenue des FAR in the Atlas neighborhood of Fes.",
+    pricePerPerson: 60,
+    lifestyle: "lean",
+    mealTypes: ["lunch", "dinner", "latenight"],
+    experienceTypes: ["Takeaway", "Delivery", "Pizza"],
+    foodStyles: ["Pizza", "Fast Food", "American"],
+    alcoholPolicy: "dry",
+    ramadanFriendly: "special-ftour",
+    crowdLevel: "balanced",
+    groupTypes: ["friends", "solo", "family"],
+    hasEnglishStaff: true,
+    hasFrenchStaff: true,
+    hasDelivery: true,
+    hasParking: false,
+    nearMedina: false,
+    nearBeach: false,
+    nearCenter: true,
+    isVegetarianFriendly: true,
+    isHalal: true,
+    halalStatus: "halal-certified",
+    verificationStatus: "verified",
+    openTime: "11:30",
+    closeTime: "00:30",
+    badge: "local-favorite",
+    googleRating: 3.8,
+    googleReviewCount: 950,
+    googleMapsUrl: "https://maps.google.com/?cid=4362718069584271596",
+    paymentMethods: ["Cash", "Credit Card", "Contactless"],
+    languagesSpoken: ["Arabic", "French", "English"],
+    wiFi: true,
+    airConditioning: true,
+    wheelchairAccessible: true,
+    tags: ["late-night", "budget"],
+    exactAddressAndCoordinates: {
+      address: "Avenue des FAR, Atlas, Fes",
+      lat: 34.0315,
+      lng: -5.0052
+    }
   }
 ];

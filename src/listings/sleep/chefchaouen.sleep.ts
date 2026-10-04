@@ -192,13 +192,15 @@ export const chefchaouenSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ['couple', 'family', 'seniors', 'solo'],
     tip: 'The indoor pool is a rare luxury in the medina and is heated year-round—perfect after a day of hiking the Rif.',
     vibeTags: ['Boutique', 'Serene', 'Luxe', 'Blue-Washed'],
-    locationSummary: 'Medina',
+    locationSummary: "Blue Medina - Historic Quarter",
     availabilityText: 'Available tonight',
     googleMapsUrl: '[https://www.google.com/maps/place/Lina+Ryad+%26+Spa/@35.1691,-5.2635,17z](https://www.google.com/maps/place/Lina+Ryad+%26+Spa/@35.1691,-5.2635,17z)',
     address: 'Avenue Hassan I, Chefchaouen 91000, Morocco',
@@ -242,7 +244,12 @@ export const chefchaouenSleep: SleepListing[] = [
       families: 'The indoor pool is a huge hit with children.',
       business: 'Quiet rooms and reliable WiFi for focused work sessions.',
       nomad: 'A serene medina base with spa breaks and calm corners for remote work.'
-    }
+    },
+    coordinates: {
+      lat: 35.170047,
+      lng: -5.262226
+    },
+    tags: ["family-favorite"]
   },
   {
     id: 'ch-sleep-2',
@@ -330,7 +337,12 @@ export const chefchaouenSleep: SleepListing[] = [
       families: 'The triple rooms and garden are perfect for families.',
       business: 'A peaceful environment, though WiFi is best in common areas.',
       nomad: 'Good for slower work days when you want fresh air and garden breaks.'
-    }
+    },
+    coordinates: {
+      lat: 35.163816,
+      lng: -5.261529
+    },
+    tags: ["family-favorite"]
   },
   {
     id: 'ch-sleep-3',
@@ -368,13 +380,15 @@ export const chefchaouenSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ['couple', 'family', 'seniors', 'solo'],
     tip: 'The walk up the hill is steep but rewarding; luggage assistance is available from the Ras el Ma parking area. Sunset from the terrace is the best in town.',
     vibeTags: ['Panoramic', 'Romantic', 'Boutique', 'Views'],
-    locationSummary: 'Hillside - Medina Views',
+    locationSummary: "Blue Medina - Historic Quarter",
     availabilityText: 'Available tonight',
     googleMapsUrl: '[https://www.google.com/maps/place/Dar+Jasmine/@35.1675,-5.2576,17z](https://www.google.com/maps/place/Dar+Jasmine/@35.1675,-5.2576,17z)',
     address: 'Ras el Ma, Chefchaouen 91000, Morocco',
@@ -418,7 +432,12 @@ export const chefchaouenSleep: SleepListing[] = [
       families: 'A wonderful base for families who enjoy the outdoors.',
       business: 'Decent WiFi and an incredibly inspiring view for work.',
       nomad: 'The panoramic terrace is an unforgettable remote-work backdrop.'
-    }
+    },
+    coordinates: {
+      lat: 35.167806,
+      lng: -5.256446
+    },
+    tags: ["family-favorite"]
   },
   {
     id: 'ch-sleep-4',
@@ -456,13 +475,15 @@ export const chefchaouenSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ['couple', 'family', 'seniors'],
     tip: 'Don\'t miss dinner at the riad\'s restaurant — the pastilla and lamb tagine are widely considered the best in the medina. Explore every level of the riad to find hidden lounges.',
     vibeTags: ['Intricate', 'Historic', 'Grand', 'Labyrinthine'],
-    locationSummary: 'Medina',
+    locationSummary: "Blue Medina - Historic Quarter",
     availabilityText: 'Available tonight',
     googleMapsUrl: '[https://www.google.com/maps/place/Riad+Cherifa/@35.1681,-5.2625,17z](https://www.google.com/maps/place/Riad+Cherifa/@35.1681,-5.2625,17z)',
     address: 'Place El Haouta, Chefchaouen 91000, Morocco',
@@ -506,7 +527,12 @@ export const chefchaouenSleep: SleepListing[] = [
       families: 'The suites are large enough for families and very comfortable.',
       business: 'Quiet nooks for work and reliable WiFi in the lounge.',
       nomad: 'Excellent for work breaks in hidden lounges and rooftop corners.'
-    }
+    },
+    coordinates: {
+      lat: 35.170192,
+      lng: -5.264034
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: 'ch-sleep-5',
@@ -544,13 +570,15 @@ export const chefchaouenSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ['solo', 'couple', 'family', 'friends'],
     tip: 'The food here is worth the trip alone. Their goat cheese, honey, and olive oil are all produced on-site. It is a perfect base for hiking to Akchour or God\'s Bridge.',
     vibeTags: ['Gastronomic', 'Rural', 'Peaceful', 'Authentic'],
-    locationSummary: 'Rif Mountain Retreat',
+    locationSummary: "Talassemtane Valley & Countryside",
     availabilityText: 'Available tonight',
     googleMapsUrl: '[https://www.google.com/maps/place/Auberge+Dardara/@35.1323,-5.2945,17z](https://www.google.com/maps/place/Auberge+Dardara/@35.1323,-5.2945,17z)',
     address: 'Route Nationale 2, Dardara, Chefchaouen 91000, Morocco',
@@ -594,7 +622,12 @@ export const chefchaouenSleep: SleepListing[] = [
       families: 'Great for kids to see the farm and play in the pool.',
       business: 'A quiet place for a creative retreat.',
       nomad: 'Inspiring mountain views for work, though town is a drive away.'
-    }
+    },
+    coordinates: {
+      lat: 35.105094,
+      lng: -5.28026
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: 'ch-sleep-6',
@@ -632,13 +665,15 @@ export const chefchaouenSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ['couple', 'solo', 'seniors'],
     tip: 'The breakfast here is considered one of the best in the medina—don\'t miss the homemade jams and local goat cheese.',
     vibeTags: ['Charming', 'Homely', 'Authentic', 'Central'],
-    locationSummary: 'Medina - Bab Souk',
+    locationSummary: "Blue Medina - Historic Quarter",
     availabilityText: 'Available tonight',
     googleMapsUrl: '[https://www.google.com/maps/place/Casa+Perleta/@35.1685,-5.2645,17z](https://www.google.com/maps/place/Casa+Perleta/@35.1685,-5.2645,17z)',
     address: 'Bab Souk, Chefchaouen 91000, Morocco',
@@ -682,7 +717,12 @@ export const chefchaouenSleep: SleepListing[] = [
       families: 'Better suited for adults who appreciate a quiet and traditional stay.',
       business: 'Quiet and peaceful with reliable WiFi in common areas.',
       nomad: 'A friendly, central riad with cozy common areas for light laptop work.'
-    }
+    },
+    coordinates: {
+      lat: 35.169993,
+      lng: -5.263992
+    },
+    tags: ["family-favorite"]
   },
   {
     id: 'ch-sleep-7',
@@ -720,13 +760,15 @@ export const chefchaouenSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ['couple', 'family', 'solo'],
     tip: 'Have dinner on the rooftop at sunset; the view of the Kasbah lighting up is the best in the city.',
     vibeTags: ['Central', 'Historic', 'Vibrant', 'Panoramic'],
-    locationSummary: 'Medina - Main Square',
+    locationSummary: "Blue Medina - Historic Quarter",
     availabilityText: 'Available tonight',
     googleMapsUrl: '[https://www.google.com/maps/place/Riad+Hicham/@35.1685,-5.2645,17z](https://www.google.com/maps/place/Riad+Hicham/@35.1685,-5.2645,17z)',
     address: 'Place Outa el Hammam, Chefchaouen 91000, Morocco',
@@ -770,7 +812,12 @@ export const chefchaouenSleep: SleepListing[] = [
       families: 'Great for families who want to be near the main square activities.',
       business: 'Good for a quick stay, though it can be lively outside.',
       nomad: 'Central and convenient for cafe work, but bring headphones for square noise.'
-    }
+    },
+    coordinates: {
+      lat: 35.168818,
+      lng: -5.261114
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: 'ch-sleep-8',
@@ -808,13 +855,15 @@ export const chefchaouenSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ['solo', 'couple', 'family', 'friends'],
     tip: 'Book a session in their private hammam—it is one of the most authentic and relaxing experiences in the medina.',
     vibeTags: ['Authentic', 'Warm', 'Homely', 'Traditional'],
-    locationSummary: 'Medina',
+    locationSummary: "Blue Medina - Historic Quarter",
     availabilityText: 'Available tonight',
     googleMapsUrl: '[https://www.google.com/maps/place/Dar+Baibou/@35.1685,-5.2645,17z](https://www.google.com/maps/place/Dar+Baibou/@35.1685,-5.2645,17z)',
     address: 'Bab Souk, Chefchaouen 91000, Morocco',
@@ -858,7 +907,12 @@ export const chefchaouenSleep: SleepListing[] = [
       families: 'A very welcoming place for families to experience local life.',
       business: 'Quiet and peaceful with a unique cultural touch.',
       nomad: 'A simple, affordable base for light work between medina walks.'
-    }
+    },
+    coordinates: {
+      lat: 35.169461,
+      lng: -5.26211
+    },
+    tags: ["family-favorite"]
   },
   {
     id: 'ch-sleep-9',
@@ -896,13 +950,15 @@ export const chefchaouenSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ['couple', 'seniors', 'solo'],
     tip: 'Book the "Andalusian Hammam" session for an authentic and incredibly relaxing experience right within the riad.',
     vibeTags: ['Andalusian', 'Serene', 'Traditional', 'Refined'],
-    locationSummary: 'Medina - Quiet Quarter',
+    locationSummary: "Blue Medina - Historic Quarter",
     availabilityText: 'Available tonight',
     googleMapsUrl: '[https://www.google.com/maps/place/Alhambra+Ryad+%26+Spa/@35.1691,-5.2635,17z](https://www.google.com/maps/place/Alhambra+Ryad+%26+Spa/@35.1691,-5.2635,17z)',
     address: 'Avenue Sidi Ahmed el Ouafi, Chefchaouen 91000, Morocco',
@@ -946,7 +1002,12 @@ export const chefchaouenSleep: SleepListing[] = [
       families: 'Better suited for couples or seniors seeking quiet.',
       business: 'A quiet and inspiring setting with good WiFi.',
       nomad: 'Great for focused work in a calm riad with spa breaks nearby.'
-    }
+    },
+    coordinates: {
+      lat: 35.168647,
+      lng: -5.259919
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: 'ch-sleep-10',
@@ -984,13 +1045,15 @@ export const chefchaouenSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ['couple', 'friends', 'solo'],
     tip: 'Don’t miss the breakfast—the owners serve a variety of local mountain cheeses and honeys that are among the best in town.',
     vibeTags: ['Artistic', 'Vibrant', 'Charming', 'Bohemian'],
-    locationSummary: 'Medina',
+    locationSummary: "Blue Medina - Historic Quarter",
     availabilityText: 'Available tonight',
     googleMapsUrl: '[https://www.google.com/maps/place/Dar+Meziana/@35.1685,-5.2635,17z](https://www.google.com/maps/place/Dar+Meziana/@35.1685,-5.2635,17z)',
     address: 'Rue Zagdoud, Chefchaouen 91000, Morocco',
@@ -1034,7 +1097,12 @@ export const chefchaouenSleep: SleepListing[] = [
       families: 'Better suited for older children who will appreciate the art.',
       business: 'A quiet and inspiring setting with good WiFi.',
       nomad: 'A colorful, creative base for remote workers who like character.'
-    }
+    },
+    coordinates: {
+      lat: 35.170544,
+      lng: -5.264177
+    },
+    tags: ["family-favorite"]
   },
   {
     id: 'ch-sleep-11',
@@ -1072,13 +1140,15 @@ export const chefchaouenSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ['solo', 'couple', 'friends'],
     tip: 'Its central location makes it easy to explore the vibrant market streets on foot.',
     vibeTags: ['Majestic', 'Authentic', 'Historic', 'Serene'],
-    locationSummary: 'Medina',
+    locationSummary: "Blue Medina - Historic Quarter",
     availabilityText: 'Available tonight',
     googleMapsUrl: '[https://www.google.com/maps/place/Riad+La+Sultana/@35.1681,-5.2625,17z](https://www.google.com/maps/place/Riad+La+Sultana/@35.1681,-5.2625,17z)',
     address: 'Place El Haouta, Chefchaouen 91000, Morocco',
@@ -1122,7 +1192,12 @@ export const chefchaouenSleep: SleepListing[] = [
       families: 'Better suited for older children who will appreciate the history.',
       business: 'A quiet and inspiring setting with good WiFi.',
       nomad: 'A character-rich stay for focused writing or creative remote work.'
-    }
+    },
+    coordinates: {
+      lat: 35.16883,
+      lng: -5.263661
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: 'ch-sleep-12',
@@ -1160,13 +1235,15 @@ export const chefchaouenSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ['couple', 'family', 'friends'],
     tip: 'Relax in the inner courtyard garden after a day of walking the blue alleys.',
     vibeTags: ['Tranquil', 'Homey', 'Traditional', 'Serene'],
-    locationSummary: 'Medina',
+    locationSummary: "Blue Medina - Historic Quarter",
     availabilityText: 'Available tonight',
     googleMapsUrl: '[https://www.google.com/maps/place/Dar+Dadicilef/@35.1681,-5.2625,17z](https://www.google.com/maps/place/Dar+Dadicilef/@35.1681,-5.2625,17z)',
     address: 'Rue Sidi Ahmed el Ouafi, Chefchaouen 91000, Morocco',
@@ -1210,7 +1287,12 @@ export const chefchaouenSleep: SleepListing[] = [
       families: 'The garden area is perfect for children to play safely.',
       business: 'A quiet and inspiring setting with good WiFi.',
       nomad: 'A peaceful garden guesthouse suited to slow mornings and laptop time.'
-    }
+    },
+    coordinates: {
+      lat: 35.168085,
+      lng: -5.263539
+    },
+    tags: ["family-favorite"]
   },
   {
     id: 'ch-sleep-13',
@@ -1248,13 +1330,15 @@ export const chefchaouenSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ['solo', 'friends'],
     tip: 'Ask about the group hike to the Spanish Mosque at sunset—it’s the best way to meet people and see the city from above.',
     vibeTags: ['Social', 'Budget-Friendly', 'Vibrant', 'Backpacker-Hub'],
-    locationSummary: 'Medina',
+    locationSummary: "Blue Medina - Historic Quarter",
     availabilityText: 'Available tonight',
     googleMapsUrl: '[https://www.google.com/maps/place/Hostel+Aline/@35.1685,-5.2635,17z](https://www.google.com/maps/place/Hostel+Aline/@35.1685,-5.2635,17z)',
     address: 'Rue Zagdoud, Chefchaouen 91000, Morocco',
@@ -1298,7 +1382,12 @@ export const chefchaouenSleep: SleepListing[] = [
       families: 'Not recommended for families.',
       business: 'Only for the very budget-conscious business traveler.',
       nomad: 'Social and affordable, better for short work bursts than deep focus.'
-    }
+    },
+    coordinates: {
+      lat: 35.168726,
+      lng: -5.25927
+    },
+    tags: ["dorm"]
   },
   {
     id: 'ch-sleep-14',
@@ -1336,13 +1425,15 @@ export const chefchaouenSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ['solo', 'friends'],
     tip: 'The upper medina is quieter and less touristy. The rooftop here has great mountain views and is perfect for stargazing at night.',
     vibeTags: ['Peaceful', 'Scenic', 'Quiet', 'Welcoming'],
-    locationSummary: 'Upper Medina',
+    locationSummary: "Blue Medina - Historic Quarter",
     availabilityText: 'Available tonight',
     googleMapsUrl: '[https://www.google.com/maps/place/Hostel+Val+Paradis/@35.1685,-5.2635,17z](https://www.google.com/maps/place/Hostel+Val+Paradis/@35.1685,-5.2635,17z)',
     address: 'Upper Medina, Chefchaouen 91000, Morocco',
@@ -1386,7 +1477,12 @@ export const chefchaouenSleep: SleepListing[] = [
       families: 'Not recommended for families.',
       business: 'A quiet and inspiring setting with good WiFi.',
       nomad: 'One of the better hostel options for quiet remote work and mountain views.'
-    }
+    },
+    coordinates: {
+      lat: 35.170037,
+      lng: -5.258924
+    },
+    tags: ["dorm"]
   },
   {
     id: 'ch-sleep-15',
@@ -1424,13 +1520,15 @@ export const chefchaouenSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ['solo', 'couple', 'friends'],
     tip: 'Ask for the room with the small window overlooking the blue alley—it makes for incredible photos and offers a direct view into the heart of the medina.',
     vibeTags: ['Authentic', 'Budget-Friendly', 'Spotless', 'Local'],
-    locationSummary: 'Medina',
+    locationSummary: "Blue Medina - Historic Quarter",
     availabilityText: 'Available tonight',
     googleMapsUrl: '[https://www.google.com/maps/place/Casa+Blue+Pearl/@35.1685,-5.2635,17z](https://www.google.com/maps/place/Casa+Blue+Pearl/@35.1685,-5.2635,17z)',
     address: 'Place Outa el Hammam, Chefchaouen 91000, Morocco',
@@ -1474,7 +1572,12 @@ export const chefchaouenSleep: SleepListing[] = [
       families: 'Great for families who want an authentic and budget-friendly base.',
       business: 'Basic but very clean and central for a quick trip.',
       nomad: 'Best for budget nomads needing a clean base rather than a full workspace.'
-    }
+    },
+    coordinates: {
+      lat: 35.168628,
+      lng: -5.2644
+    },
+    tags: ["family-favorite"]
   },
   {
     id: 'ch-sleep-16',
@@ -1512,13 +1615,15 @@ export const chefchaouenSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ['solo', 'friends'],
     tip: 'The common area is a great place to swap travel stories over a glass of mint tea. Check the board for shared taxi offers to Akchour.',
     vibeTags: ['Authentic', 'Social', 'Budget-Friendly', 'Historic'],
-    locationSummary: 'Medina - Main Square',
+    locationSummary: "Blue Medina - Historic Quarter",
     availabilityText: 'Available tonight',
     googleMapsUrl: '[https://www.google.com/maps/place/Hostel+Mauritania/@35.1685,-5.2635,17z](https://www.google.com/maps/place/Hostel+Mauritania/@35.1685,-5.2635,17z)',
     address: 'Place Outa el Hammam, Chefchaouen 91000, Morocco',
@@ -1562,7 +1667,12 @@ export const chefchaouenSleep: SleepListing[] = [
       families: 'Not recommended for families.',
       business: 'Only for the very budget-conscious business traveler.',
       nomad: 'Very affordable, but basic comfort and noise make it best for short stays.'
-    }
+    },
+    coordinates: {
+      lat: 35.175444,
+      lng: -5.266178
+    },
+    tags: ["dorm", "heritage"]
   },
   {
     id: 'ch-sleep-17',
@@ -1600,13 +1710,15 @@ export const chefchaouenSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ['couple', 'family', 'solo'],
     tip: 'Book an upper-floor room for mountain views. The owner gives free tips on the best local hiking trails.',
     vibeTags: ['Spotless', 'Quiet', 'Welcoming', 'View-Oriented'],
-    locationSummary: 'Upper Medina',
+    locationSummary: "Blue Medina - Historic Quarter",
     availabilityText: 'Available tonight',
     googleMapsUrl: '[https://www.google.com/maps/place/Hotel+Sakura/@35.1685,-5.2635,17z](https://www.google.com/maps/place/Hotel+Sakura/@35.1685,-5.2635,17z)',
     address: 'Rue Ibn Askar, Chefchaouen 91000, Morocco',
@@ -1650,7 +1762,12 @@ export const chefchaouenSleep: SleepListing[] = [
       families: 'Great for families who want a quiet and clean base.',
       business: 'A quiet and inspiring setting with good WiFi.',
       nomad: 'Clean, quiet, and good for focused remote work with mountain-view breaks.'
-    }
+    },
+    coordinates: {
+      lat: 35.169925,
+      lng: -5.265558
+    },
+    tags: ["family-favorite"]
   },
   {
     id: 'ch-sleep-18',
@@ -1688,13 +1805,15 @@ export const chefchaouenSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ['solo', 'friends'],
     tip: 'Lockers are spacious—bring your own padlock. The rooftop is a great hangout spot at sunset, often featuring impromptu music sessions.',
     vibeTags: ['Modern', 'Social', 'Vibrant', 'Central'],
-    locationSummary: 'Medina',
+    locationSummary: "Blue Medina - Historic Quarter",
     availabilityText: 'Available tonight',
     googleMapsUrl: '[https://www.google.com/maps/place/MoKo+Hostel/@35.1685,-5.2635,17z](https://www.google.com/maps/place/MoKo+Hostel/@35.1685,-5.2635,17z)',
     address: 'Avenue Sidi Ahmed el Ouafi, Chefchaouen 91000, Morocco',
@@ -1738,7 +1857,12 @@ export const chefchaouenSleep: SleepListing[] = [
       families: 'Not recommended for families.',
       business: 'Excellent WiFi and very practical for work trips.',
       nomad: 'Good WiFi and modern spaces, though evenings can be social and loud.'
-    }
+    },
+    coordinates: {
+      lat: 35.175444,
+      lng: -5.266178
+    },
+    tags: ["dorm"]
   },
   {
     id: 'ch-sleep-19',
@@ -1776,13 +1900,15 @@ export const chefchaouenSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ['solo', 'couple', 'friends'],
     tip: 'The staff are incredibly helpful for arranging onward travel or organizing local hikes to the Spanish Mosque—don’t hesitate to ask for their advice.',
     vibeTags: ['Colorful', 'Welcoming', 'Artisan-Inspired', 'Central'],
-    locationSummary: 'Medina',
+    locationSummary: "Blue Medina - Historic Quarter",
     availabilityText: 'Available tonight',
     googleMapsUrl: '[https://www.google.com/maps/place/Hostal+Znika/@35.1685,-5.2635,17z](https://www.google.com/maps/place/Hostal+Znika/@35.1685,-5.2635,17z)',
     address: 'Rue Ibn Askar, Chefchaouen 91000, Morocco',
@@ -1826,7 +1952,12 @@ export const chefchaouenSleep: SleepListing[] = [
       families: 'Not recommended for families.',
       business: 'A quiet and inspiring setting with good WiFi.',
       nomad: 'Clean and welcoming for budget remote workers who can use common spaces.'
-    }
+    },
+    coordinates: {
+      lat: 35.16937,
+      lng: -5.262922
+    },
+    tags: ["dorm"]
   },
   {
     id: 'ch-sleep-20',
@@ -1864,13 +1995,15 @@ export const chefchaouenSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ['family', 'couple', 'seniors'],
     tip: 'Only a 5-minute flat walk to the medina entrance. Ideal for families with strollers or seniors avoiding cobblestone stairs.',
     vibeTags: ['Classic', 'Accessible', 'Established', 'Convenient'],
-    locationSummary: 'Ville Nouvelle - Medina Gate',
+    locationSummary: "Blue Medina - Historic Quarter",
     availabilityText: 'Available tonight',
     googleMapsUrl: '[https://www.google.com/maps/place/Hotel+Parador/@35.1685,-5.2635,17z](https://www.google.com/maps/place/Hotel+Parador/@35.1685,-5.2635,17z)',
     address: 'Place du Makhzen, Chefchaouen 91000, Morocco',
@@ -1914,6 +2047,11 @@ export const chefchaouenSleep: SleepListing[] = [
       families: 'The easiest place in town to stay with kids and a stroller.',
       business: 'Reliable WiFi and easy road access for meetings.',
       nomad: 'A practical choice for remote workers who prefer hotel amenities and easy access.'
-    }
+    },
+    coordinates: {
+      lat: 35.168821,
+      lng: -5.260698
+    },
+    tags: ["family-favorite", "heritage"]
   }
 ]

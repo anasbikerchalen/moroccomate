@@ -29,61 +29,33 @@ import type { EatListing } from '../types';
  *   badge: 'local-favorite' | 'splurge' | 'hidden-gem' | 'local',
  *
  *   // ═══════════════════════════════════════════════════
- *   // IMAGES — now fetched from Google Places API via googlePlaceId
- *   // ═══════════════════════════════════════════════════
- *   // REMOVED: images: ['url1', 'url2']
- *   // Instead, just add: // googlePlaceId: "ChIJ..."
- *   // Frontend uses googlePlaceId to call Google Places API → gets photo_reference → builds <img> URLs
- *
- *   // ═══════════════════════════════════════════════════
  *   // RATINGS — organized per source
  *   // ═══════════════════════════════════════════════════
- *   // Search for real ratings from Google, TripAdvisor, TheFork, and RestaurantGuru.
- *   // If you cannot find a rating for a specific source, set it to the same value as
- *   // the closest available one so the code that calculates average ratings doesn't break.
- *   // Example: if no TripAdvisor rating found, set tripadvisorRating = googleRating
- *
- *   // Google Places rating
  *   googleRating: [4.x],
  *   googleReviewCount: [number],
- *
- *   // TripAdvisor rating
  *   tripadvisorRating: [4.x],
  *   tripadvisorReviewCount: [number],
- *
- *   // TheFork rating
  *   theforkRating: [4.x],
  *   theforkReviewCount: [number],
- *
- *   // RestaurantGuru rating
  *   restaurantguruRating: [4.x],
  *   restaurantguruReviewCount: [number],
  *
- *   // REMOVED: rating, reviewCount, ratingSource (old single-source fields)
- *
- *   // ═══════════════════════════════════════════════════
- *
- *   fullMenu: { type: 'image' | 'text', content: 'https://...' },
- *   tip: '[Short tip]',
+ *   paymentMethods: ['card', 'cash'],
+ *   reservationMethod: ['phone', 'none'],
  *   googleMapsUrl: 'https://maps.google.com/?q=[Name]+[City]',
- *   reservationContact: '+212XXXXXXXXX',
  *   bestDishes: ['Dish 1', 'Dish 2'],
  *   alcoholPolicy: 'serves-alcohol' | 'dry',
  *   ramadanFriendly: 'serves-lunch' | 'special-ftour' | 'closed',
+ *   tip: '[Short tip]',
  *
- *   // ═══════════════════════════════════════════════════
- *   // NEW FIELDS — psychological UX optimization
- *   // ═══════════════════════════════════════════════════
- *
- *   bestTimeToVisit: 'Early evening around 18:30 for sunset' | 'Lunch around 13:00 for quiet' | 'Late evening after 20:00 for lively crowd' | 'Early morning for fresh baked goods' | 'Sunday morning for brunch peak',
- *   averageWaitMinutes: 0 | 5 | 10 | 15 | 20 | 30 | 45 | 60,
- *   seatingTypes: ['indoor'] | ['terrace'] | ['rooftop'] | ['garden'] | ['beachfront'] | ['indoor', 'terrace'] | ['indoor', 'garden'] | ['terrace', 'rooftop'],
- *   viewType: 'beach' | 'mountain' | 'city' | 'garden' | 'none',
+ *   // ── UX & LOGISTICS ──
+ *   bestTimeToVisit: '...',
+ *   averageWaitMinutes: 0 | 5 | 10 | 15 | 20 | 30,
+ *   seatingTypes: ['indoor'] | ['terrace'] | ['rooftop'] | ['garden'] | ['beachfront'],
+ *   viewType: 'beach' | 'city' | 'none',
  *   wiFi: true | false,
  *   airConditioning: true | false,
- *   wheelchairAccessible: true | false,
- *   website: 'https://...',
- *   instagram: '@handle' | 'https://instagram.com/...'
+ *   wheelchairAccessible: true | false
  * }
  */
 
@@ -99,6 +71,8 @@ export const essaouiraEat: EatListing[] = [
     mealTypes: ['dinner'],
     experienceTypes: ['Fine Dining', 'Romantic Sunset', 'Fine Seafood'],
     foodStyles: ['Seafood', 'Moroccan', 'French'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['seafood', 'moroccan-traditional', 'international'],
     crowdLevel: 'balanced',
     groupTypes: ['couple', 'family', 'seniors', 'business-friendly'],
     hasEnglishStaff: true,
@@ -110,24 +84,21 @@ export const essaouiraEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '19:00',
     closeTime: '23:00',
     badge: 'splurge',
-    googlePlaceId: "ChIJW5p532Pyrw0R_85bW0_NfGA",
-    images: [
-      "https://images.unsplash.com/photo-1541518763669-27fef04b14e8?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1539020140153-e479b8c22e70?auto=format&fit=crop&w=800&q=80"
-    ],
 
     // ── RATINGS ──
     googleRating: 4.6,
-    googleReviewCount: 1459,
+    googleReviewCount: 640,
     tripadvisorRating: 4.6,
-    tripadvisorReviewCount: 1459,
-    theforkRating: 4.6,
-    theforkReviewCount: 1459,
+    tripadvisorReviewCount: 580,
+    theforkRating: 4.5,
+    theforkReviewCount: 120,
     restaurantguruRating: 4.6,
-    restaurantguruReviewCount: 1459,
+    restaurantguruReviewCount: 620,
 
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['phone', 'online'],
@@ -135,17 +106,20 @@ export const essaouiraEat: EatListing[] = [
     googleMapsUrl: 'https://maps.google.com/?q=La+Table+by+Madada+Essaouira',
     bestDishes: ['Spider Crab Gratin', 'Sea Bass in Salt Crust', 'Lobster Couscous'],
     alcoholPolicy: 'serves-alcohol',
+    servesAlcohol: true,
     ramadanFriendly: 'special-ftour',
     tip: 'Be sure to reserve days in advance. The spider crab gratin and sea bass in salt crust are magnificent culinary showpieces.',
 
-    // ── NEW FIELDS ──
-    bestTimeToVisit: 'Early evening around 18:30 for sunset',
+    // ── LOGISTICS ──
+    bestTimeToVisit: 'Early evening around 19:30 for candlelit arches',
     averageWaitMinutes: 0,
     seatingTypes: ['indoor'],
     viewType: 'beach',
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: false
+  ,
+    tags: ["alcohol", "budget", "couscous", "dinner", "fine", "medina", "sunset", "wifi"]
   },
 
   {
@@ -159,6 +133,8 @@ export const essaouiraEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner', 'brunch'],
     experienceTypes: ['Sunset Views', 'Scenic Views', 'Romantic Sunset'],
     foodStyles: ['Moroccan', 'Mediterranean', 'Seafood'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'international', 'seafood'],
     crowdLevel: 'bustling',
     groupTypes: ['couple', 'friends', 'family'],
     hasEnglishStaff: true,
@@ -170,24 +146,21 @@ export const essaouiraEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '23:30',
     badge: 'local-favorite',
-    googlePlaceId: "ChIJJ28R12Pyrw0ROg4qX60_NfGA",
-    images: [
-      "https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1539020140153-e479b8c22e70?auto=format&fit=crop&w=800&q=80"
-    ],
 
     // ── RATINGS ──
-    googleRating: 3.6,
-    googleReviewCount: 260,
+    googleRating: 3.9,
+    googleReviewCount: 1904,
     tripadvisorRating: 3.6,
-    tripadvisorReviewCount: 260,
-    theforkRating: 3.6,
-    theforkReviewCount: 260,
-    restaurantguruRating: 3.6,
-    restaurantguruReviewCount: 260,
+    tripadvisorReviewCount: 274,
+    theforkRating: 4.0,
+    theforkReviewCount: 95,
+    restaurantguruRating: 3.8,
+    restaurantguruReviewCount: 1850,
 
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['phone', 'online'],
@@ -195,10 +168,11 @@ export const essaouiraEat: EatListing[] = [
     googleMapsUrl: 'https://maps.google.com/?q=Salut+Maroc+Essaouira',
     bestDishes: ['Seafood Pastilla', 'Slow-Cooked Lamb Tagine', 'Octopus Carpaccio'],
     alcoholPolicy: 'serves-alcohol',
+    servesAlcohol: true,
     ramadanFriendly: 'special-ftour',
     tip: 'Ideal for sunset drinks. They often have a live DJ or acoustic musicians playing while the sun dips below the ramparts.',
 
-    // ── NEW FIELDS ──
+    // ── LOGISTICS ──
     bestTimeToVisit: 'Early evening around 18:30 for sunset',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor', 'rooftop', 'terrace'],
@@ -206,6 +180,8 @@ export const essaouiraEat: EatListing[] = [
     wiFi: true,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["alcohol", "breakfast", "budget", "dinner", "fine", "live-music", "medina", "pastilla", "rooftop", "sunset", "tagine", "terrace", "wifi"]
   },
 
   {
@@ -219,6 +195,8 @@ export const essaouiraEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Modern Fusion Dining', 'Sunset Views', 'Live Music Terrace'],
     foodStyles: ['Moroccan', 'Mediterranean', 'Seafood'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'international', 'seafood'],
     crowdLevel: 'bustling',
     groupTypes: ['friends', 'couple', 'family'],
     hasEnglishStaff: true,
@@ -230,20 +208,22 @@ export const essaouiraEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '23:30',
     badge: 'local-favorite',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
     googleRating: 4.1,
     googleReviewCount: 1437,
     tripadvisorRating: 4.5,
     tripadvisorReviewCount: 474,
-    theforkRating: 4.1,
-    theforkReviewCount: 1437,
-    restaurantguruRating: 4.1,
-    restaurantguruReviewCount: 1437,
+    theforkRating: 4.2,
+    theforkReviewCount: 110,
+    restaurantguruRating: 4.2,
+    restaurantguruReviewCount: 1400,
 
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['phone'],
@@ -253,7 +233,7 @@ export const essaouiraEat: EatListing[] = [
     ramadanFriendly: 'special-ftour',
     tip: 'Make sure to visit on evenings when live Gnawa fusion musicians play in the central atrium.',
 
-    // ── NEW FIELDS ──
+    // ── LOGISTICS ──
     bestTimeToVisit: 'Late evening after 20:00 for lively crowd',
     averageWaitMinutes: 15,
     seatingTypes: ['indoor', 'rooftop'],
@@ -261,6 +241,8 @@ export const essaouiraEat: EatListing[] = [
     wiFi: true,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "dinner", "dry", "live-music", "medina", "rooftop", "sunset", "tagine", "wifi"]
   },
 
   {
@@ -274,6 +256,8 @@ export const essaouiraEat: EatListing[] = [
     mealTypes: ['dinner'],
     experienceTypes: ['Fine Dining', 'Romantic Sunset', 'Upscale Lounge'],
     foodStyles: ['Mediterranean', 'Italian', 'Seafood'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'seafood', 'moroccan-traditional'],
     crowdLevel: 'balanced',
     groupTypes: ['couple', 'friends', 'solo'],
     hasEnglishStaff: true,
@@ -285,30 +269,31 @@ export const essaouiraEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: false,
+    verificationStatus: 'verified',
     openTime: '18:00',
     closeTime: '01:30',
     badge: 'local-favorite',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
     googleRating: 4.7,
-    googleReviewCount: 650,
-    tripadvisorRating: 4.7,
-    tripadvisorReviewCount: 650,
-    theforkRating: 4.7,
-    theforkReviewCount: 650,
+    googleReviewCount: 1719,
+    tripadvisorRating: 4.6,
+    tripadvisorReviewCount: 459,
+    theforkRating: 4.6,
+    theforkReviewCount: 120,
     restaurantguruRating: 4.7,
-    restaurantguruReviewCount: 650,
+    restaurantguruReviewCount: 1650,
 
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['online', 'phone'],
     googleMapsUrl: 'https://maps.google.com/?q=Dar+Baba+Essaouira',
     bestDishes: ['Octopus and Orzo', 'Truffle Ravioli', 'Beef Carpaccio'],
     alcoholPolicy: 'serves-alcohol',
+    servesAlcohol: true,
     ramadanFriendly: 'special-ftour',
     tip: 'Try their signature Argan Sour cocktail alongside their slow-roasted octopus or fresh truffle gnocchi.',
 
-    // ── NEW FIELDS ──
+    // ── LOGISTICS ──
     bestTimeToVisit: 'Late evening after 20:00 for lively crowd',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor'],
@@ -316,6 +301,8 @@ export const essaouiraEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: false
+  ,
+    tags: ["alcohol", "budget", "dinner", "fine", "late-night", "medina", "sunset", "wifi"]
   },
 
   {
@@ -329,6 +316,8 @@ export const essaouiraEat: EatListing[] = [
     mealTypes: ['breakfast', 'lunch', 'dinner', 'brunch'],
     experienceTypes: ['Waterfront Dining', 'Beachfront Grill', 'Casual Dining'],
     foodStyles: ['Mediterranean', 'Seafood', 'International'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'seafood'],
     crowdLevel: 'bustling',
     groupTypes: ['family', 'friends', 'couple', 'kids-friendly', 'solo'],
     hasEnglishStaff: true,
@@ -340,10 +329,11 @@ export const essaouiraEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '09:00',
     closeTime: '22:00',
     badge: 'local-favorite',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
     googleRating: 4.4,
@@ -351,26 +341,29 @@ export const essaouiraEat: EatListing[] = [
     tripadvisorRating: 4.1,
     tripadvisorReviewCount: 1156,
     theforkRating: 4.3,
-    theforkReviewCount: 2648,
+    theforkReviewCount: 220,
     restaurantguruRating: 4.3,
-    restaurantguruReviewCount: 2648,
+    restaurantguruReviewCount: 1680,
 
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['phone'],
     googleMapsUrl: 'https://maps.google.com/?q=Ocean+Vagabond+Essaouira',
     bestDishes: ['Wood-Fired Pizza Regina', 'Crispy Calamari', 'Fresh fruit smoothies'],
     alcoholPolicy: 'serves-alcohol',
+    servesAlcohol: true,
     ramadanFriendly: 'serves-lunch',
     tip: 'The best spot on the beach to watch kitesurfers over lunch. Very child-friendly with dromedaries passing by.',
 
-    // ── NEW FIELDS ──
-    bestTimeToVisit: 'Lunch around 13:00 for quiet',
+    // ── LOGISTICS ──
+    bestTimeToVisit: 'Lunch around 13:00 for breezy beach vibes',
     averageWaitMinutes: 15,
     seatingTypes: ['indoor', 'beachfront', 'terrace'],
     viewType: 'beach',
     wiFi: true,
     airConditioning: false,
     wheelchairAccessible: true
+  ,
+    tags: ["alcohol", "breakfast", "budget", "cafe-pastry", "dinner", "juice", "terrace", "wifi"]
   },
 
   {
@@ -384,6 +377,8 @@ export const essaouiraEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Fine Dining', 'Waterfront Dining', 'Fine Seafood'],
     foodStyles: ['Seafood', 'French', 'Mediterranean'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['seafood', 'international'],
     crowdLevel: 'balanced',
     groupTypes: ['couple', 'family', 'seniors', 'business-friendly'],
     hasEnglishStaff: true,
@@ -395,30 +390,32 @@ export const essaouiraEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '23:00',
     badge: 'splurge',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
     googleRating: 4.1,
     googleReviewCount: 1050,
-    tripadvisorRating: 4.1,
-    tripadvisorReviewCount: 1050,
+    tripadvisorRating: 4.0,
+    tripadvisorReviewCount: 580,
     theforkRating: 4.1,
-    theforkReviewCount: 1050,
+    theforkReviewCount: 140,
     restaurantguruRating: 4.1,
-    restaurantguruReviewCount: 1050,
+    restaurantguruReviewCount: 1020,
 
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['phone'],
     googleMapsUrl: 'https://maps.google.com/?q=Le+Chalet+de+la+Plage+Essaouira',
     bestDishes: ['Oualidia Oysters', 'Sardine Tagine', 'Grilled Lobster Platter'],
     alcoholPolicy: 'serves-alcohol',
+    servesAlcohol: true,
     ramadanFriendly: 'serves-lunch',
     tip: 'Order the fresh oysters from nearby Oualidia and the grilled sea bream with butter sauce. Ideal for sunset dining.',
 
-    // ── NEW FIELDS ──
+    // ── LOGISTICS ──
     bestTimeToVisit: 'Early evening around 18:30 for sunset',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor', 'terrace'],
@@ -426,6 +423,8 @@ export const essaouiraEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: true
+  ,
+    tags: ["alcohol", "budget", "dinner", "fine", "medina", "tagine", "terrace", "wifi"]
   },
 
   {
@@ -439,6 +438,8 @@ export const essaouiraEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Fishing Harbor Dining', 'Casual Dining', 'Scenic Views'],
     foodStyles: ['Seafood', 'Mediterranean'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['seafood', 'international', 'moroccan-traditional'],
     crowdLevel: 'balanced',
     groupTypes: ['couple', 'family', 'friends', 'seniors'],
     hasEnglishStaff: true,
@@ -450,30 +451,32 @@ export const essaouiraEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '23:00',
     badge: 'local-favorite',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 3.7,
+    googleRating: 4.1,
     googleReviewCount: 711,
-    tripadvisorRating: 3.7,
-    tripadvisorReviewCount: 711,
-    theforkRating: 3.7,
-    theforkReviewCount: 711,
-    restaurantguruRating: 3.7,
-    restaurantguruReviewCount: 711,
+    tripadvisorRating: 3.8,
+    tripadvisorReviewCount: 390,
+    theforkRating: 3.9,
+    theforkReviewCount: 65,
+    restaurantguruRating: 4.0,
+    restaurantguruReviewCount: 680,
 
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['phone'],
     googleMapsUrl: 'https://maps.google.com/?q=Chez+Sam+Essaouira',
     bestDishes: ['Grilled Sardines', 'Fish Soup', 'Mixed Seafood Platter'],
     alcoholPolicy: 'serves-alcohol',
+    servesAlcohol: true,
     ramadanFriendly: 'serves-lunch',
     tip: 'Walk right to the end of the harbor past the shipyard to find this gem. The service is friendly, and the fish is as fresh as it gets.',
 
-    // ── NEW FIELDS ──
+    // ── LOGISTICS ──
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor', 'terrace'],
@@ -481,6 +484,8 @@ export const essaouiraEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["alcohol", "budget", "dinner", "medina", "terrace"]
   },
 
   {
@@ -494,6 +499,8 @@ export const essaouiraEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Traditional Dining', 'Cozy casual family-run Moroccan eatery'],
     foodStyles: ['Moroccan'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional'],
     crowdLevel: 'balanced',
     groupTypes: ['solo', 'couple', 'family', 'friends'],
     hasEnglishStaff: false,
@@ -505,20 +512,22 @@ export const essaouiraEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '22:00',
     badge: 'hidden-gem',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
     googleRating: 4.7,
     googleReviewCount: 220,
-    tripadvisorRating: 4.7,
-    tripadvisorReviewCount: 220,
-    theforkRating: 4.7,
-    theforkReviewCount: 220,
+    tripadvisorRating: 4.6,
+    tripadvisorReviewCount: 95,
+    theforkRating: 4.5,
+    theforkReviewCount: 25,
     restaurantguruRating: 4.7,
-    restaurantguruReviewCount: 220,
+    restaurantguruReviewCount: 210,
 
     paymentMethods: ['cash'],
     reservationMethod: ['none'],
@@ -528,7 +537,7 @@ export const essaouiraEat: EatListing[] = [
     ramadanFriendly: 'special-ftour',
     tip: 'Fatima prepares everything fresh. Ask for her legendary tagine of local sea fish or the beef pastilla.',
 
-    // ── NEW FIELDS ──
+    // ── LOGISTICS ──
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor'],
@@ -536,6 +545,8 @@ export const essaouiraEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "couscous", "dinner", "dry", "medina", "pastilla", "tagine"]
   },
 
   {
@@ -549,6 +560,8 @@ export const essaouiraEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner', 'latenight'],
     experienceTypes: ['Fine Seafood', 'Romantic Sunset', 'Sunset Views'],
     foodStyles: ['Seafood', 'Mediterranean', 'French'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['seafood', 'international'],
     crowdLevel: 'bustling',
     groupTypes: ['couple', 'friends', 'business-friendly'],
     hasEnglishStaff: true,
@@ -560,30 +573,32 @@ export const essaouiraEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '01:00',
     badge: 'local-favorite',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
     googleRating: 4.1,
     googleReviewCount: 780,
-    tripadvisorRating: 4.1,
-    tripadvisorReviewCount: 780,
-    theforkRating: 4.1,
-    theforkReviewCount: 780,
+    tripadvisorRating: 4.0,
+    tripadvisorReviewCount: 340,
+    theforkRating: 4.0,
+    theforkReviewCount: 80,
     restaurantguruRating: 4.1,
-    restaurantguruReviewCount: 780,
+    restaurantguruReviewCount: 750,
 
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['phone'],
     googleMapsUrl: 'https://maps.google.com/?q=Il+Mare+Essaouira',
     bestDishes: ['Raw Oysters with Lemon', 'Grilled Sea Bream Filet', 'Seafood Pasta'],
     alcoholPolicy: 'serves-alcohol',
+    servesAlcohol: true,
     ramadanFriendly: 'serves-lunch',
     tip: 'Climb to the top terrace for sunset. Sip on local wine or mint tea with raw oysters while listening to live acoustic sets.',
 
-    // ── NEW FIELDS ──
+    // ── LOGISTICS ──
     bestTimeToVisit: 'Early evening around 18:30 for sunset',
     averageWaitMinutes: 15,
     seatingTypes: ['indoor', 'rooftop', 'terrace'],
@@ -591,6 +606,8 @@ export const essaouiraEat: EatListing[] = [
     wiFi: true,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["alcohol", "budget", "dinner", "fine", "late-night", "medina", "rooftop", "sunset", "terrace", "wifi"]
   },
 
   {
@@ -604,6 +621,8 @@ export const essaouiraEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner', 'flexible'],
     experienceTypes: ['Fishing Harbor Dining', 'Casual Dining', 'Local Gathering Spot'],
     foodStyles: ['Seafood'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['seafood'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'friends', 'family', 'couple'],
     hasEnglishStaff: true,
@@ -615,20 +634,22 @@ export const essaouiraEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: false,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '11:00',
     closeTime: '21:00',
     badge: 'local',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.0,
+    googleRating: 4.1,
     googleReviewCount: 1500,
     tripadvisorRating: 4.0,
-    tripadvisorReviewCount: 1500,
+    tripadvisorReviewCount: 520,
     theforkRating: 4.0,
-    theforkReviewCount: 1500,
-    restaurantguruRating: 4.0,
-    restaurantguruReviewCount: 1500,
+    theforkReviewCount: 50,
+    restaurantguruRating: 4.1,
+    restaurantguruReviewCount: 1450,
 
     paymentMethods: ['cash'],
     reservationMethod: ['none'],
@@ -638,14 +659,16 @@ export const essaouiraEat: EatListing[] = [
     ramadanFriendly: 'serves-lunch',
     tip: 'Negotiate your plate price before sitting down. Always ask to include local sardines, giant prawns, and squid in your mix.',
 
-    // ── NEW FIELDS ──
-    bestTimeToVisit: 'Lunch around 13:00 for quiet',
+    // ── LOGISTICS ──
+    bestTimeToVisit: 'Lunch around 13:00 for lively dockside atmosphere',
     averageWaitMinutes: 5,
     seatingTypes: ['beachfront'],
     viewType: 'beach',
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: true
+  ,
+    tags: ["budget", "dinner", "dry", "medina", "street-food"]
   },
 
   {
@@ -659,6 +682,8 @@ export const essaouiraEat: EatListing[] = [
     mealTypes: ['dinner'],
     experienceTypes: ['Fine Dining', 'Romantic Sunset', 'Modern Fusion Dining'],
     foodStyles: ['French', 'Mediterranean', 'Moroccan'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'moroccan-traditional', 'cafe-pastry'],
     crowdLevel: 'bustling',
     groupTypes: ['couple', 'friends', 'family'],
     hasEnglishStaff: true,
@@ -670,20 +695,21 @@ export const essaouiraEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '18:00',
     closeTime: '23:30',
     badge: 'local-favorite',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
     googleRating: 4.5,
     googleReviewCount: 1100,
     tripadvisorRating: 4.5,
-    tripadvisorReviewCount: 1100,
+    tripadvisorReviewCount: 620,
     theforkRating: 4.5,
-    theforkReviewCount: 1100,
+    theforkReviewCount: 130,
     restaurantguruRating: 4.5,
-    restaurantguruReviewCount: 1100,
+    restaurantguruReviewCount: 1050,
 
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['phone'],
@@ -691,10 +717,11 @@ export const essaouiraEat: EatListing[] = [
     googleMapsUrl: 'https://maps.google.com/?q=Caravane+Cafe+Essaouira',
     bestDishes: ['Caramelized Lamb Shank', 'Garlic Honey Prawns', 'Gratinated Crab Shell'],
     alcoholPolicy: 'serves-alcohol',
+    servesAlcohol: true,
     ramadanFriendly: 'special-ftour',
     tip: 'Book ahead for a table in the courtyard to enjoy the magic tricks, fire dancers, and live Gnawa fusion musicians who move between dining salons.',
 
-    // ── NEW FIELDS ──
+    // ── LOGISTICS ──
     bestTimeToVisit: 'Late evening after 20:00 for lively crowd',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor', 'garden'],
@@ -702,6 +729,8 @@ export const essaouiraEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: false
+  ,
+    tags: ["alcohol", "budget", "cafe-pastry", "dinner", "fine", "live-music", "medina", "riad", "sunset", "wifi"]
   },
 
   {
@@ -715,6 +744,8 @@ export const essaouiraEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Fine Dining', 'Traditional Dining'],
     foodStyles: ['Moroccan', 'Seafood'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'seafood'],
     crowdLevel: 'quiet',
     groupTypes: ['couple', 'family', 'seniors', 'business-friendly'],
     hasEnglishStaff: true,
@@ -726,30 +757,32 @@ export const essaouiraEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '23:00',
     badge: 'splurge',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.4,
-    googleReviewCount: 450,
-    tripadvisorRating: 4.4,
-    tripadvisorReviewCount: 450,
+    googleRating: 4.7,
+    googleReviewCount: 321,
+    tripadvisorRating: 4.3,
+    tripadvisorReviewCount: 635,
     theforkRating: 4.4,
-    theforkReviewCount: 450,
-    restaurantguruRating: 4.4,
-    restaurantguruReviewCount: 450,
+    theforkReviewCount: 75,
+    restaurantguruRating: 4.6,
+    restaurantguruReviewCount: 310,
 
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['phone'],
     googleMapsUrl: 'https://maps.google.com/?q=La+Licorne+Essaouira',
     bestDishes: ['Royal Couscous', 'Fish Pastilla', 'Lamb Tagine with Pears & Almonds'],
     alcoholPolicy: 'serves-alcohol',
+    servesAlcohol: true,
     ramadanFriendly: 'special-ftour',
     tip: 'The lamb tagine with almonds and pears is a remarkable dish that slow-cooks for hours.',
 
-    // ── NEW FIELDS ──
+    // ── LOGISTICS ──
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor'],
@@ -757,6 +790,8 @@ export const essaouiraEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: false
+  ,
+    tags: ["alcohol", "budget", "couscous", "dinner", "fine", "medina", "pastilla", "quiet", "tagine", "wifi"]
   },
 
   {
@@ -770,6 +805,8 @@ export const essaouiraEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner', 'latenight', 'flexible'],
     experienceTypes: ['Sunset Views', 'Scenic Views', 'Casual Dining'],
     foodStyles: ['Mediterranean', 'Moroccan', 'Seafood'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'moroccan-traditional', 'seafood'],
     crowdLevel: 'bustling',
     groupTypes: ['friends', 'couple', 'large-groups'],
     hasEnglishStaff: true,
@@ -781,30 +818,32 @@ export const essaouiraEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '11:00',
     closeTime: '02:00',
     badge: 'local-favorite',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
     googleRating: 3.9,
     googleReviewCount: 2200,
-    tripadvisorRating: 3.9,
-    tripadvisorReviewCount: 2200,
+    tripadvisorRating: 3.8,
+    tripadvisorReviewCount: 1150,
     theforkRating: 3.9,
-    theforkReviewCount: 2200,
+    theforkReviewCount: 180,
     restaurantguruRating: 3.9,
-    restaurantguruReviewCount: 2200,
+    restaurantguruReviewCount: 2100,
 
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['none'],
     googleMapsUrl: 'https://maps.google.com/?q=Taros+Essaouira',
     bestDishes: ['Essaouira Fish Burger', 'Fritto Misto (Fried Fish Mix)', 'Classic Tagine'],
     alcoholPolicy: 'serves-alcohol',
+    servesAlcohol: true,
     ramadanFriendly: 'serves-lunch',
     tip: 'The food is basic, but the rooftop cocktail terrace is unmatched for location. Grab a drink and enjoy the sunset wind over the port.',
 
-    // ── NEW FIELDS ──
+    // ── LOGISTICS ──
     bestTimeToVisit: 'Early evening around 18:30 for sunset',
     averageWaitMinutes: 10,
     seatingTypes: ['rooftop', 'terrace'],
@@ -812,6 +851,8 @@ export const essaouiraEat: EatListing[] = [
     wiFi: true,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["alcohol", "budget", "dinner", "late-night", "medina", "rooftop", "sunset", "tagine", "terrace", "wifi"]
   },
 
   {
@@ -825,6 +866,8 @@ export const essaouiraEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Casual Italian Dining', 'Family Pizza Night', 'Romantic Sunset'],
     foodStyles: ['Italian', 'Seafood', 'Mediterranean'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'seafood'],
     crowdLevel: 'balanced',
     groupTypes: ['couple', 'family', 'friends', 'kids-friendly'],
     hasEnglishStaff: true,
@@ -836,30 +879,31 @@ export const essaouiraEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: false,
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '23:00',
     badge: 'local-favorite',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.4,
-    googleReviewCount: 950,
-    tripadvisorRating: 4.4,
-    tripadvisorReviewCount: 950,
-    theforkRating: 4.4,
-    theforkReviewCount: 950,
-    restaurantguruRating: 4.4,
-    restaurantguruReviewCount: 950,
+    googleRating: 4.3,
+    googleReviewCount: 561,
+    tripadvisorRating: 4.3,
+    tripadvisorReviewCount: 602,
+    theforkRating: 4.2,
+    theforkReviewCount: 85,
+    restaurantguruRating: 4.3,
+    restaurantguruReviewCount: 540,
 
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['phone'],
     googleMapsUrl: 'https://maps.google.com/?q=Trattoria+Silvestro+Essaouira',
     bestDishes: ['Seafood Linguine', 'Pizza Diavola', 'House Tiramisu'],
     alcoholPolicy: 'serves-alcohol',
+    servesAlcohol: true,
     ramadanFriendly: 'serves-lunch',
     tip: 'If you need a break from traditional tagines, this is the best spot in the city for a perfect wood-fired pizza or seafood spaghetti.',
 
-    // ── NEW FIELDS ──
+    // ── LOGISTICS ──
     bestTimeToVisit: 'Late evening after 20:00 for lively crowd',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor'],
@@ -867,6 +911,8 @@ export const essaouiraEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: false
+  ,
+    tags: ["alcohol", "budget", "dinner", "medina", "sunset", "wifi"]
   },
 
   {
@@ -880,6 +926,8 @@ export const essaouiraEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner', 'latenight'],
     experienceTypes: ['Casual Dining', 'Quick Bites'],
     foodStyles: ['Mediterranean', 'Fast Food'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international'],
     crowdLevel: 'balanced',
     groupTypes: ['solo', 'friends', 'kids-friendly'],
     hasEnglishStaff: true,
@@ -891,20 +939,22 @@ export const essaouiraEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '00:00',
     badge: 'local-favorite',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
     googleRating: 4.6,
     googleReviewCount: 380,
-    tripadvisorRating: 4.6,
-    tripadvisorReviewCount: 380,
-    theforkRating: 4.6,
-    theforkReviewCount: 380,
+    tripadvisorRating: 4.5,
+    tripadvisorReviewCount: 110,
+    theforkRating: 4.4,
+    theforkReviewCount: 35,
     restaurantguruRating: 4.6,
-    restaurantguruReviewCount: 380,
+    restaurantguruReviewCount: 360,
 
     paymentMethods: ['cash'],
     reservationMethod: ['none'],
@@ -914,7 +964,7 @@ export const essaouiraEat: EatListing[] = [
     ramadanFriendly: 'special-ftour',
     tip: 'Perfect for a quick, delicious Western-style meal. Their homemade fries and spicy garlic sauce are brilliant.',
 
-    // ── NEW FIELDS ──
+    // ── LOGISTICS ──
     bestTimeToVisit: 'Late evening after 20:00 for lively crowd',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor'],
@@ -922,6 +972,8 @@ export const essaouiraEat: EatListing[] = [
     wiFi: true,
     airConditioning: false,
     wheelchairAccessible: true
+  ,
+    tags: ["budget", "dinner", "dry", "late-night", "medina", "street-food", "wifi"]
   },
 
   {
@@ -935,6 +987,8 @@ export const essaouiraEat: EatListing[] = [
     mealTypes: ['breakfast', 'lunch', 'dinner', 'afternoon-tea'],
     experienceTypes: ['Cafe', 'Casual Dining', 'Traditional Dining'],
     foodStyles: ['Moroccan', 'Mediterranean', 'Healthy'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'international'],
     crowdLevel: 'balanced',
     groupTypes: ['solo', 'couple', 'friends', 'family'],
     hasEnglishStaff: true,
@@ -946,20 +1000,22 @@ export const essaouiraEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '09:00',
     closeTime: '22:00',
     badge: 'local-favorite',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
     googleRating: 4.5,
     googleReviewCount: 510,
-    tripadvisorRating: 4.5,
-    tripadvisorReviewCount: 510,
-    theforkRating: 4.5,
-    theforkReviewCount: 510,
+    tripadvisorRating: 4.4,
+    tripadvisorReviewCount: 190,
+    theforkRating: 4.3,
+    theforkReviewCount: 45,
     restaurantguruRating: 4.5,
-    restaurantguruReviewCount: 510,
+    restaurantguruReviewCount: 490,
 
     paymentMethods: ['cash'],
     reservationMethod: ['none'],
@@ -969,7 +1025,7 @@ export const essaouiraEat: EatListing[] = [
     ramadanFriendly: 'special-ftour',
     tip: 'Sit by the window to watch the busy medina shoppers below. Excellent vegetarian couscous and ginger juices.',
 
-    // ── NEW FIELDS ──
+    // ── LOGISTICS ──
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor'],
@@ -977,6 +1033,8 @@ export const essaouiraEat: EatListing[] = [
     wiFi: true,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["breakfast", "budget", "cafe-pastry", "dinner", "dry", "juice", "medina", "pastilla", "tagine", "wifi"]
   },
 
   {
@@ -990,6 +1048,8 @@ export const essaouiraEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Cafe', 'Casual Dining', 'Traditional Dining'],
     foodStyles: ['Healthy', 'Moroccan', 'Mediterranean'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'moroccan-traditional'],
     crowdLevel: 'quiet',
     groupTypes: ['solo', 'couple', 'friends'],
     hasEnglishStaff: true,
@@ -1001,20 +1061,22 @@ export const essaouiraEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '21:30',
     badge: 'hidden-gem',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
     googleRating: 4.7,
-    googleReviewCount: 280,
-    tripadvisorRating: 4.7,
-    tripadvisorReviewCount: 280,
+    googleReviewCount: 119,
+    tripadvisorRating: 4.8,
+    tripadvisorReviewCount: 298,
     theforkRating: 4.7,
-    theforkReviewCount: 280,
+    theforkReviewCount: 40,
     restaurantguruRating: 4.7,
-    restaurantguruReviewCount: 280,
+    restaurantguruReviewCount: 115,
 
     paymentMethods: ['cash'],
     reservationMethod: ['none'],
@@ -1024,7 +1086,7 @@ export const essaouiraEat: EatListing[] = [
     ramadanFriendly: 'special-ftour',
     tip: 'An exceptionally friendly spot run by a dedicated local couple. The vegan almond cheese tagine is a unique culinary triumph.',
 
-    // ── NEW FIELDS ──
+    // ── LOGISTICS ──
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor'],
@@ -1032,6 +1094,8 @@ export const essaouiraEat: EatListing[] = [
     wiFi: true,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "cafe-pastry", "dinner", "dry", "juice", "medina", "pastry", "quiet", "tagine", "wifi"]
   },
 
   {
@@ -1045,6 +1109,8 @@ export const essaouiraEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Fine Dining', 'Romantic Sunset', 'Modern Fusion Dining'],
     foodStyles: ['Seafood', 'French', 'Moroccan'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['seafood', 'international', 'moroccan-traditional'],
     crowdLevel: 'balanced',
     groupTypes: ['couple', 'friends', 'family'],
     hasEnglishStaff: true,
@@ -1056,20 +1122,22 @@ export const essaouiraEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '23:00',
     badge: 'local-favorite',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.6,
-    googleReviewCount: 880,
-    tripadvisorRating: 4.6,
-    tripadvisorReviewCount: 880,
-    theforkRating: 4.6,
-    theforkReviewCount: 880,
-    restaurantguruRating: 4.6,
-    restaurantguruReviewCount: 880,
+    googleRating: 4.4,
+    googleReviewCount: 850,
+    tripadvisorRating: 4.3,
+    tripadvisorReviewCount: 380,
+    theforkRating: 4.3,
+    theforkReviewCount: 70,
+    restaurantguruRating: 4.4,
+    restaurantguruReviewCount: 810,
 
     paymentMethods: ['cash'],
     reservationMethod: ['phone'],
@@ -1079,7 +1147,7 @@ export const essaouiraEat: EatListing[] = [
     ramadanFriendly: 'special-ftour',
     tip: 'An intimate room, so booking is highly advised. The fish filet with saffron sauce is outstanding.',
 
-    // ── NEW FIELDS ──
+    // ── LOGISTICS ──
     bestTimeToVisit: 'Late evening after 20:00 for lively crowd',
     averageWaitMinutes: 10,
     seatingTypes: ['indoor'],
@@ -1087,6 +1155,8 @@ export const essaouiraEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "dinner", "dry", "fine", "medina", "sunset", "wifi"]
   },
 
   {
@@ -1100,6 +1170,8 @@ export const essaouiraEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Fine Dining', 'Romantic Sunset', 'Traditional Dining'],
     foodStyles: ['French', 'Moroccan', 'Mediterranean'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'moroccan-traditional'],
     crowdLevel: 'quiet',
     groupTypes: ['couple', 'family', 'solo'],
     hasEnglishStaff: true,
@@ -1111,20 +1183,22 @@ export const essaouiraEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '22:30',
     badge: 'hidden-gem',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.8,
-    googleReviewCount: 420,
-    tripadvisorRating: 4.8,
-    tripadvisorReviewCount: 420,
-    theforkRating: 4.8,
-    theforkReviewCount: 420,
-    restaurantguruRating: 4.8,
-    restaurantguruReviewCount: 420,
+    googleRating: 4.7,
+    googleReviewCount: 892,
+    tripadvisorRating: 4.7,
+    tripadvisorReviewCount: 1221,
+    theforkRating: 4.6,
+    theforkReviewCount: 120,
+    restaurantguruRating: 4.7,
+    restaurantguruReviewCount: 890,
 
     paymentMethods: ['cash'],
     reservationMethod: ['phone'],
@@ -1134,7 +1208,7 @@ export const essaouiraEat: EatListing[] = [
     ramadanFriendly: 'special-ftour',
     tip: 'Their chocolate fondant is praised by travelers as the finest in Morocco. A beautiful, romantic escape.',
 
-    // ── NEW FIELDS ──
+    // ── LOGISTICS ──
     bestTimeToVisit: 'Lunch around 13:00 for quiet',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor'],
@@ -1142,6 +1216,8 @@ export const essaouiraEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "dinner", "dry", "fine", "medina", "quiet", "sunset"]
   },
 
   {
@@ -1155,6 +1231,8 @@ export const essaouiraEat: EatListing[] = [
     mealTypes: ['breakfast', 'lunch', 'brunch', 'afternoon-tea'],
     experienceTypes: ['Cafe', 'Casual Dining', 'Beachfront Grill'],
     foodStyles: ['Healthy', 'Mediterranean', 'Cafe'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'cafe-pastry'],
     crowdLevel: 'balanced',
     groupTypes: ['solo', 'friends', 'couple', 'kids-friendly'],
     hasEnglishStaff: true,
@@ -1166,20 +1244,22 @@ export const essaouiraEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
     openTime: '08:30',
     closeTime: '20:00',
     badge: 'local-favorite',
-    // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
     googleRating: 4.5,
     googleReviewCount: 310,
     tripadvisorRating: 4.5,
-    tripadvisorReviewCount: 310,
-    theforkRating: 4.5,
-    theforkReviewCount: 310,
+    tripadvisorReviewCount: 180,
+    theforkRating: 4.4,
+    theforkReviewCount: 30,
     restaurantguruRating: 4.5,
-    restaurantguruReviewCount: 310,
+    restaurantguruReviewCount: 290,
 
     paymentMethods: ['cash'],
     reservationMethod: ['none'],
@@ -1189,7 +1269,7 @@ export const essaouiraEat: EatListing[] = [
     ramadanFriendly: 'serves-lunch',
     tip: 'The ideal chill-out spot after camel riding or quad biking along the dunes. Great positive vibes.',
 
-    // ── NEW FIELDS ──
+    // ── LOGISTICS ──
     bestTimeToVisit: 'Early morning for fresh baked goods',
     averageWaitMinutes: 5,
     seatingTypes: ['indoor', 'terrace'],
@@ -1197,5 +1277,7 @@ export const essaouiraEat: EatListing[] = [
     wiFi: true,
     airConditioning: false,
     wheelchairAccessible: true
+  ,
+    tags: ["breakfast", "budget", "cafe-pastry", "dry", "juice", "terrace", "wifi"]
   }
 ];

@@ -192,13 +192,15 @@ export const el_jadidaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: true,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "friends", "seniors", "business-friendly"],
     tip: "Walk down to the private beachfront at sunset, or book a round of golf at Morocco's longest links course designed by Gary Player.",
     vibeTags: ["Luxury", "Golf", "Beachfront", "Resort"],
-    locationSummary: "Beachfront Resort - Mazagan Coast",
+    locationSummary: "Haouzia Coastal Golf Resort",
     availabilityText: "Available tonight - Popular weekends",
     googleMapsUrl: "https://maps.google.com/?q=Mazagan+Beach+Golf+Resort+El+Jadida",
     address: "Mazagan Beach & Golf Resort, Route de Casablanca, El Jadida 24000, Morocco",
@@ -271,6 +273,11 @@ export const el_jadidaSleep: SleepListing[] = [
       business: "Excellent meeting, event, and retreat facilities.",
       nomad: "Good for premium workations if you want resort infrastructure and quiet rooms.",
     },
+    coordinates: {
+      lat: 33.281921,
+      lng: -8.384253
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "ej-sleep-2",
@@ -308,13 +315,15 @@ export const el_jadidaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "seniors"],
     tip: "Perfect for a romantic retreat; enjoy a candlelit dinner in the magical central courtyard surrounded by classical music.",
     vibeTags: ["Palatial", "Historic", "Romantic", "Garden"],
-    locationSummary: "Cité Portugaise - Historic Palace",
+    locationSummary: "Cité Portugaise (Mazagan)",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Dar+El+Malaika+El+Jadida",
     address: "26 Rue du Docteur Blanc, Cité Portugaise, El Jadida 24010, Morocco",
@@ -381,6 +390,11 @@ export const el_jadidaSleep: SleepListing[] = [
       business: "Quiet enough for focused work, but more of a leisure retreat.",
       nomad: "A beautiful base for slow creative work in a historic setting.",
     },
+    coordinates: {
+      lat: 33.257073,
+      lng: -8.502065
+    },
+    tags: ["heritage"]
   },
   {
     id: "ej-sleep-3",
@@ -418,13 +432,15 @@ export const el_jadidaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: true,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "seniors", "business-friendly"],
     tip: "Opt for a sea-view room to enjoy beautiful ocean vistas and try a fresh seafood lunch at their poolside grill restaurant.",
     vibeTags: ["Golf", "Spa", "Beachfront", "Classic"],
-    locationSummary: "Beachfront Golf Resort",
+    locationSummary: "Haouzia Coastal Golf Resort",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Pullman+Mazagan+Royal+Golf+Spa+El+Jadida",
     address: "Route de Casablanca, El Jadida 24000, Morocco",
@@ -497,6 +513,11 @@ export const el_jadidaSleep: SleepListing[] = [
       business: "Useful for conferences and business stays outside the city.",
       nomad: "A practical resort work base if you want quiet and space.",
     },
+    coordinates: {
+      lat: 33.25934,
+      lng: -8.422949
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "ej-sleep-4",
@@ -613,6 +634,11 @@ export const el_jadidaSleep: SleepListing[] = [
       business: "Quiet rooms and central location suit creative work.",
       nomad: "A characterful remote-work base with inspiring rooftop breaks.",
     },
+    coordinates: {
+      lat: 33.256988,
+      lng: -8.501786
+    },
+    tags: ["heritage"]
   },
   {
     id: "ej-sleep-5",
@@ -723,6 +749,11 @@ export const el_jadidaSleep: SleepListing[] = [
       business: "Quiet enough for laptop work between sightseeing.",
       nomad: "A balanced riad for nomads who prefer historic atmosphere over hotel amenities.",
     },
+    coordinates: {
+      lat: 33.256758,
+      lng: -8.509275
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "ej-sleep-6",
@@ -760,13 +791,15 @@ export const el_jadidaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: true,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["couple", "family", "friends", "seniors"],
     tip: "This resort is known for its quiet family vibe; take advantage of the direct pathways that lead straight from the rooms to the beach.",
     vibeTags: ["Modern", "Family", "Beachfront", "Garden"],
-    locationSummary: "Beachfront - Garden Resort",
+    locationSummary: "Haouzia Coastal Golf Resort",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Zephyr+Mazagan+El+Jadida",
     address: "Route de Casablanca, El Jadida 24000, Morocco",
@@ -833,6 +866,11 @@ export const el_jadidaSleep: SleepListing[] = [
       business: "Useful for longer business stays with parking and space.",
       nomad: "Good for nomads who want apartment-style rooms and gym access.",
     },
+    coordinates: {
+      lat: 33.254204,
+      lng: -8.436855
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "ej-sleep-7",
@@ -870,13 +908,15 @@ export const el_jadidaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "friends"],
     tip: "Ask the helpful host for local dining spots in the old town; she provides excellent recommendations.",
     vibeTags: ["Warm", "Traditional", "Value", "Quiet"],
-    locationSummary: "Cité Portugaise",
+    locationSummary: "Cité Portugaise (Mazagan)",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Siham+El+Jadida",
     address: "Cité Portugaise, El Jadida 24010, Morocco",
@@ -943,6 +983,11 @@ export const el_jadidaSleep: SleepListing[] = [
       business: "Quiet enough for basic laptop work.",
       nomad: "A good-value historic base for slow travel and light remote work.",
     },
+    coordinates: {
+      lat: 33.190796,
+      lng: -8.443665
+    },
+    tags: []
   },
   {
     id: "ej-sleep-8",
@@ -980,13 +1025,15 @@ export const el_jadidaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: true,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["couple", "family", "friends"],
     tip: "Book a sea-view suite to wake up to the sound of breaking waves and look out over the bay.",
     vibeTags: ["Spacious", "Beachfront", "Family", "Modern"],
-    locationSummary: "Beachfront Suites",
+    locationSummary: "Haouzia Coastal Golf Resort",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Oceana+Mazagan+Suites+Hotel+El+Jadida",
     address: "Boulevard de Suez, El Jadida 24000, Morocco",
@@ -1053,6 +1100,11 @@ export const el_jadidaSleep: SleepListing[] = [
       business: "Suite space works well for informal work stays.",
       nomad: "A practical option for nomads who want more room and beach access.",
     },
+    coordinates: {
+      lat: 33.243795,
+      lng: -8.4833
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "ej-sleep-9",
@@ -1090,13 +1142,15 @@ export const el_jadidaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: true,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Enjoy a morning jog along the beachfront promenade directly outside the hotel gates.",
     vibeTags: ["Modern", "Beachfront", "Garden", "Casual"],
-    locationSummary: "Municipal Beachfront",
+    locationSummary: "Haouzia Coastal Golf Resort",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Mia+Mazagan+Bay+El+Jadida",
     address: "Boulevard Mohammed VI, El Jadida 24000, Morocco",
@@ -1163,6 +1217,11 @@ export const el_jadidaSleep: SleepListing[] = [
       business: "Fine for short work trips with town access.",
       nomad: "A simple beachside base for remote workers who prefer modern rooms.",
     },
+    coordinates: {
+      lat: 33.244428,
+      lng: -8.48919
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "ej-sleep-10",
@@ -1199,14 +1258,16 @@ export const el_jadidaSleep: SleepListing[] = [
     taxesIncluded: false,
     freeCancellation: true,
     kidsStayFree: false,
-    nearMedina: false,
+    nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: true,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "friends", "business-friendly"],
     tip: "An excellent pet-friendly choice if you are traveling with a dog and want easy walking access to the beach and town.",
     vibeTags: ["Reliable", "Budget", "Pet-Friendly", "Central"],
-    locationSummary: "City Center - Near Beach",
+    locationSummary: "Cité Portugaise (Mazagan)",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=ibis+El+Jadida",
     address: "Place Nour El Kamar, Route de Casablanca, El Jadida 24000, Morocco",
@@ -1273,6 +1334,11 @@ export const el_jadidaSleep: SleepListing[] = [
       business: "Reliable for business travelers on a budget.",
       nomad: "A predictable budget base with usable WiFi and easy town access.",
     },
+    coordinates: {
+      lat: 33.244359,
+      lng: -8.488484
+    },
+    tags: []
   },
   {
     id: "ej-sleep-11",
@@ -1310,13 +1376,15 @@ export const el_jadidaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: true,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "friends"],
     tip: "This stay is located directly on the historical walls; enjoy a sunset view over the fishing port from the terrace.",
     vibeTags: ["Maritime", "Historic", "Budget", "Harbor-Views"],
-    locationSummary: "Cité Portugaise - Ramparts",
+    locationSummary: "Cité Portugaise (Mazagan)",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=A+Casa+da+mare+El+Jadida",
     address: "Cité Portugaise, El Jadida 24010, Morocco",
@@ -1383,6 +1451,11 @@ export const el_jadidaSleep: SleepListing[] = [
       business: "Good for light work in the shared lounge.",
       nomad: "A budget-friendly old-town base with inspiring sea views.",
     },
+    coordinates: {
+      lat: 33.25771,
+      lng: -8.501486
+    },
+    tags: ["heritage"]
   },
   {
     id: "ej-sleep-12",
@@ -1420,13 +1493,15 @@ export const el_jadidaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Savor their freshly made mint tea on the rooftop during late afternoon for a peaceful view of the Medina roofs.",
     vibeTags: ["Clean", "Traditional", "Rooftop", "Value"],
-    locationSummary: "Cité Portugaise",
+    locationSummary: "Cité Portugaise (Mazagan)",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Zahrat+Al+Fajr+El+Jadida",
     address: "Cité Portugaise, El Jadida 24010, Morocco",
@@ -1493,6 +1568,11 @@ export const el_jadidaSleep: SleepListing[] = [
       business: "Works for basic work tasks in a quiet setting.",
       nomad: "A budget-friendly riad for slow travelers who work lightly.",
     },
+    coordinates: {
+      lat: 33.256797,
+      lng: -8.502332
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "ej-sleep-13",
@@ -1529,14 +1609,16 @@ export const el_jadidaSleep: SleepListing[] = [
     taxesIncluded: false,
     freeCancellation: true,
     kidsStayFree: false,
-    nearMedina: false,
+    nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "business-friendly"],
     tip: "An excellent choice for art and design enthusiasts; enjoy the galleries and historic theater just a 5-minute walk away.",
     vibeTags: ["Artistic", "Boutique", "Business", "Central"],
-    locationSummary: "City Center - Theatre District",
+    locationSummary: "Cité Portugaise (Mazagan)",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Art+Suites+El+Jadida",
     address: "20 Bis Avenue Ibn Khaldoun, El Jadida 24000, Morocco",
@@ -1603,6 +1685,11 @@ export const el_jadidaSleep: SleepListing[] = [
       business: "One of the more practical city-center business options.",
       nomad: "A solid nomad base with workspace, central errands, and artful interiors.",
     },
+    coordinates: {
+      lat: 33.250667,
+      lng: -8.502677
+    },
+    tags: []
   },
   {
     id: "ej-sleep-14",
@@ -1713,6 +1800,11 @@ export const el_jadidaSleep: SleepListing[] = [
       business: "Good for a short budget work stop.",
       nomad: "A low-cost old-town base for light remote work and sightseeing.",
     },
+    coordinates: {
+      lat: 33.256134,
+      lng: -8.502007
+    },
+    tags: ["heritage"]
   },
   {
     id: "ej-sleep-15",
@@ -1749,14 +1841,16 @@ export const el_jadidaSleep: SleepListing[] = [
     taxesIncluded: false,
     freeCancellation: true,
     kidsStayFree: true,
-    nearMedina: false,
+    nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family"],
     tip: "Ideal for travelers wanting peaceful poolside afternoons away from the busier public beaches.",
     vibeTags: ["Garden", "Pool", "Quiet", "Residential"],
-    locationSummary: "City Center - Residential",
+    locationSummary: "Cité Portugaise (Mazagan)",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Zerad+El+Jadida",
     address: "El Jadida 24000, Morocco",
@@ -1823,6 +1917,11 @@ export const el_jadidaSleep: SleepListing[] = [
       business: "Works for quiet focused work away from traffic.",
       nomad: "A calm guesthouse base for nomads who value outdoor space.",
     },
+    coordinates: {
+      lat: 33.243331,
+      lng: -8.49884
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "ej-sleep-16",
@@ -1860,13 +1959,15 @@ export const el_jadidaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: true,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Take a slow afternoon walk on the ramparts directly adjacent to the riad to experience the sea breeze.",
     vibeTags: ["Historic", "Stone-Arches", "Sea-View", "Family"],
-    locationSummary: "Cité Portugaise - Ramparts",
+    locationSummary: "Cité Portugaise (Mazagan)",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+La+Citadelle+El+Jadida",
     address: "Cité Portugaise, El Jadida 24010, Morocco",
@@ -1933,6 +2034,11 @@ export const el_jadidaSleep: SleepListing[] = [
       business: "Fine for quiet laptop work in common spaces.",
       nomad: "An atmospheric base for creative nomads who enjoy historic surroundings.",
     },
+    coordinates: {
+      lat: 33.253448,
+      lng: -8.505156
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "ej-sleep-17",
@@ -1969,14 +2075,16 @@ export const el_jadidaSleep: SleepListing[] = [
     taxesIncluded: false,
     freeCancellation: true,
     kidsStayFree: true,
-    nearMedina: false,
+    nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: true,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "The municipal beach is right across the street; rent a beach umbrella and enjoy the popular local seaside scene.",
     vibeTags: ["Beachfront", "Budget", "Simple", "Local"],
-    locationSummary: "Beachfront - Municipal Beach",
+    locationSummary: "Cité Portugaise (Mazagan)",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Amwaj+Hotel+El+Jadida",
     address: "Boulevard Mohammed VI, El Jadida 24000, Morocco",
@@ -2043,6 +2151,11 @@ export const el_jadidaSleep: SleepListing[] = [
       business: "Basic but usable for short work stays.",
       nomad: "A budget beach base for nomads who do not need luxury.",
     },
+    coordinates: {
+      lat: 33.243963,
+      lng: -8.478969
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "ej-sleep-18",
@@ -2080,13 +2193,15 @@ export const el_jadidaSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Don't hesitate to request their traditional tagine for dinner, which is slow-cooked over charcoal on the rooftop.",
     vibeTags: ["Zellij", "Family-Run", "Traditional", "Value"],
-    locationSummary: "Cité Portugaise",
+    locationSummary: "Cité Portugaise (Mazagan)",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Ksar+El+Jadida",
     address: "Cité Portugaise, El Jadida 24010, Morocco",
@@ -2153,6 +2268,11 @@ export const el_jadidaSleep: SleepListing[] = [
       business: "Quiet enough for light work outside meal times.",
       nomad: "A modest, authentic base for slow-travel nomads.",
     },
+    coordinates: {
+      lat: 33.256078,
+      lng: -8.501974
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "ej-sleep-19",
@@ -2189,14 +2309,16 @@ export const el_jadidaSleep: SleepListing[] = [
     taxesIncluded: false,
     freeCancellation: true,
     kidsStayFree: true,
-    nearMedina: false,
+    nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: true,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "friends"],
     tip: "Perfect for self-catering families; walk to the nearby local market to buy fresh produce and seafood to prepare at home.",
     vibeTags: ["Apartment", "Self-Catering", "Bright", "Family"],
-    locationSummary: "Beach Area - Self Catering",
+    locationSummary: "Cité Portugaise (Mazagan)",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Appartement+32+ensoleille+5+min+plage+El+Jadida",
     address: "Beach area, El Jadida 24000, Morocco",
@@ -2257,6 +2379,11 @@ export const el_jadidaSleep: SleepListing[] = [
       business: "High-speed WiFi and a table make it practical for work.",
       nomad: "One of the better budget nomad choices if you want privacy and a kitchen.",
     },
+    coordinates: {
+      lat: 33.241208,
+      lng: -8.485129
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "ej-sleep-20",
@@ -2293,14 +2420,16 @@ export const el_jadidaSleep: SleepListing[] = [
     taxesIncluded: false,
     freeCancellation: true,
     kidsStayFree: true,
-    nearMedina: false,
+    nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "business-friendly"],
     tip: "This modern building features private parking and secure elevators, making it a reliable base if you are traveling with heavy luggage.",
     vibeTags: ["Apartment", "Secure", "Modern", "Central"],
-    locationSummary: "City Center - Residential Apartment",
+    locationSummary: "Cité Portugaise (Mazagan)",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Apprt+Ennakhil+3+El+Jadida",
     address: "Résidence Ennakhil, El Jadida 24000, Morocco",
@@ -2361,5 +2490,10 @@ export const el_jadidaSleep: SleepListing[] = [
       business: "Excellent for work stays with privacy and secure access.",
       nomad: "A practical apartment for nomads needing kitchen, workspace, and quiet.",
     },
+    coordinates: {
+      lat: 33.243011,
+      lng: -8.497185
+    },
+    tags: ["family-favorite"]
   }
 ]

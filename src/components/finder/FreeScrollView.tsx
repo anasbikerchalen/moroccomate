@@ -3,10 +3,10 @@ import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   ChevronLeft, ChevronRight, X, Sparkles, Filter, 
-  MapPin, Star, Eye, Compass, RotateCcw, Check, SlidersHorizontal
+  MapPin, Star, Eye, Compass, RotateCcw, Check, SlidersHorizontal, Camera
 } from 'lucide-react';
 import { cn } from '../../utils/cn';
-import { resolveListingImages, handleListingImageError } from '../../utils/imageResolver';
+import { getCityTheme } from '../../utils/cityPalette';
 import { getListings } from '../../listings';
 import { cityMap, cities } from '../../data/cities';
 import { ExploreCategory } from '../../types';
@@ -53,6 +53,9 @@ export default function FreeScrollView({
   const [searchQuery, setSearchQuery] = useState<string>('');
 
   const currentTabConfig = CATEGORY_TABS.find((t) => t.id === selectedTab) || CATEGORY_TABS[1];
+
+  // City-themed gradient palette — powers the no-image carousel card backgrounds
+  const themeColors = useMemo(() => getCityTheme(selectedCity), [selectedCity]);
 
   // Fetch listings for selected city & category
   const rawListings = useMemo(() => {
@@ -203,10 +206,12 @@ export default function FreeScrollView({
       onTouchEnd={handleTouchEnd}
     >
       {/* Dynamic Moroccan Background Layer with Soft Depth Vignette */}
-      <div 
-        className="absolute inset-0 z-0 bg-cover bg-center pointer-events-none opacity-25 filter blur-[3px] scale-105 transition-all duration-1000"
+      <div
+        className="absolute inset-0 z-0 pointer-events-none transition-all duration-1000"
         style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1600&q=80')`
+          background: `radial-gradient(circle at 80% 15%, ${themeColors.secondary}22 0%, transparent 60%),
+                       radial-gradient(circle at 15% 85%, ${themeColors.primary}18 0%, transparent 50%),
+                       linear-gradient(165deg, #241611 0%, #18110D 60%, #120B08 100%)`
         }}
       />
       <div className="absolute inset-0 z-0 bg-radial from-transparent via-[#18110D]/75 to-[#120B08] pointer-events-none" />
@@ -368,11 +373,6 @@ export default function FreeScrollView({
               const zIndex = isCenter ? 30 : isAdjacent ? 20 : 10;
               const opacity = isCenter ? 1 : isAdjacent ? 0.75 : 0.40;
 
-              const resolvedImage = resolveListingImages({
-                ...item,
-                category: currentTabConfig.focusKey,
-              });
-
               const displayName = item.title || item.name || 'Moroccan Gem';
               const locationText = item.neighborhood 
                 ? `${item.neighborhood}, ${item.city || selectedCity}`
@@ -434,15 +434,29 @@ export default function FreeScrollView({
                       : "shadow-xl hover:opacity-90"
                   )}
                 >
-                  {/* Listing Main Image */}
-                  <img
-                    src={resolvedImage.url}
-                    alt={displayName}
-                    data-fallbacks={JSON.stringify(resolvedImage.fallbackUrls)}
-                    onError={(e) => handleListingImageError(e, resolvedImage.fallbackUrls, currentTabConfig.focusKey)}
-                    className="w-full h-full object-cover pointer-events-none"
-                    loading="lazy"
+                  {/* No-Image Gradient Background — city-themed Moroccan palette */}
+                  <div
+                    className="absolute inset-0 pointer-events-none"
+                    style={{
+                      background: `radial-gradient(circle at 75% 20%, ${themeColors.secondary}40 0%, transparent 55%),
+                                   radial-gradient(circle at 20% 85%, ${themeColors.primary}30 0%, transparent 50%),
+                                   linear-gradient(165deg, ${themeColors.primary}55 0%, #1a0f0a 60%, #120B08 100%)`
+                    }}
                   />
+                  {/* Subtle geometric texture */}
+                  <div className="absolute inset-0 bg-[radial-gradient(rgba(201,168,76,0.18)_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none" />
+
+                  {/* See Photos link — opens the place's Google Maps photos */}
+                  <a
+                    href={item.googleMapsUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${displayName} ${locationText} Morocco`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="absolute top-4 right-4 z-20 pointer-events-auto flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white text-[10px] font-bold hover:bg-[#C9A84C] hover:text-stone-950 hover:border-[#C9A84C] transition-all cursor-pointer"
+                  >
+                    <Camera className="w-3.5 h-3.5" />
+                    <span>Photos</span>
+                  </a>
 
                   {/* Dark Gradient Overlay for Typography Contrast */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/45 to-black/10 pointer-events-none" />

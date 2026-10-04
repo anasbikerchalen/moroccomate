@@ -38,16 +38,15 @@ export const meknesThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "cultural-tour",
-      "instagrammable",
-      "urban"
-    ],
+    "tags": ["cultural-tour", "instagrammable", "urban", "walk-in"],
     "archetypeAffinity": [
       "first-timer",
       "culture"
     ],
-    "tip": "Photograph it from the square in late afternoon for the warmest colors."
+    "tip": "Photograph it from the square in late afternoon for the warmest colors.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     "id": "meknes-place-el-hedim",
@@ -86,15 +85,15 @@ export const meknesThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": true,
     "isPhotographyFriendly": true,
-    "tags": [
-      "urban",
-      "authentic"
-    ],
+    "tags": ["authentic", "urban", "walk-in"],
     "archetypeAffinity": [
       "first-timer",
       "nomad"
     ],
-    "tip": "Come twice if you can: once by day and again after dusk."
+    "tip": "Come twice if you can: once by day and again after dusk.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     "id": "meknes-mausoleum-of-moulay-ismail",
@@ -133,15 +132,15 @@ export const meknesThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "cultural-tour",
-      "urban"
-    ],
+    "tags": ["cultural-tour", "urban", "walk-in"],
     "archetypeAffinity": [
       "culture",
       "first-timer"
     ],
-    "tip": "Dress modestly and keep your pace slow; it is still a living religious place."
+    "tip": "Dress modestly and keep your pace slow; it is still a living religious place.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     "id": "meknes-dar-jamai-museum",
@@ -181,15 +180,15 @@ export const meknesThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": true,
     "isPhotographyFriendly": false,
-    "tags": [
-      "cultural-tour",
-      "urban"
-    ],
+    "tags": ["cultural-tour", "private", "relaxed", "urban", "walk-in"],
     "archetypeAffinity": [
       "culture",
       "first-timer"
     ],
-    "tip": "Look for the carved wood ceilings before heading into the garden."
+    "tip": "Look for the carved wood ceilings before heading into the garden.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: false
   },
   {
     "id": "meknes-bou-inania-medersa",
@@ -228,16 +227,15 @@ export const meknesThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "cultural-tour",
-      "medina",
-      "instagrammable"
-    ],
+    "tags": ["cultural-tour", "instagrammable", "medina", "private", "walk-in"],
     "archetypeAffinity": [
       "culture",
       "first-timer"
     ],
-    "tip": "The detail is easy to miss; pause in the courtyard before climbing stairs."
+    "tip": "The detail is easy to miss; pause in the courtyard before climbing stairs.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: false
   },
   {
     "id": "meknes-heri-es-souani",
@@ -276,16 +274,15 @@ export const meknesThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "cultural-tour",
-      "instagrammable",
-      "urban"
-    ],
+    "tags": ["cultural-tour", "instagrammable", "urban", "walk-in"],
     "archetypeAffinity": [
       "first-timer",
       "culture"
     ],
-    "tip": "Best paired with Sahrij Swani and the Royal Stables in one loop."
+    "tip": "Best paired with Sahrij Swani and the Royal Stables in one loop.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     "id": "meknes-royal-stables",
@@ -324,16 +321,15 @@ export const meknesThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "cultural-tour",
-      "instagrammable",
-      "urban"
-    ],
+    "tags": ["cultural-tour", "instagrammable", "urban", "walk-in"],
     "archetypeAffinity": [
       "culture",
       "first-timer"
     ],
-    "tip": "Visit in cooler hours because the site is exposed."
+    "tip": "Visit in cooler hours because the site is exposed.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     "id": "meknes-sahrij-swani",
@@ -372,16 +368,15 @@ export const meknesThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": true,
     "isPhotographyFriendly": true,
-    "tags": [
-      "nature",
-      "instagrammable",
-      "urban"
-    ],
+    "tags": ["instagrammable", "nature", "relaxed", "sunset", "urban", "walk-in"],
     "archetypeAffinity": [
       "nomad",
       "luxury"
     ],
-    "tip": "Sunset is the sweet spot when the water catches the sky."
+    "tip": "Sunset is the sweet spot when the water catches the sky.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: true
   },
   {
     "id": "meknes-qara-prison",
@@ -420,16 +415,15 @@ export const meknesThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "cultural-tour",
-      "off-the-beaten-path",
-      "urban"
-    ],
+    "tags": ["cultural-tour", "off-the-beaten-path", "urban", "walk-in"],
     "archetypeAffinity": [
       "culture",
       "adventure"
     ],
-    "tip": "A local guide can help separate history from legend here."
+    "tip": "A local guide can help separate history from legend here.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     "id": "meknes-meknes-medina-souk-walk",
@@ -467,17 +461,15 @@ export const meknesThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "shopping",
-      "medina",
-      "authentic",
-      "urban"
-    ],
+    "tags": ["authentic", "medina", "private", "shopping", "urban", "walk-in"],
     "archetypeAffinity": [
       "culture",
       "nomad"
     ],
-    "tip": "Aim for morning if you prefer cooler temperatures and active workshops."
+    "tip": "Aim for morning if you prefer cooler temperatures and active workshops.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: false
   },
   {
     "id": "meknes-bab-el-khemis",
@@ -516,16 +508,15 @@ export const meknesThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "cultural-tour",
-      "off-the-beaten-path",
-      "urban"
-    ],
+    "tags": ["cultural-tour", "off-the-beaten-path", "urban", "walk-in"],
     "archetypeAffinity": [
       "culture",
       "nomad"
     ],
-    "tip": "Combine it with a mellah walk for a quieter half-day."
+    "tip": "Combine it with a mellah walk for a quieter half-day.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     "id": "meknes-lalla-aouda-and-royal-palace-gates",
@@ -564,16 +555,15 @@ export const meknesThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "cultural-tour",
-      "urban",
-      "instagrammable"
-    ],
+    "tags": ["cultural-tour", "instagrammable", "private", "urban", "walk-in"],
     "archetypeAffinity": [
       "first-timer",
       "culture"
     ],
-    "tip": "Security zones shift, so keep plans flexible and stay in public areas."
+    "tip": "Security zones shift, so keep plans flexible and stay in public areas.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: false
   },
   {
     "id": "meknes-agdal-basin",
@@ -612,16 +602,15 @@ export const meknesThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": true,
     "isPhotographyFriendly": true,
-    "tags": [
-      "nature",
-      "urban",
-      "off-the-beaten-path"
-    ],
+    "tags": ["nature", "off-the-beaten-path", "private", "relaxed", "urban", "walk-in"],
     "archetypeAffinity": [
       "nomad",
       "culture"
     ],
-    "tip": "Good stop between the imperial gates and Heri es-Souani."
+    "tip": "Good stop between the imperial gates and Heri es-Souani.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: false
   },
   {
     "id": "meknes-borj-belkari-pottery-museum",
@@ -661,16 +650,15 @@ export const meknesThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": true,
     "isPhotographyFriendly": false,
-    "tags": [
-      "cultural-tour",
-      "workshop",
-      "urban"
-    ],
+    "tags": ["cultural-tour", "private", "relaxed", "urban", "walk-in", "workshop"],
     "archetypeAffinity": [
       "culture",
       "nomad"
     ],
-    "tip": "It makes the most sense if you plan to shop for local ceramics later."
+    "tip": "It makes the most sense if you plan to shop for local ceramics later.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: false
   },
   {
     "id": "meknes-jewish-mellah-of-meknes",
@@ -709,16 +697,15 @@ export const meknesThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "cultural-tour",
-      "authentic",
-      "urban"
-    ],
+    "tags": ["authentic", "cultural-tour", "urban", "walk-in"],
     "archetypeAffinity": [
       "culture",
       "nomad"
     ],
-    "tip": "Go with curiosity and a map; the experience is about noticing texture and history."
+    "tip": "Go with curiosity and a map; the experience is about noticing texture and history.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     "id": "meknes-volubilis-day-trip",
@@ -757,16 +744,15 @@ export const meknesThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "cultural-tour",
-      "nature",
-      "instagrammable"
-    ],
+    "tags": ["cultural-tour", "instagrammable", "nature", "private", "walk-in"],
     "archetypeAffinity": [
       "first-timer",
       "culture"
     ],
-    "tip": "Start early if you also want to add Moulay Idriss without rushing."
+    "tip": "Start early if you also want to add Moulay Idriss without rushing.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: false
   },
   {
     "id": "meknes-moulay-idriss-zerhoun-day-trip",
@@ -805,17 +791,15 @@ export const meknesThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "cultural-tour",
-      "mountain",
-      "instagrammable",
-      "authentic"
-    ],
+    "tags": ["authentic", "cultural-tour", "instagrammable", "mountain", "private", "sunset", "walk-in"],
     "archetypeAffinity": [
       "culture",
       "first-timer"
     ],
-    "tip": "Wear shoes with grip; the lanes climb more than they first appear."
+    "tip": "Wear shoes with grip; the lanes climb more than they first appear.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: true
   },
   {
     "id": "meknes-ch-teau-roslane-wine-tasting",
@@ -854,16 +838,15 @@ export const meknesThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "authentic",
-      "nature",
-      "off-the-beaten-path"
-    ],
+    "tags": ["authentic", "nature", "off-the-beaten-path", "walk-in"],
     "archetypeAffinity": [
       "luxury",
       "nomad"
     ],
-    "tip": "Reserve ahead, especially on weekends and harvest periods."
+    "tip": "Reserve ahead, especially on weekends and harvest periods.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     "id": "meknes-volubilia-domaine-de-la-zouina-tasting",
@@ -902,16 +885,15 @@ export const meknesThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "authentic",
-      "nature",
-      "off-the-beaten-path"
-    ],
+    "tags": ["authentic", "nature", "off-the-beaten-path", "walk-in"],
     "archetypeAffinity": [
       "nomad",
       "luxury"
     ],
-    "tip": "Best with a driver so you can enjoy the tasting without logistics stress."
+    "tip": "Best with a driver so you can enjoy the tasting without logistics stress.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     "id": "meknes-imperial-walls-carriage-ride",
@@ -947,15 +929,14 @@ export const meknesThings: ThingToDoListing[] = [
     "isFemaleFriendly": true,
     "isWheelchairAccessible": false,
     "isPhotographyFriendly": true,
-    "tags": [
-      "cultural-tour",
-      "urban",
-      "authentic"
-    ],
+    "tags": ["authentic", "cultural-tour", "relaxed", "urban", "walk-in"],
     "archetypeAffinity": [
       "first-timer",
       "luxury"
     ],
-    "tip": "Agree on route and price before setting off from the square."
+    "tip": "Agree on route and price before setting off from the square.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   }
 ]

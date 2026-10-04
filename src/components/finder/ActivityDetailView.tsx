@@ -3,20 +3,17 @@ import { motion, AnimatePresence } from 'motion/react';
 import {
   Heart, MapPin, Clock, Shield, ThumbsUp, ThumbsDown,
   Navigation, CheckCircle2, ChevronRight, ArrowLeft, ExternalLink, MessageSquare, X,
-  BookOpen, type LucideIcon, Wifi, Wind, Globe, ShieldAlert, Star, DollarSign,
-  Info, Sparkles, HelpCircle, User, Award, Layers, Compass, Camera, Calendar, Flame, AlertCircle, Video
+  BookOpen, type LucideIcon, Wifi, Wind, Star,
+  Info, Sparkles, HelpCircle, User, Award, Layers, Compass, Camera, Calendar, Flame, AlertCircle, Video, ShieldAlert
 } from 'lucide-react';
 import { cn } from '../../utils/cn';
 import { useSavedStore } from '../../state/savedStore';
-import { usePlanStore } from '../../state/planStore';
 import { useParameterStore } from '../../state/parameterStore';
-import { useTransportStore } from '../../state/transportStore';
 import { useExploreStore } from '../../state/exploreStore';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { cityMap } from '../../data/cities';
 import PlaceSavvyProfile from '../savvy/PlaceSavvyProfile';
 import { getCityTheme } from '../../utils/cityPalette';
-import { resolveListingImages, handleListingImageError } from '../../utils/imageResolver';
 
 const cityYoutubeMap: Record<string, string> = {
   marrakech: "0T2QZfUvF3I",   // Marrakech Medina 4K walking tour
@@ -38,24 +35,11 @@ interface ActivityDetailViewProps {
 export default function ActivityDetailView({ item, onBack }: ActivityDetailViewProps) {
   const { omitGoogleImage } = useExploreStore();
   const navigate = useNavigate();
-  const location = useLocation();
-  const query = new URLSearchParams(location.search);
-  const ref = query.get('ref');
   const { toggleBookmark, isBookmarked } = useSavedStore();
-  const { addCustomActivity } = usePlanStore();
   const { city: currentCityStore } = useParameterStore();
 
-  // Active tab selection: 'experience', 'planner', 'social', 'savvy'
-  const [activeTab, setActiveTab] = useState<'experience' | 'planner' | 'social' | 'savvy'>('experience');
-
-  // Time Constraint selector state
-  const [timeBudget, setTimeBudget] = useState<'1day' | '3days' | 'afternoon'>('3days');
-
-  // Photo gallery filter
-  const [photoFilter, setPhotoFilter] = useState<'all' | 'highlights' | 'visitor' | 'seasonal'>('all');
-
-  // Selected photo for lightbox modal
-  const [lightboxImage, setLightboxImage] = useState<string | null>(null);
+  // Active tab selection: 'experience', 'social', 'savvy'
+  const [activeTab, setActiveTab] = useState<'experience' | 'social' | 'savvy'>('experience');
 
   // FAQ state
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
@@ -130,8 +114,7 @@ export default function ActivityDetailView({ item, onBack }: ActivityDetailViewP
       id: id,
       type: 'activity',
       name: name,
-      city: city || 'marrakech',
-      image: images && images.length > 0 ? images[0] : undefined
+      city: city || 'marrakech'
     });
   };
 
@@ -152,50 +135,10 @@ export default function ActivityDetailView({ item, onBack }: ActivityDetailViewP
     return getCityTheme(city);
   }, [city]);
 
-  const resolvedHeroImage = useMemo(() => {
-    return resolveListingImages({
-      id,
-      googlePlaceId: item?.googlePlaceId,
-      images,
-      nonCopyrightImage: item?.nonCopyrightImage,
-      category: 'things',
-      omitGooglePlaceApi: omitGoogleImage
-    });
-  }, [id, item, images, omitGoogleImage]);
-
   const videoId = useMemo(() => {
     if (item?.youtubeVideoId) return item.youtubeVideoId;
     return cityYoutubeMap[(city || '').toLowerCase()] || "0T2QZfUvF3I";
   }, [item, city]);
-
-  // Dynamic Stock Images Fallback
-  const finalImages = useMemo(() => {
-    const list = [...(images || [])];
-    const stock = [
-      'https://images.unsplash.com/photo-1548013146-72479768bada?w=1200&auto=format&fit=crop', // Moroccan arches / souk
-      'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1200&auto=format&fit=crop', // Sunset landscape
-      'https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=1200&auto=format&fit=crop', // Desert camping / stars
-      'https://images.unsplash.com/photo-1534447677768-be436bb09401?w=1200&auto=format&fit=crop'  // Blue Chefchaouen vibe
-    ];
-    while (list.length < 4) {
-      list.push(stock[list.length % stock.length]);
-    }
-    return list;
-  }, [images]);
-
-  // Handle adding to plan action
-  const handleAddToPlan = () => {
-    addCustomActivity(
-      city || item.city || 'marrakech',
-      'afternoon',
-      'things-to-do',
-      name
-    );
-    console.log(`"${name}" has been added to your Trip Dossier! You can view and manage it on the Plan Builder tab.`);
-    if (ref === 'planner') {
-      navigate('/planner');
-    }
-  };
 
   // Level C - Pros & Cons generator
   const pros = useMemo(() => {
@@ -243,83 +186,6 @@ export default function ActivityDetailView({ item, onBack }: ActivityDetailViewP
     };
   }, [name, city, item, resolvedCityName]);
 
-  // Level J - Suggested Itinerary Generator (A Perfect Day Combination)
-  const perfectDayItinerary = useMemo(() => {
-    return [
-      {
-        time: '09:00 AM',
-        title: 'Morning Medina Exploration',
-        desc: `Begin the day wandering through the cool, quiet alleys of ${resolvedCityName}'s ancient center before the crowds arrive.`
-      },
-      {
-        time: '11:00 AM',
-        title: `Explore ${name}`,
-        desc: `Spend ~${durationMinutes >= 60 ? `${Math.round(durationMinutes / 60)}h` : `${durationMinutes}m`} experiencing this highlight. Ideal light for photography.`,
-        highlight: true
-      },
-      {
-        time: '01:30 PM',
-        title: 'Authentic Traditional Lunch',
-        desc: 'Settle down at a nearby shaded rooftop terrace for a slow-cooked chicken tajine with olives and preserved lemons.'
-      },
-      {
-        time: '04:00 PM',
-        title: 'Souk Bargaining & Mint Tea',
-        desc: 'Head to the bazaar quarter. Enjoy a refreshing glass of hot mint tea and interact with friendly local weavers and spice masters.'
-      },
-      {
-        time: '06:30 PM',
-        title: 'Sunset Viewpoint',
-        desc: 'Conclude the day at a panoramic high-point, watching the city silhouette turn a deep violet gold.'
-      }
-    ];
-  }, [name, durationMinutes, resolvedCityName]);
-
-  // Level G - Audience Fit Score Metrics
-  const audienceMatching = useMemo(() => {
-    const isSolo = groupTypes.includes('solo');
-    const isCouple = groupTypes.includes('couple') || groupTypes.includes('couples');
-    const isFamily = groupTypes.includes('family') || groupTypes.includes('families') || isKidFriendly;
-    const isSeniors = groupTypes.includes('seniors');
-
-    return [
-      { name: '👫 Couples & Romantics', score: isCouple ? 95 : 70, color: 'bg-rose-500' },
-      { name: '🎒 Solo Backpackers', score: isSolo ? 90 : 65, color: 'bg-emerald-500' },
-      { name: '👪 Families & Kids', score: isFamily ? 92 : 45, color: 'bg-sky-500' },
-      { name: '👟 Adventure & Active Seekers', score: energyLevel === 'active' || energyLevel === 'intense' ? 95 : 60, color: 'bg-amber-500' },
-      { name: '👵 Seniors & Slow Pace', score: isSeniors && energyLevel === 'relaxed' ? 95 : (energyLevel === 'intense' ? 30 : 75), color: 'bg-purple-500' }
-    ];
-  }, [groupTypes, isKidFriendly, energyLevel]);
-
-  // Level D - Trip Fit Recommendation Engine
-  const tripFitAssessment = useMemo(() => {
-    switch (timeBudget) {
-      case '1day':
-        return {
-          score: durationMinutes <= 60 ? 95 : 60,
-          color: durationMinutes <= 60 ? 'text-emerald-600 border-emerald-100 bg-emerald-50/50' : 'text-amber-600 border-amber-100 bg-amber-50/50',
-          text: durationMinutes <= 60 
-            ? "Perfect fit! This quick experience gives high cultural impact without eating into your single day in the city." 
-            : "Caution. This is a longer experience (~2+ hours) which will take up a massive chunk of your limited 1-day itinerary. Do it only if it is your top priority!"
-        };
-      case 'afternoon':
-        return {
-          score: durationMinutes <= 120 ? 90 : 50,
-          color: durationMinutes <= 120 ? 'text-emerald-600 border-emerald-100 bg-emerald-50/50' : 'text-red-600 border-red-100 bg-red-50/50',
-          text: durationMinutes <= 120
-            ? "Highly suitable. An afternoon block is exactly the right amount of time to absorb this activity at a leisurely pace."
-            : "Tight squeeze. This full-day activity is very difficult to fit into a single free afternoon. Consider saving it for a dedicated morning start."
-        };
-      case '3days':
-      default:
-        return {
-          score: 98,
-          color: 'text-emerald-600 border-emerald-100 bg-emerald-50/50',
-          text: "Excellent match! With 3 days in the city, you can easily slot this into Day 2 as an afternoon anchor experience. This pace avoids any travel fatigue."
-        };
-    }
-  }, [timeBudget, durationMinutes]);
-
   // Level M - Pre-populated FAQs
   const faqItems = useMemo(() => [
     {
@@ -361,7 +227,6 @@ export default function ActivityDetailView({ item, onBack }: ActivityDetailViewP
     "@type": "TouristAttraction",
     "name": name,
     "description": description,
-    "image": finalImages,
     "address": {
       "@type": "PostalAddress",
       "streetAddress": address || '',
@@ -396,7 +261,7 @@ export default function ActivityDetailView({ item, onBack }: ActivityDetailViewP
       hasSunsetView && { "@type": "LocationFeatureSpecification", "name": "Sunset View", "value": true },
       goodForRain && { "@type": "LocationFeatureSpecification", "name": "Rain Friendly", "value": true },
     ].filter(Boolean)
-  }), [name, description, finalImages, address, city, item, contactPhone, officialWebsite, ticketWebsite, googleMapsUrl, googleRating, reviewCount, openingHours, durationMinutes, hasEnglishGuide, hasFrenchGuide, isKidFriendly, isFemaleFriendly, isWheelchairAccessible, isPhotographyFriendly, hasSunsetView, goodForRain]);
+  }), [name, description, address, city, item, contactPhone, officialWebsite, ticketWebsite, googleMapsUrl, googleRating, reviewCount, openingHours, durationMinutes, hasEnglishGuide, hasFrenchGuide, isKidFriendly, isFemaleFriendly, isWheelchairAccessible, isPhotographyFriendly, hasSunsetView, goodForRain]);
 
   return (
     <motion.div
@@ -445,16 +310,7 @@ export default function ActivityDetailView({ item, onBack }: ActivityDetailViewP
                        linear-gradient(135deg, ${themeColors.primary}12 0%, ${themeColors.primary}40 100%)`
         }}
       >
-        {resolvedHeroImage.url && (
-          <img 
-            src={resolvedHeroImage.url} 
-            alt={name}
-            className="absolute inset-0 w-full h-full object-cover z-0"
-            referrerPolicy="no-referrer"
-            data-fallbacks={JSON.stringify(resolvedHeroImage.fallbackUrls)}
-            onError={(e) => handleListingImageError(e, resolvedHeroImage.fallbackUrls, 'things')}
-          />
-        )}
+        {/* No hosted image — the themed gradient above is the hero. Real photos live on Google Maps. */}
 
         {/* Moroccan paper grain pattern effect overlay */}
         <div className="absolute inset-0 pointer-events-none opacity-[0.03] mix-blend-multiply bg-[url('/textures/paper-grain-1.svg')] z-10" />
@@ -507,6 +363,18 @@ export default function ActivityDetailView({ item, onBack }: ActivityDetailViewP
               <strong>{googleRating.toFixed(1)}</strong> ({reviewCount} ratings)
             </span>
           </div>
+
+          {/* View photos on Google Maps */}
+          <a
+            href={googleMapsUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${name} ${resolvedCityName} Morocco`)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/90 hover:bg-white text-[#29231F] text-sm font-bold shadow-md hover:shadow-lg transition-all w-fit cursor-pointer"
+          >
+            <MapPin className="w-4 h-4 text-[#C2613C]" />
+            View photos on Google Maps
+            <ExternalLink className="w-3.5 h-3.5 opacity-60" />
+          </a>
         </div>
       </div>
 
@@ -518,7 +386,7 @@ export default function ActivityDetailView({ item, onBack }: ActivityDetailViewP
           
           {/* Dynamic Interactive Navigation Tabs (Aesthetic Pairings) */}
           <div className="flex border-b border-stone-200 overflow-x-auto whitespace-nowrap">
-            {(['experience', 'planner', 'social', 'savvy'] as const).map((tab) => (
+            {(['experience', 'social', 'savvy'] as const).map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
@@ -530,7 +398,6 @@ export default function ActivityDetailView({ item, onBack }: ActivityDetailViewP
                 )}
               >
                 {tab === 'experience' && '✨ Experience'}
-                {tab === 'planner' && '📅 Trip Planner'}
                 {tab === 'social' && '💬 Proof & Q&A'}
                 {tab === 'savvy' && '🛡️ Savvy Score'}
               </button>
@@ -692,175 +559,6 @@ export default function ActivityDetailView({ item, onBack }: ActivityDetailViewP
             )}
           </AnimatePresence>
 
-          {/* TAB 2: TRIP PLANNER DETAIL */}
-          <AnimatePresence mode="wait">
-            {activeTab === 'planner' && (
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.2 }}
-                className="space-y-8"
-              >
-                {/* Level D - Time-Scarcity Decision Calculator */}
-                <div className="bg-white border border-stone-100 rounded-[32px] p-6 md:p-8 shadow-sm">
-                  <div className="flex items-center gap-2 mb-4">
-                    <Clock className="w-5 h-5 text-[#C9A84C]" />
-                    <h3 className="font-bold text-stone-900 text-base">Your Schedule Constraint Test</h3>
-                  </div>
-                  
-                  <p className="text-stone-500 text-xs leading-relaxed mb-6 font-sans">
-                    Unlike dining or sleep, choosing an experience is a commit of your scarce travel hours. Tell us your constraint to evaluate suitability:
-                  </p>
-
-                  <div className="grid grid-cols-3 gap-2.5 mb-6">
-                    {(['1day', '3days', 'afternoon'] as const).map((budget) => (
-                      <button
-                        key={budget}
-                        onClick={() => setTimeBudget(budget)}
-                        className={cn(
-                          "py-3 px-2 rounded-2xl border text-center transition-all cursor-pointer",
-                          timeBudget === budget
-                            ? "border-stone-900 bg-stone-900 text-white shadow-md font-bold"
-                            : "border-stone-200 bg-white text-stone-500 hover:text-stone-800 hover:bg-stone-50"
-                        )}
-                      >
-                        <p className="text-xs uppercase tracking-wide">
-                          {budget === '1day' && '⏱️ 1 Day Only'}
-                          {budget === '3days' && '🎒 3+ Days'}
-                          {budget === 'afternoon' && '🌅 Half Day'}
-                        </p>
-                      </button>
-                    ))}
-                  </div>
-
-                  {/* Recommendation Assessment Card */}
-                  <div className={cn("p-5 rounded-2xl border text-sm flex items-start gap-3", tripFitAssessment.color)}>
-                    <div className="text-2xl font-bold shrink-0">{tripFitAssessment.score}%</div>
-                    <div>
-                      <h4 className="font-extrabold mb-1">Trip Fit Score: {tripFitAssessment.score === 98 ? 'Optimal Vibe' : 'Schedule Friction warning'}</h4>
-                      <p className="text-xs leading-relaxed opacity-90">{tripFitAssessment.text}</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Opening Hours, Heatmap, Best Times to Visit */}
-                <div className="bg-white border border-stone-100 rounded-[32px] p-6 md:p-8 shadow-sm">
-                  <div className="flex justify-between items-start mb-6 flex-wrap gap-4">
-                    <div>
-                      <h3 className="font-bold text-stone-900 text-base">Peak Hours & Best Visit Times</h3>
-                      <p className="text-xs text-stone-400">Avoid tourist jams and excessive Atlantic midday heat</p>
-                    </div>
-                    <div className="px-3 py-1.5 bg-amber-50 border border-amber-100 text-[#96700A] font-bold rounded-xl text-xs flex items-center gap-1.5">
-                      <Sparkles className="w-3.5 h-3.5" />
-                      <span>Best Time: {bestTimeToVisit || 'Golden Hour (4:30 PM)'}</span>
-                    </div>
-                  </div>
-
-                  {/* Busy Heatmap (Visual progress bars CSS-based) */}
-                  <div className="space-y-4 mb-6">
-                    <p className="text-xs text-stone-500 font-semibold uppercase tracking-wider">Crowd Densities Throughout Day</p>
-                    <div className="grid grid-cols-6 gap-2 text-center">
-                      {[
-                        { hour: '08:00', label: 'Empty', score: 10 },
-                        { hour: '11:00', label: 'Busy', score: 75 },
-                        { hour: '14:00', label: 'Peak', score: 95 },
-                        { hour: '17:00', label: 'Moderate', score: 55 },
-                        { hour: '20:00', label: 'Quiet', score: 30 },
-                        { hour: '23:00', label: 'Closed', score: 5 }
-                      ].map((item, idx) => (
-                        <div key={idx} className="flex flex-col items-center">
-                          <div className="w-full bg-stone-100 h-24 rounded-lg relative flex items-end overflow-hidden">
-                            <div 
-                              className={cn(
-                                "w-full transition-all rounded-t-lg",
-                                item.score > 80 ? "bg-red-400" : (item.score > 50 ? "bg-amber-400" : "bg-emerald-400")
-                              )} 
-                              style={{ height: `${item.score}%` }} 
-                              title={`${item.hour}: ${item.score}% crowd density`}
-                            />
-                          </div>
-                          <span className="text-[10px] font-bold text-stone-700 mt-2">{item.hour}</span>
-                          <span className="text-[9px] text-stone-400 tracking-tighter">{item.label}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Level D & L Planning Grid */}
-                  <div className="pt-6 border-t border-stone-100 grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div className="bg-stone-50 p-3 rounded-xl border border-stone-100/50">
-                      <span className="text-[9px] font-black text-stone-400 uppercase tracking-widest block mb-1">⏰ Open Hours</span>
-                      <span className="text-xs font-bold text-stone-800">{openingHours || '09:00 AM - 06:00 PM'}</span>
-                    </div>
-                    <div className="bg-stone-50 p-3 rounded-xl border border-stone-100/50">
-                      <span className="text-[9px] font-black text-stone-400 uppercase tracking-widest block mb-1">🍂 Seasonality</span>
-                      <span className="text-xs font-bold text-stone-800">{seasonality || 'Year-round'}</span>
-                    </div>
-                    <div className="bg-stone-50 p-3 rounded-xl border border-stone-100/50">
-                      <span className="text-[9px] font-black text-stone-400 uppercase tracking-widest block mb-1">⏳ Gate Wait Time</span>
-                      <span className="text-xs font-bold text-stone-800">
-                        {typicalWaitTimeMinutes !== undefined ? `${typicalWaitTimeMinutes}m average wait` : 'Minimal/Walk-in'}
-                      </span>
-                    </div>
-                    <div className="bg-stone-50 p-3 rounded-xl border border-stone-100/50">
-                      <span className="text-[9px] font-black text-stone-400 uppercase tracking-widest block mb-1">🌦️ Weather Fit</span>
-                      <span className="text-xs font-bold text-stone-800">{goodForRain ? 'Indoor Friendly' : 'Outdoors (Dry preferred)'}</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Level G - Audience Match Progress Bar Chart */}
-                <div className="bg-white border border-stone-100 rounded-[32px] p-6 md:p-8 shadow-sm">
-                  <h3 className="font-bold text-stone-900 text-base mb-6">Identity Suitability Fit</h3>
-                  <div className="space-y-4">
-                    {audienceMatching.map((audi, idx) => (
-                      <div key={idx}>
-                        <div className="flex justify-between text-xs font-bold text-stone-700 mb-1.5">
-                          <span>{audi.name}</span>
-                          <span>{audi.score}% Compatibility</span>
-                        </div>
-                        <div className="w-full bg-stone-100 h-2.5 rounded-full overflow-hidden">
-                          <div className={cn("h-full rounded-full transition-all", audi.color)} style={{ width: `${audi.score}%` }} />
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Level J - Suggested Itinerary Timeline ("Perfect Day Combo") */}
-                <div className="bg-white border border-stone-100 rounded-[32px] p-6 md:p-8 shadow-sm">
-                  <div className="mb-6">
-                    <h3 className="font-bold text-stone-900 text-base">The Perfect Day Combo</h3>
-                    <p className="text-xs text-stone-400">Combine this experience with top nearby sights seamlessly</p>
-                  </div>
-
-                  <div className="relative border-l-2 border-stone-200 pl-6 space-y-8 ml-3">
-                    {perfectDayItinerary.map((it, idx) => (
-                      <div key={idx} className="relative">
-                        {/* Timeline Circle */}
-                        <div className={cn(
-                          "absolute -left-[31px] top-1 w-4.5 h-4.5 rounded-full border-2 bg-white flex items-center justify-center transition-all",
-                          it.highlight ? "border-[#C9A84C] scale-125 ring-4 ring-[#C9A84C]/15" : "border-stone-300"
-                        )}>
-                          {it.highlight && <div className="w-1.5 h-1.5 rounded-full bg-[#C9A84C]" />}
-                        </div>
-                        
-                        <div>
-                          <span className="text-[10px] font-extrabold text-[#C9A84C] uppercase tracking-wider">{it.time}</span>
-                          <h4 className={cn("font-bold text-sm tracking-tight", it.highlight ? "text-[#96700A]" : "text-stone-800")}>
-                            {it.title}
-                          </h4>
-                          <p className="text-stone-500 text-xs mt-1 leading-relaxed">{it.desc}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-
           {/* TAB 3: SOCIAL PROOF & FAQ */}
           <AnimatePresence mode="wait">
             {activeTab === 'social' && (
@@ -998,27 +696,6 @@ export default function ActivityDetailView({ item, onBack }: ActivityDetailViewP
                 </span>
               </div>
             </div>
-
-            {/* Primary Action Button */}
-            <div className="space-y-2 mt-6">
-              <button
-                onClick={handleAddToPlan}
-                className="w-full py-4 bg-stone-950 hover:bg-stone-800 text-white font-bold rounded-2xl tracking-wider text-xs uppercase shadow-lg hover:shadow-xl transition-all cursor-pointer flex items-center justify-center gap-2"
-              >
-                <Calendar className="w-4 h-4 text-[#C9A84C]" />
-                Add to Trip Plan
-              </button>
-
-              <button
-                onClick={() => {
-                  navigate(`/transport/go?city=${encodeURIComponent(item.city || city || 'marrakech')}&dest=${encodeURIComponent(name)}`);
-                }}
-                className="w-full py-3.5 bg-white border border-[#C9A84C]/30 hover:border-[#C9A84C] text-stone-800 font-bold rounded-2xl tracking-wider text-xs uppercase shadow-sm transition-all cursor-pointer flex items-center justify-center gap-2"
-              >
-                <Navigation className="w-4 h-4 text-[#C9A84C]" />
-                Estimate Taxi & Bus Fare
-              </button>
-            </div>
           </div>
 
           {/* Level F - Medina / Local Navigation & Walking Difficulty */}
@@ -1031,7 +708,7 @@ export default function ActivityDetailView({ item, onBack }: ActivityDetailViewP
             <div className="space-y-4">
               {/* Embedded Interactive Google Map */}
               <div className="flex gap-2">
-                <div className="flex-[2] h-44 rounded-2xl overflow-hidden border border-stone-200 shadow-inner bg-stone-50 relative">
+                <div className="w-full h-44 rounded-2xl overflow-hidden border border-stone-200 shadow-inner bg-stone-50 relative">
                   <iframe
                     title={`Embedded Map for ${name}`}
                     src={`https://maps.google.com/maps?q=${encodeURIComponent(
@@ -1043,27 +720,6 @@ export default function ActivityDetailView({ item, onBack }: ActivityDetailViewP
                     allowFullScreen={true}
                     loading="lazy"
                   ></iframe>
-                </div>
-                <div className="flex-1 h-44 flex flex-col gap-2">
-                  <button
-                    onClick={() => {
-                      useTransportStore.getState().setRoute(null, `${name}, ${cityMap[city]?.name || city}`);
-                      navigate('/transport/exploring-city/plan-route');
-                    }}
-                    className="flex-1 rounded-2xl bg-stone-900 text-white hover:bg-stone-800 transition-all flex flex-col items-center justify-center gap-1 shadow-md active:scale-95 border border-stone-700 cursor-pointer"
-                  >
-                    <Navigation className="w-4 h-4 text-amber-400" />
-                    <span className="text-[9px] font-black uppercase tracking-wider text-center">Plan Route</span>
-                  </button>
-                  <button
-                    onClick={() => {
-                      navigate(`/transport/fare-calculator?city=${(city || 'marrakech').toLowerCase()}&distance=${distanceFromCenterKm || 5}&mode=petit_taxi`);
-                    }}
-                    className="flex-1 rounded-2xl bg-amber-50 text-[#96700A] hover:bg-amber-100 transition-all flex flex-col items-center justify-center gap-1 shadow-md active:scale-95 border border-amber-200/50 cursor-pointer"
-                  >
-                    <DollarSign className="w-4 h-4 text-[#D4863A]" />
-                    <span className="text-[9px] font-black uppercase tracking-wider text-center">Taxi Fare</span>
-                  </button>
                 </div>
               </div>
 
@@ -1212,23 +868,6 @@ export default function ActivityDetailView({ item, onBack }: ActivityDetailViewP
           )}
         </div>
       </div>
-
-      {/* Lightbox Modal for Experience Visuals */}
-      {lightboxImage && (
-        <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm flex items-center justify-center p-4">
-          <button
-            onClick={() => setLightboxImage(null)}
-            className="absolute top-6 right-6 p-2 bg-white/10 hover:bg-white/20 text-white rounded-full transition-all cursor-pointer"
-          >
-            <X className="w-6 h-6" />
-          </button>
-          <img 
-            src={lightboxImage} 
-            alt="Expanded Experience View" 
-            className="max-w-full max-h-[85vh] object-contain rounded-2xl shadow-2xl" 
-          />
-        </div>
-      )}
     </motion.div>
   );
 }

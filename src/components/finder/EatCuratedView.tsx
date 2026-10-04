@@ -1,6 +1,6 @@
 import { FINDER_CURATED_DATA } from '../../data/travel/finderCurated';
 import { Sparkles, Utensils, Compass, ArrowRight } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import FilterChipBar from './FilterChipBar';
 
 interface EatCuratedViewProps {
@@ -65,14 +65,12 @@ export default function EatCuratedView({ cityId, onSelectDish, onSkipToQuiz, onB
             className="group bg-white border border-stone-100 rounded-[32px] p-4 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
           >
             <div className="space-y-4">
-              <div className="relative aspect-video sm:aspect-square overflow-hidden rounded-[24px]">
-                <img
-                  src={dish.image}
-                  alt={dish.name}
-                  referrerPolicy="no-referrer"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <span className="absolute top-3 left-3 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-lg shadow-sm">
+              {/* No-Image Tile — warm gradient with the dish's emoji */}
+              <div className="relative aspect-video sm:aspect-square overflow-hidden rounded-[24px]
+                bg-gradient-to-br from-[#F5EDE4] to-[#EDE0D0] border border-[#E2D4C2]
+                flex items-center justify-center">
+                <div className="absolute inset-0 bg-[radial-gradient(#C9A84C_0.5px,transparent_0.5px)] [background-size:18px_18px] opacity-10 pointer-events-none" />
+                <span className="relative z-10 w-16 h-16 bg-white/90 rounded-full flex items-center justify-center text-3xl shadow-sm">
                   {dish.emoji}
                 </span>
               </div>

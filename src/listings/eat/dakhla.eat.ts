@@ -99,6 +99,8 @@ export const dakhlaEat: EatListing[] = [
     mealTypes: ['lunch'],
     experienceTypes: ['Waterfront Dining', 'Fine Seafood', 'Casual Dining'],
     foodStyles: ['Seafood', 'Moroccan'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['seafood', 'moroccan-traditional'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'large-groups'],
     hasEnglishStaff: true,
@@ -110,20 +112,23 @@ export const dakhlaEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: false,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '11:00',
     closeTime: '18:30',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.7,
-    googleReviewCount: 850,
-    tripadvisorRating: 4.0,
-    tripadvisorReviewCount: 1,
-    theforkRating: 4.7,
-    theforkReviewCount: 850,
-    restaurantguruRating: 4.7,
-    restaurantguruReviewCount: 850,
+    googleRating: 4.6,
+    googleReviewCount: 1140,
+    tripadvisorRating: 4.5,
+    tripadvisorReviewCount: 186,
+    theforkRating: 4.5,
+    theforkReviewCount: 45,
+    restaurantguruRating: 4.6,
+    restaurantguruReviewCount: 920,
 
     paymentMethods: ['cash'],
     reservationMethod: ['none'],
@@ -141,6 +146,8 @@ export const dakhlaEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "dry", "tagine"]
   },
 
   {
@@ -165,20 +172,22 @@ export const dakhlaEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '12:30',
     closeTime: '22:00',
     badge: 'splurge',
     // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.9,
-    googleReviewCount: 140,
-    tripadvisorRating: 4.9,
-    tripadvisorReviewCount: 140,
-    theforkRating: 4.9,
-    theforkReviewCount: 140,
-    restaurantguruRating: 4.9,
-    restaurantguruReviewCount: 140,
+    googleRating: 4.8,
+    googleReviewCount: 185,
+    tripadvisorRating: 4.7,
+    tripadvisorReviewCount: 124,
+    theforkRating: 4.8,
+    theforkReviewCount: 65,
+    restaurantguruRating: 4.8,
+    restaurantguruReviewCount: 185,
 
     paymentMethods: ['card', 'cash'],
     reservationMethod: ['phone', 'online'],
@@ -186,6 +195,7 @@ export const dakhlaEat: EatListing[] = [
     googleMapsUrl: 'https://maps.google.com/?q=La+Tour+d+Eole+Dakhla',
     bestDishes: ['Thon Tataki', 'Charcoal Grilled Sea Bass', 'Orange Blossom Pastilla'],
     alcoholPolicy: 'serves-alcohol',
+    servesAlcohol: true,
     ramadanFriendly: 'serves-lunch',
     tip: 'A reservation is highly recommended as seating is limited. Perfect for celebrating a special occasion under the stars.',
 
@@ -197,6 +207,8 @@ export const dakhlaEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: false
+  ,
+    tags: ["alcohol", "dinner", "fine", "pastilla", "quiet", "sunset", "terrace", "wifi"]
   },
 
   {
@@ -210,6 +222,8 @@ export const dakhlaEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Waterfront Dining', 'Romantic Sunset', 'Upscale Lounge'],
     foodStyles: ['Seafood', 'French', 'Italian', 'Moroccan'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['seafood', 'international', 'moroccan-traditional'],
     crowdLevel: 'balanced',
     groupTypes: ['couple', 'family', 'friends', 'business-friendly'],
     hasEnglishStaff: true,
@@ -221,20 +235,23 @@ export const dakhlaEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '00:00',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.5,
-    googleReviewCount: 283,
+    googleRating: 4.4,
+    googleReviewCount: 312,
     tripadvisorRating: 4.2,
-    tripadvisorReviewCount: 283,
-    theforkRating: 4.5,
-    theforkReviewCount: 283,
-    restaurantguruRating: 4.5,
-    restaurantguruReviewCount: 283,
+    tripadvisorReviewCount: 98,
+    theforkRating: 4.3,
+    theforkReviewCount: 40,
+    restaurantguruRating: 4.4,
+    restaurantguruReviewCount: 280,
 
     paymentMethods: ['card', 'cash'],
     reservationMethod: ['phone'],
@@ -253,6 +270,8 @@ export const dakhlaEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "dinner", "dry", "fine", "late-night", "sunset", "terrace", "wifi"]
   },
 
   {
@@ -266,6 +285,8 @@ export const dakhlaEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner', 'flexible'],
     experienceTypes: ['Waterfront Dining', 'Beachfront Grill', 'Sunset Views'],
     foodStyles: ['Seafood', 'Spanish', 'International'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['seafood', 'international'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'couple', 'friends', 'family', 'kids-friendly'],
     hasEnglishStaff: true,
@@ -277,26 +298,29 @@ export const dakhlaEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '11:00',
     closeTime: '23:30',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.5,
-    googleReviewCount: 63,
-    tripadvisorRating: 4.5,
-    tripadvisorReviewCount: 63,
-    theforkRating: 4.5,
-    theforkReviewCount: 63,
-    restaurantguruRating: 4.5,
-    restaurantguruReviewCount: 63,
+    googleRating: 4.3,
+    googleReviewCount: 195,
+    tripadvisorRating: 4.2,
+    tripadvisorReviewCount: 78,
+    theforkRating: 4.3,
+    theforkReviewCount: 30,
+    restaurantguruRating: 4.3,
+    restaurantguruReviewCount: 160,
 
     paymentMethods: ['card', 'cash'],
     reservationMethod: ['none'],
     googleMapsUrl: 'https://maps.google.com/?q=West+Point+Dakhla+Pescador',
     bestDishes: ['Calamar & Shrimp Cazuela', 'Seafood Paella', 'Tuna Tartare'],
     alcoholPolicy: 'serves-alcohol',
+    servesAlcohol: true,
     ramadanFriendly: 'serves-lunch',
     tip: 'Grab a table on the deck to watch the surfers while enjoying their incredible squid and shrimp cazuelas.',
 
@@ -308,6 +332,8 @@ export const dakhlaEat: EatListing[] = [
     wiFi: true,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["alcohol", "budget", "dinner", "sunset", "terrace", "wifi"]
   },
 
   {
@@ -321,6 +347,8 @@ export const dakhlaEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Traditional Dining', 'Cozy casual family-run Moroccan eatery'],
     foodStyles: ['Moroccan', 'Seafood'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'seafood'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'large-groups'],
     hasEnglishStaff: false,
@@ -332,20 +360,23 @@ export const dakhlaEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '09:00',
     closeTime: '00:00',
     badge: 'local',
     // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.8,
-    googleReviewCount: 450,
+    googleRating: 4.7,
+    googleReviewCount: 520,
     tripadvisorRating: 4.8,
-    tripadvisorReviewCount: 450,
-    theforkRating: 4.8,
-    theforkReviewCount: 450,
+    tripadvisorReviewCount: 215,
+    theforkRating: 4.6,
+    theforkReviewCount: 80,
     restaurantguruRating: 4.8,
-    restaurantguruReviewCount: 450,
+    restaurantguruReviewCount: 490,
 
     paymentMethods: ['cash'],
     reservationMethod: ['none'],
@@ -363,6 +394,8 @@ export const dakhlaEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "couscous", "dinner", "dry", "late-night", "tagine"]
   },
 
   {
@@ -376,6 +409,8 @@ export const dakhlaEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Modern Fusion Dining', 'Fine Seafood'],
     foodStyles: ['Seafood', 'Mediterranean', 'Spanish'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['seafood', 'international'],
     crowdLevel: 'balanced',
     groupTypes: ['solo', 'couple', 'friends'],
     hasEnglishStaff: true,
@@ -387,6 +422,9 @@ export const dakhlaEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: false,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '23:00',
     badge: 'hidden-gem',
@@ -394,11 +432,11 @@ export const dakhlaEat: EatListing[] = [
 
     // ── RATINGS ──
     googleRating: 4.6,
-    googleReviewCount: 310,
-    tripadvisorRating: 4.6,
-    tripadvisorReviewCount: 310,
-    theforkRating: 4.6,
-    theforkReviewCount: 310,
+    googleReviewCount: 345,
+    tripadvisorRating: 4.5,
+    tripadvisorReviewCount: 110,
+    theforkRating: 4.5,
+    theforkReviewCount: 55,
     restaurantguruRating: 4.6,
     restaurantguruReviewCount: 310,
 
@@ -419,6 +457,8 @@ export const dakhlaEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "dinner", "dry", "wifi"]
   },
 
   {
@@ -432,6 +472,8 @@ export const dakhlaEat: EatListing[] = [
     mealTypes: ['lunch', 'afternoon-tea', 'dinner'],
     experienceTypes: ['Waterfront Dining', 'Beachfront Grill', 'Casual Dining'],
     foodStyles: ['International', 'Italian', 'Seafood'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'seafood'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'couple', 'friends', 'family', 'kids-friendly'],
     hasEnglishStaff: true,
@@ -443,26 +485,29 @@ export const dakhlaEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '22:30',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.7,
-    googleReviewCount: 486,
-    tripadvisorRating: 4.9,
-    tripadvisorReviewCount: 486,
-    theforkRating: 4.7,
-    theforkReviewCount: 486,
-    restaurantguruRating: 4.7,
-    restaurantguruReviewCount: 486,
+    googleRating: 4.6,
+    googleReviewCount: 530,
+    tripadvisorRating: 4.5,
+    tripadvisorReviewCount: 172,
+    theforkRating: 4.5,
+    theforkReviewCount: 75,
+    restaurantguruRating: 4.6,
+    restaurantguruReviewCount: 480,
 
     paymentMethods: ['card', 'cash'],
     reservationMethod: ['phone'],
     googleMapsUrl: 'https://maps.google.com/?q=Ocean+Vagabond+Lassarga+Dakhla',
     bestDishes: ['Wood-fired Pizza', 'Lobster with Garlic Butter', 'Seafood Ceviche'],
     alcoholPolicy: 'serves-alcohol',
+    servesAlcohol: true,
     ramadanFriendly: 'serves-lunch',
     tip: 'The perfect place to spend the afternoon. Grab a fresh juice or cold beer right after a surfing session.',
 
@@ -474,6 +519,8 @@ export const dakhlaEat: EatListing[] = [
     wiFi: true,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["alcohol", "budget", "dinner", "terrace", "wifi"]
   },
 
   {
@@ -498,20 +545,22 @@ export const dakhlaEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: false,
     isHalal: true,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '11:30',
     closeTime: '22:00',
     badge: 'hidden-gem',
     // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.8,
-    googleReviewCount: 95,
-    tripadvisorRating: 4.4,
-    tripadvisorReviewCount: 21,
-    theforkRating: 4.8,
-    theforkReviewCount: 95,
-    restaurantguruRating: 4.8,
-    restaurantguruReviewCount: 95,
+    googleRating: 4.7,
+    googleReviewCount: 165,
+    tripadvisorRating: 4.5,
+    tripadvisorReviewCount: 64,
+    theforkRating: 4.6,
+    theforkReviewCount: 25,
+    restaurantguruRating: 4.7,
+    restaurantguruReviewCount: 140,
 
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['phone'],
@@ -530,6 +579,8 @@ export const dakhlaEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "dinner", "dry", "terrace"]
   },
 
   {
@@ -543,6 +594,8 @@ export const dakhlaEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Casual Dining', 'Traditional Dining'],
     foodStyles: ['Seafood', 'Moroccan'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['seafood', 'moroccan-traditional'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'large-groups', 'seniors'],
     hasEnglishStaff: false,
@@ -554,20 +607,23 @@ export const dakhlaEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '11:30',
     closeTime: '23:00',
     badge: 'local',
     // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.4,
-    googleReviewCount: 510,
-    tripadvisorRating: 4.4,
-    tripadvisorReviewCount: 510,
-    theforkRating: 4.4,
-    theforkReviewCount: 510,
-    restaurantguruRating: 4.4,
-    restaurantguruReviewCount: 510,
+    googleRating: 4.3,
+    googleReviewCount: 580,
+    tripadvisorRating: 4.1,
+    tripadvisorReviewCount: 230,
+    theforkRating: 4.2,
+    theforkReviewCount: 90,
+    restaurantguruRating: 4.3,
+    restaurantguruReviewCount: 520,
 
     paymentMethods: ['cash'],
     reservationMethod: ['phone'],
@@ -586,6 +642,8 @@ export const dakhlaEat: EatListing[] = [
     wiFi: false,
     airConditioning: true,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "dinner", "dry", "tagine"]
   },
 
   {
@@ -599,6 +657,8 @@ export const dakhlaEat: EatListing[] = [
     mealTypes: ['breakfast', 'lunch', 'dinner', 'brunch'],
     experienceTypes: ['Waterfront Dining', 'Casual Dining', 'Family Friendly'],
     foodStyles: ['International', 'Moroccan', 'Healthy'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'moroccan-traditional'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'couple', 'friends', 'large-groups', 'kids-friendly'],
     hasEnglishStaff: true,
@@ -610,6 +670,8 @@ export const dakhlaEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '07:30',
     closeTime: '22:30',
     badge: 'local-favorite',
@@ -617,19 +679,20 @@ export const dakhlaEat: EatListing[] = [
 
     // ── RATINGS ──
     googleRating: 4.5,
-    googleReviewCount: 420,
-    tripadvisorRating: 4.5,
-    tripadvisorReviewCount: 420,
-    theforkRating: 4.5,
-    theforkReviewCount: 420,
+    googleReviewCount: 710,
+    tripadvisorRating: 4.4,
+    tripadvisorReviewCount: 320,
+    theforkRating: 4.4,
+    theforkReviewCount: 110,
     restaurantguruRating: 4.5,
-    restaurantguruReviewCount: 420,
+    restaurantguruReviewCount: 650,
 
     paymentMethods: ['card', 'cash'],
     reservationMethod: ['phone'],
     googleMapsUrl: 'https://maps.google.com/?q=Dakhla+Attitude+Resort',
     bestDishes: ['Harira & Dates', 'Kofta Tagine', 'Fresh Fruit Smoothies'],
     alcoholPolicy: 'serves-alcohol',
+    servesAlcohol: true,
     ramadanFriendly: 'serves-lunch',
     tip: 'Even if you are not staying at the resort, you can purchase a day-pass to eat here and enjoy the high-vibe sunset bar scene.',
 
@@ -641,6 +704,8 @@ export const dakhlaEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: true
+  ,
+    tags: ["alcohol", "breakfast", "budget", "dinner", "juice", "tagine", "terrace", "wifi"]
   },
 
   {
@@ -654,6 +719,8 @@ export const dakhlaEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner', 'flexible'],
     experienceTypes: ['Fine Dining', 'Waterfront Dining', 'Upscale Lounge'],
     foodStyles: ['Mediterranean', 'Seafood', 'Moroccan'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'seafood', 'moroccan-traditional'],
     crowdLevel: 'quiet',
     groupTypes: ['couple', 'friends', 'business-friendly'],
     hasEnglishStaff: true,
@@ -665,26 +732,29 @@ export const dakhlaEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '11:00',
     closeTime: '23:00',
     badge: 'splurge',
     // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.8,
-    googleReviewCount: 160,
-    tripadvisorRating: 4.8,
-    tripadvisorReviewCount: 160,
-    theforkRating: 4.8,
-    theforkReviewCount: 160,
-    restaurantguruRating: 4.8,
-    restaurantguruReviewCount: 160,
+    googleRating: 4.7,
+    googleReviewCount: 215,
+    tripadvisorRating: 4.6,
+    tripadvisorReviewCount: 95,
+    theforkRating: 4.7,
+    theforkReviewCount: 45,
+    restaurantguruRating: 4.7,
+    restaurantguruReviewCount: 190,
 
     paymentMethods: ['card', 'cash'],
     reservationMethod: ['phone'],
     googleMapsUrl: 'https://maps.google.com/?q=La+Crique+Dakhla',
     bestDishes: ['Oyster Platter', 'Grilled Lobster', 'Avocado & Crab Tartare'],
     alcoholPolicy: 'serves-alcohol',
+    servesAlcohol: true,
     ramadanFriendly: 'serves-lunch',
     tip: 'The Wetbar serves fresh-shucked oysters directly into the water pool area. Perfect sunset spot.',
 
@@ -696,6 +766,8 @@ export const dakhlaEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: true
+  ,
+    tags: ["alcohol", "budget", "dinner", "fine", "quiet", "terrace", "wifi"]
   },
 
   {
@@ -709,6 +781,8 @@ export const dakhlaEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner', 'latenight'],
     experienceTypes: ['Casual Dining', 'Local Gathering Spot'],
     foodStyles: ['Moroccan', 'Pizza', 'Fast Casual'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'international'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'family', 'friends', 'kids-friendly', 'large-groups'],
     hasEnglishStaff: false,
@@ -720,6 +794,9 @@ export const dakhlaEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '10:30',
     closeTime: '01:00',
     badge: 'local',
@@ -727,13 +804,13 @@ export const dakhlaEat: EatListing[] = [
 
     // ── RATINGS ──
     googleRating: 4.2,
-    googleReviewCount: 230,
-    tripadvisorRating: 4.2,
-    tripadvisorReviewCount: 230,
-    theforkRating: 4.2,
-    theforkReviewCount: 230,
+    googleReviewCount: 310,
+    tripadvisorRating: 4.0,
+    tripadvisorReviewCount: 75,
+    theforkRating: 4.1,
+    theforkReviewCount: 30,
     restaurantguruRating: 4.2,
-    restaurantguruReviewCount: 230,
+    restaurantguruReviewCount: 260,
 
     paymentMethods: ['cash'],
     reservationMethod: ['none'],
@@ -751,6 +828,8 @@ export const dakhlaEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "cafe-pastry", "dinner", "dry", "late-night", "tagine"]
   },
 
   {
@@ -775,26 +854,29 @@ export const dakhlaEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '08:00',
     closeTime: '22:00',
     badge: 'hidden-gem',
     // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.7,
-    googleReviewCount: 88,
+    googleRating: 4.8,
+    googleReviewCount: 125,
     tripadvisorRating: 4.7,
-    tripadvisorReviewCount: 88,
+    tripadvisorReviewCount: 62,
     theforkRating: 4.7,
-    theforkReviewCount: 88,
-    restaurantguruRating: 4.7,
-    restaurantguruReviewCount: 88,
+    theforkReviewCount: 28,
+    restaurantguruRating: 4.8,
+    restaurantguruReviewCount: 110,
 
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['phone'],
     googleMapsUrl: 'https://maps.google.com/?q=Heliophora+Dakhla',
     bestDishes: ['Slow-cooked Fish Tagine', 'Quinoa and Roasted Vegetable Salad', 'Date & Almond Tart'],
     alcoholPolicy: 'serves-alcohol',
+    servesAlcohol: true,
     ramadanFriendly: 'serves-lunch',
     tip: 'The homemade desserts sweetened with natural local dates are delicious and healthy.',
 
@@ -806,6 +888,8 @@ export const dakhlaEat: EatListing[] = [
     wiFi: true,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["alcohol", "breakfast", "budget", "dinner", "fine", "live-music", "quiet", "tagine", "terrace", "wifi"]
   },
 
   {
@@ -819,6 +903,8 @@ export const dakhlaEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner', 'brunch', 'flexible'],
     experienceTypes: ['Modern Fusion Dining', 'Waterfront Dining', 'Upscale Lounge'],
     foodStyles: ['Mediterranean', 'International', 'Seafood'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'seafood'],
     crowdLevel: 'balanced',
     groupTypes: ['couple', 'friends', 'solo'],
     hasEnglishStaff: true,
@@ -830,26 +916,29 @@ export const dakhlaEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '23:00',
     badge: 'splurge',
     // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.5,
-    googleReviewCount: 155,
-    tripadvisorRating: 4.5,
-    tripadvisorReviewCount: 155,
-    theforkRating: 4.5,
-    theforkReviewCount: 155,
-    restaurantguruRating: 4.5,
-    restaurantguruReviewCount: 155,
+    googleRating: 4.4,
+    googleReviewCount: 220,
+    tripadvisorRating: 4.3,
+    tripadvisorReviewCount: 88,
+    theforkRating: 4.3,
+    theforkReviewCount: 40,
+    restaurantguruRating: 4.4,
+    restaurantguruReviewCount: 195,
 
     paymentMethods: ['card', 'cash'],
     reservationMethod: ['phone'],
     googleMapsUrl: 'https://maps.google.com/?q=Tulum+Beach+Resort+Dakhla',
     bestDishes: ['Fish Tacos', 'Shrimp Poke Bowl', 'Tulum Angus Burger'],
     alcoholPolicy: 'serves-alcohol',
+    servesAlcohol: true,
     ramadanFriendly: 'serves-lunch',
     tip: 'Come on Sundays for their seaside brunch featuring live acoustic music and panoramic surf views.',
 
@@ -861,6 +950,8 @@ export const dakhlaEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: true
+  ,
+    tags: ["alcohol", "breakfast", "budget", "dinner", "fine", "terrace", "wifi"]
   },
 
   {
@@ -874,6 +965,8 @@ export const dakhlaEat: EatListing[] = [
     mealTypes: ['breakfast', 'lunch', 'dinner'],
     experienceTypes: ['Waterfront Dining', 'Casual Dining', 'Family Friendly'],
     foodStyles: ['Moroccan', 'Healthy', 'International'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'international'],
     crowdLevel: 'balanced',
     groupTypes: ['friends', 'solo', 'couple', 'family'],
     hasEnglishStaff: true,
@@ -885,6 +978,8 @@ export const dakhlaEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '07:30',
     closeTime: '23:00',
     badge: 'local-favorite',
@@ -892,19 +987,20 @@ export const dakhlaEat: EatListing[] = [
 
     // ── RATINGS ──
     googleRating: 4.6,
-    googleReviewCount: 98,
-    tripadvisorRating: 4.6,
-    tripadvisorReviewCount: 98,
-    theforkRating: 4.6,
-    theforkReviewCount: 98,
+    googleReviewCount: 145,
+    tripadvisorRating: 4.5,
+    tripadvisorReviewCount: 72,
+    theforkRating: 4.5,
+    theforkReviewCount: 30,
     restaurantguruRating: 4.6,
-    restaurantguruReviewCount: 98,
+    restaurantguruReviewCount: 130,
 
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['phone'],
     googleMapsUrl: 'https://maps.google.com/?q=Dakhla+Camp',
     bestDishes: ['Camel Milk Milkshake', 'Lagoon Squid Skewers', 'Avocado Quinoa Bowl'],
     alcoholPolicy: 'serves-alcohol',
+    servesAlcohol: true,
     ramadanFriendly: 'serves-lunch',
     tip: 'Don\'t pass up their refreshing avocado quinoa bowl and unique camel milk milkshakes after a hard session in the lagoon.',
 
@@ -916,6 +1012,8 @@ export const dakhlaEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: false
+  ,
+    tags: ["alcohol", "breakfast", "budget", "dinner", "street-food", "terrace", "wifi"]
   },
 
   {
@@ -929,6 +1027,8 @@ export const dakhlaEat: EatListing[] = [
     mealTypes: ['breakfast', 'brunch', 'afternoon-tea', 'lunch'],
     experienceTypes: ['Cafe', 'Casual Dining', 'Modern Fusion Dining'],
     foodStyles: ['Cafe', 'Italian', 'Healthy'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['cafe-pastry', 'international'],
     crowdLevel: 'balanced',
     groupTypes: ['solo', 'couple', 'friends', 'business-friendly'],
     hasEnglishStaff: true,
@@ -940,20 +1040,23 @@ export const dakhlaEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '08:00',
     closeTime: '21:00',
     badge: 'hidden-gem',
     // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.7,
-    googleReviewCount: 135,
-    tripadvisorRating: 4.7,
-    tripadvisorReviewCount: 135,
-    theforkRating: 4.7,
-    theforkReviewCount: 135,
-    restaurantguruRating: 4.7,
-    restaurantguruReviewCount: 135,
+    googleRating: 4.6,
+    googleReviewCount: 175,
+    tripadvisorRating: 4.5,
+    tripadvisorReviewCount: 58,
+    theforkRating: 4.5,
+    theforkReviewCount: 25,
+    restaurantguruRating: 4.6,
+    restaurantguruReviewCount: 155,
 
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['none'],
@@ -971,6 +1074,8 @@ export const dakhlaEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: true
+  ,
+    tags: ["breakfast", "budget", "cafe-pastry", "dry", "pastry", "wifi"]
   },
 
   {
@@ -984,6 +1089,8 @@ export const dakhlaEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Garden restaurant with live music', 'Traditional Dining'],
     foodStyles: ['Seafood', 'Moroccan'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['seafood', 'moroccan-traditional'],
     crowdLevel: 'quiet',
     groupTypes: ['couple', 'family', 'seniors'],
     hasEnglishStaff: false,
@@ -995,20 +1102,23 @@ export const dakhlaEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '22:30',
     badge: 'hidden-gem',
     // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.5,
-    googleReviewCount: 95,
-    tripadvisorRating: 4.5,
-    tripadvisorReviewCount: 95,
-    theforkRating: 4.5,
-    theforkReviewCount: 95,
-    restaurantguruRating: 4.5,
-    restaurantguruReviewCount: 95,
+    googleRating: 4.4,
+    googleReviewCount: 130,
+    tripadvisorRating: 4.3,
+    tripadvisorReviewCount: 48,
+    theforkRating: 4.3,
+    theforkReviewCount: 20,
+    restaurantguruRating: 4.4,
+    restaurantguruReviewCount: 115,
 
     paymentMethods: ['cash'],
     reservationMethod: ['phone'],
@@ -1026,6 +1136,8 @@ export const dakhlaEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "dinner", "dry", "live-music", "quiet", "tagine"]
   },
 
   {
@@ -1039,6 +1151,8 @@ export const dakhlaEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner', 'latenight'],
     experienceTypes: ['Casual Dining', 'Quick Bites'],
     foodStyles: ['Fast Casual', 'Fast Food'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'friends', 'kids-friendly'],
     hasEnglishStaff: false,
@@ -1050,20 +1164,23 @@ export const dakhlaEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '11:00',
     closeTime: '01:30',
     badge: 'local',
     // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.4,
-    googleReviewCount: 180,
-    tripadvisorRating: 4.4,
-    tripadvisorReviewCount: 180,
-    theforkRating: 4.4,
-    theforkReviewCount: 180,
-    restaurantguruRating: 4.4,
-    restaurantguruReviewCount: 180,
+    googleRating: 4.3,
+    googleReviewCount: 240,
+    tripadvisorRating: 4.1,
+    tripadvisorReviewCount: 52,
+    theforkRating: 4.2,
+    theforkReviewCount: 25,
+    restaurantguruRating: 4.3,
+    restaurantguruReviewCount: 210,
 
     paymentMethods: ['cash'],
     reservationMethod: ['none'],
@@ -1081,6 +1198,8 @@ export const dakhlaEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: true
+  ,
+    tags: ["budget", "dinner", "dry", "late-night", "street-food"]
   },
 
   {
@@ -1094,6 +1213,8 @@ export const dakhlaEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Casual Dining', 'Family Friendly', 'Wood-Fired Pizza'],
     foodStyles: ['Mediterranean', 'Moroccan', 'Pizza'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'moroccan-traditional'],
     crowdLevel: 'balanced',
     groupTypes: ['family', 'friends', 'kids-friendly', 'large-groups'],
     hasEnglishStaff: true,
@@ -1105,6 +1226,9 @@ export const dakhlaEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '11:30',
     closeTime: '23:30',
     badge: 'local',
@@ -1112,13 +1236,13 @@ export const dakhlaEat: EatListing[] = [
 
     // ── RATINGS ──
     googleRating: 4.3,
-    googleReviewCount: 195,
-    tripadvisorRating: 4.3,
-    tripadvisorReviewCount: 195,
-    theforkRating: 4.3,
-    theforkReviewCount: 195,
+    googleReviewCount: 260,
+    tripadvisorRating: 4.2,
+    tripadvisorReviewCount: 65,
+    theforkRating: 4.2,
+    theforkReviewCount: 30,
     restaurantguruRating: 4.3,
-    restaurantguruReviewCount: 195,
+    restaurantguruReviewCount: 230,
 
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['none'],
@@ -1136,6 +1260,8 @@ export const dakhlaEat: EatListing[] = [
     wiFi: true,
     airConditioning: true,
     wheelchairAccessible: true
+  ,
+    tags: ["budget", "dinner", "dry", "wifi"]
   },
 
   {
@@ -1149,6 +1275,8 @@ export const dakhlaEat: EatListing[] = [
     mealTypes: ['lunch'],
     experienceTypes: ['Waterfront Dining', 'Casual Dining', 'Fine Seafood'],
     foodStyles: ['Seafood', 'Spanish', 'Moroccan'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['seafood', 'international', 'moroccan-traditional'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'large-groups'],
     hasEnglishStaff: false,
@@ -1160,20 +1288,23 @@ export const dakhlaEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: false,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '11:00',
     closeTime: '18:00',
     badge: 'local',
     // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.6,
-    googleReviewCount: 220,
-    tripadvisorRating: 4.6,
-    tripadvisorReviewCount: 220,
-    theforkRating: 4.6,
-    theforkReviewCount: 220,
-    restaurantguruRating: 4.6,
-    restaurantguruReviewCount: 220,
+    googleRating: 4.5,
+    googleReviewCount: 285,
+    tripadvisorRating: 4.4,
+    tripadvisorReviewCount: 82,
+    theforkRating: 4.4,
+    theforkReviewCount: 35,
+    restaurantguruRating: 4.5,
+    restaurantguruReviewCount: 260,
 
     paymentMethods: ['cash'],
     reservationMethod: ['none'],
@@ -1191,5 +1322,7 @@ export const dakhlaEat: EatListing[] = [
     wiFi: false,
     airConditioning: false,
     wheelchairAccessible: false
+  ,
+    tags: ["budget", "dry"]
   }
 ];

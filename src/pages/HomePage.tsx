@@ -1,16 +1,21 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
 import { MapPin, ChevronDown, ChevronUp, ArrowRight, Heart, Menu } from 'lucide-react';
 import { SEO } from '../components/ui/SEO';
 import { useParameterStore } from '../state/parameterStore';
 import { useExploreStore } from '../state/exploreStore';
 import { cities } from '../data/cities';
 import heroIllustration from '../assets/images/finder/finder_hero_matte_1786297047661.jpg';
-import catFoodImg from '../assets/images/finder/category_food_matte_1786297062095.jpg';
-import catStaysImg from '../assets/images/finder/category_stays_matte_1786297074546.jpg';
-import catThingsImg from '../assets/images/finder/category_things_matte_1786297086778.jpg';
-import catShoppingImg from '../assets/images/finder/category_shop_matte_1786297097622.jpg';
+// 🖼️ Home page circular category images (Gemini-generated, circle-safe centered subjects)
+// PROMPT (Food & Dining): "Moroccan food and dining: a steaming round tagine pot with fresh bread, olives and a glass of mint tea arranged in the exact center of the frame on a zellij tile table, warm ambient light, generous empty cream-colored margin all around the subject for a safe circular crop. Soft matte vector illustration style on cream canvas, warm Moroccan color palette."
+import catFoodImg from '../assets/images/home/home_category_food_circle.jpg';
+// PROMPT (Stays & Sleep): "Stays and sleep in Morocco: a beautiful traditional riad courtyard with a small mosaic fountain and hanging lanterns composed in the exact center of the frame, warm golden evening light, generous empty cream-colored margin all around the subject for a safe circular crop. Soft matte vector illustration style on cream canvas, warm Moroccan color palette."
+import catStaysImg from '../assets/images/home/home_category_sleep_circle.jpg';
+// PROMPT (Things to Do): "Things to do in Morocco: a serene travel discovery scene with the Atlas mountains, a historic medina gateway and a small palm grove arranged in the exact center of the frame, warm daylight, generous empty cream-colored margin all around the subject for a safe circular crop. Soft matte vector illustration style on cream canvas, warm Moroccan color palette."
+import catThingsImg from '../assets/images/home/home_category_things_circle.jpg';
+// PROMPT (Shopping): "Shopping in Morocco: a woven Berber basket with colorful ceramics, leather babouches and a folded rug arranged in the exact center of the frame on a warm market table, warm ambient light, generous empty cream-colored margin all around the subject for a safe circular crop. Soft matte vector illustration style on cream canvas, warm Moroccan color palette."
+import catShoppingImg from '../assets/images/home/home_category_shopping_circle.jpg';
 
 /**
  * ─────────────────────────────────────────────────────────────
@@ -60,8 +65,7 @@ export default function HomePage() {
   const [selectedCity, setLocalCity] = useState<string>('');
   const [selectedCategory, setLocalCategory] = useState<string | null>(null);
   const [showAllCities, setShowAllCities] = useState(false);
-  const [nudge, setNudge] = useState<'city' | 'categories' | null>(null);
-  const [nudgeKey, setNudgeKey] = useState(0);
+  const [nudge, setNudge] = useState<'city' | null>(null);
 
   const setCityInStore = useParameterStore((state) => state.setCity);
   const setActiveCategory = useExploreStore((state) => state.setActiveCategory);
@@ -79,16 +83,15 @@ export default function HomePage() {
     navigate(`/finder/${citySlug}/${categoryId}?start=quiz`);
   };
 
-  // Sign system: choosing one shows a gentle sign for the other,
-  // and when both are chosen the visitor goes straight to the quiz.
+  // Sign system: picking a category before a city shows a gentle sign to pick a
+  // city first; choosing a city first is silent (the visitor naturally picks a
+  // category next). When both are chosen the visitor goes straight to the quiz.
   const handleCitySelect = (cityId: string) => {
     setLocalCity(cityId);
     if (selectedCategory) {
       goFinder(cityId, selectedCategory);
     } else {
-      setNudge('categories');
-      setNudgeKey((k) => k + 1);
-      window.setTimeout(() => setNudge((cur) => (cur === 'categories' ? null : cur)), 4500);
+      setNudge(null);
     }
   };
 
@@ -137,7 +140,7 @@ export default function HomePage() {
       {/* ─── HERO · illustrated Moroccan landscape ──────────── */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-          <img src={heroIllustration} alt="" className="absolute inset-0 w-full h-full object-cover" />
+          <img src={heroIllustration} alt="" className="absolute inset-0 w-full h-full object-cover" loading="eager" fetchPriority="high" />
           <div className="absolute inset-0 bg-gradient-to-b from-[#FAF7F2]/75 via-[#FAF7F2]/35 to-[#FAF7F2]" />
         </div>
 
@@ -206,32 +209,24 @@ export default function HomePage() {
             )}
           </motion.div>
 
-          {/* Sign · city chosen → gentle invitation to the categories */}
-          {nudge === 'categories' && (
-            <motion.p
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, ease: 'easeOut' }}
-              className="mt-9 font-serif italic text-lg text-[#71685F]"
-            >
-              Now, what are you looking for?
-            </motion.p>
-          )}
-
-          {/* Sign · category chosen → gentle invitation to the city */}
-          {nudge === 'city' && (
-            <motion.p
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, ease: 'easeOut' }}
-              className="mt-4 font-serif italic text-lg text-[#71685F]"
-            >
-              First, where are you going?
-            </motion.p>
-          )}
+          {/* Sign · category chosen before a city → gentle invitation to pick a city.
+              popLayout keeps the category cards from jumping when the sign fades out. */}
+          <AnimatePresence mode="popLayout">
+            {nudge === 'city' && (
+              <motion.p
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -6, transition: { duration: 0.35, ease: 'easeIn' } }}
+                transition={{ duration: 0.9, ease: 'easeOut' }}
+                className="mt-4 font-serif italic text-lg text-[#71685F]"
+              >
+                First, where are you going?
+              </motion.p>
+            )}
+          </AnimatePresence>
 
           {/* ─── CATEGORIES · directly under the cities ─────────── */}
-          <div key={nudgeKey} className="mt-8 md:mt-10 w-full max-w-[1200px]">
+          <div className="mt-8 md:mt-10 w-full max-w-[1200px]">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
               {CATEGORIES.map((cat, i) => {
                 const active = selectedCategory === cat.id;
@@ -253,7 +248,9 @@ export default function HomePage() {
                     <img
                       src={cat.image}
                       alt={cat.title}
-                      className="w-[88px] h-[72px] sm:w-full sm:h-36 md:h-40 object-cover rounded-2xl shrink-0 transition-transform duration-200 group-hover:scale-[1.02]"
+                      loading="lazy"
+                      decoding="async"
+                      className="w-[88px] h-[88px] sm:w-full sm:h-auto sm:aspect-square object-cover rounded-full shrink-0 transition-transform duration-200 group-hover:scale-[1.02]"
                     />
                     <div className="flex-1 min-w-0">
                       <p className="font-sans text-[10px] font-bold uppercase tracking-[0.2em] text-[#C85A32]">{cat.smallLabel}</p>

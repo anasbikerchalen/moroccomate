@@ -99,6 +99,8 @@ export const asilahEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Casual Dining', 'Scenic Views'],
     foodStyles: ['Seafood', 'Spanish', 'Mediterranean'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['seafood', 'international'],
     crowdLevel: 'bustling',
     groupTypes: ['couple', 'family', 'friends', 'seniors', 'large-groups'],
     hasEnglishStaff: true,
@@ -110,20 +112,23 @@ export const asilahEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: true,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '23:30',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.4,
-    googleReviewCount: 1200,
-    tripadvisorRating: 4.4,
-    tripadvisorReviewCount: 2200,
-    theforkRating: 4.4,
-    theforkReviewCount: 2200,
-    restaurantguruRating: 4.4,
-    restaurantguruReviewCount: 2200,
+    googleRating: 3.9,
+    googleReviewCount: 1834,
+    tripadvisorRating: 3.5,
+    tripadvisorReviewCount: 615,
+    theforkRating: 3.9,
+    theforkReviewCount: 150,
+    restaurantguruRating: 3.9,
+    restaurantguruReviewCount: 1834,
 
     tip: 'Often very busy on sunny weekends. The seafood paella and fresh grilled calamari are outstanding. Serves excellent local wine.',
     archetypeAffinity: ['culture', 'luxury'],
@@ -136,6 +141,8 @@ export const asilahEat: EatListing[] = [
     bestDishes: ['Seafood Paella', 'Grilled Sole', 'Tapas Platter'],
     alcoholPolicy: 'serves-alcohol',
     ramadanFriendly: 'serves-lunch'
+  ,
+    tags: ["medina","fine","budget","terrace","alcohol","dinner"]
   },
 
   {
@@ -149,6 +156,8 @@ export const asilahEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner', 'brunch'],
     experienceTypes: ['Traditional Dining', 'Scenic Views', 'Romantic Sunset'],
     foodStyles: ['Moroccan'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional'],
     crowdLevel: 'balanced',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'seniors'],
     hasEnglishStaff: true,
@@ -160,20 +169,23 @@ export const asilahEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '22:30',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.6,
-    googleReviewCount: 500,
-    tripadvisorRating: 4.6,
-    tripadvisorReviewCount: 950,
-    theforkRating: 4.6,
-    theforkReviewCount: 950,
-    restaurantguruRating: 4.6,
-    restaurantguruReviewCount: 950,
+    googleRating: 4.5,
+    googleReviewCount: 1262,
+    tripadvisorRating: 4.5,
+    tripadvisorReviewCount: 420,
+    theforkRating: 4.5,
+    theforkReviewCount: 180,
+    restaurantguruRating: 4.9,
+    restaurantguruReviewCount: 1661,
 
     tip: 'Ask to sit on the rooftop terrace for a peaceful dinner under the stars with lovely medina views.',
     archetypeAffinity: ['culture'],
@@ -181,10 +193,13 @@ export const asilahEat: EatListing[] = [
     isHiddenGem: false,
     paymentMethods: ['cash'],
     reservationMethod: ['phone'],
+    reservationContact: '+212671043087',
     googleMapsUrl: 'https://maps.google.com/?q=Dar+Al+Maghrebia+Asilah',
     bestDishes: ['Swordfish Tagine', 'Pigeon Pastilla', 'Friday Lamb Couscous'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour'
+  ,
+    tags: ["breakfast","tagine","couscous","pastilla","riad","sunset","medina","budget","rooftop","dry","dinner"]
   },
 
   {
@@ -209,20 +224,22 @@ export const asilahEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '13:00',
     closeTime: '22:00',
     badge: 'splurge',
     // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.5,
-    googleReviewCount: 250,
-    tripadvisorRating: 4.5,
-    tripadvisorReviewCount: 480,
-    theforkRating: 4.5,
-    theforkReviewCount: 480,
-    restaurantguruRating: 4.5,
-    restaurantguruReviewCount: 480,
+    googleRating: 4.4,
+    googleReviewCount: 410,
+    tripadvisorRating: 4.4,
+    tripadvisorReviewCount: 305,
+    theforkRating: 4.4,
+    theforkReviewCount: 150,
+    restaurantguruRating: 4.4,
+    restaurantguruReviewCount: 410,
 
     tip: 'Closed on Mondays. Highly famous for its chocolate fondue and daily chalk-board fish specials. Excellent wine selection.',
     archetypeAffinity: ['culture', 'luxury'],
@@ -235,6 +252,8 @@ export const asilahEat: EatListing[] = [
     bestDishes: ['Sautéed John Dory', 'Local Crab Salad', 'Indulgent Chocolate Fondue'],
     alcoholPolicy: 'serves-alcohol',
     ramadanFriendly: 'serves-lunch'
+  ,
+    tags: ["breakfast","sunset","fine","budget","alcohol","dinner"]
   },
 
   {
@@ -248,6 +267,8 @@ export const asilahEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Fine Dining', 'Scenic Views', 'Romantic Sunset'],
     foodStyles: ['Seafood', 'Mediterranean'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['seafood', 'international'],
     crowdLevel: 'balanced',
     groupTypes: ['couple', 'friends', 'business-friendly'],
     hasEnglishStaff: true,
@@ -259,6 +280,9 @@ export const asilahEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: true,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '12:30',
     closeTime: '23:00',
     badge: 'splurge',
@@ -266,13 +290,13 @@ export const asilahEat: EatListing[] = [
 
     // ── RATINGS ──
     googleRating: 4.4,
-    googleReviewCount: 200,
-    tripadvisorRating: 4.4,
-    tripadvisorReviewCount: 380,
+    googleReviewCount: 624,
+    tripadvisorRating: 4.3,
+    tripadvisorReviewCount: 310,
     theforkRating: 4.4,
-    theforkReviewCount: 380,
+    theforkReviewCount: 150,
     restaurantguruRating: 4.4,
-    restaurantguruReviewCount: 380,
+    restaurantguruReviewCount: 624,
 
     tip: 'Karim serves fresh produce sourced directly from his family farm. Their crab and avocado salad with sweet chili vinaigrette is a masterpiece.',
     archetypeAffinity: ['culture', 'luxury'],
@@ -280,10 +304,13 @@ export const asilahEat: EatListing[] = [
     isHiddenGem: false,
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['phone'],
+    reservationContact: '+212539416677',
     googleMapsUrl: 'https://maps.google.com/?q=Port+XIV+Asilah',
     bestDishes: ['Asilah Crab and Avocado Salad', 'Garlic Butter Clams', 'Grilled Swordfish Steak'],
     alcoholPolicy: 'serves-alcohol',
     ramadanFriendly: 'serves-lunch'
+  ,
+    tags: ["sunset","fine","budget","alcohol","dinner"]
   },
 
   {
@@ -297,6 +324,8 @@ export const asilahEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner', 'brunch'],
     experienceTypes: ['Fine Dining', 'Romantic Sunset'],
     foodStyles: ['Mediterranean', 'Moroccan', 'Spanish'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'moroccan-traditional'],
     crowdLevel: 'balanced',
     groupTypes: ['couple', 'family', 'seniors'],
     hasEnglishStaff: true,
@@ -308,6 +337,9 @@ export const asilahEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: true,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '13:00',
     closeTime: '22:00',
     badge: 'local-favorite',
@@ -315,13 +347,13 @@ export const asilahEat: EatListing[] = [
 
     // ── RATINGS ──
     googleRating: 4.9,
-    googleReviewCount: 200,
-    tripadvisorRating: 4.9,
-    tripadvisorReviewCount: 381,
-    theforkRating: 4.9,
-    theforkReviewCount: 381,
+    googleReviewCount: 466,
+    tripadvisorRating: 4.6,
+    tripadvisorReviewCount: 213,
+    theforkRating: 4.8,
+    theforkReviewCount: 120,
     restaurantguruRating: 4.9,
-    restaurantguruReviewCount: 381,
+    restaurantguruReviewCount: 466,
 
     tip: 'Collaboration between Chef Jaume from Valencia and Chef Amal from Morocco. Perfect for an intimate, relaxing dinner in a highly tranquil riad setting.',
     archetypeAffinity: ['culture', 'luxury'],
@@ -329,10 +361,13 @@ export const asilahEat: EatListing[] = [
     isHiddenGem: false,
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['phone', 'online'],
+    reservationContact: '+212613429190',
     googleMapsUrl: 'https://maps.google.com/?q=Al+Alba+Restaurant+Asilah',
     bestDishes: ['Slow-Cooked Meat stews', 'Creative Pastelas', 'Traditional Valencian Paella'],
     alcoholPolicy: 'serves-alcohol',
     ramadanFriendly: 'serves-lunch'
+  ,
+    tags: ["breakfast","sunset","medina","fine","budget","alcohol","dinner"]
   },
 
   {
@@ -346,6 +381,8 @@ export const asilahEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Casual Dining', 'Traditional Dining'],
     foodStyles: ['Seafood', 'Spanish', 'Mediterranean'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['seafood', 'international'],
     crowdLevel: 'balanced',
     groupTypes: ['couple', 'family', 'friends', 'seniors'],
     hasEnglishStaff: true,
@@ -357,20 +394,23 @@ export const asilahEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: true,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '23:30',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.3,
-    googleReviewCount: 500,
-    tripadvisorRating: 4.3,
-    tripadvisorReviewCount: 950,
-    theforkRating: 4.3,
-    theforkReviewCount: 950,
-    restaurantguruRating: 4.3,
-    restaurantguruReviewCount: 950,
+    googleRating: 3.7,
+    googleReviewCount: 733,
+    tripadvisorRating: 3.1,
+    tripadvisorReviewCount: 304,
+    theforkRating: 3.5,
+    theforkReviewCount: 110,
+    restaurantguruRating: 3.7,
+    restaurantguruReviewCount: 733,
 
     tip: 'A superb spot for traditional Spanish tapas. Their complementary appetizers perfectly whet your appetite before ordering fresh sea bass.',
     archetypeAffinity: ['culture'],
@@ -378,10 +418,13 @@ export const asilahEat: EatListing[] = [
     isHiddenGem: false,
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['phone'],
+    reservationContact: '+212539417395',
     googleMapsUrl: 'https://maps.google.com/?q=Restaurant+Oceano+Casa+Pepe+Asilah',
     bestDishes: ['Spanish Garlic Prawns', 'Mixed Sea Tapas', 'Grilled Sea Bass'],
     alcoholPolicy: 'serves-alcohol',
     ramadanFriendly: 'serves-lunch'
+  ,
+    tags: ["medina","budget","alcohol","dinner"]
   },
 
   {
@@ -395,6 +438,8 @@ export const asilahEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner', 'flexible'],
     experienceTypes: ['Casual Dining'],
     foodStyles: ['Moroccan', 'Seafood'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'seafood'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'kids-friendly'],
     hasEnglishStaff: true,
@@ -406,31 +451,37 @@ export const asilahEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '11:00',
     closeTime: '23:30',
     badge: 'local',
     // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.2,
-    googleReviewCount: 700,
-    tripadvisorRating: 4.2,
-    tripadvisorReviewCount: 1300,
-    theforkRating: 4.2,
-    theforkReviewCount: 1300,
-    restaurantguruRating: 4.2,
-    restaurantguruReviewCount: 1300,
+    googleRating: 3.7,
+    googleReviewCount: 1441,
+    tripadvisorRating: 3.5,
+    tripadvisorReviewCount: 400,
+    theforkRating: 3.7,
+    theforkReviewCount: 120,
+    restaurantguruRating: 4.8,
+    restaurantguruReviewCount: 1698,
 
     tip: 'A very welcoming family restaurant. Their grilled sardine platter is a classic street-food style favorite.',
     archetypeAffinity: ['culture', 'first-timer'],
     vibeTags: ['no-frills', 'bustling', 'family-friendly'],
     isHiddenGem: false,
     paymentMethods: ['cash'],
-    reservationMethod: ['none'],
+    reservationMethod: ['phone'],
+    reservationContact: '+212633580050',
     googleMapsUrl: 'https://maps.google.com/?q=Restaurant+Ali+Baba+Asilah',
     bestDishes: ['Grilled Sardines Platter', 'Kofta Tagine with Egg', 'Rotisserie Chicken'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour'
+  ,
+    tags: ["tagine","medina","budget","dry","dinner"]
   },
 
   {
@@ -444,6 +495,8 @@ export const asilahEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Casual Dining', 'Scenic Views'],
     foodStyles: ['Seafood', 'Mediterranean', 'Moroccan'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['seafood', 'international', 'moroccan-traditional'],
     crowdLevel: 'balanced',
     groupTypes: ['couple', 'family', 'friends', 'kids-friendly'],
     hasEnglishStaff: true,
@@ -455,20 +508,23 @@ export const asilahEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '23:00',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.4,
-    googleReviewCount: 180,
-    tripadvisorRating: 4.4,
-    tripadvisorReviewCount: 350,
-    theforkRating: 4.4,
-    theforkReviewCount: 350,
-    restaurantguruRating: 4.4,
-    restaurantguruReviewCount: 350,
+    googleRating: 3.8,
+    googleReviewCount: 120,
+    tripadvisorRating: 4.0,
+    tripadvisorReviewCount: 60,
+    theforkRating: 3.8,
+    theforkReviewCount: 40,
+    restaurantguruRating: 4.0,
+    restaurantguruReviewCount: 120,
 
     tip: 'The restaurant offers a great terrace with direct views of the sunset hitting the medina walls.',
     archetypeAffinity: ['adventure', 'culture'],
@@ -476,10 +532,13 @@ export const asilahEat: EatListing[] = [
     isHiddenGem: false,
     paymentMethods: ['cash', 'card'],
     reservationMethod: ['phone'],
+    reservationContact: '+212539416452',
     googleMapsUrl: 'https://maps.google.com/?q=Le+32+Restaurant+Asilah',
     bestDishes: ['Octopus Salad', 'Fish Paella', 'Creamy Shrimp Pasta'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour'
+  ,
+    tags: ["tagine","medina","budget","dry","dinner"]
   },
 
   {
@@ -493,6 +552,8 @@ export const asilahEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Casual Dining', 'Scenic Views', 'Traditional Dining'],
     foodStyles: ['Moroccan', 'Seafood'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'seafood'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'kids-friendly'],
     hasEnglishStaff: true,
@@ -504,31 +565,37 @@ export const asilahEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '11:30',
     closeTime: '22:30',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.1,
-    googleReviewCount: 350,
-    tripadvisorRating: 4.1,
-    tripadvisorReviewCount: 650,
-    theforkRating: 4.1,
-    theforkReviewCount: 650,
-    restaurantguruRating: 4.1,
-    restaurantguruReviewCount: 650,
+    googleRating: 3.4,
+    googleReviewCount: 517,
+    tripadvisorRating: 2.9,
+    tripadvisorReviewCount: 66,
+    theforkRating: 3.2,
+    theforkReviewCount: 50,
+    restaurantguruRating: 3.4,
+    restaurantguruReviewCount: 517,
 
     tip: 'Highly popular on sunny afternoons. Sit under the eucalyptus trees and try their fresh, value-priced fish pastillas.',
     archetypeAffinity: ['culture', 'first-timer'],
     vibeTags: ['lively', 'shaded', 'relaxed', 'scenic'],
     isHiddenGem: false,
     paymentMethods: ['cash'],
-    reservationMethod: ['none'],
+    reservationMethod: ['phone'],
+    reservationContact: '+212645691802',
     googleMapsUrl: 'https://maps.google.com/?q=Restaurant+Al+Kasaba+Asilah',
     bestDishes: ['Seafood pastilla', 'Grilled Sea Bream', 'Tajine with olives'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'serves-lunch'
+  ,
+    tags: ["tagine","pastilla","medina","budget","terrace","dry","dinner"]
   },
 
   {
@@ -542,6 +609,8 @@ export const asilahEat: EatListing[] = [
     mealTypes: ['breakfast', 'brunch', 'flexible'],
     experienceTypes: ['Cafe', 'Casual Dining'],
     foodStyles: ['Cafe', 'Mediterranean'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['cafe-pastry', 'international'],
     crowdLevel: 'balanced',
     groupTypes: ['solo', 'couple', 'friends'],
     hasEnglishStaff: true,
@@ -553,6 +622,10 @@ export const asilahEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'unknown',
+    verificationStatus: 'unverified',
+    isTemporarilyHidden: true,
     openTime: '08:30',
     closeTime: '20:00',
     badge: 'hidden-gem',
@@ -578,6 +651,8 @@ export const asilahEat: EatListing[] = [
     bestDishes: ['Fresh Almond Tart', 'Vegetable Panini', 'Moroccan Coffee Nos-Nos'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour'
+  ,
+    tags: ["pastry","cafe-pastry","breakfast","medina","budget","terrace","dry"]
   },
 
   {
@@ -591,6 +666,8 @@ export const asilahEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Casual Dining', 'Traditional Dining'],
     foodStyles: ['Moroccan'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional'],
     crowdLevel: 'balanced',
     groupTypes: ['couple', 'family', 'friends', 'seniors'],
     hasEnglishStaff: true,
@@ -602,6 +679,10 @@ export const asilahEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'unknown',
+    verificationStatus: 'wrong-city',
+    isTemporarilyHidden: true,
     openTime: '12:00',
     closeTime: '22:00',
     badge: 'local-favorite',
@@ -627,6 +708,8 @@ export const asilahEat: EatListing[] = [
     bestDishes: ['Beef Tagine with Prunes', 'Friday Vegetable Couscous', 'Kefta Meatball Claypot'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour'
+  ,
+    tags: ["tagine","couscous","riad","medina","budget","dry","dinner"]
   },
 
   {
@@ -640,6 +723,8 @@ export const asilahEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Casual Dining', 'Traditional Dining'],
     foodStyles: ['Seafood', 'Spanish', 'Moroccan'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['seafood', 'international', 'moroccan-traditional'],
     crowdLevel: 'balanced',
     groupTypes: ['couple', 'family', 'friends', 'seniors'],
     hasEnglishStaff: true,
@@ -651,31 +736,37 @@ export const asilahEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '23:00',
     badge: 'local',
     // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.3,
-    googleReviewCount: 100,
-    tripadvisorRating: 4.3,
-    tripadvisorReviewCount: 195,
-    theforkRating: 4.3,
-    theforkReviewCount: 195,
-    restaurantguruRating: 4.3,
-    restaurantguruReviewCount: 195,
+    googleRating: 3.5,
+    googleReviewCount: 221,
+    tripadvisorRating: 3.2,
+    tripadvisorReviewCount: 85,
+    theforkRating: 3.3,
+    theforkReviewCount: 40,
+    restaurantguruRating: 3.1,
+    restaurantguruReviewCount: 335,
 
     tip: 'Deeply trusted by locals. Their fish tagine features local herbs, olives, and preserves, offering a lighter northern taste.',
     archetypeAffinity: ['culture'],
     vibeTags: ['traditional', 'authentic', 'quiet'],
     isHiddenGem: false,
     paymentMethods: ['cash'],
-    reservationMethod: ['none'],
+    reservationMethod: ['phone'],
+    reservationContact: '+212539418505',
     googleMapsUrl: 'https://maps.google.com/?q=Restaurant+Seville+Asilah',
     bestDishes: ['Seafood Claypot Seville', 'Grilled Seabream', 'Spiced Harira Soup'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour'
+  ,
+    tags: ["budget","dry","dinner"]
   },
 
   {
@@ -689,6 +780,8 @@ export const asilahEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Casual Dining', 'Scenic Views'],
     foodStyles: ['Seafood', 'Mediterranean'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['seafood', 'international'],
     crowdLevel: 'balanced',
     groupTypes: ['solo', 'friends', 'couple'],
     hasEnglishStaff: true,
@@ -700,31 +793,37 @@ export const asilahEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '12:00',
     closeTime: '23:00',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.3,
-    googleReviewCount: 160,
-    tripadvisorRating: 4.3,
-    tripadvisorReviewCount: 310,
-    theforkRating: 4.3,
-    theforkReviewCount: 310,
-    restaurantguruRating: 4.3,
-    restaurantguruReviewCount: 310,
+    googleRating: 3.3,
+    googleReviewCount: 144,
+    tripadvisorRating: 3.3,
+    tripadvisorReviewCount: 45,
+    theforkRating: 3.3,
+    theforkReviewCount: 30,
+    restaurantguruRating: 3.3,
+    restaurantguruReviewCount: 144,
 
     tip: 'Positioned right opposite the port, ensuring the fish is caught and cooked within hours. The staff is young and highly welcoming.',
     archetypeAffinity: ['adventure', 'culture', 'first-timer'],
     vibeTags: ['friendly', 'coastal', 'youthful', 'lively'],
     isHiddenGem: false,
     paymentMethods: ['cash'],
-    reservationMethod: ['none'],
+    reservationMethod: ['phone'],
+    reservationContact: '+212671043277',
     googleMapsUrl: 'https://maps.google.com/?q=Restaurant+Sandwicherie+Yali+Asilah',
     bestDishes: ['Crispy Fried Calamari', 'Grilled Sardines', 'Tomato Cucumber Salad'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'serves-lunch'
+  ,
+    tags: ["budget","dry","dinner"]
   },
 
   {
@@ -738,6 +837,8 @@ export const asilahEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Casual Dining'],
     foodStyles: ['Moroccan', 'Seafood'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'seafood'],
     crowdLevel: 'bustling',
     groupTypes: ['couple', 'family', 'friends', 'kids-friendly'],
     hasEnglishStaff: false,
@@ -749,20 +850,23 @@ export const asilahEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '11:00',
     closeTime: '23:00',
     badge: 'local',
     // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.1,
-    googleReviewCount: 220,
-    tripadvisorRating: 4.1,
-    tripadvisorReviewCount: 420,
-    theforkRating: 4.1,
-    theforkReviewCount: 420,
-    restaurantguruRating: 4.1,
-    restaurantguruReviewCount: 420,
+    googleRating: 3.0,
+    googleReviewCount: 76,
+    tripadvisorRating: 3.0,
+    tripadvisorReviewCount: 30,
+    theforkRating: 3.0,
+    theforkReviewCount: 20,
+    restaurantguruRating: 2.8,
+    restaurantguruReviewCount: 76,
 
     tip: 'Extremely popular with local families. Their spiced lentil soup and charcoal meat skewers are a highly satisfying, cheap local lunch.',
     archetypeAffinity: ['culture', 'first-timer'],
@@ -774,6 +878,8 @@ export const asilahEat: EatListing[] = [
     bestDishes: ['Charcoal Meat Skewers', 'Northern Harira Soup', 'Fish Tajine with Spiced Olives'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour'
+  ,
+    tags: ["tagine","medina","budget","dry","dinner"]
   },
 
   {
@@ -787,6 +893,8 @@ export const asilahEat: EatListing[] = [
     mealTypes: ['breakfast', 'flexible', 'afternoon-tea'],
     experienceTypes: ['Cafe', 'Scenic Views'],
     foodStyles: ['Cafe', 'Moroccan'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['cafe-pastry', 'moroccan-traditional'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'couple', 'friends', 'kids-friendly'],
     hasEnglishStaff: true,
@@ -798,31 +906,37 @@ export const asilahEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '08:00',
     closeTime: '22:00',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.5,
-    googleReviewCount: 450,
-    tripadvisorRating: 4.5,
-    tripadvisorReviewCount: 880,
-    theforkRating: 4.5,
-    theforkReviewCount: 880,
-    restaurantguruRating: 4.5,
-    restaurantguruReviewCount: 880,
+    googleRating: 3.5,
+    googleReviewCount: 1289,
+    tripadvisorRating: 3.4,
+    tripadvisorReviewCount: 10,
+    theforkRating: 3.5,
+    theforkReviewCount: 50,
+    restaurantguruRating: 4.8,
+    restaurantguruReviewCount: 1301,
 
     tip: 'Dine on the roof deck at dusk to capture beautiful photos of the waves breaking on the medina walls while enjoying mint tea.',
     archetypeAffinity: ['culture', 'first-timer'],
     vibeTags: ['scenic', 'sunset-spot', 'cozy', 'oceanfront'],
     isHiddenGem: false,
     paymentMethods: ['cash'],
-    reservationMethod: ['none'],
+    reservationMethod: ['phone'],
+    reservationContact: '+212768452761',
     googleMapsUrl: 'https://maps.google.com/?q=Cafe+Daya+Asilah',
     bestDishes: ['Freshly Squeezed Avocado Shake', 'Hot Mint Tea', 'Semolina Harcha Flatbread'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour'
+  ,
+    tags: ["juice","cafe-pastry","breakfast","medina","budget","dry"]
   },
 
   {
@@ -836,6 +950,8 @@ export const asilahEat: EatListing[] = [
     mealTypes: ['breakfast', 'flexible', 'brunch'],
     experienceTypes: ['Cafe', 'Casual Dining'],
     foodStyles: ['Healthy', 'Cafe'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['international', 'cafe-pastry'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'couple', 'friends', 'kids-friendly'],
     hasEnglishStaff: true,
@@ -847,20 +963,23 @@ export const asilahEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '09:00',
     closeTime: '23:00',
     badge: 'local-favorite',
     // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.7,
-    googleReviewCount: 350,
-    tripadvisorRating: 4.7,
-    tripadvisorReviewCount: 650,
-    theforkRating: 4.7,
-    theforkReviewCount: 650,
-    restaurantguruRating: 4.7,
-    restaurantguruReviewCount: 650,
+    googleRating: 4.8,
+    googleReviewCount: 112,
+    tripadvisorRating: 4.5,
+    tripadvisorReviewCount: 50,
+    theforkRating: 4.6,
+    theforkReviewCount: 30,
+    restaurantguruRating: 4.5,
+    restaurantguruReviewCount: 112,
 
     tip: 'An absolute local favorite for sweet treats. Order their mixed avocado, mango, and date shake—it is thick and incredibly refreshing.',
     archetypeAffinity: ['adventure', 'culture', 'first-timer'],
@@ -872,6 +991,8 @@ export const asilahEat: EatListing[] = [
     bestDishes: ['Custom Fruit Smoothie', 'Avocado Date Shake', 'Citrus Orange Juice'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour'
+  ,
+    tags: ["juice","cafe-pastry","breakfast","medina","budget","dry"]
   },
 
   {
@@ -885,6 +1006,8 @@ export const asilahEat: EatListing[] = [
     mealTypes: ['breakfast', 'brunch', 'afternoon-tea'],
     experienceTypes: ['Cafe', 'Casual Dining', 'Traditional Dining'],
     foodStyles: ['Cafe', 'Moroccan'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['cafe-pastry', 'moroccan-traditional'],
     crowdLevel: 'quiet',
     groupTypes: ['solo', 'couple', 'seniors'],
     hasEnglishStaff: true,
@@ -896,20 +1019,23 @@ export const asilahEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'likely-halal-food',
+    verificationStatus: 'verified',
     openTime: '07:30',
     closeTime: '21:00',
     badge: 'local',
     // googlePlaceId: "PLACE_ID_HERE",
 
     // ── RATINGS ──
-    googleRating: 4.4,
-    googleReviewCount: 90,
-    tripadvisorRating: 4.4,
-    tripadvisorReviewCount: 180,
-    theforkRating: 4.4,
-    theforkReviewCount: 180,
-    restaurantguruRating: 4.4,
-    restaurantguruReviewCount: 180,
+    googleRating: 3.0,
+    googleReviewCount: 40,
+    tripadvisorRating: 3.0,
+    tripadvisorReviewCount: 25,
+    theforkRating: 3.0,
+    theforkReviewCount: 15,
+    restaurantguruRating: 3.0,
+    restaurantguruReviewCount: 40,
 
     tip: 'Perfect for a quiet morning. Their semolina harcha and local honey make for an exceptional, simple breakfast.',
     archetypeAffinity: ['culture', 'nomad'],
@@ -921,6 +1047,8 @@ export const asilahEat: EatListing[] = [
     bestDishes: ['Semolina Harcha with Honey', 'Turkish Style Coffee', 'Local Moroccan Pastries'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour'
+  ,
+    tags: ["pastry","cafe-pastry","breakfast","medina","budget","dry","quiet"]
   },
 
   {
@@ -934,6 +1062,8 @@ export const asilahEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Casual Dining', 'Scenic Views'],
     foodStyles: ['Seafood', 'Moroccan', 'Mediterranean'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['seafood', 'moroccan-traditional', 'international'],
     crowdLevel: 'balanced',
     groupTypes: ['couple', 'family', 'friends'],
     hasEnglishStaff: true,
@@ -945,6 +1075,10 @@ export const asilahEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'unknown',
+    verificationStatus: 'unverified',
+    isTemporarilyHidden: true,
     openTime: '12:00',
     closeTime: '23:00',
     badge: 'local-favorite',
@@ -970,6 +1104,8 @@ export const asilahEat: EatListing[] = [
     bestDishes: ['Atlantic Fish Pastilla', 'Seafood Paella', 'Spiced Fish Tagine'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'serves-lunch'
+  ,
+    tags: ["tagine","pastilla","budget","dry","dinner"]
   },
 
   {
@@ -983,6 +1119,8 @@ export const asilahEat: EatListing[] = [
     mealTypes: ['breakfast', 'flexible', 'afternoon-tea'],
     experienceTypes: ['Cafe', 'Casual Dining'],
     foodStyles: ['Cafe', 'Moroccan'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['cafe-pastry', 'moroccan-traditional'],
     crowdLevel: 'balanced',
     groupTypes: ['solo', 'couple', 'friends'],
     hasEnglishStaff: true,
@@ -994,6 +1132,10 @@ export const asilahEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'unknown',
+    verificationStatus: 'unverified',
+    isTemporarilyHidden: true,
     openTime: '08:00',
     closeTime: '21:30',
     badge: 'hidden-gem',
@@ -1019,6 +1161,8 @@ export const asilahEat: EatListing[] = [
     bestDishes: ['Local Honey Pancakes (Msemen)', 'Traditional Sage Tea', 'Assorted Almond Biscuits'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour'
+  ,
+    tags: ["pastry","cafe-pastry","breakfast","medina","budget","terrace","dry"]
   },
 
   {
@@ -1032,6 +1176,8 @@ export const asilahEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner', 'latenight', 'flexible'],
     experienceTypes: ['Casual Dining'],
     foodStyles: ['Moroccan', 'Seafood'],
+    // food-cuisine quiz question tags
+    cuisineTags: ['moroccan-traditional', 'seafood'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'friends'],
     hasEnglishStaff: false,
@@ -1043,6 +1189,10 @@ export const asilahEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'unknown',
+    verificationStatus: 'unverified',
+    isTemporarilyHidden: true,
     openTime: '11:00',
     closeTime: '02:00',
     badge: 'local',
@@ -1068,5 +1218,7 @@ export const asilahEat: EatListing[] = [
     bestDishes: ['Northern Tuna Bocadillo', 'Crispy Grilled Sardines Box', 'French Fries with Garlic dip'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour'
+  ,
+    tags: ["street-food","late-night","medina","budget","dry","dinner"]
   }
 ];

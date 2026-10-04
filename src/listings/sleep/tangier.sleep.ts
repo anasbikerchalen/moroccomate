@@ -195,13 +195,15 @@ export const tangierSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["couple", "family", "seniors", "solo", "business-friendly"],
     tip: "The sunset view from the pool terrace is one of the most exclusive and beautiful in the city.",
     vibeTags: ["Palatial", "Majestic", "Secluded", "Ultra-Luxe"],
-    locationSummary: "Boubana Hills - Overlooking the City",
+    locationSummary: "Boulevard & Ville Nouvelle Waterfront",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Fairmont+Tazi+Palace+Tangier",
     address: "Palais Tazi, Route de Boubana, Tangier 90000, Morocco",
@@ -272,6 +274,11 @@ export const tangierSleep: SleepListing[] = [
       business: "Discreet and prestigious for high-level meetings.",
       nomad: "Excellent connectivity and several quiet spots to work from.",
     },
+    coordinates: {
+      lat: 35.78187,
+      lng: -5.850714
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "t-sleep-2",
@@ -309,13 +316,15 @@ export const tangierSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ["couple", "solo", "family"],
     tip: "The hammam experience here is one of the best in Tangier—perfect after a day in the souks.",
     vibeTags: ["Historic", "Artisanal", "Refined", "Boutique"],
-    locationSummary: "Medina - Near Petit Socco",
+    locationSummary: "Kasbah & Medina Quarter",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Palais+Zahia+Hotel+Spa+Tangier",
     address: "Rue de la Marine, Tangier Medina, Tangier 90000, Morocco",
@@ -386,6 +395,11 @@ export const tangierSleep: SleepListing[] = [
       business: "Prestigious spot with good WiFi, though lively outside.",
       nomad: "An inspiring piece of history to work from for a few days.",
     },
+    coordinates: {
+      lat: 35.785681,
+      lng: -5.810089
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "t-sleep-3",
@@ -422,14 +436,16 @@ export const tangierSleep: SleepListing[] = [
     taxesIncluded: false,
     freeCancellation: true,
     kidsStayFree: false,
-    nearMedina: true,
+    nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["couple", "seniors", "family"],
     tip: "Visit Caid’s Bar, a famous hangout for writers and diplomats during the International Zone era.",
     vibeTags: ["Iconic", "Historic", "Institutional", "Grand"],
-    locationSummary: "Ville Nouvelle - Near the Medina Gate",
+    locationSummary: "Boulevard & Ville Nouvelle Waterfront",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=El+Minzah+Hotel+Tangier",
     address: "85 Rue de la Liberté, Tangier 90000, Morocco",
@@ -500,6 +516,11 @@ export const tangierSleep: SleepListing[] = [
       business: "A prestigious address for meetings and work.",
       nomad: "The bar and gardens are inspiring places to work from.",
     },
+    coordinates: {
+      lat: 35.781874,
+      lng: -5.812409
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "t-sleep-4",
@@ -537,13 +558,15 @@ export const tangierSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "friends", "family"],
     tip: "Ask for an upper-floor sea-view room for sunrise over the Strait of Gibraltar.",
     vibeTags: ["Authentic", "Vintage", "Historic", "Bohemian"],
-    locationSummary: "Medina - Overlooking Port",
+    locationSummary: "Kasbah & Medina Quarter",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Hotel+Continental+Tangier",
     address: "36 Rue Dar Baroud, Tangier 90000, Morocco",
@@ -614,6 +637,11 @@ export const tangierSleep: SleepListing[] = [
       business: "Good for a quick transit stay near the port with character.",
       nomad: "An inspiring but basic place to work from a historic terrace.",
     },
+    coordinates: {
+      lat: 35.787519,
+      lng: -5.809523
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "t-sleep-5",
@@ -650,14 +678,16 @@ export const tangierSleep: SleepListing[] = [
     taxesIncluded: false,
     freeCancellation: true,
     kidsStayFree: false,
-    nearMedina: true,
+    nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["couple", "seniors", "family"],
     tip: "Room 35 is where Matisse painted Window at Tangier—ask if you can see it.",
     vibeTags: ["Artistic", "Elegant", "Historic", "Serene"],
-    locationSummary: "Ville Nouvelle - Hilltop Near Grand Socco",
+    locationSummary: "Boulevard & Ville Nouvelle Waterfront",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Grand+Hotel+Villa+de+France+Tangier",
     address: "Angle Rue de Hollande et Rue d’Angleterre, Tangier 90000, Morocco",
@@ -728,6 +758,11 @@ export const tangierSleep: SleepListing[] = [
       business: "A prestigious address for quiet evening work and meetings.",
       nomad: "The terrace and gardens are inspiring places to work from.",
     },
+    coordinates: {
+      lat: 35.782312,
+      lng: -5.8145
+    },
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "t-sleep-6",
@@ -765,13 +800,15 @@ export const tangierSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["couple", "solo"],
     tip: "Dinner on the rooftop terrace is a must-book experience; sunsets over the Strait are unforgettable.",
     vibeTags: ["Bohemian", "Panoramic", "Chic", "Authentic"],
-    locationSummary: "Kasbah - High Point of the City",
+    locationSummary: "Kasbah & Medina Quarter",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Dar+Nour+Tangier",
     address: "20 Rue Gourna, Kasbah, Tangier 90000, Morocco",
@@ -842,6 +879,11 @@ export const tangierSleep: SleepListing[] = [
       business: "The terrace is a quiet place to work with a view.",
       nomad: "A perfect creative retreat with incredible light and atmosphere.",
     },
+    coordinates: {
+      lat: 35.78786,
+      lng: -5.814188
+    },
+    tags: []
   },
   {
     id: "t-sleep-7",
@@ -879,13 +921,15 @@ export const tangierSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ["couple", "solo"],
     tip: "Spend an afternoon reading by the pool in the garden to escape the city buzz.",
     vibeTags: ["Stylish", "Garden-Oasis", "Historic", "Serene"],
-    locationSummary: "Marshan District - Near the Palace",
+    locationSummary: "Boulevard & Ville Nouvelle Waterfront",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Mimi+Calpe+Tangier",
     address: "71 Rue de la Plage, Marshan, Tangier 90000, Morocco",
@@ -956,6 +1000,11 @@ export const tangierSleep: SleepListing[] = [
       business: "A quiet inspiring setting with good WiFi for remote work.",
       nomad: "The best garden to work from while feeling like a classic villa.",
     },
+    coordinates: {
+      lat: 35.768132,
+      lng: -5.761399
+    },
+    tags: ["heritage"]
   },
   {
     id: "t-sleep-8",
@@ -993,13 +1042,15 @@ export const tangierSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "friends"],
     tip: "The library is a hidden gem—spend an hour with mint tea for the ultimate medina retreat.",
     vibeTags: ["Charming", "Quiet", "Literary", "Authentic"],
-    locationSummary: "Medina - Near Grand Socco",
+    locationSummary: "Kasbah & Medina Quarter",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Dar+Rif+Tangier",
     address: "Rue de la Kasbah, Tangier Medina, Tangier 90000, Morocco",
@@ -1070,6 +1121,11 @@ export const tangierSleep: SleepListing[] = [
       business: "A refreshing quiet alternative to central business hotels.",
       nomad: "The library is a great place to work with a city view.",
     },
+    coordinates: {
+      lat: 35.787137,
+      lng: -5.810573
+    },
+    tags: []
   },
   {
     id: "t-sleep-9",
@@ -1107,13 +1163,15 @@ export const tangierSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["solo", "friends"],
     tip: "Ask staff for their favorite hole-in-the-wall eateries in the medina.",
     vibeTags: ["Friendly", "Social", "Vibrant", "Budget-Friendly"],
-    locationSummary: "Medina - Near the Port",
+    locationSummary: "Kasbah & Medina Quarter",
     availabilityText: "Beds available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Bayt+Alice+Tangier",
     address: "26 Rue Khatib Beni Idder, Tangier Medina, Tangier 90000, Morocco",
@@ -1184,6 +1242,11 @@ export const tangierSleep: SleepListing[] = [
       business: "Not suitable for business travel.",
       nomad: "The rooftop is a decent place to work for a few hours.",
     },
+    coordinates: {
+      lat: 35.729194,
+      lng: -5.912969
+    },
+    tags: ["dorm"]
   },
   {
     id: "t-sleep-10",
@@ -1221,13 +1284,15 @@ export const tangierSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["solo", "friends"],
     tip: "Bring a padlock for the lockers; the rooftop view over the Strait is free and excellent.",
     vibeTags: ["Budget-Friendly", "Relaxed", "Scenic", "Authentic"],
-    locationSummary: "Kasbah - Highest point of the City",
+    locationSummary: "Kasbah & Medina Quarter",
     availabilityText: "Beds available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Tangier+Kasbah+Hostel",
     address: "Kasbah, Tangier 90000, Morocco",
@@ -1298,6 +1363,11 @@ export const tangierSleep: SleepListing[] = [
       business: "Not suitable for business travel.",
       nomad: "The rooftop is a decent place to work for a few hours.",
     },
+    coordinates: {
+      lat: 35.787859,
+      lng: -5.812366
+    },
+    tags: ["dorm", "heritage"]
   },
   {
     id: "t-sleep-11",
@@ -1335,13 +1405,15 @@ export const tangierSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["solo", "friends"],
     tip: "Do not miss the free Moroccan breakfast with fresh msemen and honey on the rooftop.",
     vibeTags: ["Social", "Vibrant", "Central", "Friendly"],
-    locationSummary: "Medina - Near the Port",
+    locationSummary: "Kasbah & Medina Quarter",
     availabilityText: "Beds available tonight",
     googleMapsUrl: "https://maps.google.com/?q=The+Medina+Hostel+Tangier",
     address: "6 Rue des Postes, Tangier 90000, Morocco",
@@ -1412,6 +1484,11 @@ export const tangierSleep: SleepListing[] = [
       business: "Not suitable for business travel.",
       nomad: "The rooftop is a decent place to work for a few hours.",
     },
+    coordinates: {
+      lat: 35.787354,
+      lng: -5.810295
+    },
+    tags: ["dorm"]
   },
   {
     id: "t-sleep-12",
@@ -1449,13 +1526,15 @@ export const tangierSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["couple", "family", "solo"],
     tip: "Staff can organize private guided tours of the medina and Hercules Caves for a stress-free experience.",
     vibeTags: ["Authentic", "Peaceful", "Traditional", "Immersive"],
-    locationSummary: "Medina - Near Petit Socco",
+    locationSummary: "Kasbah & Medina Quarter",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Tingis+Tangier",
     address: "Rue de la Marine, Tangier 90000, Morocco",
@@ -1526,6 +1605,11 @@ export const tangierSleep: SleepListing[] = [
       business: "A refreshing quiet alternative to central business hotels.",
       nomad: "The rooftop terrace is a dream for morning remote work.",
     },
+    coordinates: {
+      lat: 35.802699,
+      lng: -5.743784
+    },
+    tags: ["heritage"]
   },
   {
     id: "t-sleep-13",
@@ -1640,6 +1724,11 @@ export const tangierSleep: SleepListing[] = [
       business: "A prestigious quiet setting for high-level remote work.",
       nomad: "The most visually inspiring and luxurious stay in the old city.",
     },
+    coordinates: {
+      lat: 35.790437,
+      lng: -5.816798
+    },
+    tags: ["heritage"]
   },
   {
     id: "t-sleep-14",
@@ -1677,13 +1766,15 @@ export const tangierSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 5,
     groupTypes: ["couple", "solo", "seniors"],
     tip: "Spend an afternoon reading by the pool in the garden to escape the city buzz.",
     vibeTags: ["Stylish", "Garden-Oasis", "Mid-Century-Modern", "Serene"],
-    locationSummary: "Marshan District - Near the Kasbah",
+    locationSummary: "Boulevard & Ville Nouvelle Waterfront",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=La+Maison+de+Tanger",
     address: "9 Rue de la Liberté, Tangier 90000, Morocco",
@@ -1754,6 +1845,11 @@ export const tangierSleep: SleepListing[] = [
       business: "A quiet inspiring setting with good WiFi for remote work.",
       nomad: "The best garden to work from while feeling like a classic villa.",
     },
+    coordinates: {
+      lat: 35.776386,
+      lng: -5.796169
+    },
+    tags: ["heritage"]
   },
   {
     id: "t-sleep-15",
@@ -1791,13 +1887,15 @@ export const tangierSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: true,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["couple", "family", "friends", "solo"],
     tip: "Book a sea-view room for sunrise over the marina; city-view rooms can be noisier at night.",
     vibeTags: ["Modern", "Vibrant", "Beachfront", "Contemporary"],
-    locationSummary: "Corniche - Directly Overlooking Marina",
+    locationSummary: "Boulevard & Ville Nouvelle Waterfront",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Marina+Bay+Hotel+Tangier",
     address: "Avenue Mohammed VI, Tangier 90000, Morocco",
@@ -1868,6 +1966,11 @@ export const tangierSleep: SleepListing[] = [
       business: "Reliable modern option with good connectivity and views.",
       nomad: "The lounge and poolside are good work spots with sea breeze.",
     },
+    coordinates: {
+      lat: 35.780999,
+      lng: -5.806343
+    },
+    tags: []
   },
   {
     id: "t-sleep-16",
@@ -1905,13 +2008,15 @@ export const tangierSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "countryside",
     nearBeach: true,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["family", "couple", "seniors", "business-friendly"],
     tip: "Perfect for families or a quiet resort experience away from the city; try the spa treatments.",
     vibeTags: ["Sprawling", "Resort-Style", "Secluded", "Luxury"],
-    locationSummary: "Houara Beach - 25km South of Tangier",
+    locationSummary: "Al Houara Coastal Nature Reserve",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Hilton+Tangier+Al+Houara+Resort+Spa",
     address: "Km 19.8 Route Nationale 1, Tangier 90000, Morocco",
@@ -1982,6 +2087,11 @@ export const tangierSleep: SleepListing[] = [
       business: "Excellent for high-end conferences and executive retreats.",
       nomad: "Great for a deep-work week with resort amenities.",
     },
+    coordinates: {
+      lat: 35.667332,
+      lng: -5.965774
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "t-sleep-17",
@@ -2019,13 +2129,15 @@ export const tangierSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: true,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["couple", "family", "friends", "business-friendly"],
     tip: "The B-Heaven rooftop bar is one of the coolest spots for a drink with a bay view.",
     vibeTags: ["Design-Forward", "Chic", "Modern", "Beachfront"],
-    locationSummary: "Corniche - Prime Bay Position",
+    locationSummary: "Boulevard & Ville Nouvelle Waterfront",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Barcelo+Tanger",
     address: "43 Avenue Mohammed VI, Tangier 90000, Morocco",
@@ -2096,6 +2208,11 @@ export const tangierSleep: SleepListing[] = [
       business: "Perfect for business travelers with fast WiFi and station proximity.",
       nomad: "The rooftop and lobby lounge are excellent work spaces.",
     },
+    coordinates: {
+      lat: 35.77764,
+      lng: -5.800003
+    },
+    tags: []
   },
   {
     id: "t-sleep-18",
@@ -2133,13 +2250,15 @@ export const tangierSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: true,
     nearMosque: false,
     safetyLevel: 4,
     groupTypes: ["friends", "family", "couple"],
     tip: "Ask for a higher-floor room to reduce nightclub and corniche traffic noise.",
     vibeTags: ["Lively", "Bustling", "Beachfront", "Entertainment-Focused"],
-    locationSummary: "Corniche - Center of Beach Action",
+    locationSummary: "Boulevard & Ville Nouvelle Waterfront",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Kenzi+Solazur+Tangier",
     address: "Avenue Mohammed VI, Tangier 90000, Morocco",
@@ -2210,6 +2329,11 @@ export const tangierSleep: SleepListing[] = [
       business: "Convenient location, but noisy for early meetings.",
       nomad: "Good if you want to work by day and party by night.",
     },
+    coordinates: {
+      lat: 35.776487,
+      lng: -5.797505
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "t-sleep-19",
@@ -2247,13 +2371,15 @@ export const tangierSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: true,
     nearMedina: false,
+    // sleep-location quiz question tag
+    locationFeel: "ville-nouvelle",
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "friends", "business-friendly"],
     tip: "Perfect if you have an early Al Boraq high-speed train—the station is practically next door.",
     vibeTags: ["Practical", "Reliable", "Central", "Modern"],
-    locationSummary: "City Center - Next to Train Station",
+    locationSummary: "Boulevard & Ville Nouvelle Waterfront",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Ibis+Tanger+City+Center",
     address: "City Center, Place Maghreb Arabe, Tangier 90000, Morocco",
@@ -2324,6 +2450,11 @@ export const tangierSleep: SleepListing[] = [
       business: "Excellent for business travelers using the TGV.",
       nomad: "Reliable WiFi and central location make it a decent work base.",
     },
+    coordinates: {
+      lat: 35.772285,
+      lng: -5.782874
+    },
+    tags: ["family-favorite"]
   },
   {
     id: "t-sleep-20",
@@ -2361,13 +2492,15 @@ export const tangierSleep: SleepListing[] = [
     freeCancellation: true,
     kidsStayFree: false,
     nearMedina: true,
+    // sleep-location quiz question tag
+    locationFeel: "medina-heart",
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
     groupTypes: ["solo", "couple", "friends", "family"],
     tip: "The host makes an amazing home-cooked tagine on request—better than many restaurants.",
     vibeTags: ["Intimate", "Warm", "Authentic", "Homey"],
-    locationSummary: "Heart of the Medina",
+    locationSummary: "Kasbah & Medina Quarter",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Dar+Yasmine+Tangier",
     address: "15 Rue Sidi Mansour, Medina, Tangier 90000, Morocco",
@@ -2438,5 +2571,10 @@ export const tangierSleep: SleepListing[] = [
       business: "A peaceful and inspiring alternative to standard hotels.",
       nomad: "The rooftop is a wonderful spot for quiet afternoon work.",
     },
+    coordinates: {
+      lat: 35.787354,
+      lng: -5.810295
+    },
+    tags: []
   }
 ]

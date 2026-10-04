@@ -28,9 +28,12 @@ export const fesThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: false,
     isPhotographyFriendly: true,
-    tags: ["cultural-tour", "authentic", "instagrammable", "medina", "photo-spot", "golden-hour", "guide-required"],
+    tags: ["authentic", "cultural-tour", "golden-hour", "guide-required", "instagrammable", "medina", "photo-spot", "sunset", "walk-in"],
     archetypeAffinity: ["culture"],
-    tip: "Keep a handful of fresh mint leaves (often offered at the terrace entrance) near your nose to help temper the strong smell of ammonia used in the leather tanning process."
+    tip: "Keep a handful of fresh mint leaves (often offered at the terrace entrance) near your nose to help temper the strong smell of ammonia used in the leather tanning process.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: true
   },
   {
     id: "fes-al-attarine-madrasa",
@@ -59,9 +62,12 @@ export const fesThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ["cultural-tour", "authentic", "instagrammable", "medina", "photo-spot", "step-free", "tripod-allowed"],
+    tags: ["authentic", "cultural-tour", "instagrammable", "medina", "photo-spot", "private", "relaxed", "step-free", "tripod-allowed", "walk-in"],
     archetypeAffinity: ["culture", "first-timer"],
-    tip: "Climb to the upper floor and look through the small wooden mashrabiya screens of the student quarters for an aerial perspective of the central courtyard."
+    tip: "Climb to the upper floor and look through the small wooden mashrabiya screens of the student quarters for an aerial perspective of the central courtyard.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: false
   },
   {
     id: "fes-bou-inania-madrasa",
@@ -90,9 +96,12 @@ export const fesThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ["cultural-tour", "authentic", "medina", "instagrammable", "photo-spot", "step-free", "golden-hour"],
+    tags: ["authentic", "cultural-tour", "golden-hour", "instagrammable", "medina", "photo-spot", "private", "relaxed", "step-free", "sunset", "walk-in"],
     archetypeAffinity: ["culture", "first-timer"],
-    tip: "Aim to visit early in the morning when it opens at 9:00 AM to avoid crowds and experience the architecture in relative silence."
+    tip: "Aim to visit early in the morning when it opens at 9:00 AM to avoid crowds and experience the architecture in relative silence.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: true
   },
   {
     id: "fes-bab-bou-jeloud",
@@ -121,9 +130,12 @@ export const fesThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ["cultural-tour", "authentic", "instagrammable", "medina"],
+    tags: ["authentic", "cultural-tour", "instagrammable", "medina", "private", "walk-in"],
     archetypeAffinity: ["first-timer", "culture"],
-    tip: "Snag a table on the rooftop terrace of a nearby café near dusk to watch the light change over the gate and observe local street life."
+    tip: "Snag a table on the rooftop terrace of a nearby café near dusk to watch the light change over the gate and observe local street life.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: false
   },
   {
     id: "fes-royal-palace",
@@ -152,9 +164,12 @@ export const fesThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ["cultural-tour", "authentic", "instagrammable"],
+    tags: ["authentic", "cultural-tour", "instagrammable", "private", "relaxed", "walk-in"],
     archetypeAffinity: ["first-timer", "culture"],
-    tip: "The sun shines directly on the golden gates in the morning, making it the ideal window for bright, shadow-free photography."
+    tip: "The sun shines directly on the golden gates in the morning, making it the ideal window for bright, shadow-free photography.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: false
   },
   {
     id: "fes-jnan-sbil",
@@ -183,9 +198,12 @@ export const fesThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ["nature", "authentic", "wellness"],
+    tags: ["authentic", "nature", "relaxed", "walk-in", "wellness"],
     archetypeAffinity: ["nomad", "first-timer"],
-    tip: "The park is strictly closed on Mondays. Consider visiting mid-week to stroll alongside local families enjoying the shade."
+    tip: "The park is strictly closed on Mondays. Consider visiting mid-week to stroll alongside local families enjoying the shade.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     id: "fes-marinid-tombs",
@@ -214,9 +232,12 @@ export const fesThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: false,
     isPhotographyFriendly: true,
-    tags: ["nature", "authentic", "instagrammable", "off-the-beaten-path"],
+    tags: ["authentic", "instagrammable", "nature", "off-the-beaten-path", "private", "sunset", "walk-in"],
     archetypeAffinity: ["culture", "adventure"],
-    tip: "Hire a registered taxi to take you up for sunset, as the road up the hill can be steep and remote to walk back down alone after dark."
+    tip: "Hire a registered taxi to take you up for sunset, as the road up the hill can be steep and remote to walk back down alone after dark.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: true
   },
   {
     id: "fes-ibn-danan-synagogue",
@@ -245,9 +266,12 @@ export const fesThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: false,
     isPhotographyFriendly: true,
-    tags: ["cultural-tour", "authentic", "off-the-beaten-path"],
+    tags: ["authentic", "cultural-tour", "off-the-beaten-path", "private", "relaxed", "walk-in"],
     archetypeAffinity: ["culture", "nomad"],
-    tip: "The local guardian of the synagogue can offer a short historical explanation and will often allow you onto the roof for a clear view of the white gravestones of the adjacent Jewish cemetery."
+    tip: "The local guardian of the synagogue can offer a short historical explanation and will often allow you onto the roof for a clear view of the white gravestones of the adjacent Jewish cemetery.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: false
   },
   {
     id: "fes-nejjarine-museum",
@@ -276,9 +300,12 @@ export const fesThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: false,
     isPhotographyFriendly: true,
-    tags: ["workshop", "authentic", "relaxed-energy", "self-guided", "medina", "culture"],
+    tags: ["authentic", "culture", "medina", "private", "relaxed", "relaxed-energy", "self-guided", "walk-in", "workshop"],
     archetypeAffinity: ["culture", "luxury"],
-    tip: "While photography of the fragile antique wooden items is restricted, you are free to photograph the grand open courtyard and the sweeping architecture of the building."
+    tip: "While photography of the fragile antique wooden items is restricted, you are free to photograph the grand open courtyard and the sweeping architecture of the building.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: false
   },
   {
     id: "fes-zaouia-moulay-idriss",
@@ -307,9 +334,12 @@ export const fesThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ["cultural-tour", "authentic", "medina"],
+    tags: ["authentic", "cultural-tour", "medina", "relaxed", "walk-in"],
     archetypeAffinity: ["culture"],
-    tip: "Look out for the wooden barrier beam placed across the street approaching the shrine, historically used to prevent animals from entering the sacred sanctuary zone."
+    tip: "Look out for the wooden barrier beam placed across the street approaching the shrine, historically used to prevent animals from entering the sacred sanctuary zone.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     id: "fes-al-qarawiyyin",
@@ -338,9 +368,12 @@ export const fesThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ["cultural-tour", "authentic", "relaxed-energy", "self-guided", "medina", "culture"],
+    tags: ["authentic", "cultural-tour", "culture", "medina", "relaxed", "relaxed-energy", "self-guided", "walk-in"],
     archetypeAffinity: ["culture", "first-timer"],
-    tip: "To get a bird's-eye view of the signature green tiled roofs of this sprawling complex, seek out neighboring rooftop terraces or look down from the roof of Al-Attarine Madrasa."
+    tip: "To get a bird's-eye view of the signature green tiled roofs of this sprawling complex, seek out neighboring rooftop terraces or look down from the roof of Al-Attarine Madrasa.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     id: "fes-art-naji",
@@ -369,9 +402,12 @@ export const fesThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ["workshop", "authentic", "cultural-tour"],
+    tags: ["authentic", "cultural-tour", "private", "workshop"],
     archetypeAffinity: ["first-timer", "culture"],
-    tip: "Guided tours of the operations are complimentary, but if you choose to purchase items from the large showroom, don't hesitate to negotiate as the initial prices are aimed at tourists."
+    tip: "Guided tours of the operations are complimentary, but if you choose to purchase items from the large showroom, don't hesitate to negotiate as the initial prices are aimed at tourists.",
+    walkInOkay: false,
+    hasPrivateOption: true,
+    hasSunsetView: false
   },
   {
     id: "fes-cafe-clock",
@@ -400,9 +436,12 @@ export const fesThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ["workshop", "authentic", "cultural-tour", "medina"],
+    tags: ["active", "authentic", "cultural-tour", "medina", "private", "workshop"],
     archetypeAffinity: ["culture", "first-timer"],
-    tip: "Reserve your spot at least 48 hours in advance, and feel free to let the kitchen staff know if you have specific dietary choices, as they are highly accommodating with vegetarian and vegan adaptations."
+    tip: "Reserve your spot at least 48 hours in advance, and feel free to let the kitchen staff know if you have specific dietary choices, as they are highly accommodating with vegetarian and vegan adaptations.",
+    walkInOkay: false,
+    hasPrivateOption: true,
+    hasSunsetView: false
   },
   {
     id: "fes-hammam-mernissi",
@@ -431,9 +470,12 @@ export const fesThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: false,
     isPhotographyFriendly: true,
-    tags: ["wellness", "authentic", "medina"],
+    tags: ["authentic", "medina", "private", "relaxed", "walk-in", "wellness"],
     archetypeAffinity: ["luxury", "nomad"],
-    tip: "Bring a fresh change of underwear as the scrubbing treatment uses a fair amount of warm water, and make sure to drink a cup of their complementary hot mint tea afterward to rehydrate."
+    tip: "Bring a fresh change of underwear as the scrubbing treatment uses a fair amount of warm water, and make sure to drink a cup of their complementary hot mint tea afterward to rehydrate.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: false
   },
   {
     id: "fes-place-seffarine",
@@ -462,9 +504,12 @@ export const fesThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ["cultural-tour", "authentic", "medina", "shopping"],
+    tags: ["authentic", "cultural-tour", "medina", "relaxed", "shopping", "walk-in"],
     archetypeAffinity: ["culture", "nomad"],
-    tip: "The square can get quite loud during working hours, so take a seat at the small local tea shop in the corner to comfortably watch the craftsmen shape the hot metal."
+    tip: "The square can get quite loud during working hours, so take a seat at the small local tea shop in the corner to comfortably watch the craftsmen shape the hot metal.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     id: "fes-rainbow-street",
@@ -493,9 +538,12 @@ export const fesThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ["instagrammable", "authentic", "medina", "off-the-beaten-path"],
+    tags: ["authentic", "instagrammable", "medina", "off-the-beaten-path", "private", "relaxed", "walk-in"],
     archetypeAffinity: ["culture", "first-timer"],
-    tip: "The local artists are generally welcoming and open to conversation. Leaving a small tip or purchasing a small painted tile helps support this community street-art space."
+    tip: "The local artists are generally welcoming and open to conversation. Leaving a small tip or purchasing a small painted tile helps support this community street-art space.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: false
   },
   {
     id: "fes-borj-nord",
@@ -524,9 +572,12 @@ export const fesThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: false,
     isPhotographyFriendly: true,
-    tags: ["cultural-tour", "authentic", "off-the-beaten-path"],
+    tags: ["authentic", "cultural-tour", "off-the-beaten-path", "private", "walk-in"],
     archetypeAffinity: ["culture", "adventure"],
-    tip: "The flat rooftop of the fortress is open to visitors and offers a clean, 360-degree overlook of the entire medina with fewer crowds than the nearby ruins."
+    tip: "The flat rooftop of the fortress is open to visitors and offers a clean, 360-degree overlook of the entire medina with fewer crowds than the nearby ruins.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: false
   },
   {
     id: "fes-jewish-cemetery",
@@ -555,9 +606,12 @@ export const fesThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ["cultural-tour", "authentic", "off-the-beaten-path"],
+    tags: ["authentic", "cultural-tour", "off-the-beaten-path", "relaxed", "sunset", "walk-in"],
     archetypeAffinity: ["culture"],
-    tip: "While admission is free, there is usually a local community guardian on-site who will unlock the gate for you. A tip of 10 to 20 dirhams for his time is custom."
+    tip: "While admission is free, there is usually a local community guardian on-site who will unlock the gate for you. A tip of 10 to 20 dirhams for his time is custom.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: true
   },
   {
     id: "fes-ruined-garden",
@@ -586,9 +640,12 @@ export const fesThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ["nature", "authentic", "medina", "instagrammable"],
+    tags: ["authentic", "instagrammable", "medina", "nature", "relaxed", "walk-in"],
     archetypeAffinity: ["luxury", "nomad"],
-    tip: "The restaurant accepts cash only. If you want to try their traditional slow-roasted lamb (mechoui), make sure to call and order it 24 hours in advance."
+    tip: "The restaurant accepts cash only. If you want to try their traditional slow-roasted lamb (mechoui), make sure to call and order it 24 hours in advance.",
+    walkInOkay: true,
+    hasPrivateOption: false,
+    hasSunsetView: false
   },
   {
     id: "fes-palais-el-glaoui",
@@ -617,8 +674,11 @@ export const fesThings: ThingToDoListing[] = [
     isFemaleFriendly: true,
     isWheelchairAccessible: true,
     isPhotographyFriendly: true,
-    tags: ["off-the-beaten-path", "authentic", "medina", "cultural-tour"],
+    tags: ["authentic", "cultural-tour", "medina", "off-the-beaten-path", "private", "walk-in"],
     archetypeAffinity: ["culture", "nomad"],
-    tip: "The property is still privately kept by a local family. If the front gate is closed, knock firmly; they are happy to let visitors explore the rooms and courtyards for a small entry tip."
+    tip: "The property is still privately kept by a local family. If the front gate is closed, knock firmly; they are happy to let visitors explore the rooms and courtyards for a small entry tip.",
+    walkInOkay: true,
+    hasPrivateOption: true,
+    hasSunsetView: false
   }
 ]
