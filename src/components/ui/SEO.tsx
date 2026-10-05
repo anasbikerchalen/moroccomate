@@ -27,7 +27,7 @@ export const SEO: React.FC<SEOProps> = ({
   schemaType,
   schemaData
 }) => {
-  const BASE_URL = 'https://moroccomate.com';
+  const BASE_URL = 'https://moroccanmate.com';
   const siteName = 'Morocco Finder';
   const fullTitle = title ? `${title} | ${siteName}` : siteName;
   const defaultDescription = 'Your honest guide to Morocco — city by city. Feel the vibe first, trust the data second, decide third.';

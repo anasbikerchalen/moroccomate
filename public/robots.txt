@@ -4,4 +4,4 @@ Allow: /
 # Personalized quiz/result URLs are unique per visitor — keep them out of search
 Disallow: /finder/*?start=quiz
 
-Sitemap: https://moroccomate.com/sitemap.xml
+Sitemap: https://moroccanmate.com/sitemap.xml

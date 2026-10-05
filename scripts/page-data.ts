@@ -16,7 +16,7 @@ import { getAllActivities } from '../src/things-to-do';
 import { getListingRating } from '../src/listings/utils';
 import { cityMap } from '../src/data/cities';
 
-export const BASE_URL = 'https://moroccomate.com';
+export const BASE_URL = 'https://moroccanmate.com';
 export const DEFAULT_OG_IMAGE = `${BASE_URL}/assets/home/backgrounds/homepage_default_image.jpg`;
 
 export interface IndexablePage {
