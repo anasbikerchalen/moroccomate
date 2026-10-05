@@ -1,7 +1,8 @@
 User-agent: *
 Allow: /
 
-# Personalized quiz/result URLs are unique per visitor — keep them out of search
-Disallow: /finder/*?start=quiz
+# Prevent personalized interactive quiz flows and temporary URL view states from search index
+Disallow: /*start=quiz*
+Disallow: /*view=*
 
 Sitemap: https://moroccanmate.com/sitemap.xml
