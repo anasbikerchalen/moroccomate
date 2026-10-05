@@ -1,9 +1,12 @@
+import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Heart } from 'lucide-react';
 import { SEO } from '../components/ui/SEO';
 import { ActivityTemplateView } from '../components/things/ActivityTemplateView';
 import { ActivityIcon } from '../components/things/ActivityIcon';
 import { getActivityByCityAndSlug, getCityLabel, formatDuration } from '../things-to-do';
+import { useSavedStore } from '../state/savedStore';
+import FavoritesDrawer from '../components/finder/FavoritesDrawer';
 
 /**
  * Morocco Finder — Things To Do listing page.
@@ -13,6 +16,8 @@ import { getActivityByCityAndSlug, getCityLabel, formatDuration } from '../thing
 export default function ThingsListingPage() {
   const { city, slug } = useParams<{ city: string; slug: string }>();
   const navigate = useNavigate();
+  const [favoritesOpen, setFavoritesOpen] = useState(false);
+  const bookmarks = useSavedStore((state) => state.bookmarks);
 
   const activity = city && slug ? getActivityByCityAndSlug(city, slug) : undefined;
 
@@ -71,7 +76,21 @@ export default function ThingsListingPage() {
             Back
           </button>
           <span className="font-display text-base font-bold text-[#173042]">Morocco Finder</span>
-          <span className="w-14" aria-hidden="true" />
+          <button
+            type="button"
+            onClick={() => setFavoritesOpen(true)}
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white hover:bg-[#FAF3EA] border border-[#ece4d5] shadow-xs hover:border-[#C9A84C] transition-all cursor-pointer text-[#29231F]"
+            aria-label="View saved places"
+            title="View saved places"
+          >
+            <Heart className={`w-3.5 h-3.5 ${bookmarks.length > 0 ? 'text-[#C85A32] fill-[#C85A32]' : 'text-[#71685F]'}`} />
+            <span className="font-sans text-xs font-semibold hidden sm:inline">Saved</span>
+            {bookmarks.length > 0 && (
+              <span className="bg-[#C9A84C] text-white text-[10px] font-bold px-1.5 py-0.2 rounded-full leading-none">
+                {bookmarks.length}
+              </span>
+            )}
+          </button>
         </div>
       </header>
 
@@ -89,6 +108,9 @@ export default function ThingsListingPage() {
           </span>
         </div>
       </footer>
+
+      {/* Favorites Drawer */}
+      <FavoritesDrawer isOpen={favoritesOpen} onClose={() => setFavoritesOpen(false)} />
     </div>
   );
 }

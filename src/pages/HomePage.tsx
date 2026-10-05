@@ -5,6 +5,8 @@ import { MapPin, ChevronDown, ChevronUp, ArrowRight, Heart, Menu } from 'lucide-
 import { SEO } from '../components/ui/SEO';
 import { useParameterStore } from '../state/parameterStore';
 import { useExploreStore } from '../state/exploreStore';
+import { useSavedStore } from '../state/savedStore';
+import FavoritesDrawer from '../components/finder/FavoritesDrawer';
 import { cities } from '../data/cities';
 import heroIllustration from '../assets/images/finder/finder_hero_matte_1786297047661.jpg';
 // 🖼️ Home page circular category images (Gemini-generated, circle-safe centered subjects)
@@ -66,6 +68,8 @@ export default function HomePage() {
   const [selectedCategory, setLocalCategory] = useState<string | null>(null);
   const [showAllCities, setShowAllCities] = useState(false);
   const [nudge, setNudge] = useState<'city' | null>(null);
+  const [favoritesOpen, setFavoritesOpen] = useState(false);
+  const bookmarks = useSavedStore((state) => state.bookmarks);
 
   const setCityInStore = useParameterStore((state) => state.setCity);
   const setActiveCategory = useExploreStore((state) => state.setActiveCategory);
@@ -128,13 +132,32 @@ export default function HomePage() {
             <p className="font-sans text-[9px] font-bold uppercase tracking-[0.22em] text-[#71685F] mt-1.5">Real places. Local vibes.</p>
           </div>
         </div>
-        <div className="hidden sm:flex items-center gap-2 pt-1.5">
-          <span className="font-sans text-xs text-[#71685F]">Your personal Moroccan guide</span>
-          <Heart className="w-3.5 h-3.5 text-[#C85A32]" fill="#C85A32" />
+        {/* All Right: Favorite Heart Icon & Saved Places Button */}
+        <div className="flex items-center gap-3 pt-1">
+          <div className="hidden md:flex items-center gap-2 mr-1">
+            <span className="font-sans text-xs text-[#71685F]">Your personal Moroccan guide</span>
+          </div>
+
+          <button
+            type="button"
+            onClick={() => setFavoritesOpen(true)}
+            className="group relative flex items-center gap-2 px-3 py-1.5 sm:px-3.5 sm:py-1.5 rounded-full bg-white/90 hover:bg-white border border-[#EADBCE] shadow-xs hover:shadow-md hover:border-[#C9A84C] transition-all cursor-pointer"
+            aria-label="View saved places"
+            title="View saved places"
+          >
+            <Heart
+              className={`w-4 h-4 transition-transform group-hover:scale-110 ${
+                bookmarks.length > 0 ? 'text-[#C85A32] fill-[#C85A32]' : 'text-[#71685F] group-hover:text-[#C85A32]'
+              }`}
+            />
+            <span className="font-sans text-xs font-semibold text-[#29231F] hidden sm:inline">Saved</span>
+            {bookmarks.length > 0 && (
+              <span className="bg-[#C9A84C] text-white text-[10px] font-bold px-1.5 py-0.2 rounded-full min-w-[18px] text-center leading-none">
+                {bookmarks.length}
+              </span>
+            )}
+          </button>
         </div>
-        <span className="sm:hidden pt-1" aria-hidden="true">
-          <Menu className="w-5 h-5 text-[#29231F]" />
-        </span>
       </header>
 
       {/* ─── HERO · illustrated Moroccan landscape ──────────── */}
@@ -270,6 +293,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Slide-over Favorites Drawer */}
+      <FavoritesDrawer isOpen={favoritesOpen} onClose={() => setFavoritesOpen(false)} />
     </div>
   );
 }

@@ -1,7 +1,10 @@
+import { useState } from 'react';
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Heart } from 'lucide-react';
 import { SEO } from '../components/ui/SEO';
 import DetailView from '../components/finder/DetailView';
+import { useSavedStore } from '../state/savedStore';
+import FavoritesDrawer from '../components/finder/FavoritesDrawer';
 import {
   getPlaceBySlug,
   normalizePlaceCategory,
@@ -22,6 +25,8 @@ export default function PlaceListingPage() {
   const { city, category: categoryParam, slug } = useParams<{ city: string; category: string; slug: string }>();
   const navigate = useNavigate();
   const location = useLocation();
+  const [favoritesOpen, setFavoritesOpen] = useState(false);
+  const bookmarks = useSavedStore((state) => state.bookmarks);
 
   const category: PlaceUrlCategory | null = normalizePlaceCategory(categoryParam);
   const listing = city && category && slug ? getPlaceBySlug(city, category, slug) : undefined;
@@ -107,7 +112,21 @@ export default function PlaceListingPage() {
             Back
           </button>
           <span className="font-display text-base font-bold text-[#173042]">Morocco Finder</span>
-          <span className="w-14" aria-hidden="true" />
+          <button
+            type="button"
+            onClick={() => setFavoritesOpen(true)}
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white hover:bg-[#FAF3EA] border border-[#ece4d5] shadow-xs hover:border-[#C9A84C] transition-all cursor-pointer text-[#29231F]"
+            aria-label="View saved places"
+            title="View saved places"
+          >
+            <Heart className={`w-3.5 h-3.5 ${bookmarks.length > 0 ? 'text-[#C85A32] fill-[#C85A32]' : 'text-[#71685F]'}`} />
+            <span className="font-sans text-xs font-semibold hidden sm:inline">Saved</span>
+            {bookmarks.length > 0 && (
+              <span className="bg-[#C9A84C] text-white text-[10px] font-bold px-1.5 py-0.2 rounded-full leading-none">
+                {bookmarks.length}
+              </span>
+            )}
+          </button>
         </div>
       </header>
 
@@ -125,6 +144,9 @@ export default function PlaceListingPage() {
           </span>
         </div>
       </footer>
+
+      {/* Favorites Drawer */}
+      <FavoritesDrawer isOpen={favoritesOpen} onClose={() => setFavoritesOpen(false)} />
     </div>
   );
 }
