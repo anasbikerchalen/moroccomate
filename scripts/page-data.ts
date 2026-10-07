@@ -22,7 +22,7 @@ export const DEFAULT_OG_IMAGE = `${BASE_URL}/assets/home/backgrounds/homepage_de
 export interface IndexablePage {
   path: string;          // URL path, no trailing slash
   priority: number;
-  title: string;         // page title WITHOUT the "| Morocco Finder" suffix
+  title: string;         // page title WITHOUT the "| Moroccan Mate" suffix
   description: string;
   image: string;         // absolute image URL for social previews
   jsonLd: Record<string, any> | null;
@@ -152,11 +152,18 @@ export function collectStaticPages(): IndexablePage[] {
     {
       path: '/',
       priority: 1.0,
-      title: 'Morocco Finder | Eat, Sleep, Things & Shopping — Like a Local',
+      title: 'Moroccan Mate | Eat, Sleep, Things & Shopping — Like a Local',
       description: 'Pick your city, answer a short quiz, and get personalized local recommendations for food, stays, things to do, and shopping in Morocco.',
       image: DEFAULT_OG_IMAGE,
-      jsonLd: null,
-      h1: 'Morocco Finder',
+      jsonLd: {
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        name: 'Moroccan Mate',
+        alternateName: ['MoroccanMate'],
+        url: BASE_URL,
+        description: 'Pick your city, answer a short quiz, and get personalized local recommendations for food, stays, things to do, and shopping in Morocco.',
+      },
+      h1: 'Moroccan Mate',
     },
     {
       path: '/finder',

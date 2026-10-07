@@ -11,7 +11,7 @@ const ThingsListingPage = lazy(() => import('./pages/ThingsListingPage'));
 const PlaceListingPage = lazy(() => import('./pages/PlaceListingPage'));
 
 /**
- * Morocco Finder — standalone Finder-only website.
+ * Moroccan Mate — standalone Finder website.
  * Routes:
  *   /                          → Homepage (city + categories, user-editable)
  *   /finder                    → Finder categories + quiz flow

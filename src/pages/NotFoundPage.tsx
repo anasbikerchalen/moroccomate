@@ -12,9 +12,9 @@ export default function NotFoundPage() {
   return (
     <div className="min-h-screen bg-[#FAF7F2] text-[#29231F] font-sans relative flex items-center justify-center px-6">
       <Helmet>
-        <title>Page Not Found | Morocco Finder</title>
+        <title>Page Not Found | Moroccan Mate</title>
         <meta name="robots" content="noindex, follow" />
-        <meta name="description" content="This page could not be found on Morocco Finder." />
+        <meta name="description" content="This page could not be found on Moroccan Mate." />
       </Helmet>
 
       {/* Background Texture (matches the rest of the site) */}

@@ -40,11 +40,11 @@ for (const page of pages) {
   const url = `${BASE_URL}${page.path}`;
 
   const head = [
-    `<title>${esc(page.title)} | Morocco Finder</title>`,
+    `<title>${esc(page.title)} | Moroccan Mate</title>`,
     `<meta name="description" content="${esc(page.description)}" />`,
     `<link rel="canonical" href="${esc(url)}" />`,
     `<meta property="og:type" content="article" />`,
-    `<meta property="og:site_name" content="Morocco Finder" />`,
+    `<meta property="og:site_name" content="Moroccan Mate" />`,
     `<meta property="og:title" content="${esc(page.title)}" />`,
     `<meta property="og:description" content="${esc(page.description)}" />`,
     `<meta property="og:image" content="${esc(page.image)}" />`,
@@ -72,7 +72,7 @@ for (const page of pages) {
     `<h1>${esc(page.h1)}</h1>` +
     `<p>${esc(page.description)}</p>` +
     (browseUrl ? `<p><a href="${esc(browseUrl)}">Browse more places in Morocco</a></p>` : '') +
-    `<p><a href="/">Morocco Finder</a></p>` +
+    `<p><a href="/">Moroccan Mate</a></p>` +
     `</div></noscript>`;
 
   const html = stripped

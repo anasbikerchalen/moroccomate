@@ -1,6 +1,6 @@
 {
     "version":  "1.0.0",
-    "name":  "morocco-finder-website",
+    "name":  "moroccan-mate-finder-website",
     "scripts":  {
                     "preview":  "vite preview",
                     "build":  "tsx scripts/generate-sitemap.ts && vite build && tsx scripts/prerender-places.ts",

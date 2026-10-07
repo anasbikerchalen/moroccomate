@@ -94,7 +94,7 @@ export default function PlaceListingPage() {
         schemaType={PLACE_SCHEMA_TYPE[category!]}
         schemaData={schemaData}
         breadcrumbs={[
-          { name: 'Morocco Finder', item: '/' },
+          { name: 'Moroccan Mate', item: '/' },
           { name: `${categoryLabel} in ${cityLabel}`, item: `/finder/${cityKey}/${category}` },
           { name: placeName, item: canonical },
         ]}
@@ -111,7 +111,7 @@ export default function PlaceListingPage() {
             <ArrowLeft className="w-4 h-4" />
             Back
           </button>
-          <span className="font-display text-base font-bold text-[#173042]">Morocco Finder</span>
+          <span className="font-display text-base font-bold text-[#173042]">Moroccan Mate</span>
           <button
             type="button"
             onClick={() => setFavoritesOpen(true)}

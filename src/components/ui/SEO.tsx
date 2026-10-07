@@ -28,11 +28,12 @@ export const SEO: React.FC<SEOProps> = ({
   schemaData
 }) => {
   const BASE_URL = 'https://moroccanmate.com';
-  const siteName = 'Morocco Finder';
-  const fullTitle = title ? `${title} | ${siteName}` : siteName;
+  const siteName = 'Moroccan Mate';
+  const fullTitle = title 
+    ? (title.toLowerCase().includes(siteName.toLowerCase()) ? title : `${title} | ${siteName}`) 
+    : `${siteName} | Eat, Sleep, Things & Shopping in Morocco`;
   const defaultDescription = 'Your honest guide to Morocco — city by city. Feel the vibe first, trust the data second, decide third.';
   const metaDescription = description || defaultDescription;
-  const url = typeof window !== 'undefined' ? window.location.href : '';
   const pathname = typeof window !== 'undefined' ? window.location.pathname : '';
 
   const canonicalUrl = canonical
@@ -45,9 +46,10 @@ export const SEO: React.FC<SEOProps> = ({
   const baseJsonLd = {
     "@context": "https://schema.org",
     "@type": schemaType || "WebSite",
-    "name": fullTitle,
+    "name": schemaType ? fullTitle : siteName,
+    ...(schemaType ? {} : { "alternateName": ["MoroccanMate"] }),
     "description": metaDescription,
-    "url": url,
+    "url": canonicalUrl,
     "logo": `${BASE_URL}/favicon.svg`,
     ...(schemaData || {
       "inLanguage": ["en", "fr", "ar"]
@@ -94,10 +96,11 @@ export const SEO: React.FC<SEOProps> = ({
 
       {/* Open Graph / Facebook */}
       <meta property="og:type" content={type} />
+      <meta property="og:site_name" content={siteName} />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={metaDescription} />
       <meta property="og:image" content={fullImageUrl} />
-      <meta property="og:url" content={url} />
+      <meta property="og:url" content={canonicalUrl} />
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />

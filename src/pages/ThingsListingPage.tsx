@@ -75,7 +75,7 @@ export default function ThingsListingPage() {
             <ArrowLeft className="w-4 h-4" />
             Back
           </button>
-          <span className="font-display text-base font-bold text-[#173042]">Morocco Finder</span>
+          <span className="font-display text-base font-bold text-[#173042]">Moroccan Mate</span>
           <button
             type="button"
             onClick={() => setFavoritesOpen(true)}
@@ -102,7 +102,7 @@ export default function ThingsListingPage() {
       {/* Footer strip */}
       <footer className="border-t border-[#ece4d5] bg-white">
         <div className="mx-auto w-full max-w-6xl flex flex-col sm:flex-row items-center justify-between gap-2 px-4 py-5 sm:px-6 lg:px-8">
-          <span className="font-display text-sm font-bold text-[#173042]">Morocco Finder</span>
+          <span className="font-display text-sm font-bold text-[#173042]">Moroccan Mate</span>
           <span className="text-xs text-[#66757D]">
             {activity.activity_type} · {formatDuration(activity.duration_minutes) || cityLabel} · {cityLabel}
           </span>

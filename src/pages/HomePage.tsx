@@ -115,7 +115,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-[#FAF7F2] text-[#29231F]">
       <SEO
-        title="Morocco Finder"
+        title="Moroccan Mate | Eat, Sleep, Things & Shopping — Like a Local"
         description="Pick your city, answer a short quiz, and get personalized local recommendations for food, stays, things to do, and shopping in Morocco."
       />
 
@@ -128,7 +128,7 @@ export default function HomePage() {
             <path d="M10 40V17c0-3.87 3.13-7 7-7s7 3.13 7 7v23" stroke="#C85A32" strokeWidth="1.5" strokeLinecap="round" opacity="0.45" />
           </svg>
           <div>
-            <p className="font-display text-lg md:text-xl font-semibold leading-none text-[#29231F]">Morocco Finder</p>
+            <p className="font-display text-lg md:text-xl font-semibold leading-none text-[#29231F]">Moroccan Mate</p>
             <p className="font-sans text-[9px] font-bold uppercase tracking-[0.22em] text-[#71685F] mt-1.5">Real places. Local vibes.</p>
           </div>
         </div>

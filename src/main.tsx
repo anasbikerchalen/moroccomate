@@ -13,7 +13,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     <I18nextProvider i18n={i18n.default}>
       <HelmetProvider>
         <BrowserRouter>
-          <HubErrorBoundary fallbackName="Morocco Finder">
+          <HubErrorBoundary fallbackName="Moroccan Mate">
             <App />
           </HubErrorBoundary>
         </BrowserRouter>
