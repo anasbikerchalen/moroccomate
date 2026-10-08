@@ -14,6 +14,7 @@ import {
 } from '../listings/placeRoutes';
 import { getListingRating } from '../listings/utils';
 import { cityMap } from '../data/cities';
+import logoImg from '../assets/images/logo.png';
 
 /**
  * Morocco Finder — individual place page.
@@ -111,7 +112,10 @@ export default function PlaceListingPage() {
             <ArrowLeft className="w-4 h-4" />
             Back
           </button>
-          <span className="font-display text-base font-bold text-[#173042]">Moroccan Mate</span>
+          <span className="flex items-center gap-2">
+            <img src={logoImg} alt="Moroccan Mate logo" className="w-7 h-7 object-contain" />
+            <span className="font-display text-base font-bold text-[#173042]">Moroccan Mate</span>
+          </span>
           <button
             type="button"
             onClick={() => setFavoritesOpen(true)}
@@ -138,7 +142,10 @@ export default function PlaceListingPage() {
       {/* Footer strip */}
       <footer className="border-t border-[#ece4d5] bg-white">
         <div className="mx-auto w-full max-w-6xl flex flex-col sm:flex-row items-center justify-between gap-2 px-4 py-5 sm:px-6 lg:px-8">
-          <span className="font-display text-sm font-bold text-[#173042]">Morocco Finder</span>
+          <span className="flex items-center gap-1.5">
+            <img src={logoImg} alt="Moroccan Mate logo" className="w-5 h-5 object-contain opacity-80" />
+            <span className="font-display text-sm font-bold text-[#173042]">Moroccan Mate</span>
+          </span>
           <span className="text-xs text-[#66757D] capitalize">
             {categoryLabel} · {listing.neighborhood || cityLabel} · {cityLabel}
           </span>

@@ -9,6 +9,7 @@ import { useSavedStore } from '../state/savedStore';
 import FavoritesDrawer from '../components/finder/FavoritesDrawer';
 import { cities } from '../data/cities';
 import heroIllustration from '../assets/images/finder/finder_hero_matte_1786297047661.jpg';
+import logoImg from '../assets/images/logo.png';
 // 🖼️ Home page circular category images (Gemini-generated, circle-safe centered subjects)
 // PROMPT (Food & Dining): "Moroccan food and dining: a steaming round tagine pot with fresh bread, olives and a glass of mint tea arranged in the exact center of the frame on a zellij tile table, warm ambient light, generous empty cream-colored margin all around the subject for a safe circular crop. Soft matte vector illustration style on cream canvas, warm Moroccan color palette."
 import catFoodImg from '../assets/images/home/home_category_food_circle.jpg';
@@ -122,11 +123,12 @@ export default function HomePage() {
       {/* ─── HEADER · minimal editorial brand bar ───────────── */}
       <header className="relative z-20 max-w-[1400px] mx-auto px-6 md:px-10 pt-5 md:pt-6 flex items-start justify-between">
         <div className="flex items-center gap-3">
-          {/* Moroccan arch icon */}
-          <svg width="30" height="38" viewBox="0 0 34 42" fill="none" className="shrink-0" aria-hidden="true">
-            <path d="M4 40V16C4 8.82 9.82 3 17 3s13 5.82 13 13v24" stroke="#C9A84C" strokeWidth="2.5" strokeLinecap="round" />
-            <path d="M10 40V17c0-3.87 3.13-7 7-7s7 3.13 7 7v23" stroke="#C85A32" strokeWidth="1.5" strokeLinecap="round" opacity="0.45" />
-          </svg>
+          {/* Real brand logo */}
+          <img
+            src={logoImg}
+            alt="Moroccan Mate logo"
+            className="w-9 h-9 shrink-0 object-contain"
+          />
           <div>
             <p className="font-display text-lg md:text-xl font-semibold leading-none text-[#29231F]">Moroccan Mate</p>
             <p className="font-sans text-[9px] font-bold uppercase tracking-[0.22em] text-[#71685F] mt-1.5">Real places. Local vibes.</p>
