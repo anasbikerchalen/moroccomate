@@ -732,24 +732,21 @@ export default function CategoryQuiz({ questions, onComplete, onBack, listings =
   };
 
   const handleSurpriseMe = () => {
-    const defaultAnswers: Record<string, any> = { ...answers };
-    effectiveQuestions.forEach(q => {
-      if (!defaultAnswers[q.id]) {
-        if (q.multiSelect) {
-          defaultAnswers[q.id] = [q.options[0]?.id];
-        } else {
-          defaultAnswers[q.id] = q.options[0]?.id;
-        }
+    // If the traveler chooses to skip or surprise, do NOT fabricate answers for
+    // unanswered questions (prevents locking down unwanted filters).
+    useExploreStore.getState().resetFilters();
+    if (Object.keys(answers).length > 0) {
+      applyQuizAutoFilters(answers);
+      if (activeShortcut) {
+        useExploreStore.setState({ quizAnswers: { ...useExploreStore.getState().quizAnswers, ...answers } });
+      } else {
+        useExploreStore.setState({ quizAnswers: answers });
       }
-    });
-    applyQuizAutoFilters(defaultAnswers);
-    if (activeShortcut) {
-      useExploreStore.setState({ quizAnswers: { ...useExploreStore.getState().quizAnswers, ...defaultAnswers } });
     } else {
-      useExploreStore.setState({ quizAnswers: defaultAnswers });
+      useExploreStore.setState({ quizAnswers: {} });
     }
     setActiveShortcut(null);
-    onComplete(defaultAnswers);
+    onComplete(answers);
   };
 
   // ── Pre-Quiz Quick Shortcuts handlers ──

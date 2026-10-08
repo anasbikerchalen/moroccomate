@@ -500,8 +500,9 @@ export default function ExplorePage({ onClose }: ExplorePageProps) {
                     onBack={handleBack}
                     onComplete={(answers) => {
                       if (Object.keys(answers).length === 0) {
-                        // Skip clicked: clear all quiz answers
+                        // Skip clicked: clear all quiz answers and filters
                         useExploreStore.setState({ quizAnswers: {} });
+                        useExploreStore.getState().resetFilters();
                       } else {
                         // Complete clicked: set the actual answers
                         Object.entries(answers).forEach(([id, val]) => setQuizAnswer(id, val));

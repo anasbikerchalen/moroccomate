@@ -151,6 +151,7 @@ export const useExploreStore = create<ExploreState>()(
         activeCategory, 
         activeItemId: null, 
         quizAnswers: {}, 
+        filters: initialFilters,
         activeSubCategory: null,
         sportIntent: null,
         sportFacilityType: null,

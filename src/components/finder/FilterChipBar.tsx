@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Filter, Sparkles, X, Check } from 'lucide-react';
+import { Filter, Sparkles, X, Check, Compass } from 'lucide-react';
 import { useExploreStore } from '../../state/exploreStore';
 import { useProfileStore } from '../../state/profileStore';
 import { cn } from '../../utils/cn';
@@ -123,9 +123,9 @@ export default function FilterChipBar({ category = 'things', className = '', res
     <div className={`w-full space-y-2 ${className}`}>
       <div className="flex items-center justify-between gap-2 px-1">
         <div className="flex items-center gap-1.5">
-          <Filter className="w-3.5 h-3.5 text-stone-400" />
+          <Compass className="w-3.5 h-3.5 text-stone-400" />
           <span className="text-[10px] font-black uppercase tracking-wider text-stone-500 dark:text-stone-400">
-            Specialty Filters
+            Explore by Type
           </span>
           {activeCount > 0 && (
             <span className="text-[9px] font-black px-1.5 py-0.2 rounded-full bg-[#C9A84C] text-white">
