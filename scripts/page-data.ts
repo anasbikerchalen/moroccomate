@@ -16,6 +16,7 @@ import { getAllActivities } from '../src/things-to-do';
 import { getListingRating } from '../src/listings/utils';
 import { cityMap } from '../src/data/cities';
 import { getStayOwnerAnswer } from '../src/engine/stayAdapter';
+import { CITY_SEARCH_INTENTS, getSearchIntent } from '../src/data/seo/searchIntents';
 
 export const BASE_URL = 'https://moroccanmate.com';
 export const DEFAULT_OG_IMAGE = `${BASE_URL}/assets/home/backgrounds/homepage_default_image.jpg`;
@@ -215,7 +216,45 @@ export function collectStaticPages(): IndexablePage[] {
   return pages;
 }
 
+/** Programmatic SEO / "People Also Search For" feature landing pages across all cities */
+export function collectSearchIntentPages(): IndexablePage[] {
+  const pages: IndexablePage[] = [];
+
+  for (const [city, categories] of Object.entries(CITY_SEARCH_INTENTS)) {
+    const label = cityLabel(city);
+    for (const [category, slugs] of Object.entries(categories)) {
+      for (const slug of slugs) {
+        const intent = getSearchIntent(category, slug);
+        if (!intent) continue;
+
+        const path = `/finder/${city.toLowerCase()}/${category}/${slug}`;
+        const title = intent.seoTitle(label).replace(/\s*\|\s*Moroccan Mate$/i, '');
+        const description = intent.seoDescription(label);
+        const h1 = intent.headerTitle(label);
+
+        pages.push({
+          path,
+          priority: 0.85,
+          title,
+          description,
+          image: DEFAULT_OG_IMAGE,
+          jsonLd: null,
+          h1,
+        });
+      }
+    }
+  }
+
+  return pages;
+}
+
 /** Every indexable page on the website */
 export function collectAllPages(): IndexablePage[] {
-  return [...collectStaticPages(), ...collectPlacePages(), ...collectThingsPages()];
+  return [
+    ...collectStaticPages(),
+    ...collectSearchIntentPages(),
+    ...collectPlacePages(),
+    ...collectThingsPages(),
+  ];
 }
+

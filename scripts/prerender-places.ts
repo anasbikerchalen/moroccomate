@@ -84,6 +84,9 @@ for (const page of pages) {
   } else if (page.path.startsWith('/things/')) {
     const parts = page.path.split('/'); // ['', 'things', city, slug]
     browseUrl = `/finder/${parts[2]}/things-to-do`;
+  } else if (page.path.startsWith('/finder/')) {
+    const parts = page.path.split('/'); // ['', 'finder', city, category, slug?]
+    browseUrl = parts[4] ? `/finder/${parts[2]}/${parts[3]}` : `/finder`;
   }
   const faqHtml = page.faq && page.faq.length > 0
     ? `<div style="margin-top:24px;border-top:1px solid #ddd;padding-top:16px;"><h2>Frequently Asked Questions</h2>${page.faq.map(f => `<h3>${esc(f.question)}</h3><p>${esc(f.answer)}</p>`).join('')}</div>`
