@@ -56,6 +56,24 @@ for (const page of pages) {
     ...(page.jsonLd
       ? [`<script type="application/ld+json">${jsonEsc(JSON.stringify(page.jsonLd))}</script>`]
       : []),
+    ...(page.faq && page.faq.length > 0
+      ? [
+          `<script type="application/ld+json">${jsonEsc(
+            JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'FAQPage',
+              mainEntity: page.faq.map((f) => ({
+                '@type': 'Question',
+                name: f.question,
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: f.answer,
+                },
+              })),
+            })
+          )}</script>`,
+        ]
+      : []),
   ].join('\n    ');
 
   // Crawlable noscript fallback: real text + a real link into the app
@@ -67,10 +85,15 @@ for (const page of pages) {
     const parts = page.path.split('/'); // ['', 'things', city, slug]
     browseUrl = `/finder/${parts[2]}/things-to-do`;
   }
+  const faqHtml = page.faq && page.faq.length > 0
+    ? `<div style="margin-top:24px;border-top:1px solid #ddd;padding-top:16px;"><h2>Frequently Asked Questions</h2>${page.faq.map(f => `<h3>${esc(f.question)}</h3><p>${esc(f.answer)}</p>`).join('')}</div>`
+    : '';
+
   const noscript =
     `<noscript><div style="font-family:Georgia,serif;max-width:720px;margin:48px auto;padding:0 24px;">` +
     `<h1>${esc(page.h1)}</h1>` +
     `<p>${esc(page.description)}</p>` +
+    faqHtml +
     (browseUrl ? `<p><a href="${esc(browseUrl)}">Browse more places in Morocco</a></p>` : '') +
     `<p><a href="/">Moroccan Mate</a></p>` +
     `</div></noscript>`;

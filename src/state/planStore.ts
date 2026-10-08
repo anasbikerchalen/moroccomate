@@ -51,12 +51,6 @@ interface PlanState {
   // Journey Mode
   selectedJourneyMode?: 'first' | 'been' | 'know';
   activeTransformations: string[];
-
-  // Matchmaker Context
-  matchmakerContext?: {
-    quizAnswers: Record<string, any>;
-    treePath: { activeCategoryId: string | null; activeSubcategoryId: string | null; refineIndex: number | null };
-  };
   
   // Journaled plans
   savedPlans: MasterPlan[];
@@ -85,7 +79,6 @@ interface PlanState {
   setActiveCity: (cityId: string | null) => void;
   setActiveItem: (itemId: string | null) => void; // Added
   setJourneyMode: (mode: 'first' | 'been' | 'know' | null) => void;
-  setMatchmakerContext: (context: PlanState['matchmakerContext']) => void;
   pinWord: (cityId: string, wordId: string) => void;
   unpinWord: (cityId: string, wordId: string) => void;
   pinSavvy: (cityId: string, savvyId: string) => void;
@@ -175,7 +168,6 @@ export const usePlanStore = create<PlanState>()(persist((set, get) => ({
   setActiveCity: (cityId) => set({ activeCityId: cityId }),
   setActiveItem: (itemId) => set({ activeItemId: itemId }),
   setJourneyMode: (mode) => set({ selectedJourneyMode: mode || undefined }),
-  setMatchmakerContext: (context) => set({ matchmakerContext: context }),
   pinWord: (cityId, wordId) => set((state) => {
     const list = state.pinnedWords[cityId] || [];
     if (list.includes(wordId)) return {};
@@ -812,7 +804,6 @@ export const usePlanStore = create<PlanState>()(persist((set, get) => ({
     currentDays: state.currentDays,
     selectedJourneyMode: state.selectedJourneyMode,
     savedPlans: state.savedPlans,
-    matchmakerContext: state.matchmakerContext,
     pinnedWords: state.pinnedWords,
     pinnedSavvy: state.pinnedSavvy,
     daysPerCity: state.daysPerCity,

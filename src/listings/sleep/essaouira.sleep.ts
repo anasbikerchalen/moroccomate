@@ -165,7 +165,7 @@ export const essaouiraSleep: SleepListing[] = [
     description: "A prestigious 18th-century palace located within the historic walls of Essaouira. Combines colonial charm with Moroccan elegance, featuring a stunning rooftop pool with panoramic ocean views.",
     pricePerNight: 280,
     lifestyle: "premium",
-    amenities: ["Rooftop Pool", "Luxury Spa", "Home Cinema", "Gourmet Restaurant"],
+    amenities: ["Rooftop Pool", "Luxury Spa", "Home Cinema", "Gourmet Restaurant", "5-star", "pool", "heated-pools", "heated-pool", "rooftop-terrace", "ocean-view", "in-medina", "spa", "airport-shuttle"],
     googleRating: 4.8,
     googleReviewCount: 950,
     tripadvisorRating: 4.5,
@@ -275,7 +275,7 @@ export const essaouiraSleep: SleepListing[] = [
       lat: 31.512984,
       lng: -9.77108
     },
-    tags: ["heritage"]
+    tags: ["heritage", "5-star", "ocean-view", "heated-pools", "rooftop-terrace", "in-medina", "spa"]
   },
   {
     id: "e-sleep-2",
@@ -286,7 +286,7 @@ export const essaouiraSleep: SleepListing[] = [
     description: "A botanical paradise hidden in the Essaouira countryside with two swimming pools, lush gardens, spa facilities, and a celebrated restaurant.",
     pricePerNight: 240,
     lifestyle: "premium",
-    amenities: ["Adults-Only Heated Pool", "Family Swimming Pool", "Botanical Gardens", "Traditional Hammam & Spa"],
+    amenities: ["Adults-Only Heated Pool", "Family Swimming Pool", "Botanical Gardens", "Traditional Hammam & Spa", "pool", "heated-pools", "heated-pool", "spa", "kids-club", "family-friendly"],
     googleRating: 4.9,
     googleReviewCount: 880,
     tripadvisorRating: 4.5,
@@ -392,7 +392,7 @@ export const essaouiraSleep: SleepListing[] = [
       lat: 31.495071,
       lng: -9.760809
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite", "pool", "heated-pools", "spa", "kids-club"]
   },
   {
     id: "e-sleep-3",
@@ -403,7 +403,7 @@ export const essaouiraSleep: SleepListing[] = [
     description: "A stylish boutique hotel in a former warehouse behind the ramparts, combining minimalist design with Moroccan warmth and a respected restaurant and cooking school.",
     pricePerNight: 120,
     lifestyle: "balanced",
-    amenities: ["Rooftop Sun Terrace", "Cooking School", "Gourmet Restaurant", "Ocean Views"],
+    amenities: ["Rooftop Sun Terrace", "Cooking School", "Gourmet Restaurant", "Ocean Views", "ocean-view", "rooftop-terrace", "in-medina", "on-the-beach"],
     googleRating: 4.8,
     googleReviewCount: 450,
     tripadvisorRating: 4.5,
@@ -509,7 +509,7 @@ export const essaouiraSleep: SleepListing[] = [
       lat: 31.399435,
       lng: -9.682864
     },
-    tags: []
+    tags: ["ocean-view", "rooftop-terrace", "in-medina", "on-the-beach"]
   },
   {
     id: "e-sleep-4",
@@ -520,7 +520,7 @@ export const essaouiraSleep: SleepListing[] = [
     description: "The original boutique riad of Essaouira, composed of four 18th-century mansions overlooking the Atlantic ramparts, with bohemian elegance and cozy fireplaces.",
     pricePerNight: 160,
     lifestyle: "premium",
-    amenities: ["Rooftop Sea View Terrace", "Cozy Lounge Fireplaces", "Traditional Spa", "Organic Breakfast"],
+    amenities: ["Rooftop Sea View Terrace", "Cozy Lounge Fireplaces", "Traditional Spa", "Organic Breakfast", "ocean-view", "rooftop-terrace", "in-medina", "spa"],
     googleRating: 4.8,
     googleReviewCount: 650,
     tripadvisorRating: 4.5,
@@ -626,7 +626,7 @@ export const essaouiraSleep: SleepListing[] = [
       lat: 31.511869,
       lng: -9.771237
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage", "ocean-view", "rooftop-terrace", "in-medina", "spa"]
   },
   {
     id: "e-sleep-5",
@@ -637,7 +637,7 @@ export const essaouiraSleep: SleepListing[] = [
     description: "An explosion of color, art, and patterns where every room celebrates a different Moroccan city, with a vibrant rooftop overlooking the Atlantic.",
     pricePerNight: 145,
     lifestyle: "premium",
-    amenities: ["Panoramic Sea View Terrace", "Artisanal Design Suites", "Rooftop Bar & Grill", "Live Music Nights"],
+    amenities: ["Panoramic Sea View Terrace", "Artisanal Design Suites", "Rooftop Bar & Grill", "Live Music Nights", "ocean-view", "rooftop-terrace", "rooftop-bar", "in-medina", "on-the-beach"],
     googleRating: 4.7,
     googleReviewCount: 350,
     tripadvisorRating: 4.5,
@@ -743,7 +743,7 @@ export const essaouiraSleep: SleepListing[] = [
       lat: 31.513847,
       lng: -9.772292
     },
-    tags: ["heritage"]
+    tags: ["heritage", "ocean-view", "rooftop-terrace", "rooftop-bar", "in-medina"]
   },
   {
     id: "e-sleep-6",
@@ -754,7 +754,7 @@ export const essaouiraSleep: SleepListing[] = [
     description: "A hidden countryside sanctuary of earth-toned walls, fireplaces, a heated pool, and exceptional food, ideal for unplugging outside town.",
     pricePerNight: 130,
     lifestyle: "balanced",
-    amenities: ["Heated Outdoor Pool", "Traditional Hammam", "Rooftop Solarium", "Gourmet Local Kitchen"],
+    amenities: ["Heated Outdoor Pool", "Traditional Hammam", "Rooftop Solarium", "Gourmet Local Kitchen", "pool", "heated-pools", "heated-pool", "spa", "rooftop-terrace"],
     googleRating: 4.9,
     googleReviewCount: 420,
     tripadvisorRating: 4.5,
@@ -860,7 +860,7 @@ export const essaouiraSleep: SleepListing[] = [
       lat: 31.431173,
       lng: -9.755045
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite", "pool", "heated-pools", "spa", "rooftop-terrace"]
   },
   {
     id: "e-sleep-7",
@@ -871,7 +871,7 @@ export const essaouiraSleep: SleepListing[] = [
     description: "A friendly modern social hub for travelers, nomads, and surf enthusiasts with communal spaces, coworking, and a large rooftop terrace.",
     pricePerNight: 15,
     lifestyle: "lean",
-    amenities: ["Communal Social Kitchen", "Coworking Space", "Rooftop Family Dinners", "Surfboard Storage"],
+    amenities: ["Communal Social Kitchen", "Coworking Space", "Rooftop Family Dinners", "Surfboard Storage", "rooftop-terrace", "in-medina"],
     googleRating: 4.7,
     googleReviewCount: 500,
     tripadvisorRating: 4.0,
@@ -984,7 +984,7 @@ export const essaouiraSleep: SleepListing[] = [
     description: "A luxurious and romantic riad against the ramparts, with enormous rooms blending Moroccan craftsmanship and high-end comfort.",
     pricePerNight: 135,
     lifestyle: "premium",
-    amenities: ["Spacious Luxury Suites", "Traditional Wood Fireplaces", "Scenic Rooftop Terrace", "Personalized Concierge"],
+    amenities: ["Spacious Luxury Suites", "Traditional Wood Fireplaces", "Scenic Rooftop Terrace", "Personalized Concierge", "rooftop-terrace", "in-medina", "5-star"],
     googleRating: 4.9,
     googleReviewCount: 400,
     tripadvisorRating: 4.5,
@@ -1090,7 +1090,7 @@ export const essaouiraSleep: SleepListing[] = [
       lat: 31.513714,
       lng: -9.76529
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite", "rooftop-terrace", "in-medina", "5-star"]
   },
   {
     id: "e-sleep-9",
@@ -1101,7 +1101,7 @@ export const essaouiraSleep: SleepListing[] = [
     description: "A modern 5-star resort on Essaouira’s coastal promenade with large pool, spa facilities, and direct beach access.",
     pricePerNight: 125,
     lifestyle: "premium",
-    amenities: ["Large Outdoor Swimming Pool", "Professional Thalasso Spa", "Direct Beach Access", "Fitness Center"],
+    amenities: ["Large Outdoor Swimming Pool", "Professional Thalasso Spa", "Direct Beach Access", "Fitness Center", "5-star", "pool", "on-the-beach", "ocean-view", "spa", "kids-club", "beachfront"],
     googleRating: 4.3,
     googleReviewCount: 1200,
     tripadvisorRating: 4.0,
@@ -1207,7 +1207,7 @@ export const essaouiraSleep: SleepListing[] = [
       lat: 31.501181,
       lng: -9.76208
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite", "5-star", "pool", "on-the-beach", "ocean-view", "spa"]
   },
   {
     id: "e-sleep-10",
@@ -1218,7 +1218,7 @@ export const essaouiraSleep: SleepListing[] = [
     description: "An elegant riad blending Moroccan architecture with contemporary European style, known for a heated rooftop plunge pool and refined spa atmosphere.",
     pricePerNight: 185,
     lifestyle: "premium",
-    amenities: ["Heated Rooftop Plunge Pool", "Luxury Thalasso Hammam", "Gourmet Organic Breakfast", "Sleek Contemporary Design"],
+    amenities: ["Heated Rooftop Plunge Pool", "Luxury Thalasso Hammam", "Gourmet Organic Breakfast", "Sleek Contemporary Design", "pool", "heated-pools", "heated-pool", "rooftop-terrace", "ocean-view", "in-medina", "spa", "5-star"],
     googleRating: 4.9,
     googleReviewCount: 350,
     tripadvisorRating: 4.5,
@@ -1318,7 +1318,7 @@ export const essaouiraSleep: SleepListing[] = [
       lat: 31.515301,
       lng: -9.769648
     },
-    tags: []
+    tags: ["pool", "heated-pools", "rooftop-terrace", "ocean-view", "in-medina", "spa", "5-star"]
   },
   {
     id: "e-sleep-11",
@@ -1329,7 +1329,7 @@ export const essaouiraSleep: SleepListing[] = [
     description: "An exquisitely restored 18th-century riad capturing the spirit of Mogador, steps from the beach and port with colonial, oriental, and Moroccan style.",
     pricePerNight: 165,
     lifestyle: "premium",
-    amenities: ["Panoramic Rooftop", "Luxury Spa", "Gourmet Breakfast", "Personalized Concierge"],
+    amenities: ["Panoramic Rooftop", "Luxury Spa", "Gourmet Breakfast", "Personalized Concierge", "ocean-view", "rooftop-terrace", "in-medina", "spa"],
     googleRating: 4.7,
     googleReviewCount: 320,
     tripadvisorRating: 4.5,
@@ -1435,7 +1435,7 @@ export const essaouiraSleep: SleepListing[] = [
       lat: 31.511291,
       lng: -9.77019
     },
-    tags: ["heritage"]
+    tags: ["heritage", "ocean-view", "rooftop-terrace", "in-medina", "spa"]
   },
   {
     id: "e-sleep-12",
@@ -1552,7 +1552,7 @@ export const essaouiraSleep: SleepListing[] = [
       lat: 31.514712,
       lng: -9.766856
     },
-    tags: ["dorm"]
+    tags: ["dorm", "rooftop-terrace", "in-medina"]
   },
   {
     id: "e-sleep-13",
@@ -1680,7 +1680,7 @@ export const essaouiraSleep: SleepListing[] = [
     description: "A luxurious eco-resort on the Mogador estate with Gary Player golf, multiple pools, spa, and contemporary coastal design.",
     pricePerNight: 195,
     lifestyle: "premium",
-    amenities: ["Gary Player Golf Course", "Large Infinity Pools", "Luxury Thalasso Spa", "Kids Club & Family Activities"],
+    amenities: ["Gary Player Golf Course", "Large Infinity Pools", "Luxury Thalasso Spa", "Kids Club & Family Activities", "5-star", "pool", "golf-course", "spa", "kids-club", "ocean-view"],
     googleRating: 4.4,
     googleReviewCount: 1500,
     tripadvisorRating: 4.5,
@@ -1786,7 +1786,7 @@ export const essaouiraSleep: SleepListing[] = [
       lat: 31.469635,
       lng: -9.767385
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite", "5-star", "pool", "golf-course", "spa", "kids-club", "ocean-view"]
   },
   {
     id: "e-sleep-15",
@@ -2019,7 +2019,7 @@ export const essaouiraSleep: SleepListing[] = [
     description: "Spacious self-catering apartments and suites with ocean and rampart views, ideal for independent travelers and longer stays.",
     pricePerNight: 110,
     lifestyle: "balanced",
-    amenities: ["Ocean-Front Private Terraces", "Fully Equipped Kitchenettes", "Incredible Sea Views", "Historic Rampart Location"],
+    amenities: ["Ocean-Front Private Terraces", "Fully Equipped Kitchenettes", "Incredible Sea Views", "Historic Rampart Location", "ocean-view", "in-medina", "on-the-beach", "rooftop-terrace"],
     googleRating: 4.5,
     googleReviewCount: 500,
     tripadvisorRating: 4.0,
@@ -2123,7 +2123,7 @@ export const essaouiraSleep: SleepListing[] = [
       lat: 31.513583,
       lng: -9.772511
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage", "ocean-view", "in-medina", "on-the-beach", "rooftop-terrace"]
   },
   {
     id: "e-sleep-18",
@@ -2249,7 +2249,7 @@ export const essaouiraSleep: SleepListing[] = [
     description: "A grand historic riad perched on the ocean walls, with direct Atlantic views, wave sounds, and a traditional seafood restaurant.",
     pricePerNight: 110,
     lifestyle: "balanced",
-    amenities: ["Ocean-Wall Location", "Seafood Restaurant", "Panoramic Terrace", "Traditional Hammam"],
+    amenities: ["Ocean-Wall Location", "Seafood Restaurant", "Panoramic Terrace", "Traditional Hammam", "ocean-view", "in-medina", "on-the-beach", "rooftop-terrace", "spa"],
     googleRating: 4.5,
     googleReviewCount: 520,
     tripadvisorRating: 4.0,
@@ -2355,7 +2355,7 @@ export const essaouiraSleep: SleepListing[] = [
       lat: 31.515734,
       lng: -9.770301
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage", "ocean-view", "in-medina", "on-the-beach", "rooftop-terrace", "spa"]
   },
   {
     id: "e-sleep-20",
@@ -2366,7 +2366,7 @@ export const essaouiraSleep: SleepListing[] = [
     description: "A stylish minimalist riad blending contemporary design with Moroccan craftsmanship, quiet lounges, massage room, and a rooftop hot tub.",
     pricePerNight: 85,
     lifestyle: "balanced",
-    amenities: ["Rooftop Hot Tub", "Massage Room", "Designer Lounges", "Traditional Breakfast"],
+    amenities: ["Rooftop Hot Tub", "Massage Room", "Designer Lounges", "Traditional Breakfast", "rooftop-terrace", "in-medina", "spa"],
     googleRating: 4.8,
     googleReviewCount: 420,
     tripadvisorRating: 4.5,
@@ -2466,6 +2466,6 @@ export const essaouiraSleep: SleepListing[] = [
       lat: 31.514564,
       lng: -9.771354
     },
-    tags: []
+    tags: ["rooftop-terrace", "in-medina", "spa"]
   }
 ]

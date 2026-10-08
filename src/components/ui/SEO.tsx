@@ -15,6 +15,7 @@ interface SEOProps {
   breadcrumbs?: BreadcrumbItem[];
   schemaType?: string;
   schemaData?: Record<string, any>;
+  faq?: { question: string; answer: string }[];
 }
 
 export const SEO: React.FC<SEOProps> = ({ 
@@ -25,7 +26,8 @@ export const SEO: React.FC<SEOProps> = ({
   image = '/assets/home/backgrounds/homepage_default_image.jpg', // Default rich preview image (ships locally in public/)
   breadcrumbs,
   schemaType,
-  schemaData
+  schemaData,
+  faq
 }) => {
   const BASE_URL = 'https://moroccanmate.com';
   const siteName = 'Moroccan Mate';
@@ -91,6 +93,23 @@ export const SEO: React.FC<SEOProps> = ({
       {breadcrumbJsonLd && (
         <script type="application/ld+json">
           {JSON.stringify(breadcrumbJsonLd)}
+        </script>
+      )}
+
+      {faq && faq.length > 0 && (
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faq.map((item) => ({
+              "@type": "Question",
+              "name": item.question,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": item.answer
+              }
+            }))
+          })}
         </script>
       )}
 

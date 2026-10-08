@@ -165,7 +165,7 @@ export default function HomePage() {
       {/* ─── HERO · illustrated Moroccan landscape ──────────── */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-          <img src={heroIllustration} alt="" className="absolute inset-0 w-full h-full object-cover" loading="eager" fetchPriority="high" />
+          <img src={heroIllustration} alt="" className="absolute inset-0 w-full h-full object-cover" loading="eager" {...({ fetchpriority: 'high' } as any)} />
           <div className="absolute inset-0 bg-gradient-to-b from-[#FAF7F2]/75 via-[#FAF7F2]/35 to-[#FAF7F2]" />
         </div>
 

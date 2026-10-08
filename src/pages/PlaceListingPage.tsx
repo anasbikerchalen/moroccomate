@@ -15,6 +15,7 @@ import {
 import { getListingRating } from '../listings/utils';
 import { cityMap } from '../data/cities';
 import logoImg from '../assets/images/logo.png';
+import { getStayOwnerAnswer } from '../engine/stayAdapter';
 
 /**
  * Morocco Finder — individual place page.
@@ -59,7 +60,13 @@ export default function PlaceListingPage() {
   const cityLabel = cityMap[cityKey]?.name || (cityKey ? cityKey.charAt(0).toUpperCase() + cityKey.slice(1).replace(/_/g, ' ') : 'Morocco');
   const placeName = listing.name || listing.title || 'Place';
   const categoryLabel = PLACE_CATEGORY_LABEL[category!];
-  const description = String(listing.description || listing.short_description || '').slice(0, 155);
+  const isSleep = category === 'sleep';
+  const price = isSleep ? (listing.pricePerNight ?? 0) : 0;
+  const ownerAnswer = isSleep ? getStayOwnerAnswer(listing) : '';
+  const rawDescription = String(listing.description || listing.short_description || '');
+  const description = isSleep && price > 0
+    ? `Price from ${price} MAD/night. ${rawDescription.slice(0, 115)}`
+    : rawDescription.slice(0, 155);
   const rating = getListingRating(listing);
   const image = listing.nonCopyrightImage || listing.images?.[0] || undefined;
   const canonical = `/place/${cityKey}/${category}/${slug}`;
@@ -72,6 +79,17 @@ export default function PlaceListingPage() {
     ...(listing.coordinates ? { geo: { latitude: listing.coordinates.lat, longitude: listing.coordinates.lng } } : {}),
     ...(rating && rating.averageRating > 0 && rating.totalReviews > 0
       ? { aggregateRating: { '@type': 'AggregateRating', ratingValue: rating.averageRating, reviewCount: rating.totalReviews } }
+      : {}),
+    ...(isSleep && price > 0
+      ? {
+          priceRange: `${price} MAD`,
+          offers: {
+            '@type': 'Offer',
+            price,
+            priceCurrency: 'MAD',
+            availability: 'https://schema.org/InStock',
+          },
+        }
       : {}),
   };
 
@@ -94,6 +112,7 @@ export default function PlaceListingPage() {
         image={image}
         schemaType={PLACE_SCHEMA_TYPE[category!]}
         schemaData={schemaData}
+        faq={isSleep && ownerAnswer ? [{ question: `Who is the owner of ${placeName}?`, answer: ownerAnswer }] : undefined}
         breadcrumbs={[
           { name: 'Moroccan Mate', item: '/' },
           { name: `${categoryLabel} in ${cityLabel}`, item: `/finder/${cityKey}/${category}` },
@@ -136,7 +155,7 @@ export default function PlaceListingPage() {
 
       {/* Main content: the full place detail */}
       <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-8 sm:px-6 lg:px-8">
-        <DetailView item={listing} onBack={handleBack} />
+        <DetailView item={listing} onBack={handleBack} category={category} />
       </main>
 
       {/* Footer strip */}

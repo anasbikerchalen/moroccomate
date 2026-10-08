@@ -165,7 +165,7 @@ export const dakhlaSleep: SleepListing[] = [
     description: "An architectural masterpiece of white columns and sweeping arches on the edge of the lagoon. This high-end boutique palace offers a serene and ultra-luxurious escape with direct access to the water and an exceptional spa.",
     pricePerNight: 350,
     lifestyle: "premium",
-    amenities: ["Direct Lagoon Access", "Infinity Pool", "Luxury Spa", "Fine Dining"],
+    amenities: ["Direct Lagoon Access", "Infinity Pool", "Luxury Spa", "Fine Dining", "5-star", "pool", "spa", "lagoon-view", "on-the-beach", "private-beach", "airport-shuttle"],
     googleRating: 4.9,
     googleReviewCount: 250,
     tripadvisorRating: 4.8,
@@ -271,7 +271,7 @@ export const dakhlaSleep: SleepListing[] = [
       lat: 23.694045,
       lng: -15.933445
     },
-    tags: ["heritage"]
+    tags: ["5-star", "luxury", "spa", "lagoon-view", "pool", "on-the-beach", "private-beach", "airport-shuttle", "heritage"]
   },
   {
     id: "da-sleep-2",
@@ -282,7 +282,7 @@ export const dakhlaSleep: SleepListing[] = [
     description: "An eco-friendly lodge located in a quiet southern stretch of the lagoon, offering beautiful views of the water and surrounding desert. It provides a peaceful, slower-paced setting that helps travelers fully unplug.",
     pricePerNight: 160,
     lifestyle: "balanced",
-    amenities: ["Lagoon Views", "Kitesurf School Access", "Eco-Friendly Design", "Traditional Breakfast"],
+    amenities: ["Lagoon Views", "Kitesurf School Access", "Eco-Friendly Design", "Traditional Breakfast", "lagoon-view", "kitesurf-hotels", "desert-camps", "on-the-beach", "all-inclusive"],
     googleRating: 4.9,
     googleReviewCount: 300,
     tripadvisorRating: 4.7,
@@ -388,7 +388,7 @@ export const dakhlaSleep: SleepListing[] = [
       lat: 23.914589,
       lng: -15.763504
     },
-    tags: []
+    tags: ["on-the-beach", "lagoon-view", "kitesurf-hotels", "desert-camps", "all-inclusive"]
   },
   {
     id: "da-sleep-3",
@@ -399,7 +399,7 @@ export const dakhlaSleep: SleepListing[] = [
     description: "An elegant eco-lodge designed with Douglas wood that blends subtly into the desert landscape. It offers sweeping views of the turquoise bay alongside a highly tranquil atmosphere and a focus on sustainable luxury.",
     pricePerNight: 320,
     lifestyle: "premium",
-    amenities: ["Heated Outdoor Pool", "Ocean Academy Access", "Organic Restaurant", "Panoramic Terrace", "Yoga Deck"],
+    amenities: ["Heated Outdoor Pool", "Ocean Academy Access", "Organic Restaurant", "Panoramic Terrace", "Yoga Deck", "5-star", "pool", "spa", "lagoon-view", "kitesurf-hotels", "private-beach", "airport-shuttle", "all-inclusive"],
     googleRating: 4.8,
     googleReviewCount: 350,
     tripadvisorRating: 4.6,
@@ -503,7 +503,7 @@ export const dakhlaSleep: SleepListing[] = [
       lat: 23.73745,
       lng: -15.783587
     },
-    tags: ["family-favorite"]
+    tags: ["5-star", "pool", "spa", "lagoon-view", "kitesurf-hotels", "private-beach", "airport-shuttle", "all-inclusive", "family-favorite"]
   },
   {
     id: "da-sleep-4",
@@ -514,7 +514,7 @@ export const dakhlaSleep: SleepListing[] = [
     description: "One of the longest-standing resorts on the lagoon, known for its vibrant community and excellent wind conditions. It overlooks Dragon Island, offering a social and energetic hub for water sports lovers.",
     pricePerNight: 180,
     lifestyle: "balanced",
-    amenities: ["Duotone Pro Center", "Cable Wake Park", "Beach Bar", "Traditional Hammam", "Pink Flamingo Restaurant"],
+    amenities: ["Duotone Pro Center", "Cable Wake Park", "Beach Bar", "Traditional Hammam", "Pink Flamingo Restaurant", "kitesurf-hotels", "all-inclusive", "lagoon-view", "on-the-beach", "airport-shuttle"],
     googleRating: 4.8,
     googleReviewCount: 1200,
     tripadvisorRating: 4.5,
@@ -620,7 +620,7 @@ export const dakhlaSleep: SleepListing[] = [
       lat: 23.893369,
       lng: -15.771072
     },
-    tags: ["family-favorite"]
+    tags: ["kitesurf-hotels", "all-inclusive", "lagoon-view", "on-the-beach", "airport-shuttle", "family-favorite"]
   },
   {
     id: "da-sleep-5",
@@ -631,7 +631,7 @@ export const dakhlaSleep: SleepListing[] = [
     description: "A bohemian-luxury resort designed with wellness and connection in mind. The property offers a communal, artistic vibe complete with daily yoga sessions, a beautifully designed outdoor pool, and sustainable clay architecture.",
     pricePerNight: 380,
     lifestyle: "premium",
-    amenities: ["Outdoor Swimming Pool", "Yoga Deck", "Stargazing Lounge", "Locally Sourced Dining", "Kite Center"],
+    amenities: ["Outdoor Swimming Pool", "Yoga Deck", "Stargazing Lounge", "Locally Sourced Dining", "Kite Center", "5-star", "pool", "spa", "lagoon-view", "kitesurf-hotels", "desert-camps", "private-beach", "airport-shuttle"],
     googleRating: 4.8,
     googleReviewCount: 200,
     tripadvisorRating: 4.6,
@@ -737,7 +737,7 @@ export const dakhlaSleep: SleepListing[] = [
       lat: 23.91391,
       lng: -15.781348
     },
-    tags: []
+    tags: ["5-star", "pool", "spa", "lagoon-view", "kitesurf-hotels", "desert-camps", "private-beach", "airport-shuttle"]
   },
   {
     id: "da-sleep-6",
@@ -748,7 +748,7 @@ export const dakhlaSleep: SleepListing[] = [
     description: "A cliffside boutique resort that combines organic clay dome architecture with beautiful views of the Atlantic Ocean. It offers a relaxed, premium environment focused on comfort, sustainability, and traditional Moroccan hospitality.",
     pricePerNight: 290,
     lifestyle: "premium",
-    amenities: ["Heated Outdoor Pool", "Private Beach Access", "Full-Service Spa", "Oceanfront Restaurant"],
+    amenities: ["Heated Outdoor Pool", "Private Beach Access", "Full-Service Spa", "Oceanfront Restaurant", "5-star", "pool", "spa", "private-beach", "desert-camps", "airport-shuttle", "lagoon-view"],
     googleRating: 4.8,
     googleReviewCount: 490,
     tripadvisorRating: 4.5,
@@ -850,7 +850,7 @@ export const dakhlaSleep: SleepListing[] = [
       business: "Good WiFi and inspiring ocean views for creative work.",
       nomad: "A beautiful spot to work while overlooking the Atlantic surf.",
     },
-    tags: ["family-favorite"]
+    tags: ["5-star", "pool", "spa", "private-beach", "desert-camps", "airport-shuttle", "lagoon-view", "family-favorite"]
   },
   {
     id: "da-sleep-7",
@@ -861,7 +861,7 @@ export const dakhlaSleep: SleepListing[] = [
     description: "A stylish eco-lodge featuring chic, modern bungalows set directly along the water's edge. It provides a relaxed, cozy atmosphere built around a world-class water sports center.",
     pricePerNight: 220,
     lifestyle: "balanced",
-    amenities: ["Beachfront Access", "Duotone Surf Center", "Outdoor Lounge", "All-Inclusive Dining"],
+    amenities: ["Beachfront Access", "Duotone Surf Center", "Outdoor Lounge", "All-Inclusive Dining", "lagoon-view", "kitesurf-hotels", "on-the-beach", "all-inclusive", "airport-shuttle"],
     googleRating: 4.7,
     googleReviewCount: 500,
     tripadvisorRating: 4.4,
@@ -967,7 +967,7 @@ export const dakhlaSleep: SleepListing[] = [
       lat: 23.901666,
       lng: -15.785099
     },
-    tags: []
+    tags: ["lagoon-view", "kitesurf-hotels", "on-the-beach", "all-inclusive", "airport-shuttle"]
   },
   {
     id: "da-sleep-8",
@@ -978,7 +978,7 @@ export const dakhlaSleep: SleepListing[] = [
     description: "A modern resort combining sleek architecture with a highly active kitesurfing environment on the lagoon. It features an on-site spa and beautiful outdoor spaces for a balanced, comfortable stay.",
     pricePerNight: 260,
     lifestyle: "premium",
-    amenities: ["Freshwater Outdoor Pool", "KBC Kite Center", "Fitness Center", "Wellness Spa"],
+    amenities: ["Freshwater Outdoor Pool", "KBC Kite Center", "Fitness Center", "Wellness Spa", "pool", "spa", "lagoon-view", "kitesurf-hotels", "all-inclusive", "private-beach", "airport-shuttle"],
     googleRating: 4.7,
     googleReviewCount: 800,
     tripadvisorRating: 4.5,
@@ -1084,7 +1084,7 @@ export const dakhlaSleep: SleepListing[] = [
       lat: 23.694045,
       lng: -15.933445
     },
-    tags: ["family-favorite"]
+    tags: ["pool", "spa", "lagoon-view", "kitesurf-hotels", "all-inclusive", "private-beach", "airport-shuttle", "family-favorite"]
   },
   {
     id: "da-sleep-9",
@@ -1095,7 +1095,7 @@ export const dakhlaSleep: SleepListing[] = [
     description: "An intimate eco-lodge nestled near the desert canyons, offering panoramic views of the turquoise lagoon. Its focus on quiet luxury and harmony with nature ensures a deeply restful stay.",
     pricePerNight: 240,
     lifestyle: "balanced",
-    amenities: ["Panoramic Lagoon Views", "Outdoor Pool", "Kitesurf Access", "Organic Garden Cuisine"],
+    amenities: ["Panoramic Lagoon Views", "Outdoor Pool", "Kitesurf Access", "Organic Garden Cuisine", "pool", "desert-camps", "lagoon-view", "kitesurf-hotels", "all-inclusive", "airport-shuttle"],
     googleRating: 4.7,
     googleReviewCount: 120,
     tripadvisorRating: 4.4,
@@ -1201,7 +1201,7 @@ export const dakhlaSleep: SleepListing[] = [
       lat: 23.807154,
       lng: -15.734392
     },
-    tags: []
+    tags: ["pool", "desert-camps", "lagoon-view", "kitesurf-hotels", "all-inclusive", "airport-shuttle"]
   },
   {
     id: "da-sleep-10",
@@ -1212,7 +1212,7 @@ export const dakhlaSleep: SleepListing[] = [
     description: "A friendly and budget-friendly surf camp offering cozy bungalows steps from the water. The atmosphere is centered heavily on kiting progress, shared meals, and positive vibes.",
     pricePerNight: 75,
     lifestyle: "lean",
-    amenities: ["Lagoon Views", "Kitesurf Lessons", "Traditional Buffet", "Airport Shuttle"],
+    amenities: ["Lagoon Views", "Kitesurf Lessons", "Traditional Buffet", "Airport Shuttle", "lagoon-view", "kitesurf-hotels", "all-inclusive", "airport-shuttle"],
     googleRating: 4.7,
     googleReviewCount: 200,
     tripadvisorRating: 4.5,
@@ -1318,7 +1318,7 @@ export const dakhlaSleep: SleepListing[] = [
       lat: 23.90384,
       lng: -15.785464
     },
-    tags: ["dorm"]
+    tags: ["lagoon-view", "kitesurf-hotels", "all-inclusive", "airport-shuttle", "dorm"]
   },
   {
     id: "da-sleep-11",
@@ -1329,7 +1329,7 @@ export const dakhlaSleep: SleepListing[] = [
     description: "An elegant, riad-inspired boutique hotel in the city center featuring an expansive terrace with views of the bay. It offers an intimate, authentic atmosphere decorated with refined Moroccan touches.",
     pricePerNight: 110,
     lifestyle: "balanced",
-    amenities: ["Lagoon View Terrace", "Infinity Pool", "Traditional Moroccan Hammam", "Private Beach Access"],
+    amenities: ["Lagoon View Terrace", "Infinity Pool", "Traditional Moroccan Hammam", "Private Beach Access", "pool", "spa", "lagoon-view", "rooftop-terrace", "private-beach", "airport-shuttle"],
     googleRating: 4.7,
     googleReviewCount: 110,
     tripadvisorRating: 4.4,
@@ -1435,7 +1435,7 @@ export const dakhlaSleep: SleepListing[] = [
       lat: 23.6306,
       lng: -15.8605
     },
-    tags: ["family-favorite"]
+    tags: ["pool", "spa", "lagoon-view", "rooftop-terrace", "private-beach", "airport-shuttle", "family-favorite"]
   },
   {
     id: "da-sleep-12",
@@ -1446,7 +1446,7 @@ export const dakhlaSleep: SleepListing[] = [
     description: "A Green Key-certified eco-lodge surrounded by desert gardens right on the lagoon's edge. It provides a warm, family-friendly atmosphere with a strong emphasis on sustainability and outdoor living.",
     pricePerNight: 200,
     lifestyle: "balanced",
-    amenities: ["Eco-Garden Setting", "Water Sports Center", "On-site Spa Services", "Beachside Dining"],
+    amenities: ["Eco-Garden Setting", "Water Sports Center", "On-site Spa Services", "Beachside Dining", "lagoon-view", "kitesurf-hotels", "all-inclusive", "spa", "airport-shuttle", "on-the-beach"],
     googleRating: 4.6,
     googleReviewCount: 400,
     tripadvisorRating: 4.3,
@@ -1552,7 +1552,7 @@ export const dakhlaSleep: SleepListing[] = [
       lat: 23.778893,
       lng: -15.900659
     },
-    tags: ["family-favorite"]
+    tags: ["lagoon-view", "kitesurf-hotels", "all-inclusive", "spa", "airport-shuttle", "on-the-beach", "family-favorite"]
   },
   {
     id: "da-sleep-13",
@@ -1563,7 +1563,7 @@ export const dakhlaSleep: SleepListing[] = [
     description: "An eco-friendly surf lodge located directly on the Atlantic cliffs, facing the famous Foum Labouir wave spot. It has a relaxed surfer-chic aesthetic with comfortable wooden chalets.",
     pricePerNight: 110,
     lifestyle: "balanced",
-    amenities: ["Atlantic Wave Views", "Seawater Swimming Pool", "Surf School", "Oceanfront Restaurant"],
+    amenities: ["Atlantic Wave Views", "Seawater Swimming Pool", "Surf School", "Oceanfront Restaurant", "pool", "private-beach", "surf-hotels", "kitesurf-hotels", "on-the-beach", "airport-shuttle"],
     googleRating: 4.6,
     googleReviewCount: 450,
     tripadvisorRating: 4.3,
@@ -1669,7 +1669,7 @@ export const dakhlaSleep: SleepListing[] = [
       lat: 23.768461,
       lng: -15.924448
     },
-    tags: []
+    tags: ["pool", "private-beach", "surf-hotels", "kitesurf-hotels", "on-the-beach", "airport-shuttle"]
   },
   {
     id: "da-sleep-14",
@@ -1680,7 +1680,7 @@ export const dakhlaSleep: SleepListing[] = [
     description: "A cozy and welcoming kite camp offering comfortable bungalows and traditional desert tents right on the lagoon's edge. The vibe is down-to-earth and community-centric, ideal for meeting other travelers.",
     pricePerNight: 130,
     lifestyle: "balanced",
-    amenities: ["Lagoon Access", "Kitesurfing Center", "Vibrant Beach Bar", "Daily Yoga Classes"],
+    amenities: ["Lagoon Access", "Kitesurfing Center", "Vibrant Beach Bar", "Daily Yoga Classes", "lagoon-view", "kitesurf-hotels", "desert-camps", "all-inclusive", "rooftop-terrace", "airport-shuttle"],
     googleRating: 4.6,
     googleReviewCount: 320,
     tripadvisorRating: 4.3,
@@ -1786,7 +1786,7 @@ export const dakhlaSleep: SleepListing[] = [
       lat: 23.90384,
       lng: -15.785464
     },
-    tags: []
+    tags: ["lagoon-view", "kitesurf-hotels", "desert-camps", "all-inclusive", "rooftop-terrace", "airport-shuttle"]
   },
   {
     id: "da-sleep-15",
@@ -1797,7 +1797,7 @@ export const dakhlaSleep: SleepListing[] = [
     description: "A uniquely decorated, artistic guesthouse offering gorgeous views of the lagoon and a warm, homey vibe. Guests are welcomed with attentive hospitality and a peaceful atmosphere near the heart of town.",
     pricePerNight: 65,
     lifestyle: "lean",
-    amenities: ["Lagoon Views", "Sun Terrace", "Artistic Decor", "Traditional Breakfast"],
+    amenities: ["Lagoon Views", "Sun Terrace", "Artistic Decor", "Traditional Breakfast", "kitesurf-hotels", "lagoon-view", "airport-shuttle", "rooftop-terrace"],
     googleRating: 4.6,
     googleReviewCount: 210,
     tripadvisorRating: 4.3,
@@ -1903,7 +1903,7 @@ export const dakhlaSleep: SleepListing[] = [
       lat: 23.735002,
       lng: -15.915758
     },
-    tags: []
+    tags: ["kitesurf-hotels", "lagoon-view", "airport-shuttle", "rooftop-terrace"]
   },
   {
     id: "da-sleep-16",
@@ -1914,7 +1914,7 @@ export const dakhlaSleep: SleepListing[] = [
     description: "A rustic eco-lodge located at the southern tip of the peninsula where the ocean meets the lagoon. It features wooden bungalows and a relaxed, adventure-driven castaway vibe.",
     pricePerNight: 190,
     lifestyle: "balanced",
-    amenities: ["Beachfront Access", "Surf and Foil Center", "Eco-Friendly Cabins", "Oceanfront Terrace"],
+    amenities: ["Beachfront Access", "Surf and Foil Center", "Eco-Friendly Cabins", "Oceanfront Terrace", "on-the-beach", "private-beach", "kitesurf-hotels", "surf-hotels", "all-inclusive", "airport-shuttle"],
     googleRating: 4.5,
     googleReviewCount: 250,
     tripadvisorRating: 4.2,
@@ -2020,7 +2020,7 @@ export const dakhlaSleep: SleepListing[] = [
       lat: 23.634622,
       lng: -15.99804
     },
-    tags: []
+    tags: ["on-the-beach", "private-beach", "kitesurf-hotels", "surf-hotels", "all-inclusive", "airport-shuttle"]
   },
   {
     id: "da-sleep-17",
@@ -2031,7 +2031,7 @@ export const dakhlaSleep: SleepListing[] = [
     description: "A warm, family-run guesthouse known for its exceptional hospitality and comfortable, spacious rooms overlooking the lagoon. The atmosphere is cozy, welcoming, and feels like a home away from home.",
     pricePerNight: 50,
     lifestyle: "lean",
-    amenities: ["Lagoon View Terrace", "Spacious Rooms", "Traditional Breakfast", "Airport Shuttle"],
+    amenities: ["Lagoon View Terrace", "Spacious Rooms", "Traditional Breakfast", "Airport Shuttle", "lagoon-view", "rooftop-terrace", "airport-shuttle"],
     googleRating: 4.5,
     googleReviewCount: 170,
     tripadvisorRating: 4.2,
@@ -2137,7 +2137,7 @@ export const dakhlaSleep: SleepListing[] = [
       lat: 23.703255,
       lng: -15.925559
     },
-    tags: ["family-favorite"]
+    tags: ["lagoon-view", "rooftop-terrace", "airport-shuttle", "family-favorite"]
   },
   {
     id: "da-sleep-18",
@@ -2148,7 +2148,7 @@ export const dakhlaSleep: SleepListing[] = [
     description: "A highly rated, clean boutique hotel situated near the heart of town and the coastal promenade. The vibe is quiet, secure, and offers excellent Moroccan breakfasts with ocean views.",
     pricePerNight: 75,
     lifestyle: "lean",
-    amenities: ["Sea-View Breakfast Room", "Central Location", "24-Hour Desk", "Free Airport Shuttle"],
+    amenities: ["Sea-View Breakfast Room", "Central Location", "24-Hour Desk", "Free Airport Shuttle", "airport-shuttle", "rooftop-terrace"],
     googleRating: 4.5,
     googleReviewCount: 120,
     tripadvisorRating: 4.2,
@@ -2254,7 +2254,7 @@ export const dakhlaSleep: SleepListing[] = [
       lat: 23.702199,
       lng: -15.926604
     },
-    tags: ["family-favorite"]
+    tags: ["airport-shuttle", "rooftop-terrace", "family-favorite"]
   },
   {
     id: "da-sleep-19",
@@ -2265,7 +2265,7 @@ export const dakhlaSleep: SleepListing[] = [
     description: "A sleek and modern hotel offering clean rooms and comfortable facilities along a quiet beach area. It provides a balanced, relaxing experience with excellent service close to the town center.",
     pricePerNight: 120,
     lifestyle: "balanced",
-    amenities: ["Private Beach Area", "Outdoor Swimming Pool", "Seaside Restaurant", "Fitness Center"],
+    amenities: ["Private Beach Area", "Outdoor Swimming Pool", "Seaside Restaurant", "Fitness Center", "pool", "on-the-beach", "private-beach", "ocean-view", "airport-shuttle"],
     googleRating: 4.4,
     googleReviewCount: 150,
     tripadvisorRating: 4.1,
@@ -2371,7 +2371,7 @@ export const dakhlaSleep: SleepListing[] = [
       lat: 23.766536,
       lng: -15.906809
     },
-    tags: ["family-favorite"]
+    tags: ["pool", "on-the-beach", "private-beach", "ocean-view", "airport-shuttle", "family-favorite"]
   },
   {
     id: "da-sleep-20",
@@ -2382,7 +2382,7 @@ export const dakhlaSleep: SleepListing[] = [
     description: "A large, high-end beachfront resort offering extensive premium amenities and direct access to the ocean. The vibe is resort-luxurious and comfortable, making it a solid choice for active families and couples.",
     pricePerNight: 280,
     lifestyle: "premium",
-    amenities: ["Two Outdoor Pools", "Beachfront Access", "Fitness Center", "Wellness Spa"],
+    amenities: ["Two Outdoor Pools", "Beachfront Access", "Fitness Center", "Wellness Spa", "5-star", "pool", "spa", "on-the-beach", "private-beach", "airport-shuttle"],
     googleRating: 4.1,
     googleReviewCount: 290,
     tripadvisorRating: 3.8,
@@ -2488,6 +2488,6 @@ export const dakhlaSleep: SleepListing[] = [
       lat: 23.771302,
       lng: -15.923677
     },
-    tags: ["family-favorite"]
+    tags: ["5-star", "pool", "spa", "on-the-beach", "private-beach", "airport-shuttle", "family-favorite"]
   }
 ]

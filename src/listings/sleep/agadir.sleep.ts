@@ -202,7 +202,7 @@ export const agadirSleep: SleepListing[] = [
     // googlePlaceId: "PLACE_ID_HERE",
 
     tip: 'The hotel has banned single-use plastic. Book the "Romantic Getaway" package for champagne and in-room breakfast at a reduced rate.',
-    vibeTags: ['Luxury', 'Beachfront', 'Spa', 'Elegant'],
+    vibeTags: ['Luxury', 'Beachfront', 'Spa', 'Elegant', '5-Star', 'Heated Pool', 'Private Beach'],
     locationSummary: "Agadir Seaside Promenade & Marina",
     availabilityText: 'Available tonight - Only 3 rooms left',
     googleMapsUrl: 'https://www.google.com/maps/place/30.398086,-9.597577/@30.398086,-9.597577,17z',
@@ -256,7 +256,7 @@ export const agadirSleep: SleepListing[] = [
       lat: 30.391612,
       lng: -9.598192
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite", "5-star", "beachfront", "private-beach", "heated-pool"]
   },
   {
     id: 'a-sleep-2',
@@ -267,7 +267,7 @@ export const agadirSleep: SleepListing[] = [
     description: 'A blend of modern design and Moroccan artistry. Beachfront property with a spacious pool and spa offering traditional argan oil treatments.',
     pricePerNight: 310,
     lifestyle: 'premium',
-    amenities: ['wifi', 'pool', 'ac', 'spa', 'beach', 'restaurant', 'fitness'],
+    amenities: ['wifi', 'pool', 'ac', 'spa', 'beach', 'restaurant', 'fitness', 'nightclub', 'private-beach', 'swim-up-rooms'],
     googleRating: 4.4,
     googleReviewCount: 3250,
     tripadvisorRating: 4.1,
@@ -303,7 +303,7 @@ export const agadirSleep: SleepListing[] = [
     // googlePlaceId: "PLACE_ID_HERE",
 
     tip: 'The Sunday Brunch served poolside is world class—book it in advance as it fills up fast.',
-    vibeTags: ['Modern', 'Beachfront', 'Spa', 'Family'],
+    vibeTags: ['Modern', 'Beachfront', 'Spa', 'Family', '5-Star', 'Nightclub', 'Private Beach', 'Swim-Up'],
     locationSummary: "Agadir Seaside Promenade & Marina",
     availabilityText: 'Available tonight',
     googleMapsUrl: 'https://www.google.com/maps/place/30.393134,-9.596515/@30.393134,-9.596515,17z',
@@ -367,7 +367,7 @@ export const agadirSleep: SleepListing[] = [
     description: 'Luxurious resort set amidst 45 acres of landscaped gardens, offering a beach-chic aesthetic with modern amenities 9 miles north of Agadir.',
     pricePerNight: 425,
     lifestyle: 'premium',
-    amenities: ['wifi', 'pool', 'ac', 'spa', 'beach', 'restaurant', 'surf'],
+    amenities: ['wifi', 'pool', 'ac', 'spa', 'beach', 'restaurant', 'surf', 'heated-pool', 'kids-club', 'swim-up-rooms'],
     googleRating: 4.6,
     googleReviewCount: 1120,
     tripadvisorRating: 4.6,
@@ -403,7 +403,7 @@ export const agadirSleep: SleepListing[] = [
     // googlePlaceId: "PLACE_ID_HERE",
 
     tip: 'Request a villa-style room for maximum privacy and garden views. Taghazout is a vibrant surf and yogi hangout.',
-    vibeTags: ['Luxury', 'Surf', 'Garden', 'Eco'],
+    vibeTags: ['Luxury', 'Surf', 'Garden', 'Eco', '5-Star', 'Beachfront', 'Heated Pool', 'Kids Club', 'Swim-Up'],
     locationSummary: "Taghazout Bay Resort",
     availabilityText: 'Available tonight',
     googleMapsUrl: 'https://www.google.com/maps/place/30.516127,-9.686902/@30.516127,-9.686902,17z',
@@ -503,7 +503,7 @@ export const agadirSleep: SleepListing[] = [
     // googlePlaceId: "PLACE_ID_HERE",
 
     tip: 'Treat yourself to innovative fine dining at Le Sensya. Ask for a high-floor room for panoramic Atlantic views.',
-    vibeTags: ['Modern', 'Trendy', 'Views', 'Nightlife'],
+    vibeTags: ['Modern', 'Trendy', 'Views', 'Nightlife', '5-Star', 'Beachfront', 'Heated Pool'],
     locationSummary: "Agadir Seaside Promenade & Marina",
     availabilityText: 'Available tonight',
     googleMapsUrl: 'https://www.google.com/maps/place/30.41558847,-9.60315585/@30.41558847,-9.60315585,17z',
@@ -603,7 +603,7 @@ export const agadirSleep: SleepListing[] = [
     // googlePlaceId: "PLACE_ID_HERE",
 
     tip: 'Always book directly to unlock the complimentary refined sweet and savory continental breakfast.',
-    vibeTags: ['Authentic', 'Boutique', 'Spa', 'Intimate'],
+    vibeTags: ['Authentic', 'Boutique', 'Spa', 'Intimate', 'Heated Pool', 'Indoor Pool', 'Luxury'],
     locationSummary: "Agadir Seaside Promenade & Marina",
     availabilityText: 'Available tonight',
     googleMapsUrl: 'https://www.google.com/maps/place/30.39004,-9.593926/@30.39004,-9.593926,17z',
@@ -666,7 +666,7 @@ export const agadirSleep: SleepListing[] = [
     description: 'Beachfront 24-hour all-inclusive resort with a promenade separating the hotel from the sand. Multiple dining options including Moroccan and Italian.',
     pricePerNight: 185,
     lifestyle: 'balanced',
-    amenities: ['wifi', 'pool', 'ac', 'spa', 'beach', 'all-inclusive', 'restaurant'],
+    amenities: ['wifi', 'pool', 'ac', 'spa', 'beach', 'all-inclusive', 'restaurant', 'heated-pool', 'kids-club', 'private-beach'],
     googleRating: 4.4,
     googleReviewCount: 7650,
     tripadvisorRating: 4.4,
@@ -702,7 +702,7 @@ export const agadirSleep: SleepListing[] = [
     // googlePlaceId: "PLACE_ID_HERE",
 
     tip: 'Opt for a room with a balcony facing the fountain for the best views. Consider visiting in low season (January) to avoid crowds.',
-    vibeTags: ['All-Inclusive', 'Beachfront', 'Family', 'Resort'],
+    vibeTags: ['All-Inclusive', 'Beachfront', 'Family', 'Resort', '5-Star', 'Heated Pool', 'Kids Club', 'Private Beach'],
     locationSummary: "Sonaba & Tourist Zone",
     availabilityText: 'Available tonight',
     googleMapsUrl: 'https://www.google.com/maps/place/30.40809,-9.59907/@30.40809,-9.59907,17z',
@@ -765,7 +765,7 @@ export const agadirSleep: SleepListing[] = [
     description: 'Relaxed beachfront resort with pools, kids clubs, and all-inclusive dining. Ideal for easy, family-friendly holidays.',
     pricePerNight: 135,
     lifestyle: 'balanced',
-    amenities: ['wifi', 'pool', 'ac', 'spa', 'beach', 'all-inclusive', 'kids club'],
+    amenities: ['wifi', 'pool', 'ac', 'spa', 'beach', 'all-inclusive', 'kids-club', 'waterslides', 'water-park', 'heated-pool', 'private-beach'],
     googleRating: 4.4,
     googleReviewCount: 4500,
     tripadvisorRating: 4.6,
@@ -801,7 +801,7 @@ export const agadirSleep: SleepListing[] = [
     // googlePlaceId: "PLACE_ID_HERE",
 
     tip: 'Each room has a terrace—request a sea-facing one at check-in as not all face the ocean by default.',
-    vibeTags: ['Family', 'All-Inclusive', 'Beachfront', 'Relaxed'],
+    vibeTags: ['Family', 'All-Inclusive', 'Beachfront', 'Relaxed', 'Waterslides', 'Heated Pool', 'Kids Club', 'Private Beach'],
     locationSummary: "Agadir Seaside Promenade & Marina",
     availabilityText: 'Available tonight',
     googleMapsUrl: 'https://www.google.com/maps/place/30.3968045,-9.5968741',
@@ -963,7 +963,7 @@ export const agadirSleep: SleepListing[] = [
     description: 'Comfortable and affordable 4-star hotel near the beach and city centre, perfect for access to nightlife and shopping.',
     pricePerNight: 95,
     lifestyle: 'balanced',
-    amenities: ['wifi', 'pool', 'ac', 'breakfast', 'beach'],
+    amenities: ['wifi', 'pool', 'ac', 'breakfast', 'beach', 'waterslides', 'water-park', 'heated-pool', 'all-inclusive', 'kids-club'],
     googleRating: 4.2,
     googleReviewCount: 2800,
     tripadvisorRating: 4.3,
@@ -999,7 +999,7 @@ export const agadirSleep: SleepListing[] = [
     // googlePlaceId: "PLACE_ID_HERE",
 
     tip: 'Take advantage of TUI included excursion packages—Paradise Valley and camel treks are frequently bundled at reduced rates.',
-    vibeTags: ['Value', 'Family', 'Central', 'Beach'],
+    vibeTags: ['Value', 'Family', 'Central', 'Beach', 'Waterslides', 'Water Park', 'Heated Pool', 'All-Inclusive', 'Kids Club'],
     locationSummary: "Agadir Seaside Promenade & Marina",
     availabilityText: 'Available tonight',
     googleMapsUrl: 'https://www.google.com/maps/place/30.417091,-9.602951/@30.417091,-9.602951,17z',
@@ -1395,7 +1395,7 @@ export const agadirSleep: SleepListing[] = [
     // googlePlaceId: "PLACE_ID_HERE",
 
     tip: 'Enjoy the tranquil saltwater pool, a rare find in the area.',
-    vibeTags: ['Boutique', 'Spa', 'Quiet', 'Peaceful'],
+    vibeTags: ['Boutique', 'Spa', 'Quiet', 'Peaceful', 'Heated Pool'],
     locationSummary: "Sonaba & Tourist Zone",
     availabilityText: 'Available tonight',
     googleMapsUrl: 'https://www.google.com/maps/place/30.3969,-9.593875',
@@ -1494,7 +1494,7 @@ export const agadirSleep: SleepListing[] = [
     // googlePlaceId: "PLACE_ID_HERE",
 
     tip: 'Great central location for exploring Agadir on foot.',
-    vibeTags: ['Central', 'Vibrant', 'Value', 'Entertainment'],
+    vibeTags: ['Central', 'Vibrant', 'Value', 'Entertainment', 'Nightclub'],
     locationSummary: "Sonaba & Tourist Zone",
     availabilityText: 'Available tonight',
     googleMapsUrl: 'https://www.google.com/maps/place/30.413342,-9.59801',
@@ -1792,7 +1792,7 @@ export const agadirSleep: SleepListing[] = [
     // googlePlaceId: "PLACE_ID_HERE",
 
     tip: 'Participate in the sunset yoga sessions facing the ocean for an unforgettable experience.',
-    vibeTags: ['Surf', 'Yoga', 'Eco', 'Wellness'],
+    vibeTags: ['Surf', 'Yoga', 'Eco', 'Wellness', 'Beachfront', 'Private Beach', 'Kids Club'],
     locationSummary: "Sonaba & Tourist Zone",
     availabilityText: 'Available tonight',
     googleMapsUrl: 'https://www.google.com/maps/place/30.5844651,-9.75736141',
@@ -1955,7 +1955,7 @@ export const agadirSleep: SleepListing[] = [
     description: 'Sprawling beachfront resort offering direct access to the promenade, lush palm gardens, and multiple dining options.',
     pricePerNight: 115,
     lifestyle: 'balanced',
-    amenities: ['wifi', 'pool', 'ac', 'spa', 'beach', 'tennis'],
+    amenities: ['wifi', 'pool', 'ac', 'spa', 'beach', 'tennis', 'private-beach', 'nightclub', 'all-inclusive'],
     googleRating: 4.0,
     googleReviewCount: 5200,
     tripadvisorRating: 3.7,
@@ -1991,7 +1991,7 @@ export const agadirSleep: SleepListing[] = [
     // googlePlaceId: "PLACE_ID_HERE",
 
     tip: 'Great value for a true beachfront location in Agadir.',
-    vibeTags: ['Beachfront', 'Resort', 'Value', 'Garden'],
+    vibeTags: ['Beachfront', 'Resort', 'Value', 'Garden', 'Private Beach', 'Nightclub', 'All-Inclusive'],
     locationSummary: "Sonaba & Tourist Zone",
     availabilityText: 'Available tonight',
     googleMapsUrl: 'https://www.google.com/maps/place/30.410019,-9.601746',

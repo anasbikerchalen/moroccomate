@@ -165,7 +165,7 @@ export const casablancaSleep: SleepListing[] = [
     description: 'A sophisticated urban oasis featuring Art Deco elegance and a lush garden setting in the prestigious Anfa district. Known for its glamorous pool scene and refined French-Moroccan atmosphere.',
     pricePerNight: 280,
     lifestyle: 'premium',
-    amenities: ['Lush Garden Pool', 'Art Deco Lounge', 'Gourmet Restaurant', 'Luxury Spa', 'Wifi', 'AC'],
+    amenities: ['Lush Garden Pool', 'Art Deco Lounge', 'Gourmet Restaurant', 'Luxury Spa', 'Wifi', 'AC', '5-star', 'pool', 'spa', 'airport-shuttle'],
     googleRating: 4.7,
     googleReviewCount: 850,
     tripadvisorRating: 4.5,
@@ -199,7 +199,7 @@ export const casablancaSleep: SleepListing[] = [
     safetyLevel: 5,
     groupTypes: ['solo', 'couple', 'seniors', 'business-friendly'],
     tip: 'The garden brunch on Sundays is one of the most stylish events in Casablanca; book a table even if you aren’t staying.',
-    vibeTags: ['Art-Deco', 'Glamorous', 'Garden-Oasis', 'Prestigious'],
+    vibeTags: ['Art-Deco', 'Glamorous', 'Garden-Oasis', 'Prestigious', '5-Star', 'Pool', 'Luxury Spa', 'Airport Shuttle'],
     locationSummary: "City Center & Gauthier Business District",
     availabilityText: 'Available tonight',
     googleMapsUrl: '[https://www.google.com/maps/place/Le+Casablanca+Hotel/@33.5912,-7.6445,17z](https://www.google.com/maps/place/Le+Casablanca+Hotel/@33.5912,-7.6445,17z)',
@@ -249,7 +249,7 @@ export const casablancaSleep: SleepListing[] = [
       lat: 33.58683,
       lng: -7.621331
     },
-    tags: []
+    tags: ["5-star", "pool", "spa", "airport-shuttle", "luxury"]
   },
   {
     id: 'c-sleep-2',
@@ -355,7 +355,7 @@ export const casablancaSleep: SleepListing[] = [
     description: 'A contemporary oceanfront masterpiece perched above the Atlantic. This resort-style hotel offers unparalleled sunset views, a world-class spa, and the highest standard of luxury service in the city.',
     pricePerNight: 450,
     lifestyle: 'premium',
-    amenities: ['Outdoor Resort Pool', 'Guerlain Spa', 'Ocean-View Terraces', 'Fitness Center', 'Wifi', 'AC'],
+    amenities: ['Outdoor Resort Pool', 'Guerlain Spa', 'Ocean-View Terraces', 'Fitness Center', 'Wifi', 'AC', '5-star', 'ocean-view', 'beachfront', 'pool', 'spa', 'airport-shuttle'],
     googleRating: 4.8,
     googleReviewCount: 1500,
     tripadvisorRating: 4.5,
@@ -389,7 +389,7 @@ export const casablancaSleep: SleepListing[] = [
     safetyLevel: 5,
     groupTypes: ['couple', 'family', 'business-friendly', 'seniors'],
     tip: 'The "Mint" terrace is the best place in the city for sunset tea; arrive 30 minutes before sunset to secure a front-row seat.',
-    vibeTags: ['Oceanfront', 'Modern-Luxury', 'Resort-Style', 'Sunset-Views'],
+    vibeTags: ['Oceanfront', 'Modern-Luxury', 'Resort-Style', 'Sunset-Views', '5-Star', 'Ocean View', 'Beachfront', 'Pool', 'Luxury Spa', 'Airport Shuttle'],
     locationSummary: "Ain Diab Corniche & Anfa",
     availabilityText: 'Available tonight',
     googleMapsUrl: '[https://www.google.com/maps/place/Four+Seasons+Hotel+Casablanca/@33.5978,-7.6645,17z](https://www.google.com/maps/place/Four+Seasons+Hotel+Casablanca/@33.5978,-7.6645,17z)',
@@ -439,7 +439,7 @@ export const casablancaSleep: SleepListing[] = [
       lat: 33.599545,
       lng: -7.663758
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite", "5-star", "ocean-view", "beachfront", "pool", "spa", "airport-shuttle"]
   },
   {
     id: 'c-sleep-4',
@@ -545,7 +545,7 @@ export const casablancaSleep: SleepListing[] = [
     description: 'A stylish and contemporary urban escape in the heart of Casablanca. This high-design hotel features an indoor pool, a sophisticated spa, and a stunning rooftop bar with views over the Art Deco district and the Atlantic.',
     pricePerNight: 135,
     lifestyle: 'premium',
-    amenities: ['Indoor Swimming Pool', 'Rooftop Bar & Grill', 'Full-Service Spa', 'Fitness Center', 'Wifi', 'AC'],
+    amenities: ['Indoor Swimming Pool', 'Rooftop Bar & Grill', 'Full-Service Spa', 'Fitness Center', 'Wifi', 'AC', '5-star', 'pool', 'indoor-pool', 'rooftop-bar', 'spa', 'airport-shuttle'],
     googleRating: 4.5,
     googleReviewCount: 780,
     tripadvisorRating: 4.0,
@@ -579,7 +579,7 @@ export const casablancaSleep: SleepListing[] = [
     safetyLevel: 5,
     groupTypes: ['business-friendly', 'couple', 'solo'],
     tip: 'The rooftop bar is one of the best spots in the city for a sunset cocktail with a modern vibe.',
-    vibeTags: ['Modern', 'Chic', 'Urban', 'Sophisticated'],
+    vibeTags: ['Modern', 'Chic', 'Urban', 'Sophisticated', '5-Star', 'Rooftop Bar', 'Indoor Pool', 'Spa', 'Airport Shuttle'],
     locationSummary: "City Center & Gauthier Business District",
     availabilityText: 'Available tonight',
     googleMapsUrl: '[https://www.google.com/maps/place/Radisson+Blu+Hotel,+Casablanca+City+Center/@33.5925,-7.6125,17z](https://www.google.com/maps/place/Radisson+Blu+Hotel,+Casablanca+City+Center/@33.5925,-7.6125,17z)',
@@ -629,7 +629,7 @@ export const casablancaSleep: SleepListing[] = [
       lat: 33.587944,
       lng: -7.627771
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage", "5-star", "pool", "rooftop-bar", "spa", "airport-shuttle"]
   },
   {
     id: 'c-sleep-6',
@@ -640,7 +640,7 @@ export const casablancaSleep: SleepListing[] = [
     description: 'Iconic luxury hotel located in the heart of the city, perfectly situated for business and leisure. Known for its historical significance and elegant service.',
     pricePerNight: 200,
     lifestyle: 'premium',
-    amenities: ['pool', 'spa', 'bar', 'gym', 'business-center', 'wifi'],
+    amenities: ['pool', 'spa', 'bar', 'gym', 'business-center', 'wifi', '5-star', 'airport-shuttle'],
     googleRating: 4.6,
     googleReviewCount: 3000,
     tripadvisorRating: 4.5,
@@ -674,7 +674,7 @@ export const casablancaSleep: SleepListing[] = [
     safetyLevel: 5,
     groupTypes: ['couple', 'solo', 'business-friendly'],
     tip: 'Grab a drink at the Dar Beida lounge featuring live music on weekends.',
-    vibeTags: ['Iconic', 'Business', 'Central', 'Classic'],
+    vibeTags: ['Iconic', 'Business', 'Central', 'Classic', '5-Star', 'Pool', 'Spa', 'Airport Shuttle'],
     locationSummary: "City Center & Gauthier Business District",
     availabilityText: 'Available tonight',
     googleMapsUrl: '[https://www.google.com/maps/place/Hyatt+Regency+Casablanca/@33.5951,-7.6186,17z](https://www.google.com/maps/place/Hyatt+Regency+Casablanca/@33.5951,-7.6186,17z)',
@@ -724,7 +724,7 @@ export const casablancaSleep: SleepListing[] = [
       lat: 33.596087,
       lng: -7.618828
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage", "5-star", "pool", "spa", "airport-shuttle"]
   },
   {
     id: 'c-sleep-7',
@@ -735,7 +735,7 @@ export const casablancaSleep: SleepListing[] = [
     description: 'A striking skyscraper hotel where French "art de vivre" meets Moroccan hospitality. Located opposite the Medina, it offers breathtaking views of the city and the Hassan II Mosque from its contemporary rooms and its famous penthouse bar.',
     pricePerNight: 220,
     lifestyle: 'premium',
-    amenities: ['Panoramic Penthouse Bar', 'Luxury So SPA', 'Gourmet French-Moroccan Dining', 'Indoor Heated Pool', 'Wifi', 'AC'],
+    amenities: ['Panoramic Penthouse Bar', 'Luxury So SPA', 'Gourmet French-Moroccan Dining', 'Indoor Heated Pool', 'Wifi', 'AC', '5-star', 'ocean-view', 'indoor-pool', 'spa', 'rooftop-bar', 'airport-shuttle'],
     googleRating: 4.7,
     googleReviewCount: 2100,
     tripadvisorRating: 4.5,
@@ -769,7 +769,7 @@ export const casablancaSleep: SleepListing[] = [
     safetyLevel: 5,
     groupTypes: ['couple', 'solo', 'seniors', 'business-friendly'],
     tip: 'The "Bar Casart" on the top floor offers the best sunset view of the Hassan II Mosque in the entire city.',
-    vibeTags: ['Chic', 'Contemporary', 'Panoramic', 'Vibrant'],
+    vibeTags: ['Chic', 'Contemporary', 'Panoramic', 'Vibrant', '5-Star', 'Ocean View', 'Spa', 'Rooftop Bar', 'Airport Shuttle'],
     locationSummary: "City Center & Gauthier Business District",
     availabilityText: 'Available tonight',
     googleMapsUrl: '[https://www.google.com/maps/place/Sofitel+Casablanca+Tour+Blanche/@33.5955,-7.6165,17z](https://www.google.com/maps/place/Sofitel+Casablanca+Tour+Blanche/@33.5955,-7.6165,17z)',
@@ -819,7 +819,7 @@ export const casablancaSleep: SleepListing[] = [
       lat: 33.598617,
       lng: -7.613284
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite", "5-star", "ocean-view", "pool", "spa", "rooftop-bar", "airport-shuttle"]
   },
   {
     id: 'c-sleep-8',
@@ -830,7 +830,7 @@ export const casablancaSleep: SleepListing[] = [
     description: 'Located in one of the iconic Twin Center towers, this hotel defines the Casablanca skyline. It offers spacious, modern rooms with 360-degree views of the city and the ocean, featuring high-end business facilities and one of the city’s most famous panoramic restaurants.',
     pricePerNight: 160,
     lifestyle: 'balanced',
-    amenities: ['Sky-High Panoramic Restaurant', 'Luxury O-SPA', 'Fitness Center', 'Executive Lounge', 'Wifi', 'AC'],
+    amenities: ['Sky-High Panoramic Restaurant', 'Luxury O-SPA', 'Fitness Center', 'Executive Lounge', 'Wifi', 'AC', '5-star', 'rooftop-bar', 'pool', 'spa', 'ocean-view', 'airport-shuttle'],
     googleRating: 4.3,
     googleReviewCount: 4500,
     tripadvisorRating: 4.0,
@@ -864,7 +864,7 @@ export const casablancaSleep: SleepListing[] = [
     safetyLevel: 5,
     groupTypes: ['couple', 'friends', 'solo', 'business-friendly'],
     tip: 'Book a "Sky View" room on a floor above the 20th for a truly unforgettable perspective of Casablanca’s sprawling urban landscape.',
-    vibeTags: ['Iconic', 'Urban', 'Panoramic', 'Business'],
+    vibeTags: ['Iconic', 'Urban', 'Panoramic', 'Business', '5-Star', 'Rooftop Bar', 'Skyline-Views', 'Pool', 'Spa', 'Airport Shuttle'],
     locationSummary: "City Center & Gauthier Business District",
     availabilityText: 'Available tonight',
     googleMapsUrl: '[https://www.google.com/maps/place/Kenzi+Tower+Hotel/@33.5855,-7.6325,17z](https://www.google.com/maps/place/Kenzi+Tower+Hotel/@33.5855,-7.6325,17z)',
@@ -914,7 +914,7 @@ export const casablancaSleep: SleepListing[] = [
       lat: 33.586587,
       lng: -7.632085
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite", "5-star", "rooftop-bar", "pool", "spa", "ocean-view", "airport-shuttle"]
   },
   {
     id: 'c-sleep-9',
@@ -925,7 +925,7 @@ export const casablancaSleep: SleepListing[] = [
     description: 'A contemporary 5-star hotel that pays homage to Casablanca’s Art Deco heritage. Located in the bustling Anfa district, it features a magnificent rooftop pool deck, a state-of-the-art wellness center, and sleek, futuristic room designs that offer a high-tech stay in the heart of the city.',
     pricePerNight: 130,
     lifestyle: 'balanced',
-    amenities: ['Rooftop Swimming Pool', 'Modern Fitness Center', 'B-Room Concept', 'Gourmet Tapas Bar', 'Wifi', 'AC'],
+    amenities: ['Rooftop Swimming Pool', 'Modern Fitness Center', 'B-Room Concept', 'Gourmet Tapas Bar', 'Wifi', 'AC', '5-star', 'rooftop-bar', 'pool', 'spa', 'ocean-view', 'airport-shuttle'],
     googleRating: 4.5,
     googleReviewCount: 1800,
     tripadvisorRating: 4.0,
@@ -959,7 +959,7 @@ export const casablancaSleep: SleepListing[] = [
     safetyLevel: 5,
     groupTypes: ['couple', 'solo', 'business-friendly'],
     tip: 'The rooftop terrace "B-Heaven" is one of the most vibrant spots in the city for an evening cocktail with a view.',
-    vibeTags: ['Modern', 'High-Tech', 'Vibrant', 'Central'],
+    vibeTags: ['Modern', 'High-Tech', 'Vibrant', 'Central', '5-Star', 'Rooftop Bar', 'Pool', 'Airport Shuttle', 'Ocean View'],
     locationSummary: "Ain Diab Corniche & Anfa",
     availabilityText: 'Available tonight',
     googleMapsUrl: '[https://www.google.com/maps/place/Barcel%C3%B3+Anfa+Casablanca/@33.5885,-7.6285,17z](https://www.google.com/maps/place/Barcel%C3%B3+Anfa+Casablanca/@33.5885,-7.6285,17z)',
@@ -1115,7 +1115,7 @@ export const casablancaSleep: SleepListing[] = [
     description: 'A reliable, modern, and practical choice located right next to the Casa Port train station. It offers the signature Ibis "Sweet Bed" comfort and a perfect location for travelers in transit or those who want easy access to the business district and the old medina.',
     pricePerNight: 65,
     lifestyle: 'lean',
-    amenities: ['Sweet Bed by Ibis', 'Modern Bistro Restaurant', 'Vibrant Bar', 'Business Corner', 'Wifi', 'AC'],
+    amenities: ['Sweet Bed by Ibis', 'Modern Bistro Restaurant', 'Vibrant Bar', 'Business Corner', 'Wifi', 'AC', 'airport-shuttle'],
     googleRating: 4.0,
     googleReviewCount: 5000,
     tripadvisorRating: 3.5,
@@ -1149,7 +1149,7 @@ export const casablancaSleep: SleepListing[] = [
     safetyLevel: 4,
     groupTypes: ['solo', 'friends', 'business-friendly'],
     tip: 'Ideal for those arriving by the Al-Boraq high-speed train; you can walk from the platform to your room in less than 5 minutes.',
-    vibeTags: ['Practical', 'Efficient', 'Modern', 'Central'],
+    vibeTags: ['Practical', 'Efficient', 'Modern', 'Central', 'Airport Shuttle'],
     locationSummary: "City Center & Gauthier Business District",
     availabilityText: 'Available tonight',
     googleMapsUrl: '[https://www.google.com/maps/place/Ibis+Casablanca+City+Center/@33.5985,-7.6145,17z](https://www.google.com/maps/place/Ibis+Casablanca+City+Center/@33.5985,-7.6145,17z)',
@@ -1199,7 +1199,7 @@ export const casablancaSleep: SleepListing[] = [
       lat: 33.598617,
       lng: -7.613284
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite", "airport-shuttle"]
   },
   {
     id: 'c-sleep-12',
@@ -1400,7 +1400,7 @@ export const casablancaSleep: SleepListing[] = [
     description: 'A modern all-suite hotel located within the prestigious Anfa Place development. It offers spacious apartments with kitchenettes and direct access to the beachfront promenade, combining the luxury of a 4-star hotel with the independence of private living.',
     pricePerNight: 140,
     lifestyle: 'premium',
-    amenities: ['Direct Beach Access', 'Outdoor Swimming Pool', 'Fully Equipped Kitchenettes', 'Adjacent Luxury Mall', 'Wifi', 'AC'],
+    amenities: ['Direct Beach Access', 'Outdoor Swimming Pool', 'Fully Equipped Kitchenettes', 'Adjacent Luxury Mall', 'Wifi', 'AC', 'ocean-view', 'beachfront', 'pool'],
     googleRating: 4.2,
     googleReviewCount: 1900,
     tripadvisorRating: 4.0,
@@ -1434,8 +1434,8 @@ export const casablancaSleep: SleepListing[] = [
     safetyLevel: 5,
     groupTypes: ['family', 'couple', 'business-friendly'],
     tip: 'The direct access to Anfa Place Mall means you have dozens of dining and shopping options literally at your doorstep.',
-    vibeTags: ['Beachfront', 'Spacious', 'Convenient', 'Modern'],
-    locationSummary: "City Center & Gauthier Business District",
+    vibeTags: ['Beachfront', 'Spacious', 'Convenient', 'Modern', 'Ocean View', 'Pool'],
+    locationSummary: "Ain Diab Corniche & Anfa",
     availabilityText: 'Available tonight',
     googleMapsUrl: '[https://www.google.com/maps/place/Pestana+Casablanca/@33.5985,-7.6622,17z](https://www.google.com/maps/place/Pestana+Casablanca/@33.5985,-7.6622,17z)',
     address: 'Anfa Place, Boulevard de la Corniche, Casablanca 20000, Morocco',
@@ -1484,7 +1484,7 @@ export const casablancaSleep: SleepListing[] = [
       lat: 33.597788,
       lng: -7.666643
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite", "ocean-view", "beachfront", "pool"]
   },
   {
     id: 'c-sleep-15',
@@ -1495,7 +1495,7 @@ export const casablancaSleep: SleepListing[] = [
     description: 'An eco-friendly boutique hotel combining modern luxury with a commitment to sustainability. Located in the heart of the artistic Gauthier district, it offers spacious suites with contemporary design, organic spa treatments, and one of the best rooftop bars for the city’s creative crowd.',
     pricePerNight: 115,
     lifestyle: 'balanced',
-    amenities: ['Eco-Certified Luxury Spa', 'Artistic Rooftop Bar', 'Organic Gourmet Restaurant', 'Fitness Center', 'Wifi', 'AC'],
+    amenities: ['Eco-Certified Luxury Spa', 'Artistic Rooftop Bar', 'Organic Gourmet Restaurant', 'Fitness Center', 'Wifi', 'AC', 'rooftop-bar', 'spa', 'airport-shuttle'],
     googleRating: 4.4,
     googleReviewCount: 850,
     tripadvisorRating: 4.0,
@@ -1529,7 +1529,7 @@ export const casablancaSleep: SleepListing[] = [
     safetyLevel: 5,
     groupTypes: ['couple', 'solo', 'business-friendly'],
     tip: 'The "La Bodega" bar downstairs is a Casablanca institution for live music and a vibrant local atmosphere.',
-    vibeTags: ['Eco-Luxe', 'Artistic', 'Modern', 'Social'],
+    vibeTags: ['Eco-Luxe', 'Artistic', 'Modern', 'Social', 'Rooftop Bar', 'Spa', 'Airport Shuttle'],
     locationSummary: "City Center & Gauthier Business District",
     availabilityText: 'Available tonight',
     googleMapsUrl: '[https://www.google.com/maps/place/JM+Suites+Hotel/@33.5875,-7.6225,17z](https://www.google.com/maps/place/JM+Suites+Hotel/@33.5875,-7.6225,17z)',
@@ -1579,7 +1579,7 @@ export const casablancaSleep: SleepListing[] = [
       lat: 33.592352,
       lng: -7.625553
     },
-    tags: []
+    tags: ["rooftop-bar", "spa", "airport-shuttle"]
   },
   {
     id: 'c-sleep-16',
@@ -1685,7 +1685,7 @@ export const casablancaSleep: SleepListing[] = [
     description: 'A traditional 4-star hotel conveniently situated right by the ancient medina walls and the Casa Port train station. It offers a blend of classic Moroccan hospitality and modern comforts, featuring an extensive spa and a restaurant known for its authentic Fassi and international cuisine.',
     pricePerNight: 75,
     lifestyle: 'balanced',
-    amenities: ['Traditional Moroccan Spa', 'Authentic Fassi Restaurant', 'Central Business Location', 'Wifi', 'AC'],
+    amenities: ['Traditional Moroccan Spa', 'Authentic Fassi Restaurant', 'Central Business Location', 'Wifi', 'AC', 'spa', 'airport-shuttle'],
     googleRating: 4.0,
     googleReviewCount: 2200,
     tripadvisorRating: 3.5,
@@ -1719,7 +1719,7 @@ export const casablancaSleep: SleepListing[] = [
     safetyLevel: 4,
     groupTypes: ['solo', 'couple', 'business-friendly'],
     tip: 'Perfect for those who want to be within walking distance of both the modern business district and the artisan markets of the old medina.',
-    vibeTags: ['Classic', 'Central', 'Traditional', 'Convenient'],
+    vibeTags: ['Classic', 'Central', 'Traditional', 'Convenient', 'Spa', 'Airport Shuttle'],
     locationSummary: "City Center & Gauthier Business District",
     availabilityText: 'Available tonight',
     googleMapsUrl: '[https://www.google.com/maps/place/Oum+Palace+Hotel+%26+Spa/@33.5955,-7.6145,17z](https://www.google.com/maps/place/Oum+Palace+Hotel+%26+Spa/@33.5955,-7.6145,17z)',
@@ -1769,7 +1769,7 @@ export const casablancaSleep: SleepListing[] = [
       lat: 33.596253,
       lng: -7.614328
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage", "spa", "airport-shuttle"]
   },
   {
     id: 'c-sleep-18',
@@ -1780,7 +1780,7 @@ export const casablancaSleep: SleepListing[] = [
     description: 'A luxurious all-suite hotel overlooking the lush Parc de la Ligue Arabe. It offers some of the most spacious and modern accommodations in the city, with a focus on high-end business services and a quiet, prestigious atmosphere.',
     pricePerNight: 125,
     lifestyle: 'premium',
-    amenities: ['Panoramic Fitness Center', 'Executive Dining Room', 'Lush Park Views', 'Luxury Spa Treatments', 'Wifi', 'AC'],
+    amenities: ['Panoramic Fitness Center', 'Executive Dining Room', 'Lush Park Views', 'Luxury Spa Treatments', 'Wifi', 'AC', '5-star', 'airport-shuttle'],
     googleRating: 4.7,
     googleReviewCount: 1500,
     tripadvisorRating: 4.5,
@@ -1814,7 +1814,7 @@ export const casablancaSleep: SleepListing[] = [
     safetyLevel: 5,
     groupTypes: ['couple', 'family', 'business-friendly'],
     tip: 'Take a morning stroll in the Arab League Park right across the street—it’s the most beautiful green space in Casablanca.',
-    vibeTags: ['Prestigious', 'Spacious', 'Modern', 'Quiet'],
+    vibeTags: ['Prestigious', 'Spacious', 'Modern', 'Quiet', '5-Star', 'Airport Shuttle', 'Luxury'],
     locationSummary: "City Center & Gauthier Business District",
     availabilityText: 'Available tonight',
     googleMapsUrl: '[https://www.google.com/maps/place/Suite+Hotel+Casa+Diamond/@33.5875,-7.6245,17z](https://www.google.com/maps/place/Suite+Hotel+Casa+Diamond/@33.5875,-7.6245,17z)',
@@ -1864,7 +1864,7 @@ export const casablancaSleep: SleepListing[] = [
       lat: 33.585698,
       lng: -7.622651
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite", "5-star", "airport-shuttle"]
   },
   {
     id: 'c-sleep-19',

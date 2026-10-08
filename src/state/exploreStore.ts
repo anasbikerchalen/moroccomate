@@ -51,11 +51,6 @@ interface ExploreState {
   filters: FilterState;
   context: ContextData;
   exploredCategories: string[];
-  matchmakerTree: {
-    activeCategoryId: string | null;
-    activeSubcategoryId: string | null;
-    refineIndex: number | null;
-  };
   setView: (view: ExploreView) => void;
   pushView: (view: ExploreView) => void;
   popView: () => void;
@@ -74,7 +69,6 @@ interface ExploreState {
   resetFilters: () => void;
   setContext: (context: Partial<ContextData>) => void;
   addExploredCategory: (categoryId: string) => void;
-  setMatchmakerTree: (updates: Partial<ExploreState['matchmakerTree']>) => void;
   applyQuizAutoFilters: (quizAnswers: Record<string, any>) => void;
   resetExplore: () => void;
 }
@@ -93,12 +87,6 @@ const initialFilters: FilterState = {
   isWheelchairAccessible: false,
   servesAlcohol: false,
   isKidFriendly: false
-};
-
-const initialMatchmakerTree = {
-  activeCategoryId: null,
-  activeSubcategoryId: null,
-  refineIndex: null
 };
 
 export const useExploreStore = create<ExploreState>()(
@@ -120,7 +108,6 @@ export const useExploreStore = create<ExploreState>()(
       filters: initialFilters,
       context: {},
       exploredCategories: [],
-      matchmakerTree: initialMatchmakerTree,
 
       setView: (view) => set({ view }),
       pushView: (view) => set((state) => ({ history: [...state.history, state.view], view })),
@@ -136,7 +123,6 @@ export const useExploreStore = create<ExploreState>()(
           updates.sportFacilityType = null;
           updates.sportExperienceType = null;
           updates.activeItemId = null;
-          updates.matchmakerTree = initialMatchmakerTree;
         } else if (prevView === 'subcategory') {
           updates.activeSubCategory = null;
           updates.sportIntent = null;
@@ -173,7 +159,6 @@ export const useExploreStore = create<ExploreState>()(
       addExploredCategory: (categoryId: string) => set((state) => ({
         exploredCategories: state.exploredCategories.includes(categoryId) ? state.exploredCategories : [...state.exploredCategories, categoryId]
       })),
-      setMatchmakerTree: (updates) => set((state) => ({ matchmakerTree: { ...state.matchmakerTree, ...updates } })),
 
       // Smart auto-filters (lite): silently activate filters from quiz answers so
       // personalization kicks in without adding more quiz steps
@@ -181,11 +166,11 @@ export const useExploreStore = create<ExploreState>()(
         const updates: Partial<FilterState> = {};
         const group = quizAnswers?.['base-group'];
         if (group !== undefined) {
-          updates.isKidFriendly = group === 'family';
+           updates.isKidFriendly = group === 'family';
         }
         const diet = quizAnswers?.['food-diet'];
         if (diet !== undefined && (!Array.isArray(diet) || diet.length > 0)) {
-          updates.isHalal = Array.isArray(diet) ? diet.includes('halal') : diet === 'halal';
+           updates.isHalal = Array.isArray(diet) ? diet.includes('halal') : diet === 'halal';
         }
         if (Object.keys(updates).length === 0) return state;
         return { filters: { ...state.filters, ...updates } };
@@ -203,8 +188,7 @@ export const useExploreStore = create<ExploreState>()(
         quizAnswers: {},
         archetype: null,
         secondaryArchetype: null,
-        filters: initialFilters,
-        matchmakerTree: initialMatchmakerTree
+        filters: initialFilters
       }),
     }),
     {
@@ -215,7 +199,6 @@ export const useExploreStore = create<ExploreState>()(
         archetype: state.archetype,
         secondaryArchetype: state.secondaryArchetype,
         exploredCategories: state.exploredCategories,
-        matchmakerTree: state.matchmakerTree,
         activeSubCategory: state.activeSubCategory,
         sportIntent: state.sportIntent,
         sportFacilityType: state.sportFacilityType,

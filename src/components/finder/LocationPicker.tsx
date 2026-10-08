@@ -1,4 +1,5 @@
 import { useState, useMemo } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { MapPin, ChevronDown, Search, X, Compass, Map, Sparkles } from 'lucide-react';
 import { useParameterStore } from '../../state/parameterStore';
@@ -12,7 +13,14 @@ import { cn } from '../../utils/cn';
 // The most-visited cities, shown first in the picker
 const RECOMMENDED_CITY_NAMES = ['Marrakech', 'Fes', 'Chefchaouen', 'Essaouira', 'Agadir'];
 
-export default function LocationPicker() {
+interface LocationPickerProps {
+  onCitySelect?: (cityId: string) => void;
+  onAreaSelect?: (areaName: string | null) => void;
+}
+
+export default function LocationPicker({ onCitySelect, onAreaSelect }: LocationPickerProps = {}) {
+  const navigate = useNavigate();
+  const location = useLocation();
   const { city, neighborhood, setCity, setNeighborhood } = useParameterStore();
   const { activeCategory } = useExploreStore();
   
@@ -84,12 +92,28 @@ export default function LocationPicker() {
     setCitySearch('');
     setAreaSearch('');
     setIsOpen('spoke'); // Automatically prompt for area
+
+    if (onCitySelect) {
+      onCitySelect(cityId);
+    }
+
+    // If currently on a /finder/:city/:category route, update the URL
+    if (location.pathname.startsWith('/finder/')) {
+      const segments = location.pathname.split('/').filter(Boolean); // e.g. ['finder', 'marrakech', 'sleep']
+      if (segments.length >= 2 && segments[0] === 'finder' && cityMap[segments[1].toLowerCase()]) {
+        const categorySegment = segments[2] || activeCategory || 'sleep';
+        navigate(`/finder/${cityId.toLowerCase()}/${categorySegment}${location.search}`);
+      }
+    }
   };
 
   const handleAreaSelect = (areaName: string | null) => {
     setNeighborhood(areaName);
     setAreaSearch('');
     setIsOpen(null);
+    if (onAreaSelect) {
+      onAreaSelect(areaName);
+    }
   };
 
   const getCityIcon = (id: string) => {

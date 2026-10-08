@@ -42,6 +42,7 @@ import { tangierSleep } from '../../listings/sleep/tangier.sleep';
 import { todra_dadesSleep } from '../../listings/sleep/todra_dades.sleep';
 import { tetouan_martilSleep } from '../../listings/sleep/tetouan_martil.sleep';
 import { taroudant_tafraouteSleep } from '../../listings/sleep/taroudant_tafraoute.sleep';
+import { taghazoutSleep } from '../../listings/sleep/taghazout.sleep';
 
 export const SLEEP_MASTER: any[] = [
   ...agadirSleep, ...alHoceimaSleep, ...asilahSleep, ...casablancaSleep,
@@ -50,6 +51,7 @@ export const SLEEP_MASTER: any[] = [
   ...meknesSleep, ...merzougaSleep, ...mhamidSleep, ...ouarzazateSleep,
   ...ourikaSleep, ...ouzoudSleep, ...rabatSleep, ...saidiaSleep,
   ...tangierSleep, ...todra_dadesSleep, ...tetouan_martilSleep, ...taroudant_tafraouteSleep,
+  ...taghazoutSleep,
 ];
 
 // ── 1. GLOBAL TAG RULES — defined once, injected everywhere ──

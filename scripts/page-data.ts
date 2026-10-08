@@ -15,6 +15,7 @@ import {
 import { getAllActivities } from '../src/things-to-do';
 import { getListingRating } from '../src/listings/utils';
 import { cityMap } from '../src/data/cities';
+import { getStayOwnerAnswer } from '../src/engine/stayAdapter';
 
 export const BASE_URL = 'https://moroccanmate.com';
 export const DEFAULT_OG_IMAGE = `${BASE_URL}/assets/home/backgrounds/homepage_default_image.jpg`;
@@ -26,6 +27,7 @@ export interface IndexablePage {
   description: string;
   image: string;         // absolute image URL for social previews
   jsonLd: Record<string, any> | null;
+  faq?: { question: string; answer: string }[];
   h1: string;            // main heading for the noscript fallback content
 }
 
@@ -43,7 +45,12 @@ export function collectPlacePages(): IndexablePage[] {
     const label = cityLabel(city);
     const name = listing.name || listing.title || 'Place';
     const categoryLabel = PLACE_CATEGORY_LABEL[category];
-    const description = String(listing.description || '').slice(0, 155);
+    const isSleep = category === 'sleep';
+    const price = isSleep ? (listing.pricePerNight ?? 0) : 0;
+    const rawDescription = String(listing.description || '').slice(0, 155);
+    const description = isSleep && price > 0
+      ? `Price from ${price} MAD/night. ${rawDescription.slice(0, 115)}`
+      : rawDescription;
     const rating = getListingRating(listing);
     const image = listing.nonCopyrightImage
       || (Array.isArray(listing.images) && listing.images[0])
@@ -78,6 +85,19 @@ export function collectPlacePages(): IndexablePage[] {
         reviewCount: rating.totalReviews,
       };
     }
+    if (isSleep && price > 0) {
+      jsonLd.priceRange = `${price} MAD`;
+      jsonLd.offers = {
+        '@type': 'Offer',
+        price,
+        priceCurrency: 'MAD',
+        availability: 'https://schema.org/InStock',
+      };
+    }
+
+    const faq = isSleep
+      ? [{ question: `Who is the owner of ${name}?`, answer: getStayOwnerAnswer(listing) }]
+      : undefined;
 
     pages.push({
       path,
@@ -86,6 +106,7 @@ export function collectPlacePages(): IndexablePage[] {
       description,
       image,
       jsonLd,
+      faq,
       h1: name,
     });
   }

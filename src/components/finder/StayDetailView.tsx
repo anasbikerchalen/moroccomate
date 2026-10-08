@@ -3,7 +3,7 @@ import React, { useMemo } from 'react';
 import { motion } from 'motion/react';
 import { ArrowLeft, Star, Heart } from 'lucide-react';
 import { cn } from '../../utils/cn';
-import { adaptToStayListing, getStayPrice, getStayLifestyle } from '../../engine/stayAdapter';
+import { adaptToStayListing, getStayPrice, getStayLifestyle, getStayOwnerAnswer } from '../../engine/stayAdapter';
 import { useSavedStore } from '../../state/savedStore';
 import SavvyBadge from '../savvy/SavvyBadge';
 import { StayHeader } from './stay/StayHeader';
@@ -12,6 +12,7 @@ import { TraditionalSpacesSection } from './stay/TraditionalSpacesSection';
 import { RoomDetailsSection } from './stay/RoomDetailsSection';
 import { AmenitiesSection } from './stay/AmenitiesSection';
 import { PoliciesSection } from './stay/PoliciesSection';
+import { StayFAQSection } from './stay/StayFAQSection';
 import { LocationBottomBar } from './stay/LocationBottomBar';
 
 interface StayDetailViewProps {
@@ -131,7 +132,10 @@ export default function StayDetailView({ item, onBack }: StayDetailViewProps) {
       {/* 6. Policies & payments */}
       {stay.visibility.show_policies !== false && <PoliciesSection policies={stay.policies} />}
 
-      {/* 7. Exact location bottom bar */}
+      {/* 7. Frequently Asked Questions (FAQ) */}
+      <StayFAQSection propertyName={stay.name} ownerAnswer={getStayOwnerAnswer(item)} />
+
+      {/* 8. Exact location bottom bar */}
       {stay.visibility.show_exact_location !== false && (
         <LocationBottomBar location={stay.location} propertyName={stay.name} />
       )}

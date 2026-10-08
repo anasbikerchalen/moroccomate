@@ -16,6 +16,7 @@ import SavvyBadge from '../savvy/SavvyBadge';
 interface DetailViewProps {
   item: any;
   onBack: () => void;
+  category?: string | null;
 }
 
 const LIFESTYLE_LABEL: Record<string, string> = {
@@ -52,7 +53,7 @@ function RatingStars({ rating }: { rating: number }) {
   );
 }
 
-export default function DetailView({ item, onBack }: DetailViewProps) {
+export default function DetailView({ item, onBack, category }: DetailViewProps) {
   const { omitGoogleImage } = useExploreStore();
 
   if (!item) {
@@ -66,26 +67,58 @@ export default function DetailView({ item, onBack }: DetailViewProps) {
     );
   }
 
-  // Check if it is an eat listing
-  const isEat = item.id?.startsWith('e-') || item.id?.includes('eat') || item.mealTypes?.length > 0 || item.foodStyles?.length > 0;
-  if (isEat) {
-    return <EatDetailView item={item} onBack={onBack} />;
-  }
+  const id = String(item.id || '').toLowerCase();
+  const cat = String(category || item.category || '').toLowerCase();
 
-  // Check if it is a sleep listing
-  const isSleep = item.id?.startsWith('s-') || item.pricePerNight !== undefined || ['riad', 'hotel', 'villa', 'hostel', 'apartment'].includes(item.type);
+  // 1. Sleep listing (explicit category, sleep in ID, or accommodation fields)
+  const isSleep =
+    cat === 'sleep' ||
+    cat === 'stay' ||
+    id.includes('-sleep') ||
+    id.includes('sleep') ||
+    item.pricePerNight !== undefined ||
+    ['riad', 'hotel', 'villa', 'hostel', 'apartment', 'kasbah', 'guesthouse', 'dar', 'desert-camp', 'lodge', 'resort'].includes(String(item.type || '').toLowerCase());
+
   if (isSleep) {
     return <StayDetailView item={item} onBack={onBack} />;
   }
 
-  // Check if it is a shop listing
-  const isShop = item.id?.startsWith('sh-') || !!item.productCategories || !!item.category;
+  // 2. Eat listing (explicit category, eat in ID, or restaurant fields)
+  const isEat =
+    cat === 'eat' ||
+    cat === 'food' ||
+    id.includes('-eat') ||
+    (id.includes('eat') && !id.includes('cheat')) ||
+    (Array.isArray(item.mealTypes) && item.mealTypes.length > 0) ||
+    (Array.isArray(item.foodStyles) && item.foodStyles.length > 0);
+
+  if (isEat) {
+    return <EatDetailView item={item} onBack={onBack} />;
+  }
+
+  // 3. Shop listing
+  const isShop =
+    cat === 'shop' ||
+    cat === 'shopping' ||
+    id.includes('-shop') ||
+    id.startsWith('sh-') ||
+    (Array.isArray(item.productCategories) && item.productCategories.length > 0);
+
   if (isShop) {
     return <ShopDetailView item={item} onBack={onBack} />;
   }
 
-  // Check if it is an activity or thing-to-do listing
-  const isActivity = item.id?.startsWith('t-') || item.id?.startsWith('a-') || item.id?.startsWith('v-') || item.id?.includes('ruins') || item.id?.includes('cable') || item.id?.includes('souk') || !!item.durationMinutes || !!item.energyLevel || item.entryPrice !== undefined;
+  // 4. Activity or things-to-do listing
+  const isActivity =
+    cat === 'things-to-do' ||
+    cat === 'activity' ||
+    id.includes('-things') ||
+    id.includes('-activity') ||
+    id.startsWith('t-') ||
+    !!item.durationMinutes ||
+    !!item.energyLevel ||
+    item.entryPrice !== undefined;
+
   if (isActivity) {
     return <ActivityDetailView item={item} onBack={onBack} />;
   }

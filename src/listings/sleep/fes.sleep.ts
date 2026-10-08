@@ -165,7 +165,7 @@ export const fesSleep: SleepListing[] = [
     description: "A spectacular contemporary hotel designed by Christophe Pillet, offering panoramic views of the Fes Medina. Combines limestone, stone, and traditional Moroccan elements with high-end luxury.",
     pricePerNight: 280,
     lifestyle: "premium",
-    amenities: ["Infinity Pool", "Givenchy Spa", "Panoramic Rooftop Bar", "Fine Dining Restaurant", "Gym", "Wifi"],
+    amenities: ["Infinity Pool", "Givenchy Spa", "Panoramic Rooftop Bar", "Fine Dining Restaurant", "Gym", "Wifi", "5-star", "pool", "infinity-pool", "spa", "rooftop-terrace", "airport-shuttle"],
     googleRating: 4.7,
     googleReviewCount: 850,
     tripadvisorRating: 4.5,
@@ -199,7 +199,7 @@ export const fesSleep: SleepListing[] = [
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "friends", "business-friendly"],
     tip: "Book a room with a medina view to watch the lights of the old city come alive at night.",
-    vibeTags: ["Chic", "Modern", "Panoramic", "Boutique"],
+    vibeTags: ["Chic", "Modern", "Panoramic", "Boutique", "5-Star", "Pool", "Rooftop Terrace", "Spa", "Airport Shuttle"],
     locationSummary: "Ville Nouvelle & Panoramic Heights",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Hotel+Sahrai+Fes",
@@ -271,7 +271,7 @@ export const fesSleep: SleepListing[] = [
       lat: 34.043636,
       lng: -4.992217
     },
-    tags: ["heritage"]
+    tags: ["heritage", "5-star", "pool", "rooftop-terrace", "spa", "airport-shuttle"]
   },
   {
     id: "f-sleep-2",
@@ -282,7 +282,7 @@ export const fesSleep: SleepListing[] = [
     description: "A 19th-century palace turned luxury boutique hotel, offering an immersive experience into the refined art of living in Fes. Known for spectacular Medina views and exceptional spa.",
     pricePerNight: 220,
     lifestyle: "premium",
-    amenities: ["Outdoor Pool", "Traditional Hammam", "Rooftop Terrace", "Gourmet Restaurant", "Wifi", "AC"],
+    amenities: ["Outdoor Pool", "Traditional Hammam", "Rooftop Terrace", "Gourmet Restaurant", "Wifi", "AC", "5-star", "pool", "spa", "hammam", "rooftop-terrace", "in-medina", "airport-shuttle"],
     googleRating: 4.6,
     googleReviewCount: 1200,
     tripadvisorRating: 4.5,
@@ -316,7 +316,7 @@ export const fesSleep: SleepListing[] = [
     safetyLevel: 5,
     groupTypes: ["couple", "family", "seniors"],
     tip: "The L’Amandier restaurant on-site is one of the best in Fes—be sure to book dinner.",
-    vibeTags: ["Palatial", "Historic", "Sophisticated", "Artisanal"],
+    vibeTags: ["Palatial", "Historic", "Sophisticated", "Artisanal", "5-Star", "Pool", "Rooftop Terrace", "In Medina", "Spa", "Airport Shuttle"],
     locationSummary: "Fes el-Bali - Historic Medina",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Palais+Faraj+Suites+Spa+Fes",
@@ -388,7 +388,7 @@ export const fesSleep: SleepListing[] = [
       lat: 34.057496,
       lng: -4.97609
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage", "5-star", "pool", "rooftop-terrace", "spa", "in-medina", "airport-shuttle"]
   },
   {
     id: "f-sleep-3",
@@ -399,7 +399,7 @@ export const fesSleep: SleepListing[] = [
     description: "A masterpiece of Andalusian-Moorish architecture, renowned for luxury, impeccable service, four distinct courtyards, and a refined blend of heritage and contemporary baroque style.",
     pricePerNight: 250,
     lifestyle: "premium",
-    amenities: ["Panoramic Terrace", "Gourmet Restaurant", "Luxury Spa", "Wine Bar", "Outdoor Pool", "Hammam"],
+    amenities: ["Panoramic Terrace", "Gourmet Restaurant", "Luxury Spa", "Wine Bar", "Outdoor Pool", "Hammam", "5-star", "pool", "spa", "rooftop-terrace", "in-medina", "airport-shuttle"],
     googleRating: 4.8,
     googleReviewCount: 1550,
     tripadvisorRating: 5.0,
@@ -433,7 +433,7 @@ export const fesSleep: SleepListing[] = [
     safetyLevel: 5,
     groupTypes: ["couple", "solo", "seniors"],
     tip: "The rooftop terrace offers one of the most iconic views of the Fes medina—perfect for a quiet sunset drink.",
-    vibeTags: ["Andalusian", "Opulent", "Sophisticated", "Boutique"],
+    vibeTags: ["Andalusian", "Opulent", "Sophisticated", "Boutique", "5-Star", "Pool", "Rooftop Terrace", "In Medina", "Spa", "Airport Shuttle"],
     locationSummary: "Fes el-Bali - Historic Medina",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Fes+Relais+Chateaux",
@@ -505,7 +505,7 @@ export const fesSleep: SleepListing[] = [
       lat: 34.061751,
       lng: -4.980459
     },
-    tags: ["heritage"]
+    tags: ["heritage", "5-star", "pool", "rooftop-terrace", "spa", "in-medina", "airport-shuttle"]
   },
   {
     id: "f-sleep-4",
@@ -516,7 +516,7 @@ export const fesSleep: SleepListing[] = [
     description: "An elegant 17th-century palace with a tranquil orange-tree courtyard, outdoor pool, exceptional hammam, warm hospitality, and refined Fassi cuisine.",
     pricePerNight: 120,
     lifestyle: "premium",
-    amenities: ["Orange Tree Patio", "Traditional Hammam", "Outdoor Pool", "Rooftop Terrace", "Gourmet Dining", "Wifi"],
+    amenities: ["Orange Tree Patio", "Traditional Hammam", "Outdoor Pool", "Rooftop Terrace", "Gourmet Dining", "Wifi", "pool", "spa", "hammam", "rooftop-terrace", "in-medina", "airport-shuttle"],
     googleRating: 4.9,
     googleReviewCount: 920,
     tripadvisorRating: 5.0,
@@ -550,7 +550,7 @@ export const fesSleep: SleepListing[] = [
     safetyLevel: 4,
     groupTypes: ["couple", "family"],
     tip: "Do not miss the hammam and massage—it is widely considered one of the most authentic and relaxing in Fes.",
-    vibeTags: ["Palatial", "Tranquil", "Authentic", "Artisanal"],
+    vibeTags: ["Palatial", "Tranquil", "Authentic", "Artisanal", "Pool", "Rooftop Terrace", "In Medina", "Spa", "Airport Shuttle"],
     locationSummary: "Fes el-Bali - Historic Medina",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Riad+Laaroussa+Fes",
@@ -622,7 +622,7 @@ export const fesSleep: SleepListing[] = [
       lat: 34.063406,
       lng: -4.979261
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage", "pool", "rooftop-terrace", "spa", "in-medina", "airport-shuttle"]
   },
   {
     id: "f-sleep-5",
@@ -633,7 +633,7 @@ export const fesSleep: SleepListing[] = [
     description: "An exquisitely restored 17th-century riad with individually curated suites, each telling a Silk Road story. Known for sophisticated design and fine dining.",
     pricePerNight: 160,
     lifestyle: "premium",
-    amenities: ["Individually Designed Suites", "Upscale Bistro", "Traditional Hammam", "Rooftop Lounge", "Wifi", "AC"],
+    amenities: ["Individually Designed Suites", "Upscale Bistro", "Traditional Hammam", "Rooftop Lounge", "Wifi", "AC", "rooftop-terrace", "spa", "hammam", "in-medina", "airport-shuttle"],
     googleRating: 4.9,
     googleReviewCount: 380,
     tripadvisorRating: 5.0,
@@ -667,7 +667,7 @@ export const fesSleep: SleepListing[] = [
     safetyLevel: 4,
     groupTypes: ["couple", "solo"],
     tip: "The Ottomans suite is particularly spectacular—if available, book it for a truly unique stay.",
-    vibeTags: ["Sophisticated", "Artisanal", "Boutique", "Curated"],
+    vibeTags: ["Sophisticated", "Artisanal", "Boutique", "Curated", "Rooftop Terrace", "In Medina", "Spa", "Airport Shuttle"],
     locationSummary: "Fes el-Bali - Historic Medina",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Karawan+Riad+Fes",
@@ -739,7 +739,7 @@ export const fesSleep: SleepListing[] = [
       lat: 34.06069,
       lng: -4.980112
     },
-    tags: ["heritage"]
+    tags: ["heritage", "rooftop-terrace", "spa", "in-medina", "airport-shuttle"]
   },
   {
     id: "f-sleep-6",
@@ -750,7 +750,7 @@ export const fesSleep: SleepListing[] = [
     description: "One of the largest authentic riads in the medina, featuring a citrus garden and renowned cooking school, with Art Deco influences and traditional hospitality.",
     pricePerNight: 140,
     lifestyle: "premium",
-    amenities: ["Citrus Garden", "Cooking School", "Luxury Spa", "Rooftop Bar", "Fine Dining Restaurant", "Wifi"],
+    amenities: ["Citrus Garden", "Cooking School", "Luxury Spa", "Rooftop Bar", "Fine Dining Restaurant", "Wifi", "rooftop-terrace", "spa", "in-medina", "airport-shuttle"],
     googleRating: 4.8,
     googleReviewCount: 750,
     tripadvisorRating: 4.5,
@@ -784,7 +784,7 @@ export const fesSleep: SleepListing[] = [
     safetyLevel: 4,
     groupTypes: ["couple", "family", "seniors"],
     tip: "The cooking school is exceptional—even non-guests should consider a half-day Fassi cooking course.",
-    vibeTags: ["Palatial", "Art-Deco", "Tranquil", "Artisanal"],
+    vibeTags: ["Palatial", "Art-Deco", "Tranquil", "Artisanal", "Rooftop Terrace", "In Medina", "Spa", "Airport Shuttle"],
     locationSummary: "Fes el-Bali - Historic Medina",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Palais+Amani+Fes",
@@ -856,7 +856,7 @@ export const fesSleep: SleepListing[] = [
       lat: 34.067471,
       lng: -4.972058
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage", "rooftop-terrace", "spa", "in-medina", "airport-shuttle"]
   },
   {
     id: "f-sleep-7",
@@ -1218,7 +1218,7 @@ export const fesSleep: SleepListing[] = [
     description: "A lush garden riad with an outdoor pool, offering a rare green oasis in the Fes medina with bird-filled patio and personalized service.",
     pricePerNight: 105,
     lifestyle: "balanced",
-    amenities: ["Outdoor Pool", "Lush Garden Patio", "Rooftop Terrace", "Moroccan Breakfast", "Wifi", "AC"],
+    amenities: ["Outdoor Pool", "Lush Garden Patio", "Rooftop Terrace", "Moroccan Breakfast", "Wifi", "AC", "pool", "rooftop-terrace", "in-medina", "airport-shuttle"],
     googleRating: 4.8,
     googleReviewCount: 350,
     tripadvisorRating: 4.5,
@@ -1252,7 +1252,7 @@ export const fesSleep: SleepListing[] = [
     safetyLevel: 4,
     groupTypes: ["couple", "family", "solo"],
     tip: "The pool is a lifesaver in the Fes summer heat—leave time to relax by the water.",
-    vibeTags: ["Green-Oasis", "Tranquil", "Homely", "Refreshing"],
+    vibeTags: ["Green-Oasis", "Tranquil", "Homely", "Refreshing", "Pool", "Rooftop Terrace", "In Medina", "Airport Shuttle"],
     locationSummary: "Fes el-Bali - Historic Medina",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Ryad+Salama+Fes",
@@ -1324,7 +1324,7 @@ export const fesSleep: SleepListing[] = [
       lat: 34.031328,
       lng: -4.99885
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite", "heritage", "pool", "rooftop-terrace", "in-medina", "airport-shuttle"]
   },
   {
     id: "f-sleep-11",
@@ -1569,7 +1569,7 @@ export const fesSleep: SleepListing[] = [
     description: "A grand luxurious riad spanning multiple historic mansions, with a spectacular courtyard pool, opulent spa, and intricate carvings.",
     pricePerNight: 160,
     lifestyle: "premium",
-    amenities: ["Large Courtyard Pool", "Traditional Luxury Spa", "Panoramic Rooftop Terrace", "Gourmet Fassi Restaurant", "Wifi", "AC"],
+    amenities: ["Large Courtyard Pool", "Traditional Luxury Spa", "Panoramic Rooftop Terrace", "Gourmet Fassi Restaurant", "Wifi", "AC", "pool", "spa", "hammam", "rooftop-terrace", "in-medina", "airport-shuttle"],
     googleRating: 4.7,
     googleReviewCount: 880,
     tripadvisorRating: 4.5,
@@ -1675,7 +1675,7 @@ export const fesSleep: SleepListing[] = [
       lat: 34.058624,
       lng: -4.978311
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage", "pool", "rooftop-terrace", "spa", "in-medina", "airport-shuttle"]
   },
   {
     id: "f-sleep-14",
@@ -1686,7 +1686,7 @@ export const fesSleep: SleepListing[] = [
     description: "A spectacular 14th-century palace restored to its original glory near Rcif gate, with original zellige, spa, and 360-degree rooftop views.",
     pricePerNight: 140,
     lifestyle: "balanced",
-    amenities: ["14th-Century Architecture", "Traditional Hammam & Spa", "Panoramic 360-Degree Rooftop", "Authentic Fassi Cuisine", "Wifi", "AC"],
+    amenities: ["14th-Century Architecture", "Traditional Hammam & Spa", "Panoramic 360-Degree Rooftop", "Authentic Fassi Cuisine", "Wifi", "AC", "rooftop-terrace", "spa", "hammam", "in-medina", "airport-shuttle"],
     googleRating: 4.8,
     googleReviewCount: 1240,
     tripadvisorRating: 4.5,
@@ -1792,7 +1792,7 @@ export const fesSleep: SleepListing[] = [
       lat: 34.060908,
       lng: -4.971909
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage", "rooftop-terrace", "spa", "in-medina", "airport-shuttle"]
   },
   {
     id: "f-sleep-15",
@@ -1803,7 +1803,7 @@ export const fesSleep: SleepListing[] = [
     description: "A boutique luxury riad known for exceptional personalized service and sophisticated design blending Moroccan craftsmanship with contemporary comforts.",
     pricePerNight: 190,
     lifestyle: "premium",
-    amenities: ["Personalized Concierge", "Gourmet Dining", "Serene Patio Pool", "Luxury Spa Treatments", "Wifi", "AC"],
+    amenities: ["Personalized Concierge", "Gourmet Dining", "Serene Patio Pool", "Luxury Spa Treatments", "Wifi", "AC", "pool", "rooftop-terrace", "spa", "in-medina", "airport-shuttle"],
     googleRating: 4.9,
     googleReviewCount: 420,
     tripadvisorRating: 5.0,
@@ -1909,7 +1909,7 @@ export const fesSleep: SleepListing[] = [
       lat: 34.059689,
       lng: -4.978088
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage", "pool", "rooftop-terrace", "spa", "in-medina", "airport-shuttle"]
   },
   {
     id: "f-sleep-16",
@@ -1920,7 +1920,7 @@ export const fesSleep: SleepListing[] = [
     description: "A sprawling 5-star resort in the modern city with one of the largest outdoor pools in Fes, lush gardens, fitness center, bars, and dining.",
     pricePerNight: 210,
     lifestyle: "balanced",
-    amenities: ["Massive Outdoor Pool", "Lush Tropical Gardens", "Full-Scale Fitness Center", "International Dining", "Poolside Bar", "Wifi", "AC"],
+    amenities: ["Massive Outdoor Pool", "Lush Tropical Gardens", "Full-Scale Fitness Center", "International Dining", "Poolside Bar", "Wifi", "AC", "5-star", "pool", "heated-pool", "spa", "airport-shuttle"],
     googleRating: 4.5,
     googleReviewCount: 4200,
     tripadvisorRating: 4.5,
@@ -1954,7 +1954,7 @@ export const fesSleep: SleepListing[] = [
     safetyLevel: 5,
     groupTypes: ["family", "couple", "solo", "business-friendly"],
     tip: "Request a garden-view room with a balcony—the grounds are so lush you can forget you are in a city center.",
-    vibeTags: ["Resort", "Modern", "Expansive", "Convenient"],
+    vibeTags: ["Resort", "Modern", "Expansive", "Convenient", "5-Star", "Pool", "Heated Pool", "Luxury Spa", "Airport Shuttle"],
     locationSummary: "Ville Nouvelle & Panoramic Heights",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Fes+Marriott+Hotel+Jnan+Palace",
@@ -2026,7 +2026,7 @@ export const fesSleep: SleepListing[] = [
       lat: 34.031854,
       lng: -5.002759
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage", "5-star", "pool", "heated-pools", "spa", "rooftop-terrace", "airport-shuttle"]
   },
   {
     id: "f-sleep-17",
@@ -2148,7 +2148,7 @@ export const fesSleep: SleepListing[] = [
     description: "A 5-star hotel perched on hills overlooking the Fes medina, famous for panoramic rooftop dining and sweeping ancient-city views at dusk.",
     pricePerNight: 180,
     lifestyle: "balanced",
-    amenities: ["Panoramic View Restaurant", "Outdoor Swimming Pool", "Panoramic Terraces", "Gourmet Dining", "Wifi", "AC"],
+    amenities: ["Panoramic View Restaurant", "Outdoor Swimming Pool", "Panoramic Terraces", "Gourmet Dining", "Wifi", "AC", "5-star", "pool", "rooftop-terrace", "airport-shuttle"],
     googleRating: 4.4,
     googleReviewCount: 3200,
     tripadvisorRating: 4.0,
@@ -2182,7 +2182,7 @@ export const fesSleep: SleepListing[] = [
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "seniors", "business-friendly"],
     tip: "Book a rooftop restaurant table for dinner—the sunset view of Fes is one of Morocco’s iconic sights.",
-    vibeTags: ["Scenic", "Classic", "Grand", "Quiet"],
+    vibeTags: ["Scenic", "Classic", "Grand", "Quiet", "5-Star", "Pool", "Rooftop Terrace", "Airport Shuttle"],
     locationSummary: "Ville Nouvelle & Panoramic Heights",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Les+Merinides+Fes",
@@ -2254,7 +2254,7 @@ export const fesSleep: SleepListing[] = [
       lat: 34.069815,
       lng: -4.982371
     },
-    tags: ["heritage"]
+    tags: ["heritage", "5-star", "pool", "rooftop-terrace", "airport-shuttle"]
   },
   {
     id: "f-sleep-19",
@@ -2376,7 +2376,7 @@ export const fesSleep: SleepListing[] = [
     description: "An opulent 19th-century palace with a massive pool, extensive spa services, Andalusian gardens, and highly decorated suites.",
     pricePerNight: 170,
     lifestyle: "premium",
-    amenities: ["Massive Outdoor Pool", "Luxury Royal Spa", "Lush Andalusian Gardens", "Gourmet Palace Dining", "Panoramic Rooftop Terrace", "Wifi", "AC"],
+    amenities: ["Massive Outdoor Pool", "Luxury Royal Spa", "Lush Andalusian Gardens", "Gourmet Palace Dining", "Panoramic Rooftop Terrace", "Wifi", "AC", "5-star", "pool", "spa", "hammam", "rooftop-terrace", "in-medina", "airport-shuttle"],
     googleRating: 4.6,
     googleReviewCount: 390,
     tripadvisorRating: 4.5,
@@ -2410,7 +2410,7 @@ export const fesSleep: SleepListing[] = [
     safetyLevel: 5,
     groupTypes: ["couple", "family", "seniors"],
     tip: "The spa is one of the largest in the medina—recommended for a full day of pampering in a regal setting.",
-    vibeTags: ["Regal", "Opulent", "Grand", "Serene"],
+    vibeTags: ["Regal", "Opulent", "Grand", "Serene", "5-Star", "Pool", "Rooftop Terrace", "In Medina", "Luxury Spa", "Airport Shuttle"],
     locationSummary: "Fes el-Bali - Historic Medina",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Palais+Sheherazade+Spa+Fes",
@@ -2482,6 +2482,6 @@ export const fesSleep: SleepListing[] = [
       lat: 34.058988,
       lng: -4.978783
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage", "5-star", "pool", "rooftop-terrace", "spa", "in-medina", "airport-shuttle"]
   }
 ]

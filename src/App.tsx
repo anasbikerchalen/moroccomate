@@ -27,7 +27,7 @@ export default function App() {
     <Suspense fallback={<div className="min-h-screen bg-[#FAF7F2]" />}>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/finder/:param1/:param2?" element={<ExplorePage onClose={() => navigate('/')} />} />
+        <Route path="/finder/:param1/:param2?/:param3?" element={<ExplorePage onClose={() => navigate('/')} />} />
         <Route path="/finder" element={<FinderPage />} />
         <Route path="/place/:city/:category/:slug" element={<PlaceListingPage />} />
         <Route path="/things/:city/:slug?" element={<ThingsListingPage />} />

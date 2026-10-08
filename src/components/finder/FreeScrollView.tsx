@@ -283,7 +283,7 @@ export default function FreeScrollView({
           <button
             onClick={() => onSwitchToQuiz(currentTabConfig.exploreCat)}
             className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#2E1B13]/80 hover:bg-[#43271C] border border-[#6E3821]/50 text-xs font-semibold text-[#E7D6C4] hover:text-white transition-all cursor-pointer shadow-md"
-            title="Switch to personalized matchmaker quiz"
+            title="Switch to personalized quiz"
           >
             <Sparkles className="w-3.5 h-3.5 text-[#C9A84C]" />
             <span>Take Quiz</span>

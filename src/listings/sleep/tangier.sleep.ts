@@ -168,7 +168,7 @@ export const tangierSleep: SleepListing[] = [
     description: "A grand and meticulously restored palace originally built in the 1920s as a residence for the Sultan’s advisor. Perched on a hill with sweeping city and forest views, it offers the ultimate luxury experience in Tangier.",
     pricePerNight: 450,
     lifestyle: "premium",
-    amenities: ["Outdoor Infinity Pool", "Fairmont Spa", "Signature Restaurants", "Botanical Gardens", "Butler Service", "Wifi", "AC"],
+    amenities: ["Outdoor Infinity Pool", "Fairmont Spa", "Signature Restaurants", "Botanical Gardens", "Butler Service", "Wifi", "AC", "5-star", "pool", "spa", "rooftop-terrace", "ocean-view", "airport-shuttle"],
     googleRating: 4.9,
     googleReviewCount: 350,
     tripadvisorRating: 4.9,
@@ -278,7 +278,7 @@ export const tangierSleep: SleepListing[] = [
       lat: 35.78187,
       lng: -5.850714
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage", "5-star", "pool", "spa", "rooftop-terrace", "ocean-view", "airport-shuttle"]
   },
   {
     id: "t-sleep-2",
@@ -289,7 +289,7 @@ export const tangierSleep: SleepListing[] = [
     description: "A beautifully restored 1920s building that once served as a bank, now a boutique hotel in the medina with Moroccan craftsmanship, high ceilings, and a spa.",
     pricePerNight: 120,
     lifestyle: "premium",
-    amenities: ["Luxury Spa", "Traditional Hammam", "Rooftop Terrace", "Gourmet Restaurant", "Wifi", "AC"],
+    amenities: ["Luxury Spa", "Traditional Hammam", "Rooftop Terrace", "Gourmet Restaurant", "Wifi", "AC", "in-medina", "spa", "rooftop-terrace", "5-star"],
     googleRating: 4.6,
     googleReviewCount: 850,
     tripadvisorRating: 4.6,
@@ -399,7 +399,7 @@ export const tangierSleep: SleepListing[] = [
       lat: 35.785681,
       lng: -5.810089
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage", "in-medina", "spa", "rooftop-terrace", "5-star"]
   },
   {
     id: "t-sleep-3",
@@ -410,7 +410,7 @@ export const tangierSleep: SleepListing[] = [
     description: "The legendary El Minzah has been Tangier’s most famous hotel since 1930, with Andalusian architecture, gardens, and a pool that hosted writers, diplomats, and stars.",
     pricePerNight: 165,
     lifestyle: "premium",
-    amenities: ["Outdoor Pool", "Andalusian Gardens", "Historic Wine Bar", "Health Club", "Wifi", "AC"],
+    amenities: ["Outdoor Pool", "Andalusian Gardens", "Historic Wine Bar", "Health Club", "Wifi", "AC", "5-star", "pool", "spa", "rooftop-terrace", "in-medina", "ocean-view"],
     googleRating: 4.6,
     googleReviewCount: 1850,
     tripadvisorRating: 4.6,
@@ -520,7 +520,7 @@ export const tangierSleep: SleepListing[] = [
       lat: 35.781874,
       lng: -5.812409
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage", "5-star", "pool", "spa", "rooftop-terrace", "in-medina", "ocean-view"]
   },
   {
     id: "t-sleep-4",
@@ -531,7 +531,7 @@ export const tangierSleep: SleepListing[] = [
     description: "The oldest hotel in Morocco, established in 1865, overlooking the port. Famous for traditional Moroccan decor, historic terrace, and literary/film history.",
     pricePerNight: 65,
     lifestyle: "balanced",
-    amenities: ["Historic Terrace", "Port Views", "Traditional Restaurant", "Wifi", "Gift Shop"],
+    amenities: ["Historic Terrace", "Port Views", "Traditional Restaurant", "Wifi", "Gift Shop", "ocean-view", "rooftop-terrace", "in-medina"],
     googleRating: 4.1,
     googleReviewCount: 2450,
     tripadvisorRating: 4.1,
@@ -641,7 +641,7 @@ export const tangierSleep: SleepListing[] = [
       lat: 35.787519,
       lng: -5.809523
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage", "ocean-view", "rooftop-terrace", "in-medina"]
   },
   {
     id: "t-sleep-5",
@@ -652,7 +652,7 @@ export const tangierSleep: SleepListing[] = [
     description: "An elegant heritage hotel on a hill where Henri Matisse stayed and painted in 1912, with restored interiors, pool, gardens, and refined atmosphere.",
     pricePerNight: 160,
     lifestyle: "premium",
-    amenities: ["Outdoor Pool", "Lush Gardens", "Panoramic Terrace", "Fine Dining", "Wifi", "AC"],
+    amenities: ["Outdoor Pool", "Lush Gardens", "Panoramic Terrace", "Fine Dining", "Wifi", "AC", "5-star", "pool", "ocean-view", "rooftop-terrace", "spa"],
     googleRating: 4.7,
     googleReviewCount: 980,
     tripadvisorRating: 4.7,
@@ -762,7 +762,7 @@ export const tangierSleep: SleepListing[] = [
       lat: 35.782312,
       lng: -5.8145
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage", "5-star", "pool", "ocean-view", "rooftop-terrace", "spa"]
   },
   {
     id: "t-sleep-6",
@@ -773,7 +773,7 @@ export const tangierSleep: SleepListing[] = [
     description: "One of Tangier’s oldest and most celebrated guesthouses, Dar Nour offers chic bohemian decor and a multi-level panoramic terrace over the city and Strait of Gibraltar.",
     pricePerNight: 95,
     lifestyle: "premium",
-    amenities: ["Panoramic Terrace", "Traditional Breakfast", "Massage Service", "Library", "Wifi", "AC"],
+    amenities: ["Panoramic Terrace", "Traditional Breakfast", "Massage Service", "Library", "Wifi", "AC", "in-medina", "rooftop-terrace", "ocean-view"],
     googleRating: 4.8,
     googleReviewCount: 720,
     tripadvisorRating: 4.8,
@@ -883,7 +883,7 @@ export const tangierSleep: SleepListing[] = [
       lat: 35.78786,
       lng: -5.814188
     },
-    tags: []
+    tags: ["in-medina", "rooftop-terrace", "ocean-view"]
   },
   {
     id: "t-sleep-7",
@@ -894,7 +894,7 @@ export const tangierSleep: SleepListing[] = [
     description: "A stunning 19th-century villa in Marshan transformed into a boutique guesthouse, with Mediterranean gardens, pool, and views of the Strait of Gibraltar.",
     pricePerNight: 140,
     lifestyle: "premium",
-    amenities: ["Mediterranean Garden", "Outdoor Pool", "Gourmet Dining", "Strait Views", "Wifi", "AC"],
+    amenities: ["Mediterranean Garden", "Outdoor Pool", "Gourmet Dining", "Strait Views", "Wifi", "AC", "pool", "ocean-view", "spa"],
     googleRating: 4.9,
     googleReviewCount: 350,
     tripadvisorRating: 4.9,
@@ -1015,7 +1015,7 @@ export const tangierSleep: SleepListing[] = [
     description: "A charming traditional riad in the medina with a warm atmosphere, well-stocked library, and rooftop terrace with city and port views.",
     pricePerNight: 75,
     lifestyle: "balanced",
-    amenities: ["Well-Stocked Library", "Panoramic Rooftop Terrace", "Traditional Moroccan Breakfast", "Shared Lounge", "Wifi", "AC"],
+    amenities: ["Well-Stocked Library", "Panoramic Rooftop Terrace", "Traditional Moroccan Breakfast", "Shared Lounge", "Wifi", "AC", "in-medina", "rooftop-terrace"],
     googleRating: 4.5,
     googleReviewCount: 1240,
     tripadvisorRating: 4.5,
@@ -1125,7 +1125,7 @@ export const tangierSleep: SleepListing[] = [
       lat: 35.787137,
       lng: -5.810573
     },
-    tags: []
+    tags: ["in-medina", "rooftop-terrace"]
   },
   {
     id: "t-sleep-9",
@@ -1620,7 +1620,7 @@ export const tangierSleep: SleepListing[] = [
     description: "An ultra-exclusive boutique riad in the Kasbah, styled with Art Deco and Moroccan heritage, curated art, piano lounge, and panoramic Strait views.",
     pricePerNight: 190,
     lifestyle: "premium",
-    amenities: ["Piano Lounge", "Panoramic Terrace", "Curated Art Collection", "Luxury Spa", "Fine Dining", "Wifi"],
+    amenities: ["Piano Lounge", "Panoramic Terrace", "Curated Art Collection", "Luxury Spa", "Fine Dining", "Wifi", "in-medina", "rooftop-terrace", "ocean-view", "spa", "5-star"],
     googleRating: 4.9,
     googleReviewCount: 220,
     tripadvisorRating: 4.9,
@@ -1728,7 +1728,7 @@ export const tangierSleep: SleepListing[] = [
       lat: 35.790437,
       lng: -5.816798
     },
-    tags: ["heritage"]
+    tags: ["heritage", "in-medina", "rooftop-terrace", "ocean-view", "spa", "5-star"]
   },
   {
     id: "t-sleep-14",
@@ -1739,7 +1739,7 @@ export const tangierSleep: SleepListing[] = [
     description: "A restored 1950s villa turned boutique guesthouse, set in a Mediterranean garden with pool and views of the Strait of Gibraltar and Kasbah.",
     pricePerNight: 165,
     lifestyle: "premium",
-    amenities: ["Lush Mediterranean Garden", "Outdoor Swimming Pool", "Panoramic Views of the Strait", "Gourmet Dining", "Wifi", "AC"],
+    amenities: ["Lush Mediterranean Garden", "Outdoor Swimming Pool", "Panoramic Views of the Strait", "Gourmet Dining", "Wifi", "AC", "pool", "ocean-view", "rooftop-terrace"],
     googleRating: 4.9,
     googleReviewCount: 350,
     tripadvisorRating: 4.9,
@@ -1849,7 +1849,7 @@ export const tangierSleep: SleepListing[] = [
       lat: 35.776386,
       lng: -5.796169
     },
-    tags: ["heritage"]
+    tags: ["heritage", "pool", "ocean-view", "rooftop-terrace"]
   },
   {
     id: "t-sleep-15",
@@ -1860,7 +1860,7 @@ export const tangierSleep: SleepListing[] = [
     description: "A stylish modern hotel directly on the Tangier corniche, offering contemporary rooms, marina and Strait views, poolside atmosphere, and central beachfront location.",
     pricePerNight: 95,
     lifestyle: "balanced",
-    amenities: ["Beachfront Pool", "Modern Gym", "Lounge Bar", "Marina Views", "Wifi", "AC"],
+    amenities: ["Beachfront Pool", "Modern Gym", "Lounge Bar", "Marina Views", "Wifi", "AC", "on-the-beach", "ocean-view", "pool", "rooftop-terrace"],
     googleRating: 4.2,
     googleReviewCount: 1250,
     tripadvisorRating: 4.2,
@@ -1970,7 +1970,7 @@ export const tangierSleep: SleepListing[] = [
       lat: 35.780999,
       lng: -5.806343
     },
-    tags: []
+    tags: ["on-the-beach", "ocean-view", "pool", "rooftop-terrace"]
   },
   {
     id: "t-sleep-16",
@@ -1981,7 +1981,7 @@ export const tangierSleep: SleepListing[] = [
     description: "A sprawling world-class resort on a 5-kilometer beach, surrounded by protected forest, with golf course, three pools, kids club, and luxury spa.",
     pricePerNight: 180,
     lifestyle: "premium",
-    amenities: ["Professional Golf Course", "Luxury Spa & Hammam", "Three Outdoor Pools", "Direct Beach Access", "Kids Club", "Wifi", "AC"],
+    amenities: ["Professional Golf Course", "Luxury Spa & Hammam", "Three Outdoor Pools", "Direct Beach Access", "Kids Club", "Wifi", "AC", "5-star", "on-the-beach", "ocean-view", "pool", "spa", "golf-course", "kids-club", "airport-shuttle"],
     googleRating: 4.5,
     googleReviewCount: 1100,
     tripadvisorRating: 4.5,
@@ -2091,7 +2091,7 @@ export const tangierSleep: SleepListing[] = [
       lat: 35.667332,
       lng: -5.965774
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite", "5-star", "on-the-beach", "ocean-view", "pool", "spa", "golf-course", "kids-club", "airport-shuttle"]
   },
   {
     id: "t-sleep-17",
@@ -2102,7 +2102,7 @@ export const tangierSleep: SleepListing[] = [
     description: "A fully renovated modern hotel overlooking the Bay of Tangier, with design-forward rooms, large outdoor pool, dining, and beach promenade access.",
     pricePerNight: 125,
     lifestyle: "premium",
-    amenities: ["Outdoor Pool", "Beachfront Access", "Wellness Center", "B-Heaven Rooftop Bar", "Wifi", "AC"],
+    amenities: ["Outdoor Pool", "Beachfront Access", "Wellness Center", "B-Heaven Rooftop Bar", "Wifi", "AC", "5-star", "on-the-beach", "ocean-view", "pool", "spa", "rooftop-terrace", "rooftop-bar"],
     googleRating: 4.4,
     googleReviewCount: 1550,
     tripadvisorRating: 4.4,
@@ -2212,7 +2212,7 @@ export const tangierSleep: SleepListing[] = [
       lat: 35.77764,
       lng: -5.800003
     },
-    tags: []
+    tags: ["5-star", "on-the-beach", "ocean-view", "pool", "spa", "rooftop-terrace", "rooftop-bar"]
   },
   {
     id: "t-sleep-18",
@@ -2223,7 +2223,7 @@ export const tangierSleep: SleepListing[] = [
     description: "A large bustling hotel on the corniche, with entertainment options, multiple restaurants, sea-view rooms, and a central beachfront location.",
     pricePerNight: 85,
     lifestyle: "balanced",
-    amenities: ["Outdoor Pool", "Nightclub", "Wellness Spa", "Multiple Restaurants", "Wifi", "AC"],
+    amenities: ["Outdoor Pool", "Nightclub", "Wellness Spa", "Multiple Restaurants", "Wifi", "AC", "on-the-beach", "ocean-view", "pool", "spa", "rooftop-bar", "nightclubs"],
     googleRating: 4.0,
     googleReviewCount: 2200,
     tripadvisorRating: 4.0,
@@ -2333,7 +2333,7 @@ export const tangierSleep: SleepListing[] = [
       lat: 35.776487,
       lng: -5.797505
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite", "on-the-beach", "ocean-view", "pool", "spa", "rooftop-bar", "nightclubs"]
   },
   {
     id: "t-sleep-19",
@@ -2344,7 +2344,7 @@ export const tangierSleep: SleepListing[] = [
     description: "A modern reliable hotel in the city center beside the Al Boraq train station, with standardized comfort, minimalist rooms, and pool.",
     pricePerNight: 55,
     lifestyle: "lean",
-    amenities: ["Central Swimming Pool", "Modern Restaurant & Bar", "Proximity to Train Station", "24-Hour Reception", "Wifi", "AC"],
+    amenities: ["Central Swimming Pool", "Modern Restaurant & Bar", "Proximity to Train Station", "24-Hour Reception", "Wifi", "AC", "pool", "airport-shuttle"],
     googleRating: 4.1,
     googleReviewCount: 1800,
     tripadvisorRating: 4.1,

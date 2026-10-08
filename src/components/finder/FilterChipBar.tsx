@@ -1,5 +1,6 @@
+import { useState, useRef, useEffect, useCallback } from 'react';
 import { motion } from 'motion/react';
-import { Filter, Sparkles, X, Check, Compass } from 'lucide-react';
+import { Sparkles, X, Check, Compass, ChevronRight, ChevronLeft } from 'lucide-react';
 import { useExploreStore } from '../../state/exploreStore';
 import { useProfileStore } from '../../state/profileStore';
 import { cn } from '../../utils/cn';
@@ -84,6 +85,83 @@ export default function FilterChipBar({ category = 'things', className = '', res
   const availableChips = getAllChipsForCategory(normalizedCategory);
   const activeVibes = filters.vibes || [];
 
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [canScrollRight, setCanScrollRight] = useState(false);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
+
+  const isMouseDownRef = useRef(false);
+  const startXRef = useRef(0);
+  const scrollLeftRef = useRef(0);
+  const hasMovedRef = useRef(false);
+
+  const checkScrollability = useCallback(() => {
+    const el = scrollContainerRef.current;
+    if (!el) return;
+    const hasMoreRight = el.scrollWidth > el.clientWidth + el.scrollLeft + 6;
+    const hasMoreLeft = el.scrollLeft > 6;
+    setCanScrollRight(hasMoreRight);
+    setCanScrollLeft(hasMoreLeft);
+  }, []);
+
+  useEffect(() => {
+    checkScrollability();
+    const el = scrollContainerRef.current;
+    if (!el) return;
+
+    const ro = new ResizeObserver(() => {
+      checkScrollability();
+    });
+    ro.observe(el);
+
+    window.addEventListener('resize', checkScrollability);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener('resize', checkScrollability);
+    };
+  }, [checkScrollability, availableChips]);
+
+  const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (e.button !== 0) return;
+    const el = scrollContainerRef.current;
+    if (!el) return;
+
+    isMouseDownRef.current = true;
+    startXRef.current = e.pageX;
+    scrollLeftRef.current = el.scrollLeft;
+    hasMovedRef.current = false;
+  };
+
+  useEffect(() => {
+    const handleWindowMouseMove = (e: MouseEvent) => {
+      if (!isMouseDownRef.current || !scrollContainerRef.current) return;
+      const delta = e.pageX - startXRef.current;
+      if (Math.abs(delta) > 4) {
+        hasMovedRef.current = true;
+        setIsDragging(true);
+      }
+      scrollContainerRef.current.scrollLeft = scrollLeftRef.current - delta;
+      checkScrollability();
+    };
+
+    const handleWindowMouseUp = () => {
+      if (isMouseDownRef.current) {
+        isMouseDownRef.current = false;
+        setIsDragging(false);
+        setTimeout(() => {
+          hasMovedRef.current = false;
+        }, 60);
+      }
+    };
+
+    window.addEventListener('mousemove', handleWindowMouseMove);
+    window.addEventListener('mouseup', handleWindowMouseUp);
+    return () => {
+      window.removeEventListener('mousemove', handleWindowMouseMove);
+      window.removeEventListener('mouseup', handleWindowMouseUp);
+    };
+  }, [checkScrollability]);
+
   const handleToggleChip = (chip: FilterChipOption) => {
     // Open Now is a real-time flag, not a vibe tag
     if (chip.id === 'open-now') {
@@ -107,6 +185,15 @@ export default function FilterChipBar({ category = 'things', className = '', res
     }
   };
 
+  const handleChipClick = (chip: FilterChipOption, e: React.MouseEvent) => {
+    if (hasMovedRef.current) {
+      e.preventDefault();
+      e.stopPropagation();
+      return;
+    }
+    handleToggleChip(chip);
+  };
+
   const handleClearAll = () => {
     setFilter('isOpenNow', false);
     setFilter('vibes', []);
@@ -120,13 +207,14 @@ export default function FilterChipBar({ category = 'things', className = '', res
   const activeCount = availableChips.filter(chip => chip.id === 'open-now' ? !!filters.isOpenNow : activeVibes.includes(chip.tag)).length;
 
   return (
-    <div className={`w-full space-y-2 ${className}`}>
+    <div className={`w-full space-y-2 relative ${className}`}>
       <div className="flex items-center justify-between gap-2 px-1">
         <div className="flex items-center gap-1.5">
           <Compass className="w-3.5 h-3.5 text-stone-400" />
           <span className="text-[10px] font-black uppercase tracking-wider text-stone-500 dark:text-stone-400">
-            Explore by Type
+            Quick Filters
           </span>
+          <span className="text-[9px] text-stone-400 font-medium hidden sm:inline">· 1-Tap Toggles</span>
           {activeCount > 0 && (
             <span className="text-[9px] font-black px-1.5 py-0.2 rounded-full bg-[#C9A84C] text-white">
               {activeCount}
@@ -155,8 +243,21 @@ export default function FilterChipBar({ category = 'things', className = '', res
         )}
       </div>
 
-      {/* Horizontal Scrollable Chips */}
-      <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-1">
+      {/* Horizontal Scrollable Chips — scrollable via touch on mobile & mouse drag on desktop */}
+      <div
+        ref={scrollContainerRef}
+        onMouseDown={handleMouseDown}
+        onScroll={checkScrollability}
+        onDragStart={(e) => e.preventDefault()}
+        className={`flex items-center gap-2 overflow-x-auto no-scrollbar py-1 touch-pan-x overscroll-x-contain select-none ${
+          isDragging ? 'cursor-grabbing' : 'cursor-grab'
+        }`}
+        style={{
+          scrollbarWidth: 'none',
+          msOverflowStyle: 'none',
+          WebkitOverflowScrolling: 'touch',
+        }}
+      >
         {availableChips.map((chip) => {
           const isActive = chip.id === 'open-now' ? !!filters.isOpenNow : activeVibes.includes(chip.tag);
           const liveCount = resultCounts ? resultCounts[chip.id] : undefined;
@@ -164,10 +265,12 @@ export default function FilterChipBar({ category = 'things', className = '', res
           return (
             <motion.button
               key={chip.id}
-              onClick={() => handleToggleChip(chip)}
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-2xl text-[11px] font-bold transition-all duration-200 cursor-pointer whitespace-nowrap border ${
+              onClick={(e) => handleChipClick(chip, e)}
+              whileHover={isDragging ? undefined : { scale: 1.03 }}
+              whileTap={isDragging ? undefined : { scale: 0.97 }}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-2xl text-[11px] font-bold transition-all duration-200 whitespace-nowrap border ${
+                isDragging ? 'pointer-events-none ' : 'cursor-pointer '
+              }${
                 isActive
                   ? 'bg-stone-900 text-white border-stone-900 dark:bg-[#C9A84C] dark:text-stone-950 dark:border-[#C9A84C] shadow-md'
                   : 'bg-white dark:bg-stone-800 text-stone-700 dark:text-stone-200 border-stone-200 dark:border-stone-700 hover:border-stone-400'
@@ -185,6 +288,36 @@ export default function FilterChipBar({ category = 'things', className = '', res
           );
         })}
       </div>
+
+      {/* Small arrow indicator letting user know there are more tags on the right */}
+      {canScrollRight && (
+        <button
+          type="button"
+          onClick={() => {
+            scrollContainerRef.current?.scrollBy({ left: 180, behavior: 'smooth' });
+          }}
+          aria-label="Scroll right to see more tags"
+          title="More tags"
+          className="absolute right-0 bottom-2.5 z-10 flex items-center justify-center w-6 h-6 rounded-full bg-white/95 dark:bg-stone-800/95 backdrop-blur-xs text-stone-700 dark:text-stone-200 shadow-md border border-stone-200/90 dark:border-stone-700 hover:scale-110 active:scale-95 transition-all cursor-pointer"
+        >
+          <ChevronRight className="w-3.5 h-3.5" />
+        </button>
+      )}
+
+      {/* Small arrow indicator on the left when scrolled */}
+      {canScrollLeft && (
+        <button
+          type="button"
+          onClick={() => {
+            scrollContainerRef.current?.scrollBy({ left: -180, behavior: 'smooth' });
+          }}
+          aria-label="Scroll left to see previous tags"
+          title="Previous tags"
+          className="absolute left-0 bottom-2.5 z-10 flex items-center justify-center w-6 h-6 rounded-full bg-white/95 dark:bg-stone-800/95 backdrop-blur-xs text-stone-700 dark:text-stone-200 shadow-md border border-stone-200/90 dark:border-stone-700 hover:scale-110 active:scale-95 transition-all cursor-pointer"
+        >
+          <ChevronLeft className="w-3.5 h-3.5" />
+        </button>
+      )}
     </div>
   );
 }

@@ -271,7 +271,7 @@ export const rabatSleep: SleepListing[] = [
       lat: 33.920364,
       lng: -6.840915
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["5-star","pool","spa","airport-shuttle","parking","luxury","family-favorite","heritage"]
   },
   {
     id: "r-sleep-2",
@@ -388,7 +388,7 @@ export const rabatSleep: SleepListing[] = [
       lat: 33.955018,
       lng: -6.867267
     },
-    tags: []
+    tags: ["5-star","pool","rooftop-terrace","spa","airport-shuttle","parking"]
   },
   {
     id: "r-sleep-3",
@@ -505,7 +505,7 @@ export const rabatSleep: SleepListing[] = [
       lat: 34.027441,
       lng: -6.839085
     },
-    tags: ["heritage"]
+    tags: ["in-medina","pool","rooftop-terrace","spa","airport-shuttle","heritage"]
   },
   {
     id: "r-sleep-4",
@@ -622,7 +622,7 @@ export const rabatSleep: SleepListing[] = [
       lat: 33.964868,
       lng: -6.847702
     },
-    tags: ["family-favorite"]
+    tags: ["pool","spa","airport-shuttle","parking","family-favorite"]
   },
   {
     id: "r-sleep-5",
@@ -739,7 +739,7 @@ export const rabatSleep: SleepListing[] = [
       lat: 34.02511,
       lng: -6.840177
     },
-    tags: ["family-favorite"]
+    tags: ["in-medina","rooftop-terrace","airport-shuttle","family-favorite"]
   },
   {
     id: "r-sleep-6",
@@ -854,7 +854,7 @@ export const rabatSleep: SleepListing[] = [
       lat: 34.027159,
       lng: -6.840476
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["in-medina","rooftop-terrace","spa","airport-shuttle","heritage"]
   },
   {
     id: "r-sleep-7",
@@ -971,7 +971,7 @@ export const rabatSleep: SleepListing[] = [
       lat: 33.943656,
       lng: -6.815736
     },
-    tags: ["heritage"]
+    tags: ["in-medina","rooftop-terrace","spa","airport-shuttle","heritage"]
   },
   {
     id: "r-sleep-8",
@@ -1088,7 +1088,7 @@ export const rabatSleep: SleepListing[] = [
       lat: 34.028225,
       lng: -6.835939
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["5-star","pool","spa","parking","airport-shuttle","heritage"]
   },
   {
     id: "r-sleep-9",
@@ -1205,7 +1205,7 @@ export const rabatSleep: SleepListing[] = [
       lat: 34.027892,
       lng: -6.837525
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["in-medina","pool","rooftop-terrace","spa","airport-shuttle","heritage"]
   },
   {
     id: "r-sleep-10",
@@ -1322,7 +1322,7 @@ export const rabatSleep: SleepListing[] = [
       lat: 34.024241,
       lng: -6.839629
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["5-star","pool","ocean-view","rooftop-terrace","spa","parking","airport-shuttle","family-favorite"]
   },
   {
     id: "r-sleep-11",
@@ -1439,7 +1439,7 @@ export const rabatSleep: SleepListing[] = [
       lat: 34.13945,
       lng: -6.725164
     },
-    tags: ["heritage"]
+    tags: ["5-star","pool","spa","parking","airport-shuttle"]
   },
   {
     id: "r-sleep-12",
@@ -1556,7 +1556,7 @@ export const rabatSleep: SleepListing[] = [
       lat: 33.900296,
       lng: -6.998432
     },
-    tags: ["family-favorite"]
+    tags: ["5-star","ocean-view","pool","spa","parking","airport-shuttle","family-favorite"]
   },
   {
     id: "r-sleep-13",
@@ -1673,7 +1673,7 @@ export const rabatSleep: SleepListing[] = [
       lat: 34.022499,
       lng: -6.838039
     },
-    tags: []
+    tags: ["in-medina","rooftop-terrace","spa","airport-shuttle"]
   },
   {
     id: "r-sleep-14",
@@ -1790,7 +1790,7 @@ export const rabatSleep: SleepListing[] = [
       lat: 34.017433,
       lng: -6.828154
     },
-    tags: ["heritage"]
+    tags: ["in-medina","pool","rooftop-terrace","airport-shuttle"]
   },
   {
     id: "r-sleep-15",
@@ -1907,7 +1907,7 @@ export const rabatSleep: SleepListing[] = [
       lat: 34.025508,
       lng: -6.84253
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["in-medina","rooftop-terrace","airport-shuttle"]
   },
   {
     id: "r-sleep-16",
@@ -2024,7 +2024,7 @@ export const rabatSleep: SleepListing[] = [
       lat: 34.026641,
       lng: -6.835068
     },
-    tags: ["heritage"]
+    tags: ["in-medina","rooftop-terrace","heritage","airport-shuttle"]
   },
   {
     id: "r-sleep-17",
@@ -2141,7 +2141,7 @@ export const rabatSleep: SleepListing[] = [
       lat: 34.027892,
       lng: -6.837525
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["in-medina","rooftop-terrace","airport-shuttle"]
   },
   {
     id: "r-sleep-18",
@@ -2258,7 +2258,7 @@ export const rabatSleep: SleepListing[] = [
       lat: 34.026152,
       lng: -6.83484
     },
-    tags: ["heritage"]
+    tags: ["in-medina","rooftop-terrace","heritage"]
   },
   {
     id: "r-sleep-19",
@@ -2375,7 +2375,7 @@ export const rabatSleep: SleepListing[] = [
       lat: 34.026378,
       lng: -6.834424
     },
-    tags: ["dorm", "heritage"]
+    tags: ["in-medina","rooftop-terrace","airport-shuttle"]
   },
   {
     id: "r-sleep-20",
@@ -2492,6 +2492,6 @@ export const rabatSleep: SleepListing[] = [
       lat: 34.026834,
       lng: -6.835832
     },
-    tags: []
+    tags: ["in-medina","rooftop-terrace"]
   }
 ]

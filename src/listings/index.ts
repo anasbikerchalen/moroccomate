@@ -27,6 +27,7 @@ import { tangierSleep } from './sleep/tangier.sleep'
 import { todra_dadesSleep } from './sleep/todra_dades.sleep'
 import { tetouan_martilSleep } from './sleep/tetouan_martil.sleep'
 import { taroudant_tafraouteSleep } from './sleep/taroudant_tafraoute.sleep'
+import { taghazoutSleep } from './sleep/taghazout.sleep'
 import { agadirEat } from './eat/agadir.eat'
 import { al_hoceimaEat } from './eat/al_hoceima.eat'
 import { asilahEat } from './eat/asilah.eat'
@@ -97,6 +98,7 @@ export const listingsRegistry: Record<string, any[]> = {
   'tetouan_martil-sleep': tetouan_martilSleep,
   'taroudant-sleep': taroudant_tafraouteSleep,
   'taroudant_tafraoute-sleep': taroudant_tafraouteSleep,
+  'taghazout-sleep': taghazoutSleep,
   'agadir-eat': agadirEat,
   'al_hoceima-eat': al_hoceimaEat,
   'asilah-eat': asilahEat,

@@ -271,7 +271,7 @@ export const ouarzazateSleep: SleepListing[] = [
       lat: 31.071412,
       lng: -6.576048
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["kasbah-hotels","5-star","pool","desert-view","spa","family-favorite","heritage"]
   },
   {
     id: "ou-sleep-2",
@@ -386,7 +386,7 @@ export const ouarzazateSleep: SleepListing[] = [
       lat: 30.975088,
       lng: -7.097728
     },
-    tags: ["family-favorite"]
+    tags: ["pool","desert-view","family-rooms","family-favorite"]
   },
   {
     id: "ou-sleep-3",
@@ -503,7 +503,7 @@ export const ouarzazateSleep: SleepListing[] = [
       lat: 30.904236,
       lng: -6.911074
     },
-    tags: ["family-favorite"]
+    tags: ["pool","desert-view","family-rooms","family-favorite"]
   },
   {
     id: "ou-sleep-4",
@@ -616,7 +616,7 @@ export const ouarzazateSleep: SleepListing[] = [
       business: "Good WiFi and meeting spaces available.",
       nomad: "A creative and central base for exploring the region.",
     },
-    tags: ["family-favorite"]
+    tags: ["5-star","pool","spa","family-rooms","family-favorite"]
   },
   {
     id: "ou-sleep-5",
@@ -733,7 +733,7 @@ export const ouarzazateSleep: SleepListing[] = [
       lat: 31.065718,
       lng: -7.142779
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["kasbah-hotels","5-star","pool","desert-view","spa"]
   },
   {
     id: "ou-sleep-6",
@@ -850,7 +850,7 @@ export const ouarzazateSleep: SleepListing[] = [
       lat: 30.900513,
       lng: -6.907657
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["kasbah-hotels","5-star","pool","desert-view","spa"]
   },
   {
     id: "ou-sleep-7",
@@ -967,7 +967,7 @@ export const ouarzazateSleep: SleepListing[] = [
       lat: 30.921699,
       lng: -6.92682
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["5-star","pool","spa","family-rooms","family-favorite"]
   },
   {
     id: "ou-sleep-8",
@@ -1084,7 +1084,7 @@ export const ouarzazateSleep: SleepListing[] = [
       lat: 31.086456,
       lng: -7.146231
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["kasbah-hotels","pool","desert-view","family-rooms"]
   },
   {
     id: "ou-sleep-9",
@@ -1199,7 +1199,7 @@ export const ouarzazateSleep: SleepListing[] = [
       lat: 30.906177,
       lng: -6.857565
     },
-    tags: ["family-favorite"]
+    tags: ["kasbah-hotels","pool","spa","desert-view"]
   },
   {
     id: "ou-sleep-10",
@@ -1316,7 +1316,7 @@ export const ouarzazateSleep: SleepListing[] = [
       lat: 30.923899,
       lng: -6.909308
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["kasbah-hotels","desert-view","family-rooms"]
   },
   {
     id: "ou-sleep-11",
@@ -1433,7 +1433,7 @@ export const ouarzazateSleep: SleepListing[] = [
       lat: 30.941782,
       lng: -6.966914
     },
-    tags: ["family-favorite"]
+    tags: ["kasbah-hotels","desert-view","pool","heritage"]
   },
   {
     id: "ou-sleep-12",
@@ -1550,7 +1550,7 @@ export const ouarzazateSleep: SleepListing[] = [
       lat: 30.903726,
       lng: -6.895812
     },
-    tags: ["family-favorite"]
+    tags: ["kasbah-hotels","pool","desert-view"]
   },
   {
     id: "ou-sleep-13",
@@ -1667,7 +1667,7 @@ export const ouarzazateSleep: SleepListing[] = [
       lat: 30.893413,
       lng: -6.898527
     },
-    tags: ["family-favorite"]
+    tags: ["kasbah-hotels","pool","desert-view"]
   },
   {
     id: "ou-sleep-14",
@@ -1784,7 +1784,7 @@ export const ouarzazateSleep: SleepListing[] = [
       lat: 30.896759,
       lng: -6.894726
     },
-    tags: ["family-favorite"]
+    tags: ["kasbah-hotels","pool","desert-view"]
   },
   {
     id: "ou-sleep-15",
@@ -1901,7 +1901,7 @@ export const ouarzazateSleep: SleepListing[] = [
       lat: 30.929411,
       lng: -6.898686
     },
-    tags: ["family-favorite"]
+    tags: ["kasbah-hotels","pool","desert-view"]
   },
   {
     id: "ou-sleep-16",
@@ -2018,7 +2018,7 @@ export const ouarzazateSleep: SleepListing[] = [
       lat: 30.922739,
       lng: -6.931838
     },
-    tags: ["family-favorite"]
+    tags: ["kasbah-hotels","desert-view"]
   },
   {
     id: "ou-sleep-17",
@@ -2135,7 +2135,7 @@ export const ouarzazateSleep: SleepListing[] = [
       lat: 30.934882,
       lng: -6.907898
     },
-    tags: ["family-favorite"]
+    tags: ["kasbah-hotels","pool","desert-view"]
   },
   {
     id: "ou-sleep-18",
@@ -2252,7 +2252,7 @@ export const ouarzazateSleep: SleepListing[] = [
       lat: 30.924591,
       lng: -6.907938
     },
-    tags: ["family-favorite"]
+    tags: ["kasbah-hotels","desert-view"]
   },
   {
     id: "ou-sleep-19",
@@ -2367,7 +2367,7 @@ export const ouarzazateSleep: SleepListing[] = [
       lat: 30.918607,
       lng: -6.901897
     },
-    tags: ["family-favorite"]
+    tags: ["kasbah-hotels","desert-view"]
   },
   {
     id: "ou-sleep-20",
@@ -2484,6 +2484,6 @@ export const ouarzazateSleep: SleepListing[] = [
       lat: 30.924591,
       lng: -6.907938
     },
-    tags: ["family-favorite"]
+    tags: ["kasbah-hotels","desert-view"]
   }
 ]

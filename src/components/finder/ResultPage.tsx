@@ -24,14 +24,18 @@ import {
   Shield,
   Navigation,
   SlidersHorizontal,
-  Filter
+  Filter,
+  Search
 } from 'lucide-react';
 import { getShopStatus } from '../../utils/timeEngine';
 import FilterPanel from './modals/FilterPanel';
 import { ARCHETYPE_METADATA } from '../../data/explore/archetypes';
 import { getTagForOptionId, getQuizWeightForQuestionId, QUIZ_STOP_WORDS, getAllQuizQuestions, getQuizOptionLabel, type QuizQuestion } from '../../data/explore/questions';
 import { cn } from '../../utils/cn';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams, useLocation } from 'react-router-dom';
+import { SEO } from '../ui/SEO';
+import { getSearchIntent, getCityPopularIntents, doesListingMatchIntent } from '../../data/seo/searchIntents';
+import PeopleSearchForBar from './PeopleSearchForBar';
 import { TAG_REGISTRY } from '../../listings/things/tags';
 import { cityMap } from '../../data/cities';
 import LocationPicker from './LocationPicker';
@@ -137,6 +141,34 @@ export default function ResultPage() {
   const { setView, pushView, activeCategory, setActiveItem, setOmitGoogleImage, setModalOpen, addExploredCategory, filters, setFilter, quizAnswers, archetype, secondaryArchetype, activeSubCategory, sportIntent, setQuizAnswer } = useExploreStore();
   const { city, neighborhood, setCity } = useParameterStore();
   
+  const { param1, param2, param3 } = useParams<{ param1?: string; param2?: string; param3?: string }>();
+  const location = useLocation();
+
+  const activeFeatureSlug = useMemo(() => {
+    const params = new URLSearchParams(location.search);
+    return param3 || params.get('feature') || params.get('intent') || params.get('tag') || null;
+  }, [param3, location.search]);
+
+  const activeSearchIntent = useMemo(() => {
+    if (!activeFeatureSlug) return null;
+    return getSearchIntent(activeCategory || 'sleep', activeFeatureSlug);
+  }, [activeFeatureSlug, activeCategory]);
+
+  const popularIntents = useMemo(() => {
+    return getCityPopularIntents(city || 'agadir', activeCategory || 'sleep');
+  }, [city, activeCategory]);
+
+  const handleSelectIntent = (intentSlug: string | null) => {
+    const currentCity = (city || 'agadir').toLowerCase();
+    const currentCat = activeCategory || 'sleep';
+
+    if (!intentSlug || intentSlug === activeFeatureSlug) {
+      navigate(`/finder/${currentCity}/${currentCat}`);
+    } else {
+      navigate(`/finder/${currentCity}/${currentCat}/${intentSlug}`);
+    }
+  };
+
   const currentCityName = useMemo(() => {
     return city ? (cityMap[city]?.name || city) : 'Marrakech';
   }, [city]);
@@ -203,6 +235,14 @@ export default function ResultPage() {
         item.neighborhood === neighborhood || 
         cityMap[item.city]?.name === neighborhood
       );
+    }
+
+    // Filter by high-intent search feature if selected from URL or tag bar
+    if (activeSearchIntent) {
+      const intentFiltered = listings.filter(item => doesListingMatchIntent(item, activeSearchIntent));
+      if (intentFiltered.length > 0) {
+        listings = intentFiltered;
+      }
     }
 
     if (activeCategory === 'things-to-do' && activeSubCategory) {
@@ -691,7 +731,14 @@ export default function ResultPage() {
         <Sparkles className="w-12 h-12 mx-auto mb-4 opacity-20" />
         <h3 className="text-xl font-bold text-stone-900 mb-2">Curating {(city || '').replace('_', ' ')}</h3>
         <p className="mb-8">Data for this city is being curated by our local intelligence team. Please check back later or explore another destination.</p>
-        <button onClick={() => setCity('marrakech')} className="px-6 py-3 bg-[#C2613C] text-white rounded-xl font-bold uppercase tracking-widest text-[10px] hover:bg-[#C2613C]/90">
+        <button 
+          onClick={() => {
+            setCity('marrakech');
+            const cat = activeCategory || 'sleep';
+            navigate(`/finder/marrakech/${cat}${location.search}`);
+          }} 
+          className="px-6 py-3 bg-[#C2613C] text-white rounded-xl font-bold uppercase tracking-widest text-[10px] hover:bg-[#C2613C]/90 cursor-pointer"
+        >
           Explore Marrakech
         </button>
       </div>
@@ -717,22 +764,41 @@ export default function ResultPage() {
 
   return (
     <div className="bg-[#FAF7F2] min-h-screen pb-16 font-sans text-stone-800">
+      <SEO
+        title={activeSearchIntent ? activeSearchIntent.seoTitle(currentCityName) : `Places we found for you in ${currentCityName}`}
+        description={activeSearchIntent ? activeSearchIntent.seoDescription(currentCityName) : `Handpicked places and local recommendations in ${currentCityName}.`}
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-8">
 
         {/* ─── Compact Header Zone ─────────────────────────────── */}
-        <div className="flex items-center gap-4 mb-4">
+        <div className="flex items-center gap-4 mb-3">
           <div className="w-14 h-14 rounded-2xl overflow-hidden shrink-0 border border-[#EAE1D3] shadow-sm">
-            <img src={getHeroImage(activeCategory)} alt="" className="w-full h-full object-cover" loading="eager" fetchPriority="high" />
+            <img src={getHeroImage(activeCategory)} alt="" className="w-full h-full object-cover" loading="eager" {...({ fetchpriority: 'high' } as any)} />
           </div>
           <div className="min-w-0">
             <h1 className="font-serif text-xl sm:text-2xl text-stone-900 tracking-tight leading-tight truncate">
-              Places we found for you in <span className="text-[#C2613C]">{currentCityName}</span>
+              {activeSearchIntent ? (
+                <span>{activeSearchIntent.headerTitle(currentCityName)}</span>
+              ) : (
+                <span>Places we found for you in <span className="text-[#C2613C]">{currentCityName}</span></span>
+              )}
             </h1>
             <p className="text-stone-500 text-xs font-medium mt-0.5">
-              Handpicked from your quiz · <span className="font-bold text-stone-700">{recommendations.length} places</span>
+              {activeSearchIntent ? (
+                <span>Handpicked for <strong className="text-stone-700">{activeSearchIntent.label}</strong> · <span className="font-bold text-stone-700">{recommendations.length} places</span></span>
+              ) : (
+                <span>Handpicked from your quiz · <span className="font-bold text-stone-700">{recommendations.length} places</span></span>
+              )}
             </p>
           </div>
         </div>
+
+        {/* ─── "People Also Search For" Tag Bar (Scrollable via touch & mouse drag with arrow) ─── */}
+        <PeopleSearchForBar
+          popularIntents={popularIntents}
+          activeFeatureSlug={activeFeatureSlug}
+          onSelectIntent={handleSelectIntent}
+        />
 
         {/* Preferences Control Strip Bar */}
         <div className="relative z-30 mx-4 md:mx-8 mt-5 mb-6 bg-white/95 backdrop-blur-md rounded-2xl p-2 border border-[#E7DFD3] shadow-md flex flex-col md:flex-row items-center justify-between gap-3">
@@ -770,9 +836,9 @@ export default function ResultPage() {
                   <SlidersHorizontal className="w-4 h-4" />
                 </div>
                 <div className="text-left min-w-0 flex-1">
-                  <div className="text-[10px] font-bold uppercase tracking-wider text-stone-400">FILTERS</div>
+                  <div className="text-[10px] font-bold uppercase tracking-wider text-stone-400">MORE FILTERS</div>
                   <div className="font-bold text-stone-900 text-sm flex items-center gap-2">
-                    <span>All Filters</span>
+                    <span>Price, Ratings & Amenities</span>
                     {(activeFilterPills.length + quizAnswerPills.length) > 0 && (
                       <span className="text-[10px] font-extrabold bg-[#C2613C] text-white px-2 py-0.5 rounded-full leading-none">
                         {activeFilterPills.length + quizAnswerPills.length} active
@@ -1210,7 +1276,7 @@ export default function ResultPage() {
                   </button>
                 </div>
 
-                <LocationPicker />
+                <LocationPicker onAreaSelect={() => setShowLocationModal(false)} />
               </motion.div>
             </div>
           </div>

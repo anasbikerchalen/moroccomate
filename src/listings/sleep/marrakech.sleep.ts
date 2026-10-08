@@ -165,7 +165,7 @@ export const marrakechSleep: SleepListing[] = [
     description: "A legendary palace hotel where traditional Moroccan architecture meets modern luxury. Surrounded by vast, centuries-old gardens and offering an unparalleled sense of history and elegance.",
     pricePerNight: 850,
     lifestyle: "premium",
-    amenities: ["Centuries-old Gardens", "Iconic Indoor Spa Pool", "Luxury Casino", "Pierre Hermé Patisserie", "Hammam", "Tennis Courts"],
+    amenities: ["Centuries-old Gardens", "Iconic Indoor Spa Pool", "Luxury Casino", "Pierre Hermé Patisserie", "Hammam", "Tennis Courts", "heated-pool", "luxury-spa"],
     googleRating: 4.8,
     googleReviewCount: 4200,
     tripadvisorRating: 4.8,
@@ -199,7 +199,7 @@ export const marrakechSleep: SleepListing[] = [
     safetyLevel: 5,
     groupTypes: ["couple", "family", "solo", "seniors", "business-friendly"],
     tip: "Purchase a spa day pass or enjoy afternoon tea at Le Menzeh pavilion to stroll the famous gardens.",
-    vibeTags: ["Palatial", "Historic", "Garden", "Iconic"],
+    vibeTags: ["Palatial", "Historic", "Garden", "Iconic", "5-Star", "Heated Pool", "Luxury", "Spa"],
     locationSummary: "Medina - Historic Center",
     availabilityText: "Available tonight - High demand",
     googleMapsUrl: "https://maps.google.com/?q=La+Mamounia+Marrakech",
@@ -271,7 +271,7 @@ export const marrakechSleep: SleepListing[] = [
       lat: 31.621383,
       lng: -7.997442
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage", "5-star", "heated-pool", "spa"]
   },
   {
     id: "m-sleep-2",
@@ -282,7 +282,7 @@ export const marrakechSleep: SleepListing[] = [
     description: "Ultra-luxury palace with individual private three-story riads instead of standard rooms. Famous for absolute privacy and underground service tunnels that ensure discreet hospitality.",
     pricePerNight: 1250,
     lifestyle: "premium",
-    amenities: ["All-Riad Accommodation", "Underground Service Tunnels", "Hammam Spa Cathedral", "Multi-Michelin-Chef Dining", "Private Butler"],
+    amenities: ["All-Riad Accommodation", "Underground Service Tunnels", "Hammam Spa Cathedral", "Multi-Michelin-Chef Dining", "Private Butler", "private-pool", "heated-pool", "luxury-spa"],
     googleRating: 4.9,
     googleReviewCount: 1500,
     tripadvisorRating: 4.9,
@@ -316,7 +316,7 @@ export const marrakechSleep: SleepListing[] = [
     safetyLevel: 5,
     groupTypes: ["couple", "family", "seniors", "business-friendly"],
     tip: "Take advantage of the luxury fast-track service through Marrakech Menara Airport customs.",
-    vibeTags: ["Palatial", "Private", "Ultra-Luxury", "Artisanal"],
+    vibeTags: ["Palatial", "Private", "Ultra-Luxury", "Artisanal", "5-Star", "Private Pool", "Heated Pool", "Spa"],
     locationSummary: "Medina - Historic Center",
     availabilityText: "Very limited availability",
     googleMapsUrl: "https://maps.google.com/?q=Royal+Mansour+Marrakech",
@@ -388,7 +388,7 @@ export const marrakechSleep: SleepListing[] = [
       lat: 31.625269,
       lng: -7.998302
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage", "5-star", "private-pool", "heated-pool", "spa"]
   },
   {
     id: "m-sleep-3",
@@ -399,7 +399,7 @@ export const marrakechSleep: SleepListing[] = [
     description: "A serene and palatial oasis inspired by old Marrakech and Menara gardens, with pavilion-style accommodation around a majestic reflection pool.",
     pricePerNight: 2650,
     lifestyle: "premium",
-    amenities: ["Rose-Hued Architecture", "Grand Reflection Pool", "Private Heated Pool Pavilions", "Aman Wellness Spa", "Library", "Wifi", "AC"],
+    amenities: ["Rose-Hued Architecture", "Grand Reflection Pool", "Private Heated Pool Pavilions", "Aman Wellness Spa", "Library", "Wifi", "AC", "golf-course", "private-pool", "heated-pool"],
     googleRating: 4.9,
     googleReviewCount: 350,
     tripadvisorRating: 4.9,
@@ -433,7 +433,7 @@ export const marrakechSleep: SleepListing[] = [
     safetyLevel: 5,
     groupTypes: ["couple", "solo", "seniors", "family"],
     tip: "Request a Maison-style pavilion with a private heated pool for a quiet getaway away from the Medina.",
-    vibeTags: ["Serene", "Palatial", "Minimalist-Luxury", "Secluded"],
+    vibeTags: ["Serene", "Palatial", "Minimalist-Luxury", "Secluded", "5-Star", "Private Pool", "Heated Pool", "Golf Course", "Spa"],
     locationSummary: "Palmeraie / Rural Outskirts",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Amanjena+Marrakech",
@@ -505,7 +505,7 @@ export const marrakechSleep: SleepListing[] = [
       lat: 31.60912,
       lng: -7.932954
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite", "5-star", "private-pool", "heated-pool", "golf-course", "spa"]
   },
   {
     id: "m-sleep-4",
@@ -516,7 +516,7 @@ export const marrakechSleep: SleepListing[] = [
     description: "A vibrant iconic boutique riad combining bohemian chic with contemporary art, legendary rooftop energy, lush color-saturated interiors, and multiple pools.",
     pricePerNight: 650,
     lifestyle: "premium",
-    amenities: ["Interconnected Riads", "Contemporary Art Collection", "3 Swimming Pools", "Rooftop Lounge", "Luxury Boutique", "Wifi", "AC"],
+    amenities: ["Interconnected Riads", "Contemporary Art Collection", "3 Swimming Pools", "Rooftop Lounge", "Luxury Boutique", "Wifi", "AC", "heated-pool", "private-pool", "spa"],
     googleRating: 4.8,
     googleReviewCount: 1200,
     tripadvisorRating: 4.8,
@@ -550,7 +550,7 @@ export const marrakechSleep: SleepListing[] = [
     safetyLevel: 4,
     groupTypes: ["couple", "solo", "friends"],
     tip: "Enjoy complimentary afternoon tea and cakes on the rooftop; the sunset bar is a must even for non-guests.",
-    vibeTags: ["Bohemian-Chic", "Art-Centric", "Vibrant", "Stylish"],
+    vibeTags: ["Bohemian-Chic", "Art-Centric", "Vibrant", "Stylish", "Heated Pool", "Private Pool", "Rooftop"],
     locationSummary: "Medina - Historic Center",
     availabilityText: "Available tonight - Very popular",
     googleMapsUrl: "https://maps.google.com/?q=El+Fenn+Marrakech",
@@ -984,7 +984,7 @@ export const marrakechSleep: SleepListing[] = [
     description: "A massive five-hectare resort next to Palais des Congrès with lush water gardens, expansive family amenities, pools, spa, and business facilities.",
     pricePerNight: 215,
     lifestyle: "balanced",
-    amenities: ["3 Large Swimming Pools", "Little Birds Kids Club", "Onyx Spa", "Direct Congress Center Access", "Wifi", "AC"],
+    amenities: ["3 Large Swimming Pools", "Little Birds Kids Club", "Onyx Spa", "Direct Congress Center Access", "Wifi", "AC", "heated-pool", "kids-club"],
     googleRating: 4.5,
     googleReviewCount: 4500,
     tripadvisorRating: 4.5,
@@ -1018,7 +1018,7 @@ export const marrakechSleep: SleepListing[] = [
     safetyLevel: 5,
     groupTypes: ["solo", "couple", "family", "seniors", "business-friendly"],
     tip: "Use the Little Birds kids club for structured activities while you relax by the separate adults-only pool.",
-    vibeTags: ["Resort", "Grand", "Family-Friendly", "Lush"],
+    vibeTags: ["Resort", "Grand", "Family-Friendly", "Lush", "5-Star", "Heated Pool", "Kids Club", "Spa"],
     locationSummary: "Medina - Historic Center",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Movenpick+Hotel+Mansour+Eddahbi+Marrakech",
@@ -1567,7 +1567,7 @@ export const marrakechSleep: SleepListing[] = [
     description: "A luxurious 5-star palace hotel in the historic Kasbah, spanning several mansions with carved stonework, heated rooftop pool, Atlas views, and award-winning spa.",
     pricePerNight: 550,
     lifestyle: "premium",
-    amenities: ["Heated Rooftop Pool", "Luxury Subterranean Spa", "Award-Winning Cooking Classes", "Panoramic Terrace with Atlas Views", "Wifi", "AC"],
+    amenities: ["Heated Rooftop Pool", "Luxury Subterranean Spa", "Award-Winning Cooking Classes", "Panoramic Terrace with Atlas Views", "Wifi", "AC", "heated-pool", "spa"],
     googleRating: 4.8,
     googleReviewCount: 3500,
     tripadvisorRating: 4.8,
@@ -1601,7 +1601,7 @@ export const marrakechSleep: SleepListing[] = [
     safetyLevel: 5,
     groupTypes: ["couple", "solo", "seniors", "family"],
     tip: "Book the Mastering Moroccan Spices cooking class with the chef; it includes a guided Kasbah market visit.",
-    vibeTags: ["Palatial", "Opulent", "Historic-Royal", "Refined"],
+    vibeTags: ["Palatial", "Opulent", "Historic-Royal", "Refined", "5-Star", "Heated Pool", "Spa", "Luxury"],
     locationSummary: "Gueliz / Hivernage Modern District",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=La+Sultana+Marrakech",
@@ -1684,7 +1684,7 @@ export const marrakechSleep: SleepListing[] = [
     description: "A prestigious luxury resort outside the city center with an 18-hole golf course, expansive pools, and unobstructed Atlas Mountain views across lush grounds.",
     pricePerNight: 450,
     lifestyle: "premium",
-    amenities: ["18-hole Golf Course", "2,000m² Main Swimming Pool", "Luxury Spa & Fitness", "International Kids Club", "Wifi", "AC"],
+    amenities: ["18-hole Golf Course", "2,000m² Main Swimming Pool", "Luxury Spa & Fitness", "International Kids Club", "Wifi", "AC", "golf-course", "heated-pool", "private-pool", "kids-club"],
     googleRating: 4.7,
     googleReviewCount: 4200,
     tripadvisorRating: 4.7,
@@ -1718,7 +1718,7 @@ export const marrakechSleep: SleepListing[] = [
     safetyLevel: 5,
     groupTypes: ["family", "couple", "seniors", "business-friendly"],
     tip: "Enjoy early-morning golf when the air is crisp and the Atlas Mountains are clearest.",
-    vibeTags: ["Resort-Luxe", "Expansive", "Scenic", "Elite"],
+    vibeTags: ["Resort-Luxe", "Expansive", "Scenic", "Elite", "5-Star", "Golf Course", "Heated Pool", "Private Pool", "Kids Club", "Spa"],
     locationSummary: "Palmeraie / Rural Outskirts",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Fairmont+Royal+Palm+Marrakech",
@@ -1790,7 +1790,7 @@ export const marrakechSleep: SleepListing[] = [
       lat: 31.513249,
       lng: -8.051905
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage", "5-star", "golf-course", "heated-pool", "private-pool", "kids-club", "spa"]
   },
   {
     id: "m-sleep-15",
@@ -2269,7 +2269,7 @@ export const marrakechSleep: SleepListing[] = [
     description: "An ultra-luxury palace hotel by Jacques Garcia on a private estate south of the city, famous for an 80m pool and purebred Arabian horses.",
     pricePerNight: 650,
     lifestyle: "premium",
-    amenities: ["80-meter Central Swimming Pool", "Purebred Arabian Horse Stud", "Chenot Wellness Spa", "Gourmet Equestrian Brunch", "Jacques Garcia Designer Interiors", "Wifi", "AC"],
+    amenities: ["80-meter Central Swimming Pool", "Purebred Arabian Horse Stud", "Chenot Wellness Spa", "Gourmet Equestrian Brunch", "Jacques Garcia Designer Interiors", "Wifi", "AC", "heated-pool", "private-pool", "kids-club"],
     googleRating: 4.8,
     googleReviewCount: 1540,
     tripadvisorRating: 4.8,
@@ -2303,7 +2303,7 @@ export const marrakechSleep: SleepListing[] = [
     safetyLevel: 5,
     groupTypes: ["couple", "family", "seniors", "business-friendly"],
     tip: "Don’t miss Sunday Brunch, when guests can watch a full parade of Arabian horses in the gardens.",
-    vibeTags: ["Equestrian-Luxe", "Grand", "Jacques-Garcia", "Exclusive"],
+    vibeTags: ["Equestrian-Luxe", "Grand", "Jacques-Garcia", "Exclusive", "5-Star", "Heated Pool", "Private Pool", "Kids Club", "Spa"],
     locationSummary: "Gueliz / Hivernage Modern District",
     availabilityText: "Available tonight",
     googleMapsUrl: "https://maps.google.com/?q=Selman+Marrakech",
@@ -2375,7 +2375,7 @@ export const marrakechSleep: SleepListing[] = [
       lat: 31.573994,
       lng: -8.018714
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage", "5-star", "heated-pool", "private-pool", "kids-club", "spa"]
   },
   {
     id: "m-sleep-20",
@@ -2493,5 +2493,133 @@ export const marrakechSleep: SleepListing[] = [
       lng: -7.992566
     },
     tags: ["family-favorite", "heritage"]
+  },
+  {
+    id: "m-sleep-21",
+    city: "marrakech",
+    name: "Pickalbatros Aqua Fun Club All Inclusive Marrakech",
+    type: "hotel",
+    neighborhood: "Route de l'Ourika",
+    description: "The premier all-inclusive family water park resort in Marrakech, featuring Morocco's largest aqua park with 58 water slides across 15 swimming pools, heated indoor pools, and expansive family activities.",
+    pricePerNight: 190,
+    lifestyle: "balanced",
+    amenities: [
+      "Morocco's Largest Water Park",
+      "58 Water Slides across 15 Pools",
+      "Heated Indoor Pool",
+      "All-Inclusive Dining & Drinks",
+      "Kids Club & Splash Playgrounds",
+      "Spa & Wellness Center",
+      "Mini Golf & Tennis",
+      "waterslides",
+      "water-park",
+      "heated-pool",
+      "all-inclusive",
+      "kids-club"
+    ],
+    googleRating: 4.4,
+    googleReviewCount: 5100,
+    tripadvisorRating: 4.3,
+    tripadvisorReviewCount: 3800,
+    bookingRating: 4.2,
+    bookingReviewCount: 2600,
+    hotelguruRating: 4.3,
+    hotelguruReviewCount: 3100,
+    hasPool: true,
+    hasBreakfast: true,
+    hasAC: true,
+    hasHeating: true,
+    hasRooftop: false,
+    hasEnsuite: true,
+    hasRestaurant: true,
+    hasBar: true,
+    hasGym: true,
+    hasElevator: true,
+    hasLaundryService: true,
+    hasRoomService: true,
+    petFriendly: false,
+    isWheelchairAccessible: true,
+    taxesIncluded: false,
+    freeCancellation: true,
+    kidsStayFree: true,
+    nearMedina: false,
+    locationFeel: "countryside",
+    nearBeach: false,
+    nearMosque: false,
+    safetyLevel: 5,
+    groupTypes: ["family", "friends", "couple"],
+    tip: "The heated indoor pool is a lifesaver for winter visits, and the adult-only chillout pool offers peace while kids enjoy the water park.",
+    vibeTags: ["Water Park", "Waterslides", "All-Inclusive", "Heated Pool", "Family", "Kids Club", "Resort"],
+    locationSummary: "Route de l'Ourika / Countryside",
+    availabilityText: "Available tonight - High family demand",
+    googleMapsUrl: "https://maps.google.com/?q=Aqua+Fun+Club+Marrakech",
+    address: "Km 18 Route de l'Ourika, Marrakech 40000, Morocco",
+    paymentMethods: ["card", "cash"],
+    languagesSpoken: ["Arabic", "French", "English", "German", "Spanish"],
+    customStory: "Part of the renowned Pickalbatros resort collection, designed from the ground up as a mega-water park destination with mountain panoramas.",
+    neighborhoodOverview: "Located 15-20 minutes south of Marrakech along Route de l'Ourika with sweeping Atlas Mountain vistas and shuttle options into the Medina.",
+    hiddenFeesNotice: "Tourist tax of 28.60 MAD per person/night not included.",
+    pros: ["58 water slides for all ages", "Year-round heated indoor swimming", "Comprehensive all-inclusive value"],
+    cons: ["Located 18 km from city center", "Can get lively with many children in summer"],
+    trustScores: {
+      cleanliness: 9.0,
+      safety: 9.3,
+      staff: 9.0,
+      value: 9.2,
+      comfort: 8.9,
+      location: 8.3
+    },
+    logistics: {
+      checkIn: "14:00",
+      checkOut: "12:00",
+      luggageStorage: "Free",
+      parking: "Free on-site parking",
+      contact: "+212 524 351 000"
+    },
+    roomFeatures: ["balcony", "atlas-mountain-view", "ac", "heating", "soundproof"],
+    roomTypes: [
+      {
+        name: "Standard Double Room",
+        price: 190,
+        beds: "1 Queen or 2 Singles",
+        size: "35m²"
+      },
+      {
+        name: "Family Suite with Balcony",
+        price: 290,
+        beds: "1 Queen + 2 Singles",
+        size: "60m²"
+      }
+    ],
+    neighborhoodDistances: [
+      {
+        label: "Marrakech Medina",
+        distance: "18km",
+        time: "20 min drive",
+        icon: "city"
+      },
+      {
+        label: "Menara Airport",
+        distance: "18km",
+        time: "20 min drive",
+        icon: "plane"
+      }
+    ],
+    cancellationPolicy: "Flexible 48h",
+    childPolicy: "Children welcome - complimentary water park access and kids club",
+    officialWebsite: "https://pickalbatros.com/hotels-resorts/aqua-fun-club-marrakech/",
+    instagramHandle: "@aquafunclub_marrakech",
+    reviewHighlights: {
+      solo: "Fun energetic atmosphere, though geared toward families.",
+      couples: "Relaxing adults-only quiet pools and mountain views.",
+      families: "The absolute best water slide resort in Morocco for kids.",
+      business: "Good WiFi and peaceful rooms in the garden annex.",
+      nomad: "Spacious terraces with Atlas Mountain backdrops."
+    },
+    coordinates: {
+      lat: 31.472146,
+      lng: -7.869374
+    },
+    tags: ["family-favorite", "waterslides", "water-park", "heated-pool", "all-inclusive", "kids-club"]
   }
 ]

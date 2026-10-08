@@ -153,17 +153,43 @@ export function getPlaceUrlById(category: PlaceUrlCategory, id: string): string 
 function detectPlaceCategory(item: any): PlaceUrlCategory | null {
   if (!item) return null;
   const id = String(item.id || '').toLowerCase();
-  // Shop first — shop ids start with 'sh-' or the listing has shop fields
-  if (id.startsWith('sh-') || item.productCategories?.length > 0 || item.category) return 'shopping';
-  // Eat
-  if (item.mealTypes?.length > 0 || item.foodStyles?.length > 0 || id.includes('eat') || id.startsWith('e-')) return 'food';
-  // Sleep
+  const cat = String(item.category || '').toLowerCase();
+
+  // 1. Sleep first
   if (
-    item.pricePerNight !== undefined ||
+    cat === 'sleep' ||
+    cat === 'stay' ||
+    id.includes('-sleep') ||
     id.includes('sleep') ||
-    id.startsWith('s-') ||
-    ['riad', 'dar', 'hotel', 'villa', 'hostel', 'apartment', 'kasbah', 'guesthouse', 'desert-camp'].includes(item.type)
-  ) return 'sleep';
+    item.pricePerNight !== undefined ||
+    ['riad', 'dar', 'hotel', 'villa', 'hostel', 'apartment', 'kasbah', 'guesthouse', 'desert-camp', 'lodge', 'resort'].includes(String(item.type || '').toLowerCase())
+  ) {
+    return 'sleep';
+  }
+
+  // 2. Shop
+  if (
+    cat === 'shop' ||
+    cat === 'shopping' ||
+    id.includes('-shop') ||
+    id.startsWith('sh-') ||
+    item.productCategories?.length > 0
+  ) {
+    return 'shopping';
+  }
+
+  // 3. Eat
+  if (
+    cat === 'eat' ||
+    cat === 'food' ||
+    id.includes('-eat') ||
+    id.includes('eat') ||
+    item.mealTypes?.length > 0 ||
+    item.foodStyles?.length > 0
+  ) {
+    return 'food';
+  }
+
   return null;
 }
 

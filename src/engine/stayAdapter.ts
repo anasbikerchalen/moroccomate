@@ -411,3 +411,31 @@ export function getStaySpaces(listing: any): PropertyFeature[] {
   return deriveTraditionalSpaces(listing);
 }
 
+/**
+ * Factual owner information answer for a sleep listing.
+ */
+export function getStayOwnerAnswer(listing: any): string {
+  const name = listing?.name || 'This property';
+  const type = (listing?.type || 'stay').toLowerCase();
+  const city = listing?.city 
+    ? (listing.city.charAt(0).toUpperCase() + listing.city.slice(1).replace(/_/g, ' ')) 
+    : 'Morocco';
+  const neighborhood = listing?.neighborhood ? `in ${listing.neighborhood}, ${city}` : `in ${city}`;
+
+  if (listing?.owner) {
+    return `${name} is owned by ${listing.owner}.`;
+  }
+
+  const story = listing?.customStory || '';
+
+  if (/owner|founder|designed by|restored by|family|created by|labor of love/i.test(story)) {
+    return `${name} is an independently owned ${type} ${neighborhood}. ${story}`;
+  }
+
+  if (story) {
+    return `${name} is a privately owned and operated ${type} ${neighborhood}. ${story}`;
+  }
+
+  return `${name} is an independently owned and operated ${type} ${neighborhood}, managed with dedicated on-site Moroccan hospitality staff.`;
+}
+

@@ -38,7 +38,7 @@ interface ExplorePageProps {
 /**
  * HUB: Finder (Results)
  * Job: Browse listings for Eat, Sleep, and Things-to-do.
- * Warning: Consumes parameters from useParameterStore. Do not merge with Matchmaker logic.
+ * Warning: Consumes parameters from useParameterStore.
  */
 export default function ExplorePage({ onClose }: ExplorePageProps) {
   const { 
@@ -61,7 +61,7 @@ export default function ExplorePage({ onClose }: ExplorePageProps) {
   } = useExploreStore();
   
   const modalOpen = useExploreStore((state) => state.modalOpen);
-  const { param1, param2 } = useParams();
+  const { param1, param2, param3 } = useParams<{ param1?: string; param2?: string; param3?: string }>();
   const navigate = useNavigate();
   const location = useLocation();
   
@@ -117,12 +117,6 @@ export default function ExplorePage({ onClose }: ExplorePageProps) {
       if (view !== 'quiz' && view !== 'results') setView('quiz'); 
     };
 
-    if (mode === 'matchmaker') {
-      setActiveCategory('cities');
-      ensureQuizView();
-      return;
-    }
-
     if (mode === 'free-scroll') {
       let targetCategory: any = 'things-to-do';
       if (param2) {
@@ -163,10 +157,10 @@ export default function ExplorePage({ onClose }: ExplorePageProps) {
             const lowerId = param2.toLowerCase();
             if (lowerId.startsWith('sh-') || lowerId.includes('shop')) {
               categoryId = 'shopping';
-            } else if (lowerId.startsWith('e-') || lowerId.includes('eat') || lowerId.includes('food')) {
-              categoryId = 'food';
-            } else if (lowerId.startsWith('s-') || lowerId.includes('sleep')) {
+            } else if (lowerId.includes('sleep') || lowerId.includes('-sleep')) {
               categoryId = 'sleep';
+            } else if (lowerId.includes('eat') || lowerId.includes('food') || lowerId.includes('-eat')) {
+              categoryId = 'food';
             }
             
             setActiveCategory(categoryId);
@@ -216,7 +210,12 @@ export default function ExplorePage({ onClose }: ExplorePageProps) {
                 setView('quiz');
               }
             } else if (categoryId === 'sleep') {
-              setView('quiz');
+              const featureParam = param3 || params.get('feature') || params.get('tag');
+              if (featureParam) {
+                setView('results');
+              } else {
+                setView('quiz');
+              }
             } else if (categoryId === 'things-to-do' || categoryId === 'things') {
               if (selectedAttraction) {
                 setActiveItem(selectedAttraction);
@@ -295,7 +294,18 @@ export default function ExplorePage({ onClose }: ExplorePageProps) {
        const newPath = location.pathname.replace('/explore', '/finder');
        navigate(newPath + location.search, { replace: true });
     }
-  }, [param1, param2, setActiveCategory, setActiveSubCategory, setSportIntent, setSportFacilityType, setSportExperienceType, setView, setQuizAnswer, setActiveItem, location.pathname, location.search, navigate, cityId]);
+  }, [param1, param2, setActiveCategory, setActiveSubCategory, setSportIntent, setSportFacilityType, setSportExperienceType, setView, setQuizAnswer, setActiveItem, location.pathname, location.search, navigate]);
+
+  // Keep URL in sync if cityId in store changes while browsing /finder/:param1/:param2
+  useEffect(() => {
+    if (!cityId || !param1) return;
+    const currentParamCity = param1.toLowerCase();
+    const storeCity = cityId.toLowerCase();
+    if (storeCity !== currentParamCity && cityMap[storeCity] && cityMap[currentParamCity]) {
+      const catSegment = param2 || activeCategory || 'sleep';
+      navigate(`/finder/${storeCity}/${catSegment}${location.search}`, { replace: false });
+    }
+  }, [cityId, param1, param2, activeCategory, location.search, navigate]);
 
   const handleBack = () => {
     if (history.length > 0) {
@@ -412,7 +422,7 @@ export default function ExplorePage({ onClose }: ExplorePageProps) {
             <div>
               <h2 className="font-display text-lg text-stone-900 tracking-tight">Finder</h2>
               <p className="text-[9px] font-black uppercase tracking-[0.2em] text-[#C9A84C]">
-                {displayCategory ? `${displayCategory.replace('-', ' ')} Matchmaker` : 'Personalized Selection'}
+                {displayCategory ? `${displayCategory.replace('-', ' ')} Finder` : 'Personalized Selection'}
               </p>
             </div>
           </div>

@@ -165,7 +165,7 @@ export const merzougaSleep: SleepListing[] = [
     description: "An exclusive glamping experience deep within the golden dunes of Erg Chebbi. Features spacious private tents with en-suite bathrooms, king-sized beds, and gourmet Moroccan dining under the stars.",
     pricePerNight: 1200,
     lifestyle: "premium",
-    amenities: ["Private En-suite Bathroom", "Gourmet Dinner Included", "Sunset Camel Trek", "Sandboarding", "Evening Campfire & Music", "Wifi in Common Tent"],
+    amenities: ["Private En-suite Bathroom", "Gourmet Dinner Included", "Sunset Camel Trek", "Sandboarding", "Evening Campfire & Music", "Wifi in Common Tent", "desert-camps", "dune-view", "private-bathroom", "camel-ride", "5-star"],
     googleRating: 4.9,
     googleReviewCount: 450,
     tripadvisorRating: 5.0,
@@ -271,7 +271,7 @@ export const merzougaSleep: SleepListing[] = [
       lat: 31.08945,
       lng: -3.965227
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage", "desert-camps", "dune-view", "private-bathroom", "camel-ride", "5-star"]
   },
   {
     id: "me-sleep-2",
@@ -282,7 +282,7 @@ export const merzougaSleep: SleepListing[] = [
     description: "Family-run guesthouse at the base of the dunes. Authentic, quiet, and friendly.",
     pricePerNight: 2.5,
     lifestyle: "balanced",
-    amenities: ["wifi", "breakfast", "tea", "Local Guide Services", "Dune Access"],
+    amenities: ["wifi", "breakfast", "tea", "Local Guide Services", "Dune Access", "air-conditioning", "dune-view", "camel-ride"],
     googleRating: 4.5,
     googleReviewCount: 200,
     tripadvisorRating: 4.5,
@@ -388,7 +388,7 @@ export const merzougaSleep: SleepListing[] = [
       lat: 31.056466,
       lng: -4.019328
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite", "air-conditioning", "dune-view", "camel-ride"]
   },
   {
     id: "me-sleep-3",
@@ -399,7 +399,7 @@ export const merzougaSleep: SleepListing[] = [
     description: "A stylish and eco-conscious desert camp inspired by Berber Jaima tents, offering a chic boutique atmosphere, high-quality furnishings, and authentic desert experiences.",
     pricePerNight: 1500,
     lifestyle: "premium",
-    amenities: ["Eco-Luxury Tents", "Full Board Included", "Camel Trekking", "Evening Berber Music", "Wifi in Lounge Area", "Private Bathrooms"],
+    amenities: ["Eco-Luxury Tents", "Full Board Included", "Camel Trekking", "Evening Berber Music", "Wifi in Lounge Area", "Private Bathrooms", "desert-camps", "dune-view", "private-bathroom", "camel-ride", "5-star"],
     googleRating: 4.8,
     googleReviewCount: 320,
     tripadvisorRating: 4.5,
@@ -516,7 +516,7 @@ export const merzougaSleep: SleepListing[] = [
     description: "A beautiful and quiet riad close to the edge of the desert, blending modern luxury with traditional Moroccan design.",
     pricePerNight: 10,
     lifestyle: "premium",
-    amenities: ["pool", "wifi", "restaurant", "parking", "Dune View Terrace"],
+    amenities: ["pool", "wifi", "restaurant", "parking", "Dune View Terrace", "air-conditioning", "dune-view", "private-bathroom", "5-star"],
     googleRating: 4.7,
     googleReviewCount: 410,
     tripadvisorRating: 4.5,
@@ -622,7 +622,7 @@ export const merzougaSleep: SleepListing[] = [
       lat: 31.13958,
       lng: -4.022909
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite", "pool", "air-conditioning", "dune-view", "5-star"]
   },
   {
     id: "me-sleep-5",
@@ -633,7 +633,7 @@ export const merzougaSleep: SleepListing[] = [
     description: "Exceptional guest house offering a lush garden oasis on the edge of the Sahara.",
     pricePerNight: 6,
     lifestyle: "balanced",
-    amenities: ["garden", "wifi", "breakfast", "tea", "Lush Oasis Grounds"],
+    amenities: ["garden", "wifi", "breakfast", "tea", "Lush Oasis Grounds", "pool", "air-conditioning", "dune-view", "private-bathroom"],
     googleRating: 4.6,
     googleReviewCount: 250,
     tripadvisorRating: 4.5,
@@ -739,7 +739,7 @@ export const merzougaSleep: SleepListing[] = [
       lat: 31.13958,
       lng: -4.022909
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite", "pool", "air-conditioning", "dune-view"]
   },
   {
     id: "me-sleep-6",
@@ -750,7 +750,7 @@ export const merzougaSleep: SleepListing[] = [
     description: "A luxurious kasbah-style hotel offering premium comfort, traditional architecture, spa facilities, and convenient amenities near the dunes.",
     pricePerNight: 15,
     lifestyle: "premium",
-    amenities: ["pool", "wifi", "spa", "car-rental", "Traditional Hammam", "Fitness Center"],
+    amenities: ["pool", "wifi", "spa", "car-rental", "Traditional Hammam", "Fitness Center", "air-conditioning", "dune-view", "private-bathroom", "5-star"],
     googleRating: 4.8,
     googleReviewCount: 500,
     tripadvisorRating: 4.5,
@@ -856,7 +856,7 @@ export const merzougaSleep: SleepListing[] = [
       lat: 31.089533,
       lng: -4.004971
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage", "pool", "spa", "air-conditioning", "dune-view", "5-star"]
   },
   {
     id: "me-sleep-7",
@@ -867,7 +867,7 @@ export const merzougaSleep: SleepListing[] = [
     description: "A welcoming budget-friendly kasbah with a pool, cozy rooms, and seamless organization of desert excursions.",
     pricePerNight: 4.5,
     lifestyle: "balanced",
-    amenities: ["pool", "wifi", "restaurant", "excursions", "Traditional Courtyard"],
+    amenities: ["pool", "wifi", "restaurant", "excursions", "Traditional Courtyard", "air-conditioning", "dune-view", "camel-ride", "private-bathroom"],
     googleRating: 4.5,
     googleReviewCount: 380,
     tripadvisorRating: 4.5,
@@ -973,7 +973,7 @@ export const merzougaSleep: SleepListing[] = [
       lat: 31.131494,
       lng: -4.016547
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage", "pool", "air-conditioning", "dune-view", "camel-ride"]
   },
   {
     id: "me-sleep-8",
@@ -984,7 +984,7 @@ export const merzougaSleep: SleepListing[] = [
     description: "Traditional guest house right near the dunes with a warm atmosphere and excellent local cuisine.",
     pricePerNight: 5.5,
     lifestyle: "balanced",
-    amenities: ["wifi", "dinner-available", "terrace", "Traditional Berber Kitchen"],
+    amenities: ["wifi", "dinner-available", "terrace", "Traditional Berber Kitchen", "pool", "air-conditioning", "dune-view", "private-bathroom", "camel-ride"],
     googleRating: 4.7,
     googleReviewCount: 220,
     tripadvisorRating: 4.5,
@@ -1090,7 +1090,7 @@ export const merzougaSleep: SleepListing[] = [
       lat: 31.11069,
       lng: -4.011867
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite", "pool", "air-conditioning", "dune-view", "camel-ride"]
   },
   {
     id: "me-sleep-9",
@@ -1101,7 +1101,7 @@ export const merzougaSleep: SleepListing[] = [
     description: "Top-rated hostel with a shared kitchen and garden. Great social vibe and easy access to transport.",
     pricePerNight: 1.5,
     lifestyle: "lean",
-    amenities: ["wifi", "shared-kitchen", "garden", "lounge", "Backpacker Community"],
+    amenities: ["wifi", "shared-kitchen", "garden", "lounge", "Backpacker Community", "camel-ride", "dune-view"],
     googleRating: 4.3,
     googleReviewCount: 150,
     tripadvisorRating: 4.0,
@@ -1207,7 +1207,7 @@ export const merzougaSleep: SleepListing[] = [
       lat: 30.764892,
       lng: -4.172767
     },
-    tags: ["dorm"]
+    tags: ["dorm", "camel-ride", "dune-view"]
   },
   {
     id: "me-sleep-10",
@@ -1218,7 +1218,7 @@ export const merzougaSleep: SleepListing[] = [
     description: "Budget-friendly mix of hostel and riad amenities, featuring a small pool and comfortable shared areas.",
     pricePerNight: 2,
     lifestyle: "lean",
-    amenities: ["pool", "wifi", "lounge", "breakfast", "Desert Social Hub"],
+    amenities: ["pool", "wifi", "lounge", "breakfast", "Desert Social Hub", "camel-ride", "dune-view"],
     googleRating: 4.4,
     googleReviewCount: 190,
     tripadvisorRating: 4.0,
@@ -1324,7 +1324,7 @@ export const merzougaSleep: SleepListing[] = [
       lat: 31.13958,
       lng: -4.022909
     },
-    tags: ["dorm"]
+    tags: ["dorm", "pool", "camel-ride", "dune-view"]
   },
   {
     id: "me-sleep-11",
@@ -1335,7 +1335,7 @@ export const merzougaSleep: SleepListing[] = [
     description: "A charming, private riad located in the village center, very close to the dunes and local shops.",
     pricePerNight: 3.5,
     lifestyle: "balanced",
-    amenities: ["wifi", "breakfast", "terrace", "Central Village Location"],
+    amenities: ["wifi", "breakfast", "terrace", "Central Village Location", "air-conditioning", "dune-view", "private-bathroom", "camel-ride"],
     googleRating: 4.6,
     googleReviewCount: 110,
     tripadvisorRating: 4.5,
@@ -1441,7 +1441,7 @@ export const merzougaSleep: SleepListing[] = [
       lat: 31.10004,
       lng: -4.007933
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite", "air-conditioning", "dune-view", "camel-ride"]
   },
   {
     id: "me-sleep-12",
@@ -1452,7 +1452,7 @@ export const merzougaSleep: SleepListing[] = [
     description: "An eco-conscious luxury glamping experience in the heart of the dunes with private bathrooms and real beds.",
     pricePerNight: 18,
     lifestyle: "premium",
-    amenities: ["wifi", "dinner-included", "camel-trek", "eco-friendly", "Stargazing Lounge", "Desert Yoga Area"],
+    amenities: ["wifi", "dinner-included", "camel-trek", "eco-friendly", "Stargazing Lounge", "Desert Yoga Area", "desert-camps", "dune-view", "private-bathroom", "camel-ride", "5-star"],
     googleRating: 4.9,
     googleReviewCount: 300,
     tripadvisorRating: 5.0,
@@ -1558,7 +1558,7 @@ export const merzougaSleep: SleepListing[] = [
       lat: 31.057991,
       lng: -3.989364
     },
-    tags: []
+    tags: ["family-favorite", "desert-camps", "dune-view", "private-bathroom", "camel-ride", "5-star"]
   },
   {
     id: "me-sleep-13",
@@ -1569,7 +1569,7 @@ export const merzougaSleep: SleepListing[] = [
     description: "Authentic and comfortable desert camp run by the famous Riad Madu. Excellent food and traditional music.",
     pricePerNight: 14,
     lifestyle: "premium",
-    amenities: ["dinner-included", "music", "camel-trek", "Traditional Berber Tents"],
+    amenities: ["dinner-included", "music", "camel-trek", "Traditional Berber Tents", "desert-camps", "dune-view", "private-bathroom", "camel-ride"],
     googleRating: 4.8,
     googleReviewCount: 450,
     tripadvisorRating: 4.5,
@@ -1671,7 +1671,7 @@ export const merzougaSleep: SleepListing[] = [
       business: "Not ideal for business, but good for a digital reset.",
       nomad: "Low connectivity but strong atmosphere for reflective work.",
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite", "desert-camps", "dune-view", "private-bathroom", "camel-ride"]
   },
   {
     id: "me-sleep-14",
@@ -1682,7 +1682,7 @@ export const merzougaSleep: SleepListing[] = [
     description: "High-end luxury camping with lavishly decorated tents and attentive, personalized service.",
     pricePerNight: 20,
     lifestyle: "premium",
-    amenities: ["wifi", "dinner-included", "hot-showers", "Majestic Dune Location"],
+    amenities: ["wifi", "dinner-included", "hot-showers", "Majestic Dune Location", "desert-camps", "dune-view", "private-bathroom", "camel-ride", "5-star"],
     googleRating: 4.9,
     googleReviewCount: 180,
     tripadvisorRating: 5.0,
@@ -1784,7 +1784,7 @@ export const merzougaSleep: SleepListing[] = [
       business: "Not a business stay, but calm for disconnecting.",
       nomad: "A high-inspiration camp for low-connectivity creative work.",
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite", "desert-camps", "dune-view", "private-bathroom", "camel-ride", "5-star"]
   },
   {
     id: "me-sleep-15",
@@ -1795,7 +1795,7 @@ export const merzougaSleep: SleepListing[] = [
     description: "A great mix of adventure and comfort, featuring traditional local cuisine and comfortable bedding.",
     pricePerNight: 8.5,
     lifestyle: "balanced",
-    amenities: ["dinner-included", "campfire", "sandboarding", "Berber Hospitality"],
+    amenities: ["dinner-included", "campfire", "sandboarding", "Berber Hospitality", "desert-camps", "dune-view", "camel-ride"],
     googleRating: 4.6,
     googleReviewCount: 210,
     tripadvisorRating: 4.5,
@@ -1901,7 +1901,7 @@ export const merzougaSleep: SleepListing[] = [
       lat: 31.087191,
       lng: -3.966015
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite", "desert-camps", "dune-view", "camel-ride"]
   },
   {
     id: "me-sleep-16",
@@ -1912,7 +1912,7 @@ export const merzougaSleep: SleepListing[] = [
     description: "A highly immersive desert stay known for its well-appointed tents and fantastic hospitality.",
     pricePerNight: 16,
     lifestyle: "premium",
-    amenities: ["dinner-included", "camel-trek", "private-bathroom", "Immersive Desert Tents"],
+    amenities: ["dinner-included", "camel-trek", "private-bathroom", "Immersive Desert Tents", "desert-camps", "dune-view", "camel-ride", "5-star"],
     googleRating: 4.8,
     googleReviewCount: 340,
     tripadvisorRating: 4.5,
@@ -2018,7 +2018,7 @@ export const merzougaSleep: SleepListing[] = [
       lat: 31.173397,
       lng: -3.940539
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite", "desert-camps", "dune-view", "private-bathroom", "camel-ride", "5-star"]
   },
   {
     id: "me-sleep-17",
@@ -2029,7 +2029,7 @@ export const merzougaSleep: SleepListing[] = [
     description: "Famous desert camp offering a magical atmosphere, exceptional service, and delicious Moroccan meals.",
     pricePerNight: 15,
     lifestyle: "premium",
-    amenities: ["dinner-included", "music", "wifi", "Berber Drumming Sessions"],
+    amenities: ["dinner-included", "music", "wifi", "Berber Drumming Sessions", "desert-camps", "dune-view", "private-bathroom", "camel-ride", "5-star"],
     googleRating: 4.9,
     googleReviewCount: 400,
     tripadvisorRating: 5.0,
@@ -2131,7 +2131,7 @@ export const merzougaSleep: SleepListing[] = [
       business: "Not for regular business, but great for disconnecting.",
       nomad: "A memorable low-connectivity creative reset.",
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage", "desert-camps", "dune-view", "private-bathroom", "camel-ride", "5-star"]
   },
   {
     id: "me-sleep-18",
@@ -2142,7 +2142,7 @@ export const merzougaSleep: SleepListing[] = [
     description: "1001 Nights style experience in the dunes, blending romance, luxury, and respect for the environment.",
     pricePerNight: 19,
     lifestyle: "premium",
-    amenities: ["dinner-included", "hot-showers", "stargazing", "Environmental Awareness"],
+    amenities: ["dinner-included", "hot-showers", "stargazing", "Environmental Awareness", "desert-camps", "dune-view", "private-bathroom", "camel-ride", "5-star"],
     googleRating: 4.8,
     googleReviewCount: 250,
     tripadvisorRating: 4.5,
@@ -2248,7 +2248,7 @@ export const merzougaSleep: SleepListing[] = [
       lat: 31.216994,
       lng: -3.978941
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite", "desert-camps", "dune-view", "private-bathroom", "camel-ride", "5-star"]
   },
   {
     id: "me-sleep-19",
@@ -2259,7 +2259,7 @@ export const merzougaSleep: SleepListing[] = [
     description: "A traditional and affordable camp setup offering a genuine Sahara experience with basic comforts.",
     pricePerNight: 5,
     lifestyle: "balanced",
-    amenities: ["dinner-included", "camel-trek", "music", "Traditional Sahara Experience"],
+    amenities: ["dinner-included", "camel-trek", "music", "Traditional Sahara Experience", "desert-camps", "dune-view", "camel-ride"],
     googleRating: 4.4,
     googleReviewCount: 160,
     tripadvisorRating: 4.0,
@@ -2365,7 +2365,7 @@ export const merzougaSleep: SleepListing[] = [
       lat: 31.08945,
       lng: -3.965227
     },
-    tags: ["dorm", "family-favorite"]
+    tags: ["dorm", "family-favorite", "desert-camps", "dune-view", "camel-ride"]
   },
   {
     id: "me-sleep-20",
@@ -2376,7 +2376,7 @@ export const merzougaSleep: SleepListing[] = [
     description: "Designed in the style of a traditional southern Moroccan fortress. Offers a great pool and stunning dune views.",
     pricePerNight: 7.5,
     lifestyle: "balanced",
-    amenities: ["pool", "wifi", "restaurant", "air-conditioning", "Fortress Architecture"],
+    amenities: ["pool", "wifi", "restaurant", "air-conditioning", "Fortress Architecture", "dune-view", "private-bathroom"],
     googleRating: 4.6,
     googleReviewCount: 290,
     tripadvisorRating: 4.5,
@@ -2482,6 +2482,6 @@ export const merzougaSleep: SleepListing[] = [
       lat: 31.132232,
       lng: -4.01657
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage", "pool", "air-conditioning", "dune-view"]
   }
 ]

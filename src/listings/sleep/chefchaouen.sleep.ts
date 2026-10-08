@@ -165,7 +165,7 @@ export const chefchaouenSleep: SleepListing[] = [
     description: 'A top-tier luxury riad in the heart of the blue medina featuring an indoor pool, traditional hammam, and panoramic rooftop views. One of the most celebrated and serene stays in Chefchaouen.',
     pricePerNight: 120,
     lifestyle: 'premium',
-    amenities: ['Indoor Heated Pool', 'Traditional Hammam', 'Panoramic Rooftop', 'Spa Treatments'],
+    amenities: ['Indoor Heated Pool', 'Traditional Hammam', 'Panoramic Rooftop', 'Spa Treatments', '5-star', 'mountain-view', 'pool', 'heated-pools', 'indoor-pool', 'rooftop-terrace', 'in-medina', 'spa', 'airport-shuttle'],
     googleRating: 4.8,
     googleReviewCount: 350,
     tripadvisorRating: 4.8,
@@ -199,7 +199,7 @@ export const chefchaouenSleep: SleepListing[] = [
     safetyLevel: 5,
     groupTypes: ['couple', 'family', 'seniors', 'solo'],
     tip: 'The indoor pool is a rare luxury in the medina and is heated year-round—perfect after a day of hiking the Rif.',
-    vibeTags: ['Boutique', 'Serene', 'Luxe', 'Blue-Washed'],
+    vibeTags: ['Boutique', 'Serene', 'Luxe', 'Blue-Washed', 'Mountain-View', 'Spa-Retreat'],
     locationSummary: "Blue Medina - Historic Quarter",
     availabilityText: 'Available tonight',
     googleMapsUrl: '[https://www.google.com/maps/place/Lina+Ryad+%26+Spa/@35.1691,-5.2635,17z](https://www.google.com/maps/place/Lina+Ryad+%26+Spa/@35.1691,-5.2635,17z)',
@@ -249,7 +249,7 @@ export const chefchaouenSleep: SleepListing[] = [
       lat: 35.170047,
       lng: -5.262226
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite", "mountain-view", "pool", "heated-pools", "indoor-pool", "rooftop-terrace", "in-medina", "spa", "5-star", "airport-shuttle"]
   },
   {
     id: 'ch-sleep-2',
@@ -260,7 +260,7 @@ export const chefchaouenSleep: SleepListing[] = [
     description: 'A charming guesthouse located near the Ras el Ma spring, offering a more traditional and rustic experience with a lovely garden and outdoor pool. Known for its warm hospitality and authentic atmosphere.',
     pricePerNight: 85,
     lifestyle: 'balanced',
-    amenities: ['Outdoor Pool', 'Garden', 'Restaurant', 'Traditional Breakfast'],
+    amenities: ['Outdoor Pool', 'Garden', 'Restaurant', 'Traditional Breakfast', '5-star', 'mountain-view', 'pool', 'in-medina', 'airport-shuttle'],
     googleRating: 4.7,
     googleReviewCount: 1800,
     tripadvisorRating: 4.5,
@@ -292,7 +292,7 @@ export const chefchaouenSleep: SleepListing[] = [
     safetyLevel: 5,
     groupTypes: ['couple', 'family', 'friends', 'solo'],
     tip: 'Ask for a room in the newer part of the riad for more space, though the original house has more historical charm.',
-    vibeTags: ['Authentic', 'Charming', 'Garden-Set', 'Welcoming'],
+    vibeTags: ['Authentic', 'Charming', 'Garden-Set', 'Welcoming', 'Mountain-View', 'Pool-Oasis'],
     locationSummary: 'Ras el Ma - Medina Edge',
     availabilityText: 'Available tonight',
     googleMapsUrl: '[https://www.google.com/maps/place/Dar+Echchaouen+Maison+d\'h%C3%B4tes+%26+Riad/@35.1685,-5.2586,17z](https://www.google.com/maps/place/Dar+Echchaouen+Maison+d\'h%C3%B4tes+%26+Riad/@35.1685,-5.2586,17z)',
@@ -342,7 +342,7 @@ export const chefchaouenSleep: SleepListing[] = [
       lat: 35.163816,
       lng: -5.261529
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite", "mountain-view", "pool", "in-medina", "5-star", "airport-shuttle"]
   },
   {
     id: 'ch-sleep-3',
@@ -353,7 +353,7 @@ export const chefchaouenSleep: SleepListing[] = [
     description: 'Perched on a hillside overlooking the entire blue medina, this romantic boutique retreat offers the most iconic panoramic views in Chefchaouen. Its luxury rooms and infinity-style pool provide a serene escape from the busy streets below.',
     pricePerNight: 165,
     lifestyle: 'premium',
-    amenities: ['Panoramic Infinity Pool', 'Mountain View Terrace', 'Gourmet Breakfast', 'Lush Jasmine Gardens'],
+    amenities: ['Panoramic Infinity Pool', 'Mountain View Terrace', 'Gourmet Breakfast', 'Lush Jasmine Gardens', '5-star', 'mountain-view', 'pool', 'rooftop-terrace', 'in-medina', 'spa', 'airport-shuttle'],
     googleRating: 4.9,
     googleReviewCount: 450,
     tripadvisorRating: 4.9,
@@ -387,7 +387,7 @@ export const chefchaouenSleep: SleepListing[] = [
     safetyLevel: 5,
     groupTypes: ['couple', 'family', 'seniors', 'solo'],
     tip: 'The walk up the hill is steep but rewarding; luggage assistance is available from the Ras el Ma parking area. Sunset from the terrace is the best in town.',
-    vibeTags: ['Panoramic', 'Romantic', 'Boutique', 'Views'],
+    vibeTags: ['Panoramic', 'Romantic', 'Boutique', 'Views', 'Mountain-View', 'Pool-Oasis'],
     locationSummary: "Blue Medina - Historic Quarter",
     availabilityText: 'Available tonight',
     googleMapsUrl: '[https://www.google.com/maps/place/Dar+Jasmine/@35.1675,-5.2576,17z](https://www.google.com/maps/place/Dar+Jasmine/@35.1675,-5.2576,17z)',
@@ -437,7 +437,7 @@ export const chefchaouenSleep: SleepListing[] = [
       lat: 35.167806,
       lng: -5.256446
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite", "mountain-view", "pool", "rooftop-terrace", "5-star", "in-medina", "spa", "airport-shuttle"]
   },
   {
     id: 'ch-sleep-4',
@@ -448,7 +448,7 @@ export const chefchaouenSleep: SleepListing[] = [
     description: 'A labyrinthine luxury riad spanning multiple levels, famously nicknamed "a medina within a medina." It features a rooftop garden terrace, an outdoor pool, and immersive Moroccan craftsmanship throughout its corridors and rooms.',
     pricePerNight: 145,
     lifestyle: 'premium',
-    amenities: ['Outdoor Pool', 'Rooftop Garden Terrace', 'Traditional Restaurant', 'Spa & Hammam'],
+    amenities: ['Outdoor Pool', 'Rooftop Garden Terrace', 'Traditional Restaurant', 'Spa & Hammam', 'pool', 'rooftop-terrace', 'in-medina', 'spa', 'mountain-view'],
     googleRating: 4.8,
     googleReviewCount: 380,
     tripadvisorRating: 4.8,
@@ -532,7 +532,7 @@ export const chefchaouenSleep: SleepListing[] = [
       lat: 35.170192,
       lng: -5.264034
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage", "pool", "rooftop-terrace", "in-medina", "spa", "mountain-view"]
   },
   {
     id: 'ch-sleep-5',
@@ -543,7 +543,7 @@ export const chefchaouenSleep: SleepListing[] = [
     description: 'A legendary rural retreat located 10km outside Chefchaouen, famous for having one of the best traditional restaurants in Morocco. It offers a peaceful mountain atmosphere, an organic farm, and cozy rooms with fireplaces.',
     pricePerNight: 95,
     lifestyle: 'balanced',
-    amenities: ['Acclaimed Farm-to-Table Restaurant', 'Outdoor Pool', 'Organic Farm', 'Mountain View Terrace', 'Fireplace'],
+    amenities: ['Acclaimed Farm-to-Table Restaurant', 'Outdoor Pool', 'Organic Farm', 'Mountain View Terrace', 'Fireplace', 'mountain-view', 'pool', 'rooftop-terrace', 'rif mountains', 'airport-shuttle'],
     googleRating: 4.8,
     googleReviewCount: 950,
     tripadvisorRating: 4.5,
@@ -577,7 +577,7 @@ export const chefchaouenSleep: SleepListing[] = [
     safetyLevel: 5,
     groupTypes: ['solo', 'couple', 'family', 'friends'],
     tip: 'The food here is worth the trip alone. Their goat cheese, honey, and olive oil are all produced on-site. It is a perfect base for hiking to Akchour or God\'s Bridge.',
-    vibeTags: ['Gastronomic', 'Rural', 'Peaceful', 'Authentic'],
+    vibeTags: ['Gastronomic', 'Rural', 'Peaceful', 'Authentic', 'Mountain-View'],
     locationSummary: "Talassemtane Valley & Countryside",
     availabilityText: 'Available tonight',
     googleMapsUrl: '[https://www.google.com/maps/place/Auberge+Dardara/@35.1323,-5.2945,17z](https://www.google.com/maps/place/Auberge+Dardara/@35.1323,-5.2945,17z)',
@@ -627,7 +627,7 @@ export const chefchaouenSleep: SleepListing[] = [
       lat: 35.105094,
       lng: -5.28026
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage", "mountain-view", "pool", "rooftop-terrace", "airport-shuttle"]
   },
   {
     id: 'ch-sleep-6',
@@ -638,7 +638,7 @@ export const chefchaouenSleep: SleepListing[] = [
     description: 'A charming and intimate riad known for its warm hospitality and authentic blue-and-white decor. Located right by the Bab Souk gate, it offers easy access to the medina while providing a quiet and homely retreat with a lovely rooftop terrace.',
     pricePerNight: 75,
     lifestyle: 'balanced',
-    amenities: ['Homely Rooftop Terrace', 'Authentic Blue Decor', 'Traditional Breakfast', 'Library Area'],
+    amenities: ['Homely Rooftop Terrace', 'Authentic Blue Decor', 'Traditional Breakfast', 'Library Area', 'rooftop-terrace', 'in-medina', 'mountain-view'],
     googleRating: 4.9,
     googleReviewCount: 650,
     tripadvisorRating: 4.9,
@@ -672,7 +672,7 @@ export const chefchaouenSleep: SleepListing[] = [
     safetyLevel: 5,
     groupTypes: ['couple', 'solo', 'seniors'],
     tip: 'The breakfast here is considered one of the best in the medina—don\'t miss the homemade jams and local goat cheese.',
-    vibeTags: ['Charming', 'Homely', 'Authentic', 'Central'],
+    vibeTags: ['Charming', 'Homely', 'Authentic', 'Central', 'Mountain-View'],
     locationSummary: "Blue Medina - Historic Quarter",
     availabilityText: 'Available tonight',
     googleMapsUrl: '[https://www.google.com/maps/place/Casa+Perleta/@35.1685,-5.2645,17z](https://www.google.com/maps/place/Casa+Perleta/@35.1685,-5.2645,17z)',
@@ -722,7 +722,7 @@ export const chefchaouenSleep: SleepListing[] = [
       lat: 35.169993,
       lng: -5.263992
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite", "rooftop-terrace", "in-medina", "mountain-view"]
   },
   {
     id: 'ch-sleep-7',
@@ -733,7 +733,7 @@ export const chefchaouenSleep: SleepListing[] = [
     description: 'An elegant and centrally located riad right on the main square of Outa el Hammam. Riad Hicham features a stunning courtyard and a rooftop terrace with the best front-row views of the historic Kasbah and the Grand Mosque.',
     pricePerNight: 85,
     lifestyle: 'balanced',
-    amenities: ['Kasbah View Terrace', 'Central Courtyard', 'Traditional Restaurant', 'Authentic Zellij Work'],
+    amenities: ['Kasbah View Terrace', 'Central Courtyard', 'Traditional Restaurant', 'Authentic Zellij Work', 'rooftop-terrace', 'in-medina', 'mountain-view'],
     googleRating: 4.7,
     googleReviewCount: 380,
     tripadvisorRating: 4.5,
@@ -817,7 +817,7 @@ export const chefchaouenSleep: SleepListing[] = [
       lat: 35.168818,
       lng: -5.261114
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage", "rooftop-terrace", "in-medina", "mountain-view"]
   },
   {
     id: 'ch-sleep-8',
@@ -828,7 +828,7 @@ export const chefchaouenSleep: SleepListing[] = [
     description: 'A traditional and warm guest house that feels like a real Moroccan home. Located in the heart of the blue medina, it features multiple cozy courtyards, a traditional hammam, and is famous for its homemade breakfast and friendly atmosphere.',
     pricePerNight: 65,
     lifestyle: 'lean',
-    amenities: ['Multiple Cozy Courtyards', 'Traditional Hammam', 'Rooftop Terrace', 'Homemade Breakfast'],
+    amenities: ['Multiple Cozy Courtyards', 'Traditional Hammam', 'Rooftop Terrace', 'Homemade Breakfast', 'spa', 'rooftop-terrace', 'in-medina'],
     googleRating: 4.6,
     googleReviewCount: 420,
     tripadvisorRating: 4.4,
@@ -912,7 +912,7 @@ export const chefchaouenSleep: SleepListing[] = [
       lat: 35.169461,
       lng: -5.26211
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite", "spa", "rooftop-terrace", "in-medina"]
   },
   {
     id: 'ch-sleep-9',
@@ -923,7 +923,7 @@ export const chefchaouenSleep: SleepListing[] = [
     description: 'An elegant and serene riad that perfectly blends Andalusian and Moroccan architecture. Located in a quiet part of the blue medina, it features a beautifully tiled inner courtyard, a full-service traditional hammam, and a rooftop terrace with peaceful views of the Rif Mountains.',
     pricePerNight: 95,
     lifestyle: 'premium',
-    amenities: ['Traditional Moroccan Hammam', 'Luxury Spa Treatments', 'Panoramic Rooftop Terrace', 'Andalusian Tiled Courtyard'],
+    amenities: ['Traditional Moroccan Hammam', 'Luxury Spa Treatments', 'Panoramic Rooftop Terrace', 'Andalusian Tiled Courtyard', 'spa', 'rooftop-terrace', 'in-medina', 'mountain-view'],
     googleRating: 4.7,
     googleReviewCount: 210,
     tripadvisorRating: 4.7,
@@ -957,7 +957,7 @@ export const chefchaouenSleep: SleepListing[] = [
     safetyLevel: 5,
     groupTypes: ['couple', 'seniors', 'solo'],
     tip: 'Book the "Andalusian Hammam" session for an authentic and incredibly relaxing experience right within the riad.',
-    vibeTags: ['Andalusian', 'Serene', 'Traditional', 'Refined'],
+    vibeTags: ['Andalusian', 'Serene', 'Traditional', 'Refined', 'Mountain-View'],
     locationSummary: "Blue Medina - Historic Quarter",
     availabilityText: 'Available tonight',
     googleMapsUrl: '[https://www.google.com/maps/place/Alhambra+Ryad+%26+Spa/@35.1691,-5.2635,17z](https://www.google.com/maps/place/Alhambra+Ryad+%26+Spa/@35.1691,-5.2635,17z)',
@@ -1007,7 +1007,7 @@ export const chefchaouenSleep: SleepListing[] = [
       lat: 35.168647,
       lng: -5.259919
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage", "spa", "rooftop-terrace", "in-medina", "mountain-view"]
   },
   {
     id: 'ch-sleep-10',
@@ -1018,7 +1018,7 @@ export const chefchaouenSleep: SleepListing[] = [
     description: 'A charming and artistic boutique guesthouse known for its explosion of color and creativity. It features hand-painted ceilings, eclectic decor, and a cozy rooftop terrace where you can enjoy a legendary homemade breakfast overlooking the blue-washed rooftops.',
     pricePerNight: 75,
     lifestyle: 'balanced',
-    amenities: ['Artistic Rooftop Terrace', 'Hand-Painted Ceilings', 'Gourmet Homemade Breakfast', 'Cultural Decor'],
+    amenities: ['Artistic Rooftop Terrace', 'Hand-Painted Ceilings', 'Gourmet Homemade Breakfast', 'Cultural Decor', 'rooftop-terrace', 'in-medina', 'mountain-view'],
     googleRating: 4.8,
     googleReviewCount: 420,
     tripadvisorRating: 4.8,
@@ -1102,7 +1102,7 @@ export const chefchaouenSleep: SleepListing[] = [
       lat: 35.170544,
       lng: -5.264177
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite", "rooftop-terrace", "in-medina", "mountain-view"]
   },
   {
     id: 'ch-sleep-11',
@@ -1113,7 +1113,7 @@ export const chefchaouenSleep: SleepListing[] = [
     description: 'A beautifully restored 18th-century riad featuring traditional Moroccan craftsmanship, hand-carved plaster, and a serene central fountain courtyard. It offers a majestic and authentic stay in the heart of the blue-washed city.',
     pricePerNight: 105,
     lifestyle: 'balanced',
-    amenities: ['Historic Central Fountain', 'Panoramic Rooftop Terrace', 'Traditional Fassi Kitchen', 'Hand-Carved Plasterwork'],
+    amenities: ['Historic Central Fountain', 'Panoramic Rooftop Terrace', 'Traditional Fassi Kitchen', 'Hand-Carved Plasterwork', 'rooftop-terrace', 'in-medina', 'mountain-view'],
     googleRating: 4.6,
     googleReviewCount: 230,
     tripadvisorRating: 4.5,
@@ -1197,7 +1197,7 @@ export const chefchaouenSleep: SleepListing[] = [
       lat: 35.16883,
       lng: -5.263661
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage", "rooftop-terrace", "in-medina", "mountain-view"]
   },
   {
     id: 'ch-sleep-12',
@@ -1208,7 +1208,7 @@ export const chefchaouenSleep: SleepListing[] = [
     description: 'A tranquil guesthouse with spacious, comfortable rooms, a delightful garden breakfast area, and a genuinely warm family welcome. It offers a sense of home and peace within the blue city.',
     pricePerNight: 85,
     lifestyle: 'balanced',
-    amenities: ['Inner Courtyard Garden', 'Homemade Breakfast', 'Family Hospitality', 'Mountain View Terrace'],
+    amenities: ['Inner Courtyard Garden', 'Homemade Breakfast', 'Family Hospitality', 'Mountain View Terrace', 'rooftop-terrace', 'in-medina', 'mountain-view'],
     googleRating: 4.5,
     googleReviewCount: 310,
     tripadvisorRating: 4.4,
@@ -1292,7 +1292,7 @@ export const chefchaouenSleep: SleepListing[] = [
       lat: 35.168085,
       lng: -5.263539
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite", "rooftop-terrace", "in-medina", "mountain-view"]
   },
   {
     id: 'ch-sleep-13',
@@ -1303,7 +1303,7 @@ export const chefchaouenSleep: SleepListing[] = [
     description: 'A top-rated and vibrant social hostel that has become a cornerstone of the backpacker scene in Chefchaouen. It features a lively rooftop terrace with panoramic views, a shared kitchen, and a friendly atmosphere where solo travelers easily connect for group hikes and dinners.',
     pricePerNight: 18,
     lifestyle: 'lean',
-    amenities: ['Vibrant Rooftop Terrace', 'Shared Communal Kitchen', 'Group Hiking Tours', 'Free Local Breakfast', 'Locker Storage'],
+    amenities: ['Vibrant Rooftop Terrace', 'Shared Communal Kitchen', 'Group Hiking Tours', 'Free Local Breakfast', 'Locker Storage', 'rooftop-terrace', 'mountain-view', 'in-medina'],
     googleRating: 4.3,
     googleReviewCount: 500,
     tripadvisorRating: 4.2,
@@ -1387,7 +1387,7 @@ export const chefchaouenSleep: SleepListing[] = [
       lat: 35.168726,
       lng: -5.25927
     },
-    tags: ["dorm"]
+    tags: ["dorm", "rooftop-terrace", "mountain-view", "in-medina"]
   },
   {
     id: 'ch-sleep-14',
@@ -1398,7 +1398,7 @@ export const chefchaouenSleep: SleepListing[] = [
     description: 'A peaceful and exceptionally well-managed hostel tucked away in the quieter upper medina. Known for its calm atmosphere, friendly management, and a stunning rooftop terrace that offers some of the best mountain and sunset views in the city.',
     pricePerNight: 20,
     lifestyle: 'lean',
-    amenities: ['Panoramic Mountain Rooftop', 'Quiet Communal Lounge', 'Personalized Local Advice', 'Locker Storage'],
+    amenities: ['Panoramic Mountain Rooftop', 'Quiet Communal Lounge', 'Personalized Local Advice', 'Locker Storage', 'rooftop-terrace', 'mountain-view', 'in-medina'],
     googleRating: 4.4,
     googleReviewCount: 320,
     tripadvisorRating: 4.3,
@@ -1482,7 +1482,7 @@ export const chefchaouenSleep: SleepListing[] = [
       lat: 35.170037,
       lng: -5.258924
     },
-    tags: ["dorm"]
+    tags: ["dorm", "rooftop-terrace", "mountain-view", "in-medina"]
   },
   {
     id: 'ch-sleep-15',
@@ -1493,7 +1493,7 @@ export const chefchaouenSleep: SleepListing[] = [
     description: 'A budget-friendly traditional guesthouse that offers a taste of authentic riad life without the premium price tag. Known for its spotless cleanliness, blue-washed rooms, and the genuine Moroccan hospitality of its local family owners.',
     pricePerNight: 35,
     lifestyle: 'lean',
-    amenities: ['Traditional Homemade Breakfast', 'Scenic Rooftop Terrace', 'Local Family Hospitality'],
+    amenities: ['Traditional Homemade Breakfast', 'Scenic Rooftop Terrace', 'Local Family Hospitality', 'rooftop-terrace', 'in-medina'],
     googleRating: 4.3,
     googleReviewCount: 290,
     tripadvisorRating: 4.2,
@@ -1577,7 +1577,7 @@ export const chefchaouenSleep: SleepListing[] = [
       lat: 35.168628,
       lng: -5.2644
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite", "rooftop-terrace", "in-medina"]
   },
   {
     id: 'ch-sleep-16',
@@ -1588,7 +1588,7 @@ export const chefchaouenSleep: SleepListing[] = [
     description: 'One of the oldest and most well-known backpacker spots in Chefchaouen. It offers basic but character-filled accommodations, an authentic local atmosphere, and a lively common area where travelers swap stories over mint tea.',
     pricePerNight: 15,
     lifestyle: 'lean',
-    amenities: ['Historic Common Room', 'Vibrant Rooftop Terrace', 'Travel Exchange Board', 'Locker Storage'],
+    amenities: ['Historic Common Room', 'Vibrant Rooftop Terrace', 'Travel Exchange Board', 'Locker Storage', 'rooftop-terrace', 'in-medina'],
     googleRating: 4.0,
     googleReviewCount: 600,
     tripadvisorRating: 3.8,
@@ -1672,7 +1672,7 @@ export const chefchaouenSleep: SleepListing[] = [
       lat: 35.175444,
       lng: -5.266178
     },
-    tags: ["dorm", "heritage"]
+    tags: ["dorm", "heritage", "rooftop-terrace", "in-medina"]
   },
   {
     id: 'ch-sleep-17',
@@ -1683,7 +1683,7 @@ export const chefchaouenSleep: SleepListing[] = [
     description: 'A modest but highly-rated boutique hotel known for its spotless rooms and exceptional personalized service. Located in the upper medina, it offers a quieter atmosphere and stunning views of the Rif Mountains from its rooftop terrace.',
     pricePerNight: 55,
     lifestyle: 'balanced',
-    amenities: ['Panoramic Mountain Terrace', 'Personalized Tour Planning', 'Homemade Moroccan Breakfast'],
+    amenities: ['Panoramic Mountain Terrace', 'Personalized Tour Planning', 'Homemade Moroccan Breakfast', 'mountain-view', 'rooftop-terrace', 'in-medina'],
     googleRating: 4.6,
     googleReviewCount: 180,
     tripadvisorRating: 4.5,
@@ -1767,7 +1767,7 @@ export const chefchaouenSleep: SleepListing[] = [
       lat: 35.169925,
       lng: -5.265558
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite", "mountain-view", "rooftop-terrace", "in-medina"]
   },
   {
     id: 'ch-sleep-18',
@@ -1778,7 +1778,7 @@ export const chefchaouenSleep: SleepListing[] = [
     description: 'A modern, centrally-located hostel that combines stylish design with a high-energy social atmosphere. It features comfortable dorms, modern shared facilities, and a vibrant rooftop where guests gather every evening to watch the sun dip behind the Rif Mountains.',
     pricePerNight: 22,
     lifestyle: 'lean',
-    amenities: ['Modern Communal Lounge', 'Vibrant Sunset Rooftop', 'Organized City Tours', 'Locker Storage'],
+    amenities: ['Modern Communal Lounge', 'Vibrant Sunset Rooftop', 'Organized City Tours', 'Locker Storage', 'rooftop-terrace', 'mountain-view', 'in-medina'],
     googleRating: 4.6,
     googleReviewCount: 220,
     tripadvisorRating: 4.5,
@@ -1862,7 +1862,7 @@ export const chefchaouenSleep: SleepListing[] = [
       lat: 35.175444,
       lng: -5.266178
     },
-    tags: ["dorm"]
+    tags: ["dorm", "rooftop-terrace", "mountain-view", "in-medina"]
   },
   {
     id: 'ch-sleep-19',
@@ -1873,7 +1873,7 @@ export const chefchaouenSleep: SleepListing[] = [
     description: 'A highly-rated and colorful hostel celebrated for its exceptional cleanliness, artisan-inspired decor, and a warm, welcoming staff that goes above and beyond to make every guest feel at home. It offers a perfect blend of social energy and respectful quiet.',
     pricePerNight: 24,
     lifestyle: 'lean',
-    amenities: ['Artisan-Inspired Decor', 'Homemade Local Breakfast', 'Scenic Rooftop Terrace', 'Luggage Storage'],
+    amenities: ['Artisan-Inspired Decor', 'Homemade Local Breakfast', 'Scenic Rooftop Terrace', 'Luggage Storage', 'rooftop-terrace', 'in-medina'],
     googleRating: 4.5,
     googleReviewCount: 300,
     tripadvisorRating: 4.4,
@@ -1957,7 +1957,7 @@ export const chefchaouenSleep: SleepListing[] = [
       lat: 35.16937,
       lng: -5.262922
     },
-    tags: ["dorm"]
+    tags: ["dorm", "rooftop-terrace", "in-medina"]
   },
   {
     id: 'ch-sleep-20',
@@ -1968,7 +1968,7 @@ export const chefchaouenSleep: SleepListing[] = [
     description: 'A classic and established hotel located perfectly at the gateway to the blue medina. It is one of the few hotels in the city that offers road access, an elevator, and a large swimming pool, making it the premier choice for travelers with mobility needs or those preferring standard hotel amenities.',
     pricePerNight: 95,
     lifestyle: 'balanced',
-    amenities: ['Large Outdoor Pool', 'Direct Road Access', 'Elevator Access', 'Traditional Restaurant', 'Parking'],
+    amenities: ['Large Outdoor Pool', 'Direct Road Access', 'Elevator Access', 'Traditional Restaurant', 'Parking', 'pool', 'mountain-view', 'rooftop-terrace', 'in-medina'],
     googleRating: 4.2,
     googleReviewCount: 380,
     tripadvisorRating: 4.1,
@@ -2052,6 +2052,6 @@ export const chefchaouenSleep: SleepListing[] = [
       lat: 35.168821,
       lng: -5.260698
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage", "pool", "mountain-view", "rooftop-terrace", "in-medina"]
   }
 ]
