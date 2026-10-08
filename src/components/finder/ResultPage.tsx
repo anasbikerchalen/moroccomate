@@ -191,7 +191,7 @@ export default function ResultPage() {
   // Reset pagination when category, city, or filters change
   useEffect(() => {
     setVisibleCount(5);
-  }, [activeCategory, city, neighborhood, filters, quizAnswers, sortBy]);
+  }, [activeCategory, city, neighborhood, filters, quizAnswers, sortBy, activeFeatureSlug]);
 
   const nonTouristicAreas = useMemo(() => {
     return new Set(
@@ -284,7 +284,7 @@ export default function ResultPage() {
     }
 
     return listings;
-  }, [city, neighborhood, focusKey, activeCategory, activeSubCategory, sportIntent, nonTouristicAreas]);
+  }, [city, neighborhood, focusKey, activeCategory, activeSubCategory, sportIntent, nonTouristicAreas, activeSearchIntent]);
 
   const recommendations = useMemo(() => {
     // Minimum Rating (hard filter) — hides places below the chosen rating,
