@@ -6,8 +6,9 @@ import { SEO } from '../components/ui/SEO';
 import { useParameterStore } from '../state/parameterStore';
 import { useExploreStore } from '../state/exploreStore';
 import { useSavedStore } from '../state/savedStore';
-import FavoritesDrawer from '../components/finder/FavoritesDrawer';
 import { cities } from '../data/cities';
+import { isCityTouristicOrMid, getCityProfile } from '../data/touristicHierarchy';
+import { getListings } from '../listings';
 import heroIllustration from '../assets/images/finder/finder_hero_matte_1786297047661.jpg';
 import logoImg from '../assets/images/logo.png';
 // 🖼️ Home page circular category images (Gemini-generated, circle-safe centered subjects)
@@ -75,8 +76,19 @@ export default function HomePage() {
   const setActiveCategory = useExploreStore((state) => state.setActiveCategory);
   const setExploreView = useExploreStore((state) => state.setView);
 
-  const recommendedCities = cities.filter((c: any) => RECOMMENDED_CITY_NAMES.includes(c.name));
-  const otherCities = cities.filter((c: any) => !RECOMMENDED_CITY_NAMES.includes(c.name));
+  // Only Touristic and Mid-Touristic cities (Low-Touristic are excluded)
+  const activeCities = cities.filter((c: any) => {
+    if (!isCityTouristicOrMid(c.id)) return false;
+    const count = getListings(c.id).length;
+    return count > 0 || c.isPrimary;
+  });
+
+  const recommendedCities = activeCities.filter((c: any) => {
+    const prof = getCityProfile(c.id);
+    return prof?.tier === 'touristic' || RECOMMENDED_CITY_NAMES.includes(c.name);
+  });
+
+  const otherCities = activeCities.filter((c: any) => !recommendedCities.some((r: any) => r.id === c.id));
 
   const isAwaitingCity = Boolean(selectedCategory && !selectedCity);
 
