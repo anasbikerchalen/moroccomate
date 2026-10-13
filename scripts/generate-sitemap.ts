@@ -29,6 +29,12 @@ const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.s
 
 const target = resolve(process.cwd(), 'public', 'sitemap.xml');
 writeFileSync(target, xml);
+try {
+  const distTarget = resolve(process.cwd(), 'dist', 'sitemap.xml');
+  writeFileSync(distTarget, xml);
+} catch {
+  // dist may not exist prior to vite build
+}
 
 const places = pages.filter((p) => p.path.startsWith('/place/')).length;
 const things = pages.filter((p) => p.path.startsWith('/things/')).length;

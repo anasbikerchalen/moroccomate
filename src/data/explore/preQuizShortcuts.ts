@@ -40,7 +40,8 @@ export interface PreQuizShortcut {
   label: string;
   icon: string;
   description: string;
-  kind: 'mini-quiz' | 'brand-locator';
+  kind: 'near-me' | 'mini-quiz' | 'brand-locator';
+  badgeColor?: 'terracotta' | 'gold' | 'amber' | 'emerald' | 'navy' | 'rose' | 'cyan';
   /** 3-question mini-quiz (kind: 'mini-quiz') */
   questions?: QuizQuestion[];
   /** Brands (kind: 'brand-locator') — 1 = direct 2-choice modal, >1 = brand picker first */
@@ -50,25 +51,34 @@ export interface PreQuizShortcut {
 }
 
 // ─────────────────────────────────────────────────────────────
-// 🍽️ EAT CATEGORY — Top 5 Choices & their 3-question mini-quizzes
+// 🍽️ EAT CATEGORY — Top Choices & their 3-question mini-quizzes
 // ─────────────────────────────────────────────────────────────
 
 // Brands for Choice 2 — the 2-click Brand Locator applies here too
 const FAST_FOOD_BRANDS: ShortcutBrand[] = [
-  { id: 'mcdonalds', label: "McDonald's", icon: '🍟', description: 'Fries, burgers, McFlurry — familiar for kids', nameMatch: ['mcdonald'], mapsQuery: "McDonald's" },
-  { id: 'kfc', label: 'KFC', icon: '🍗', description: 'Fried chicken buckets and family meals', nameMatch: ['kfc'], mapsQuery: 'KFC' },
-  { id: 'burger-king', label: 'Burger King', icon: '👑', description: 'Whoppers and quick family dinners', nameMatch: ['burger king'], mapsQuery: 'Burger King' },
-  { id: 'pizza-hut', label: "Pizza Hut / Domino's", icon: '🍕', description: 'Pizza delivery and mall food courts', nameMatch: ['pizza hut', 'domino'], mapsQuery: 'Pizza Hut' },
-  { id: 'local-burger', label: 'Top-Rated Local Burger House', icon: '🍔', description: 'Real local burger spots from our verified data', nameMatch: ['burger'], mapsQuery: 'best burger restaurant' },
+  { id: 'mcdonalds', label: "McDonald's", icon: 'mcdonalds', description: 'Fries, burgers, McFlurry — familiar for kids', nameMatch: ['mcdonald'], mapsQuery: "McDonald's" },
+  { id: 'kfc', label: 'KFC', icon: 'kfc', description: 'Fried chicken buckets and family meals', nameMatch: ['kfc'], mapsQuery: 'KFC' },
+  { id: 'burger-king', label: 'Burger King', icon: 'burger-king', description: 'Whoppers and quick family dinners', nameMatch: ['burger king'], mapsQuery: 'Burger King' },
+  { id: 'pizza-hut', label: "Pizza Hut / Domino's", icon: 'pizza-hut', description: 'Pizza delivery and mall food courts', nameMatch: ['pizza hut', 'domino'], mapsQuery: 'Pizza Hut' },
+  { id: 'local-burger', label: 'Top-Rated Local Burger House', icon: 'local-burger', description: 'Real local burger spots from our verified data', nameMatch: ['burger'], mapsQuery: 'best burger restaurant' },
 ];
 
 export const EAT_SHORTCUTS: PreQuizShortcut[] = [
   {
+    id: 'eat-near-me',
+    label: 'Near Me (Closest)',
+    icon: 'near-me',
+    description: 'Instant GPS proximity search for verified spots right next to you',
+    kind: 'near-me',
+    badgeColor: 'terracotta',
+  },
+  {
     id: 'eat-quick-snacks',
     label: 'Quick Snacks & Street Bites',
-    icon: '🍟',
+    icon: 'snack',
     description: 'For hungry travelers on the go in the medina or streets',
     kind: 'mini-quiz',
+    badgeColor: 'amber',
     questions: [
       {
         id: 'snack-craving',
@@ -102,7 +112,8 @@ export const EAT_SHORTCUTS: PreQuizShortcut[] = [
   {
     id: 'eat-cafe-breakfast',
     label: 'Café, Breakfast & Mint Tea',
-    icon: '☕',
+    icon: 'cafe',
+    badgeColor: 'gold',
     description: 'For morning breakfast, coffee work sessions, or tea pauses',
     kind: 'mini-quiz',
     questions: [
@@ -137,7 +148,8 @@ export const EAT_SHORTCUTS: PreQuizShortcut[] = [
   {
     id: 'eat-traditional',
     label: 'Authentic Traditional Lunch/Dinner',
-    icon: '🍲',
+    icon: 'traditional',
+    badgeColor: 'terracotta',
     description: 'For travelers wanting real, hearty Moroccan cooking',
     kind: 'mini-quiz',
     questions: [
@@ -173,7 +185,8 @@ export const EAT_SHORTCUTS: PreQuizShortcut[] = [
   {
     id: 'eat-rooftop',
     label: 'Rooftop Dining & Sunset Drinks',
-    icon: '🌅',
+    icon: 'rooftop',
+    badgeColor: 'rose',
     description: 'For scenic dinners, date nights, and sunset photography',
     kind: 'mini-quiz',
     questions: [
@@ -207,14 +220,23 @@ export const EAT_SHORTCUTS: PreQuizShortcut[] = [
 ];
 
 // ─────────────────────────────────────────────────────────────
-// 🛏️ STAYS (SLEEP) CATEGORY — Top 5 Choices & their 3-question mini-quizzes
+// 🛏️ STAYS (SLEEP) CATEGORY — Top Choices & their 3-question mini-quizzes
 // ─────────────────────────────────────────────────────────────
 
 export const SLEEP_SHORTCUTS: PreQuizShortcut[] = [
   {
+    id: 'sleep-near-me',
+    label: 'Near Me (Closest)',
+    icon: 'near-me',
+    description: 'Instant GPS search for riads and stays closest to you right now',
+    kind: 'near-me',
+    badgeColor: 'terracotta',
+  },
+  {
     id: 'sleep-closer-stays',
     label: 'Closer Stays (No Heavy Walking)',
-    icon: '📍',
+    icon: 'closer',
+    badgeColor: 'emerald',
     description: 'Easy access & no dragging bags through confusing medina alleys',
     kind: 'mini-quiz',
     questions: [
@@ -248,7 +270,8 @@ export const SLEEP_SHORTCUTS: PreQuizShortcut[] = [
   {
     id: 'sleep-top-rated',
     label: 'Popular & Top-Rated Favorites',
-    icon: '⭐',
+    icon: 'top-rated',
+    badgeColor: 'amber',
     description: 'For travelers who only want proven, zero-disappointment stays',
     kind: 'mini-quiz',
     questions: [
@@ -282,7 +305,8 @@ export const SLEEP_SHORTCUTS: PreQuizShortcut[] = [
   {
     id: 'sleep-heritage-riads',
     label: 'Authentic Heritage Riads',
-    icon: '🏺',
+    icon: 'riad',
+    badgeColor: 'gold',
     description: 'For travelers wanting historic Moroccan architecture',
     kind: 'mini-quiz',
     questions: [
@@ -316,7 +340,8 @@ export const SLEEP_SHORTCUTS: PreQuizShortcut[] = [
   {
     id: 'sleep-pool-spa',
     label: 'Pool & Spa Sanctuary',
-    icon: '🏊',
+    icon: 'pool',
+    badgeColor: 'cyan',
     description: 'Essential for cooling down after a hot day in the city',
     kind: 'mini-quiz',
     questions: [
@@ -351,7 +376,8 @@ export const SLEEP_SHORTCUTS: PreQuizShortcut[] = [
   {
     id: 'sleep-budget-hostels',
     label: 'High-Value Budget & Social Hostels',
-    icon: '🏷️',
+    icon: 'budget',
+    badgeColor: 'navy',
     description: 'For solo backpackers, students, and smart budget travelers',
     kind: 'mini-quiz',
     questions: [
@@ -424,11 +450,11 @@ export const THINGS_TOUR_QUESTIONS: QuizQuestion[] = [
 // ─────────────────────────────────────────────────────────────
 
 export const SHOPPING_BRANDS: ShortcutBrand[] = [
-  { id: 'marjane', label: 'Marjane', icon: '🛒', description: "Morocco's premier hypermarket — electronics, food, baby gear, toiletries", nameMatch: ['marjane'], mapsQuery: 'Marjane' },
-  { id: 'carrefour', label: 'Carrefour & Carrefour Market', icon: '🥖', description: 'Global French supermarket — gourmet food, groceries, deli', nameMatch: ['carrefour'], mapsQuery: 'Carrefour' },
-  { id: 'decathlon', label: 'Decathlon', icon: '⚽', description: 'Global sports brand — hiking boots, water shoes, sunscreen, luggage, camping', nameMatch: ['decathlon'], mapsQuery: 'Decathlon' },
-  { id: 'atacadao-bim', label: 'Atacadão / BIM', icon: '🏬', description: 'Everyday wholesale snacks, bottled water, quick staples', nameMatch: ['atacadao', 'atacadao', 'bim'], mapsQuery: 'Atacadao' },
-  { id: 'ensemble-artisanal', label: 'Ensemble Artisanal', icon: '🏷️', description: 'Government-certified fixed price artisan center — 0 haggling', nameMatch: ['ensemble artisanal', 'ensemble'], mapsQuery: 'Ensemble Artisanal' },
+  { id: 'marjane', label: 'Marjane', icon: 'marjane', description: "Morocco's premier hypermarket — electronics, food, baby gear, toiletries", nameMatch: ['marjane'], mapsQuery: 'Marjane' },
+  { id: 'carrefour', label: 'Carrefour & Carrefour Market', icon: 'carrefour', description: 'Global French supermarket — gourmet food, groceries, deli', nameMatch: ['carrefour'], mapsQuery: 'Carrefour' },
+  { id: 'decathlon', label: 'Decathlon', icon: 'decathlon', description: 'Global sports brand — hiking boots, water shoes, sunscreen, luggage, camping', nameMatch: ['decathlon'], mapsQuery: 'Decathlon' },
+  { id: 'atacadao-bim', label: 'Atacadão / BIM', icon: 'atacadao-bim', description: 'Everyday wholesale snacks, bottled water, quick staples', nameMatch: ['atacadao', 'bim'], mapsQuery: 'Atacadao' },
+  { id: 'ensemble-artisanal', label: 'Ensemble Artisanal', icon: 'ensemble-artisanal', description: 'Government-certified fixed price artisan center — 0 haggling', nameMatch: ['ensemble artisanal', 'ensemble'], mapsQuery: 'Ensemble Artisanal' },
 ];
 
 // ─────────────────────────────────────────────────────────────
@@ -447,7 +473,7 @@ export const PRE_QUIZ_QUESTION_REGISTRY: QuizQuestion[] = [
 registerTagSource(PRE_QUIZ_QUESTION_REGISTRY);
 
 /**
- * Top-5 quick shortcuts for a category. For things-to-do use
+ * Top quick shortcuts for a category. For things-to-do use
  * getThingsShortcuts() instead (it resolves from real city listings).
  */
 export function getShortcutsForCategory(
@@ -474,11 +500,20 @@ export function getShortcutsForCategory(
 }
 
 /**
- * Top-5 iconic activities for a city, resolved from the REAL things listings
- * (rating weighted by review volume). Clicking one opens the shared
- * 3-question tour qualifier.
+ * Top iconic activities for a city, prepended with a "Near Me" proximity shortcut,
+ * resolved from the REAL things listings (rating weighted by review volume).
+ * Clicking one opens the shared 3-question tour qualifier.
  */
 export function getThingsShortcuts(cityListings: any[] = []): PreQuizShortcut[] {
+  const nearMeShortcut: PreQuizShortcut = {
+    id: 'things-near-me',
+    label: 'Near Me (Closest)',
+    icon: 'near-me',
+    description: 'Instant GPS proximity search for sights and tours nearest to where you are',
+    kind: 'near-me',
+    badgeColor: 'terracotta',
+  };
+
   const popularityScore = (l: any): number => {
     const rating = Number(l?.googleRating) || 0;
     const reviews = Number(l?.reviewCount) || 0;
@@ -490,13 +525,18 @@ export function getThingsShortcuts(cityListings: any[] = []): PreQuizShortcut[] 
     .sort((a, b) => popularityScore(b) - popularityScore(a))
     .slice(0, 5);
 
-  return top5.map(l => ({
+  const colors: ('navy' | 'emerald' | 'gold' | 'rose' | 'amber')[] = ['navy', 'emerald', 'gold', 'rose', 'amber'];
+
+  const activityShortcuts = top5.map((l, idx) => ({
     id: `activity-${l.id}`,
     label: l.name,
-    icon: '🎯',
+    icon: 'activity',
+    badgeColor: colors[idx % colors.length],
     description: String(l?.neighborhood || ''),
     kind: 'mini-quiz' as const,
     activityId: l.id,
     questions: THINGS_TOUR_QUESTIONS,
   }));
+
+  return [nearMeShortcut, ...activityShortcuts];
 }

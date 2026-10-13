@@ -275,6 +275,10 @@ export interface StayListing {
   amenities: PropertyAmenities;
   policies: PropertyPolicies;
   visibility: SectionVisibilityFlags;
+  // Direct contact and booking actions
+  contact_whatsapp?: string;
+  booking_url?: string;
+  phone?: string;
   // Metadata for backend sync
   created_at?: string;
   updated_at?: string;

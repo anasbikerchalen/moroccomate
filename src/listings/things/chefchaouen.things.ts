@@ -226,7 +226,11 @@ export const chefchaouenThings: ThingToDoListing[] = [
     getyourguideReviewCount: 980,
     reviewCount: 27050,
     // googlePlaceId: "PLACE_ID_HERE",
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Medina%20of%20Chefchaouen%2C%20Morocco",
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=35.168796,-5.263604",
+    coordinates: {
+      lat: 35.168796,
+      lng: -5.263604
+    },
 
     safetyLevel: 5,
     walkInOkay: true,

@@ -5,7 +5,7 @@ export const taroudant_tafraouteThings: ThingToDoListing[] = [
     id: 'taroudant-historic-ramparts',
     city: 'taroudant_tafraoute',
     name: 'Taroudant Red Mud Ramparts & Bab El Kasbah',
-    neighborhood: 'Taroudant Medina',
+    neighborhood: 'Médina (Derb Jdid',
     description: 'Imposing 7.5-kilometer 16th-century Saadian red adobe fortress walls featuring 13 monumental gates and 130 defensive towers encircling the entire ancient medina. Known as "Little Marrakech" for its ancient mudbrick battlements.',
     price: 0,
     lifestyle: ['lean', 'balanced', 'premium'],

@@ -2,7 +2,7 @@ import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { QuizQuestion, QuizOption, getTagForOptionId, QUIZ_STOP_WORDS } from '../../data/explore/questions';
 import PreQuizShortcutBar from './PreQuizShortcutBar';
-import { getShortcutsForCategory, getThingsShortcuts, type PreQuizShortcut, type ShortcutBrand } from '../../data/explore/preQuizShortcuts';
+import { getCityCategoryPicks, type CityCategoryPick } from '../../data/explore/cityCategoryPicks';
 import { useParameterStore } from '../../state/parameterStore';
 import { 
   Check, 
@@ -555,26 +555,12 @@ export default function CategoryQuiz({ questions, onComplete, onBack, listings =
   const applyQuizAutoFilters = useExploreStore((s) => s.applyQuizAutoFilters);
   const parameterCity = useParameterStore((s) => s.city);
 
-  // Pre-Quiz Quick Shortcuts: a mini-quiz swaps the generic questions for the
-  // shortcut's dedicated 3-question quiz. savedStep restores the full quiz.
-  const [activeShortcut, setActiveShortcut] = useState<PreQuizShortcut | null>(null);
-  const [savedStep, setSavedStep] = useState(0);
+  // City-specific category quick picks (5 curated filters per city & category)
+  const categoryPicks = useMemo(() => {
+    return getCityCategoryPicks(parameterCity || 'agadir', categoryId);
+  }, [parameterCity, categoryId]);
 
-  const isFoodQuiz = categoryId === 'food' || categoryId === 'eat' || questions.some(q => q.id.startsWith('food'));
-  const isSleepQuiz = categoryId === 'sleep' || categoryId === 'stays' || questions.some(q => q.id.startsWith('sleep'));
-  const isThingsQuiz = categoryId === 'things' || categoryId === 'visit' || categoryId === 'activities' || questions.some(q => q.id.startsWith('things') || q.id.startsWith('visit'));
-
-  // Quick shortcuts per category (things-to-do resolves the city's top-5
-  // REAL activities from its listings — never hallucinated)
-  const shortcuts = useMemo(() => {
-    if (isThingsQuiz || categoryId === 'things-to-do') {
-      return getThingsShortcuts(listings);
-    }
-    return getShortcutsForCategory(categoryId ?? null, listings);
-  }, [isThingsQuiz, categoryId, listings]);
-
-  // In quick-shortcut mode the quiz card runs the shortcut's own mini-quiz
-  const effectiveQuestions = activeShortcut?.questions?.length ? activeShortcut.questions : questions;
+  const effectiveQuestions = questions;
   const currentQuestion = effectiveQuestions[currentStep];
 
   // Single-answer matcher: does one quiz answer match one listing?
@@ -651,22 +637,6 @@ export default function CategoryQuiz({ questions, onComplete, onBack, listings =
     return filtered.length;
   }, [listings, answers]);
 
-  // Quick-shortcut live matches: OR logic (any quick answer matches) so the
-  // fast 3-question path never dead-ends at zero results
-  const quickMatchCount = useMemo(() => {
-    if (!listings.length || !activeShortcut) return 0;
-    const quickEntries = Object.entries(answers).filter(([qid, a]) =>
-      !!a && (!Array.isArray(a) || a.length > 0) &&
-      (activeShortcut.questions?.some(q => q.id === qid) || qid === 'things-activity')
-    );
-    if (quickEntries.length === 0) return listings.length;
-    return listings.filter(item =>
-      quickEntries.some(([questionId, answerId]) => {
-        const ids = Array.isArray(answerId) ? answerId : [answerId];
-        return answerMatchesListing(item, questionId, ids);
-      })
-    ).length;
-  }, [listings, answers, activeShortcut]);
 
   // Smart skip (lite): travelers who chose "Lean" never see premium-only options,
   // keeping every quiz step relevant to their budget
@@ -707,15 +677,7 @@ export default function CategoryQuiz({ questions, onComplete, onBack, listings =
       setCurrentStep(prev => prev + 1);
     } else {
       applyQuizAutoFilters(answers);
-      // Full quiz: a fresh full pass replaces the category-scoped answers and
-      // clears stale quick-shortcut answers. Quick shortcut: merge on top so
-      // context answers from the full quiz are preserved.
-      if (activeShortcut) {
-        useExploreStore.setState({ quizAnswers: { ...useExploreStore.getState().quizAnswers, ...answers } });
-      } else {
-        useExploreStore.setState({ quizAnswers: answers });
-      }
-      setActiveShortcut(null);
+      useExploreStore.setState({ quizAnswers: answers });
       onComplete(answers);
     }
   };
@@ -723,9 +685,6 @@ export default function CategoryQuiz({ questions, onComplete, onBack, listings =
   const handlePreviousStep = () => {
     if (currentStep > 0) {
       setCurrentStep(prev => prev - 1);
-    } else if (activeShortcut) {
-      // Back from step 1 of a mini-quiz returns to the full quiz
-      handleExitShortcut();
     } else if (onBack) {
       onBack();
     }
@@ -737,54 +696,34 @@ export default function CategoryQuiz({ questions, onComplete, onBack, listings =
     useExploreStore.getState().resetFilters();
     if (Object.keys(answers).length > 0) {
       applyQuizAutoFilters(answers);
-      if (activeShortcut) {
-        useExploreStore.setState({ quizAnswers: { ...useExploreStore.getState().quizAnswers, ...answers } });
-      } else {
-        useExploreStore.setState({ quizAnswers: answers });
-      }
+      useExploreStore.setState({ quizAnswers: answers });
     } else {
       useExploreStore.setState({ quizAnswers: {} });
     }
-    setActiveShortcut(null);
     onComplete(answers);
   };
 
-  // ── Pre-Quiz Quick Shortcuts handlers ──
-
-  const handleShortcutSelect = (shortcut: PreQuizShortcut) => {
-    setSavedStep(currentStep);
-    if (shortcut.activityId) {
-      // Things to Do: remember the real activity so results rank it top
-      setAnswers(prev => ({ ...prev, 'things-activity': shortcut.activityId }));
+  // ── Pre-Quiz City Category Picks handler ──
+  const handleCategoryPickSelect = (pick: CityCategoryPick) => {
+    // 1. Apply filter vibes directly if defined
+    if (pick.filterVibes && pick.filterVibes.length > 0) {
+      useExploreStore.getState().setFilter('vibes', pick.filterVibes);
     }
-    setActiveShortcut(shortcut);
-    setCurrentStep(0);
-  };
-
-  const handleExitShortcut = () => {
-    if (!activeShortcut) return;
-    // Remove the mini-quiz answers so the full quiz stays clean
-    setAnswers(prev => {
-      const next = { ...prev };
-      activeShortcut.questions?.forEach(q => { delete next[q.id]; });
-      if (activeShortcut.activityId) delete next['things-activity'];
-      return next;
-    });
-    setActiveShortcut(null);
-    setCurrentStep(savedStep);
-  };
-
-  const handleBrandLocate = (brand: ShortcutBrand, mode: 'closest' | 'area', area?: string) => {
-    const nextAnswers = { ...answers, 'brand-locator': brand.id };
-    if (mode === 'area' && area) {
-      // Area picked: filter results to that touristic neighborhood
-      useParameterStore.getState().setNeighborhood(area);
+    // 2. Set sub-category if defined (e.g. for things-to-do)
+    if (pick.subCategory) {
+      useExploreStore.getState().setActiveSubCategory(pick.subCategory as any);
     }
+    // 3. Build answers and update store
+    const nextAnswers: Record<string, any> = {
+      ...answers,
+      'quick-category': pick.id,
+      ...(pick.filterAnswers || {}),
+    };
     setAnswers(nextAnswers);
     applyQuizAutoFilters(nextAnswers);
-    // Brand answers merge on top of existing context answers
     useExploreStore.setState({ quizAnswers: { ...useExploreStore.getState().quizAnswers, ...nextAnswers } });
-    setActiveShortcut(null);
+
+    // 4. Directly route users to results page (no secondary quiz!)
     onComplete(nextAnswers);
   };
 
@@ -808,79 +747,51 @@ export default function CategoryQuiz({ questions, onComplete, onBack, listings =
   return (
     <div className="w-full max-w-6xl mx-auto space-y-3 py-1 px-1 sm:px-4 font-sans text-stone-900">
       
-      {/* 0. Pre-Quiz Quick Shortcuts (Step 1 only) */}
-      {currentStep === 0 && !activeShortcut && shortcuts.length > 0 && (
+      {/* 0. Pre-Quiz Quick City Category Picks (Step 1 only) */}
+      {currentStep === 0 && categoryPicks.length > 0 && (
         <PreQuizShortcutBar
-          shortcuts={shortcuts}
-          cityId={parameterCity || 'marrakech'}
-          cityListings={listings}
-          onMiniQuizSelect={handleShortcutSelect}
-          onBrandLocate={handleBrandLocate}
+          picks={categoryPicks}
+          cityId={parameterCity || 'agadir'}
+          categoryLabel={categoryId}
+          onSelectCategory={handleCategoryPickSelect}
         />
       )}
 
-      {/* 1 & 2. Step Progress Bar Card & Header */}
-      <div className="bg-white rounded-[24px] p-4 sm:p-5 border border-stone-200/80 shadow-xs flex flex-col gap-3">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#C86D51]/10 border border-[#C86D51]/20 text-[#C86D51] text-[11px] font-extrabold uppercase tracking-widest">
-              <Sparkles className="w-3 h-3" />
-              {activeShortcut ? 'QUICK MATCH' : 'QUIZ'}
-            </span>
-            {activeShortcut && (
-              <button
-                onClick={handleExitShortcut}
-                className="inline-flex items-center gap-1 text-[11px] font-bold text-stone-500 hover:text-[#C86D51] transition-colors cursor-pointer"
-              >
-                <X className="w-3.5 h-3.5" />
-                Exit — full quiz
-              </button>
-            )}
-          </div>
-
-          {listings.length > 0 && (
-            <div className="hidden sm:flex items-center gap-2 bg-[#FAF3F0] px-3 py-1.5 rounded-full border border-[#C86D51]/20">
-              <span className="text-[10px] font-bold uppercase tracking-wider text-stone-500">Live Matches:</span>
-              <span className="text-sm font-bold text-[#C86D51] flex items-center gap-1">
-                <Sparkles className="w-3.5 h-3.5" />
-                {activeShortcut ? quickMatchCount : matchCount}
-              </span>
-            </div>
-          )}
+      {/* 1 & 2. Ultra-Thin Progress Bar Header */}
+      <div className="bg-white rounded-[16px] sm:rounded-[20px] py-2 sm:py-2.5 px-3.5 sm:px-5 border border-stone-200/80 shadow-xs flex items-center justify-between gap-3 sm:gap-6">
+        {/* Step indicator & label */}
+        <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+          <span className="text-xs sm:text-sm font-bold text-stone-800 font-display whitespace-nowrap">
+            Step {currentStep + 1} of {effectiveQuestions.length}
+          </span>
+          <span className="hidden sm:inline text-xs text-stone-400 font-medium">·</span>
+          <span className="hidden sm:inline text-xs text-stone-600 font-medium truncate max-w-[140px] md:max-w-[200px]">
+            {currentStepLabel}
+          </span>
         </div>
 
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mt-2">
-          <div className="flex flex-col">
-            <span className="text-[11px] font-bold tracking-widest text-stone-400 uppercase">
-              STEP {currentStep + 1} OF {effectiveQuestions.length}
-            </span>
-            <span className="text-base font-bold text-stone-800 font-display">
-              {activeShortcut ? 'Quick Match' : currentStepLabel}
-            </span>
-          </div>
-
-          {/* Progress Bar Segments */}
-          <div className="flex-1 max-w-md w-full flex items-center gap-2">
-            {effectiveQuestions.map((_, idx) => (
+        {/* Progress Bar Segments */}
+        <div className="flex-1 max-w-xs sm:max-w-md flex items-center gap-1.5 sm:gap-2">
+          {effectiveQuestions.map((_, idx) => (
+            <div 
+              key={idx}
+              className="h-1.5 sm:h-2 flex-1 rounded-full bg-stone-100 overflow-hidden transition-all relative"
+            >
               <div 
-                key={idx}
-                className="h-2.5 flex-1 rounded-full bg-stone-100 overflow-hidden transition-all relative"
-              >
-                <div 
-                  className={cn(
-                    "h-full transition-all duration-500 rounded-full",
-                    idx < currentStep ? "bg-[#C86D51]" : idx === currentStep ? "bg-[#C86D51] animate-pulse" : "bg-transparent"
-                  )}
-                />
-              </div>
-            ))}
-          </div>
+                className={cn(
+                  "h-full transition-all duration-500 rounded-full",
+                  idx < currentStep ? "bg-[#C86D51]" : idx === currentStep ? "bg-[#C86D51] animate-pulse" : "bg-transparent"
+                )}
+              />
+            </div>
+          ))}
+        </div>
 
-          <div className="text-right flex items-center justify-between md:justify-end gap-3">
-            <span className="inline-flex items-center gap-1 text-xs font-bold text-[#C86D51] bg-[#FAF3F0] px-3.5 py-1.5 rounded-full border border-[#C86D51]/20">
-              {progressPercentage}% Complete
-            </span>
-          </div>
+        {/* Percentage Complete */}
+        <div className="text-right shrink-0">
+          <span className="text-[11px] sm:text-xs font-bold text-[#C86D51] whitespace-nowrap">
+            {progressPercentage}% Complete
+          </span>
         </div>
       </div>
 
@@ -1012,7 +923,7 @@ export default function CategoryQuiz({ questions, onComplete, onBack, listings =
                 </>
               ) : (
                 <>
-                  See Matches ({activeShortcut ? quickMatchCount : matchCount})
+                  See Matches ({matchCount})
                   <Sparkles className="w-4 h-4" />
                 </>
               )}

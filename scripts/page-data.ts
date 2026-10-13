@@ -9,14 +9,16 @@
 import {
   getAllPlacePages,
   getBrowseCities,
+  getPlaceIndex,
   PLACE_CATEGORY_LABEL,
   PLACE_SCHEMA_TYPE,
+  type PlaceUrlCategory,
 } from '../src/listings/placeRoutes';
 import { getAllActivities } from '../src/things-to-do';
 import { getListingRating } from '../src/listings/utils';
 import { cityMap } from '../src/data/cities';
 import { getStayOwnerAnswer } from '../src/engine/stayAdapter';
-import { CITY_SEARCH_INTENTS, getSearchIntent } from '../src/data/seo/searchIntents';
+import { CITY_SEARCH_INTENTS, getSearchIntent, doesListingMatchIntent } from '../src/data/seo/searchIntents';
 
 export const BASE_URL = 'https://moroccanmate.com';
 export const DEFAULT_OG_IMAGE = `${BASE_URL}/assets/home/backgrounds/homepage_default_image.jpg`;
@@ -30,6 +32,16 @@ export interface IndexablePage {
   jsonLd: Record<string, any> | null;
   faq?: { question: string; answer: string }[];
   h1: string;            // main heading for the noscript fallback content
+  meta?: {
+    city?: string;
+    category?: string;
+    neighborhood?: string;
+    price?: number;
+    rating?: number;
+    reviewCount?: number;
+    address?: string;
+    matchedPlaces?: Array<{ name: string; url: string; rating?: number; price?: number; neighborhood?: string }>;
+  };
 }
 
 /** Pretty city label with graceful fallback for every data city id */
@@ -109,6 +121,15 @@ export function collectPlacePages(): IndexablePage[] {
       jsonLd,
       faq,
       h1: name,
+      meta: {
+        city: label,
+        category: categoryLabel,
+        neighborhood: listing.neighborhood,
+        price: isSleep && price > 0 ? price : undefined,
+        rating: rating?.averageRating,
+        reviewCount: rating?.totalReviews,
+        address: listing.address,
+      },
     });
   }
   return pages;
@@ -155,6 +176,11 @@ export function collectThingsPages(): IndexablePage[] {
       image,
       jsonLd,
       h1: name,
+      meta: {
+        city: label,
+        category: 'Things to Do',
+        address: activity.address,
+      },
     });
   }
   return pages;
@@ -210,6 +236,10 @@ export function collectStaticPages(): IndexablePage[] {
         image: DEFAULT_OG_IMAGE,
         jsonLd: null,
         h1: `${pretty} in ${label}`,
+        meta: {
+          city: label,
+          category: pretty,
+        },
       });
     }
   }
@@ -232,6 +262,28 @@ export function collectSearchIntentPages(): IndexablePage[] {
         const description = intent.seoDescription(label);
         const h1 = intent.headerTitle(label);
 
+        // Find top matching places in this city for this search intent
+        const matchedPlaces: Array<{ name: string; url: string; rating?: number; price?: number; neighborhood?: string }> = [];
+        try {
+          const normCat = category === 'sleep' || category === 'stay' ? 'sleep' : category === 'food' || category === 'eat' ? 'food' : 'shopping';
+          const index = getPlaceIndex(city.toLowerCase(), normCat as any);
+          for (const [s, l] of index.bySlug.entries()) {
+            if (doesListingMatchIntent(l, intent)) {
+              const r = getListingRating(l);
+              matchedPlaces.push({
+                name: l.name || l.title || 'Place',
+                url: `/place/${city.toLowerCase()}/${normCat}/${s}`,
+                rating: r?.averageRating,
+                price: l.pricePerNight,
+                neighborhood: l.neighborhood,
+              });
+              if (matchedPlaces.length >= 8) break;
+            }
+          }
+        } catch {
+          // Graceful fallback
+        }
+
         pages.push({
           path,
           priority: 0.85,
@@ -240,6 +292,11 @@ export function collectSearchIntentPages(): IndexablePage[] {
           image: DEFAULT_OG_IMAGE,
           jsonLd: null,
           h1,
+          meta: {
+            city: label,
+            category: intent.category,
+            matchedPlaces,
+          },
         });
       }
     }

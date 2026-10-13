@@ -20,7 +20,12 @@ export const merzougaThings: ThingToDoListing[] = [
     ],
     googleRating: 4.9,
     reviewCount: 1450,
-    googleMapsUrl: "https://maps.google.com/?q=Erg+Chebbi+Dunes,+Merzouga,+Morocco",
+    address: "Erg Chebbi Dunes Edge, Merzouga 52402",
+    coordinates: {
+      lat: 31.096088,
+      lng: -4.010846
+    },
+    googleMapsUrl: "https://maps.google.com/?q=31.096088,-4.010846",
     safetyLevel: 5,
     energyLevel: "moderate",
     transportMode: "taxi",
@@ -54,7 +59,12 @@ export const merzougaThings: ThingToDoListing[] = [
     ],
     googleRating: 4.8,
     reviewCount: 420,
-    googleMapsUrl: "https://maps.google.com/?q=Khamlia+Village,+Merzouga,+Morocco",
+    address: "Khamlia Centre, Khamlia Village, Merzouga 52402",
+    coordinates: {
+      lat: 31.0351,
+      lng: -4.0073
+    },
+    googleMapsUrl: "https://maps.google.com/?q=31.0351,-4.0073",
     safetyLevel: 5,
     energyLevel: "relaxed",
     transportMode: "taxi",
@@ -88,7 +98,12 @@ export const merzougaThings: ThingToDoListing[] = [
     ],
     googleRating: 4.9,
     reviewCount: 680,
-    googleMapsUrl: "https://maps.google.com/?q=Merzouga+Desert,+Merzouga,+Morocco",
+    address: "Route de Taouz, Base Dunes, Merzouga 52402",
+    coordinates: {
+      lat: 31.100112,
+      lng: -4.001907
+    },
+    googleMapsUrl: "https://maps.google.com/?q=31.100112,-4.001907",
     safetyLevel: 4,
     energyLevel: "active",
     transportMode: "taxi",

@@ -76,19 +76,12 @@ export default function FinderPage() {
   };
 
   const handleStartQuiz = (categoryId: string) => {
-    const category = CATEGORIES.find(c => c.id === categoryId);
     setActiveCategory(categoryId as any);
     const citySlug = city?.toLowerCase() || 'morocco';
     const searchStr = location.search ? `${location.search}` : '';
 
-    if (category?.hasSubCategories) {
-      setView('subcategory');
-      navigate(`/finder/${citySlug}/${categoryId}${searchStr}`);
-    } else {
-      setView('quiz');
-      const startParam = location.search ? `${location.search}&start=quiz` : '?start=quiz';
-      navigate(`/finder/${citySlug}/${categoryId}${startParam}`);
-    }
+    setView('quiz');
+    navigate(`/finder/${citySlug}/${categoryId}${searchStr}`);
   };
 
   const handleCategoryClick = (categoryId: string) => {

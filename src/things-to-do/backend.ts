@@ -375,7 +375,12 @@ export function toActivityListing(t: ThingToDoListing): ActivityListing {
     neighborhood: t.neighborhood,
     meeting_point: t.address || undefined,
     address: t.address || undefined,
-    directions_url: t.googleMapsUrl,
+    coordinates: t.coordinates || undefined,
+    latitude: t.coordinates?.lat,
+    longitude: t.coordinates?.lng,
+    directions_url: t.coordinates
+      ? `https://www.google.com/maps/search/?api=1&query=${t.coordinates.lat},${t.coordinates.lng}`
+      : t.googleMapsUrl,
     googlePlaceId: t.googlePlaceId,
 
     // Duration

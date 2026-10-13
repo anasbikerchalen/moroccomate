@@ -14,7 +14,7 @@
  *
  * Manual run (after a build):  npm run prerender
  */
-import { readFileSync, writeFileSync, mkdirSync } from 'fs';
+import { readFileSync, writeFileSync, mkdirSync, copyFileSync } from 'fs';
 import { resolve, dirname, join } from 'path';
 import { collectAllPages, BASE_URL } from './page-data';
 
@@ -92,6 +92,59 @@ for (const page of pages) {
     ? `<div style="margin-top:24px;border-top:1px solid #ddd;padding-top:16px;"><h2>Frequently Asked Questions</h2>${page.faq.map(f => `<h3>${esc(f.question)}</h3><p>${esc(f.answer)}</p>`).join('')}</div>`
     : '';
 
+  let preContent = '';
+  if (page.meta?.matchedPlaces && page.meta.matchedPlaces.length > 0) {
+    const itemsHtml = page.meta.matchedPlaces.map(p =>
+      `<li style="margin-bottom:16px;padding:14px;border:1px solid #e9e1d4;border-radius:12px;background:#fff;">` +
+      `<h3 style="margin:0 0 4px;font-size:18px;"><a href="${esc(p.url)}" style="color:#173042;text-decoration:none;">${esc(p.name)}</a></h3>` +
+      `<p style="margin:0;font-size:14px;color:#66757D;">${p.neighborhood ? esc(p.neighborhood) + ' · ' : ''}${p.rating ? '★ ' + p.rating : ''}${p.price ? ' · From ' + p.price + ' MAD/night' : ''}</p>` +
+      `<p style="margin:8px 0 0;"><a href="${esc(p.url)}" style="color:#C9A84C;font-weight:bold;font-size:13px;">View place details &rarr;</a></p>` +
+      `</li>`
+    ).join('');
+
+    preContent =
+      `<div style="max-width:840px;margin:32px auto;padding:0 20px;font-family:system-ui,-apple-system,sans-serif;color:#29231F;">` +
+      `<nav style="font-size:12px;color:#71685F;margin-bottom:16px;">` +
+      `<a href="/" style="color:#71685F;">Home</a> / <a href="${esc(browseUrl || '/finder')}" style="color:#71685F;">${esc(page.meta.city || 'Morocco')}</a> / <span>${esc(page.h1)}</span>` +
+      `</nav>` +
+      `<h1 style="font-size:32px;color:#173042;margin:0 0 12px;line-height:1.2;">${esc(page.h1)}</h1>` +
+      `<p style="font-size:16px;line-height:1.5;color:#555;margin:0 0 24px;">${esc(page.description)}</p>` +
+      `<h2 style="font-size:20px;color:#173042;margin:24px 0 16px;">Curated Recommendations in ${esc(page.meta.city || 'Morocco')}</h2>` +
+      `<ul style="list-style:none;padding:0;margin:0;">${itemsHtml}</ul>` +
+      `<div style="margin-top:32px;padding-top:20px;border-top:1px solid #e9e1d4;font-size:13px;">` +
+      `<a href="${esc(browseUrl || '/finder')}" style="color:#C9A84C;font-weight:bold;margin-right:16px;">Explore more in ${esc(page.meta.city || 'Morocco')}</a>` +
+      `<a href="/" style="color:#71685F;">Moroccan Mate Home</a>` +
+      `</div>` +
+      `</div>`;
+  } else if (page.path.startsWith('/place/')) {
+    preContent =
+      `<div style="max-width:840px;margin:32px auto;padding:0 20px;font-family:system-ui,-apple-system,sans-serif;color:#29231F;">` +
+      `<nav style="font-size:12px;color:#71685F;margin-bottom:16px;">` +
+      `<a href="/" style="color:#71685F;">Home</a> / <a href="${esc(browseUrl || '/finder')}" style="color:#71685F;">${esc(page.meta?.category || 'Places')} in ${esc(page.meta?.city || 'Morocco')}</a> / <span>${esc(page.h1)}</span>` +
+      `</nav>` +
+      `<h1 style="font-size:32px;color:#173042;margin:0 0 8px;line-height:1.2;">${esc(page.h1)}</h1>` +
+      `<p style="font-size:14px;color:#8C7A6B;margin:0 0 16px;">${esc(page.meta?.category || 'Place')} · ${esc(page.meta?.neighborhood || page.meta?.city || 'Morocco')}${page.meta?.rating ? ' · ★ ' + page.meta.rating : ''}${page.meta?.price ? ' · ' + page.meta.price + ' MAD/night' : ''}</p>` +
+      `<p style="font-size:16px;line-height:1.6;color:#444;margin:0 0 24px;">${esc(page.description)}</p>` +
+      (page.meta?.address ? `<p style="font-size:14px;color:#666;"><strong>Address:</strong> ${esc(page.meta.address)}</p>` : '') +
+      faqHtml +
+      `<div style="margin-top:32px;padding-top:20px;border-top:1px solid #e9e1d4;font-size:13px;">` +
+      `<a href="${esc(browseUrl || '/finder')}" style="color:#C9A84C;font-weight:bold;margin-right:16px;">More ${esc(page.meta?.category || 'places')} in ${esc(page.meta?.city || 'Morocco')}</a>` +
+      `<a href="/" style="color:#71685F;">Moroccan Mate Home</a>` +
+      `</div>` +
+      `</div>`;
+  } else {
+    preContent =
+      `<div style="max-width:840px;margin:32px auto;padding:0 20px;font-family:system-ui,-apple-system,sans-serif;color:#29231F;">` +
+      `<h1 style="font-size:32px;color:#173042;margin:0 0 12px;line-height:1.2;">${esc(page.h1)}</h1>` +
+      `<p style="font-size:16px;line-height:1.5;color:#555;margin:0 0 24px;">${esc(page.description)}</p>` +
+      faqHtml +
+      `<div style="margin-top:32px;padding-top:20px;border-top:1px solid #e9e1d4;font-size:13px;">` +
+      `<a href="${esc(browseUrl || '/finder')}" style="color:#C9A84C;font-weight:bold;margin-right:16px;">Browse Morocco Guide</a>` +
+      `<a href="/" style="color:#71685F;">Moroccan Mate Home</a>` +
+      `</div>` +
+      `</div>`;
+  }
+
   const noscript =
     `<noscript><div style="font-family:Georgia,serif;max-width:720px;margin:48px auto;padding:0 24px;">` +
     `<h1>${esc(page.h1)}</h1>` +
@@ -103,6 +156,7 @@ for (const page of pages) {
 
   const html = stripped
     .replace('</head>', `    ${head}\n  </head>`)
+    .replace('<div id="root" style="height: 100%;"></div>', `<div id="root" style="height: 100%;">${preContent}</div>`)
     .replace('</body>', `${noscript}\n</body>`);
 
   const file = join(dist, page.path.replace(/^\//, ''), 'index.html');
@@ -112,3 +166,11 @@ for (const page of pages) {
 }
 
 console.log(`[prerender] wrote ${count} pre-rendered pages into dist/`);
+
+// Ensure robots.txt and sitemap.xml are synced to dist
+try {
+  copyFileSync(resolve(process.cwd(), 'public', 'robots.txt'), resolve(dist, 'robots.txt'));
+  copyFileSync(resolve(process.cwd(), 'public', 'sitemap.xml'), resolve(dist, 'sitemap.xml'));
+} catch (e) {
+  console.warn('[prerender] warning syncing robots/sitemap:', e);
+}

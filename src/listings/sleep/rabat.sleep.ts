@@ -271,7 +271,7 @@ export const rabatSleep: SleepListing[] = [
       lat: 33.920364,
       lng: -6.840915
     },
-    tags: ["5-star","pool","spa","airport-shuttle","parking","luxury","family-favorite","heritage"]
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "r-sleep-2",
@@ -388,14 +388,14 @@ export const rabatSleep: SleepListing[] = [
       lat: 33.955018,
       lng: -6.867267
     },
-    tags: ["5-star","pool","rooftop-terrace","spa","airport-shuttle","parking"]
+    tags: []
   },
   {
     id: "r-sleep-3",
     city: "rabat",
     name: "Euphoriad",
     type: "riad",
-    neighborhood: "Medina",
+    neighborhood: 'Médina Ancienne',
     description: "A luxurious riad blending traditional zellij with ultra-modern architecture. A glass-ceiling courtyard creates an airy atmosphere, while the rooftop pool offers a rare medina escape.",
     pricePerNight: 210,
     lifestyle: "premium",
@@ -505,7 +505,7 @@ export const rabatSleep: SleepListing[] = [
       lat: 34.027441,
       lng: -6.839085
     },
-    tags: ["in-medina","pool","rooftop-terrace","spa","airport-shuttle","heritage"]
+    tags: ["heritage"]
   },
   {
     id: "r-sleep-4",
@@ -622,14 +622,14 @@ export const rabatSleep: SleepListing[] = [
       lat: 33.964868,
       lng: -6.847702
     },
-    tags: ["pool","spa","airport-shuttle","parking","family-favorite"]
+    tags: ["family-favorite"]
   },
   {
     id: "r-sleep-5",
     city: "rabat",
     name: "Riad Amaris",
     type: "riad",
-    neighborhood: "Medina",
+    neighborhood: 'Médina Ancienne',
     description: "A welcoming family-run boutique riad with cozy spaces, a peaceful fountain patio under a glass ceiling, and warm Moroccan hospitality.",
     pricePerNight: 130,
     lifestyle: "balanced",
@@ -739,14 +739,14 @@ export const rabatSleep: SleepListing[] = [
       lat: 34.02511,
       lng: -6.840177
     },
-    tags: ["in-medina","rooftop-terrace","airport-shuttle","family-favorite"]
+    tags: ["family-favorite"]
   },
   {
     id: "r-sleep-6",
     city: "rabat",
     name: "L'Alcazar",
     type: "riad",
-    neighborhood: "Medina",
+    neighborhood: 'Médina Ancienne',
     description: "A hidden gem in Rabat medina, L'Alcazar is an elegantly restored riad with a spacious patio and beautifully decorated rooms, combining historic charm with modern comfort.",
     pricePerNight: 145,
     lifestyle: "balanced",
@@ -854,7 +854,7 @@ export const rabatSleep: SleepListing[] = [
       lat: 34.027159,
       lng: -6.840476
     },
-    tags: ["in-medina","rooftop-terrace","spa","airport-shuttle","heritage"]
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "r-sleep-7",
@@ -971,14 +971,14 @@ export const rabatSleep: SleepListing[] = [
       lat: 33.943656,
       lng: -6.815736
     },
-    tags: ["in-medina","rooftop-terrace","spa","airport-shuttle","heritage"]
+    tags: ["heritage"]
   },
   {
     id: "r-sleep-8",
     city: "rabat",
     name: "Riad Dar El Kebira",
     type: "riad",
-    neighborhood: "Medina",
+    neighborhood: 'Médina Ancienne',
     description: "A luxurious historic riad arranged around two tiled courtyard patios with fountains, warm zellij, and carved plasterwork for an authentic royal feel.",
     pricePerNight: 180,
     lifestyle: "balanced",
@@ -1088,14 +1088,14 @@ export const rabatSleep: SleepListing[] = [
       lat: 34.028225,
       lng: -6.835939
     },
-    tags: ["5-star","pool","spa","parking","airport-shuttle","heritage"]
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "r-sleep-9",
     city: "rabat",
     name: "Riad Kalaa",
     type: "riad",
-    neighborhood: "Medina",
+    neighborhood: 'Médina Ancienne',
     description: "A magnificent 19th-century riad within Rabat's medina ramparts, blending historic architecture and contemporary comfort with a pool, hammam, and restaurant.",
     pricePerNight: 160,
     lifestyle: "premium",
@@ -1205,14 +1205,14 @@ export const rabatSleep: SleepListing[] = [
       lat: 34.027892,
       lng: -6.837525
     },
-    tags: ["in-medina","pool","rooftop-terrace","spa","airport-shuttle","heritage"]
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "r-sleep-10",
     city: "rabat",
     name: "Riad Dar Soufa",
     type: "riad",
-    neighborhood: "Medina",
+    neighborhood: 'Médina Ancienne',
     description: "An elegant historic riad around a peaceful courtyard with a fountain. White arches and Moroccan carvings create a serene sanctuary near the souks.",
     pricePerNight: 120,
     lifestyle: "balanced",
@@ -1322,14 +1322,14 @@ export const rabatSleep: SleepListing[] = [
       lat: 34.024241,
       lng: -6.839629
     },
-    tags: ["5-star","pool","ocean-view","rooftop-terrace","spa","parking","airport-shuttle","family-favorite"]
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "r-sleep-11",
     city: "rabat",
     name: "Dar Shâan",
     type: "riad",
-    neighborhood: "Medina",
+    neighborhood: 'Médina Ancienne',
     description: "A stylish riad combining boho-chic decor with Andalusian craftsmanship, with a rooftop pool and views across the medina toward the Atlantic.",
     pricePerNight: 140,
     lifestyle: "balanced",
@@ -1439,7 +1439,7 @@ export const rabatSleep: SleepListing[] = [
       lat: 34.13945,
       lng: -6.725164
     },
-    tags: ["5-star","pool","spa","parking","airport-shuttle"]
+    tags: ["heritage"]
   },
   {
     id: "r-sleep-12",
@@ -1556,14 +1556,14 @@ export const rabatSleep: SleepListing[] = [
       lat: 33.900296,
       lng: -6.998432
     },
-    tags: ["5-star","ocean-view","pool","spa","parking","airport-shuttle","family-favorite"]
+    tags: ["family-favorite"]
   },
   {
     id: "r-sleep-13",
     city: "rabat",
     name: "Riad Dar Zen",
     type: "riad",
-    neighborhood: "Medina",
+    neighborhood: 'Médina Ancienne',
     description: "An adults-only sanctuary with modern minimalist design and traditional Moroccan stonework, featuring an indoor plunge pool and quiet library.",
     pricePerNight: 83,
     lifestyle: "balanced",
@@ -1673,7 +1673,7 @@ export const rabatSleep: SleepListing[] = [
       lat: 34.022499,
       lng: -6.838039
     },
-    tags: ["in-medina","rooftop-terrace","spa","airport-shuttle"]
+    tags: []
   },
   {
     id: "r-sleep-14",
@@ -1790,7 +1790,7 @@ export const rabatSleep: SleepListing[] = [
       lat: 34.017433,
       lng: -6.828154
     },
-    tags: ["in-medina","pool","rooftop-terrace","airport-shuttle"]
+    tags: ["heritage"]
   },
   {
     id: "r-sleep-15",
@@ -1907,14 +1907,14 @@ export const rabatSleep: SleepListing[] = [
       lat: 34.025508,
       lng: -6.84253
     },
-    tags: ["in-medina","rooftop-terrace","airport-shuttle"]
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "r-sleep-16",
     city: "rabat",
     name: "Riad Dar Fassi",
     type: "riad",
-    neighborhood: "Medina",
+    neighborhood: 'Médina Ancienne',
     description: "A renovated budget-friendly riad with colorful stained-glass windows, traditional archways, family-style welcome, and a peaceful old-city atmosphere.",
     pricePerNight: 48,
     lifestyle: "lean",
@@ -2024,14 +2024,14 @@ export const rabatSleep: SleepListing[] = [
       lat: 34.026641,
       lng: -6.835068
     },
-    tags: ["in-medina","rooftop-terrace","heritage","airport-shuttle"]
+    tags: ["heritage"]
   },
   {
     id: "r-sleep-17",
     city: "rabat",
     name: "Riad Kalaa",
     type: "riad",
-    neighborhood: "Medina",
+    neighborhood: 'Médina Ancienne',
     description: "Dating back to 1815, this restored riad within the medina walls features Moorish brickwork, an outdoor pool, and fireplace lounges.",
     pricePerNight: 120,
     lifestyle: "balanced",
@@ -2141,14 +2141,14 @@ export const rabatSleep: SleepListing[] = [
       lat: 34.027892,
       lng: -6.837525
     },
-    tags: ["in-medina","rooftop-terrace","airport-shuttle"]
+    tags: ["family-favorite", "heritage"]
   },
   {
     id: "r-sleep-18",
     city: "rabat",
     name: "Riad El Maâti",
     type: "riad",
-    neighborhood: "Medina",
+    neighborhood: 'Médina Ancienne',
     description: "An authentic budget-friendly riad close to Bab Chellah, with a traditional stone courtyard, cozy seating, plants, and rare elevator access.",
     pricePerNight: 53,
     lifestyle: "lean",
@@ -2258,7 +2258,7 @@ export const rabatSleep: SleepListing[] = [
       lat: 34.026152,
       lng: -6.83484
     },
-    tags: ["in-medina","rooftop-terrace","heritage"]
+    tags: ["heritage"]
   },
   {
     id: "r-sleep-19",
@@ -2375,14 +2375,14 @@ export const rabatSleep: SleepListing[] = [
       lat: 34.026378,
       lng: -6.834424
     },
-    tags: ["in-medina","rooftop-terrace","airport-shuttle"]
+    tags: ["dorm", "heritage"]
   },
   {
     id: "r-sleep-20",
     city: "rabat",
     name: "Riad Jbara",
     type: "riad",
-    neighborhood: "Medina",
+    neighborhood: 'Médina Ancienne',
     description: "A budget-friendly riad with a quaint courtyard and traditional Moroccan brickwork, offering a relaxed local atmosphere in the old city.",
     pricePerNight: 55,
     lifestyle: "lean",
@@ -2492,6 +2492,6 @@ export const rabatSleep: SleepListing[] = [
       lat: 34.026834,
       lng: -6.835832
     },
-    tags: ["in-medina","rooftop-terrace"]
+    tags: []
   }
 ]

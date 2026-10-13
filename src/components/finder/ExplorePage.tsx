@@ -77,9 +77,14 @@ export default function ExplorePage({ onClose }: ExplorePageProps) {
   useEffect(() => {
     if (!pendingUrlSync.current || pendingUrlSync.current !== view) return;
     const params = new URLSearchParams(location.search);
-    params.set('view', view);
+    if (view === 'results') {
+      params.delete('view');
+    } else {
+      params.set('view', view);
+    }
     params.delete('start');
-    navigate(`${location.pathname}?${params.toString()}`, { replace: false });
+    const queryString = params.toString();
+    navigate(`${location.pathname}${queryString ? `?${queryString}` : ''}`, { replace: false });
     pendingUrlSync.current = null;
   }, [view, location.pathname, location.search, navigate]);
 
@@ -150,7 +155,7 @@ export default function ExplorePage({ onClose }: ExplorePageProps) {
         useParameterStore.getState().setCity(param1);
         
         if (param2) {
-          const isListingId = !['food', 'eat', 'sleep', 'things-to-do', 'things', 'experiences', 'cities', 'shopping', 'shop', 'photos'].includes(param2.toLowerCase());
+          const isListingId = !['food', 'eat', 'sleep', 'stay', 'things-to-do', 'things', 'experiences', 'cities', 'shopping', 'shop', 'photos'].includes(param2.toLowerCase());
           
           if (isListingId) {
             let categoryId: any = 'things-to-do';
@@ -194,69 +199,67 @@ export default function ExplorePage({ onClose }: ExplorePageProps) {
               targetCategory = 'shopping';
             } else if (categoryId === 'things' || categoryId === 'things-to-do') {
               targetCategory = 'things-to-do';
+            } else if (categoryId === 'stay' || categoryId === 'sleep') {
+              targetCategory = 'sleep';
             }
             setActiveCategory(targetCategory);
             
-            const selectedDish = params.get('dish');
-            const selectedSouvenir = params.get('souvenir');
+            const featureParam = param3 || params.get('feature') || params.get('tag') || params.get('intent');
+            const selectedDish = params.get('dish') || (targetCategory === 'food' ? param3 : null);
+            const selectedSouvenir = params.get('souvenir') || (targetCategory === 'shopping' ? param3 : null);
             const selectedAttraction = params.get('attraction');
             const isStartQuiz = params.get('start') === 'quiz';
 
-            if (categoryId === 'food' || categoryId === 'eat') {
-              if (selectedDish) {
-                setQuizAnswer('dish-filter', selectedDish);
+            if (targetCategory === 'food') {
+              if (selectedDish || featureParam) {
+                if (selectedDish) setQuizAnswer('dish-filter', selectedDish);
                 setView('results');
-              } else {
+              } else if (isStartQuiz) {
                 setView('quiz');
+              } else {
+                setView('results');
               }
-            } else if (categoryId === 'sleep') {
-              const featureParam = param3 || params.get('feature') || params.get('tag');
+            } else if (targetCategory === 'sleep') {
               if (featureParam) {
                 setView('results');
-              } else {
+              } else if (isStartQuiz) {
                 setView('quiz');
+              } else {
+                setView('results');
               }
-            } else if (categoryId === 'things-to-do' || categoryId === 'things') {
+            } else if (targetCategory === 'things-to-do') {
               if (selectedAttraction) {
                 setActiveItem(selectedAttraction);
                 setView('detail');
+              } else if (featureParam) {
+                setView('results');
               } else {
-                const subParam = params.get('sub') as ThingsToDoSubCategory | null;
-                const intentParam = params.get('intent') as any;
-                const typeParam = params.get('type') as any;
-                
-                if (subParam) {
+                const subParam = (params.get('sub') || param3) as ThingsToDoSubCategory | null;
+                if (subParam && ['culture', 'wellness', 'desert-nature', 'photography', 'social', 'sport'].includes(subParam)) {
                   setActiveSubCategory(subParam);
                   if (subParam === 'sport') {
-                    if (intentParam) {
-                      setSportIntent(intentParam);
-                      if (typeParam) {
-                        setSportFacilityType(typeParam);
-                      }
-                      setView('quiz');
-                    } else {
-                      setView('sport-path');
-                    }
+                    setView('sport-path');
                   } else {
-                    setView('quiz');
+                    setQuizAnswer('interests', subParam === 'culture' ? 'culture' : subParam === 'wellness' ? 'slow' : subParam === 'desert-nature' ? 'adventure' : subParam === 'photography' ? 'photography-interest' : subParam === 'social' ? 'social' : 'adventure');
+                    setView(isStartQuiz ? 'quiz' : 'results');
                   }
-                } else {
+                } else if (isStartQuiz) {
                   setView('quiz');
+                } else {
+                  setView('results');
                 }
               }
-            } else if (categoryId === 'shopping' || categoryId === 'shop') {
-              if (selectedSouvenir) {
-                setQuizAnswer('shopping-category', 'gifts-local');
+            } else if (targetCategory === 'shopping') {
+              if (selectedSouvenir || featureParam) {
+                if (selectedSouvenir) setQuizAnswer('shopping-category', 'gifts-local');
                 setView('results');
-              } else {
+              } else if (isStartQuiz) {
                 setView('quiz');
+              } else {
+                setView('results');
               }
             } else {
-              if (isStartQuiz) {
-                setView('quiz');
-              } else {
-                setView('results');
-              }
+              setView(isStartQuiz ? 'quiz' : 'results');
             }
           }
         } else {
@@ -405,7 +408,7 @@ export default function ExplorePage({ onClose }: ExplorePageProps) {
       <div className="fixed inset-0 opacity-[0.03] pointer-events-none bg-[url('/textures/paper-grain.svg')] bg-repeat" />
 
       {/* Header */}
-      <header className="px-6 md:px-12 py-4 bg-white/40 backdrop-blur-md flex items-center justify-between relative z-[80] border-b border-stone-100">
+      <header className="px-6 md:px-12 py-4 bg-white/40 backdrop-blur-md flex items-center justify-between relative z-20 border-b border-stone-100">
         <div className="flex items-center gap-3">
           <button 
             onClick={handleBack}
@@ -444,7 +447,7 @@ export default function ExplorePage({ onClose }: ExplorePageProps) {
       </header>
 
       {/* Content */}
-      <main className="max-w-7xl mx-auto p-4 md:p-10 pt-16 relative z-[70]">
+      <main className="max-w-7xl mx-auto p-4 md:p-8 pt-4 md:pt-6 relative z-30">
         <AnimatePresence mode="wait">
           <motion.div
             key={view + (displayCategory || '')}
@@ -498,7 +501,63 @@ export default function ExplorePage({ onClose }: ExplorePageProps) {
                 />
               )}
 
-              {['quiz', 'curated-eat', 'curated-sleep', 'curated-things', 'shopping-categories'].includes(view) && activeCategory && (
+              {view === 'curated-eat' && (
+                <div className="bg-white/80 backdrop-blur-md border border-stone-200/60 rounded-[32px] p-6 md:p-12 shadow-sm relative overflow-hidden">
+                  <EatCuratedView
+                    cityId={cityId || 'marrakech'}
+                    onSelectDish={(_id, name) => {
+                      setQuizAnswer('dish-filter', name);
+                      changeView('results', true);
+                    }}
+                    onSkipToQuiz={() => changeView('results', true)}
+                    onBack={handleBack}
+                  />
+                </div>
+              )}
+
+              {view === 'curated-sleep' && (
+                <div className="bg-white/80 backdrop-blur-md border border-stone-200/60 rounded-[32px] p-6 md:p-12 shadow-sm relative overflow-hidden">
+                  <SleepCuratedView
+                    cityId={cityId || 'marrakech'}
+                    onSelectCohort={(_cohort, style) => {
+                      setQuizAnswer('stay-style', style);
+                      changeView('results', true);
+                    }}
+                    onSkipToQuiz={() => changeView('results', true)}
+                  />
+                </div>
+              )}
+
+              {view === 'curated-things' && (
+                <div className="bg-white/80 backdrop-blur-md border border-stone-200/60 rounded-[32px] p-6 md:p-12 shadow-sm relative overflow-hidden">
+                  <ThingsCuratedView
+                    cityId={cityId || 'marrakech'}
+                    onSelectActivity={(_id, name) => {
+                      setQuizAnswer('interests', name);
+                      changeView('results', true);
+                    }}
+                    onSkipToQuiz={() => changeView('results', true)}
+                  />
+                </div>
+              )}
+
+              {view === 'shopping-categories' && (
+                <div className="bg-white/80 backdrop-blur-md border border-stone-200/60 rounded-[32px] p-6 md:p-12 shadow-sm relative overflow-hidden">
+                  <ShoppingCategoryPage
+                    onSelectCategory={(catId) => {
+                      setQuizAnswer('shopping-category', catId);
+                      changeView('results', true);
+                    }}
+                    onSelectSubTag={(tag) => {
+                      setQuizAnswer('shopping-category', tag);
+                      changeView('results', true);
+                    }}
+                    onSkipToQuiz={() => changeView('results', true)}
+                  />
+                </div>
+              )}
+
+              {view === 'quiz' && activeCategory && (
                 <div className="bg-white/60 backdrop-blur-md border border-stone-200/60 rounded-[32px] p-6 md:p-12 shadow-sm relative overflow-hidden">
                   {/* Subtle design element: elegant pattern or glow */}
                   <div className="absolute top-0 right-0 w-64 h-64 bg-stone-100 rounded-full blur-3xl -z-10 opacity-30" />

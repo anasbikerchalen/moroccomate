@@ -8,6 +8,11 @@ import './index.css';
 import * as i18n from './i18n';
 import HubErrorBoundary from './components/ui/HubErrorBoundary.tsx';
 
+// Auto-reload on Vite module preload failure (e.g. stale chunk or dev server restart)
+window.addEventListener('vite:preloadError', () => {
+  window.location.reload();
+});
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <I18nextProvider i18n={i18n.default}>

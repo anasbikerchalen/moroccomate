@@ -5,7 +5,7 @@ export const marrakechThings: ThingToDoListing[] = [
     id: "marrakech-jardin-majorelle",
     city: "marrakech",
     name: "Jardin Majorelle",
-    neighborhood: "Gueliz",
+    neighborhood: 'Guéliz',
     description: "A stunning, vibrant botanical garden designed by French artist Jacques Majorelle, featuring cobalt-blue buildings, towering cacti, and tranquil paths. It was later saved and restored by fashion icons Yves Saint Laurent and Pierre Bergé.",
     price: 16,
     lifestyle: ["premium"],
@@ -21,7 +21,12 @@ export const marrakechThings: ThingToDoListing[] = [
     googleRating: 4.4,
     reviewCount: 58264,
     // googlePlaceId: "PLACE_ID_HERE",
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Jardin+Majorelle%2C+Marrakech",
+    address: "Rue Yves Saint Laurent, Gueliz, Marrakech 40090",
+    coordinates: {
+      lat: 31.641434,
+      lng: -8.002327
+    },
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=31.641434,-8.002327",
     safetyLevel: 5,
     energyLevel: "moderate",
     transportMode: "taxi",
@@ -69,7 +74,12 @@ export const marrakechThings: ThingToDoListing[] = [
     googleRating: 4.3,
     reviewCount: 22374,
     // googlePlaceId: "PLACE_ID_HERE",
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Bahia+Palace%2C+Marrakech",
+    address: "Avenue Imam El Ghazali, Mellah, Marrakech 40000",
+    coordinates: {
+      lat: 31.621592,
+      lng: -7.982231
+    },
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=31.621592,-7.982231",
     safetyLevel: 5,
     energyLevel: "moderate",
     transportMode: "walkable",
@@ -117,7 +127,12 @@ export const marrakechThings: ThingToDoListing[] = [
     googleRating: 4.7,
     reviewCount: 11525,
     // googlePlaceId: "PLACE_ID_HERE",
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Ben+Youssef+Madrasa%2C+Marrakech",
+    address: "Rue Assouel, Medina, Marrakech 40000",
+    coordinates: {
+      lat: 31.63194,
+      lng: -7.986194
+    },
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=31.63194,-7.986194",
     safetyLevel: 5,
     energyLevel: "moderate",
     transportMode: "walkable",
@@ -165,7 +180,12 @@ export const marrakechThings: ThingToDoListing[] = [
     googleRating: 4.3,
     reviewCount: 49648,
     // googlePlaceId: "PLACE_ID_HERE",
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Jemaa+el-Fnaa%2C+Marrakech",
+    address: "Place Jemaa el-Fnaa, Medina, Marrakech 40000",
+    coordinates: {
+      lat: 31.625502,
+      lng: -7.988936
+    },
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=31.625502,-7.988936",
     safetyLevel: 3,
     energyLevel: "active",
     transportMode: "walkable",
@@ -213,7 +233,12 @@ export const marrakechThings: ThingToDoListing[] = [
     googleRating: 3.9,
     reviewCount: 14777,
     // googlePlaceId: "PLACE_ID_HERE",
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Saadian+Tombs%2C+Marrakech",
+    address: "Rue de la Kasbah, Kasbah, Marrakech 40000",
+    coordinates: {
+      lat: 31.6173,
+      lng: -7.9887
+    },
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=31.6173,-7.9887",
     safetyLevel: 5,
     energyLevel: "relaxed",
     transportMode: "walkable",
@@ -261,7 +286,12 @@ export const marrakechThings: ThingToDoListing[] = [
     googleRating: 4.5,
     reviewCount: 17678,
     // googlePlaceId: "PLACE_ID_HERE",
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Koutoubia+Mosque%2C+Marrakech",
+    address: "Medina, Marrakech 40000",
+    coordinates: {
+      lat: 31.624124,
+      lng: -7.993541
+    },
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=31.624124,-7.993541",
     safetyLevel: 5,
     energyLevel: "relaxed",
     transportMode: "walkable",
@@ -296,7 +326,12 @@ export const marrakechThings: ThingToDoListing[] = [
     googleRating: 4.3,
     reviewCount: 10556,
     // googlePlaceId: "PLACE_ID_HERE",
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=El+Badi+Palace%2C+Marrakech",
+    address: "Ksibat Nhass, Kasbah, Marrakech 40000",
+    coordinates: {
+      lat: 31.6183,
+      lng: -7.9858
+    },
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=31.6183,-7.9858",
     safetyLevel: 5,
     energyLevel: "moderate",
     transportMode: "walkable",
@@ -331,7 +366,12 @@ export const marrakechThings: ThingToDoListing[] = [
     googleRating: 4.2,
     reviewCount: 11636,
     // googlePlaceId: "PLACE_ID_HERE",
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Le+Jardin+Secret%2C+Marrakech",
+    address: "121 Rue Mouassine, Medina, Marrakech 40030",
+    coordinates: {
+      lat: 31.63087,
+      lng: -7.98993
+    },
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=31.63087,-7.98993",
     safetyLevel: 5,
     energyLevel: "relaxed",
     transportMode: "walkable",
@@ -379,7 +419,12 @@ export const marrakechThings: ThingToDoListing[] = [
     googleRating: 4.5,
     reviewCount: 2425,
     // googlePlaceId: "PLACE_ID_HERE",
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Maison+de+la+Photographie%2C+Marrakech",
+    address: "46 Rue Bin Lafnadek, Kaat Benahid, Marrakech 40030",
+    coordinates: {
+      lat: 31.632,
+      lng: -7.98424
+    },
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=31.632,-7.98424",
     safetyLevel: 5,
     energyLevel: "relaxed",
     transportMode: "walkable",
@@ -427,7 +472,12 @@ export const marrakechThings: ThingToDoListing[] = [
     googleRating: 4.3,
     reviewCount: 1323,
     // googlePlaceId: "PLACE_ID_HERE",
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Dar+Si+Said+Museum%2C+Marrakech",
+    address: "8 Rue de la Bahia, Riad Zitoun Jdid, Marrakech 40000",
+    coordinates: {
+      lat: 31.62331,
+      lng: -7.98409
+    },
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=31.62331,-7.98409",
     safetyLevel: 5,
     energyLevel: "relaxed",
     tags: ["cultural-tour", "medina", "off-the-beaten-path", "private", "relaxed", "walk-in"],
@@ -441,7 +491,7 @@ export const marrakechThings: ThingToDoListing[] = [
     id: "marrakech-cyber-parc",
     city: "marrakech",
     name: "Cyber Parc Arsat Moulay Abdeslam",
-    neighborhood: "Gueliz",
+    neighborhood: 'Guéliz',
     description: "A unique, vast 18th-century garden that seamlessly blends lush, historic flora with digital connectivity. Walk along paths shaded by olive and orange trees and enjoy the free public Wi-Fi hotspots.",
     price: 0,
     lifestyle: ["lean"],
@@ -457,7 +507,12 @@ export const marrakechThings: ThingToDoListing[] = [
     googleRating: 4.3,
     reviewCount: 3500,
     // googlePlaceId: "PLACE_ID_HERE",
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Cyber+Parc+Arsat+Moulay+Abdeslam%2C+Marrakech",
+    address: "Boulevard Mohamed V, Gueliz, Marrakech 40000",
+    coordinates: {
+      lat: 31.62672,
+      lng: -7.99914
+    },
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=31.62672,-7.99914",
     safetyLevel: 5,
     energyLevel: "relaxed",
     isKidFriendly: true,
@@ -488,7 +543,12 @@ export const marrakechThings: ThingToDoListing[] = [
     googleRating: 4.4,
     reviewCount: 2503,
     // googlePlaceId: "PLACE_ID_HERE",
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Souk+Semmarine%2C+Marrakech",
+    address: "Souk Semmarine, Medina, Marrakech 40000",
+    coordinates: {
+      lat: 31.62783,
+      lng: -7.98811
+    },
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=31.62783,-7.98811",
     safetyLevel: 4,
     energyLevel: "active",
     isKidFriendly: true,

@@ -1243,7 +1243,7 @@ export const alHoceimaSleep: SleepListing[] = [
     id: 'ah-sleep-13',
     name: 'Seaview Carabonita',
     type: 'apartment',
-    neighborhood: 'Cala Bonita',
+    neighborhood: 'Calabonita',
     city: 'al_hoceima',
     description: 'An exceptional beachfront apartment offering a serene getaway right on the shores of Cala Bonita Beach. It boasts private balconies with dramatic cliff views and a highly intimate, restful seaside vibe.',
     pricePerNight: 70,

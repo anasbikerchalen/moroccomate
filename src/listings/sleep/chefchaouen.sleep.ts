@@ -235,7 +235,9 @@ export const chefchaouenSleep: SleepListing[] = [
     ],
     cancellationPolicy: 'Moderate 48h',
     childPolicy: 'Children welcome',
-    officialWebsite: '[https://www.linaryad.com](https://www.linaryad.com)',
+    contactWhatsApp: '+212661578144',
+    bookingUrl: 'https://www.linaryad.com',
+    officialWebsite: 'https://www.linaryad.com',
     instagramHandle: '@linaryadspa',
     // googlePlaceId: "PLACE_ID_HERE",
     reviewHighlights: {
@@ -328,7 +330,9 @@ export const chefchaouenSleep: SleepListing[] = [
     ],
     cancellationPolicy: 'Moderate 48h',
     childPolicy: 'Children welcome',
-    officialWebsite: '[https://www.darechchaouen.com](https://www.darechchaouen.com)',
+    contactWhatsApp: '+212678077595',
+    bookingUrl: 'https://www.darechchaouen.com',
+    officialWebsite: 'https://www.darechchaouen.com',
     instagramHandle: '@darechchaouen',
     // googlePlaceId: "PLACE_ID_HERE",
     reviewHighlights: {
@@ -423,7 +427,9 @@ export const chefchaouenSleep: SleepListing[] = [
     ],
     cancellationPolicy: 'Moderate 7-day',
     childPolicy: 'Children welcome',
-    officialWebsite: '[https://www.darjasmine.com](https://www.darjasmine.com)',
+    contactWhatsApp: '+212661849856',
+    bookingUrl: 'https://www.darjasmine.com',
+    officialWebsite: 'https://www.darjasmine.com',
     instagramHandle: '@darjasmine',
     // googlePlaceId: "PLACE_ID_HERE",
     reviewHighlights: {

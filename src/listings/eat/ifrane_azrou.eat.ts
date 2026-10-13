@@ -50,6 +50,8 @@ export const ifrane_azrouEat: EatListing[] = [
     reservationMethod: ['phone', 'none'],
     reservationContact: '+212535566023',
     googleMapsUrl: 'https://maps.google.com/?q=Cafe+Restaurant+La+Paix+Ifrane',
+    website: 'not-available',
+    instagram: 'not-available',
     bestDishes: ['Lamb Tagine with Prunes', 'French Onion Soup', 'Hot Chocolate & Croissants'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
@@ -112,6 +114,8 @@ export const ifrane_azrouEat: EatListing[] = [
     reservationMethod: ['phone', 'none'],
     reservationContact: '+212535567789',
     googleMapsUrl: 'https://maps.google.com/?q=My+Lil+Rome+Ifrane',
+    website: 'not-available',
+    instagram: 'not-available',
     bestDishes: ['Pizza Margherita Special', 'Pesto Penne', 'Garlic Cheese Bread'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
@@ -174,6 +178,8 @@ export const ifrane_azrouEat: EatListing[] = [
     reservationMethod: ['none'],
     reservationContact: 'None',
     googleMapsUrl: 'https://maps.google.com/?q=Foodies+Ifrane',
+    website: 'not-available',
+    instagram: 'not-available',
     bestDishes: ['Smash Bacon Cheeseburger', 'Crispy Chicken Tender Combo', 'Loaded Truffle Fries'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
@@ -236,6 +242,8 @@ export const ifrane_azrouEat: EatListing[] = [
     reservationMethod: ['none'],
     reservationContact: 'None',
     googleMapsUrl: 'https://maps.google.com/?q=Cedar+Gouraud+Azrou',
+    website: 'not-available',
+    instagram: 'not-available',
     bestDishes: ['Berber Lamb Tagine with Vegetables', 'Charcoal Grilled Kefta Brochettes', 'Middle Atlas Wild Thyme Tea'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
@@ -300,6 +308,8 @@ export const ifrane_azrouEat: EatListing[] = [
     reservationMethod: ['phone'],
     reservationContact: '+212535864000',
     googleMapsUrl: 'https://maps.google.com/?q=Le+Cedray+Michlifen+Ifrane',
+    website: 'not-available',
+    instagram: 'not-available',
     bestDishes: ['Foie Gras Poêlé', 'Middle Atlas Trout Meunière', 'Filet de Boeuf aux Morilles'],
     tip: 'Reservations are required. Dress code is smart elegant, fitting this palatial mountain lodge.',
 
@@ -362,6 +372,8 @@ export const ifrane_azrouEat: EatListing[] = [
     reservationMethod: ['phone', 'none'],
     reservationContact: '+212535864000',
     googleMapsUrl: 'https://maps.google.com/?q=Le+Chalet+Michlifen+Ifrane',
+    website: 'not-available',
+    instagram: 'not-available',
     bestDishes: ['Traditional Cheese Fondue', 'Michlifen Club Sandwich', 'Artisanal Hot Chocolate'],
     tip: 'Request a terrace table on clear sunny days for breathtaking views over the snow-capped cedar ridge.',
 
@@ -422,6 +434,8 @@ export const ifrane_azrouEat: EatListing[] = [
     reservationMethod: ['phone'],
     reservationContact: '+212535864000',
     googleMapsUrl: 'https://maps.google.com/?q=L+Oriental+Michlifen+Ifrane',
+    website: 'not-available',
+    instagram: 'not-available',
     bestDishes: ['Royal Pigeon Pastilla', 'Slow-cooked Atlas Lamb Tagine with Saffron', 'Orange Blossom Pastilla Tart'],
     tip: 'Book ahead during holiday seasons; this is considered the premier traditional Moroccan dinner setting in Ifrane.',
 
@@ -484,6 +498,8 @@ export const ifrane_azrouEat: EatListing[] = [
     reservationMethod: ['phone'],
     reservationContact: '+212535864000',
     googleMapsUrl: 'https://maps.google.com/?q=La+Ferme+Michlifen+Ifrane',
+    website: 'not-available',
+    instagram: 'not-available',
     bestDishes: ['Clay-oven Baked Country Bread', 'Farm Garden Vegetable Tagine', 'Fresh Mountain Herb Tea'],
     tip: 'Perfect for families with kids who will love exploring the nearby vegetable plots and herb gardens.',
 
@@ -543,6 +559,8 @@ export const ifrane_azrouEat: EatListing[] = [
     reservationMethod: ['phone', 'none'],
     reservationContact: '+212535566790',
     googleMapsUrl: 'https://maps.google.com/?q=L+Empreinte+d+Ifrane',
+    website: 'not-available',
+    instagram: 'not-available',
     bestDishes: ['Beef Tagine with Almonds', 'Chicken Teriyaki Wok', 'Artisanal Waffles with Chantilly'],
     tip: 'Great central wifi hub with comfortable armchairs, ideal for remote working or reading in the afternoon.',
 
@@ -605,6 +623,8 @@ export const ifrane_azrouEat: EatListing[] = [
     reservationMethod: ['none'],
     reservationContact: 'None',
     googleMapsUrl: 'https://maps.google.com/?q=For+You+Restaurant+Ifrane',
+    website: 'not-available',
+    instagram: 'not-available',
     bestDishes: ['Cheese & Smoked Turkey Crepe', 'Double Beef Burger Deluxe', 'Nutella Banana Waffle'],
     tip: 'A student favorite from Al Akhawayn University; arrive before 20:00 to snag a booth table.',
 
@@ -667,6 +687,8 @@ export const ifrane_azrouEat: EatListing[] = [
     reservationMethod: ['none'],
     reservationContact: 'None',
     googleMapsUrl: 'https://maps.google.com/?q=Houari+Grill+Ifrane',
+    website: 'not-available',
+    instagram: 'not-available',
     bestDishes: ['Charcoal Kefta Brochettes', 'Atlas Lamb Chops', 'Fresh Tomato Onion Salad'],
     tip: 'Choose your cuts directly at the butcher counter, and they will grill them fresh to order right in front of you.',
 
@@ -729,6 +751,8 @@ export const ifrane_azrouEat: EatListing[] = [
     reservationMethod: ['phone'],
     reservationContact: '+212535566207',
     googleMapsUrl: 'https://maps.google.com/?q=Grand+Hotel+Ifrane',
+    website: 'not-available',
+    instagram: 'not-available',
     bestDishes: ['Fresh Atlas Trout with Lemon Butter', 'Filet de Boeuf Grillé', 'Warm Tarte Tatin'],
     tip: 'One of the few spots in central Ifrane outside of Michlifen that serves Moroccan wine alongside fresh mountain trout.',
 
@@ -791,6 +815,8 @@ export const ifrane_azrouEat: EatListing[] = [
     reservationMethod: ['none'],
     reservationContact: 'None',
     googleMapsUrl: 'https://maps.google.com/?q=Restaurant+Hassan+Azrou',
+    website: 'not-available',
+    instagram: 'not-available',
     bestDishes: ['Fresh Pan-Fried Atlas Trout', 'Grilled Lamb Cutlets', 'Veal Tagine with Prunes & Almonds'],
     tip: 'Widely recognized as the premier value-for-money spot in the Middle Atlas for fresh river trout.',
 
@@ -853,6 +879,8 @@ export const ifrane_azrouEat: EatListing[] = [
     reservationMethod: ['none'],
     reservationContact: 'None',
     googleMapsUrl: 'https://maps.google.com/?q=Restaurant+Rif+Chez+Khalid+Azrou',
+    website: 'not-available',
+    instagram: 'not-available',
     bestDishes: ['Chicken Tagine with Preserved Lemon', 'Mixed Charcoal Brochettes', 'Fresh Berber Salad'],
     tip: 'Sit outside on Place Hassan II under the green canvas umbrellas to watch village market life unfold.',
 
@@ -915,6 +943,8 @@ export const ifrane_azrouEat: EatListing[] = [
     reservationMethod: ['none'],
     reservationContact: 'None',
     googleMapsUrl: 'https://maps.google.com/?q=Foodies+Azrou',
+    website: 'not-available',
+    instagram: 'not-available',
     bestDishes: ['Double Cheeseburger', 'Crispy Chicken French Tacos', 'Oreo Shake'],
     tip: 'Ideal pit stop for a quick, filling, hygienic meal when traveling between Fes and Midelt.',
 
@@ -977,6 +1007,8 @@ export const ifrane_azrouEat: EatListing[] = [
     reservationMethod: ['none'],
     reservationContact: 'None',
     googleMapsUrl: 'https://maps.google.com/?q=Cafe+Restaurant+Bilal+Azrou',
+    website: 'not-available',
+    instagram: 'not-available',
     bestDishes: ['Friday Seven-Vegetable Couscous', 'Beef Kefta Tajine', 'Spiced Mint Tea with Pine Nuts'],
     tip: 'Head up to the second floor for great elevated street views over Boulevard Mohammed V.',
 
@@ -1039,6 +1071,8 @@ export const ifrane_azrouEat: EatListing[] = [
     reservationMethod: ['none'],
     reservationContact: 'None',
     googleMapsUrl: 'https://maps.google.com/?q=Restaurant+El+Hanae+chez+El+Haja+Azrou',
+    website: 'not-available',
+    instagram: 'not-available',
     bestDishes: ['Beef Tagine with Seasonal Artichoke & Peas', 'Bowl of Hot Harira Soup', 'Handmade Msemmen with Mountain Honey'],
     tip: 'Authentic homestyle cooking at local prices; ask El Haja what dish was simmered longest today.',
 
@@ -1101,6 +1135,8 @@ export const ifrane_azrouEat: EatListing[] = [
     reservationMethod: ['phone', 'none'],
     reservationContact: '+212614223344',
     googleMapsUrl: 'https://maps.google.com/?q=RIK+Steakhouse+Azrou',
+    website: 'not-available',
+    instagram: 'not-available',
     bestDishes: ['Grilled Ribeye Steak with Herb Butter', 'Mixed Brochette Skewer Platter', 'Loaded Pepper Fries'],
     tip: 'Order steaks cooked medium or medium-rare for tender Atlas beef.',
 
@@ -1163,6 +1199,8 @@ export const ifrane_azrouEat: EatListing[] = [
     reservationMethod: ['phone', 'none'],
     reservationContact: '+212535566114',
     googleMapsUrl: 'https://maps.google.com/?q=Hotel+Relais+Ras+El+Maa+Ifrane',
+    website: 'not-available',
+    instagram: 'not-available',
     bestDishes: ['Fresh Trout with Toasted Almonds', 'Grilled Trout en Papillote', 'Atlas Mixed Salad'],
     tip: 'Stroll around the nearby trout ponds and Gouraud cedar woods after a relaxing lunch.',
 
@@ -1225,6 +1263,8 @@ export const ifrane_azrouEat: EatListing[] = [
     reservationMethod: ['none'],
     reservationContact: 'None',
     googleMapsUrl: 'https://maps.google.com/?q=Patisserie+La+Paix+Ifrane',
+    website: 'not-available',
+    instagram: 'not-available',
     bestDishes: ['Classic Vanilla Mille-Feuille', 'Thick Alpine Hot Chocolate', 'Almond Croissant'],
     tip: 'The ultimate winter warmup spot after taking photos with the famous Ifrane Stone Lion.',
 

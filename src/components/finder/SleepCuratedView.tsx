@@ -95,7 +95,7 @@ export default function SleepCuratedView({ cityId, onSelectCohort, onSkipToQuiz,
             </div>
 
             <button
-              onClick={() => onSelectCohort(stay.cohort, stay.styleName)}
+              onClick={() => onSelectCohort(stay.cohort || 'tourist', stay.styleName || '')}
               className="mt-8 w-full py-3.5 bg-stone-950 text-white hover:bg-[#C9A84C] hover:text-stone-950 rounded-2xl text-xs font-bold uppercase tracking-wider transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
             >
               Explore Stays <ArrowRight className="w-3.5 h-3.5" />

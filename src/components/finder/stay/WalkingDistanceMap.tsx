@@ -7,13 +7,15 @@ interface WalkingDistanceMapProps {
   nearbyPlaces: NearbyPlace[];
   hoveredPlaceId?: string | null;
   onHoverPlace?: (id: string | null) => void;
+  centerIcon?: string;
 }
 
 export const WalkingDistanceMap: React.FC<WalkingDistanceMapProps> = ({
   propertyName,
   nearbyPlaces,
   hoveredPlaceId,
-  onHoverPlace
+  onHoverPlace,
+  centerIcon = 'riad'
 }) => {
   const [activeTooltip, setActiveTooltip] = useState<string | null>(null);
 
@@ -173,7 +175,7 @@ export const WalkingDistanceMap: React.FC<WalkingDistanceMapProps> = ({
           {/* Centered Property Icon */}
           <foreignObject x={centerX - 12} y={centerY - 12} width="24" height="24">
             <div className="flex items-center justify-center w-full h-full text-white">
-              <StayIcon name="riad" size={16} className="text-white" />
+              <StayIcon name={centerIcon} size={16} className="text-white" />
             </div>
           </foreignObject>
 

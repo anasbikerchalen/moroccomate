@@ -134,8 +134,10 @@ export const chefchaouenEat: EatListing[] = [
 
     paymentMethods: ['cash-only'],
     reservationMethod: ['phone', 'walk-in-only'],
-    reservationContact: '+212660262256',
-    googleMapsUrl: 'https://maps.google.com/?q=Beldi+Bab+Ssour+Chefchaouen',
+    reservationContact: '+212660261128',
+    googleMapsUrl: 'https://maps.google.com/?q=Bab+Ssour+Chefchaouen',
+    website: 'https://babssour.com',
+    instagram: 'https://instagram.com/babssour',
     bestDishes: ['Goat Tagine', 'Bissara Soup', 'Kefta in Tomato Sauce'],
     tip: 'Arrive slightly before standard dining hours; their famous goat tagine sells out quickly.',
 
@@ -197,8 +199,10 @@ export const chefchaouenEat: EatListing[] = [
 
     paymentMethods: ['cash-only'],
     reservationMethod: ['phone', 'walk-in-only'],
-    reservationContact: '+212670349811',
-    googleMapsUrl: 'https://maps.google.com/?q=Cafe+Restaurant+Sofia+Chefchaouen',
+    reservationContact: '+212539988788',
+    googleMapsUrl: 'https://maps.google.com/?q=Cafe+Clock+Chefchaouen',
+    website: 'https://cafeclock.com',
+    instagram: 'https://instagram.com/cafeclock',
     bestDishes: ['Vegetable Tagine', 'Beef Carpaccio', 'Harira Soup'],
     tip: 'Ask Sofia about her off-menu seasonal vegetable sides; they are incredibly fresh and locally sourced.',
 
@@ -260,8 +264,10 @@ export const chefchaouenEat: EatListing[] = [
 
     paymentMethods: ['cash-only', 'credit-cards'],
     reservationMethod: ['walk-in-only'],
-    reservationContact: '+212539988788',
-    googleMapsUrl: 'https://maps.google.com/?q=Cafe+Clock+Chefchaouen',
+    reservationContact: '+212539988484',
+    googleMapsUrl: 'https://maps.google.com/?q=Restaurant+Morisco+Chefchaouen',
+    website: 'not-available',
+    instagram: 'https://instagram.com/moriscorestaurant',
     bestDishes: ['Spiced Camel Burger', 'Avocado Date Milkshake', 'Shakshuka'],
     tip: 'Check their weekly schedule for live Riffian musical sessions and traditional storytelling nights.',
 
@@ -323,8 +329,10 @@ export const chefchaouenEat: EatListing[] = [
 
     paymentMethods: ['cash-only', 'credit-cards'],
     reservationMethod: ['phone'],
-    reservationContact: '+212615546321',
-    googleMapsUrl: 'https://maps.google.com/?q=Restaurant+Lala+Mesouda+Chefchaouen',
+    reservationContact: '+212539987070',
+    googleMapsUrl: 'https://maps.google.com/?q=Triana+Chefchaouen',
+    website: 'not-available',
+    instagram: 'https://instagram.com/trianarestaurant',
     bestDishes: ['Lamb Tagine with Prunes', 'Chicken Pastilla', 'Tfaya Couscous'],
     tip: 'Their domestic-style kitchen serves hard-to-find regional wild herb starters; ask for the daily recommendations.',
 
@@ -386,8 +394,10 @@ export const chefchaouenEat: EatListing[] = [
 
     paymentMethods: ['credit-cards', 'cash-only'],
     reservationMethod: ['phone', 'instagram'],
-    reservationContact: '+212539987050',
-    googleMapsUrl: 'https://maps.google.com/?q=Triana+Chefchaouen',
+    reservationContact: '+212675656565',
+    googleMapsUrl: 'https://maps.google.com/?q=Restaurant+Sofia+Chefchaouen',
+    website: 'not-available',
+    instagram: 'https://instagram.com/restaurantsofia_chaouen',
     bestDishes: ['Seafood Paella', 'Tapas Platter', 'Grilled Sea Bass'],
     tip: 'Book a table on the upper rooftop deck at sunset for one of the most stunning, clear mountain vistas.',
 
@@ -451,6 +461,8 @@ export const chefchaouenEat: EatListing[] = [
     reservationMethod: ['phone', 'instagram'],
     reservationContact: '+212539989071',
     googleMapsUrl: 'https://maps.google.com/?q=Aladdin+Restaurant+Chefchaouen',
+    website: 'not-available',
+    instagram: 'not-available',
     bestDishes: ['Chicken Pastilla', 'Lamb Tagine with Almonds', 'Eggplant Zaalouk'],
     tip: 'Sit by the cozy roaring fireplace on the middle floors during chilly mountain winter evenings.',
 
@@ -514,6 +526,8 @@ export const chefchaouenEat: EatListing[] = [
     reservationMethod: ['phone'],
     reservationContact: '+212539986153',
     googleMapsUrl: 'https://maps.google.com/?q=Casa+Hassan+Chefchaouen',
+    website: 'not-available',
+    instagram: 'not-available',
     bestDishes: ['Preserved Lemon Chicken Tagine', 'Friday Beef Couscous', 'Goat Cheese Salad'],
     tip: 'They only serve their legendary, slow-steamed traditional couscous on Fridays—plan your visit accordingly.',
 
@@ -577,6 +591,8 @@ export const chefchaouenEat: EatListing[] = [
     reservationMethod: ['phone', 'whatsapp'],
     reservationContact: '+212539981155',
     googleMapsUrl: 'https://maps.google.com/?q=Auberge+Dardara+Chefchaouen',
+    website: 'not-available',
+    instagram: 'not-available',
     bestDishes: ['Goat Tagine', 'Bissara Soup', 'Fresh Mountain Salads'],
     tip: 'This licensed spot outside town is the premier choice for pairing wild-caught trout with cold Moroccan wine.',
 
@@ -640,6 +656,8 @@ export const chefchaouenEat: EatListing[] = [
     reservationMethod: ['phone', 'walk-in-only'],
     reservationContact: '+212539986161',
     googleMapsUrl: 'https://maps.google.com/?q=Pizzeria+Mandala+Chefchaouen',
+    website: 'not-available',
+    instagram: 'not-available',
     bestDishes: ['Four-Cheese Pizza', 'Truffle Pasta', 'Vegan Cheeseburger'],
     tip: 'If you need a break from traditional tagines, their authentic Italian-style wood-fired pizzas hit the spot.',
 
@@ -703,6 +721,8 @@ export const chefchaouenEat: EatListing[] = [
     reservationMethod: ['phone'],
     reservationContact: '+212539989123',
     googleMapsUrl: 'https://maps.google.com/?q=Dar+Com+Chefchaouen',
+    website: 'not-available',
+    instagram: 'not-available',
     bestDishes: ['Seven-Vegetable Couscous', 'Moroccan Salad Tasting Platter', 'Sliced Oranges with Cinnamon'],
     tip: 'This place is a dream for vegetarians; order their comprehensive multi-plate Moroccan salad tasting sampler.',
 
@@ -766,6 +786,8 @@ export const chefchaouenEat: EatListing[] = [
     reservationMethod: ['phone', 'instagram'],
     reservationContact: '+212610123456',
     googleMapsUrl: 'https://maps.google.com/?q=El+Cielo+Chefchaouen',
+    website: 'not-available',
+    instagram: 'not-available',
     bestDishes: ['Moroccan-Style Lamb', 'Falafel Mezze Platter', 'Chicken Tandoori Pita'],
     tip: 'Perfect for a serene, romantic dinner surrounded by lush gardens, koi ponds, and towering bamboo.',
 
@@ -829,6 +851,8 @@ export const chefchaouenEat: EatListing[] = [
     reservationMethod: ['phone', 'walk-in-only'],
     reservationContact: '+212654730577',
     googleMapsUrl: 'https://maps.google.com/?q=Twins+Restaurant+Chefchaouen',
+    website: 'not-available',
+    instagram: 'not-available',
     bestDishes: ['Sizzling Beef Steak', 'Vegetarian Pizza', 'White Bean Soup'],
     tip: 'Their outdoor patio tables face Outa el-Hammam square directly, making it the perfect spot for people-watching.',
 
@@ -892,6 +916,8 @@ export const chefchaouenEat: EatListing[] = [
     reservationMethod: ['phone', 'walk-in-only'],
     reservationContact: '+212664316007',
     googleMapsUrl: 'https://maps.google.com/?q=Restaurant+Jbaria+Chefchaouen',
+    website: 'not-available',
+    instagram: 'not-available',
     bestDishes: ['Chicken Tagine with Olives', 'Beef Couscous', 'Tomato Kefta'],
     tip: 'If you love extra broth with your Friday couscous, ask the staff politely and they will gladly bring extra.',
 
@@ -955,6 +981,8 @@ export const chefchaouenEat: EatListing[] = [
     reservationMethod: ['phone', 'walk-in-only'],
     reservationContact: '+212539987114',
     googleMapsUrl: 'https://maps.google.com/?q=Restaurant+Morisco+Chefchaouen',
+    website: 'not-available',
+    instagram: 'not-available',
     bestDishes: ['Ftour Beldi Breakfast', 'Lamb Tagine', 'Mint Tea'],
     tip: 'Enjoying their traditional mountain breakfast while watching the medina wake up is highly recommended.',
 
@@ -1018,6 +1046,8 @@ export const chefchaouenEat: EatListing[] = [
     reservationMethod: ['phone', 'walk-in-only'],
     reservationContact: '+212619569778',
     googleMapsUrl: 'https://maps.google.com/?q=Assaada+Chefchaouen',
+    website: 'not-available',
+    instagram: 'not-available',
     bestDishes: ['Roasted Chicken with Fries', 'Lamb Kefta', 'White Beans'],
     tip: 'This is a great spot to try traditional bean soups with freshly baked local flatbread.',
 
@@ -1081,6 +1111,8 @@ export const chefchaouenEat: EatListing[] = [
     reservationMethod: ['walk-in-only'],
     reservationContact: 'None',
     googleMapsUrl: 'https://maps.google.com/?q=Cafe+Sindibad+Chefchaouen',
+    website: 'not-available',
+    instagram: 'not-available',
     bestDishes: ['Mint Tea', 'Harira Soup', 'Simple Kefta Panini'],
     tip: 'Sit on the upper panoramic deck for some of the best sunset photo angles over the blue rooftops.',
 
@@ -1144,6 +1176,8 @@ export const chefchaouenEat: EatListing[] = [
     reservationMethod: ['walk-in-only'],
     reservationContact: 'None',
     googleMapsUrl: 'https://maps.google.com/?q=Lecheria+Venezia+Chefchaouen',
+    website: 'not-available',
+    instagram: 'not-available',
     bestDishes: ['Moroccan Breakfast Platter', 'Msemen with Honey', 'Avocado Toast'],
     tip: 'Their rich, local almond-honey amlou spread is absolutely outstanding; don\'t leave without trying it.',
 
@@ -1207,6 +1241,8 @@ export const chefchaouenEat: EatListing[] = [
     reservationMethod: ['phone', 'instagram'],
     reservationContact: '+212539988990',
     googleMapsUrl: 'https://maps.google.com/?q=Hamsa+Chefchaouen',
+    website: 'not-available',
+    instagram: 'not-available',
     bestDishes: ['Healthy Quinoa Salad', 'Beetroot Hummus', 'Specialty Flat White'],
     tip: 'It\'s the absolute premier spot in Chefchaouen\'s medina for getting a proper flat white or single-origin pour-over.',
 
@@ -1270,6 +1306,8 @@ export const chefchaouenEat: EatListing[] = [
     reservationMethod: ['phone', 'walk-in-only'],
     reservationContact: '+212610987654',
     googleMapsUrl: 'https://maps.google.com/?q=Restaurant+Paloma+Chefchaouen',
+    website: 'not-available',
+    instagram: 'not-available',
     bestDishes: ['Lemon Chicken Tagine', 'Beef Pastilla', 'Moroccan Salads'],
     tip: 'Sit on the small rooftop terrace for a peaceful dining experience away from Medina crowds.',
 
@@ -1333,6 +1371,8 @@ export const chefchaouenEat: EatListing[] = [
     reservationMethod: ['phone'],
     reservationContact: '+212539987150',
     googleMapsUrl: 'https://maps.google.com/?q=Fornaccio+Chefchaouen',
+    website: 'not-available',
+    instagram: 'not-available',
     bestDishes: ['Four-Cheese Pizza', 'Chicken Milanese', 'Fresh Fruit Smoothie'],
     tip: 'A highly convenient spot if you are staying in the newer part of town or parked nearby.',
 

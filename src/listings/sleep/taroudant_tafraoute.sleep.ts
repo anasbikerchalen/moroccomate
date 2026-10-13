@@ -5,7 +5,7 @@ export const taroudant_tafraouteSleep: SleepListing[] = [
     id: 's-taroudant-riad-maryam',
     name: 'Riad Maryam',
     groupTypes: ['couple', 'solo'], type: 'riad',
-    neighborhood: 'Taroudant Medina',
+    neighborhood: 'Médina (Derb Jdid',
     city: 'taroudant_tafraoute',
     description: 'A charming, authentic family-run riad nestled inside the historic red-mud ramparts of Taroudant. Features an orange-and-lemon tree patio garden, traditional hand-carved wooden doors, rooftop mountain views, and renowned home-cooked Southern Moroccan gastronomy.',
     pricePerNight: 70,

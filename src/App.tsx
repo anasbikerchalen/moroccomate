@@ -1,14 +1,37 @@
 import { Routes, Route, useNavigate } from 'react-router-dom';
-import { lazy, Suspense } from 'react';
+import React, { lazy, Suspense } from 'react';
 import HomePage from './pages/HomePage';
 import NotFoundPage from './pages/NotFoundPage';
 
-// Finder screens (and the place data they carry) load on demand —
-// the homepage stays light. The data files themselves are untouched.
-const FinderPage = lazy(() => import('./components/finder/FinderPage'));
-const ExplorePage = lazy(() => import('./components/finder/ExplorePage'));
-const ThingsListingPage = lazy(() => import('./pages/ThingsListingPage'));
-const PlaceListingPage = lazy(() => import('./pages/PlaceListingPage'));
+// Robust lazy loader: retries on chunk fetch hiccups and self-heals on Vercel deployments
+function lazyWithRetry<T extends React.ComponentType<any>>(
+  factory: () => Promise<{ default: T }>
+) {
+  return lazy(async () => {
+    try {
+      return await factory();
+    } catch (error) {
+      console.warn('Dynamic chunk import failed, retrying...', error);
+      try {
+        await new Promise((resolve) => setTimeout(resolve, 600));
+        return await factory();
+      } catch (retryError) {
+        const reloadKey = 'chunk_reload_' + window.location.pathname;
+        if (!sessionStorage.getItem(reloadKey)) {
+          sessionStorage.setItem(reloadKey, 'true');
+          window.location.reload();
+        }
+        throw retryError;
+      }
+    }
+  });
+}
+
+// Finder screens load on demand — keeping the homepage bundle light for Vercel & Web Vitals
+const FinderPage = lazyWithRetry(() => import('./components/finder/FinderPage'));
+const ExplorePage = lazyWithRetry(() => import('./components/finder/ExplorePage'));
+const ThingsListingPage = lazyWithRetry(() => import('./pages/ThingsListingPage'));
+const PlaceListingPage = lazyWithRetry(() => import('./pages/PlaceListingPage'));
 
 /**
  * Moroccan Mate — standalone Finder website.
@@ -30,6 +53,7 @@ export default function App() {
         <Route path="/finder/:param1/:param2?/:param3?" element={<ExplorePage onClose={() => navigate('/')} />} />
         <Route path="/finder" element={<FinderPage />} />
         <Route path="/place/:city/:category/:slug" element={<PlaceListingPage />} />
+        <Route path="/place/:city/:categoryOrSlug" element={<PlaceListingPage />} />
         <Route path="/things/:city/:slug?" element={<ThingsListingPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>

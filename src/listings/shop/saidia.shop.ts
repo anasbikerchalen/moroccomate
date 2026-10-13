@@ -7,7 +7,7 @@ export const saidiaShops: ShopListing[] = [
     name: 'Medina Mall Saïdia',
     type: 'concept_store',
     category: 'Moroccan Crafts & Boutiques',
-    neighborhood: 'Medina Saïdia Resort Complex',
+    neighborhood: 'Médina',
     description: 'An elegant shopping arcade designed in traditional Moroccan architecture within the Saïdia Mediterrania complex. Features dedicated artisan boutiques selling hand-carved pottery, woven baskets, leather slippers, and local Oriental products.',
     googleRating: 4.5,
     googleReviewCount: 310,

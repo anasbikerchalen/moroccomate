@@ -597,6 +597,8 @@ export const taghazoutSleep: SleepListing[] = [
     ],
     cancellationPolicy: 'Moderate 7-day cancellation',
     childPolicy: 'Adult and mature teen oriented atmosphere',
+    contactWhatsApp: '+212662058888',
+    bookingUrl: 'https://surfmaroc.com/amouage/',
     officialWebsite: 'https://surfmaroc.com/amouage/',
     instagramHandle: '@surfmaroc',
     reviewHighlights: {
@@ -749,6 +751,8 @@ export const taghazoutSleep: SleepListing[] = [
     ],
     cancellationPolicy: 'Strict 7-day cancellation',
     childPolicy: 'Adult-oriented boutique retreat',
+    contactWhatsApp: '+212698642751',
+    bookingUrl: 'https://mungaguesthouse.com/',
     officialWebsite: 'https://mungaguesthouse.com/',
     instagramHandle: '@mungaguesthouse',
     reviewHighlights: {

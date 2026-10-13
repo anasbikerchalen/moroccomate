@@ -20,7 +20,12 @@ export const fesThings: ThingToDoListing[] = [
     ],
     googleRating: 4.2,
     reviewCount: 1075,
-    googleMapsUrl: "https://maps.google.com/?q=Chouara+Tannery,+Fes,+Morocco",
+    address: "Hay Lablida, Chouara, Fes el-Bali, Fes 30030",
+    coordinates: {
+      lat: 34.066127,
+      lng: -4.971014
+    },
+    googleMapsUrl: "https://maps.google.com/?q=34.066127,-4.971014",
     safetyLevel: 4,
     energyLevel: "moderate",
     transportMode: "walkable",
@@ -54,7 +59,12 @@ export const fesThings: ThingToDoListing[] = [
     ],
     googleRating: 4.5,
     reviewCount: 2502,
-    googleMapsUrl: "https://maps.google.com/?q=Al-Attarine+Madrasa,+Fes,+Morocco",
+    address: "Rue Talaa Kebira, Souk el-Attarine, Fes el-Bali, Fes 30030",
+    coordinates: {
+      lat: 34.065083,
+      lng: -4.973694
+    },
+    googleMapsUrl: "https://maps.google.com/?q=34.065083,-4.973694",
     safetyLevel: 5,
     energyLevel: "relaxed",
     transportMode: "walkable",
@@ -88,7 +98,12 @@ export const fesThings: ThingToDoListing[] = [
     ],
     googleRating: 4.4,
     reviewCount: 583,
-    googleMapsUrl: "https://maps.google.com/?q=Bou+Inania+Madrasa,+Fes,+Morocco",
+    address: "Rue Talaa Kebira, Fes el-Bali, Fes 30030",
+    coordinates: {
+      lat: 34.06218,
+      lng: -4.98272
+    },
+    googleMapsUrl: "https://maps.google.com/?q=34.06218,-4.98272",
     safetyLevel: 5,
     energyLevel: "relaxed",
     transportMode: "walkable",
@@ -122,7 +137,12 @@ export const fesThings: ThingToDoListing[] = [
     ],
     googleRating: 4.4,
     reviewCount: 12702,
-    googleMapsUrl: "https://maps.google.com/?q=Bab+Bou+Jeloud,+Fes,+Morocco",
+    address: "Bab Bou Jeloud, Fes el-Bali, Fes 30030",
+    coordinates: {
+      lat: 34.06167,
+      lng: -4.98389
+    },
+    googleMapsUrl: "https://maps.google.com/?q=34.06167,-4.98389",
     safetyLevel: 4,
     energyLevel: "moderate",
     transportMode: "walkable",

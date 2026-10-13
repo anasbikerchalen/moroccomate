@@ -1,12 +1,14 @@
-import { useState } from 'react';
-import { useParams, useNavigate, useLocation } from 'react-router-dom';
-import { ArrowLeft, Heart } from 'lucide-react';
+import { useState, useEffect, useMemo } from 'react';
+import { useParams, useNavigate, useLocation, Link } from 'react-router-dom';
+import { ArrowLeft, Heart, ChevronRight, MapPin, Compass } from 'lucide-react';
 import { SEO } from '../components/ui/SEO';
 import DetailView from '../components/finder/DetailView';
 import { useSavedStore } from '../state/savedStore';
 import FavoritesDrawer from '../components/finder/FavoritesDrawer';
 import {
   getPlaceBySlug,
+  getPlaceSlugById,
+  getPlaceIndex,
   normalizePlaceCategory,
   PLACE_CATEGORY_LABEL,
   PLACE_SCHEMA_TYPE,
@@ -16,6 +18,9 @@ import { getListingRating } from '../listings/utils';
 import { cityMap } from '../data/cities';
 import logoImg from '../assets/images/logo.png';
 import { getStayOwnerAnswer } from '../engine/stayAdapter';
+import { getCityPopularIntents } from '../data/seo/searchIntents';
+
+import { getActivityByCityAndSlug } from '../things-to-do';
 
 /**
  * Morocco Finder — individual place page.
@@ -24,14 +29,106 @@ import { getStayOwnerAnswer } from '../engine/stayAdapter';
  * (e.g. /place/marrakech/food/le-jardin), never a random id.
  */
 export default function PlaceListingPage() {
-  const { city, category: categoryParam, slug } = useParams<{ city: string; category: string; slug: string }>();
+  const { city, category: categoryParam, slug: rawSlug, categoryOrSlug } = useParams<{
+    city: string;
+    category?: string;
+    slug?: string;
+    categoryOrSlug?: string;
+  }>();
   const navigate = useNavigate();
   const location = useLocation();
   const [favoritesOpen, setFavoritesOpen] = useState(false);
   const bookmarks = useSavedStore((state) => state.bookmarks);
 
+  const cityKey = String(city || '').toLowerCase();
+  const slug = rawSlug || (!categoryParam && categoryOrSlug ? categoryOrSlug : undefined);
   const category: PlaceUrlCategory | null = normalizePlaceCategory(categoryParam);
-  const listing = city && category && slug ? getPlaceBySlug(city, category, slug) : undefined;
+  const listing = city && category && slug ? getPlaceBySlug(cityKey, category, slug) : undefined;
+
+  // Handle URL normalization, 2-segment resolution, and alias redirects
+  useEffect(() => {
+    if (!cityKey) return;
+
+    // Case 1: 2-segment URL (/place/:city/:categoryOrSlug)
+    if (categoryOrSlug && !rawSlug) {
+      // 1a. If it's a category synonym (e.g. /place/marrakech/sleep)
+      const maybeCat = normalizePlaceCategory(categoryOrSlug);
+      if (maybeCat) {
+        navigate(`/finder/${cityKey}/${maybeCat}`, { replace: true });
+        return;
+      }
+      // 1b. Search across all place categories for this slug/id
+      const categories: PlaceUrlCategory[] = ['sleep', 'food', 'shopping'];
+      for (const cat of categories) {
+        const found = getPlaceBySlug(cityKey, cat, categoryOrSlug) ||
+          (getPlaceSlugById(cityKey, cat, categoryOrSlug)
+            ? getPlaceBySlug(cityKey, cat, getPlaceSlugById(cityKey, cat, categoryOrSlug)!)
+            : undefined);
+        if (found) {
+          const canonicalSlug = getPlaceSlugById(cityKey, cat, found.id) || categoryOrSlug;
+          navigate(`/place/${cityKey}/${cat}/${canonicalSlug}`, { replace: true });
+          return;
+        }
+      }
+      // 1c. Check if it's a Things to Do activity
+      const activity = getActivityByCityAndSlug(cityKey, categoryOrSlug);
+      if (activity) {
+        navigate(`/things/${cityKey}/${activity.slug || categoryOrSlug}`, { replace: true });
+        return;
+      }
+      return;
+    }
+
+    if (!category) return;
+
+    // Case 2: Canonical redirect if category param was an alias like "eat" or "stay"
+    if (categoryParam && categoryParam.toLowerCase() !== category) {
+      navigate(`/place/${cityKey}/${category}/${slug}`, { replace: true });
+      return;
+    }
+
+    // Case 3: If listing not found by slug, check if the segment was an ID
+    if (!listing && slug) {
+      const resolvedSlug = getPlaceSlugById(cityKey, category, slug);
+      if (resolvedSlug) {
+        navigate(`/place/${cityKey}/${category}/${resolvedSlug}`, { replace: true });
+      }
+    }
+  }, [cityKey, category, categoryParam, slug, listing, categoryOrSlug, rawSlug, navigate]);
+
+  // Sibling places in the same city for crawlable internal linking
+  const sisterPlaces = useMemo(() => {
+    if (!cityKey || !category) return [];
+    try {
+      const index = getPlaceIndex(cityKey, category);
+      const siblings: Array<{ slug: string; name: string; neighborhood?: string; rating?: number }> = [];
+      for (const [s, l] of index.bySlug.entries()) {
+        if (s !== slug) {
+          const r = getListingRating(l);
+          siblings.push({
+            slug: s,
+            name: l.name || l.title || 'Place',
+            neighborhood: l.neighborhood,
+            rating: r?.averageRating,
+          });
+          if (siblings.length >= 6) break;
+        }
+      }
+      return siblings;
+    } catch {
+      return [];
+    }
+  }, [cityKey, category, slug]);
+
+  // High-intent search filter links for this city
+  const popularIntents = useMemo(() => {
+    if (!cityKey || !category) return [];
+    try {
+      return getCityPopularIntents(cityKey, category).slice(0, 5);
+    } catch {
+      return [];
+    }
+  }, [cityKey, category]);
 
   // Not found fallback
   if (!listing) {
@@ -56,7 +153,6 @@ export default function PlaceListingPage() {
     );
   }
 
-  const cityKey = String(city || '').toLowerCase();
   const cityLabel = cityMap[cityKey]?.name || (cityKey ? cityKey.charAt(0).toUpperCase() + cityKey.slice(1).replace(/_/g, ' ') : 'Morocco');
   const placeName = listing.name || listing.title || 'Place';
   const categoryLabel = PLACE_CATEGORY_LABEL[category!];
@@ -93,12 +189,15 @@ export default function PlaceListingPage() {
       : {}),
   };
 
-  const handleBack = () => {
-    if (window.history.length > 1 && location.key !== 'default') {
+  const handleBack = (e?: React.MouseEvent) => {
+    e?.preventDefault();
+    e?.stopPropagation();
+    if (window.history.state && typeof window.history.state.idx === 'number' && window.history.state.idx > 0) {
       navigate(-1);
     } else {
-      // Direct visit (e.g. from Google) — send to the city browse page
-      navigate(`/finder/${cityKey}/${category}`);
+      // Direct visit or refreshed — send to the clean city results browse page
+      const targetCategory = category || 'food';
+      navigate(`/finder/${cityKey}/${targetCategory}`);
     }
   };
 
@@ -126,15 +225,16 @@ export default function PlaceListingPage() {
           <button
             type="button"
             onClick={handleBack}
-            className="inline-flex items-center gap-2 text-sm font-semibold text-[#66757D] hover:text-[#173042] transition-colors cursor-pointer"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white hover:bg-stone-50 border border-[#ece4d5] shadow-xs text-sm font-bold text-[#173042] hover:border-[#C9A84C] transition-all cursor-pointer active:scale-95"
+            title="Back to listings"
           >
-            <ArrowLeft className="w-4 h-4" />
+            <ArrowLeft className="w-4 h-4 text-[#173042]" />
             Back
           </button>
-          <span className="flex items-center gap-2">
+          <Link to="/" className="flex items-center gap-2">
             <img src={logoImg} alt="Moroccan Mate logo" className="w-7 h-7 object-contain" />
             <span className="font-display text-base font-bold text-[#173042]">Moroccan Mate</span>
-          </span>
+          </Link>
           <button
             type="button"
             onClick={() => setFavoritesOpen(true)}
@@ -153,18 +253,109 @@ export default function PlaceListingPage() {
         </div>
       </header>
 
+      {/* Crawlable Breadcrumbs */}
+      <nav aria-label="Breadcrumb" className="mx-auto w-full max-w-6xl px-4 pt-4 sm:px-6 lg:px-8 text-xs text-[#71685F] flex items-center gap-1.5 flex-wrap">
+        <Link to="/" className="hover:text-[#C9A84C] transition-colors">Home</Link>
+        <ChevronRight className="w-3 h-3 text-stone-400" />
+        <Link to={`/finder/${cityKey}/${category}`} className="hover:text-[#C9A84C] transition-colors">
+          {categoryLabel} in {cityLabel}
+        </Link>
+        <ChevronRight className="w-3 h-3 text-stone-400" />
+        <span className="text-[#29231F] font-semibold truncate max-w-[240px] sm:max-w-none">{placeName}</span>
+      </nav>
+
       {/* Main content: the full place detail */}
-      <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-8 sm:px-6 lg:px-8">
+      <main className="w-full flex-1">
         <DetailView item={listing} onBack={handleBack} category={category} />
+
+        {/* Crawlable Internal Linking Network: Sibling places & City guides */}
+        <section className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6 lg:px-8 border-t border-[#ece4d5] mt-12">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
+            <div>
+              <p className="text-[11px] font-bold uppercase tracking-widest text-[#C85A32]">Discover More</p>
+              <h2 className="font-serif text-2xl font-bold text-[#173042] mt-1">
+                More {categoryLabel} in {cityLabel}
+              </h2>
+            </div>
+            <Link
+              to={`/finder/${cityKey}/${category}`}
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-[#C9A84C] hover:text-[#b38e34] transition-colors"
+            >
+              <span>View all {cityLabel} {categoryLabel.toLowerCase()}</span>
+              <ChevronRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+
+          {/* Sibling place cards */}
+          {sisterPlaces.length > 0 && (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+              {sisterPlaces.map((sibling) => (
+                <Link
+                  key={sibling.slug}
+                  to={`/place/${cityKey}/${category}/${sibling.slug}`}
+                  className="p-4 rounded-xl bg-white border border-[#ece4d5] hover:border-[#C9A84C] hover:shadow-xs transition-all flex flex-col justify-between group"
+                >
+                  <div>
+                    <h3 className="font-serif text-base font-semibold text-[#173042] group-hover:text-[#C85A32] transition-colors line-clamp-1">
+                      {sibling.name}
+                    </h3>
+                    {sibling.neighborhood && (
+                      <p className="text-xs text-[#71685F] mt-1 flex items-center gap-1">
+                        <MapPin className="w-3 h-3 text-[#C85A32]" />
+                        <span>{sibling.neighborhood}</span>
+                      </p>
+                    )}
+                  </div>
+                  {sibling.rating && (
+                    <div className="mt-3 text-xs font-bold text-amber-700">
+                      ★ {sibling.rating}
+                    </div>
+                  )}
+                </Link>
+              ))}
+            </div>
+          )}
+
+          {/* City category & search intent cross-links */}
+          <div className="bg-white/80 rounded-2xl p-5 border border-[#ece4d5] space-y-3">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-[#66757D] flex items-center gap-1.5">
+              <Compass className="w-3.5 h-3.5 text-[#C9A84C]" />
+              Explore {cityLabel} by Category & Intent
+            </h3>
+            <div className="flex flex-wrap gap-2 pt-1">
+              <Link to={`/finder/${cityKey}/food`} className="px-3 py-1.5 rounded-full text-xs font-medium bg-[#FAF7F2] text-[#29231F] hover:bg-[#FAF3EA] hover:text-[#C85A32] border border-[#ece4d5] transition-colors">
+                🍽️ Food in {cityLabel}
+              </Link>
+              <Link to={`/finder/${cityKey}/sleep`} className="px-3 py-1.5 rounded-full text-xs font-medium bg-[#FAF7F2] text-[#29231F] hover:bg-[#FAF3EA] hover:text-[#C85A32] border border-[#ece4d5] transition-colors">
+                🛏️ Stays in {cityLabel}
+              </Link>
+              <Link to={`/finder/${cityKey}/things-to-do`} className="px-3 py-1.5 rounded-full text-xs font-medium bg-[#FAF7F2] text-[#29231F] hover:bg-[#FAF3EA] hover:text-[#C85A32] border border-[#ece4d5] transition-colors">
+                ✨ Things to Do in {cityLabel}
+              </Link>
+              <Link to={`/finder/${cityKey}/shopping`} className="px-3 py-1.5 rounded-full text-xs font-medium bg-[#FAF7F2] text-[#29231F] hover:bg-[#FAF3EA] hover:text-[#C85A32] border border-[#ece4d5] transition-colors">
+                🛍️ Shopping in {cityLabel}
+              </Link>
+              {popularIntents.map((pi) => (
+                <Link
+                  key={pi.slug}
+                  to={`/finder/${cityKey}/${category}/${pi.slug}`}
+                  className="px-3 py-1.5 rounded-full text-xs font-medium bg-[#FAF3EA] text-[#8A6D1F] hover:bg-[#C9A84C] hover:text-white border border-[#E8DAAA] transition-colors"
+                >
+                  {pi.icon} {pi.label} in {cityLabel}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
       </main>
 
       {/* Footer strip */}
       <footer className="border-t border-[#ece4d5] bg-white">
         <div className="mx-auto w-full max-w-6xl flex flex-col sm:flex-row items-center justify-between gap-2 px-4 py-5 sm:px-6 lg:px-8">
-          <span className="flex items-center gap-1.5">
+          <Link to="/" className="flex items-center gap-1.5">
             <img src={logoImg} alt="Moroccan Mate logo" className="w-5 h-5 object-contain opacity-80" />
             <span className="font-display text-sm font-bold text-[#173042]">Moroccan Mate</span>
-          </span>
+          </Link>
           <span className="text-xs text-[#66757D] capitalize">
             {categoryLabel} · {listing.neighborhood || cityLabel} · {cityLabel}
           </span>

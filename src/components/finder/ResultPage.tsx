@@ -39,11 +39,11 @@ import PeopleSearchForBar from './PeopleSearchForBar';
 import { TAG_REGISTRY } from '../../listings/things/tags';
 import { cityMap } from '../../data/cities';
 import LocationPicker from './LocationPicker';
-import FilterChipBar, { getAllChipsForCategory, type FilterChipOption } from './FilterChipBar';
 import { SavvyScoreEngine } from '../../engine/savvyScoreEngine';
 import SavvyBadge from '../savvy/SavvyBadge';
 import { getAreasByCityBase } from '../../data/tourismAreas';
-import foodHeroBg from '../../assets/images/finder/category_food_matte_1786297062095.jpg';
+import { haversineM } from '../../engine/proximityEngine';
+import foodHeroBg from '../../assets/images/botanical_food_flat_1791668271591.jpg';
 import shopHeroBg from '../../assets/images/finder/category_shop_matte_1786297097622.jpg';
 import stayHeroBg from '../../assets/images/finder/category_stays_matte_1786297074546.jpg';
 import thingsHeroBg from '../../assets/images/finder/category_things_matte_1786297086778.jpg';
@@ -97,48 +97,8 @@ const isItemOpenNow = (item: any): boolean => {
   }
 };
 
-// Does one quick-filter chip match a listing? Mirrors the scoring logic so the
-// live counts shown on chips always reflect real matches.
-const chipMatchesItem = (item: any, chip: FilterChipOption): boolean => {
-  if (chip.id === 'open-now') return isItemOpenNow(item);
-  if (chip.flagKey === 'isVegetarian') return item.isVegetarianFriendly === true;
-  if (chip.flagKey === 'isHalal') return item.isHalal === true;
-  if (chip.flagKey === 'isKidFriendly') {
-    return item.isKidFriendly === true
-      || (Array.isArray(item.vibeTags) && item.vibeTags.some((v: string) => v.toLowerCase().includes('family')));
-  }
-  if (chip.flagKey === 'isWheelchairAccessible') {
-    return item.isWheelchairAccessible === true
-      || (Array.isArray(item.vibeTags) && item.vibeTags.some((v: string) => v.toLowerCase().includes('step-free')));
-  }
-  if (chip.flagKey === 'isFixedPrice') return item.pricingModel === 'fixed';
-  if (chip.flagKey === 'isWorkshop') {
-    return (Array.isArray(item.tags) && item.tags.some((t: string) => t.toLowerCase().includes('workshop')))
-      || (Array.isArray(item.experienceTypes) && item.experienceTypes.some((t: any) => String(t).toLowerCase().includes('workshop')));
-  }
-  if (chip.flagKey === 'isLocalFav') {
-    return (Array.isArray(item.tags) && item.tags.some((t: string) => t.toLowerCase().includes('local-favorite')))
-      || (Array.isArray(item.vibeTags) && item.vibeTags.some((v: string) => v.toLowerCase().includes('local favorite')));
-  }
-  // Vibe chips: word-based matching across real data fields
-  const words = String(chip.tag).toLowerCase().replace(/-/g, ' ').split(' ').filter(Boolean);
-  const pool = [
-    ...(Array.isArray(item.vibeTags) ? item.vibeTags : []),
-    ...(Array.isArray(item.tags) ? item.tags : []),
-    ...(Array.isArray(item.amenities) ? item.amenities : []),
-    ...(Array.isArray(item.foodStyles) ? item.foodStyles : []),
-    ...(Array.isArray(item.experienceTypes) ? item.experienceTypes : []),
-    ...(Array.isArray(item.mealTypes) ? item.mealTypes : []),
-    ...(item.hasRooftop ? ['rooftop'] : []),
-    String(item.locationSummary || ''),
-    String(item.neighborhood || ''),
-    item.name, item.title, item.type
-  ].filter(Boolean).map((t: any) => t.toString().toLowerCase());
-  return words.length > 0 && words.every(w => pool.some(t => t === w || t.includes(w)));
-};
-
 export default function ResultPage() {
-  const { setView, pushView, activeCategory, setActiveItem, setOmitGoogleImage, setModalOpen, addExploredCategory, filters, setFilter, quizAnswers, archetype, secondaryArchetype, activeSubCategory, sportIntent, setQuizAnswer } = useExploreStore();
+  const { setView, pushView, activeCategory, setActiveItem, setOmitGoogleImage, setModalOpen, addExploredCategory, filters, setFilter, quizAnswers, archetype, secondaryArchetype, activeSubCategory, sportIntent, setQuizAnswer, context } = useExploreStore();
   const { city, neighborhood, setCity } = useParameterStore();
   
   const { param1, param2, param3 } = useParams<{ param1?: string; param2?: string; param3?: string }>();
@@ -179,9 +139,18 @@ export default function ResultPage() {
   const [visibleCount, setVisibleCount] = useState(5);
   const [showFilters, setShowFilters] = useState(false);
   const [showLocationModal, setShowLocationModal] = useState(false);
-  const [sortBy, setSortBy] = useState<'smart' | 'rating' | 'verified' | 'price_low' | 'price_high'>('smart');
+  const [sortBy, setSortBy] = useState<'smart' | 'rating' | 'verified' | 'price_low' | 'price_high' | 'distance'>(() => {
+    return filters.sortBy === 'distance' ? 'distance' : 'smart';
+  });
   const [expandedWhyId, setExpandedWhyId] = useState<string | null>(null);
   const [editingQuestionId, setEditingQuestionId] = useState<string | null>(null);
+  const [showActiveDetails, setShowActiveDetails] = useState(false);
+
+  useEffect(() => {
+    if (filters.sortBy === 'distance') {
+      setSortBy('distance');
+    }
+  }, [filters.sortBy]);
 
   // Hide the header close icon while any popup is open — only ONE close icon visible at a time
   useEffect(() => {
@@ -191,7 +160,7 @@ export default function ResultPage() {
   // Reset pagination when category, city, or filters change
   useEffect(() => {
     setVisibleCount(5);
-  }, [activeCategory, city, neighborhood, filters, quizAnswers, sortBy, activeFeatureSlug]);
+  }, [activeCategory, city, neighborhood, filters, quizAnswers, sortBy]);
 
   const nonTouristicAreas = useMemo(() => {
     return new Set(
@@ -284,7 +253,7 @@ export default function ResultPage() {
     }
 
     return listings;
-  }, [city, neighborhood, focusKey, activeCategory, activeSubCategory, sportIntent, nonTouristicAreas, activeSearchIntent]);
+  }, [city, neighborhood, focusKey, activeCategory, activeSubCategory, sportIntent, nonTouristicAreas]);
 
   const recommendations = useMemo(() => {
     // Minimum Rating (hard filter) — hides places below the chosen rating,
@@ -595,35 +564,46 @@ export default function ResultPage() {
       return { ...item, matchPercentage, sortedScore, matchReasons: matchedTags.slice(0, 4), matchMisses: missedTags.slice(0, 2) };
     });
 
-    if (sortBy === 'rating') {
-      return [...scored].sort((a, b) => ((b as any).googleRating || (b as any).rating || 0) - ((a as any).googleRating || (a as any).rating || 0));
+    const userCoords = context?.userLocation?.coordinates || (city && cityMap[city] && typeof cityMap[city].lat === 'number' && typeof cityMap[city].lon === 'number' ? [cityMap[city].lat, cityMap[city].lon] : null);
+
+    const scoredWithDistance = scored.map((item: any) => {
+      let distanceM: number | null = null;
+      if (userCoords && item?.coordinates?.lat && item?.coordinates?.lng) {
+        distanceM = haversineM(
+          { lat: userCoords[0], lng: userCoords[1] },
+          { lat: item.coordinates.lat, lng: item.coordinates.lng }
+        );
+      }
+      return { ...item, distanceM };
+    });
+
+    if (sortBy === 'distance') {
+      return [...scoredWithDistance].sort((a: any, b: any) => {
+        if (a.distanceM !== null && b.distanceM !== null) return a.distanceM - b.distanceM;
+        if (a.distanceM !== null) return -1;
+        if (b.distanceM !== null) return 1;
+        return b.sortedScore - a.sortedScore;
+      });
+    } else if (sortBy === 'rating') {
+      return [...scoredWithDistance].sort((a, b) => ((b as any).googleRating || (b as any).rating || 0) - ((a as any).googleRating || (a as any).rating || 0));
     } else if (sortBy === 'verified') {
-      return [...scored].sort((a, b) => ((b as any).isVerified ? 1 : 0) - ((a as any).isVerified ? 1 : 0));
+      return [...scoredWithDistance].sort((a, b) => ((b as any).isVerified ? 1 : 0) - ((a as any).isVerified ? 1 : 0));
     } else if (sortBy === 'price_low') {
-      return [...scored].sort((a: any, b: any) => {
+      return [...scoredWithDistance].sort((a: any, b: any) => {
         const pA = a.priceMultiplier !== undefined ? priceRank(a.priceMultiplier) : priceRank(a.priceLevel);
         const pB = b.priceMultiplier !== undefined ? priceRank(b.priceMultiplier) : priceRank(b.priceLevel);
         return pA - pB;
       });
     } else if (sortBy === 'price_high') {
-      return [...scored].sort((a: any, b: any) => {
+      return [...scoredWithDistance].sort((a: any, b: any) => {
         const pA = a.priceMultiplier !== undefined ? priceRank(a.priceMultiplier) : priceRank(a.priceLevel);
         const pB = b.priceMultiplier !== undefined ? priceRank(b.priceMultiplier) : priceRank(b.priceLevel);
         return pB - pA;
       });
     }
 
-    return scored.sort((a, b) => b.sortedScore - a.sortedScore);
-  }, [realListings, filters, quizAnswers, archetype, secondaryArchetype, sortBy]);
-
-  // Live result count per quick-filter chip - prevents 0-match dead ends
-  const chipResultCounts = useMemo(() => {
-    const counts: Record<string, number> = {};
-    for (const chip of getAllChipsForCategory(focusKey)) {
-      counts[chip.id] = recommendations.filter(item => chipMatchesItem(item, chip)).length;
-    }
-    return counts;
-  }, [recommendations, focusKey]);
+    return scoredWithDistance.sort((a, b) => b.sortedScore - a.sortedScore);
+  }, [realListings, filters, quizAnswers, archetype, secondaryArchetype, sortBy, context, city]);
 
   // Per-answer quick edit: every quiz answer as an editable pill, so adjusting
   // one answer never requires retaking the whole quiz
@@ -823,20 +803,35 @@ export default function ResultPage() {
                 </div>
               </button>
 
-              {/* Filters Tile */}
+              {/* Filters Tile (Animated Catchy Pulse) */}
               <button
                 type="button"
                 onClick={() => {
                   setShowFilters(true);
                   setShowLocationModal(false);
                 }}
-                className="flex items-center gap-3 px-3 py-2 rounded-xl hover:bg-[#FAF7F2] transition-colors cursor-pointer border border-transparent hover:border-[#E8E0D2] text-left w-full"
+                className={cn(
+                  "relative flex items-center gap-3 px-3 py-2 rounded-xl transition-all cursor-pointer text-left w-full border",
+                  showFilters
+                    ? "bg-[#FAF3EA] border-[#C2613C]/40 shadow-sm"
+                    : "bg-white hover:bg-[#FAF7F2] border-amber-300/60 shadow-xs catchy-filter-pulse hover:border-[#C2613C]"
+                )}
               >
-                <div className="w-8 h-8 rounded-full bg-[#FAF3EA] flex items-center justify-center shrink-0 text-[#C2613C]">
+                <div className="relative w-8 h-8 rounded-full bg-gradient-to-br from-[#FAF3EA] to-[#F5E6D3] flex items-center justify-center shrink-0 text-[#C2613C] shadow-2xs">
                   <SlidersHorizontal className="w-4 h-4" />
+                  {/* Catchy animated amber ping badge */}
+                  <span className="absolute -top-0.5 -right-0.5 flex h-2.5 w-2.5">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-500 ring-1 ring-white"></span>
+                  </span>
                 </div>
                 <div className="text-left min-w-0 flex-1">
-                  <div className="text-[10px] font-bold uppercase tracking-wider text-stone-400">MORE FILTERS</div>
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-amber-700">MORE FILTERS</span>
+                    <span className="text-[9px] font-extrabold uppercase px-1.5 py-0.2 text-amber-800 bg-amber-100/90 rounded-full">
+                      Customize
+                    </span>
+                  </div>
                   <div className="font-bold text-stone-900 text-sm flex items-center gap-2">
                     <span>Price, Ratings & Amenities</span>
                     {(activeFilterPills.length + quizAnswerPills.length) > 0 && (
@@ -859,6 +854,7 @@ export default function ResultPage() {
                 className="font-bold text-stone-900 bg-transparent outline-none cursor-pointer"
               >
                 <option value="smart">Smart Match</option>
+                <option value="distance">Closest to Me</option>
                 <option value="rating">Highest Rated</option>
                 <option value="verified">Verified First</option>
                 <option value="price_low">Price: Low to High</option>
@@ -867,114 +863,134 @@ export default function ResultPage() {
             </div>
           </div>
 
-        {/* Active Filter Chips & Explore Bar */}
-        <div className="space-y-4 mb-5">
-          {/* Unified Active Filters Row — only visible when active filters or quiz answers exist */}
-          {(activeFilterPills.length > 0 || quizAnswerPills.length > 0) && (
-            <div className="flex flex-wrap items-center gap-2 p-3 bg-white/80 backdrop-blur-sm rounded-2xl border border-[#EADBCE] shadow-2xs">
-              <span className="text-[10px] font-black uppercase tracking-wider text-stone-400 mr-1 flex items-center gap-1">
-                <Filter className="w-3 h-3 text-[#C2613C]" />
-                Active Filters:
-              </span>
-
-              {/* Quiz Answer Pills */}
-              {quizAnswerPills.map((pill) => (
-                <div key={pill.questionId} className="relative">
-                  <span
-                    onClick={() => setEditingQuestionId(editingQuestionId === pill.questionId ? null : pill.questionId)}
-                    className="px-2.5 py-1 bg-[#FAF3EA] border border-[#D9CCA8] rounded-full text-xs font-bold text-stone-800 flex items-center gap-1.5 cursor-pointer hover:border-[#C2613C] transition-all"
-                    title="Click to change quiz answer"
-                  >
-                    <span>{pill.label}</span>
-                    <button
-                      onClick={(e) => { e.stopPropagation(); pill.onRemove(); }}
-                      className="hover:text-[#C2613C] p-0.5 cursor-pointer text-stone-400"
-                      aria-label={`Remove ${pill.label}`}
-                    >
-                      <X className="w-3 h-3" />
-                    </button>
-                  </span>
-
-                  {/* Mini-selector: switch this answer and instantly re-score */}
-                  <AnimatePresence>
-                    {editingQuestionId === pill.questionId && (
-                      <motion.div
-                        initial={{ opacity: 0, y: -4 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -4 }}
-                        onClick={(e) => e.stopPropagation()}
-                        className="absolute top-full left-0 mt-1 z-40 bg-white rounded-xl shadow-xl border border-[#E7DFD3] p-2 min-w-[230px] space-y-1"
-                      >
-                        <div className="text-[10px] font-black uppercase tracking-wider text-stone-400 px-2 pb-1">{pill.question.question}</div>
-                        {pill.question.options.map(opt => {
-                          const currentValue = quizAnswers[pill.questionId];
-                          const currentIds = Array.isArray(currentValue) ? currentValue : [currentValue];
-                          const isSelected = pill.question.multiSelect
-                            ? (currentIds || []).includes(opt.id)
-                            : currentValue === opt.id;
-                          return (
-                            <button
-                              key={opt.id}
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                if (pill.question.multiSelect) {
-                                  const arr = Array.isArray(currentValue) ? [...currentValue] : [];
-                                  const next = arr.includes(opt.id) ? arr.filter(v => v !== opt.id) : [...arr, opt.id];
-                                  setQuizAnswer(pill.questionId, next);
-                                } else {
-                                  setQuizAnswer(pill.questionId, opt.id);
-                                  setEditingQuestionId(null);
-                                }
-                              }}
-                              className={cn(
-                                "w-full text-left px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-2 cursor-pointer",
-                                isSelected ? "bg-[#C9A84C] text-white" : "text-stone-600 hover:bg-[#FAF3EA]"
-                              )}
-                            >
-                              {opt.icon && <span>{opt.icon}</span>}
-                              <span>{opt.label}</span>
-                              {isSelected && <Check className="w-3 h-3 ml-auto" />}
-                            </button>
-                          );
-                        })}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              ))}
-
-              {/* Manual Active Filter Pills */}
-              {activeFilterPills.map((pill) => (
-                <span
-                  key={pill.key}
-                  className="px-2.5 py-1 bg-white border border-[#E2D4C2] rounded-full text-xs font-medium text-stone-800 flex items-center gap-1.5 shadow-2xs"
-                >
-                  <span>{pill.label}</span>
-                  <button
-                    onClick={pill.onRemove}
-                    className="hover:text-[#C2613C] p-0.5 cursor-pointer text-stone-400"
-                    aria-label={`Remove ${pill.label}`}
-                  >
-                    <X className="w-3 h-3" />
-                  </button>
+        {/* Compact Collapsible Active Filters Bar (Only when active filters or quiz answers exist) */}
+        {(activeFilterPills.length > 0 || quizAnswerPills.length > 0) && (
+          <div className="mx-4 md:mx-8 -mt-3 mb-5">
+            <div className="flex items-center justify-between text-xs px-3.5 py-2 bg-white/90 backdrop-blur-sm border border-[#E7DFD3] rounded-xl text-stone-600 shadow-2xs">
+              <div className="flex items-center gap-2 flex-wrap">
+                <span className="inline-flex items-center gap-1.5 font-bold text-stone-800">
+                  <Filter className="w-3.5 h-3.5 text-[#C2613C]" />
+                  <span>{activeFilterPills.length + quizAnswerPills.length} active criteria applied</span>
                 </span>
-              ))}
+                <span className="text-stone-300 hidden sm:inline">·</span>
+                <button
+                  type="button"
+                  onClick={() => setShowActiveDetails(!showActiveDetails)}
+                  className="font-bold text-[#C2613C] hover:text-[#A84926] flex items-center gap-1 cursor-pointer transition-colors"
+                >
+                  <span>{showActiveDetails ? 'Hide tags' : 'Show tags'}</span>
+                  <ChevronDown className={cn("w-3 h-3 transition-transform duration-200", showActiveDetails && "rotate-180")} />
+                </button>
+              </div>
 
-              {/* Clear All Button */}
               <button
+                type="button"
                 onClick={clearAllFilters}
-                className="text-xs font-bold text-stone-400 hover:text-[#C2613C] transition-colors ml-auto px-2 py-1 cursor-pointer"
+                className="font-bold text-stone-400 hover:text-[#C2613C] transition-colors cursor-pointer text-[11px] shrink-0 ml-2"
               >
                 Clear all
               </button>
             </div>
-          )}
 
-          {/* Explore By Type Chips */}
-          <div className="pt-1">
-            <FilterChipBar category={activeCategory || 'things-to-do'} resultCounts={chipResultCounts} />
+            {/* Collapsible tags drawer */}
+            <AnimatePresence>
+              {showActiveDetails && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: 'auto' }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="overflow-hidden mt-2"
+                >
+                  <div className="flex flex-wrap items-center gap-2 p-3 bg-white/95 backdrop-blur-sm rounded-2xl border border-[#EADBCE] shadow-2xs">
+                    {/* Quiz Answer Pills */}
+                    {quizAnswerPills.map((pill) => (
+                      <div key={pill.questionId} className="relative">
+                        <span
+                          onClick={() => setEditingQuestionId(editingQuestionId === pill.questionId ? null : pill.questionId)}
+                          className="px-2.5 py-1 bg-[#FAF3EA] border border-[#D9CCA8] rounded-full text-xs font-bold text-stone-800 flex items-center gap-1.5 cursor-pointer hover:border-[#C2613C] transition-all"
+                          title="Click to change quiz answer"
+                        >
+                          <span>{pill.label}</span>
+                          <button
+                            onClick={(e) => { e.stopPropagation(); pill.onRemove(); }}
+                            className="hover:text-[#C2613C] p-0.5 cursor-pointer text-stone-400"
+                            aria-label={`Remove ${pill.label}`}
+                          >
+                            <X className="w-3 h-3" />
+                          </button>
+                        </span>
+
+                        {/* Mini-selector: switch this answer and instantly re-score */}
+                        <AnimatePresence>
+                          {editingQuestionId === pill.questionId && (
+                            <motion.div
+                              initial={{ opacity: 0, y: -4 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              exit={{ opacity: 0, y: -4 }}
+                              onClick={(e) => e.stopPropagation()}
+                              className="absolute top-full left-0 mt-1 z-40 bg-white rounded-xl shadow-xl border border-[#E7DFD3] p-2 min-w-[230px] space-y-1"
+                            >
+                              <div className="text-[10px] font-black uppercase tracking-wider text-stone-400 px-2 pb-1">{pill.question.question}</div>
+                              {pill.question.options.map(opt => {
+                                const currentValue = quizAnswers[pill.questionId];
+                                const currentIds = Array.isArray(currentValue) ? currentValue : [currentValue];
+                                const isSelected = pill.question.multiSelect
+                                  ? (currentIds || []).includes(opt.id)
+                                  : currentValue === opt.id;
+                                return (
+                                  <button
+                                    key={opt.id}
+                                    onClick={(e) => {
+                                      e.stopPropagation();
+                                      if (pill.question.multiSelect) {
+                                        const arr = Array.isArray(currentValue) ? [...currentValue] : [];
+                                        const next = arr.includes(opt.id) ? arr.filter(v => v !== opt.id) : [...arr, opt.id];
+                                        setQuizAnswer(pill.questionId, next);
+                                      } else {
+                                        setQuizAnswer(pill.questionId, opt.id);
+                                        setEditingQuestionId(null);
+                                      }
+                                    }}
+                                    className={cn(
+                                      "w-full text-left px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-2 cursor-pointer",
+                                      isSelected ? "bg-[#C9A84C] text-white" : "text-stone-600 hover:bg-[#FAF3EA]"
+                                    )}
+                                  >
+                                    {opt.icon && <span>{opt.icon}</span>}
+                                    <span>{opt.label}</span>
+                                    {isSelected && <Check className="w-3 h-3 ml-auto" />}
+                                  </button>
+                                );
+                              })}
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    ))}
+
+                    {/* Manual Active Filter Pills */}
+                    {activeFilterPills.map((pill) => (
+                      <span
+                        key={pill.key}
+                        className="px-2.5 py-1 bg-white border border-[#E2D4C2] rounded-full text-xs font-medium text-stone-800 flex items-center gap-1.5 shadow-2xs"
+                      >
+                        <span>{pill.label}</span>
+                        <button
+                          onClick={pill.onRemove}
+                          className="hover:text-[#C2613C] p-0.5 cursor-pointer text-stone-400"
+                          aria-label={`Remove ${pill.label}`}
+                        >
+                          <X className="w-3 h-3" />
+                        </button>
+                      </span>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
-        </div>
+        )}
 
         {/* Listings Grid */}
         <div className="space-y-4">
@@ -1003,6 +1019,19 @@ export default function ResultPage() {
                   ? { label: 'Great Match', emoji: '🟡', cls: 'bg-[#C9A84C]/10 text-[#8A6D1F] border-[#C9A84C]/30' }
                   : { label: 'Good Match', emoji: '🟠', cls: 'bg-amber-50 text-amber-700 border-amber-200' }
               : null;
+
+            const cardHref = (() => {
+              if (activeCategory === 'things-to-do') {
+                const activitySlug = getActivityById(item.id)?.slug || item.id;
+                return `/things/${(city || 'marrakech').toLowerCase()}/${activitySlug}`;
+              }
+              const placeCategory = normalizePlaceCategory(activeCategory);
+              if (placeCategory) {
+                const url = getPlaceUrlById(placeCategory, item.id);
+                if (url) return url;
+              }
+              return `/finder/${(city || 'marrakech').toLowerCase()}/${item.id}`;
+            })();
 
             return (
               <motion.div
@@ -1060,7 +1089,16 @@ export default function ResultPage() {
                       {/* Title & Actions Row */}
                       <div className="flex items-start justify-between gap-3 mb-1.5">
                         <h3 className="font-serif text-2xl font-normal text-stone-900 group-hover:text-[#C2613C] transition-colors leading-snug truncate">
-                          {item.name || item.title}
+                          <a
+                            href={cardHref}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleViewDetails(item.id, idx);
+                            }}
+                            className="hover:underline focus:outline-hidden text-stone-900 group-hover:text-[#C2613C] transition-colors"
+                          >
+                            {item.name || item.title}
+                          </a>
                         </h3>
 
                         <div className="flex items-center gap-2 shrink-0">
@@ -1113,6 +1151,14 @@ export default function ResultPage() {
                         )}
                         <MapPin className="w-3.5 h-3.5 text-stone-400 shrink-0" />
                         <span>{(item.neighborhood || 'Medina').toUpperCase()}</span>
+                        {(item as any).distanceM !== null && (item as any).distanceM !== undefined && (
+                          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold normal-case tracking-normal border bg-[#FAF3F0] text-[#C86D51] border-[#C86D51]/30">
+                            <Navigation className="w-2.5 h-2.5 fill-current" />
+                            {(item as any).distanceM < 1000
+                              ? `${Math.round((item as any).distanceM)}m away`
+                              : `${((item as any).distanceM / 1000).toFixed(1)} km away`}
+                          </span>
+                        )}
                         {liveStatus && liveStatus.status !== 'unknown' && (
                           <span className={cn("inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold normal-case tracking-normal border", STATUS_CHIP_STYLES[liveStatus.color] || STATUS_CHIP_STYLES.stone)}>
                             <Clock className="w-3 h-3" />

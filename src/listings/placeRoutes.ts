@@ -54,12 +54,12 @@ export const PLACE_SCHEMA_TYPE: Record<PlaceUrlCategory, string> = {
   shopping: 'Store',
 };
 
-/** Accept 'eat'/'food', 'sleep'/'stay', 'shop'/'shopping' and return the URL category */
+/** Accept 'eat'/'food', 'sleep'/'stay', 'shop'/'shopping' and common aliases, returning the canonical URL category */
 export function normalizePlaceCategory(input: string | null | undefined): PlaceUrlCategory | null {
-  const lower = String(input || '').toLowerCase();
-  if (lower === 'food' || lower === 'eat') return 'food';
-  if (lower === 'sleep' || lower === 'stay') return 'sleep';
-  if (lower === 'shopping' || lower === 'shop') return 'shopping';
+  const lower = String(input || '').toLowerCase().trim();
+  if (['food', 'eat', 'restaurant', 'restaurants', 'dining', 'drinks', 'cafes'].includes(lower)) return 'food';
+  if (['sleep', 'stay', 'stays', 'hotel', 'hotels', 'riad', 'riads', 'accommodation'].includes(lower)) return 'sleep';
+  if (['shopping', 'shop', 'shops', 'souk', 'souks', 'stores'].includes(lower)) return 'shopping';
   return null;
 }
 

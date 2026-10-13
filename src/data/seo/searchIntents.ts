@@ -289,47 +289,7 @@ export const SLEEP_SEARCH_INTENTS: Record<string, SearchIntent> = {
     seoTitle: (city) => `Hotels & Desert Camps with Air Conditioning in ${city} | Moroccan Mate`,
     seoDescription: (city) => `Stay cool in the Sahara heat with climate-controlled luxury desert tents and air-conditioned kasbah rooms in ${city}.`,
     headerTitle: (city) => `Hotels & Desert Camps with Air Conditioning in ${city}`
-  },
-  'parking': {
-    slug: 'parking',
-    label: 'With Parking',
-    icon: '🅿️',
-    category: 'sleep',
-    matchTags: ['parking', 'free parking', 'valet', 'secure parking', 'on-site parking', 'garage'],
-    seoTitle: (city) => `Hotels with Parking in ${city} | Moroccan Mate`,
-    seoDescription: (city) => `Hassle-free stays in ${city} with secure on-site parking, valet service, or convenient private garages.`,
-    headerTitle: (city) => `Hotels with Parking in ${city}`
-  },
-  'kasbah-hotels': {
-    slug: 'kasbah-hotels',
-    label: 'Kasbah Architecture',
-    icon: '🏰',
-    category: 'sleep',
-    matchTags: ['kasbah', 'kasbah architecture', 'ksar', 'adobe', 'earthen', 'kasbah-hotels'],
-    seoTitle: (city) => `Historic Kasbah Hotels & Lodges in ${city} | Moroccan Mate`,
-    seoDescription: (city) => `Stay in authentic earthen fortress kasbahs and restored desert ksars in ${city}. Traditional adobe architecture, palmeraie gardens, and Saharan hospitality.`,
-    headerTitle: (city) => `Kasbah Hotels & Lodges in ${city}`
-  },
-  'desert-view': {
-    slug: 'desert-view',
-    label: 'Desert & Mountain Views',
-    icon: '🏜️',
-    category: 'sleep',
-    matchTags: ['desert-view', 'desert view', 'mountain view', 'atlas view', 'palmeraie view', 'desert-panorama', 'valley view'],
-    seoTitle: (city) => `Hotels with Desert & Mountain Views in ${city} | Moroccan Mate`,
-    seoDescription: (city) => `Spectacular views across desert plateaus, palm oases, and snowcapped Atlas peaks in ${city}. Panoramic terraces and scenic retreats.`,
-    headerTitle: (city) => `Hotels with Desert & Mountain Views in ${city}`
-  },
-  'family-rooms': {
-    slug: 'family-rooms',
-    label: 'Family Rooms',
-    icon: '👨‍👩‍👧‍👦',
-    category: 'sleep',
-    matchTags: ['family-rooms', 'family-friendly', 'family suite', 'kids', 'family room', 'adjoining rooms'],
-    seoTitle: (city) => `Family-Friendly Hotels with Family Rooms in ${city} | Moroccan Mate`,
-    seoDescription: (city) => `Comfortable and spacious family rooms and multi-bedroom suites in ${city}. Kid-friendly pools, gardens, and relaxing amenities for all ages.`,
-    headerTitle: (city) => `Hotels with Family Rooms in ${city}`
-  },
+  }
 };
 
 /**
@@ -460,29 +420,7 @@ export const CITY_SEARCH_INTENTS: Record<string, Record<string, string[]>> = {
       'spa',
       'family-friendly'
     ]
-  },
-  rabat: {
-    sleep: [
-      'pool',
-      '5-star',
-      'ocean-view',
-      'in-medina',
-      'airport-shuttle',
-      'spa',
-      'rooftop-terrace',
-      'parking'
-    ]
-  },
-  ouarzazate: {
-    sleep: [
-      'pool',
-      'kasbah-hotels',
-      '5-star',
-      'desert-view',
-      'spa',
-      'family-rooms'
-    ]
-  },
+  }
 };
 
 /**
@@ -518,10 +456,6 @@ export function doesListingMatchIntent(item: any, intent: SearchIntent): boolean
   if (!item || !intent) return false;
 
   // Direct boolean amenity matching
-    if (intent.slug === 'parking' && (item.logistics?.parking || item.amenities?.some((a: string) => a.toLowerCase().includes('parking')) || item.tags?.includes('parking'))) return true;
-  if (intent.slug === 'kasbah-hotels' && (item.type === 'kasbah' || item.vibeTags?.some((v: string) => v.toLowerCase().includes('kasbah') || v.toLowerCase().includes('ksar')) || item.description?.toLowerCase().includes('kasbah') || item.tags?.includes('kasbah-hotels') || item.name?.toLowerCase().includes('kasbah') || item.name?.toLowerCase().includes('ksar'))) return true;
-  if (intent.slug === 'desert-view' && (item.vibeTags?.some((v: string) => v.toLowerCase().includes('desert') || v.toLowerCase().includes('panoramic') || v.toLowerCase().includes('view')) || item.description?.toLowerCase().includes('view') || item.tags?.includes('desert-view') || item.roomFeatures?.some((r: string) => r.toLowerCase().includes('view')))) return true;
-  if (intent.slug === 'family-rooms' && (item.kidsStayFree || item.groupTypes?.includes('family') || item.tags?.includes('family-favorite') || item.tags?.includes('family-rooms') || item.roomTypes?.some((r: any) => r.name?.toLowerCase().includes('family')))) return true;
   if (intent.slug === 'pool' && item.hasPool) return true;
   if (intent.slug === 'rooftop-terrace' && (item.hasRooftop || item.hasBar || item.amenities?.some((a: string) => a.toLowerCase().includes('rooftop')))) return true;
   if (intent.slug === 'in-medina' && (item.nearMedina || item.locationFeel === 'medina-heart' || item.neighborhood?.toLowerCase().includes('medina') || item.locationSummary?.toLowerCase().includes('medina') || item.type === 'riad')) return true;

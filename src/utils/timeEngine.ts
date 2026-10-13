@@ -391,3 +391,131 @@ export function isFridayDay(startDateStr: string | null | undefined, dayIndex: n
   return date.getDay() === 5; // 5 is Friday
 }
 
+export interface DayScheduleItem {
+  dayName: 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'Saturday' | 'Sunday';
+  shortDay: 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun';
+  hoursText: string;
+  isToday: boolean;
+  isClosed: boolean;
+  note?: string;
+}
+
+export interface EatScheduleResult {
+  schedule: DayScheduleItem[];
+  statusLabel: string;
+  statusBadgeColor: 'emerald' | 'amber' | 'blue' | 'purple' | 'red' | 'stone';
+  isOpenNow: boolean;
+  todayHours: string;
+  specialNote?: string;
+}
+
+const WEEK_DAYS: Array<{
+  name: 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'Saturday' | 'Sunday';
+  short: 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun';
+  key: string;
+}> = [
+  { name: 'Monday', short: 'Mon', key: 'monday' },
+  { name: 'Tuesday', short: 'Tue', key: 'tuesday' },
+  { name: 'Wednesday', short: 'Wed', key: 'wednesday' },
+  { name: 'Thursday', short: 'Thu', key: 'thursday' },
+  { name: 'Friday', short: 'Fri', key: 'friday' },
+  { name: 'Saturday', short: 'Sat', key: 'saturday' },
+  { name: 'Sunday', short: 'Sun', key: 'sunday' },
+];
+
+export function getEatWeeklySchedule(listing: {
+  openTime?: string;
+  closeTime?: string;
+  openingHours?: any;
+  fridayHours?: any;
+  ramadanHours?: any;
+  weeklySchedule?: Array<{ day: string; open: string; close: string; isClosed?: boolean; note?: string }>;
+  closedDays?: string[];
+  ramadanFriendly?: string;
+}): EatScheduleResult {
+  const now = new Date();
+  const currentDayIndex = (now.getDay() + 6) % 7; // Monday = 0, Sunday = 6
+  const currentDayKey = WEEK_DAYS[currentDayIndex].key;
+
+  const fHours = typeof listing.fridayHours === 'string' ? listing.fridayHours : undefined;
+  const rHours = typeof listing.ramadanHours === 'string' ? listing.ramadanHours : undefined;
+
+  // Determine current status using getShopStatus if possible
+  let statusCalc: ShopStatus | null = null;
+  if (listing.openingHours) {
+    statusCalc = getShopStatus(listing.openingHours, fHours, rHours, now);
+  } else if (listing.openTime && listing.closeTime) {
+    const isClosedToday = Array.isArray(listing.closedDays) && listing.closedDays.includes(currentDayKey);
+    if (isClosedToday) {
+      statusCalc = { status: 'closed', label: 'Closed Today', color: 'red' };
+    } else {
+      statusCalc = getShopStatus([{ day: 'Daily', hours: `${listing.openTime} - ${listing.closeTime}` }], fHours, rHours, now);
+    }
+  }
+
+  const defaultHours = listing.openTime && listing.closeTime ? `${listing.openTime} – ${listing.closeTime}` : 'Open Daily';
+  const closedDaysList = Array.isArray(listing.closedDays) ? listing.closedDays.map(d => d.toLowerCase().trim()) : [];
+
+  const schedule: DayScheduleItem[] = WEEK_DAYS.map((dayObj, idx) => {
+    const isToday = idx === currentDayIndex;
+    let hoursText = defaultHours;
+    let isClosed = false;
+    let note: string | undefined = undefined;
+
+    // 1. Check custom weeklySchedule override
+    if (Array.isArray(listing.weeklySchedule)) {
+      const match = listing.weeklySchedule.find(s => s.day.toLowerCase() === dayObj.key || s.day.toLowerCase() === dayObj.name.toLowerCase());
+      if (match) {
+        if (match.isClosed) {
+          isClosed = true;
+          hoursText = 'Closed';
+        } else {
+          hoursText = `${match.open} – ${match.close}`;
+        }
+        note = match.note;
+      }
+    }
+
+    // 2. Check closedDays
+    if (!isClosed && closedDaysList.includes(dayObj.key)) {
+      isClosed = true;
+      hoursText = 'Closed';
+    }
+
+    // 3. Check Friday specifics in Morocco
+    if (dayObj.key === 'friday' && !isClosed) {
+      note = 'May pause for Friday prayer (12:30–14:30)';
+    }
+
+    return {
+      dayName: dayObj.name,
+      shortDay: dayObj.short,
+      hoursText,
+      isToday,
+      isClosed,
+      note,
+    };
+  });
+
+  const todayItem = schedule[currentDayIndex];
+  const isOpenNow = statusCalc?.status === 'open' || statusCalc?.status === 'closes_soon' || statusCalc?.status === 'ramadan_day' || statusCalc?.status === 'ramadan_night';
+
+  let statusLabel = statusCalc?.label || (isOpenNow ? `Open Now (${todayItem.hoursText})` : todayItem.isClosed ? 'Closed Today' : `Opens ${listing.openTime || 'regular hours'}`);
+  let statusBadgeColor: EatScheduleResult['statusBadgeColor'] = statusCalc?.color || (isOpenNow ? 'emerald' : 'stone');
+
+  let specialNote: string | undefined = undefined;
+  if (listing.ramadanFriendly === 'special-ftour') {
+    specialNote = 'Ramadan: Special Iftar/Ftour buffet & extended evening dining.';
+  } else if (listing.ramadanFriendly === 'serves-lunch') {
+    specialNote = 'Open for normal lunch service during Ramadan.';
+  }
+
+  return {
+    schedule,
+    statusLabel,
+    statusBadgeColor,
+    isOpenNow,
+    todayHours: todayItem.hoursText,
+    specialNote,
+  };
+}

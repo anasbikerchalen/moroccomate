@@ -100,7 +100,7 @@ export const al_hoceimaThings: ThingToDoListing[] = [
     id: "al-hoceima-cala-bonita",
     city: "al_hoceima",
     name: "Plage Cala Bonita",
-    neighborhood: "Cala Bonita",
+    neighborhood: 'Calabonita',
     description: "A stunning sheltered cove with incredibly clear turquoise water and dramatic cliffs. One of the most beautiful and photogenic beaches near Al Hoceima, perfect for swimming and snorkeling.",
     price: 0,
     pricePerPerson: 0,

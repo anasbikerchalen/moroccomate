@@ -101,6 +101,8 @@ export interface SleepListing {
   locationFeel?: 'medina-heart' | 'ville-nouvelle' | 'countryside'
   availabilityText?: string // e.g. "2 rooms left", "Available tonight"
   googleMapsUrl?: string
+  contactWhatsApp?: string
+  bookingUrl?: string
   paymentMethods?: string[]
   languagesSpoken?: string[]
   customStory?: string
@@ -251,6 +253,16 @@ export interface EatListing {
   wheelchairAccessible?: boolean
   website?: string
   instagram?: string
+  bookingUrl?: string
+  whatsappNumber?: string
+  closedDays?: string[]
+  weeklySchedule?: {
+    day: 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'Saturday' | 'Sunday'
+    open: string
+    close: string
+    isClosed?: boolean
+    note?: string
+  }[]
   exactAddressAndCoordinates?: {
     address: string
     lat: number
@@ -334,6 +346,7 @@ export interface ThingToDoListing {
   includedServices?: string[]       // E5
   hiddenCostsInfo?: string          // E6
   address?: string                  // F1
+  coordinates?: { lat: number; lng: number } // GPS pinpoint coordinates
   parkingInfo?: string              // F4
   publicTransportInfo?: string      // F5
   dressCode?: string                // H1

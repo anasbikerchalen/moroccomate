@@ -372,7 +372,10 @@ export function adaptToStayListing(listing: any): StayListing {
     room_details: deriveRoomDetails(listing),
     amenities,
     policies,
-    visibility
+    visibility,
+    contact_whatsapp: listing?.contactWhatsApp || listing?.whatsappNumber || undefined,
+    booking_url: listing?.bookingUrl || listing?.officialWebsite || undefined,
+    phone: listing?.logistics?.contact || undefined
   };
 }
 
