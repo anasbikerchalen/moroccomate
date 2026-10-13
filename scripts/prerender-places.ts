@@ -33,11 +33,11 @@ const esc = (s: string) =>
   String(s).replace(/&/g, '\u0026amp;').replace(/</g, '\u0026lt;').replace(/>/g, '\u0026gt;').replace(/"/g, '\u0026quot;');
 const jsonEsc = (s: string) => s.replace(/</g, '\\u003c').replace(/>/g, '\\u003e').replace(/&/g, '\\u0026');
 
-const pages = collectAllPages().filter((p) => p.path !== '/'); // '/' IS the template itself
+const pages = collectAllPages();
 
 let count = 0;
 for (const page of pages) {
-  const url = `${BASE_URL}${page.path}`;
+  const url = `${BASE_URL}${page.path === '/' ? '/' : page.path}`;
 
   const head = [
     `<title>${esc(page.title)} | Moroccan Mate</title>`,
@@ -130,6 +130,23 @@ for (const page of pages) {
       `<div style="margin-top:32px;padding-top:20px;border-top:1px solid #e9e1d4;font-size:13px;">` +
       `<a href="${esc(browseUrl || '/finder')}" style="color:#C9A84C;font-weight:bold;margin-right:16px;">More ${esc(page.meta?.category || 'places')} in ${esc(page.meta?.city || 'Morocco')}</a>` +
       `<a href="/" style="color:#71685F;">Moroccan Mate Home</a>` +
+      `</div>` +
+      `</div>`;
+  } else if (page.path === '/') {
+    preContent =
+      `<div style="max-width:840px;margin:32px auto;padding:0 20px;font-family:system-ui,-apple-system,sans-serif;color:#29231F;">` +
+      `<h1 style="font-size:36px;color:#173042;margin:0 0 12px;line-height:1.2;">Moroccan Mate — Eat, Sleep, Things & Shopping</h1>` +
+      `<p style="font-size:18px;line-height:1.5;color:#555;margin:0 0 24px;">Discover personalized, authentic recommendations across Morocco. Pick your destination city, answer a short quiz, and explore handpicked places to eat, stays, activities, and local shops.</p>` +
+      `<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin:32px 0;">` +
+      `<div style="padding:16px;border:1px solid #e9e1d4;border-radius:12px;"><h3 style="margin:0 0 8px;color:#C2613C;">Where to Eat</h3><p style="margin:0;font-size:14px;color:#666;">Authentic Moroccan cuisines, rooftop dining, and street food gems.</p></div>` +
+      `<div style="padding:16px;border:1px solid #e9e1d4;border-radius:12px;"><h3 style="margin:0 0 8px;color:#C2613C;">Where to Sleep</h3><p style="margin:0;font-size:14px;color:#666;">Charming riads, boutique hotels, kasbahs, and desert camps.</p></div>` +
+      `<div style="padding:16px;border:1px solid #e9e1d4;border-radius:12px;"><h3 style="margin:0 0 8px;color:#C2613C;">Things to Do</h3><p style="margin:0;font-size:14px;color:#666;">Guided tours, mountain treks, desert safaris, and hammams.</p></div>` +
+      `<div style="padding:16px;border:1px solid #e9e1d4;border-radius:12px;"><h3 style="margin:0 0 8px;color:#C2613C;">Shopping</h3><p style="margin:0;font-size:14px;color:#666;">Artisan cooperatives, spices, carpets, ceramics, and souvenirs.</p></div>` +
+      `</div>` +
+      `<div style="margin-top:32px;padding-top:20px;border-top:1px solid #e9e1d4;font-size:14px;">` +
+      `<a href="/finder" style="color:#C9A84C;font-weight:bold;margin-right:16px;">Launch Finder</a>` +
+      `<a href="/finder/marrakech/food" style="color:#71685F;margin-right:16px;">Marrakech Food</a>` +
+      `<a href="/finder/fes/sleep" style="color:#71685F;">Fès Stays</a>` +
       `</div>` +
       `</div>`;
   } else {
