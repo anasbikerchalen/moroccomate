@@ -32,7 +32,7 @@ import catShoppingImg from '../assets/images/home/home_category_shopping_circle.
  * ─────────────────────────────────────────────────────────────
  */
 
-const RECOMMENDED_CITY_NAMES = ['Marrakech', 'Fes', 'Chefchaouen', 'Essaouira', 'Agadir'];
+const RECOMMENDED_CITY_NAMES = ['Marrakech', 'Fes', 'Chefchaouen', 'Essaouira', 'Agadir', 'Casablanca'];
 
 const CATEGORIES = [
   {
@@ -89,12 +89,17 @@ export default function HomePage() {
     return prof?.tier === 'touristic' || RECOMMENDED_CITY_NAMES.includes(c.name);
   });
 
-  const topSixCities = recommendedCities.slice(0, 6);
-  const visibleCities = showAllCities ? activeCities : topSixCities;
+  const orderedRecommended: any[] = [];
+  for (const name of RECOMMENDED_CITY_NAMES) {
+    const found = recommendedCities.find((r: any) => r.name === name);
+    if (found) orderedRecommended.push(found);
+  }
+  const restRecommended = recommendedCities.filter((r: any) => !orderedRecommended.some((o: any) => o.id === r.id));
+  const allRecommendedOrdered = [...orderedRecommended, ...restRecommended];
+  const visibleCities = showAllCities ? activeCities : allRecommendedOrdered.slice(0, 6);
 
   const isAwaitingCity = Boolean(selectedCategory && !selectedCity);
 
-  // Go directly into the quiz for the chosen category (skips the categories screen)
   const goFinder = (cityId: string, categoryId: string) => {
     setCityInStore(cityId);
     setActiveCategory(categoryId as any);
@@ -103,9 +108,6 @@ export default function HomePage() {
     navigate(`/finder/${citySlug}/${categoryId}?start=quiz`);
   };
 
-  // Bidirectional selection:
-  // - If user clicks city first, city is chosen; next click on category starts the quiz.
-  // - If user clicks category first, category is affirmed; next click on city starts the quiz.
   const handleCitySelect = (cityId: string) => {
     setLocalCity(cityId);
     if (selectedCategory) {
@@ -129,10 +131,8 @@ export default function HomePage() {
         description="Pick your city, answer a short quiz, and get personalized local recommendations for food, stays, things to do, and shopping in Morocco."
       />
 
-      {/* ─── HEADER · minimal editorial brand bar ───────────── */}
       <header className="relative z-20 max-w-[1400px] mx-auto px-6 md:px-10 pt-5 md:pt-6 flex items-start justify-between">
         <div className="flex items-center gap-3">
-          {/* Real brand logo */}
           <img
             src={logoImg}
             alt="Moroccan Mate logo"
@@ -143,7 +143,6 @@ export default function HomePage() {
             <p className="font-sans text-[9px] font-bold uppercase tracking-[0.22em] text-[#71685F] mt-1.5">Real places. Local vibes.</p>
           </div>
         </div>
-        {/* All Right: Favorite Heart Icon & Saved Places Button */}
         <div className="flex items-center gap-3 pt-1">
           <div className="hidden md:flex items-center gap-2 mr-1">
             <span className="font-sans text-xs text-[#71685F]">Your personal Moroccan guide</span>
@@ -152,7 +151,7 @@ export default function HomePage() {
           <button
             type="button"
             onClick={() => setFavoritesOpen(true)}
-            className="group relative flex items-center gap-2 px-3 py-1.5 sm:px-3.5 sm:py-1.5 rounded-full bg-white/90 hover:bg-white border border-[#EADBCE] shadow-xs hover:shadow-md hover:border-[#E1CBA2] transition-all duration-200"
+            className="group relative flex items-center gap-2 px-3 py-1.5 sm:px-3.5 sm:py-1.5 rounded-full bg-white/90 hover:bg-white border border-[#EADBCE] shadow-xs hover:shadow-md hover:border-[#EADBCE]"
             aria-label="View saved places"
             title="View saved places"
           >
@@ -171,31 +170,29 @@ export default function HomePage() {
         </div>
       </header>
 
-      {/* ─── HERO · illustrated Moroccan landscape ──────────── */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
           <img src={heroIllustration} alt="" className="absolute inset-0 w-full h-full object-cover" loading="eager" {...({ fetchpriority: 'high' } as any)} />
           <div className="absolute inset-0 bg-gradient-to-b from-[#FAF7F2]/75 via-[#FAF7F2]/35 to-[#FAF7F2]" />
         </div>
 
-        <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10 pt-14 md:pt-16 pb-14 md:pb-20 min-h-[420px] md:min-h-[500px] flex flex-col items-center justify-center text-center">
+        <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10 pt-10 md:pt-12 pb-10 md:pb-14 min-h-[360px] md:min-h-[420px] flex flex-col items-center justify-center text-center">
           <motion.h1
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
-            className="font-display font-medium text-[38px] leading-[1.05] md:text-[64px] md:leading-[1.0] tracking-tight max-w-[700px] text-[#29231F]"
+            className="font-display font-medium text-[30px] leading-[1.05] md:text-[48px] md:leading-[1.0] tracking-tight max-w-[700px] text-[#29231F]"
           >
             What are you looking<br className="hidden sm:block" /> for in Morocco?
           </motion.h1>
 
-          {/* City selector · soft floating pill */}
           <motion.div
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.25, ease: 'easeOut' }}
-            className="mt-8 md:mt-10 w-full max-w-[680px]"
+            className="mt-6 md:mt-8 w-full max-w-[760px]"
           >
-            <div className={`bg-[#FFFDF9]/95 backdrop-blur-sm border rounded-[32px] px-5 py-3 flex items-center justify-center gap-2 md:gap-2.5 flex-wrap transition-all duration-300 ${
+            <div className={`bg-[#FFFDF9]/95 backdrop-blur-sm border rounded-full px-4 py-2 flex items-center justify-center gap-2 md:gap-2.5 flex-wrap transition-all duration-300 ${
               isAwaitingCity
                 ? 'gold-breathe border-[#C9A84C] ring-2 ring-[#C9A84C]/35 shadow-[0_8px_32px_rgba(201,168,76,0.22)]'
                 : 'border-[#E9D8C8] shadow-[0_8px_30px_rgba(80,55,35,0.06)]'
@@ -263,8 +260,7 @@ export default function HomePage() {
             )}
           </motion.div>
 
-          {/* ─── CATEGORIES · directly under the cities ─────────── */}
-          <div className="mt-8 md:mt-10 w-full max-w-[1200px]">
+          <div className="mt-6 md:mt-8 w-full max-w-[1200px]">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
               {CATEGORIES.map((cat, i) => {
                 const active = selectedCategory === cat.id;
@@ -290,9 +286,8 @@ export default function HomePage() {
                         : 'bg-[#FFFDF9] border-[#E9D8C8]/70 shadow-[0_8px_30px_rgba(80,55,35,0.06)] hover:border-[#C9A84C]/40 hover:shadow-[0_12px_36px_rgba(80,55,35,0.12)]'
                     }`}
                   >
-                    {/* Visual affirmation badge on active card */}
                     {active && (
-                      <span className="absolute top-3.5 right-3.5 inline-flex items-center gap-1 bg-[#C9A84C] text-white text-[10px] font-sans font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full shadow-xs">
+                      <span className="absolute top-3.5 right-3.5 inline-flex items-center gap-1 bg-[#C9A84C] text-white text-[10px] font-sans font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full">
                         <Check className="w-3 h-3 stroke-[2.5]" />
                         <span>Selected</span>
                       </span>
@@ -331,111 +326,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ─── SEO INTERNAL LINKING DIRECTORY · Explore Morocco by City & Intent ─── */}
-      <section className="mt-20 border-t border-[#E9D8C8] bg-white/70 py-16 px-6 md:px-10">
-        <div className="max-w-[1200px] mx-auto">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
-            <div>
-              <p className="font-sans text-xs font-bold uppercase tracking-[0.2em] text-[#C85A32]">Curated Morocco Directory</p>
-              <h2 className="font-serif text-2xl md:text-3xl font-semibold text-[#29231F] mt-1.5">
-                Explore Morocco by City & Category
-              </h2>
-            </div>
-            <p className="font-sans text-xs text-[#71685F] max-w-md">
-              Handpicked dining, traditional riads, verified artisan shops, and authentic experiences across all major Moroccan destinations.
-            </p>
-          </div>
-
-          {/* City Hub Matrix */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 mb-12">
-            {[
-              { id: 'marrakech', name: 'Marrakech' },
-              { id: 'fes', name: 'Fes' },
-              { id: 'essaouira', name: 'Essaouira' },
-              { id: 'chefchaouen', name: 'Chefchaouen' },
-              { id: 'agadir', name: 'Agadir' },
-              { id: 'tangier', name: 'Tangier' },
-              { id: 'casablanca', name: 'Casablanca' },
-              { id: 'dakhla', name: 'Dakhla' },
-              { id: 'rabat', name: 'Rabat' },
-              { id: 'taghazout', name: 'Taghazout' },
-            ].map((cityItem) => (
-              <div key={cityItem.id} className="space-y-2">
-                <a
-                  href={`/finder/${cityItem.id}/sleep`}
-                  className="font-serif text-base font-semibold text-[#29231F] hover:text-[#C85A32] transition-colors block"
-                >
-                  {cityItem.name}
-                </a>
-                <ul className="space-y-1 text-xs text-[#71685F]">
-                  <li>
-                    <a href={`/finder/${cityItem.id}/food`} className="hover:text-[#C9A84C] transition-colors">
-                      Food & Restaurants
-                    </a>
-                  </li>
-                  <li>
-                    <a href={`/finder/${cityItem.id}/sleep`} className="hover:text-[#C9A84C] transition-colors">
-                      Stays & Riads
-                    </a>
-                  </li>
-                  <li>
-                    <a href={`/finder/${cityItem.id}/things-to-do`} className="hover:text-[#C9A84C] transition-colors">
-                      Things to Do
-                    </a>
-                  </li>
-                  <li>
-                    <a href={`/finder/${cityItem.id}/shopping`} className="hover:text-[#C9A84C] transition-colors">
-                      Artisan Shopping
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            ))}
-          </div>
-
-          {/* Popular High-Intent Search Collections (Directly covers Search Console unindexed URLs) */}
-          <div className="pt-8 border-t border-[#E9D8C8]/60">
-            <h3 className="font-sans text-xs font-bold uppercase tracking-wider text-[#71685F] mb-4">
-              Popular Search Highlights & Filter Guides
-            </h3>
-            <div className="flex flex-wrap gap-2.5">
-              {[
-                { title: 'Hotels with Heated Pools in Agadir', url: '/finder/agadir/sleep/heated-pools' },
-                { title: '5-Star Luxury Hotels in Agadir', url: '/finder/agadir/sleep/5-star' },
-                { title: 'Beachfront Hotels in Essaouira', url: '/finder/essaouira/sleep/on-the-beach' },
-                { title: 'Hotels with Waterslides in Marrakech', url: '/finder/marrakech/sleep/waterslides' },
-                { title: '5-Star Luxury Riads in Marrakech', url: '/finder/marrakech/sleep/5-star' },
-                { title: 'Kitesurf Hotels in Dakhla', url: '/finder/dakhla/sleep/kitesurf-hotels' },
-                { title: 'All-Inclusive Resorts in Agadir', url: '/finder/agadir/sleep/all-inclusive' },
-                { title: 'Riads in Heart of Fes Medina', url: '/finder/fes/sleep/medina-heart' },
-                { title: 'Stays with Private Beach in Taghazout', url: '/finder/taghazout/sleep/private-beach' },
-                { title: 'Hotels with Swim-Up Rooms in Marrakech', url: '/finder/marrakech/sleep/swim-up-rooms' },
-                { title: 'Hotels with Mountain Views in Chefchaouen', url: '/finder/chefchaouen/sleep/mountain-view' },
-                { title: 'Desert Camps & Stays in Merzouga', url: '/finder/merzouga/sleep/desert-camps' },
-              ].map((linkItem) => (
-                <a
-                  key={linkItem.url}
-                  href={linkItem.url}
-                  className="px-3.5 py-1.5 rounded-full text-xs font-medium bg-[#FAF7F2] text-[#29231F] hover:bg-[#FAF3EA] hover:text-[#C85A32] border border-[#E9D8C8] transition-colors"
-                >
-                  {linkItem.title}
-                </a>
-              ))}
-            </div>
-          </div>
-
-          {/* Footer note */}
-          <div className="mt-12 pt-6 border-t border-[#E9D8C8]/60 flex flex-col sm:flex-row items-center justify-between text-xs text-[#71685F] gap-3">
-            <p>© {new Date().getFullYear()} Moroccan Mate · Independent Morocco Guide</p>
-            <div className="flex items-center gap-4">
-              <a href="/finder" className="hover:text-[#C9A84C] transition-colors">Browse Finder</a>
-              <a href="/sitemap.xml" className="hover:text-[#C9A84C] transition-colors">Sitemap</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Slide-over Favorites Drawer */}
       <FavoritesDrawer isOpen={favoritesOpen} onClose={() => setFavoritesOpen(false)} />
     </div>
   );
