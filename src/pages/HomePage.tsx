@@ -207,7 +207,8 @@ export default function HomePage() {
                 <span className="font-sans text-[11px] font-bold uppercase tracking-[0.16em] text-[#71685F] mr-1">Choose a city</span>
               )}
 
-              {visibleCities.map((c: any) => (
+              {/* Show compact visible cities only when not expanded to avoid duplication */}
+              {!showAllCities && visibleCities.map((c: any) => (
                 <a
                   key={c.id}
                   href={`/finder/${c.id.toLowerCase()}/${selectedCategory || 'sleep'}`}
@@ -226,6 +227,7 @@ export default function HomePage() {
                   {c.name}
                 </a>
               ))}
+
               <button
                 onClick={() => setShowAllCities(!showAllCities)}
                 aria-label={showAllCities ? 'Hide all cities' : 'Show all cities'}
