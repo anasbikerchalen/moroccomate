@@ -13,13 +13,13 @@ import { getListings } from '../listings';
 import heroIllustration from '../assets/images/finder/finder_hero_matte_1786297047661.jpg';
 import logoImg from '../assets/images/logo.png';
 // 🖼️ Home page circular category images (Gemini-generated, circle-safe centered subjects)
-// PROMPT (Food & Dining): "Moroccan food and dining: a steaming round tagine pot with fresh bread, olives and a glass of mint tea arranged in the exact center of the frame on a zellij tile table,[...]
+// PROMPT (Food & Dining): "Moroccan food and dining: a steaming round tagine pot with fresh bread, olives and a glass of mint tea arranged in the exact center of the frame on a zellij tile table, warm golden daylight with natural shadows, shallow depth of field, photorealistic editorial food photography, centered composition, soft natural light"
 import catFoodImg from '../assets/images/home/home_category_food_circle.jpg';
-// PROMPT (Stays & Sleep): "Stays and sleep in Morocco: a beautiful traditional riad courtyard with a small mosaic fountain and hanging lanterns composed in the exact center of the frame, warm gol[...]
+// PROMPT (Stays & Sleep): "Stays and sleep in Morocco: a beautiful traditional riad courtyard with a small mosaic fountain and hanging lanterns composed in the exact center of the frame, warm golden light, cozy atmospheric, photorealistic"
 import catStaysImg from '../assets/images/home/home_category_sleep_circle.jpg';
-// PROMPT (Things to Do): "Things to do in Morocco: a serene travel discovery scene with the Atlas mountains, a historic medina gateway and a small palm grove arranged in the exact center of the f[...]
+// PROMPT (Things to Do): "Things to do in Morocco: a serene travel discovery scene with the Atlas mountains, a historic medina gateway and a small palm grove arranged in the exact center of the frame, warm travel editorial style"
 import catThingsImg from '../assets/images/home/home_category_things_circle.jpg';
-// PROMPT (Shopping): "Shopping in Morocco: a woven Berber basket with colorful ceramics, leather babouches and a folded rug arranged in the exact center of the frame on a warm market table, warm [...]
+// PROMPT (Shopping): "Shopping in Morocco: a woven Berber basket with colorful ceramics, leather babouches and a folded rug arranged in the exact center of the frame on a warm market table, warm editorial light"
 import catShoppingImg from '../assets/images/home/home_category_shopping_circle.jpg';
 
 /**
@@ -151,7 +151,7 @@ export default function HomePage() {
           <button
             type="button"
             onClick={() => setFavoritesOpen(true)}
-            className="group relative flex items-center gap-2 px-3 py-1.5 sm:px-3.5 sm:py-1.5 rounded-full bg-white/90 hover:bg-white border border-[#EADBCE] shadow-xs hover:shadow-md hover:border-[#EADBCE]"
+            className="group relative flex items-center gap-2 px-3 py-1.5 sm:px-3.5 sm:py-1.5 rounded-full bg-white/90 hover:bg-white border border-[#EADBCE] shadow-xs hover:shadow-md hover:border-[#EADBCE] transition-all duration-200"
             aria-label="View saved places"
             title="View saved places"
           >
@@ -325,6 +325,46 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <div className="max-w-[1200px] mx-auto px-6 md:px-10 pb-10">
+        <div className="pt-8 border-t border-[#E9D8C8]/60">
+          <h3 className="font-sans text-xs font-bold uppercase tracking-wider text-[#71685F] mb-4">
+            Popular Search Highlights & Filter Guides
+          </h3>
+          <div className="flex flex-wrap gap-2.5">
+            {[
+              { title: 'Hotels with Heated Pools in Agadir', url: '/finder/agadir/sleep/heated-pools' },
+              { title: '5-Star Luxury Hotels in Agadir', url: '/finder/agadir/sleep/5-star' },
+              { title: 'Beachfront Hotels in Essaouira', url: '/finder/essaouira/sleep/on-the-beach' },
+              { title: 'Hotels with Waterslides in Marrakech', url: '/finder/marrakech/sleep/waterslides' },
+              { title: '5-Star Luxury Riads in Marrakech', url: '/finder/marrakech/sleep/5-star' },
+              { title: 'Kitesurf Hotels in Dakhla', url: '/finder/dakhla/sleep/kitesurf-hotels' },
+              { title: 'All-Inclusive Resorts in Agadir', url: '/finder/agadir/sleep/all-inclusive' },
+              { title: 'Riads in Heart of Fes Medina', url: '/finder/fes/sleep/medina-heart' },
+              { title: 'Stays with Private Beach in Taghazout', url: '/finder/taghazout/sleep/private-beach' },
+              { title: 'Hotels with Swim-Up Rooms in Marrakech', url: '/finder/marrakech/sleep/swim-up-rooms' },
+              { title: 'Hotels with Mountain Views in Chefchaouen', url: '/finder/chefchaouen/sleep/mountain-view' },
+              { title: 'Desert Camps & Stays in Merzouga', url: '/finder/merzouga/sleep/desert-camps' },
+            ].map((linkItem) => (
+              <a
+                key={linkItem.url}
+                href={linkItem.url}
+                className="px-3.5 py-1.5 rounded-full text-xs font-medium bg-[#FAF7F2] text-[#29231F] hover:bg-[#FAF3EA] hover:text-[#C85A32] border border-[#E9D8C8] transition-colors"
+              >
+                {linkItem.title}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-12 pt-6 border-t border-[#E9D8C8]/60 flex flex-col sm:flex-row items-center justify-between text-xs text-[#71685F] gap-3">
+          <p>© {new Date().getFullYear()} Moroccan Mate · Independent Morocco Guide</p>
+          <div className="flex items-center gap-4">
+            <a href="/finder" className="hover:text-[#C9A84C] transition-colors">Browse Finder</a>
+            <a href="/sitemap.xml" className="hover:text-[#C9A84C] transition-colors">Sitemap</a>
+          </div>
+        </div>
+      </div>
 
       <FavoritesDrawer isOpen={favoritesOpen} onClose={() => setFavoritesOpen(false)} />
     </div>
