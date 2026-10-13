@@ -13,13 +13,13 @@ import { getListings } from '../listings';
 import heroIllustration from '../assets/images/finder/finder_hero_matte_1786297047661.jpg';
 import logoImg from '../assets/images/logo.png';
 // 🖼️ Home page circular category images (Gemini-generated, circle-safe centered subjects)
-// PROMPT (Food & Dining): "Moroccan food and dining: a steaming round tagine pot with fresh bread, olives and a glass of mint tea arranged in the exact center of the frame on a zellij tile table, warm ambient light, generous empty cream-colored margin all around the subject for a safe circular crop. Soft matte vector illustration style on cream canvas, warm Moroccan color palette."
+// PROMPT (Food & Dining): "Moroccan food and dining: a steaming round tagine pot with fresh bread, olives and a glass of mint tea arranged in the exact center of the frame on a zellij tile table,[...]
 import catFoodImg from '../assets/images/home/home_category_food_circle.jpg';
-// PROMPT (Stays & Sleep): "Stays and sleep in Morocco: a beautiful traditional riad courtyard with a small mosaic fountain and hanging lanterns composed in the exact center of the frame, warm golden evening light, generous empty cream-colored margin all around the subject for a safe circular crop. Soft matte vector illustration style on cream canvas, warm Moroccan color palette."
+// PROMPT (Stays & Sleep): "Stays and sleep in Morocco: a beautiful traditional riad courtyard with a small mosaic fountain and hanging lanterns composed in the exact center of the frame, warm gol[...]
 import catStaysImg from '../assets/images/home/home_category_sleep_circle.jpg';
-// PROMPT (Things to Do): "Things to do in Morocco: a serene travel discovery scene with the Atlas mountains, a historic medina gateway and a small palm grove arranged in the exact center of the frame, warm daylight, generous empty cream-colored margin all around the subject for a safe circular crop. Soft matte vector illustration style on cream canvas, warm Moroccan color palette."
+// PROMPT (Things to Do): "Things to do in Morocco: a serene travel discovery scene with the Atlas mountains, a historic medina gateway and a small palm grove arranged in the exact center of the f[...]
 import catThingsImg from '../assets/images/home/home_category_things_circle.jpg';
-// PROMPT (Shopping): "Shopping in Morocco: a woven Berber basket with colorful ceramics, leather babouches and a folded rug arranged in the exact center of the frame on a warm market table, warm ambient light, generous empty cream-colored margin all around the subject for a safe circular crop. Soft matte vector illustration style on cream canvas, warm Moroccan color palette."
+// PROMPT (Shopping): "Shopping in Morocco: a woven Berber basket with colorful ceramics, leather babouches and a folded rug arranged in the exact center of the frame on a warm market table, warm [...]
 import catShoppingImg from '../assets/images/home/home_category_shopping_circle.jpg';
 
 /**
@@ -89,7 +89,8 @@ export default function HomePage() {
     return prof?.tier === 'touristic' || RECOMMENDED_CITY_NAMES.includes(c.name);
   });
 
-  const otherCities = activeCities.filter((c: any) => !recommendedCities.some((r: any) => r.id === c.id));
+  const topSixCities = recommendedCities.slice(0, 6);
+  const visibleCities = showAllCities ? activeCities : topSixCities;
 
   const isAwaitingCity = Boolean(selectedCategory && !selectedCity);
 
@@ -151,7 +152,7 @@ export default function HomePage() {
           <button
             type="button"
             onClick={() => setFavoritesOpen(true)}
-            className="group relative flex items-center gap-2 px-3 py-1.5 sm:px-3.5 sm:py-1.5 rounded-full bg-white/90 hover:bg-white border border-[#EADBCE] shadow-xs hover:shadow-md hover:border-[#C9A84C] transition-all cursor-pointer"
+            className="group relative flex items-center gap-2 px-3 py-1.5 sm:px-3.5 sm:py-1.5 rounded-full bg-white/90 hover:bg-white border border-[#EADBCE] shadow-xs hover:shadow-md hover:border-[#E1CBA2] transition-all duration-200"
             aria-label="View saved places"
             title="View saved places"
           >
@@ -200,16 +201,16 @@ export default function HomePage() {
                 : 'border-[#E9D8C8] shadow-[0_8px_30px_rgba(80,55,35,0.06)]'
             }`}>
               <MapPin className={`w-4 h-4 shrink-0 transition-transform ${isAwaitingCity ? 'text-[#C9A84C] scale-110' : 'text-[#C9A84C]'}`} />
-              
+
               {isAwaitingCity ? (
-                <span className="inline-flex items-center gap-1.5 bg-[#C9A84C] text-white text-[10px] sm:text-[11px] font-sans font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-xs mr-1 animate-pulse">
+                <span className="inline-flex items-center gap-1.5 bg-[#C9A84C] text-white text-[10px] sm:text-[11px] font-sans font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-xs">
                   Step 2: Pick your city
                 </span>
               ) : (
                 <span className="font-sans text-[11px] font-bold uppercase tracking-[0.16em] text-[#71685F] mr-1">Choose a city</span>
               )}
 
-              {recommendedCities.map((c: any) => (
+              {visibleCities.map((c: any) => (
                 <a
                   key={c.id}
                   href={`/finder/${c.id.toLowerCase()}/${selectedCategory || 'sleep'}`}
@@ -239,7 +240,7 @@ export default function HomePage() {
 
             {showAllCities && (
               <div className="mt-3 flex flex-wrap justify-center gap-2">
-                {otherCities.map((c: any) => (
+                {activeCities.map((c: any) => (
                   <a
                     key={c.id}
                     href={`/finder/${c.id.toLowerCase()}/${selectedCategory || 'sleep'}`}
