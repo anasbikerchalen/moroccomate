@@ -6,6 +6,7 @@ import { SEO } from '../components/ui/SEO';
 import { useParameterStore } from '../state/parameterStore';
 import { useExploreStore } from '../state/exploreStore';
 import { useSavedStore } from '../state/savedStore';
+import FavoritesDrawer from '../components/finder/FavoritesDrawer';
 import { cities } from '../data/cities';
 import { isCityTouristicOrMid, getCityProfile } from '../data/touristicHierarchy';
 import { getListings } from '../listings';
