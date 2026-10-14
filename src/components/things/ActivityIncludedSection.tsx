@@ -16,7 +16,7 @@ export const ActivityIncludedSection: React.FC<ActivityIncludedSectionProps> = (
   title = "What's included",
   includedItems,
 }) => {
-  if (!includedItems || includedItems.length === 0) return null;
+  if (!Array.isArray(includedItems) || includedItems.length === 0) return null;
 
   return (
     <ActivityCard icon="check" title={title}>

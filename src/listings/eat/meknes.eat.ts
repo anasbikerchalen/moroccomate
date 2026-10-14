@@ -1,3 +1,74 @@
+/**
+ * =========================================================================
+ * MOROCCAN MATE — FOOD (EAT) LISTINGS: MEKNES
+ * =========================================================================
+ * MASTER TEMPLATE REFERENCE & ALLOWED ARRAY OPTIONS BIBLE
+ * Canonical Bible File: src/listings/eat/template.eat.ts
+ *
+ * When updating or generating new food entries with external AI or web search,
+ * you MUST strictly adhere to the following allowed array values:
+ *
+ * ALLOWED OPTIONS BIBLE:
+ * - lifestyle:        'lean' | 'balanced' | 'premium'
+ * - groupTypes:       'solo' | 'couple' | 'family' | 'friends' | 'large-groups' | 'seniors'
+ * - mealTypes:        'breakfast' | 'lunch' | 'dinner' | 'late-night' | 'snack' | 'brunch' | 'drinks'
+ * - experienceTypes:  'street-food' | 'fine-dining' | 'casual' | 'cafes-tea' | 'hidden-gem' | 'rooftop' | 'traditional' | 'market-stall'
+ * - foodStyles:       'Moroccan' | 'Seafood' | 'Berber' | 'Tagine & Couscous' | 'French-Moroccan' | 'Italian' | 'Mediterranean' | 'Middle Eastern' | 'Cafe & Pastry' | 'Grill & BBQ' | 'Vegetarian/Vegan' | 'International'
+ * - paymentMethods:   'cash' | 'credit_card' | 'visa' | 'mastercard' | 'apple_pay' | 'google_pay'
+ * - reservationMethod:'whatsapp' | 'phone' | 'website' | 'walk-in' | 'email'
+ * - closedDays:       'monday' | 'tuesday' | 'wednesday' | 'thursday' | 'friday' | 'saturday' | 'sunday'
+ * - seatingTypes:     'indoor' | 'outdoor' | 'rooftop' | 'terrace' | 'courtyard' | 'street-side'
+ * - alcoholPolicy:    'serves-alcohol' | 'dry'
+ * - crowdLevel:       'quiet' | 'balanced' | 'bustling'
+ * - badge:            'local' | 'splurge' | 'hidden-gem' | 'local-favorite' | 'tourist-trap'
+ *
+ * BLANK COPY-PASTE TEMPLATE FOR NEW ENTRIES:
+ * {
+ *   id: 'eat-[city]-[slug]',
+ *   city: 'meknes',
+ *   name: '',
+ *   neighborhood: '',
+ *   description: '',
+ *   pricePerPerson: 15,
+ *   lifestyle: 'balanced',
+ *   groupTypes: ['solo', 'couple', 'family', 'friends'],
+ *   mealTypes: ['lunch', 'dinner'],
+ *   experienceTypes: ['casual', 'traditional'],
+ *   foodStyles: ['Moroccan'],
+ *   bestDishes: [],
+ *   isHalal: true,
+ *   isVegetarianFriendly: false,
+ *   servesAlcohol: false,
+ *   alcoholPolicy: 'dry',
+ *   hasDelivery: false,
+ *   nearMedina: true,
+ *   nearBeach: false,
+ *   nearCenter: true,
+ *   hasEnglishStaff: true,
+ *   hasFrenchStaff: true,
+ *   hasParking: false,
+ *   crowdLevel: 'balanced',
+ *   openTime: '11:00',
+ *   closeTime: '23:00',
+ *   closedDays: [],
+ *   paymentMethods: ['cash'],
+ *   reservationMethod: ['walk-in'],
+ *   reservationContact: '',
+ *   bookingUrl: '',
+ *   whatsappNumber: '',
+ *   googleRating: 4.5,
+ *   googleReviewCount: 100,
+ *   googleMapsUrl: 'https://maps.google.com/?q=',
+ *   seatingTypes: ['indoor'],
+ *   tags: ['moroccan', 'halal', 'lunch'],
+ *   vibeTags: ['authentic'],
+ *   pros: [],
+ *   cons: [],
+ *   tip: '',
+ *   badge: 'local-favorite'
+ * }
+ * =========================================================================
+ */
 import type { EatListing } from '../types';
 
 export const meknesEat: EatListing[] = [

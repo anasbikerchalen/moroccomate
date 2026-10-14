@@ -1,3 +1,85 @@
+/**
+ * =========================================================================
+ * MOROCCAN MATE — ACCOMMODATIONS (SLEEP) LISTINGS: RABAT
+ * =========================================================================
+ * MASTER TEMPLATE REFERENCE & ALLOWED ARRAY OPTIONS BIBLE
+ * Canonical Bible File: src/listings/sleep/template.sleep.ts
+ *
+ * When updating or generating new stay entries with external AI or web search,
+ * you MUST strictly adhere to the following allowed array values:
+ *
+ * ALLOWED OPTIONS BIBLE:
+ * - type:             'riad' | 'dar' | 'hotel' | 'kasbah' | 'desert-camp' | 'guesthouse' | 'hostel' | 'resort' | 'apartment' | 'villa' | 'lodge'
+ * - lifestyle:        'lean' | 'balanced' | 'premium'
+ * - locationFeel:     'medina-heart' | 'ville-nouvelle' | 'countryside'
+ * - groupTypes:       'solo' | 'couple' | 'family' | 'friends' | 'large-groups' | 'seniors'
+ * - safetyLevel:      1 | 2 | 3 | 4 | 5
+ * - paymentMethods:   'cash' | 'credit_card' | 'visa' | 'mastercard' | 'apple_pay' | 'google_pay' | 'bank_transfer'
+ * - amenities:        'pool' | 'breakfast' | 'ac' | 'heating' | 'wifi' | 'rooftop' | 'ensuite' | 'restaurant' | 'bar' | 'gym' | 'elevator' | 'laundry' | 'room-service' | 'pet-friendly'
+ * - roomFeatures:     'soundproof' | 'workspace' | 'balcony' | 'fireplace' | 'courtyard-view' | 'mountain-view' | 'sea-view' | 'patio-access'
+ * - languagesSpoken:  'Arabic' | 'French' | 'English' | 'Spanish' | 'German' | 'Italian' | 'Berber / Tamazight'
+ * - archetypeAffinity:'first-timer' | 'culture' | 'adventure' | 'relaxed' | 'foodie' | 'budget' | 'luxury'
+ *
+ * BLANK COPY-PASTE TEMPLATE FOR NEW ENTRIES:
+ * {
+ *   id: 'stay-[city]-[slug]',
+ *   city: 'rabat',
+ *   name: '',
+ *   neighborhood: 'Medina',
+ *   description: '',
+ *   price: 850,
+ *   lifestyle: 'balanced',
+ *   type: 'riad',
+ *   locationFeel: 'medina-heart',
+ *   safetyLevel: 5,
+ *   groupTypes: ['solo', 'couple', 'friends'],
+ *   hasPool: false,
+ *   hasBreakfast: true,
+ *   hasAC: true,
+ *   hasHeating: true,
+ *   hasRooftop: true,
+ *   hasEnsuite: true,
+ *   hasRestaurant: false,
+ *   hasBar: false,
+ *   hasGym: false,
+ *   hasElevator: false,
+ *   hasLaundryService: true,
+ *   hasRoomService: false,
+ *   petFriendly: false,
+ *   taxesIncluded: true,
+ *   freeCancellation: true,
+ *   kidsStayFree: false,
+ *   nearMedina: true,
+ *   nearBeach: false,
+ *   nearMosque: true,
+ *   isHiddenGem: false,
+ *   images: [],
+ *   tip: '',
+ *   archetypeAffinity: ['first-timer', 'culture'],
+ *   vibeTags: ['historic', 'intimate', 'tranquil'],
+ *   tags: ['riad', 'medina', 'breakfast', 'rooftop', 'ac', 'wifi'],
+ *   locationSummary: 'Medina',
+ *   googleMapsUrl: 'https://maps.google.com/?q=',
+ *   contactWhatsApp: '',
+ *   bookingUrl: '',
+ *   paymentMethods: ['credit_card', 'cash'],
+ *   languagesSpoken: ['Arabic', 'French', 'English'],
+ *   logistics: {
+ *     checkIn: '14:00',
+ *     checkOut: '11:00',
+ *     luggageStorage: 'Available free of charge',
+ *     parking: 'Public parking available nearby',
+ *     airportTransfer: 'Available upon request',
+ *     contact: ''
+ *   },
+ *   roomFeatures: ['courtyard-view'],
+ *   roomTypes: [{ name: 'Standard Double Room', view: 'Courtyard view', price: 850, beds: '1 Double bed', size: '20 sqm', available: true }],
+ *   coordinates: { lat: 31.6295, lng: -7.9811 },
+ *   googleRating: 4.7,
+ *   googleReviewCount: 200
+ * }
+ * =========================================================================
+ */
 import type { SleepListing } from '../types'
 
 /**

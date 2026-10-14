@@ -134,7 +134,8 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
 
   // Primary cuisine label
   const primaryCuisine = useMemo(() => {
-    if (foodStyles && foodStyles.length > 0) return foodStyles[0];
+    if (Array.isArray(foodStyles) && foodStyles.length > 0) return String(foodStyles[0]);
+    if (typeof foodStyles === 'string' && foodStyles.trim()) return foodStyles.trim();
     return 'Moroccan';
   }, [foodStyles]);
 
@@ -252,7 +253,8 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
     if (Array.isArray(bestDishes) && bestDishes.length > 0) return bestDishes;
     
     // Dynamic cuisine-aware derivation based on styles, primaryCuisine, and listing details
-    const descriptor = [...(foodStyles || []), primaryCuisine, name, description].join(' ').toLowerCase();
+    const safeFoodStyles = Array.isArray(foodStyles) ? foodStyles : typeof foodStyles === 'string' ? [foodStyles] : [];
+    const descriptor = [...safeFoodStyles, primaryCuisine, name, description].join(' ').toLowerCase();
     
     if (descriptor.includes('burger') || descriptor.includes('american') || descriptor.includes('mcdonald') || descriptor.includes('burger king')) {
       return ['Signature Flame-Grilled Burger', 'Crispy Golden Fries', 'Thick Handspun Milkshake'];

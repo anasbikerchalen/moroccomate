@@ -17,7 +17,7 @@ export const ActivityWhatToBringSection: React.FC<ActivityWhatToBringSectionProp
   title = 'What to bring',
   requirements,
 }) => {
-  if (!requirements || requirements.length === 0) return null;
+  if (!Array.isArray(requirements) || requirements.length === 0) return null;
 
   return (
     <ActivityCard icon="backpack" title={title}>

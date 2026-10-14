@@ -74,9 +74,9 @@ const PRODUCT_ICON_MAP: [RegExp, string][] = [
 ];
 
 function deriveProductCategories(listing: any): ProductCategory[] {
-  const cats: string[] = listing?.productCategories || [];
+  const cats: string[] = Array.isArray(listing?.productCategories) ? listing.productCategories : [];
   return cats.slice(0, 10).map((name, i) => {
-    const matched = PRODUCT_ICON_MAP.find(([re]) => re.test(name));
+    const matched = PRODUCT_ICON_MAP.find(([re]) => re.test(String(name)));
     return {
       id: `pc-${i}`,
       name: String(name),
@@ -174,10 +174,10 @@ function derivePricing(listing: any): ShopPricing {
 }
 
 function derivePayment(listing: any): ShopPayment {
-  const methods: string[] = listing?.paymentMethods || ['cash'];
-  const cardLike = methods.some((m) => ['visa', 'mastercard', 'amex', 'credit_card', 'card', 'apple_pay', 'google_pay'].includes(m.toLowerCase()));
+  const methods: string[] = Array.isArray(listing?.paymentMethods) ? listing.paymentMethods : ['cash'];
+  const cardLike = methods.some((m) => ['visa', 'mastercard', 'amex', 'credit_card', 'card', 'apple_pay', 'google_pay'].includes(String(m).toLowerCase()));
   const mapped = methods.slice(0, 4).map((m) => {
-    const pm = m.toLowerCase();
+    const pm = String(m).toLowerCase();
     if (pm === 'visa') return { id: 'visa', name: 'Visa', icon: 'visa' as const };
     if (pm === 'mastercard') return { id: 'mastercard', name: 'Mastercard', icon: 'mastercard' as const };
     if (pm === 'apple_pay' || pm === 'google_pay') return { id: 'contactless', name: 'Contactless', icon: 'contactless' as const };
@@ -206,16 +206,16 @@ const DAY_MAP: Record<string, { dow: any; label: string; short: string }> = {
 };
 
 function deriveOpeningHours(listing: any): ShopOpeningHours {
-  const rows: { day: string; hours: string }[] = listing?.openingHours || [];
+  const rows: { day: string; hours: string }[] = Array.isArray(listing?.openingHours) ? listing.openingHours : [];
   const schedule = rows.map((row) => {
-    const key = String(row.day || '').toLowerCase().slice(0, 3);
-    const dayInfo = DAY_MAP[key] || { dow: 'monday', label: String(row.day || 'Day'), short: String(row.day || 'Day').slice(0, 3) };
-    const times = String(row.hours || '').match(/(\d{1,2}:\d{2})/g) || [];
+    const key = String(row?.day || '').toLowerCase().slice(0, 3);
+    const dayInfo = DAY_MAP[key] || { dow: 'monday', label: String(row?.day || 'Day'), short: String(row?.day || 'Day').slice(0, 3) };
+    const times = String(row?.hours || '').match(/(\d{1,2}:\d{2})/g) || [];
     return {
       day_of_week: dayInfo.dow,
-      day_label: String(row.day || dayInfo.label),
+      day_label: String(row?.day || dayInfo.label),
       short_label: dayInfo.short,
-      is_closed: /closed/i.test(String(row.hours || '')),
+      is_closed: /closed/i.test(String(row?.hours || '')),
       open_time: times[0] || '09:00',
       close_time: times[1] || '19:00'
     };
@@ -227,7 +227,7 @@ function deriveOpeningHours(listing: any): ShopOpeningHours {
 }
 
 function deriveLanguages(listing: any): Language[] {
-  const spoken: string[] = listing?.languagesSpoken || [];
+  const spoken: string[] = Array.isArray(listing?.languagesSpoken) ? listing.languagesSpoken : [];
   return spoken.map((name, i) => ({ id: `lang-${i}`, name: String(name) }));
 }
 
@@ -248,13 +248,13 @@ function deriveShipping(listing: any): ShopShipping {
 // ---------------------------------------------------------------
 function deriveVisibility(listing: any, nearby: ShopNearbyPlace[], highlights: ShopHighlight[], products: ProductCategory[], languages: Language[]): ShopSectionVisibility {
   return {
-    show_products: products.length > 0,
-    show_highlights: highlights.length > 0,
-    show_nearby: nearby.length > 0,
+    show_products: Array.isArray(products) && products.length > 0,
+    show_highlights: Array.isArray(highlights) && highlights.length > 0,
+    show_nearby: Array.isArray(nearby) && nearby.length > 0,
     show_pricing: true,
     show_payment: true,
-    show_opening_hours: (listing?.openingHours || []).length > 0,
-    show_languages: languages.length > 0,
+    show_opening_hours: Array.isArray(listing?.openingHours) && listing.openingHours.length > 0,
+    show_languages: Array.isArray(languages) && languages.length > 0,
     show_shipping: listing?.shipping?.available === true
   };
 }

@@ -1,91 +1,75 @@
-import type { EatListing } from '../types';
-
 /**
- * EAT LISTING TEMPLATE
+ * =========================================================================
+ * MOROCCAN MATE — FOOD (EAT) LISTINGS: CHEFCHAOUEN
+ * =========================================================================
+ * MASTER TEMPLATE REFERENCE & ALLOWED ARRAY OPTIONS BIBLE
+ * Canonical Bible File: src/listings/eat/template.eat.ts
+ *
+ * When updating or generating new food entries with external AI or web search,
+ * you MUST strictly adhere to the following allowed array values:
+ *
+ * ALLOWED OPTIONS BIBLE:
+ * - lifestyle:        'lean' | 'balanced' | 'premium'
+ * - groupTypes:       'solo' | 'couple' | 'family' | 'friends' | 'large-groups' | 'seniors'
+ * - mealTypes:        'breakfast' | 'lunch' | 'dinner' | 'late-night' | 'snack' | 'brunch' | 'drinks'
+ * - experienceTypes:  'street-food' | 'fine-dining' | 'casual' | 'cafes-tea' | 'hidden-gem' | 'rooftop' | 'traditional' | 'market-stall'
+ * - foodStyles:       'Moroccan' | 'Seafood' | 'Berber' | 'Tagine & Couscous' | 'French-Moroccan' | 'Italian' | 'Mediterranean' | 'Middle Eastern' | 'Cafe & Pastry' | 'Grill & BBQ' | 'Vegetarian/Vegan' | 'International'
+ * - paymentMethods:   'cash' | 'credit_card' | 'visa' | 'mastercard' | 'apple_pay' | 'google_pay'
+ * - reservationMethod:'whatsapp' | 'phone' | 'website' | 'walk-in' | 'email'
+ * - closedDays:       'monday' | 'tuesday' | 'wednesday' | 'thursday' | 'friday' | 'saturday' | 'sunday'
+ * - seatingTypes:     'indoor' | 'outdoor' | 'rooftop' | 'terrace' | 'courtyard' | 'street-side'
+ * - alcoholPolicy:    'serves-alcohol' | 'dry'
+ * - crowdLevel:       'quiet' | 'balanced' | 'bustling'
+ * - badge:            'local' | 'splurge' | 'hidden-gem' | 'local-favorite' | 'tourist-trap'
+ *
+ * BLANK COPY-PASTE TEMPLATE FOR NEW ENTRIES:
  * {
- *   id: 'e-[city]-[name]',
- *   city: '[city]',
- *   name: '[Name]',
- *   neighborhood: '[Neighborhood]',
- *   description: '[Long description]',
- *   pricePerPerson: [number],
- *   lifestyle: 'lean' | 'balanced' | 'premium',
- *   mealTypes: ['breakfast', 'lunch', 'dinner', 'brunch', 'latenight', 'afternoon-tea', 'flexible'],
- *   experienceTypes: ['Fine Dining' | 'Waterfront Dining' | 'Romantic Sunset' | 'Beachfront Dining' | 'Garden restaurant with live music' | 'Fountain courtyard' | 'French-Moroccan fusion' | 'Casual Italian Dining' | 'Family Pizza Night' | 'Spanish Beach Lounge' | 'Paella & Tapas' | 'Live Music Terrace' | 'Upscale Romantic Dining' | 'Fine Seafood' | 'Classic Royal Ambiance' | '24/7 Brasserie' | 'People Watching' | 'Bakery-Patisserie' | 'Traditional Breakfast Ritual' | 'Local Gathering Spot' | 'Fishing Harbor Dining' | 'Gourmet Seafood' | 'French-Italian Fusion' | 'Authentic Berber Feast' | 'Traditional Dining' | 'Cozy casual family-run Moroccan eatery' | 'Amazigh-inspired decor' | 'Beachfront Grill' | 'Casual Dining' | 'Sunset Views' | 'Wood-Fired Pizza' | 'Family Friendly' | 'Leafy Tennis Oasis' | 'Tranquil Dining' | 'Upscale Lounge' | 'Modern Fusion Dining' | 'Unverified'],
- *   foodStyles: ['French' | 'Moroccan' | 'Seafood' | 'Mediterranean' | 'European' | 'International' | 'Italian' | 'Pizza' | 'Spanish' | 'Berber' | 'Barbecue' | 'Middle Eastern' | 'Healthy' | 'Cafe' | 'Bakery' | 'Patisserie' | 'Gourmet' | 'Fast Food'],
- *   crowdLevel: 'bustling' | 'balanced' | 'quiet',
- *   groupTypes: ['solo', 'couple', 'family', 'friends', 'seniors', 'kids-friendly', 'large-groups', 'business-friendly'],
- *   hasEnglishStaff: true | false,
- *   hasFrenchStaff: true | false,
- *   hasDelivery: true | false,
- *   hasParking: true | false,
- *   nearMedina: true | false,
- *   nearBeach: true | false,
- *   nearCenter: true | false,
- *   isVegetarianFriendly: true | false,
- *   isHalal: true | false,
- *   openTime: 'HH:mm',
- *   closeTime: 'HH:mm',
- *   badge: 'local-favorite' | 'splurge' | 'hidden-gem' | 'local',
- *
- *   // ═══════════════════════════════════════════════════
- *   // IMAGES — now fetched from Google Places API via googlePlaceId
- *   // ═══════════════════════════════════════════════════
- *   // REMOVED: images: ['url1', 'url2']
- *   // Instead, just add: // googlePlaceId: "ChIJ..."
- *   // Frontend uses googlePlaceId to call Google Places API → gets photo_reference → builds <img> URLs
- *
- *   // ═══════════════════════════════════════════════════
- *   // RATINGS — organized per source
- *   // ═══════════════════════════════════════════════════
- *   // Search for real ratings from Google, TripAdvisor, TheFork, and RestaurantGuru.
- *   // If you cannot find a rating for a specific source, set it to the same value as
- *   // the closest available one so the code that calculates average ratings doesn't break.
- *   // Example: if no TripAdvisor rating found, set tripadvisorRating = googleRating
- *
- *   // Google Places rating
- *   googleRating: [4.x],
- *   googleReviewCount: [number],
- *
- *   // TripAdvisor rating
- *   tripadvisorRating: [4.x],
- *   tripadvisorReviewCount: [number],
- *
- *   // TheFork rating
- *   theforkRating: [4.x],
- *   theforkReviewCount: [number],
- *
- *   // RestaurantGuru rating
- *   restaurantguruRating: [4.x],
- *   restaurantguruReviewCount: [number],
- *
- *   // REMOVED: rating, reviewCount, ratingSource (old single-source fields)
- *
- *   // ═══════════════════════════════════════════════════
- *
- *   fullMenu: { type: 'image' | 'text', content: 'https://...' },
- *   tip: '[Short tip]',
- *   googleMapsUrl: 'https://maps.google.com/?q=[Name]+[City]',
- *   reservationContact: '+212XXXXXXXXX',
- *   bestDishes: ['Dish 1', 'Dish 2'],
- *   alcoholPolicy: 'serves-alcohol' | 'dry',
- *   ramadanFriendly: 'serves-lunch' | 'special-ftour' | 'closed',
- *
- *   // ═══════════════════════════════════════════════════
- *   // NEW FIELDS — psychological UX optimization
- *   // ═══════════════════════════════════════════════════
- *
- *   bestTimeToVisit: 'Early evening around 18:30 for sunset' | 'Lunch around 13:00 for quiet' | 'Late evening after 20:00 for lively crowd' | 'Early morning for fresh baked goods' | 'Sunday morning for brunch peak',
- *   averageWaitMinutes: 0 | 5 | 10 | 15 | 20 | 30 | 45 | 60,
- *   seatingTypes: ['indoor'] | ['terrace'] | ['rooftop'] | ['garden'] | ['beachfront'] | ['indoor', 'terrace'] | ['indoor', 'garden'] | ['terrace', 'rooftop'],
- *   viewType: 'beach' | 'mountain' | 'city' | 'garden' | 'none',
- *   wiFi: true | false,
- *   airConditioning: true | false,
- *   wheelchairAccessible: true | false,
- *   website: 'https://...',
- *   instagram: '@handle' | 'https://instagram.com/...'
+ *   id: 'eat-[city]-[slug]',
+ *   city: 'chefchaouen',
+ *   name: '',
+ *   neighborhood: '',
+ *   description: '',
+ *   pricePerPerson: 15,
+ *   lifestyle: 'balanced',
+ *   groupTypes: ['solo', 'couple', 'family', 'friends'],
+ *   mealTypes: ['lunch', 'dinner'],
+ *   experienceTypes: ['casual', 'traditional'],
+ *   foodStyles: ['Moroccan'],
+ *   bestDishes: [],
+ *   isHalal: true,
+ *   isVegetarianFriendly: false,
+ *   servesAlcohol: false,
+ *   alcoholPolicy: 'dry',
+ *   hasDelivery: false,
+ *   nearMedina: true,
+ *   nearBeach: false,
+ *   nearCenter: true,
+ *   hasEnglishStaff: true,
+ *   hasFrenchStaff: true,
+ *   hasParking: false,
+ *   crowdLevel: 'balanced',
+ *   openTime: '11:00',
+ *   closeTime: '23:00',
+ *   closedDays: [],
+ *   paymentMethods: ['cash'],
+ *   reservationMethod: ['walk-in'],
+ *   reservationContact: '',
+ *   bookingUrl: '',
+ *   whatsappNumber: '',
+ *   googleRating: 4.5,
+ *   googleReviewCount: 100,
+ *   googleMapsUrl: 'https://maps.google.com/?q=',
+ *   seatingTypes: ['indoor'],
+ *   tags: ['moroccan', 'halal', 'lunch'],
+ *   vibeTags: ['authentic'],
+ *   pros: [],
+ *   cons: [],
+ *   tip: '',
+ *   badge: 'local-favorite'
  * }
+ * =========================================================================
  */
+import type { EatListing } from '../types';
 
 export const chefchaouenEat: EatListing[] = [
   {

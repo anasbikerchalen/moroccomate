@@ -27,7 +27,7 @@ export const ActivityNearbySection: React.FC<ActivityNearbySectionProps> = ({
 }) => {
   const [hoveredPlaceId, setHoveredPlaceId] = useState<string | null>(null);
 
-  if (!nearbyPlaces || nearbyPlaces.length === 0) return null;
+  if (!Array.isArray(nearbyPlaces) || nearbyPlaces.length === 0) return null;
 
   const hasWalkingData = nearbyPlaces.some(p => p.walking_minutes && p.walking_minutes > 0);
   const sub = subtitle || (cityLabel ? `Close to popular places in ${cityLabel}.` : 'Close to popular places.');

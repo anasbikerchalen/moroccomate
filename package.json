@@ -7,6 +7,8 @@
         "dev": "vite --host 0.0.0.0 --port 3000",
         "lint": "tsc --noEmit",
         "audit": "tsx scripts/audit-tags.ts",
+        "audit:arrays": "tsx scripts/audit-arrays.ts",
+        "headers:standardize": "tsx scripts/standardize-listing-headers.ts",
         "sitemap": "tsx scripts/generate-sitemap.ts",
         "prerender": "tsx scripts/prerender-places.ts"
     },

@@ -1,3 +1,68 @@
+/**
+ * =========================================================================
+ * MOROCCAN MATE — SHOPPING & ARTISANS LISTINGS: SAIDIA
+ * =========================================================================
+ * MASTER TEMPLATE REFERENCE & ALLOWED ARRAY OPTIONS BIBLE
+ * Canonical Bible File: src/listings/shop/template.shop.ts
+ *
+ * When updating or generating new artisan shop entries with external AI or web search,
+ * you MUST strictly adhere to the following allowed array values:
+ *
+ * ALLOWED OPTIONS BIBLE:
+ * - type:              'souk_stall' | 'boutique' | 'cooperative' | 'mall_store' | 'pharmacy' | 'supermarket' | 'designer_atelier' | 'concept_store'
+ * - priceLevel:        'budget' | 'mid-range' | 'premium' | 'luxury'
+ * - pricingModel:      'fixed' | 'negotiable' | 'mixed' | 'market_price'
+ * - authenticitySeals: 'label_artisanat' | 'wfto' | 'zellige_de_fes' | 'anou' | 'maalem_certified'
+ * - paymentMethods:    'cash' | 'visa' | 'mastercard' | 'apple_pay' | 'google_pay' | 'amex'
+ * - productCategories: 'Berber Rugs & Carpets' | 'Leather Goods & Babouches' | 'Ceramics & Pottery' | 'Spices & Apothecary' | 'Argan Oil & Cosmetics' | 'Jewelry & Silver' | 'Brass & Metal Lanterns' | 'Woodwork & Thuya Wood' | 'Textiles & Caftans' | 'Artisan Crafts'
+ * - languagesSpoken:   'Arabic' | 'French' | 'English' | 'Spanish' | 'German' | 'Italian' | 'Berber / Tamazight'
+ * - storeSize:         'boutique' | 'medium' | 'large' | 'department-store'
+ * - crowdLevel:        'quiet' | 'moderate' | 'busy'
+ *
+ * BLANK COPY-PASTE TEMPLATE FOR NEW ENTRIES:
+ * {
+ *   id: 'sh-[city]-[slug]',
+ *   city: 'saidia',
+ *   name: '',
+ *   type: 'boutique',
+ *   category: 'Artisan Crafts',
+ *   neighborhood: 'Medina',
+ *   description: '',
+ *   priceLevel: 'mid-range',
+ *   pricingModel: 'fixed',
+ *   isVerified: true,
+ *   isWheelchairAccessible: false,
+ *   hasDelivery: false,
+ *   googleMapsUrl: 'https://maps.google.com/?q=',
+ *   address: '',
+ *   landmark: '',
+ *   coordinates: { lat: 31.6295, lng: -7.9811 },
+ *   distanceText: '',
+ *   navSteps: [],
+ *   tags: ['artisan', 'fixed-price', 'authentic'],
+ *   authenticitySeals: ['label_artisanat'],
+ *   paymentMethods: ['cash', 'visa', 'mastercard'],
+ *   productCategories: ['Leather Goods & Babouches'],
+ *   languagesSpoken: ['Arabic', 'French', 'English'],
+ *   phoneNumber: '',
+ *   website: '',
+ *   instagram: '',
+ *   openingHours: [{ day: 'Monday', hours: '09:00 - 19:00' }],
+ *   fridayHours: 'Friday prayer break 12:30 - 14:30',
+ *   shipping: { available: false, partner: 'shop_arranges', details: '' },
+ *   workshopVisitable: false,
+ *   returnPolicy: '',
+ *   bestTimeToVisit: '',
+ *   atmosphere: 'Relaxed browsing environment',
+ *   storeSize: 'boutique',
+ *   crowdLevel: 'moderate',
+ *   whatTheySell: [{ item: 'Handmade Babouches', range: '120 - 180 MAD', priceEstimate: '150 MAD' }],
+ *   googleRating: 4.5,
+ *   googleReviewCount: 100,
+ *   reviewSummary: ''
+ * }
+ * =========================================================================
+ */
 import { ShopListing } from '../types'
 
 export const saidiaShops: ShopListing[] = [

@@ -14,7 +14,7 @@ export const ShopProductsSection: React.FC<ShopProductsSectionProps> = ({
   title = "What you'll find",
   subtitle = 'Discover a selection of authentic Moroccan products.'
 }) => {
-  if (!categories || categories.length === 0) return null;
+  if (!Array.isArray(categories) || categories.length === 0) return null;
 
   return (
     <section className="rounded-2xl border border-[#ece4d5] bg-white p-6 sm:p-7 shadow-2xs">

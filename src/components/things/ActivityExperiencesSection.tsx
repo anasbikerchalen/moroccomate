@@ -18,7 +18,7 @@ export const ActivityExperiencesSection: React.FC<ActivityExperiencesSectionProp
   description,
   experiences,
 }) => {
-  if (!experiences || experiences.length === 0) return null;
+  if (!Array.isArray(experiences) || experiences.length === 0) return null;
 
   return (
     <ActivityCard icon="sun" title={title} subtitle={description}>

@@ -12,7 +12,7 @@ export const ShopHighlightsSection: React.FC<ShopHighlightsSectionProps> = ({
   highlights,
   title = 'Why visit?'
 }) => {
-  if (!highlights || highlights.length === 0) return null;
+  if (!Array.isArray(highlights) || highlights.length === 0) return null;
 
   return (
     <section className="rounded-2xl border border-[#ece4d5] bg-white p-6 sm:p-7 shadow-2xs flex flex-col justify-between h-full">

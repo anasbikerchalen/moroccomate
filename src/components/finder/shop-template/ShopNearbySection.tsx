@@ -18,7 +18,7 @@ export const ShopNearbySection: React.FC<ShopNearbySectionProps> = ({
 }) => {
   const [hoveredPlaceId, setHoveredPlaceId] = useState<string | null>(null);
 
-  if (!nearbyPlaces || nearbyPlaces.length === 0) return null;
+  if (!Array.isArray(nearbyPlaces) || nearbyPlaces.length === 0) return null;
 
   // Visual Theme mapping based on category
   const getTheme = (category: string, index: number) => {

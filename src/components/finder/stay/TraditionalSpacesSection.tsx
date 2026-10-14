@@ -13,7 +13,7 @@ export const TraditionalSpacesSection: React.FC<TraditionalSpacesSectionProps> =
   title = 'Traditional spaces',
   subtitle = 'The details that make this stay feel distinctly Moroccan.'
 }) => {
-  if (!spaces || spaces.length === 0) return null;
+  if (!Array.isArray(spaces) || spaces.length === 0) return null;
 
   return (
     <section className="mb-12 w-full">

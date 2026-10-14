@@ -129,6 +129,7 @@ export type CityTier = 'touristic' | 'mid' | 'low';
 export type NeighborhoodTier = 'touristic' | 'mid' | 'low';
 
 export interface CityTouristicProfile {
+  id?: string;
   name: string;
   tier: CityTier;
   touristicNeighborhoods: string[];

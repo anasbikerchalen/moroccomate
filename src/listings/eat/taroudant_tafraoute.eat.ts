@@ -1,67 +1,75 @@
-import type { EatListing } from '../types';
-
 /**
- * EAT LISTING TEMPLATE
+ * =========================================================================
+ * MOROCCAN MATE — FOOD (EAT) LISTINGS: TAROUDANT_TAFRAOUTE
+ * =========================================================================
+ * MASTER TEMPLATE REFERENCE & ALLOWED ARRAY OPTIONS BIBLE
+ * Canonical Bible File: src/listings/eat/template.eat.ts
+ *
+ * When updating or generating new food entries with external AI or web search,
+ * you MUST strictly adhere to the following allowed array values:
+ *
+ * ALLOWED OPTIONS BIBLE:
+ * - lifestyle:        'lean' | 'balanced' | 'premium'
+ * - groupTypes:       'solo' | 'couple' | 'family' | 'friends' | 'large-groups' | 'seniors'
+ * - mealTypes:        'breakfast' | 'lunch' | 'dinner' | 'late-night' | 'snack' | 'brunch' | 'drinks'
+ * - experienceTypes:  'street-food' | 'fine-dining' | 'casual' | 'cafes-tea' | 'hidden-gem' | 'rooftop' | 'traditional' | 'market-stall'
+ * - foodStyles:       'Moroccan' | 'Seafood' | 'Berber' | 'Tagine & Couscous' | 'French-Moroccan' | 'Italian' | 'Mediterranean' | 'Middle Eastern' | 'Cafe & Pastry' | 'Grill & BBQ' | 'Vegetarian/Vegan' | 'International'
+ * - paymentMethods:   'cash' | 'credit_card' | 'visa' | 'mastercard' | 'apple_pay' | 'google_pay'
+ * - reservationMethod:'whatsapp' | 'phone' | 'website' | 'walk-in' | 'email'
+ * - closedDays:       'monday' | 'tuesday' | 'wednesday' | 'thursday' | 'friday' | 'saturday' | 'sunday'
+ * - seatingTypes:     'indoor' | 'outdoor' | 'rooftop' | 'terrace' | 'courtyard' | 'street-side'
+ * - alcoholPolicy:    'serves-alcohol' | 'dry'
+ * - crowdLevel:       'quiet' | 'balanced' | 'bustling'
+ * - badge:            'local' | 'splurge' | 'hidden-gem' | 'local-favorite' | 'tourist-trap'
+ *
+ * BLANK COPY-PASTE TEMPLATE FOR NEW ENTRIES:
  * {
- *   id: 'e-[city]-[name]',
+ *   id: 'eat-[city]-[slug]',
  *   city: 'taroudant_tafraoute',
- *   name: '[Name]',
- *   neighborhood: '[Neighborhood]',
- *   description: '[Long description]',
- *   pricePerPerson: [number],
- *   lifestyle: 'lean' | 'balanced' | 'premium',
- *   mealTypes: ['breakfast', 'lunch', 'dinner', 'brunch', 'latenight', 'afternoon-tea', 'flexible'],
- *   experienceTypes: ['Fine Dining' | 'Waterfront Dining' | 'Romantic Sunset' | 'Garden restaurant with live music' | 'Fountain courtyard' | 'Authentic Berber Feast' | 'Traditional Dining' | 'Cozy casual family-run Moroccan eatery' | 'Casual Dining' | 'Sunset Views' | 'Family Friendly' | 'Tranquil Dining' | 'Modern Fusion Dining'],
- *   foodStyles: ['French' | 'Moroccan' | 'Mediterranean' | 'European' | 'Berber' | 'Barbecue' | 'Healthy' | 'Cafe' | 'Bakery' | 'Patisserie'],
- *   crowdLevel: 'bustling' | 'balanced' | 'quiet',
- *   groupTypes: ['solo' | 'couple' | 'family' | 'friends' | 'seniors' | 'kids-friendly' | 'large-groups' | 'business-friendly'],
- *   hasEnglishStaff: true | false,
- *   hasFrenchStaff: true | false,
- *   hasDelivery: true | false,
- *   hasParking: true | false,
- *   nearMedina: true | false,
+ *   name: '',
+ *   neighborhood: '',
+ *   description: '',
+ *   pricePerPerson: 15,
+ *   lifestyle: 'balanced',
+ *   groupTypes: ['solo', 'couple', 'family', 'friends'],
+ *   mealTypes: ['lunch', 'dinner'],
+ *   experienceTypes: ['casual', 'traditional'],
+ *   foodStyles: ['Moroccan'],
+ *   bestDishes: [],
+ *   isHalal: true,
+ *   isVegetarianFriendly: false,
+ *   servesAlcohol: false,
+ *   alcoholPolicy: 'dry',
+ *   hasDelivery: false,
+ *   nearMedina: true,
  *   nearBeach: false,
- *   nearCenter: true | false,
- *   isVegetarianFriendly: true | false,
- *   isHalal: true | false,
- *   halalStatus: 'likely-halal-food' | 'halal-certified' | 'unknown',
- *   verificationStatus: 'verified',
- *   openTime: 'HH:mm',
- *   closeTime: 'HH:mm',
- *   badge: 'local-favorite' | 'splurge' | 'hidden-gem' | 'local',
- *   googleRating: [4.x],
- *   googleReviewCount: [number],
- *   tripadvisorRating: [4.x],
- *   tripadvisorReviewCount: [number],
- *   theforkRating: [4.x],
- *   theforkReviewCount: [number],
- *   restaurantguruRating: [4.x],
- *   restaurantguruReviewCount: [number],
- *   tip: '[Short tip]',
- *   archetypeAffinity: [...],
- *   vibeTags: [...],
- *   isHiddenGem: true | false,
- *   paymentMethods: ['cash'] | ['cash', 'card'],
- *   reservationMethod: ['none'] | ['phone'] | ['phone', 'online'],
- *   reservationContact: '+212XXXXXXXXX',
- *   googleMapsUrl: 'https://maps.google.com/?q=[Name]+[City]',
- *   bestDishes: ['Dish 1', 'Dish 2'],
- *   alcoholPolicy: 'serves-alcohol' | 'dry',
- *   ramadanFriendly: 'serves-lunch' | 'special-ftour' | 'closed',
- *   customStory: '[Rich contextual story]',
- *   languagesSpoken: ['Arabic/Darija', 'French', 'English', 'Tachelhit/Berber'],
- *   exactAddressAndCoordinates: { address: '...', lat: 0.0, lng: 0.0 },
- *   pros: [...],
- *   cons: [...],
- *   bestTimeToVisit: '...',
- *   averageWaitMinutes: 5,
- *   seatingTypes: ['indoor', 'garden', 'terrace', 'rooftop'],
- *   viewType: 'garden' | 'mountain' | 'city' | 'none',
- *   wiFi: true | false,
- *   airConditioning: true | false,
- *   wheelchairAccessible: true | false
+ *   nearCenter: true,
+ *   hasEnglishStaff: true,
+ *   hasFrenchStaff: true,
+ *   hasParking: false,
+ *   crowdLevel: 'balanced',
+ *   openTime: '11:00',
+ *   closeTime: '23:00',
+ *   closedDays: [],
+ *   paymentMethods: ['cash'],
+ *   reservationMethod: ['walk-in'],
+ *   reservationContact: '',
+ *   bookingUrl: '',
+ *   whatsappNumber: '',
+ *   googleRating: 4.5,
+ *   googleReviewCount: 100,
+ *   googleMapsUrl: 'https://maps.google.com/?q=',
+ *   seatingTypes: ['indoor'],
+ *   tags: ['moroccan', 'halal', 'lunch'],
+ *   vibeTags: ['authentic'],
+ *   pros: [],
+ *   cons: [],
+ *   tip: '',
+ *   badge: 'local-favorite'
  * }
+ * =========================================================================
  */
+import type { EatListing } from '../types';
 
 export const taroudant_tafraouteEat: EatListing[] = [
   // ── 1. RIAD MARYAM (TAROUDANT MEDINA) ──

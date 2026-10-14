@@ -17,13 +17,19 @@ export const ActivityLanguagesCard: React.FC<ActivityLanguagesCardProps> = ({
   title = 'Languages',
   note,
 }) => {
-  if (!languages || languages.length === 0) return null;
+  if (!Array.isArray(languages) || languages.length === 0) return null;
+
+  const validNames = languages
+    .map(l => (typeof l === 'string' ? l : l?.name))
+    .filter((n): n is string => typeof n === 'string' && n.trim().length > 0);
+
+  if (validNames.length === 0) return null;
 
   return (
     <ActivityCard icon="languages" title={title}>
       <div className="flex flex-col gap-1">
         <span className="font-display text-xl sm:text-2xl font-bold text-[#173042]">
-          {languages.map(l => l.name).join(' · ')}
+          {validNames.join(' · ')}
         </span>
         {note && <span className="text-xs text-[#66757D]">({note})</span>}
       </div>

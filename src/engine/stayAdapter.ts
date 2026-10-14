@@ -201,11 +201,12 @@ function parseViewType(view?: string): { view_type: any; view_label?: string } {
 }
 
 function deriveRoomDetails(listing: any) {
-  const roomType = (listing.roomTypes || [])[0] || {};
-  const groupTypes: string[] = listing.groupTypes || [];
+  const roomTypesList = Array.isArray(listing?.roomTypes) ? listing.roomTypes : [];
+  const roomType = roomTypesList[0] || {};
+  const groupTypes: string[] = Array.isArray(listing?.groupTypes) ? listing.groupTypes : [];
   const maxGuests = groupTypes.includes('large-groups') ? 6 : groupTypes.includes('family') || groupTypes.includes('families') ? 4 : 2;
   const view = parseViewType(roomType.view);
-  const ensuite = listing.hasEnsuite !== undefined ? listing.hasEnsuite : String(listing.type || '').toLowerCase() !== 'hostel';
+  const ensuite = listing?.hasEnsuite !== undefined ? listing.hasEnsuite : String(listing?.type || '').toLowerCase() !== 'hostel';
 
   return {
     room_name: roomType.name || 'Standard Double Room',
@@ -225,7 +226,7 @@ function deriveRoomDetails(listing: any) {
 // Structured amenities, policies & visibility
 // ---------------------------------------------------------------
 function deriveAmenities(listing: any) {
-  const amenitiesList: string[] = listing.amenities || [];
+  const amenitiesList: string[] = Array.isArray(listing?.amenities) ? listing.amenities : [];
   const haystack = amenitiesList.join(' ').toLowerCase();
   const hasAC = !!listing.hasAC || haystack.includes('air conditioning') || haystack.includes(' ac ');
   const hasHeating = !!listing.hasHeating || haystack.includes('heating');
@@ -281,8 +282,8 @@ function derivePolicies(listing: any) {
   const checkInEnd = times[1] || '23:00';
   const checkOut = String(logistics.checkOut || '11:00').replace(/^until\s*/i, '') || '11:00';
 
-  const paymentMethods: string[] = (listing.paymentMethods || []).map((m: string) => {
-    const pm = m.toLowerCase();
+  const paymentMethods: string[] = (Array.isArray(listing?.paymentMethods) ? listing.paymentMethods : []).map((m: string) => {
+    const pm = String(m).toLowerCase();
     if (pm === 'cash') return 'cash';
     if (pm === 'apple_pay' || pm === 'google_pay') return 'mobile_payment';
     if (pm === 'bank_transfer') return 'bank_transfer';
@@ -290,7 +291,7 @@ function derivePolicies(listing: any) {
   });
   const methods = paymentMethods.length ? paymentMethods : ['credit_card', 'cash'];
 
-  const freeCancellation = !!listing.freeCancellation;
+  const freeCancellation = !!listing?.freeCancellation;
   return {
     check_in_start: checkInStart,
     check_in_end: checkInEnd,
@@ -310,7 +311,7 @@ function derivePolicies(listing: any) {
       type: (freeCancellation ? 'free_cancellation' : 'custom') as any,
       deadline_hours: 48,
       policy_summary:
-        listing.cancellationPolicy ||
+        listing?.cancellationPolicy ||
         (freeCancellation
           ? 'Free cancellation up to 48 hours before arrival.'
           : 'Cancellation terms apply — confirm with the property before booking.'),
@@ -320,13 +321,14 @@ function derivePolicies(listing: any) {
 }
 
 function deriveVisibility(walking: NearbyPlace[], spaces: PropertyFeature[], amenities: any) {
+  const services = amenities?.extra_services?.services;
   return {
-    show_walking_distance: walking.length > 0,
-    show_traditional_spaces: spaces.length > 0,
+    show_walking_distance: Array.isArray(walking) && walking.length > 0,
+    show_traditional_spaces: Array.isArray(spaces) && spaces.length > 0,
     show_room_details: true,
     show_comfort_amenities: true,
-    show_breakfast: amenities.breakfast.available !== false,
-    show_extra_services: (amenities.extra_services.services || []).length > 0,
+    show_breakfast: amenities?.breakfast?.available !== false,
+    show_extra_services: Array.isArray(services) && services.length > 0,
     show_policies: true,
     show_exact_location: true
   };

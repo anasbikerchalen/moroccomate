@@ -12,7 +12,7 @@ interface ActivityReviewsSectionProps {
  * Only displays when reviews exist for the activity.
  */
 export const ActivityReviewsSection: React.FC<ActivityReviewsSectionProps> = ({ reviews, title = 'Reviews' }) => {
-  if (!reviews || reviews.length === 0) return null;
+  if (!Array.isArray(reviews) || reviews.length === 0) return null;
 
   return (
     <section className="rounded-2xl border border-[#ece4d5] bg-white p-6 sm:p-7 shadow-2xs">

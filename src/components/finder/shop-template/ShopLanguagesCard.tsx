@@ -7,7 +7,13 @@ interface ShopLanguagesCardProps {
 }
 
 export const ShopLanguagesCard: React.FC<ShopLanguagesCardProps> = ({ languages }) => {
-  if (!languages || languages.length === 0) return null;
+  if (!Array.isArray(languages) || languages.length === 0) return null;
+
+  const validNames = languages
+    .map(l => (typeof l === 'string' ? l : l?.name))
+    .filter((n): n is string => typeof n === 'string' && n.trim().length > 0);
+
+  if (validNames.length === 0) return null;
 
   return (
     <div className="rounded-2xl border border-[#ece4d5] bg-white p-6 shadow-2xs h-full flex flex-col justify-between">
@@ -24,7 +30,7 @@ export const ShopLanguagesCard: React.FC<ShopLanguagesCardProps> = ({ languages 
       {/* Spoken Languages List */}
       <div className="pl-1">
         <p className="text-sm sm:text-base font-semibold text-[#1c1917]">
-          {languages.map((l) => l.name).join(' · ')}
+          {validNames.join(' · ')}
         </p>
       </div>
     </div>

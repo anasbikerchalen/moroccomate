@@ -15,6 +15,8 @@ export const WalkingDistanceSection: React.FC<WalkingDistanceSectionProps> = ({
 }) => {
   const [hoveredPlaceId, setHoveredPlaceId] = useState<string | null>(null);
 
+  if (!Array.isArray(nearbyPlaces) || nearbyPlaces.length === 0) return null;
+
   // Category visual presets matching Morocco Finder design
   const getCategoryTheme = (category: string, index: number) => {
     switch (category.toLowerCase()) {

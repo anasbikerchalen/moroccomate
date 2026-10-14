@@ -203,15 +203,19 @@ function makeShortDescription(t: ThingToDoListing): string {
 function makeMedia(t: ThingToDoListing): ActivityMedia[] {
   const media: ActivityMedia[] = [];
   const urls: string[] = [];
-  if (t.nonCopyrightImage) urls.push(t.nonCopyrightImage);
-  if (Array.isArray(t.images)) urls.push(...t.images);
+  if (t.nonCopyrightImage && typeof t.nonCopyrightImage === 'string') urls.push(t.nonCopyrightImage);
+  if (Array.isArray(t.images)) {
+    t.images.forEach(img => {
+      if (img && typeof img === 'string') urls.push(img);
+    });
+  }
   urls.forEach((url, i) => {
     media.push({
       id: `media-${i}`,
       file_url: url,
       media_type: i === 0 ? 'hero' : 'gallery',
       display_order: i + 1,
-      alt_text: t.name,
+      alt_text: t.name || 'Activity Photo',
     });
   });
   return media;
@@ -220,12 +224,14 @@ function makeMedia(t: ThingToDoListing): ActivityMedia[] {
 /** Maps real collected languages / guide flags */
 function makeLanguages(t: ThingToDoListing): Language[] {
   if (Array.isArray(t.languages) && t.languages.length > 0) {
-    return t.languages.map((name, i) => ({ id: slugify(name) || `lang-${i}`, name }));
+    return t.languages
+      .filter((name): name is string => typeof name === 'string' && name.trim().length > 0)
+      .map((name, i) => ({ id: slugify(name) || `lang-${i}`, name: name.trim() }));
   }
   const names: string[] = [];
   if (t.hasEnglishGuide) names.push('English');
   if (t.hasFrenchGuide) names.push('French');
-  return names.map((name, i) => ({ id: slugify(name), name }));
+  return names.map((name, i) => ({ id: slugify(name) || `lang-${i}`, name }));
 }
 
 /** Maps real collected equipment / dress code -> "What to bring" */
@@ -233,10 +239,10 @@ function makeRequirements(t: ThingToDoListing): RequirementItem[] {
   const items: RequirementItem[] = [];
   if (Array.isArray(t.equipmentNeeded)) {
     t.equipmentNeeded.forEach((name, i) => {
-      if (name && name.trim()) items.push({ id: `req-${i}`, name: name.trim() });
+      if (typeof name === 'string' && name.trim()) items.push({ id: `req-${i}`, name: name.trim() });
     });
   }
-  if (t.dressCode && t.dressCode.trim()) {
+  if (typeof t.dressCode === 'string' && t.dressCode.trim()) {
     items.push({ id: 'req-dress-code', name: t.dressCode.trim() });
   }
   return items;
@@ -344,21 +350,30 @@ export function toActivityListing(t: ThingToDoListing): ActivityListing {
 
   const meetingType: MeetingOptionId | undefined = t.address ? 'self_arrival' : undefined;
 
-  const highlights: ActivityHighlight[] = (t.highlights || []).map((name, i) => ({
-    id: `hl-${i}`,
-    name,
-    description: '',
-  }));
+  const rawHighlights = Array.isArray(t.highlights) ? t.highlights : [];
+  const highlights: ActivityHighlight[] = rawHighlights
+    .filter((name): name is string => typeof name === 'string' && name.trim().length > 0)
+    .map((name, i) => ({
+      id: `hl-${i}`,
+      name: name.trim(),
+      description: '',
+    }));
 
-  const experiences: ActivityExperience[] = (t.emotionalBenefits || []).map((name, i) => ({
-    id: `exp-${i}`,
-    name,
-  }));
+  const rawEmotionalBenefits = Array.isArray(t.emotionalBenefits) ? t.emotionalBenefits : [];
+  const experiences: ActivityExperience[] = rawEmotionalBenefits
+    .filter((name): name is string => typeof name === 'string' && name.trim().length > 0)
+    .map((name, i) => ({
+      id: `exp-${i}`,
+      name: name.trim(),
+    }));
 
-  const includedItems: IncludedItem[] = (t.includedServices || []).map((name, i) => ({
-    id: `inc-${i}`,
-    name,
-  }));
+  const rawIncludedServices = Array.isArray(t.includedServices) ? t.includedServices : [];
+  const includedItems: IncludedItem[] = rawIncludedServices
+    .filter((name): name is string => typeof name === 'string' && name.trim().length > 0)
+    .map((name, i) => ({
+      id: `inc-${i}`,
+      name: name.trim(),
+    }));
 
   return {
     // Basic

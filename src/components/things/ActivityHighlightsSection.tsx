@@ -16,7 +16,7 @@ export const ActivityHighlightsSection: React.FC<ActivityHighlightsSectionProps>
   title = 'Why visit?',
   highlights,
 }) => {
-  if (!highlights || highlights.length === 0) return null;
+  if (!Array.isArray(highlights) || highlights.length === 0) return null;
 
   return (
     <ActivityCard icon="star" title={title} className="h-full">

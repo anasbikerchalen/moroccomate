@@ -15,7 +15,7 @@ export const AmenitiesSection: React.FC<AmenitiesSectionProps> = ({
   const { climate, breakfast, wifi, extra_services } = amenities;
 
   const showBreakfast = visibility.show_breakfast !== false && breakfast?.available !== false;
-  const showExtraServices = visibility.show_extra_services !== false && extra_services?.services?.length > 0;
+  const showExtraServices = visibility.show_extra_services !== false && Array.isArray(extra_services?.services) && extra_services.services.length > 0;
 
   return (
     <section className="mb-12 w-full">
@@ -38,7 +38,7 @@ export const AmenitiesSection: React.FC<AmenitiesSectionProps> = ({
 
             {/* List of climate points */}
             <ul className="space-y-2 pt-2 text-xs text-[#524639]">
-              {climate.details && climate.details.length > 0 ? (
+              {Array.isArray(climate?.details) && climate.details.length > 0 ? (
                 climate.details.map((detail, idx) => (
                   <li key={idx} className="flex items-center gap-2">
                     <Check className="w-3.5 h-3.5 text-[#3e572a] shrink-0" />
@@ -134,7 +134,7 @@ export const AmenitiesSection: React.FC<AmenitiesSectionProps> = ({
               </div>
 
               <ul className="space-y-2 pt-2 text-xs text-[#524639]">
-                {extra_services.services.map((svc) => (
+                {(Array.isArray(extra_services?.services) ? extra_services.services : []).map((svc) => (
                   <li key={svc.id} className="flex items-center gap-2">
                     <Check className="w-3.5 h-3.5 text-[#3e572a] shrink-0" />
                     <span className="truncate">{svc.name}</span>

@@ -12,7 +12,7 @@ export const RoomDetailsSection: React.FC<RoomDetailsSectionProps> = ({ room }) 
 
   // Format bed string (e.g., "1 × Double bed" or "2 × Single bed, 1 × Sofa bed")
   const formattedBeds =
-    room.beds && room.beds.length > 0
+    Array.isArray(room.beds) && room.beds.length > 0
       ? room.beds.map((b) => `${b.quantity} × ${b.bed_type} bed`).join(', ')
       : '1 × Double bed';
 

@@ -7,7 +7,7 @@ interface ShopOpeningHoursCardProps {
 }
 
 export const ShopOpeningHoursCard: React.FC<ShopOpeningHoursCardProps> = ({ openingHours }) => {
-  if (!openingHours || !openingHours.schedule || openingHours.schedule.length === 0) return null;
+  if (!openingHours || !Array.isArray(openingHours.schedule) || openingHours.schedule.length === 0) return null;
 
   // Day of week mapping
   const daysMap: DayOfWeek[] = [
