@@ -27,7 +27,19 @@ export default defineConfig({
           if (id.includes("node_modules")) {
             return "vendor";
           }
-          if (id.includes("src/components/finder") || id.includes("src/listings")) {
+          if (id.includes("src/listings/eat")) {
+            return "listings-eat";
+          }
+          if (id.includes("src/listings/sleep")) {
+            return "listings-sleep";
+          }
+          if (id.includes("src/listings/things")) {
+            return "listings-things";
+          }
+          if (id.includes("src/listings/shop")) {
+            return "listings-shop";
+          }
+          if (id.includes("src/components/finder")) {
             return "finder";
           }
           if (id.includes("src/data/cities") || id.includes("src/data/tourismAreas")) {
