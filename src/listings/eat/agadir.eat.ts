@@ -2428,5 +2428,73 @@ export const agadirEat: EatListing[] = [
       'Alcohol-free venue.'
     ],
     tags: ['terrace', 'budget', 'dry', 'dinner', 'live-music', 'tagine', 'couscous']
+  },
+
+  {
+    id: 'e-agadir-yuzaki',
+    city: 'agadir',
+    name: 'YUZAKI',
+    neighborhood: 'Founty',
+    description: 'A contemporary Japanese sushi and Asian fusion destination in Agadir Bay. Celebrated for inventive sushi tacos, tempura rolls, and fresh sashimi served in a sleek, vibrant dining room.',
+    pricePerPerson: 16,
+    lifestyle: 'balanced',
+    mealTypes: ['lunch', 'dinner'],
+    experienceTypes: ['Modern Fusion Dining', 'Casual Dining'],
+    foodStyles: ['International', 'Seafood'],
+    cuisineTags: ['international', 'seafood'],
+    crowdLevel: 'bustling',
+    groupTypes: ['friends', 'couple', 'solo', 'family'],
+    hasEnglishStaff: true,
+    hasFrenchStaff: true,
+    hasDelivery: true,
+    hasParking: true,
+    nearMedina: false,
+    nearBeach: false,
+    nearCenter: false,
+    isVegetarianFriendly: true,
+    isHalal: true,
+    servesAlcohol: false,
+    halalStatus: 'halal-certified',
+    verificationStatus: 'verified',
+    openTime: '12:00',
+    closeTime: '00:00',
+    badge: 'local-favorite',
+    googleRating: 4.3,
+    googleReviewCount: 738,
+    tripadvisorRating: 4.5,
+    tripadvisorReviewCount: 120,
+    theforkRating: 4.4,
+    theforkReviewCount: 80,
+    restaurantguruRating: 4.3,
+    restaurantguruReviewCount: 738,
+    tip: 'Try their signature crispy salmon sushi tacos and rock shrimp tempura rolls.',
+    archetypeAffinity: ['nomad', 'first-timer'],
+    vibeTags: ['stylish', 'chic', 'trendy', 'lively'],
+    isHiddenGem: false,
+    paymentMethods: ['card', 'cash'],
+    reservationMethod: ['phone'],
+    reservationContact: '+212528238389',
+    googleMapsUrl: 'https://maps.google.com/?q=YUZAKI+Agadir+Bay',
+    website: 'not-available',
+    instagram: 'https://instagram.com/yuzaki_restaurant',
+    bestDishes: ['Salmon Sushi Tacos', 'Rock Shrimp Rolls', 'Dragon Roll', 'Tuna Tartare'],
+    alcoholPolicy: 'dry',
+    ramadanFriendly: 'special-ftour',
+    languagesSpoken: ['French', 'English', 'Arabic/Darija'],
+    exactAddressAndCoordinates: {
+      address: 'Agadir Bay, Founty, Agadir 80000, Morocco',
+      lat: 30.4085,
+      lng: -9.5682
+    },
+    pros: [
+      'Fresh and innovative Japanese and Asian fusion options.',
+      'Sleek, stylish atmosphere in Agadir Bay / Founty.',
+      'Prompt service and good delivery coverage.'
+    ],
+    cons: [
+      'Can get crowded and noisy during weekend dinner hours.',
+      'Alcohol-free establishment.'
+    ],
+    tags: ['sushi', 'fusion', 'dry', 'dinner', 'lunch']
   }
 ];

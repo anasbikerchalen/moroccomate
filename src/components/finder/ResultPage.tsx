@@ -200,10 +200,15 @@ export default function ResultPage() {
     });
 
     if (neighborhood) {
-      listings = listings.filter(item => 
-        item.neighborhood === neighborhood || 
-        cityMap[item.city]?.name === neighborhood
-      );
+      const selectedHood = String(neighborhood).toLowerCase().trim();
+      listings = listings.filter(item => {
+        const itemHood = String(item.neighborhood || '').toLowerCase().trim();
+        const cityName = String(cityMap[item.city]?.name || '').toLowerCase().trim();
+        return itemHood === selectedHood || 
+               cityName === selectedHood ||
+               itemHood.includes(selectedHood) ||
+               selectedHood.includes(itemHood);
+      });
     }
 
     // Filter by high-intent search feature if selected from URL or tag bar
