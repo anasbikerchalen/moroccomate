@@ -205,13 +205,15 @@ for (const page of pages) {
   }
 
   const noscript =
-    `<noscript><div style="font-family:system-ui,-apple-system,sans-serif;max-width:720px;margin:24px auto;padding:16px;background:#FFFDF9;border:1px solid #E9D8C8;border-radius:8px;">` +
-    `<p style="margin:0;font-size:14px;color:#71685F;"><strong>Interactive features require JavaScript.</strong> Viewing static Morocco guide edition. <a href="/" style="color:#C9A84C;font-weight:bold;">Return to Home</a></p>` +
-    `</div></noscript>`;
+    `<noscript>` +
+    `<div style="font-family:system-ui,-apple-system,sans-serif;max-width:840px;margin:24px auto;padding:16px;background:#FFFDF9;border:1px solid #E9D8C8;border-radius:12px;">` +
+    `<p style="margin:0 0 12px;font-size:14px;color:#71685F;"><strong>Interactive features require JavaScript.</strong> Viewing static Morocco guide edition. <a href="/" style="color:#C9A84C;font-weight:bold;">Return to Home</a></p>` +
+    `</div>` +
+    preContent +
+    `</noscript>`;
 
   const html = stripped
     .replace('</head>', `    ${head}\n  </head>`)
-    .replace('<div id="root" style="height: 100%;"></div>', `<div id="root" style="height: 100%;">${preContent}</div>`)
     .replace('</body>', `${noscript}\n</body>`);
 
   const file = join(dist, page.path.replace(/^\//, ''), 'index.html');

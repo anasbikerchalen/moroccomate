@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import { ArrowLeft, Heart } from 'lucide-react';
 import { SEO } from '../components/ui/SEO';
 import { ActivityTemplateView } from '../components/things/ActivityTemplateView';
@@ -100,11 +100,11 @@ export default function ThingsListingPage() {
 
       {/* Crawlable Breadcrumbs */}
       <nav aria-label="Breadcrumb" className="mx-auto w-full max-w-6xl px-4 pt-4 sm:px-6 lg:px-8 text-xs text-[#71685F] flex items-center gap-1.5 flex-wrap">
-        <a href="/" className="hover:text-[#C9A84C] transition-colors">Home</a>
+        <Link to="/" className="hover:text-[#C9A84C] transition-colors">Home</Link>
         <span className="text-stone-400">/</span>
-        <a href={`/finder/${activity.city.toLowerCase()}/things-to-do`} className="hover:text-[#C9A84C] transition-colors">
+        <Link to={`/finder/${activity.city.toLowerCase()}/things-to-do`} className="hover:text-[#C9A84C] transition-colors">
           Things to Do in {cityLabel}
-        </a>
+        </Link>
         <span className="text-stone-400">/</span>
         <span className="text-[#29231F] font-semibold truncate max-w-[240px] sm:max-w-none">{activity.name}</span>
       </nav>
@@ -119,18 +119,18 @@ export default function ThingsListingPage() {
             More in {cityLabel}
           </h3>
           <div className="flex flex-wrap gap-2">
-            <a href={`/finder/${activity.city.toLowerCase()}/things-to-do`} className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#FAF3EA] text-[#8A6D1F] border border-[#E8DAAA] hover:bg-[#C9A84C] hover:text-white transition-colors">
+            <Link to={`/finder/${activity.city.toLowerCase()}/things-to-do`} className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#FAF3EA] text-[#8A6D1F] border border-[#E8DAAA] hover:bg-[#C9A84C] hover:text-white transition-colors">
               ✨ All Things to Do in {cityLabel}
-            </a>
-            <a href={`/finder/${activity.city.toLowerCase()}/food`} className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white text-[#29231F] border border-[#ece4d5] hover:border-[#C9A84C] transition-colors">
+            </Link>
+            <Link to={`/finder/${activity.city.toLowerCase()}/food`} className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white text-[#29231F] border border-[#ece4d5] hover:border-[#C9A84C] transition-colors">
               🍽️ Where to Eat in {cityLabel}
-            </a>
-            <a href={`/finder/${activity.city.toLowerCase()}/sleep`} className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white text-[#29231F] border border-[#ece4d5] hover:border-[#C9A84C] transition-colors">
+            </Link>
+            <Link to={`/finder/${activity.city.toLowerCase()}/sleep`} className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white text-[#29231F] border border-[#ece4d5] hover:border-[#C9A84C] transition-colors">
               🛏️ Where to Stay in {cityLabel}
-            </a>
-            <a href={`/finder/${activity.city.toLowerCase()}/shopping`} className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white text-[#29231F] border border-[#ece4d5] hover:border-[#C9A84C] transition-colors">
+            </Link>
+            <Link to={`/finder/${activity.city.toLowerCase()}/shopping`} className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white text-[#29231F] border border-[#ece4d5] hover:border-[#C9A84C] transition-colors">
               🛍️ Shopping in {cityLabel}
-            </a>
+            </Link>
           </div>
         </section>
       </main>
@@ -138,10 +138,10 @@ export default function ThingsListingPage() {
       {/* Footer strip */}
       <footer className="border-t border-[#ece4d5] bg-white">
         <div className="mx-auto w-full max-w-6xl flex flex-col sm:flex-row items-center justify-between gap-2 px-4 py-5 sm:px-6 lg:px-8">
-          <a href="/" className="flex items-center gap-1.5">
+          <Link to="/" className="flex items-center gap-1.5">
             <img src={logoImg} alt="Moroccan Mate logo" className="w-5 h-5 object-contain opacity-80" />
             <span className="font-display text-sm font-bold text-[#173042]">Moroccan Mate</span>
-          </a>
+          </Link>
           <span className="text-xs text-[#66757D]">
             {activity.activity_type} · {formatDuration(activity.duration_minutes) || cityLabel} · {cityLabel}
           </span>
