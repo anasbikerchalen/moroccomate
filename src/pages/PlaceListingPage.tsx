@@ -339,50 +339,132 @@ export default function PlaceListingPage() {
 
         {/* Crawlable Internal Linking Network: Sibling places & City guides */}
         <section className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6 lg:px-8 border-t border-[#ece4d5] mt-12">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
-            <div>
-              <p className="text-[11px] font-bold uppercase tracking-widest text-[#C85A32]">Discover More</p>
-              <h2 className="font-serif text-2xl font-bold text-[#173042] mt-1">
-                More {categoryLabel} in {cityLabel}
-              </h2>
-            </div>
-            <Link
-              to={`/finder/${cityKey}/${category}`}
-              className="inline-flex items-center gap-1.5 text-xs font-bold text-[#C9A84C] hover:text-[#b38e34] transition-colors"
-            >
-              <span>View all {cityLabel} {categoryLabel.toLowerCase()}</span>
-              <ChevronRight className="w-3.5 h-3.5" />
-            </Link>
-          </div>
-
-          {/* Sibling place cards */}
-          {sisterPlaces.length > 0 && (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
-              {sisterPlaces.map((sibling) => (
+          {category === 'food' ? (
+            /* For Food pages: EatDetailView already showed similar dining spots.
+               Here we provide complementary trip planning (Stays, Things to Do, Shopping) */
+            <>
+              <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
+                <div>
+                  <p className="text-[11px] font-bold uppercase tracking-widest text-[#C85A32]">Plan Your Trip</p>
+                  <h2 className="font-serif text-2xl font-bold text-[#173042] mt-1">
+                    Complete Your {cityLabel} Journey
+                  </h2>
+                </div>
                 <Link
-                  key={sibling.slug}
-                  to={`/place/${cityKey}/${category}/${sibling.slug}`}
-                  className="p-4 rounded-xl bg-white border border-[#ece4d5] hover:border-[#C9A84C] hover:shadow-xs transition-all flex flex-col justify-between group"
+                  to={`/finder/${cityKey}/food`}
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#C9A84C] hover:text-[#b38e34] transition-colors"
+                >
+                  <span>Explore all {cityLabel} dining</span>
+                  <ChevronRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+
+              {/* 3 Complementary Trip Pillars */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+                <Link
+                  to={`/finder/${cityKey}/sleep`}
+                  className="p-5 rounded-2xl bg-white border border-[#ece4d5] hover:border-[#C9A84C] hover:shadow-md transition-all flex flex-col justify-between group"
                 >
                   <div>
-                    <h3 className="font-serif text-base font-semibold text-[#173042] group-hover:text-[#C85A32] transition-colors line-clamp-1">
-                      {sibling.name}
+                    <span className="text-2xl mb-2 block">🛏️</span>
+                    <h3 className="font-serif text-lg font-semibold text-[#173042] group-hover:text-[#C85A32] transition-colors">
+                      Where to Stay
                     </h3>
-                    {sibling.neighborhood && (
-                      <p className="text-xs text-[#71685F] mt-1 flex items-center gap-1">
-                        <MapPin className="w-3 h-3 text-[#C85A32]" />
-                        <span>{sibling.neighborhood}</span>
-                      </p>
-                    )}
+                    <p className="text-xs text-[#71685F] mt-1.5 leading-relaxed">
+                      Handpicked riads, boutique desert retreats, and peaceful stays in {cityLabel}.
+                    </p>
                   </div>
-                  {sibling.rating && (
-                    <div className="mt-3 text-xs font-bold text-amber-700">
-                      ★ {sibling.rating}
-                    </div>
-                  )}
+                  <span className="mt-4 text-xs font-bold text-[#C9A84C] group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+                    Explore stays <ChevronRight className="w-3.5 h-3.5" />
+                  </span>
                 </Link>
-              ))}
-            </div>
+
+                <Link
+                  to={`/finder/${cityKey}/things-to-do`}
+                  className="p-5 rounded-2xl bg-white border border-[#ece4d5] hover:border-[#C9A84C] hover:shadow-md transition-all flex flex-col justify-between group"
+                >
+                  <div>
+                    <span className="text-2xl mb-2 block">✨</span>
+                    <h3 className="font-serif text-lg font-semibold text-[#173042] group-hover:text-[#C85A32] transition-colors">
+                      Things to Do
+                    </h3>
+                    <p className="text-xs text-[#71685F] mt-1.5 leading-relaxed">
+                      Guided medina walks, hammams, day trips, and local adventures in {cityLabel}.
+                    </p>
+                  </div>
+                  <span className="mt-4 text-xs font-bold text-[#C9A84C] group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+                    Explore activities <ChevronRight className="w-3.5 h-3.5" />
+                  </span>
+                </Link>
+
+                <Link
+                  to={`/finder/${cityKey}/shopping`}
+                  className="p-5 rounded-2xl bg-white border border-[#ece4d5] hover:border-[#C9A84C] hover:shadow-md transition-all flex flex-col justify-between group"
+                >
+                  <div>
+                    <span className="text-2xl mb-2 block">🛍️</span>
+                    <h3 className="font-serif text-lg font-semibold text-[#173042] group-hover:text-[#C85A32] transition-colors">
+                      Artisan Shopping
+                    </h3>
+                    <p className="text-xs text-[#71685F] mt-1.5 leading-relaxed">
+                      Authentic souks, woven rugs, ceramics, leatherwork, and spices in {cityLabel}.
+                    </p>
+                  </div>
+                  <span className="mt-4 text-xs font-bold text-[#C9A84C] group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+                    Explore shopping <ChevronRight className="w-3.5 h-3.5" />
+                  </span>
+                </Link>
+              </div>
+            </>
+          ) : (
+            /* For Sleep and Shopping pages: show real sister places in the same category */
+            <>
+              <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
+                <div>
+                  <p className="text-[11px] font-bold uppercase tracking-widest text-[#C85A32]">Discover More</p>
+                  <h2 className="font-serif text-2xl font-bold text-[#173042] mt-1">
+                    More {categoryLabel} in {cityLabel}
+                  </h2>
+                </div>
+                <Link
+                  to={`/finder/${cityKey}/${category}`}
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#C9A84C] hover:text-[#b38e34] transition-colors"
+                >
+                  <span>View all {cityLabel} {categoryLabel.toLowerCase()}</span>
+                  <ChevronRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+
+              {/* Sibling place cards */}
+              {sisterPlaces.length > 0 && (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+                  {sisterPlaces.map((sibling) => (
+                    <Link
+                      key={sibling.slug}
+                      to={`/place/${cityKey}/${category}/${sibling.slug}`}
+                      className="p-4 rounded-xl bg-white border border-[#ece4d5] hover:border-[#C9A84C] hover:shadow-xs transition-all flex flex-col justify-between group"
+                    >
+                      <div>
+                        <h3 className="font-serif text-base font-semibold text-[#173042] group-hover:text-[#C85A32] transition-colors line-clamp-1">
+                          {sibling.name}
+                        </h3>
+                        {sibling.neighborhood && (
+                          <p className="text-xs text-[#71685F] mt-1 flex items-center gap-1">
+                            <MapPin className="w-3 h-3 text-[#C85A32]" />
+                            <span>{sibling.neighborhood}</span>
+                          </p>
+                        )}
+                      </div>
+                      {sibling.rating && (
+                        <div className="mt-3 text-xs font-bold text-amber-700">
+                          ★ {sibling.rating}
+                        </div>
+                      )}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </>
           )}
 
           {/* City category & search intent cross-links */}

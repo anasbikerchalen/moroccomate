@@ -21,7 +21,7 @@ import TagTooltip from './TagTooltip';
 import { getEatWeeklySchedule } from '../../utils/timeEngine';
 import { deriveEatProsCons } from '../../utils/eatProsConsEngine';
 import diningHeroEditorialImg from '../../assets/images/botanical_food_flat_1791668271591.jpg';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { WalkingDistanceMap } from './stay/WalkingDistanceMap';
 import { computePoiNearbyPlaces } from '../../engine/proximityEngine';
 import { getCityCenter } from '../../engine/stayAdapter';
@@ -1286,44 +1286,51 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
             
             <div className="mb-6">
               <span className="text-xs font-bold uppercase tracking-widest text-[#234E35] block mb-1">
-                More Dining Discoveries
+                Similar Atmosphere & Taste
               </span>
               <h3 className="font-display text-2xl sm:text-3xl font-bold text-stone-900">
-                Explore Peer Restaurants in {cityLabel}
+                Recommended Restaurants in {cityLabel}
               </h3>
             </div>
 
-            {/* Clean horizontal text cards - ZERO IMAGES */}
+            {/* Clean horizontal text cards with full name, style & neighborhood */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {peerListings.map((peer: any, idx: number) => {
                 const peerRating = getListingRating(peer);
                 const peerCity = String(peer.city || cityKey).toLowerCase();
-                const peerSlug = getPlaceSlugById(peerCity, 'food', peer.id) || (peer.name ? peer.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') : peer.id);
+                const peerName = peer.name || peer.ui?.name || peer.title || 'Restaurant';
+                const peerNeighborhood = peer.neighborhood || peer.ui?.neighborhood || peer.district || 'Medina';
+                const peerFoodStyle = peer.foodStyles?.[0] || peer.quiz?.foodStyles?.[0] || peer.cuisineTags?.[0] || peer.quiz?.cuisineTags?.[0] || 'Moroccan';
+                const peerPrice = peer.pricePerPerson ?? peer.filter?.pricePerPerson;
+                const peerSlug = getPlaceSlugById(peerCity, 'food', peer.id) || (peerName ? peerName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') : peer.id);
                 const peerUrl = buildPlaceUrl(peerCity, 'food', peerSlug);
                 return (
-                  <a
-                    key={idx}
-                    href={peerUrl}
-                    onClick={(e) => {
-                      e.preventDefault();
+                  <Link
+                    key={peer.id || idx}
+                    to={peerUrl}
+                    onClick={() => {
                       useExploreStore.getState().setActiveItem(peer.id);
-                      navigate(peerUrl);
                     }}
                     className="group bg-white rounded-2xl border border-stone-200/90 p-4 hover:shadow-md hover:border-[#234E35]/60 transition-all cursor-pointer flex flex-col justify-between space-y-3 no-underline text-inherit"
                   >
                     <div>
                       <div className="flex items-center justify-between gap-2 mb-1.5">
-                        <span className="px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 text-[10px] font-bold uppercase tracking-wider">
-                          {peer.neighborhood || 'Medina'}
+                        <span className="px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 text-[10px] font-bold uppercase tracking-wider truncate max-w-[120px]">
+                          {peerNeighborhood}
                         </span>
-                        <span className="text-[11px] text-stone-400 capitalize">
-                          {peer.foodStyles?.[0] || 'Moroccan'}
+                        <span className="text-[11px] text-stone-400 capitalize truncate">
+                          {peerFoodStyle}
                         </span>
                       </div>
 
                       <h4 className="font-bold text-stone-900 text-sm group-hover:text-[#234E35] transition-colors line-clamp-1">
-                        {peer.name}
+                        {peerName}
                       </h4>
+                      {peerPrice ? (
+                        <p className="text-[11px] text-stone-500 mt-0.5">
+                          ~{peerPrice} MAD / person
+                        </p>
+                      ) : null}
                     </div>
 
                     <div className="pt-2 border-t border-stone-100 flex items-center justify-between">
@@ -1332,7 +1339,7 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
                         <ChevronRight className="w-4 h-4" />
                       </span>
                     </div>
-                  </a>
+                  </Link>
                 );
               })}
             </div>

@@ -26,12 +26,24 @@
     <meta name="twitter:title" content="Moroccan Mate | Eat, Sleep, Things & Shopping" />
     <meta name="twitter:description" content="Pick your city, answer a short quiz, and get personalized local recommendations for Morocco." />
     <meta name="twitter:image" content="https://moroccanmate.com/assets/home/backgrounds/homepage_default_image.jpg" />
+    <style>
+      @keyframes mateFade {
+        0% { opacity: 0.35; transform: scale(0.97); }
+        50% { opacity: 1; transform: scale(1); }
+        100% { opacity: 0.35; transform: scale(0.97); }
+      }
+      .mate-splash {
+        animation: mateFade 1.8s ease-in-out infinite;
+      }
+    </style>
   </head>
   <body style="height: 100%; margin: 0; background-color: #FAF7F2;">
     <div id="root" style="height: 100%;">
       <div style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#FAF7F2;font-family:system-ui,-apple-system,sans-serif;">
-        <img src="/logo192.png" alt="Moroccan Mate" style="width:48px;height:48px;opacity:0.9;margin-bottom:12px;object-fit:contain;" />
-        <span style="font-size:13px;font-weight:700;color:#173042;letter-spacing:0.12em;text-transform:uppercase;">Moroccan Mate</span>
+        <div class="mate-splash" style="display:flex;flex-direction:column;align-items:center;">
+          <img src="/logo192.png" alt="Moroccan Mate" style="width:52px;height:52px;margin-bottom:14px;object-fit:contain;" />
+          <span style="font-size:13px;font-weight:700;color:#173042;letter-spacing:0.14em;text-transform:uppercase;">Moroccan Mate</span>
+        </div>
       </div>
     </div>
     <script type="module" src="/src/main.tsx"></script>
