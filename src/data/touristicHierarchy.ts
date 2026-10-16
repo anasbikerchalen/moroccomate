@@ -1763,6 +1763,142 @@ export const TOURISTIC_PROFILES: Record<string, CityTouristicProfile> = {
       "Hay Al Wahda",
       "Hay Al Amal"
     ]
+  },
+  "Merzouga": {
+    "id": "merzouga",
+    "name": "Merzouga",
+    "tier": "touristic",
+    "touristicNeighborhoods": ["Dunes d'Erg Chebbi", "Hassi Labied", "Khamlia Village", "Centre"],
+    "midNeighborhoods": ["Takojt"],
+    "lowNeighborhoods": []
+  },
+  "M’hamid": {
+    "id": "mhamid",
+    "name": "M'hamid El Ghizlane",
+    "tier": "touristic",
+    "touristicNeighborhoods": ["Erg Chigaga Gateway", "Old Ksar M'hamid", "Bounou", "Ouled Mhia"],
+    "midNeighborhoods": [],
+    "lowNeighborhoods": ["Centre-Ville"]
+  },
+  "Imlil & Toubkal": {
+    "id": "imlil_toubkal",
+    "name": "Imlil & Toubkal",
+    "tier": "mid",
+    "touristicNeighborhoods": ["Douar Imlil", "Aroumd", "Armed", "Toubkal Basecamp"],
+    "midNeighborhoods": ["Tamaterte"],
+    "lowNeighborhoods": []
+  },
+  "Ourika Valley": {
+    "id": "ourika",
+    "name": "Ourika Valley",
+    "tier": "mid",
+    "touristicNeighborhoods": ["Setti Fatma", "Ourika Riverside", "Tnine Ourika"],
+    "midNeighborhoods": ["Asni Road"],
+    "lowNeighborhoods": []
+  },
+  "Ouzoud": {
+    "id": "ouzoud",
+    "name": "Ouzoud",
+    "tier": "mid",
+    "touristicNeighborhoods": ["Cascades d'Ouzoud", "Upper Gorge Walk"],
+    "midNeighborhoods": ["Ouzoud Village"],
+    "lowNeighborhoods": []
+  },
+  "Todra & Dades": {
+    "id": "todra_dades",
+    "name": "Todra & Dades",
+    "tier": "touristic",
+    "touristicNeighborhoods": ["Gorges du Todgha", "Gorges du Dadès", "Tinghir Oasis", "Aït Boulmane", "Vallée des Doigts de Singe"],
+    "midNeighborhoods": ["Boumalne Dadès", "Aït Youl"],
+    "lowNeighborhoods": ["Centre-Ville"]
+  },
+  "Paradise Valley": {
+    "id": "paradise_valley",
+    "name": "Paradise Valley",
+    "tier": "mid",
+    "touristicNeighborhoods": ["Natural Pools", "Tamraght Gorge", "Imouzzer Foothills"],
+    "midNeighborhoods": ["Aourir Gateway"],
+    "lowNeighborhoods": []
+  },
+  "Taghazout": {
+    "id": "taghazout",
+    "name": "Taghazout",
+    "tier": "touristic",
+    "touristicNeighborhoods": ["Taghazout Bay", "Anchor Point", "Hash Point", "Panorama Beach", "Main Village"],
+    "midNeighborhoods": ["Tamraght", "Banana Beach"],
+    "lowNeighborhoods": []
+  },
+  "Imsouane": {
+    "id": "imsouane",
+    "name": "Imsouane",
+    "tier": "touristic",
+    "touristicNeighborhoods": ["The Bay (La Baie)", "Cathedral Point", "Fishing Port", "Plage Imsouane"],
+    "midNeighborhoods": ["Cliffside Stays"],
+    "lowNeighborhoods": []
+  },
+  "Oukaïmeden": {
+    "id": "oukaimeden",
+    "name": "Oukaïmeden",
+    "tier": "mid",
+    "touristicNeighborhoods": ["Ski Station Area", "Jebel Atta Plateau"],
+    "midNeighborhoods": ["Lower Chalets"],
+    "lowNeighborhoods": []
+  },
+  "Skoura & Draa": {
+    "id": "skoura_draa",
+    "name": "Skoura & Draa",
+    "tier": "mid",
+    "touristicNeighborhoods": ["Palmeraie de Skoura", "Kasbah Amridil"],
+    "midNeighborhoods": ["Draa Valley Oasis"],
+    "lowNeighborhoods": ["Centre"]
+  },
+  "Moulay Idriss Zerhoun": {
+    "id": "moulay_idriss",
+    "name": "Moulay Idriss Zerhoun",
+    "tier": "mid",
+    "touristicNeighborhoods": ["Médina Ancienne", "Khyber", "Tasga", "Volubilis Foothills"],
+    "midNeighborhoods": [],
+    "lowNeighborhoods": ["Centre-Ville"]
+  },
+  "Oualidia": {
+    "id": "oualidia",
+    "name": "Oualidia",
+    "tier": "mid",
+    "touristicNeighborhoods": ["Lagune d'Oualidia", "Plage Principale", "Oyster Farms Strip"],
+    "midNeighborhoods": ["Upper Cliff View"],
+    "lowNeighborhoods": ["Centre-Ville"]
+  },
+  "Moulay Bousselham": {
+    "id": "moulay_bousselham",
+    "name": "Moulay Bousselham",
+    "tier": "mid",
+    "touristicNeighborhoods": ["Merja Zerga Lagoon", "Plage Principale"],
+    "midNeighborhoods": ["Port de Pêche"],
+    "lowNeighborhoods": ["Centre-Ville"]
+  },
+  "Mirleft": {
+    "id": "mirleft",
+    "name": "Mirleft",
+    "tier": "mid",
+    "touristicNeighborhoods": ["Plage Imi n'Turga", "Aftas Beach", "Tidzi", "Fort Tidli"],
+    "midNeighborhoods": ["Centre-Ville"],
+    "lowNeighborhoods": []
+  },
+  "Bin El Ouidane": {
+    "id": "bin_el_ouidane",
+    "name": "Bin El Ouidane",
+    "tier": "mid",
+    "touristicNeighborhoods": ["Lakefront Resort Strip", "Lac Bin El Ouidane", "Gorges d'Ahansal"],
+    "midNeighborhoods": ["Village"],
+    "lowNeighborhoods": []
+  },
+  "Kachla": {
+    "id": "kachla",
+    "name": "Kachla",
+    "tier": "low",
+    "touristicNeighborhoods": [],
+    "midNeighborhoods": ["Historical Post"],
+    "lowNeighborhoods": ["Centre-Ville", "Local District"]
   }
 };
 
@@ -1770,31 +1906,66 @@ export const WEBSITE_CITY_TO_PROFILE_KEY: Record<string, string> = {
   marrakech: 'Marrakech',
   fes: 'Fès',
   agadir: 'Agadir',
+  casablanca: 'Casablanca',
   chefchaouen: 'Chefchaouen',
   essaouira: 'Essaouira',
-  casablanca: 'Casablanca',
   tangier: 'Tanger',
+  merzouga: 'Merzouga',
   rabat: 'Rabat',
   meknes: 'Meknès',
+  mhamid: 'M’hamid',
+  imlil_toubkal: 'Imlil & Toubkal',
+  ourika: 'Ourika Valley',
+  ouzoud: 'Ouzoud',
+  todra_dades: 'Todra & Dades',
   ouarzazate: 'Ouarzazate',
+  paradise_valley: 'Paradise Valley',
   taghazout: 'Taghazout',
+  imsouane: 'Imsouane',
   dakhla: 'Dakhla',
-  al_hoceima: 'Al Hoceïma',
   asilah: 'Assilah',
-  el_jadida: 'El Jadida',
   saidia: 'Saïdia',
+  al_hoceima: 'Al Hoceïma',
+  ifrane: 'Ifrane',
+  azrou: 'Azrou',
+  oukaimeden: 'Oukaïmeden',
+  el_jadida: 'El Jadida',
   tetouan: 'Tétouan',
   tetouan_martil: 'Tétouan',
+  martil: 'Martil',
   taroudant: 'Taroudant',
   taroudant_tafraoute: 'Taroudant',
-  ifrane: 'Ifrane',
-  ifrane_azrou: 'Ifrane',
-  zagora: 'Zagora',
+  tafraoute: 'Tafraout',
+  skoura_draa: 'Skoura & Draa',
+  moulay_idriss: 'Moulay Idriss Zerhoun',
+  kenitra: 'Kénitra',
+  nador: 'Nador',
   oualidia: 'Oualidia',
-  merzouga: 'Merzouga',
-  mhamid: 'M’hamid',
+  moulay_bousselham: 'Moulay Bousselham',
+  tiznit: 'Tiznit',
+  sidi_ifni: 'Sidi Ifni',
+  mirleft: 'Mirleft',
+  zagora: 'Zagora',
+  bin_el_ouidane: 'Bin El Ouidane',
+  mdiq: 'M’diq',
+  fnideq: 'Fnideq',
+  kachla: 'Kachla',
+  larache: 'Larache',
+  berkane: 'Berkane',
   safi: 'Safi',
-  tiznit: 'Tiznit'
+  tahannaout: 'Tahannaout',
+  // Low-touristic / Authentic & Off-Path additions
+  inezgane: 'Inezgane',
+  ben_guerir: 'Ben Guerir',
+  settat: 'Settat',
+  khouribga: 'Khouribga',
+  tan_tan: 'Tan-Tan',
+  laayoune: 'Laâyoune',
+  taourirt: 'Taourirt',
+  ksar_el_kebir: 'Ksar El Kébir',
+  chichaoua: 'Chichaoua',
+  youssoufia: 'Youssoufia',
+  tarfaya: 'Tarfaya'
 };
 
 /** Get the profile for a given website cityId */
@@ -1804,7 +1975,56 @@ export function getCityProfile(cityId: string): CityTouristicProfile | null {
   if (profileKey && TOURISTIC_PROFILES[profileKey]) {
     return TOURISTIC_PROFILES[profileKey];
   }
+  // Try case-insensitive lookup across profile keys directly
+  const directKey = Object.keys(TOURISTIC_PROFILES).find(
+    k => k.toLowerCase() === norm || (TOURISTIC_PROFILES[k].id && TOURISTIC_PROFILES[k].id.toLowerCase() === norm)
+  );
+  if (directKey) {
+    return TOURISTIC_PROFILES[directKey];
+  }
   return null;
+}
+
+/** Get the tier of a city ('touristic' | 'mid' | 'low') */
+export function getCityTier(cityId: string): CityTier {
+  const profile = getCityProfile(cityId);
+  return profile ? profile.tier : 'mid';
+}
+
+/** Get a human-readable label for a tier */
+export function getTierLabel(tier: CityTier | NeighborhoodTier): string {
+  switch (tier) {
+    case 'touristic':
+      return 'Touristic';
+    case 'mid':
+      return 'Mid-Touristic';
+    case 'low':
+      return 'Authentic & Off-Path';
+    default:
+      return 'Touristic';
+  }
+}
+
+/** Get the tier of a neighborhood ('touristic' | 'mid' | 'low') */
+export function getNeighborhoodTier(cityId: string, neighborhoodName?: string): NeighborhoodTier {
+  const profile = getCityProfile(cityId);
+  if (!neighborhoodName || !profile) {
+    return profile ? profile.tier : 'mid';
+  }
+  const clean = neighborhoodName.toLowerCase().trim();
+  
+  if (profile.touristicNeighborhoods.some(n => n.toLowerCase().trim() === clean || clean.includes(n.toLowerCase().trim()))) {
+    return 'touristic';
+  }
+  if (profile.midNeighborhoods.some(n => n.toLowerCase().trim() === clean || clean.includes(n.toLowerCase().trim()))) {
+    return 'mid';
+  }
+  if (profile.lowNeighborhoods.some(n => n.toLowerCase().trim() === clean || clean.includes(n.toLowerCase().trim()))) {
+    return 'low';
+  }
+  
+  // Default fallback based on the city's overall tier
+  return profile.tier;
 }
 
 /** Check if a city is Touristic or Mid-Touristic (exclude Low) */

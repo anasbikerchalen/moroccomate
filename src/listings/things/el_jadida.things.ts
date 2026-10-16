@@ -10,7 +10,7 @@
  *
  * ALLOWED OPTIONS BIBLE:
  * - lifestyle:        'lean' | 'balanced' | 'premium'
- * - groupTypes:       'solo' | 'couple' | 'family' | 'friends' | 'large-groups' | 'seniors'
+ * - groupTypes:       'solo' | 'couple' | 'family' | 'friends' | 'large-groups' | 'seniors' | 'business-friendly' | 'nature-lover'
  * - crowdLevel:       'quiet' | 'moderate' | 'bustling'
  * - energyLevel:      'easy' | 'moderate' | 'high'
  * - transportMode:    'walk' | 'taxi' | 'bus' | 'car' | '4x4'
@@ -97,8 +97,7 @@ export const el_jadidaThings: ThingToDoListing[] = [
       "couple",
       "family",
       "friends",
-      "seniors",
-      "kids-friendly"
+      "seniors"
     ],
     "crowdLevel": "balanced",
     "durationMinutes": 75,
@@ -144,8 +143,7 @@ export const el_jadidaThings: ThingToDoListing[] = [
       "couple",
       "family",
       "friends",
-      "seniors",
-      "kids-friendly"
+      "seniors"
     ],
     "crowdLevel": "balanced",
     "durationMinutes": 45,
@@ -191,8 +189,7 @@ export const el_jadidaThings: ThingToDoListing[] = [
       "couple",
       "family",
       "friends",
-      "seniors",
-      "kids-friendly"
+      "seniors"
     ],
     "crowdLevel": "balanced",
     "durationMinutes": 90,
@@ -238,8 +235,7 @@ export const el_jadidaThings: ThingToDoListing[] = [
       "couple",
       "family",
       "friends",
-      "seniors",
-      "kids-friendly"
+      "seniors"
     ],
     "crowdLevel": "balanced",
     "durationMinutes": 75,
@@ -285,8 +281,7 @@ export const el_jadidaThings: ThingToDoListing[] = [
       "couple",
       "family",
       "friends",
-      "seniors",
-      "kids-friendly"
+      "seniors"
     ],
     "crowdLevel": "balanced",
     "durationMinutes": 75,
@@ -332,8 +327,7 @@ export const el_jadidaThings: ThingToDoListing[] = [
       "couple",
       "family",
       "friends",
-      "seniors",
-      "kids-friendly"
+      "seniors"
     ],
     "crowdLevel": "bustling",
     "durationMinutes": 150,
@@ -379,8 +373,7 @@ export const el_jadidaThings: ThingToDoListing[] = [
       "couple",
       "family",
       "friends",
-      "seniors",
-      "kids-friendly"
+      "seniors"
     ],
     "crowdLevel": "balanced",
     "durationMinutes": 180,
@@ -426,8 +419,7 @@ export const el_jadidaThings: ThingToDoListing[] = [
       "couple",
       "family",
       "friends",
-      "seniors",
-      "kids-friendly"
+      "seniors"
     ],
     "crowdLevel": "balanced",
     "durationMinutes": 150,
@@ -473,8 +465,7 @@ export const el_jadidaThings: ThingToDoListing[] = [
       "couple",
       "family",
       "friends",
-      "seniors",
-      "kids-friendly"
+      "seniors"
     ],
     "crowdLevel": "balanced",
     "durationMinutes": 90,
@@ -520,8 +511,7 @@ export const el_jadidaThings: ThingToDoListing[] = [
       "couple",
       "family",
       "friends",
-      "seniors",
-      "kids-friendly"
+      "seniors"
     ],
     "crowdLevel": "balanced",
     "durationMinutes": 75,
@@ -567,8 +557,7 @@ export const el_jadidaThings: ThingToDoListing[] = [
       "couple",
       "family",
       "friends",
-      "seniors",
-      "kids-friendly"
+      "seniors"
     ],
     "crowdLevel": "balanced",
     "durationMinutes": 60,
@@ -707,7 +696,6 @@ export const el_jadidaThings: ThingToDoListing[] = [
       "family",
       "friends",
       "seniors",
-      "kids-friendly",
       "business-friendly"
     ],
     "crowdLevel": "balanced",
@@ -844,8 +832,7 @@ export const el_jadidaThings: ThingToDoListing[] = [
       "couple",
       "family",
       "friends",
-      "seniors",
-      "kids-friendly"
+      "seniors"
     ],
     "crowdLevel": "quiet",
     "durationMinutes": 150,
@@ -984,8 +971,7 @@ export const el_jadidaThings: ThingToDoListing[] = [
       "couple",
       "family",
       "friends",
-      "seniors",
-      "kids-friendly"
+      "seniors"
     ],
     "crowdLevel": "balanced",
     "durationMinutes": 90,

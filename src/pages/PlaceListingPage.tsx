@@ -41,60 +41,99 @@ export default function PlaceListingPage() {
   const bookmarks = useSavedStore((state) => state.bookmarks);
 
   const cityKey = String(city || '').toLowerCase();
-  const slug = rawSlug || (!categoryParam && categoryOrSlug ? categoryOrSlug : undefined);
-  const category: PlaceUrlCategory | null = normalizePlaceCategory(categoryParam);
-  const listing = city && category && slug ? getPlaceBySlug(cityKey, category, slug) : undefined;
 
-  // Handle URL normalization, 2-segment resolution, and alias redirects
-  useEffect(() => {
-    if (!cityKey) return;
+  // Synchronous resolution of category, slug, listing, and any needed canonical redirect
+  const resolved = useMemo(() => {
+    if (!cityKey) return { category: null, slug: undefined, listing: undefined, redirectUrl: null };
 
-    // Case 1: 2-segment URL (/place/:city/:categoryOrSlug)
+    // Case 1: 3-segment URL (/place/:city/:category/:slug)
+    if (categoryParam && rawSlug) {
+      const normalizedCat = normalizePlaceCategory(categoryParam);
+      if (normalizedCat) {
+        let found = getPlaceBySlug(cityKey, normalizedCat, rawSlug);
+        let canonicalSlug = rawSlug;
+
+        // If not found by slug, check if rawSlug was an internal listing ID
+        if (!found) {
+          const mappedSlug = getPlaceSlugById(cityKey, normalizedCat, rawSlug);
+          if (mappedSlug) {
+            found = getPlaceBySlug(cityKey, normalizedCat, mappedSlug);
+            canonicalSlug = mappedSlug;
+          }
+        }
+
+        const needsCanonicalRedirect =
+          categoryParam.toLowerCase() !== normalizedCat || canonicalSlug !== rawSlug;
+
+        return {
+          category: normalizedCat,
+          slug: canonicalSlug,
+          listing: found,
+          redirectUrl: needsCanonicalRedirect
+            ? `/place/${cityKey}/${normalizedCat}/${canonicalSlug}`
+            : null,
+        };
+      }
+    }
+
+    // Case 2: 2-segment URL (/place/:city/:categoryOrSlug)
     if (categoryOrSlug && !rawSlug) {
-      // 1a. If it's a category synonym (e.g. /place/marrakech/sleep)
+      // 2a. If it's a category synonym (e.g. /place/marrakech/sleep)
       const maybeCat = normalizePlaceCategory(categoryOrSlug);
       if (maybeCat) {
-        navigate(`/finder/${cityKey}/${maybeCat}`, { replace: true });
-        return;
+        return {
+          category: maybeCat,
+          slug: undefined,
+          listing: undefined,
+          redirectUrl: `/finder/${cityKey}/${maybeCat}`,
+        };
       }
-      // 1b. Search across all place categories for this slug/id
-      const categories: PlaceUrlCategory[] = ['sleep', 'food', 'shopping'];
+
+      // 2b. Search across all place categories synchronously for this slug or id
+      const categories: PlaceUrlCategory[] = ['food', 'sleep', 'shopping'];
       for (const cat of categories) {
-        const found = getPlaceBySlug(cityKey, cat, categoryOrSlug) ||
-          (getPlaceSlugById(cityKey, cat, categoryOrSlug)
-            ? getPlaceBySlug(cityKey, cat, getPlaceSlugById(cityKey, cat, categoryOrSlug)!)
-            : undefined);
+        let found = getPlaceBySlug(cityKey, cat, categoryOrSlug);
+        let canonicalSlug = categoryOrSlug;
+        if (!found) {
+          const mappedSlug = getPlaceSlugById(cityKey, cat, categoryOrSlug);
+          if (mappedSlug) {
+            found = getPlaceBySlug(cityKey, cat, mappedSlug);
+            canonicalSlug = mappedSlug;
+          }
+        }
         if (found) {
-          const canonicalSlug = getPlaceSlugById(cityKey, cat, found.id) || categoryOrSlug;
-          navigate(`/place/${cityKey}/${cat}/${canonicalSlug}`, { replace: true });
-          return;
+          return {
+            category: cat,
+            slug: canonicalSlug,
+            listing: found,
+            redirectUrl: `/place/${cityKey}/${cat}/${canonicalSlug}`,
+          };
         }
       }
-      // 1c. Check if it's a Things to Do activity
+
+      // 2c. Check if it's a Things to Do activity
       const activity = getActivityByCityAndSlug(cityKey, categoryOrSlug);
       if (activity) {
-        navigate(`/things/${cityKey}/${activity.slug || categoryOrSlug}`, { replace: true });
-        return;
-      }
-      return;
-    }
-
-    if (!category) return;
-
-    // Case 2: Canonical redirect if category param was an alias like "eat" or "stay"
-    if (categoryParam && categoryParam.toLowerCase() !== category) {
-      navigate(`/place/${cityKey}/${category}/${slug}`, { replace: true });
-      return;
-    }
-
-    // Case 3: If listing not found by slug, check if the segment was an ID
-    if (!listing && slug) {
-      const resolvedSlug = getPlaceSlugById(cityKey, category, slug);
-      if (resolvedSlug) {
-        navigate(`/place/${cityKey}/${category}/${resolvedSlug}`, { replace: true });
+        return {
+          category: null,
+          slug: activity.slug || categoryOrSlug,
+          listing: undefined,
+          redirectUrl: `/things/${cityKey}/${activity.slug || categoryOrSlug}`,
+        };
       }
     }
-  }, [cityKey, category, categoryParam, slug, listing, categoryOrSlug, rawSlug, navigate]);
+
+    return { category: null, slug: undefined, listing: undefined, redirectUrl: null };
+  }, [cityKey, categoryParam, rawSlug, categoryOrSlug]);
+
+  const { category, slug, listing, redirectUrl } = resolved;
+
+  // Execute canonical URL replacement in history without flashing "Place not found"
+  useEffect(() => {
+    if (redirectUrl) {
+      navigate(redirectUrl, { replace: true });
+    }
+  }, [redirectUrl, navigate]);
 
   // Sibling places in the same city for crawlable internal linking
   const sisterPlaces = useMemo(() => {
@@ -157,12 +196,18 @@ export default function PlaceListingPage() {
   const placeName = listing.name || listing.title || 'Place';
   const categoryLabel = PLACE_CATEGORY_LABEL[category!];
   const isSleep = category === 'sleep';
-  const price = isSleep ? (listing.pricePerNight ?? 0) : 0;
+  const isEat = category === 'food';
+  const isShopping = category === 'shopping';
+  const price = isSleep
+    ? (listing.pricePerNight ?? 0)
+    : (listing.pricePerPerson ?? (listing.filter?.pricePerPerson ?? 0));
   const ownerAnswer = isSleep ? getStayOwnerAnswer(listing) : '';
   const rawDescription = String(listing.description || listing.short_description || '');
   const description = isSleep && price > 0
     ? `Price from ${price} MAD/night. ${rawDescription.slice(0, 115)}`
-    : rawDescription.slice(0, 155);
+    : isEat && price > 0
+      ? `Avg ${price} MAD/person. ${rawDescription.slice(0, 120)}`
+      : rawDescription.slice(0, 155);
   const rating = getListingRating(listing);
   const image = listing.nonCopyrightImage || listing.images?.[0] || undefined;
   const canonical = `/place/${cityKey}/${category}/${slug}`;
@@ -185,6 +230,30 @@ export default function PlaceListingPage() {
             priceCurrency: 'MAD',
             availability: 'https://schema.org/InStock',
           },
+          ...(Array.isArray(listing.amenities) && listing.amenities.length > 0
+            ? {
+                amenityFeature: listing.amenities.slice(0, 10).map((a: string) => ({
+                  '@type': 'LocationFeatureSpecification',
+                  name: a,
+                  value: true,
+                })),
+              }
+            : {}),
+        }
+      : {}),
+    ...(isEat
+      ? {
+          ...(price > 0 ? { priceRange: `${price} MAD` } : {}),
+          ...((listing.foodStyles || listing.quiz?.foodStyles)
+            ? { servesCuisine: listing.foodStyles || listing.quiz?.foodStyles }
+            : {}),
+          ...(listing.reservationMethod ? { acceptsReservations: true } : {}),
+        }
+      : {}),
+    ...(isShopping
+      ? {
+          currenciesAccepted: 'MAD, EUR, USD',
+          paymentAccepted: 'Cash, Credit Card',
         }
       : {}),
   };

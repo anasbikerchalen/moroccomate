@@ -12,7 +12,7 @@
  * - type:             'riad' | 'dar' | 'hotel' | 'kasbah' | 'desert-camp' | 'guesthouse' | 'hostel' | 'resort' | 'apartment' | 'villa' | 'lodge'
  * - lifestyle:        'lean' | 'balanced' | 'premium'
  * - locationFeel:     'medina-heart' | 'ville-nouvelle' | 'countryside'
- * - groupTypes:       'solo' | 'couple' | 'family' | 'friends' | 'large-groups' | 'seniors'
+ * - groupTypes:       'solo' | 'couple' | 'family' | 'friends' | 'large-groups' | 'seniors' | 'business-friendly' | 'nature-lover'
  * - safetyLevel:      1 | 2 | 3 | 4 | 5
  * - paymentMethods:   'cash' | 'credit_card' | 'visa' | 'mastercard' | 'apple_pay' | 'google_pay' | 'bank_transfer'
  * - amenities:        'pool' | 'breakfast' | 'ac' | 'heating' | 'wifi' | 'rooftop' | 'ensuite' | 'restaurant' | 'bar' | 'gym' | 'elevator' | 'laundry' | 'room-service' | 'pet-friendly'
@@ -170,7 +170,7 @@ import type { SleepListing } from '../types'
  *
  *   paymentMethods: ['card', 'cash'],
  *   languagesSpoken: ['Arabic', 'French', 'English', 'Spanish', 'German'],
- *   groupTypes: ['solo', 'couple', 'family', 'friends', 'seniors', 'kids-friendly', 'large-groups', 'business-friendly'],
+ *   groupTypes: ['solo', 'couple', 'family', 'friends', 'seniors', 'large-groups', 'business-friendly'],
  *
  *   // ═══════════════════════════════════════════════════
  *
@@ -2375,7 +2375,7 @@ export const ouarzazateSleep: SleepListing[] = [
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
-    groupTypes: ["solo", "couple", "friends", "friends"],
+    groupTypes: ["solo", "couple", "friends"],
     tip: "Perfect for quick, hassle-free layovers on your way to the Sahara dunes.",
     vibeTags: ["Budget", "Stopover", "Practical", "Pool"],
     locationSummary: "Ouarzazate Center - Road Trip Stop",

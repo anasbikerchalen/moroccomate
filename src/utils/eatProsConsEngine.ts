@@ -23,8 +23,8 @@ export function deriveEatProsCons(item: any): EatProsConsResult {
   const explicitPros = Array.isArray(item.pros) && item.pros.length > 0 ? item.pros : [];
   const explicitCons = Array.isArray(item.cons) && item.cons.length > 0 ? item.cons : [];
 
-  // If both curated arrays exist, respect human curation
-  if (explicitPros.length > 0 && explicitCons.length > 0) {
+  // If explicit curated arrays exist in the listing file, respect human curation directly
+  if (explicitPros.length > 0 || explicitCons.length > 0) {
     return {
       pros: explicitPros,
       cons: explicitCons,
@@ -33,104 +33,75 @@ export function deriveEatProsCons(item: any): EatProsConsResult {
   }
 
   const { averageRating, totalReviews } = getListingRating(item);
-  const derivedPros: string[] = [...explicitPros];
-  const derivedCons: string[] = [...explicitCons];
+  const derivedPros: string[] = [];
+  const derivedCons: string[] = [];
 
-  // ─── DERIVE PROS FROM REAL BACKEND FIELDS ───────────────────────
-  if (derivedPros.length < 3) {
-    // 1. High rating / reputation
-    if (averageRating >= 4.2 && totalReviews >= 50) {
-      derivedPros.push(`Consistently top-rated with ${totalReviews.toLocaleString()} authentic guest reviews.`);
-    } else if (averageRating >= 4.0) {
-      derivedPros.push(`Highly praised by independent travelers with a ${averageRating}/5 rating.`);
-    }
-
-    // 2. Medina Courtyard setting
-    if (item.nearMedina && !derivedPros.some(p => p.includes('Medina') || p.includes('riad'))) {
-      derivedPros.push('Authentic historic Medina courtyard setting offering respite from lively souks.');
-    }
-
-    // 3. Dietary accommodations
-    if (item.isVegetarianFriendly && !derivedPros.some(p => p.includes('vegetarian'))) {
-      derivedPros.push('Generous vegetarian and plant-based Moroccan selections available daily.');
-    }
-
-    // 4. Multilingual team
-    if (item.hasEnglishStaff && item.hasFrenchStaff && !derivedPros.some(p => p.includes('staff') || p.includes('English'))) {
-      derivedPros.push('Multilingual welcoming service with staff fluent in English, French, and Darija.');
-    }
-
-    // 5. Climate control
-    if (item.airConditioning && !derivedPros.some(p => p.includes('air conditioning') || p.includes('AC'))) {
-      derivedPros.push('Climate-controlled indoor dining providing cool relief during hot Moroccan afternoons.');
-    }
-
-    // 6. Good Value / Budget
-    if ((item.lifestyle === 'lean' || item.pricePerPerson <= 12) && !derivedPros.some(p => p.includes('value'))) {
-      derivedPros.push('Exceptional local value with generous portions at authentic everyday prices.');
-    }
-
-    // 7. Hidden gem / distinctive vibe
-    if (item.badge === 'hidden-gem' && !derivedPros.some(p => p.includes('gem') || p.includes('secret'))) {
-      derivedPros.push('Tucked-away local gem favored by Moroccan locals and seasoned travelers.');
-    }
-
-    // 8. Sunset or rooftop view
-    if (item.hasRooftop || item.viewType === 'city' || item.viewType === 'garden') {
-      derivedPros.push('Elevated terrace views overlooking the city rooftops and historic alleys.');
-    }
-
-    // Baseline fallback if listing has few attributes
-    if (derivedPros.length === 0) {
-      derivedPros.push('Authentic traditional Moroccan culinary preparations using fresh local ingredients.');
-      derivedPros.push('Warm Moroccan hospitality and welcoming atmosphere in a prime local setting.');
-    }
+  // ─── DERIVE PROS STRICTLY FROM FACTUAL BACKEND FIELDS (ZERO FABRICATION) ─────
+  // 1. High rating / reputation (real review count and real star rating)
+  if (averageRating >= 4.4 && totalReviews >= 50) {
+    derivedPros.push(`Top-rated (${averageRating}/5) backed by ${totalReviews.toLocaleString()} verified traveler reviews.`);
+  } else if (averageRating >= 4.0 && totalReviews >= 20) {
+    derivedPros.push(`Consistently rated ${averageRating}/5 across independent review platforms.`);
   }
 
-  // ─── DERIVE CONS / CAUTIONS FROM REAL BACKEND FIELDS ───────────
-  if (derivedCons.length < 2) {
-    // 1. High crowd level & wait times
-    if (item.crowdLevel === 'bustling' || (item.averageWaitMinutes && item.averageWaitMinutes >= 15)) {
-      derivedCons.push(`Peak meal hours get bustling; expect ${item.averageWaitMinutes ? `~${item.averageWaitMinutes} min` : 'brief'} table waits without reservations.`);
-    }
+  // 2. Multilingual team (verified structured flags)
+  if (item.hasEnglishStaff && item.hasFrenchStaff) {
+    derivedPros.push('Multilingual team with English, French, and Darija speaking staff.');
+  }
 
-    // 2. No Air Conditioning in hot months
-    if (item.airConditioning === false && item.nearMedina && !derivedCons.some(c => c.includes('AC') || c.includes('conditioning'))) {
-      derivedCons.push('Relies on traditional open-air courtyard ventilation; no indoor central AC.');
-    }
+  // 3. Air conditioning (verified structured flag)
+  if (item.airConditioning === true) {
+    derivedPros.push('Equipped with indoor climate-controlled air conditioning.');
+  }
 
-    // 3. Medina accessibility / taxi drop-off
-    if (item.nearMedina && !item.hasParking && !derivedCons.some(c => c.includes('walk') || c.includes('taxi'))) {
-      derivedCons.push('Pedestrian Medina alleyway location; requires a 3–8 minute walk from the nearest taxi stand.');
-    }
+  // 4. Parking availability (verified structured flag)
+  if (item.hasParking === true) {
+    derivedPros.push('Dedicated or nearby vehicle parking available.');
+  }
 
-    // 4. Cash only payment
-    const payments = Array.isArray(item.paymentMethods) ? item.paymentMethods.map((p: string) => p.toLowerCase()) : [];
-    if (payments.includes('cash') && !payments.includes('card') && !derivedCons.some(c => c.includes('cash'))) {
-      derivedCons.push('Cash only venue; credit and debit cards are not accepted.');
-    }
+  // 5. Rooftop / elevated terrace (verified seating field)
+  const seating = Array.isArray(item.seatingTypes) ? item.seatingTypes.map((s: string) => s.toLowerCase()) : [];
+  if (item.hasRooftop || seating.includes('rooftop')) {
+    derivedPros.push('Rooftop dining with elevated open-air city views.');
+  } else if (seating.includes('courtyard')) {
+    derivedPros.push('Traditional courtyard open-air seating area.');
+  }
 
-    // 5. Alcohol policy
-    if ((item.alcoholPolicy === 'dry' || item.servesAlcohol === false) && !derivedCons.some(c => c.includes('alcohol'))) {
-      derivedCons.push('Strictly dry dining venue (no alcoholic beverages served or permitted).');
-    } else if ((item.alcoholPolicy === 'serves-alcohol' || item.servesAlcohol === true) && !derivedCons.some(c => c.includes('bar'))) {
-      derivedCons.push('Full bar license; evening atmosphere can lean lively and bar-centric.');
-    }
+  // 6. Delivery (verified structured flag)
+  if (item.hasDelivery === true) {
+    derivedPros.push('Local delivery service available.');
+  }
 
-    // 6. Limited Vegetarian options
-    if (item.isVegetarianFriendly === false && !derivedCons.some(c => c.includes('vegetarian'))) {
-      derivedCons.push('Traditional meat-centric menu with limited dedicated vegetarian alternatives.');
-    }
+  // ─── DERIVE CONS STRICTLY FROM FACTUAL BACKEND FIELDS (ZERO FABRICATION) ─────
+  // 1. Lack of Air Conditioning in Medina locations (verified false flag)
+  if (item.airConditioning === false && item.nearMedina) {
+    derivedCons.push('Courtyard ventilation only; no indoor central air conditioning.');
+  }
 
-    // Baseline fallback for smooth, honest guidance
-    if (derivedCons.length === 0) {
-      derivedCons.push('Advance bookings or early arrival recommended during weekend dinner hours.');
-    }
+  // 2. Pedestrian Medina alleyway access (verified distance/parking flag)
+  if (item.nearMedina && item.hasParking === false) {
+    derivedCons.push('Pedestrian Medina alleyway location; requires a short walk from nearest taxi drop-off.');
+  }
+
+  // 3. Cash-only payment venue (verified payment methods)
+  const payments = Array.isArray(item.paymentMethods) ? item.paymentMethods.map((p: string) => p.toLowerCase()) : [];
+  if (payments.length > 0 && payments.includes('cash') && !payments.includes('credit_card') && !payments.includes('visa') && !payments.includes('mastercard')) {
+    derivedCons.push('Cash-only venue; credit/debit cards are not accepted.');
+  }
+
+  // 4. Bustling crowd level during peak hours (verified crowd level)
+  if (item.crowdLevel === 'bustling') {
+    derivedCons.push('High-demand venue; expect brief waits during peak dining hours.');
+  }
+
+  // 5. Alcohol policy note for travelers seeking bars (verified policy)
+  if (item.alcoholPolicy === 'dry' || item.servesAlcohol === false) {
+    derivedCons.push('Strictly alcohol-free (dry) dining establishment.');
   }
 
   return {
     pros: derivedPros.slice(0, 3),
     cons: derivedCons.slice(0, 2),
-    isDerived: explicitPros.length === 0 || explicitCons.length === 0
+    isDerived: true
   };
 }

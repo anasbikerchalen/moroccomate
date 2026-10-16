@@ -90,15 +90,41 @@ export const EAT_EXTRA_TAG_RULES: TagRule[] = [
   { tag: 'ramadan-friendly', condition: l => l?.ramadanFriendly === 'serves-lunch' || l?.ramadanFriendly === 'special-ftour' },
 ];
 
-// ── 3. READ-TIME ENRICHMENT (non-mutating) ──
+// ── 3. READ-TIME ENRICHMENT (non-mutating adapter) ──
+/**
+ * Normalizes an Eat listing so that listings structured into { quiz, filter, ui }
+ * seamlessly expose their properties at the top-level while maintaining the
+ * grouped sub-objects for clean architecture.
+ */
+export function normalizeEatListing(listing: any): any {
+  if (!listing) return listing;
+  if (listing.quiz || listing.filter || listing.ui) {
+    return {
+      ...listing,
+      ...(listing.quiz || {}),
+      ...(listing.filter || {}),
+      ...(listing.ui || {}),
+      quiz: listing.quiz,
+      filter: listing.filter,
+      ui: listing.ui,
+    };
+  }
+  return listing;
+}
+
 export function enrichEatTags(listing: any): any {
   if (!listing) return listing;
-  const raw = Array.isArray(listing.tags) ? listing.tags : [];
+  const normalized = normalizeEatListing(listing);
+  const raw = Array.isArray(normalized.tags) ? normalized.tags : [];
   const derived = [...EAT_TAG_RULES, ...EAT_EXTRA_TAG_RULES]
-    .filter(rule => { try { return rule.condition(listing); } catch { return false; } })
+    .filter(rule => { try { return rule.condition(normalized); } catch { return false; } })
     .map(rule => rule.tag);
-  if (derived.every(t => raw.includes(t))) return listing; // nothing new — keep the original
-  return { ...listing, tags: [...new Set([...raw, ...derived])] };
+  const mergedTags = [...new Set([...raw, ...derived])];
+  const result = { ...normalized, tags: mergedTags };
+  if (result.filter) {
+    result.filter = { ...result.filter, tags: mergedTags };
+  }
+  return result;
 }
 
 // ── 4. PUBLIC GETTERS — enriched, real data preserved ──
@@ -118,7 +144,8 @@ export function auditEatTags(): CategoryAuditResult {
   const missingFields: TagAuditIssue[] = [];
   const dataIssues: TagAuditIssue[] = [];
 
-  for (const l of EAT_MASTER) {
+  for (const rawListing of EAT_MASTER) {
+    const l = normalizeEatListing(rawListing);
     if (!l?.id) continue;
     const city = String(l.city || '');
     const raw = Array.isArray(l.tags) ? l.tags : [];

@@ -1,6 +1,6 @@
 {
-  "summary": "Plan to establish canonical master template files for each category (Eat, Sleep, Things, Shop) containing the complete bible of all allowed array options and enum values, plus structured header blocks with copy-paste templates at the top of city listing files for external AI workflows.",
-  "updatedAt": "2026-10-14T14:35:14.019320675Z",
+  "summary": "Implementation plan to fix the SEO indexing disparity for Eat, Stay, and Shopping pages by converting listing cards into crawlable anchor links and enhancing internal linking.",
+  "updatedAt": "2026-10-16T16:02:59.278295947Z",
   "requestFeedback": true,
   "userFacing": true
 }

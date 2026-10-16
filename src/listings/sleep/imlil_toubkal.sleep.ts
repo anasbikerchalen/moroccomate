@@ -12,7 +12,7 @@
  * - type:             'riad' | 'dar' | 'hotel' | 'kasbah' | 'desert-camp' | 'guesthouse' | 'hostel' | 'resort' | 'apartment' | 'villa' | 'lodge'
  * - lifestyle:        'lean' | 'balanced' | 'premium'
  * - locationFeel:     'medina-heart' | 'ville-nouvelle' | 'countryside'
- * - groupTypes:       'solo' | 'couple' | 'family' | 'friends' | 'large-groups' | 'seniors'
+ * - groupTypes:       'solo' | 'couple' | 'family' | 'friends' | 'large-groups' | 'seniors' | 'business-friendly' | 'nature-lover'
  * - safetyLevel:      1 | 2 | 3 | 4 | 5
  * - paymentMethods:   'cash' | 'credit_card' | 'visa' | 'mastercard' | 'apple_pay' | 'google_pay' | 'bank_transfer'
  * - amenities:        'pool' | 'breakfast' | 'ac' | 'heating' | 'wifi' | 'rooftop' | 'ensuite' | 'restaurant' | 'bar' | 'gym' | 'elevator' | 'laundry' | 'room-service' | 'pet-friendly'
@@ -170,7 +170,7 @@ import type { SleepListing } from '../types'
  *
  *   paymentMethods: ['card', 'cash'],
  *   languagesSpoken: ['Arabic', 'French', 'English', 'Spanish', 'German'],
- *   groupTypes: ['solo', 'couple', 'family', 'friends', 'seniors', 'kids-friendly', 'large-groups', 'business-friendly'],
+ *   groupTypes: ['solo', 'couple', 'family', 'friends', 'seniors', 'large-groups', 'business-friendly'],
  *
  *   // ═══════════════════════════════════════════════════
  *
@@ -882,7 +882,7 @@ export const imlil_toubkalSleep: SleepListing[] = [
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
-    groupTypes: ["solo", "couple", "friends", "friends"],
+    groupTypes: ["solo", "couple", "friends"],
     tip: "There is a short scenic walk required to reach the guesthouse; pack sturdy walking shoes for arrival.",
     vibeTags: ["High-Village", "Panoramic", "Authentic", "Trekking"],
     locationSummary: "High Atlas Mountains - Imlil Valley",
@@ -999,7 +999,7 @@ export const imlil_toubkalSleep: SleepListing[] = [
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
-    groupTypes: ["solo", "couple", "friends", "friends"],
+    groupTypes: ["solo", "couple", "friends"],
     tip: "Spend a night here for a quieter, less touristy alternative to the main Ait Mizane climbing route.",
     vibeTags: ["Remote", "Luxury-Trekking", "Hammam", "Valley-Views"],
     locationSummary: "High Atlas Mountains - Imlil Valley",
@@ -1116,7 +1116,7 @@ export const imlil_toubkalSleep: SleepListing[] = [
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
-    groupTypes: ["solo", "couple", "friends", "friends"],
+    groupTypes: ["solo", "couple", "friends"],
     tip: "Book a mountain-facing room with terrace access for early morning photo sessions.",
     vibeTags: ["Budget", "Panoramic", "Mountaineering", "Friendly"],
     locationSummary: "High Atlas Mountains - Imlil Valley",
@@ -1701,7 +1701,7 @@ export const imlil_toubkalSleep: SleepListing[] = [
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
-    groupTypes: ["solo", "friends", "couple", "friends"],
+    groupTypes: ["solo", "friends", "couple"],
     tip: "The guesthouse is slightly uphill from the main road; mule transport can be arranged for luggage on arrival.",
     vibeTags: ["Rustic", "Guide-Owned", "Trekker-Hub", "Fireplace"],
     locationSummary: "High Atlas Mountains - Imlil Valley",
@@ -2052,7 +2052,7 @@ export const imlil_toubkalSleep: SleepListing[] = [
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
-    groupTypes: ["solo", "friends", "couple", "friends"],
+    groupTypes: ["solo", "friends", "couple"],
     tip: "The host knows local weather conditions well; ask for advice before heading out to climb.",
     vibeTags: ["Basecamp", "Social", "Fireplace", "Value"],
     locationSummary: "High Atlas Mountains - Imlil Valley",
@@ -2520,7 +2520,7 @@ export const imlil_toubkalSleep: SleepListing[] = [
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
-    groupTypes: ["solo", "friends", "friends", "couple"],
+    groupTypes: ["solo", "friends", "couple"],
     tip: "The lodge serves a hearty local breakfast on the roof—perfect fuel before a high-altitude climb.",
     vibeTags: ["Budget", "Berber", "Pass-Views", "Simple"],
     locationSummary: "High Atlas Mountains - Imlil Valley",

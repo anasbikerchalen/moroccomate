@@ -17,7 +17,16 @@ import type { ThingToDoListing, CityId, GroupType } from '../types';
  */
 export const THINGS_ALLOWED_OPTIONS = {
   lifestyle: ['lean', 'balanced', 'premium'] as const,
-  groupTypes: ['solo', 'couple', 'family', 'friends', 'large-groups', 'seniors'] as const,
+  groupTypes: [
+    'solo',
+    'couple',
+    'family',
+    'friends',
+    'large-groups',
+    'seniors',
+    'business-friendly',
+    'nature-lover'
+  ] as const,
   crowdLevel: ['quiet', 'balanced', 'bustling'] as const,
   energyLevel: ['relaxed', 'moderate', 'active', 'intense'] as const,
   transportMode: ['walkable', 'taxi', 'transit', 'mixed'] as const,

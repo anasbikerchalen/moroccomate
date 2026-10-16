@@ -1,75 +1,67 @@
-/**
- * =========================================================================
- * MOROCCAN MATE — FOOD (EAT) LISTINGS: TETOUAN_MARTIL
- * =========================================================================
- * MASTER TEMPLATE REFERENCE & ALLOWED ARRAY OPTIONS BIBLE
- * Canonical Bible File: src/listings/eat/template.eat.ts
- *
- * When updating or generating new food entries with external AI or web search,
- * you MUST strictly adhere to the following allowed array values:
- *
- * ALLOWED OPTIONS BIBLE:
- * - lifestyle:        'lean' | 'balanced' | 'premium'
- * - groupTypes:       'solo' | 'couple' | 'family' | 'friends' | 'large-groups' | 'seniors'
- * - mealTypes:        'breakfast' | 'lunch' | 'dinner' | 'late-night' | 'snack' | 'brunch' | 'drinks'
- * - experienceTypes:  'street-food' | 'fine-dining' | 'casual' | 'cafes-tea' | 'hidden-gem' | 'rooftop' | 'traditional' | 'market-stall'
- * - foodStyles:       'Moroccan' | 'Seafood' | 'Berber' | 'Tagine & Couscous' | 'French-Moroccan' | 'Italian' | 'Mediterranean' | 'Middle Eastern' | 'Cafe & Pastry' | 'Grill & BBQ' | 'Vegetarian/Vegan' | 'International'
- * - paymentMethods:   'cash' | 'credit_card' | 'visa' | 'mastercard' | 'apple_pay' | 'google_pay'
- * - reservationMethod:'whatsapp' | 'phone' | 'website' | 'walk-in' | 'email'
- * - closedDays:       'monday' | 'tuesday' | 'wednesday' | 'thursday' | 'friday' | 'saturday' | 'sunday'
- * - seatingTypes:     'indoor' | 'outdoor' | 'rooftop' | 'terrace' | 'courtyard' | 'street-side'
- * - alcoholPolicy:    'serves-alcohol' | 'dry'
- * - crowdLevel:       'quiet' | 'balanced' | 'bustling'
- * - badge:            'local' | 'splurge' | 'hidden-gem' | 'local-favorite' | 'tourist-trap'
- *
- * BLANK COPY-PASTE TEMPLATE FOR NEW ENTRIES:
- * {
- *   id: 'eat-[city]-[slug]',
- *   city: 'tetouan_martil',
- *   name: '',
- *   neighborhood: '',
- *   description: '',
- *   pricePerPerson: 15,
- *   lifestyle: 'balanced',
- *   groupTypes: ['solo', 'couple', 'family', 'friends'],
- *   mealTypes: ['lunch', 'dinner'],
- *   experienceTypes: ['casual', 'traditional'],
- *   foodStyles: ['Moroccan'],
- *   bestDishes: [],
- *   isHalal: true,
- *   isVegetarianFriendly: false,
- *   servesAlcohol: false,
- *   alcoholPolicy: 'dry',
- *   hasDelivery: false,
- *   nearMedina: true,
- *   nearBeach: false,
- *   nearCenter: true,
- *   hasEnglishStaff: true,
- *   hasFrenchStaff: true,
- *   hasParking: false,
- *   crowdLevel: 'balanced',
- *   openTime: '11:00',
- *   closeTime: '23:00',
- *   closedDays: [],
- *   paymentMethods: ['cash'],
- *   reservationMethod: ['walk-in'],
- *   reservationContact: '',
- *   bookingUrl: '',
- *   whatsappNumber: '',
- *   googleRating: 4.5,
- *   googleReviewCount: 100,
- *   googleMapsUrl: 'https://maps.google.com/?q=',
- *   seatingTypes: ['indoor'],
- *   tags: ['moroccan', 'halal', 'lunch'],
- *   vibeTags: ['authentic'],
- *   pros: [],
- *   cons: [],
- *   tip: '',
- *   badge: 'local-favorite'
- * }
- * =========================================================================
- */
 import type { EatListing } from '../types';
+
+/**
+ * EAT LISTING TEMPLATE
+ * {
+ *   id: 'e-[city]-[name]',
+ *   city: 'tetouan_martil',
+ *   name: '[Name]',
+ *   neighborhood: '[Neighborhood]',
+ *   description: '[Long description]',
+ *   pricePerPerson: [number],
+ *   lifestyle: 'lean' | 'balanced' | 'premium',
+ *   mealTypes: ['breakfast', 'lunch', 'dinner', 'brunch', 'latenight', 'afternoon-tea', 'flexible'],
+ *   experienceTypes: ['Fine Dining' | 'Waterfront Dining' | 'Romantic Sunset' | 'Garden restaurant with live music' | 'Fountain courtyard' | 'Traditional Dining' | 'Cozy casual family-run Moroccan eatery' | 'Casual Dining' | 'Sunset Views' | 'Family Friendly' | 'Tranquil Dining' | 'Modern Fusion Dining'],
+ *   foodStyles: ['French' | 'Moroccan' | 'Mediterranean' | 'European' | 'Seafood' | 'Spanish' | 'Italian' | 'Cafe' | 'Bakery' | 'Patisserie'],
+ *   crowdLevel: 'bustling' | 'balanced' | 'quiet',
+ *   groupTypes: ['solo' | 'couple' | 'family' | 'friends' | 'seniors' | 'kids-friendly' | 'large-groups' | 'business-friendly'],
+ *   hasEnglishStaff: true | false,
+ *   hasFrenchStaff: true | false,
+ *   hasDelivery: true | false,
+ *   hasParking: true | false,
+ *   nearMedina: true | false,
+ *   nearBeach: true | false,
+ *   nearCenter: true | false,
+ *   isVegetarianFriendly: true | false,
+ *   isHalal: true | false,
+ *   halalStatus: 'likely-halal-food' | 'halal-certified' | 'unknown',
+ *   verificationStatus: 'verified',
+ *   openTime: 'HH:mm',
+ *   closeTime: 'HH:mm',
+ *   badge: 'local-favorite' | 'splurge' | 'hidden-gem' | 'local',
+ *   googleRating: [4.x],
+ *   googleReviewCount: [number],
+ *   tripadvisorRating: [4.x],
+ *   tripadvisorReviewCount: [number],
+ *   theforkRating: [4.x],
+ *   theforkReviewCount: [number],
+ *   restaurantguruRating: [4.x],
+ *   restaurantguruReviewCount: [number],
+ *   tip: '[Short tip]',
+ *   archetypeAffinity: [...],
+ *   vibeTags: [...],
+ *   isHiddenGem: true | false,
+ *   paymentMethods: ['cash'] | ['cash', 'card'],
+ *   reservationMethod: ['none'] | ['phone'] | ['phone', 'online'],
+ *   reservationContact: '+212XXXXXXXXX',
+ *   googleMapsUrl: 'https://maps.google.com/?q=[Name]+[City]',
+ *   bestDishes: ['Dish 1', 'Dish 2'],
+ *   alcoholPolicy: 'serves-alcohol' | 'dry',
+ *   ramadanFriendly: 'serves-lunch' | 'special-ftour' | 'closed',
+ *   customStory: '[Rich contextual story]',
+ *   languagesSpoken: ['Arabic/Darija', 'Spanish', 'French', 'English'],
+ *   exactAddressAndCoordinates: { address: '...', lat: 0.0, lng: 0.0 },
+ *   pros: [...],
+ *   cons: [...],
+ *   bestTimeToVisit: '...',
+ *   averageWaitMinutes: 5,
+ *   seatingTypes: ['indoor', 'garden', 'terrace', 'rooftop'],
+ *   viewType: 'garden' | 'mountain' | 'city' | 'none',
+ *   wiFi: true | false,
+ *   airConditioning: true | false,
+ *   wheelchairAccessible: true | false
+ * }
+ */
 
 export const tetouan_martilEat: EatListing[] = [
   // ── 1. RIAD EL REDUCTO RESTAURANT ──
@@ -77,15 +69,13 @@ export const tetouan_martilEat: EatListing[] = [
     id: 'e-tetouan-1',
     city: 'tetouan_martil',
     name: 'Riad El Reducto Restaurant',
-    neighborhood: 'Médina Ancienne',
+    neighborhood: 'Medina / Old Town',
     description: 'An elegant dining destination set in a grand Moorish-style palace that served as the residence of Tetouan\'s Grand Vizier in 1948. It seamlessly fuses upscale Andalusian-Moroccan gastronomy with classic Spanish seafood tapas under high-arched ceilings.',
     pricePerPerson: 18,
     lifestyle: 'premium',
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Fine Dining', 'Traditional Dining', 'Romantic Sunset'],
     foodStyles: ['Moroccan', 'Spanish', 'Seafood', 'Mediterranean'],
-    // food-cuisine quiz question tags
-    cuisineTags: ['moroccan-traditional', 'international', 'seafood'],
     crowdLevel: 'balanced',
     groupTypes: ['couple', 'family', 'seniors', 'business-friendly'],
     hasEnglishStaff: true,
@@ -97,7 +87,6 @@ export const tetouan_martilEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
-    servesAlcohol: true,
     halalStatus: 'likely-halal-food',
     verificationStatus: 'verified',
     openTime: '08:00',
@@ -123,8 +112,6 @@ export const tetouan_martilEat: EatListing[] = [
     reservationMethod: ['phone', 'online'],
     reservationContact: '+212539968120',
     googleMapsUrl: 'https://maps.google.com/?q=Riad+El+Reducto+Tetouan',
-    website: 'not-available',
-    instagram: 'not-available',
     bestDishes: ['Chicken Pastilla with Roasted Almonds', 'Sevillian Garlic Shrimp', 'Tetouan Fish Tagra'],
     alcoholPolicy: 'serves-alcohol',
     ramadanFriendly: 'special-ftour',
@@ -152,7 +139,9 @@ export const tetouan_martilEat: EatListing[] = [
     airConditioning: true,
     wheelchairAccessible: false
   ,
-    tags: ["alcohol", "budget", "dinner", "fine", "medina", "palace", "pastilla", "riad", "sunset", "terrace", "wifi"]
+    tags: ["alcohol", "budget", "dinner", "fine", "medina", "palace", "pastilla", "riad", "sunset", "terrace", "wifi"],
+    fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
+    menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
   },
 
   // ── 2. BLANCO RIAD RESTAURANT ──
@@ -160,15 +149,13 @@ export const tetouan_martilEat: EatListing[] = [
     id: 'e-tetouan-2',
     city: 'tetouan_martil',
     name: 'Blanco Riad Restaurant',
-    neighborhood: 'Médina Ancienne',
+    neighborhood: 'Medina',
     description: 'Housed in an exquisitely carved 18th-century townhouse, Blanco Riad offers formal, table-cloth dining in a jasmine-scented central courtyard. The kitchen specializes in elegant, lighter Andalusian-influenced interpretations of traditional northern Moroccan cuisine.',
     pricePerPerson: 21,
     lifestyle: 'premium',
     mealTypes: ['breakfast', 'lunch', 'dinner', 'brunch'],
     experienceTypes: ['Fine Dining', 'Traditional Dining', 'Romantic Sunset'],
     foodStyles: ['Moroccan', 'Mediterranean', 'Seafood'],
-    // food-cuisine quiz question tags
-    cuisineTags: ['moroccan-traditional', 'international', 'seafood'],
     crowdLevel: 'balanced',
     groupTypes: ['couple', 'family', 'seniors', 'business-friendly'],
     hasEnglishStaff: true,
@@ -180,7 +167,6 @@ export const tetouan_martilEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
-    servesAlcohol: false,
     halalStatus: 'likely-halal-food',
     verificationStatus: 'verified',
     openTime: '08:00',
@@ -206,8 +192,6 @@ export const tetouan_martilEat: EatListing[] = [
     reservationMethod: ['phone', 'online'],
     reservationContact: '+212539704202',
     googleMapsUrl: 'https://maps.google.com/?q=Blanco+Riad+Tetouan',
-    website: 'not-available',
-    instagram: 'not-available',
     bestDishes: ['Seafood Couscous', 'Lamb Tagine with Sesame & Prunes', 'Orange Blossom Flan'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'serves-lunch',
@@ -235,7 +219,9 @@ export const tetouan_martilEat: EatListing[] = [
     airConditioning: true,
     wheelchairAccessible: false
   ,
-    tags: ["breakfast", "budget", "couscous", "dinner", "dry", "fine", "medina", "riad", "sunset", "tagine", "wifi"]
+    tags: ["breakfast", "budget", "couscous", "dinner", "dry", "fine", "medina", "riad", "sunset", "tagine", "wifi"],
+    fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
+    menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
   },
 
   // ── 3. DAR LA MÉDINA TETAWEN ──
@@ -243,15 +229,13 @@ export const tetouan_martilEat: EatListing[] = [
     id: 'e-tetouan-3',
     city: 'tetouan_martil',
     name: 'Dar La Médina Tetawen',
-    neighborhood: 'Médina Ancienne',
+    neighborhood: 'Medina',
     description: 'An authentic culinary journey set across three floors of a lovingly converted 19th-century townhouse. Features low velvet banquettes, high Andalusian arches, and a menu deeply focused on historical Morisco recipes.',
     pricePerPerson: 11,
     lifestyle: 'balanced',
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Traditional Dining', 'Casual Dining', 'Sunset Views'],
     foodStyles: ['Moroccan', 'Seafood'],
-    // food-cuisine quiz question tags
-    cuisineTags: ['moroccan-traditional', 'seafood'],
     crowdLevel: 'balanced',
     groupTypes: ['couple', 'family', 'friends', 'seniors'],
     hasEnglishStaff: true,
@@ -263,7 +247,6 @@ export const tetouan_martilEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
-    servesAlcohol: false,
     halalStatus: 'likely-halal-food',
     verificationStatus: 'verified',
     openTime: '12:00',
@@ -289,8 +272,6 @@ export const tetouan_martilEat: EatListing[] = [
     reservationMethod: ['phone'],
     reservationContact: '+212666924984',
     googleMapsUrl: 'https://maps.google.com/?q=Dar+La+Medina+Tetouan',
-    website: 'not-available',
-    instagram: 'not-available',
     bestDishes: ['Northern Fish Tagra (Claypot)', 'Traditional Seafood Pastilla', 'Slow-cooked Lamb with Dried Fruits'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
@@ -318,7 +299,9 @@ export const tetouan_martilEat: EatListing[] = [
     airConditioning: false,
     wheelchairAccessible: false
   ,
-    tags: ["budget", "dinner", "dry", "medina", "pastilla", "rooftop", "sunset"]
+    tags: ["budget", "dinner", "dry", "medina", "pastilla", "rooftop", "sunset"],
+    fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
+    menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
   },
 
   // ── 4. LA ESQUINA DEL PESCADO ──
@@ -333,8 +316,6 @@ export const tetouan_martilEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Casual Dining', 'Traditional Dining', 'Fine Seafood'],
     foodStyles: ['Seafood', 'Spanish', 'Mediterranean'],
-    // food-cuisine quiz question tags
-    cuisineTags: ['seafood', 'international'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'couple', 'friends'],
     hasEnglishStaff: true,
@@ -346,7 +327,6 @@ export const tetouan_martilEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: false,
     isHalal: true,
-    servesAlcohol: false,
     halalStatus: 'likely-halal-food',
     verificationStatus: 'verified',
     openTime: '12:30',
@@ -372,8 +352,6 @@ export const tetouan_martilEat: EatListing[] = [
     reservationMethod: ['phone'],
     reservationContact: '+212539961001',
     googleMapsUrl: 'https://maps.google.com/?q=La+Esquina+del+Pescado+Tetouan',
-    website: 'not-available',
-    instagram: 'not-available',
     bestDishes: ['Garlic Shrimp Pil-Pil', 'Mixed Grilled Seafood Platter', 'Fisherman Soup'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'serves-lunch',
@@ -401,7 +379,9 @@ export const tetouan_martilEat: EatListing[] = [
     airConditioning: false,
     wheelchairAccessible: false
   ,
-    tags: ["budget", "dinner", "dry"]
+    tags: ["budget", "dinner", "dry"],
+    fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
+    menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
   },
 
   // ── 5. LA CASA DE ESPAÑA ──
@@ -416,8 +396,6 @@ export const tetouan_martilEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Fine Dining', 'Traditional Dining', 'Upscale Lounge'],
     foodStyles: ['Spanish', 'Mediterranean', 'Seafood'],
-    // food-cuisine quiz question tags
-    cuisineTags: ['international', 'seafood'],
     crowdLevel: 'balanced',
     groupTypes: ['couple', 'family', 'friends', 'seniors', 'business-friendly'],
     hasEnglishStaff: true,
@@ -429,7 +407,6 @@ export const tetouan_martilEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
-    servesAlcohol: true,
     halalStatus: 'likely-halal-food',
     verificationStatus: 'verified',
     openTime: '12:00',
@@ -455,8 +432,6 @@ export const tetouan_martilEat: EatListing[] = [
     reservationMethod: ['phone'],
     reservationContact: '+212539965020',
     googleMapsUrl: 'https://maps.google.com/?q=Casa+de+Espana+Tetouan',
-    website: 'not-available',
-    instagram: 'not-available',
     bestDishes: ['Traditional Seafood Paella', 'Spanish Tortilla', 'Grilled Beef Tenderloin'],
     alcoholPolicy: 'serves-alcohol',
     ramadanFriendly: 'serves-lunch',
@@ -484,7 +459,9 @@ export const tetouan_martilEat: EatListing[] = [
     airConditioning: true,
     wheelchairAccessible: true
   ,
-    tags: ["alcohol", "budget", "dinner", "fine", "wifi"]
+    tags: ["alcohol", "budget", "dinner", "fine", "wifi"],
+    fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
+    menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
   },
 
   // ── 6. RESTAURANT RESTINGA ──
@@ -499,8 +476,6 @@ export const tetouan_martilEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Casual Dining', 'Garden restaurant with live music', 'Traditional Dining'],
     foodStyles: ['Seafood', 'Spanish', 'Moroccan'],
-    // food-cuisine quiz question tags
-    cuisineTags: ['seafood', 'international', 'moroccan-traditional'],
     crowdLevel: 'balanced',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'seniors'],
     hasEnglishStaff: true,
@@ -512,7 +487,6 @@ export const tetouan_martilEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
-    servesAlcohol: true,
     halalStatus: 'likely-halal-food',
     verificationStatus: 'verified',
     openTime: '12:00',
@@ -538,8 +512,6 @@ export const tetouan_martilEat: EatListing[] = [
     reservationMethod: ['phone'],
     reservationContact: '+212539962165',
     googleMapsUrl: 'https://maps.google.com/?q=Restaurant+Restinga+Tetouan',
-    website: 'not-available',
-    instagram: 'not-available',
     bestDishes: ['Fried Fish Platter (Fritura)', 'Spanish Garlic Prawns', 'Calamari Roman style'],
     alcoholPolicy: 'serves-alcohol',
     ramadanFriendly: 'serves-lunch',
@@ -567,7 +539,9 @@ export const tetouan_martilEat: EatListing[] = [
     airConditioning: true,
     wheelchairAccessible: false
   ,
-    tags: ["alcohol", "budget", "dinner", "live-music", "wifi"]
+    tags: ["alcohol", "budget", "dinner", "live-music", "wifi"],
+    fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
+    menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
   },
 
   // ── 7. PÂTISSERIE-CAFÉTÉRIA RAHMOUNI ──
@@ -582,8 +556,6 @@ export const tetouan_martilEat: EatListing[] = [
     mealTypes: ['breakfast', 'afternoon-tea', 'flexible'],
     experienceTypes: ['Cafe', 'Bakery-Patisserie', 'Traditional Breakfast Ritual'],
     foodStyles: ['Bakery', 'Moroccan', 'Patisserie'],
-    // food-cuisine quiz question tags
-    cuisineTags: ['cafe-pastry', 'moroccan-traditional'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'kids-friendly'],
     hasEnglishStaff: true,
@@ -595,7 +567,6 @@ export const tetouan_martilEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
-    servesAlcohol: false,
     halalStatus: 'halal-certified',
     verificationStatus: 'verified',
     openTime: '06:30',
@@ -621,8 +592,6 @@ export const tetouan_martilEat: EatListing[] = [
     reservationMethod: ['none'],
     reservationContact: '+212539963280',
     googleMapsUrl: 'https://maps.google.com/?q=Patisserie+Cafeteria+Rahmouni+Tetouan',
-    website: 'not-available',
-    instagram: 'not-available',
     bestDishes: ['Tabaâ Almond Pastry', 'Fqass Biscuit', 'Fresh Mint Tea'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
@@ -650,7 +619,9 @@ export const tetouan_martilEat: EatListing[] = [
     airConditioning: true,
     wheelchairAccessible: true
   ,
-    tags: ["breakfast", "budget", "cafe-pastry", "dry", "pastry", "wifi"]
+    tags: ["breakfast", "budget", "cafe-pastry", "dry", "pastry", "wifi"],
+    fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
+    menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
   },
 
   // ── 8. CAFE JENIN ──
@@ -665,8 +636,6 @@ export const tetouan_martilEat: EatListing[] = [
     mealTypes: ['breakfast', 'lunch', 'brunch', 'flexible'],
     experienceTypes: ['Cafe', 'Casual Dining', 'Family Friendly'],
     foodStyles: ['Cafe', 'Italian', 'Mediterranean', 'Bakery'],
-    // food-cuisine quiz question tags
-    cuisineTags: ['cafe-pastry', 'international'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'kids-friendly'],
     hasEnglishStaff: true,
@@ -678,7 +647,6 @@ export const tetouan_martilEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
-    servesAlcohol: false,
     halalStatus: 'likely-halal-food',
     verificationStatus: 'verified',
     openTime: '07:00',
@@ -704,8 +672,6 @@ export const tetouan_martilEat: EatListing[] = [
     reservationMethod: ['none'],
     reservationContact: '+212539712040',
     googleMapsUrl: 'https://maps.google.com/?q=Cafe+Jenin+Tetouan',
-    website: 'not-available',
-    instagram: 'not-available',
     bestDishes: ['Fresh Fruit Crepe', 'Four Cheese Pizza', 'Chambal French Espresso'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
@@ -733,7 +699,9 @@ export const tetouan_martilEat: EatListing[] = [
     airConditioning: true,
     wheelchairAccessible: true
   ,
-    tags: ["breakfast", "budget", "cafe-pastry", "dry", "pastry", "wifi"]
+    tags: ["breakfast", "budget", "cafe-pastry", "dry", "pastry", "wifi"],
+    fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
+    menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
   },
 
   // ── 9. TALIB MUHAMMAD RESTAURANT ──
@@ -741,15 +709,13 @@ export const tetouan_martilEat: EatListing[] = [
     id: 'e-tetouan-9',
     city: 'tetouan_martil',
     name: 'Talib Muhammad Restaurant',
-    neighborhood: 'Médina Ancienne',
+    neighborhood: 'Medina / Trankat',
     description: 'A legendary and historic local street food canteen deep in the souks of the old Medina. Focuses strictly on serving northern-style fava bean stews, traditionally drizzled with olive oil, cumin, and chili.',
     pricePerPerson: 2.5,
     lifestyle: 'lean',
     mealTypes: ['breakfast', 'lunch', 'flexible'],
     experienceTypes: ['Casual Dining', 'Traditional Dining', 'Local Gathering Spot'],
     foodStyles: ['Moroccan'],
-    // food-cuisine quiz question tags
-    cuisineTags: ['moroccan-traditional'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'friends'],
     hasEnglishStaff: false,
@@ -761,7 +727,6 @@ export const tetouan_martilEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
-    servesAlcohol: false,
     halalStatus: 'halal-certified',
     verificationStatus: 'verified',
     openTime: '06:00',
@@ -787,8 +752,6 @@ export const tetouan_martilEat: EatListing[] = [
     reservationMethod: ['none'],
     reservationContact: '+212661852410',
     googleMapsUrl: 'https://maps.google.com/?q=Talib+Muhammad+Bisara+Tetouan',
-    website: 'not-available',
-    instagram: 'not-available',
     bestDishes: ['Fava Bean Bisara Soup', 'Traditional Wheat Bread', 'Olive Oil & Cumin Dip'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'closed',
@@ -816,7 +779,9 @@ export const tetouan_martilEat: EatListing[] = [
     airConditioning: false,
     wheelchairAccessible: false
   ,
-    tags: ["breakfast", "budget", "dry", "medina", "street-food"]
+    tags: ["breakfast", "budget", "dry", "medina", "street-food"],
+    fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
+    menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
   },
 
   // ── 10. BORAS SFENJ (CHEZ ABDESSALAM) ──
@@ -824,15 +789,13 @@ export const tetouan_martilEat: EatListing[] = [
     id: 'e-tetouan-10',
     city: 'tetouan_martil',
     name: 'Boras Sfenj (Chez Abdessalam)',
-    neighborhood: 'Médina Ancienne',
+    neighborhood: 'Medina / Trankat Market',
     description: 'Operating for over half a century in the Trankat market alley, Abdessalam (Boras) is the oldest sfenj master in Tetouan. He prepares piping hot, crispy Moroccan donuts right in front of a giant iron oil cauldron.',
     pricePerPerson: 1,
     lifestyle: 'lean',
     mealTypes: ['breakfast', 'flexible'],
     experienceTypes: ['Casual Dining', 'Traditional Dining', 'Local Gathering Spot'],
     foodStyles: ['Moroccan', 'Bakery'],
-    // food-cuisine quiz question tags
-    cuisineTags: ['moroccan-traditional', 'cafe-pastry'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'friends'],
     hasEnglishStaff: false,
@@ -844,7 +807,6 @@ export const tetouan_martilEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
-    servesAlcohol: false,
     halalStatus: 'halal-certified',
     verificationStatus: 'verified',
     openTime: '06:00',
@@ -870,8 +832,6 @@ export const tetouan_martilEat: EatListing[] = [
     reservationMethod: ['none'],
     reservationContact: '+212670341890',
     googleMapsUrl: 'https://maps.google.com/?q=Boras+Sfenj+Tetouan',
-    website: 'not-available',
-    instagram: 'not-available',
     bestDishes: ['Freshly Fried Sfenj', 'Crispy northern Porras'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'closed',
@@ -899,7 +859,9 @@ export const tetouan_martilEat: EatListing[] = [
     airConditioning: false,
     wheelchairAccessible: false
   ,
-    tags: ["breakfast", "budget", "cafe-pastry", "dry", "medina", "pastry", "street-food"]
+    tags: ["breakfast", "budget", "cafe-pastry", "dry", "medina", "pastry", "street-food"],
+    fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
+    menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
   },
 
   // ── 11. CAFÉ AL AMAL ──
@@ -914,8 +876,6 @@ export const tetouan_martilEat: EatListing[] = [
     mealTypes: ['breakfast', 'lunch', 'flexible'],
     experienceTypes: ['Cafe', 'Casual Dining', 'Traditional Breakfast Ritual'],
     foodStyles: ['Moroccan', 'Cafe'],
-    // food-cuisine quiz question tags
-    cuisineTags: ['moroccan-traditional', 'cafe-pastry'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'couple', 'friends'],
     hasEnglishStaff: true,
@@ -927,7 +887,6 @@ export const tetouan_martilEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
-    servesAlcohol: false,
     halalStatus: 'likely-halal-food',
     verificationStatus: 'verified',
     openTime: '06:00',
@@ -953,8 +912,6 @@ export const tetouan_martilEat: EatListing[] = [
     reservationMethod: ['none'],
     reservationContact: '+212539963145',
     googleMapsUrl: 'https://maps.google.com/?q=Cafe+Al+Amal+Tetouan',
-    website: 'not-available',
-    instagram: 'not-available',
     bestDishes: ['Northern Breakfast Board', 'Cafe Nos-Nos', 'Beldi Goat Cheese Jben'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
@@ -982,7 +939,9 @@ export const tetouan_martilEat: EatListing[] = [
     airConditioning: false,
     wheelchairAccessible: true
   ,
-    tags: ["breakfast", "budget", "cafe-pastry", "dry"]
+    tags: ["breakfast", "budget", "cafe-pastry", "dry"],
+    fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
+    menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
   },
 
   // ── 12. RESTAURANT SAFAE ──
@@ -990,15 +949,13 @@ export const tetouan_martilEat: EatListing[] = [
     id: 'e-tetouan-12',
     city: 'tetouan_martil',
     name: 'Restaurant Safae',
-    neighborhood: 'Médina Ancienne',
+    neighborhood: 'Medina',
     description: 'A hidden, traditional Moroccan lunch spot inside the medina\'s white-washed walls. Known for serving incredibly authentic northern tagines cooked over slow charcoal embers.',
     pricePerPerson: 7.5,
     lifestyle: 'balanced',
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Casual Dining', 'Traditional Dining', 'Cozy casual family-run Moroccan eatery'],
     foodStyles: ['Moroccan'],
-    // food-cuisine quiz question tags
-    cuisineTags: ['moroccan-traditional'],
     crowdLevel: 'balanced',
     groupTypes: ['solo', 'couple', 'family', 'friends'],
     hasEnglishStaff: true,
@@ -1010,7 +967,6 @@ export const tetouan_martilEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
-    servesAlcohol: false,
     halalStatus: 'likely-halal-food',
     verificationStatus: 'verified',
     openTime: '11:30',
@@ -1036,8 +992,6 @@ export const tetouan_martilEat: EatListing[] = [
     reservationMethod: ['none'],
     reservationContact: '+212662198035',
     googleMapsUrl: 'https://maps.google.com/?q=Restaurant+Safae+Tetouan',
-    website: 'not-available',
-    instagram: 'not-available',
     bestDishes: ['Charcoal Chicken Tagine', 'Kefta Tagine with Tomato and Egg', 'Fresh Moroccan Salads'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
@@ -1065,7 +1019,9 @@ export const tetouan_martilEat: EatListing[] = [
     airConditioning: false,
     wheelchairAccessible: false
   ,
-    tags: ["budget", "dinner", "dry", "medina", "tagine"]
+    tags: ["budget", "dinner", "dry", "medina", "tagine"],
+    fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
+    menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
   },
 
   // ── 13. VENEZIA ICE TETOUAN ──
@@ -1080,8 +1036,6 @@ export const tetouan_martilEat: EatListing[] = [
     mealTypes: ['breakfast', 'brunch', 'flexible'],
     experienceTypes: ['Cafe', 'Casual Dining', 'Family Friendly'],
     foodStyles: ['Italian', 'Cafe', 'Bakery'],
-    // food-cuisine quiz question tags
-    cuisineTags: ['international', 'cafe-pastry'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'kids-friendly'],
     hasEnglishStaff: true,
@@ -1093,7 +1047,6 @@ export const tetouan_martilEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
-    servesAlcohol: false,
     halalStatus: 'halal-certified',
     verificationStatus: 'verified',
     openTime: '08:00',
@@ -1119,8 +1072,6 @@ export const tetouan_martilEat: EatListing[] = [
     reservationMethod: ['none'],
     reservationContact: '+212539702210',
     googleMapsUrl: 'https://maps.google.com/?q=Venezia+Ice+Tetouan',
-    website: 'not-available',
-    instagram: 'not-available',
     bestDishes: ['Pistachio Gelato', 'Nutella Crepe', 'Italian Espresso'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
@@ -1148,7 +1099,9 @@ export const tetouan_martilEat: EatListing[] = [
     airConditioning: true,
     wheelchairAccessible: true
   ,
-    tags: ["breakfast", "budget", "cafe-pastry", "dry", "late-night", "pastry", "wifi"]
+    tags: ["breakfast", "budget", "cafe-pastry", "dry", "late-night", "pastry", "wifi"],
+    fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
+    menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
   },
 
   // ── 14. JABAL BRUNCH CAFÉ ──
@@ -1163,8 +1116,6 @@ export const tetouan_martilEat: EatListing[] = [
     mealTypes: ['breakfast', 'brunch', 'flexible'],
     experienceTypes: ['Cafe', 'Casual Dining', 'Modern Fusion Dining'],
     foodStyles: ['Mediterranean', 'Cafe', 'Healthy'],
-    // food-cuisine quiz question tags
-    cuisineTags: ['international', 'cafe-pastry'],
     crowdLevel: 'balanced',
     groupTypes: ['solo', 'couple', 'friends'],
     hasEnglishStaff: true,
@@ -1176,7 +1127,6 @@ export const tetouan_martilEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
-    servesAlcohol: false,
     halalStatus: 'halal-certified',
     verificationStatus: 'verified',
     openTime: '08:30',
@@ -1202,8 +1152,6 @@ export const tetouan_martilEat: EatListing[] = [
     reservationMethod: ['none'],
     reservationContact: '+212668541290',
     googleMapsUrl: 'https://maps.google.com/?q=JABAL+brunch+cafe+Tetouan',
-    website: 'not-available',
-    instagram: 'not-available',
     bestDishes: ['Avocado Sourdough Toast', 'Organic Açai Bowls', 'Spanish Macchiato'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
@@ -1231,7 +1179,9 @@ export const tetouan_martilEat: EatListing[] = [
     airConditioning: true,
     wheelchairAccessible: true
   ,
-    tags: ["breakfast", "budget", "cafe-pastry", "dry", "wifi"]
+    tags: ["breakfast", "budget", "cafe-pastry", "dry", "wifi"],
+    fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
+    menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
   },
 
   // ── 15. RESTAURANT MORISCO ──
@@ -1246,8 +1196,6 @@ export const tetouan_martilEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner', 'flexible'],
     experienceTypes: ['Casual Dining', 'Traditional Dining', 'Local Gathering Spot'],
     foodStyles: ['Moroccan'],
-    // food-cuisine quiz question tags
-    cuisineTags: ['moroccan-traditional'],
     crowdLevel: 'balanced',
     groupTypes: ['solo', 'couple', 'family', 'friends'],
     hasEnglishStaff: false,
@@ -1259,7 +1207,6 @@ export const tetouan_martilEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
-    servesAlcohol: false,
     halalStatus: 'likely-halal-food',
     verificationStatus: 'verified',
     openTime: '11:00',
@@ -1285,8 +1232,6 @@ export const tetouan_martilEat: EatListing[] = [
     reservationMethod: ['none'],
     reservationContact: '+212661394820',
     googleMapsUrl: 'https://maps.google.com/?q=Restaurant+Morisco+Tetouan',
-    website: 'not-available',
-    instagram: 'not-available',
     bestDishes: ['Beef Tagine with Almonds', 'Friday Seven-Vegetable Couscous', 'Harira Soup'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
@@ -1314,7 +1259,9 @@ export const tetouan_martilEat: EatListing[] = [
     airConditioning: false,
     wheelchairAccessible: false
   ,
-    tags: ["budget", "couscous", "dinner", "dry", "medina", "tagine"]
+    tags: ["budget", "couscous", "dinner", "dry", "medina", "tagine"],
+    fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
+    menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
   },
 
   // ── 16. AL BARAKATE BAKERY & CATERING ──
@@ -1329,8 +1276,6 @@ export const tetouan_martilEat: EatListing[] = [
     mealTypes: ['breakfast', 'lunch', 'brunch', 'flexible'],
     experienceTypes: ['Cafe', 'Bakery-Patisserie', 'Traditional Breakfast Ritual'],
     foodStyles: ['Bakery', 'Moroccan', 'Mediterranean', 'Cafe'],
-    // food-cuisine quiz question tags
-    cuisineTags: ['cafe-pastry', 'moroccan-traditional', 'international'],
     crowdLevel: 'balanced',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'kids-friendly'],
     hasEnglishStaff: true,
@@ -1342,7 +1287,6 @@ export const tetouan_martilEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
-    servesAlcohol: false,
     halalStatus: 'halal-certified',
     verificationStatus: 'verified',
     openTime: '06:30',
@@ -1368,8 +1312,6 @@ export const tetouan_martilEat: EatListing[] = [
     reservationMethod: ['none'],
     reservationContact: '+212539971840',
     googleMapsUrl: 'https://maps.google.com/?q=AL+Barakate+Tetouan',
-    website: 'not-available',
-    instagram: 'not-available',
     bestDishes: ['Freshly baked Almond Briouats', 'Gourmet Club Sandwich', 'Sage-infused Mint Tea'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
@@ -1397,7 +1339,9 @@ export const tetouan_martilEat: EatListing[] = [
     airConditioning: true,
     wheelchairAccessible: true
   ,
-    tags: ["breakfast", "budget", "cafe-pastry", "dry", "pastry", "wifi"]
+    tags: ["breakfast", "budget", "cafe-pastry", "dry", "pastry", "wifi"],
+    fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
+    menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
   },
 
   // ── 17. RESTAURANT ALI-BABA ──
@@ -1412,8 +1356,6 @@ export const tetouan_martilEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner', 'latenight', 'flexible'],
     experienceTypes: ['Casual Dining', 'Local Gathering Spot'],
     foodStyles: ['Moroccan', 'Mediterranean'],
-    // food-cuisine quiz question tags
-    cuisineTags: ['moroccan-traditional', 'international'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'kids-friendly'],
     hasEnglishStaff: false,
@@ -1425,7 +1367,6 @@ export const tetouan_martilEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
-    servesAlcohol: false,
     halalStatus: 'halal-certified',
     verificationStatus: 'verified',
     openTime: '11:00',
@@ -1451,8 +1392,6 @@ export const tetouan_martilEat: EatListing[] = [
     reservationMethod: ['none'],
     reservationContact: '+212539968430',
     googleMapsUrl: 'https://maps.google.com/?q=Restaurant+Ali+Baba+Tetouan',
-    website: 'not-available',
-    instagram: 'not-available',
     bestDishes: ['Charcoal-Grilled Kefta', 'Merguez Sandwich', 'Lentil Stew (Loubia)'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
@@ -1480,7 +1419,9 @@ export const tetouan_martilEat: EatListing[] = [
     airConditioning: false,
     wheelchairAccessible: true
   ,
-    tags: ["budget", "dinner", "dry", "late-night", "street-food"]
+    tags: ["budget", "dinner", "dry", "late-night", "street-food"],
+    fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
+    menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
   },
 
   // ── 18. RESTAURANT CHEZ FOUAD ──
@@ -1495,8 +1436,6 @@ export const tetouan_martilEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Casual Dining', 'Traditional Dining', 'Fine Seafood'],
     foodStyles: ['Seafood', 'Mediterranean'],
-    // food-cuisine quiz question tags
-    cuisineTags: ['seafood', 'international', 'moroccan-traditional'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'large-groups'],
     hasEnglishStaff: true,
@@ -1508,7 +1447,6 @@ export const tetouan_martilEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: false,
     isHalal: true,
-    servesAlcohol: false,
     halalStatus: 'likely-halal-food',
     verificationStatus: 'verified',
     openTime: '12:00',
@@ -1534,8 +1472,6 @@ export const tetouan_martilEat: EatListing[] = [
     reservationMethod: ['phone'],
     reservationContact: '+212539964115',
     googleMapsUrl: 'https://maps.google.com/?q=Restaurant+Chez+Fouad+Tetouan',
-    website: 'not-available',
-    instagram: 'not-available',
     bestDishes: ['Fouad Grilled Fish Platter', 'Sautéed Garlic Shrimp', 'Tomato Harissa Salad'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'serves-lunch',
@@ -1563,7 +1499,9 @@ export const tetouan_martilEat: EatListing[] = [
     airConditioning: false,
     wheelchairAccessible: true
   ,
-    tags: ["budget", "dinner", "dry"]
+    tags: ["budget", "dinner", "dry"],
+    fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
+    menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
   },
 
   // ── 19. CAFÉTÉRIA PÂTISSERIE ACHRAF ──
@@ -1578,8 +1516,6 @@ export const tetouan_martilEat: EatListing[] = [
     mealTypes: ['breakfast', 'afternoon-tea', 'flexible'],
     experienceTypes: ['Cafe', 'Casual Dining', 'Traditional Breakfast Ritual'],
     foodStyles: ['Cafe', 'Moroccan', 'Bakery'],
-    // food-cuisine quiz question tags
-    cuisineTags: ['cafe-pastry', 'moroccan-traditional'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'seniors'],
     hasEnglishStaff: true,
@@ -1591,7 +1527,6 @@ export const tetouan_martilEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
-    servesAlcohol: false,
     halalStatus: 'likely-halal-food',
     verificationStatus: 'verified',
     openTime: '06:00',
@@ -1617,8 +1552,6 @@ export const tetouan_martilEat: EatListing[] = [
     reservationMethod: ['none'],
     reservationContact: '+212539965820',
     googleMapsUrl: 'https://maps.google.com/?q=Cafeteria+Achraf+Tetouan',
-    website: 'not-available',
-    instagram: 'not-available',
     bestDishes: ['Harcha with Goat Cheese', 'Almond Ghriba', 'Classic Cafe au Lait'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
@@ -1646,7 +1579,9 @@ export const tetouan_martilEat: EatListing[] = [
     airConditioning: false,
     wheelchairAccessible: true
   ,
-    tags: ["breakfast", "budget", "cafe-pastry", "dry", "pastry", "terrace"]
+    tags: ["breakfast", "budget", "cafe-pastry", "dry", "pastry", "terrace"],
+    fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
+    menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
   },
 
   // ── 20. DAR EL KASBAH (LA TERRASSE) ──
@@ -1654,15 +1589,13 @@ export const tetouan_martilEat: EatListing[] = [
     id: 'e-tetouan-20',
     city: 'tetouan_martil',
     name: 'Dar El Kasbah (La Terrasse)',
-    neighborhood: 'Médina Ancienne',
+    neighborhood: 'Old Medina',
     description: 'A beautifully designed medina rooftop restaurant offering breathtaking 360-degree views of the Rif mountains and historic minarets. Serves exceptionally fresh, contemporary Mediterranean-Moroccan fusion dishes.',
     pricePerPerson: 12,
     lifestyle: 'balanced',
     mealTypes: ['lunch', 'dinner', 'flexible'],
     experienceTypes: ['Sunset Views', 'Fine Dining', 'Casual Dining'],
     foodStyles: ['Moroccan', 'Mediterranean'],
-    // food-cuisine quiz question tags
-    cuisineTags: ['moroccan-traditional', 'international'],
     crowdLevel: 'balanced',
     groupTypes: ['solo', 'couple', 'friends', 'family'],
     hasEnglishStaff: true,
@@ -1674,7 +1607,6 @@ export const tetouan_martilEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
-    servesAlcohol: false,
     halalStatus: 'likely-halal-food',
     verificationStatus: 'verified',
     openTime: '12:00',
@@ -1700,8 +1632,6 @@ export const tetouan_martilEat: EatListing[] = [
     reservationMethod: ['phone'],
     reservationContact: '+212539969140',
     googleMapsUrl: 'https://maps.google.com/?q=Dar+El+Kasbah+La+Terrasse+Tetouan',
-    website: 'not-available',
-    instagram: 'not-available',
     bestDishes: ['Lamb Tagine with Apricots', 'Moroccan Salad Assortment', 'Spiced Chicken Brochettes'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
@@ -1729,7 +1659,9 @@ export const tetouan_martilEat: EatListing[] = [
     airConditioning: false,
     wheelchairAccessible: false
   ,
-    tags: ["budget", "dinner", "dry", "fine", "medina", "mountain", "rooftop", "sunset", "tagine", "wifi"]
+    tags: ["budget", "dinner", "dry", "fine", "medina", "mountain", "rooftop", "sunset", "tagine", "wifi"],
+    fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
+    menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
   },
   {
     id: "e-tetouan-mcdonalds-far",
@@ -1763,11 +1695,8 @@ export const tetouan_martilEat: EatListing[] = [
     badge: "local-favorite",
     googleRating: 4.1,
     googleReviewCount: 4600,
-    googleMapsUrl: 'https://maps.google.com/?cid=6372819041526372819',
-    website: 'https://mcdonalds.ma',
-    instagram: 'https://instagram.com/mcdonalds_maroc',
+    googleMapsUrl: "https://maps.google.com/?cid=6372819041526372819",
     paymentMethods: ["Cash", "Credit Card", "Contactless"],
-    reservationContact: 'not-available',
     languagesSpoken: ["Arabic", "French", "English", "Spanish"],
     wiFi: true,
     airConditioning: true,
@@ -1777,7 +1706,9 @@ export const tetouan_martilEat: EatListing[] = [
       address: "Avenue des FAR, Route de Ceuta, Tetouan",
       lat: 35.5862,
       lng: -5.3582
-    }
+    },
+    fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
+    menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
   },
   {
     id: "e-tetouan-burger-king-marjane",
@@ -1791,8 +1722,6 @@ export const tetouan_martilEat: EatListing[] = [
     mealTypes: ["lunch", "dinner", "latenight"],
     experienceTypes: ["Fast Food", "Mall Dining"],
     foodStyles: ["Burgers", "Fast Food", "American"],
-    // food-cuisine quiz question tags
-    cuisineTags: ['international'],
     alcoholPolicy: "dry",
     ramadanFriendly: "special-ftour",
     crowdLevel: "bustling",
@@ -1806,7 +1735,6 @@ export const tetouan_martilEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
-    servesAlcohol: false,
     halalStatus: "halal-certified",
     verificationStatus: "verified",
     openTime: "11:00",
@@ -1814,11 +1742,8 @@ export const tetouan_martilEat: EatListing[] = [
     badge: "local-favorite",
     googleRating: 3.9,
     googleReviewCount: 1750,
-    googleMapsUrl: 'https://maps.google.com/?cid=7483920152637483920',
-    website: 'https://burgerking.ma',
-    instagram: 'https://instagram.com/burgerkingmaroc',
+    googleMapsUrl: "https://maps.google.com/?cid=7483920152637483920",
     paymentMethods: ["Cash", "Credit Card", "Contactless"],
-    reservationContact: 'not-available',
     languagesSpoken: ["Arabic", "French", "English", "Spanish"],
     wiFi: true,
     airConditioning: true,
@@ -1828,7 +1753,9 @@ export const tetouan_martilEat: EatListing[] = [
       address: "Centre Commercial Marjane, Route de Martil, Tetouan",
       lat: 35.5835,
       lng: -5.3375
-    }
+    },
+    fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
+    menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
   },
   {
     id: "e-tetouan-pizza-hut-ensanche",
@@ -1842,8 +1769,6 @@ export const tetouan_martilEat: EatListing[] = [
     mealTypes: ["lunch", "dinner"],
     experienceTypes: ["Casual Dining", "Pizza"],
     foodStyles: ["Pizza", "Italian-American", "Fast Food"],
-    // food-cuisine quiz question tags
-    cuisineTags: ['international'],
     alcoholPolicy: "dry",
     ramadanFriendly: "special-ftour",
     crowdLevel: "balanced",
@@ -1857,7 +1782,6 @@ export const tetouan_martilEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
-    servesAlcohol: false,
     halalStatus: "halal-certified",
     verificationStatus: "verified",
     openTime: "11:30",
@@ -1865,11 +1789,8 @@ export const tetouan_martilEat: EatListing[] = [
     badge: "local-favorite",
     googleRating: 3.8,
     googleReviewCount: 1400,
-    googleMapsUrl: 'https://maps.google.com/?cid=8594031263748594031',
-    website: 'https://pizzahut.ma',
-    instagram: 'https://instagram.com/pizzahut_maroc',
+    googleMapsUrl: "https://maps.google.com/?cid=8594031263748594031",
     paymentMethods: ["Cash", "Credit Card", "Contactless"],
-    reservationContact: 'not-available',
     languagesSpoken: ["Arabic", "French", "English", "Spanish"],
     wiFi: true,
     airConditioning: true,
@@ -1879,6 +1800,8 @@ export const tetouan_martilEat: EatListing[] = [
       address: "Avenue Mohammed V, Ensanche, Tetouan",
       lat: 35.5722,
       lng: -5.3685
-    }
+    },
+    fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
+    menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
   }
 ];

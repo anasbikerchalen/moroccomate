@@ -31,7 +31,16 @@ export const SLEEP_ALLOWED_OPTIONS = {
   ] as const,
   lifestyle: ['lean', 'balanced', 'premium'] as const,
   locationFeel: ['medina-heart', 'ville-nouvelle', 'countryside'] as const,
-  groupTypes: ['solo', 'couple', 'family', 'friends', 'large-groups', 'seniors'] as const,
+  groupTypes: [
+    'solo',
+    'couple',
+    'family',
+    'friends',
+    'large-groups',
+    'seniors',
+    'business-friendly',
+    'nature-lover'
+  ] as const,
   safetyLevel: [1, 2, 3, 4, 5] as const,
   paymentMethods: [
     'cash',

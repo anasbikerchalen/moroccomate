@@ -1,83 +1,3 @@
-/**
- * =========================================================================
- * MOROCCAN MATE — THINGS TO DO LISTINGS: MEKNES
- * =========================================================================
- * MASTER TEMPLATE REFERENCE & ALLOWED ARRAY OPTIONS BIBLE
- * Canonical Bible File: src/listings/things/template.things.ts
- *
- * When updating or generating new activity entries with external AI or web search,
- * you MUST strictly adhere to the following allowed array values:
- *
- * ALLOWED OPTIONS BIBLE:
- * - lifestyle:        'lean' | 'balanced' | 'premium'
- * - groupTypes:       'solo' | 'couple' | 'family' | 'friends' | 'large-groups' | 'seniors'
- * - crowdLevel:       'quiet' | 'moderate' | 'bustling'
- * - energyLevel:      'easy' | 'moderate' | 'high'
- * - transportMode:    'walk' | 'taxi' | 'bus' | 'car' | '4x4'
- * - safetyLevel:      1 | 2 | 3 | 4 | 5
- * - fitnessLevel:     'relaxed' | 'moderate' | 'active' | 'intense'
- * - archetypeAffinity:'first-timer' | 'culture' | 'adventure' | 'relaxed' | 'foodie' | 'budget' | 'luxury'
- * - vibeTags:         'artistic' | 'botanical' | 'iconic' | 'vibrant' | 'historic' | 'panoramic' | 'serene' | 'authentic' | 'spiritual'
- * - standardTags:     'cultural-tour' | 'monument' | 'museum' | 'garden' | 'nature' | 'photo-spot' | 'instagrammable' | 'hammam' | 'wellness' | 'cooking-class' | 'food-tour' | 'medina-walk' | 'desert-trip' | 'camel-ride' | 'hiking' | 'surfing'
- * - badge:            'popular' | 'must-visit' | 'hidden-gem' | 'local-favorite'
- *
- * BLANK COPY-PASTE TEMPLATE FOR NEW ENTRIES:
- * {
- *   id: 'things-[city]-[slug]',
- *   city: 'meknes',
- *   name: '',
- *   neighborhood: 'Medina',
- *   description: '',
- *   price: 50,
- *   lifestyle: ['balanced'],
- *   groupTypes: ['solo', 'couple', 'family', 'friends'],
- *   crowdLevel: 'moderate',
- *   durationMinutes: 90,
- *   hasEnglishGuide: true,
- *   hasFrenchGuide: true,
- *   images: [],
- *   googleRating: 4.6,
- *   reviewCount: 1000,
- *   address: '',
- *   coordinates: { lat: 31.6295, lng: -7.9811 },
- *   googleMapsUrl: 'https://maps.google.com/?q=',
- *   safetyLevel: 5,
- *   energyLevel: 'moderate',
- *   transportMode: 'walk',
- *   isKidFriendly: true,
- *   isFemaleFriendly: true,
- *   isWheelchairAccessible: false,
- *   isPhotographyFriendly: true,
- *   hasPrivateOption: false,
- *   hasSunsetView: false,
- *   hasWiFi: false,
- *   nearMedina: true,
- *   goodForRain: false,
- *   bookingRequired: false,
- *   walkInOkay: true,
- *   hasIndoorRest: false,
- *   hasAC: false,
- *   nearBeach: false,
- *   hasLocalGuide: false,
- *   tags: ['cultural-tour', 'monument', 'historic', 'photo-spot'],
- *   archetypeAffinity: ['first-timer', 'culture'],
- *   vibeTags: ['historic', 'iconic', 'authentic'],
- *   isHiddenGem: false,
- *   cluster: 'Medina Cluster',
- *   friction: {
- *     walkingFatigue: 2,
- *     heatExposure: 2,
- *     touristCrowd: 3,
- *     noiseLevel: 2,
- *     scamRisk: 1,
- *     physicalIntensity: 1,
- *     kidSuitable: true
- *   },
- *   tip: '',
- *   badge: 'popular'
- * }
- * =========================================================================
- */
 import type { ThingToDoListing } from '../types' 
 
 export const meknesThings: ThingToDoListing[] = [
@@ -97,8 +17,7 @@ export const meknesThings: ThingToDoListing[] = [
       "couple",
       "family",
       "friends",
-      "seniors",
-      "kids-friendly"
+      "seniors"
     ],
     "crowdLevel": "balanced",
     "durationMinutes": 75,
@@ -144,8 +63,7 @@ export const meknesThings: ThingToDoListing[] = [
       "couple",
       "family",
       "friends",
-      "seniors",
-      "kids-friendly"
+      "seniors"
     ],
     "crowdLevel": "bustling",
     "durationMinutes": 90,
@@ -191,8 +109,7 @@ export const meknesThings: ThingToDoListing[] = [
       "couple",
       "family",
       "friends",
-      "seniors",
-      "kids-friendly"
+      "seniors"
     ],
     "crowdLevel": "balanced",
     "durationMinutes": 75,
@@ -239,7 +156,6 @@ export const meknesThings: ThingToDoListing[] = [
       "family",
       "friends",
       "seniors",
-      "kids-friendly",
       "business-friendly"
     ],
     "crowdLevel": "balanced",
@@ -286,8 +202,7 @@ export const meknesThings: ThingToDoListing[] = [
       "couple",
       "family",
       "friends",
-      "seniors",
-      "kids-friendly"
+      "seniors"
     ],
     "crowdLevel": "balanced",
     "durationMinutes": 75,
@@ -333,8 +248,7 @@ export const meknesThings: ThingToDoListing[] = [
       "couple",
       "family",
       "friends",
-      "seniors",
-      "kids-friendly"
+      "seniors"
     ],
     "crowdLevel": "balanced",
     "durationMinutes": 75,
@@ -380,8 +294,7 @@ export const meknesThings: ThingToDoListing[] = [
       "couple",
       "family",
       "friends",
-      "seniors",
-      "kids-friendly"
+      "seniors"
     ],
     "crowdLevel": "balanced",
     "durationMinutes": 75,
@@ -427,8 +340,7 @@ export const meknesThings: ThingToDoListing[] = [
       "couple",
       "family",
       "friends",
-      "seniors",
-      "kids-friendly"
+      "seniors"
     ],
     "crowdLevel": "balanced",
     "durationMinutes": 60,
@@ -474,8 +386,7 @@ export const meknesThings: ThingToDoListing[] = [
       "couple",
       "family",
       "friends",
-      "seniors",
-      "kids-friendly"
+      "seniors"
     ],
     "crowdLevel": "balanced",
     "durationMinutes": 45,
@@ -567,8 +478,7 @@ export const meknesThings: ThingToDoListing[] = [
       "couple",
       "family",
       "friends",
-      "seniors",
-      "kids-friendly"
+      "seniors"
     ],
     "crowdLevel": "balanced",
     "durationMinutes": 75,
@@ -614,8 +524,7 @@ export const meknesThings: ThingToDoListing[] = [
       "couple",
       "family",
       "friends",
-      "seniors",
-      "kids-friendly"
+      "seniors"
     ],
     "crowdLevel": "balanced",
     "durationMinutes": 45,
@@ -661,8 +570,7 @@ export const meknesThings: ThingToDoListing[] = [
       "couple",
       "family",
       "friends",
-      "seniors",
-      "kids-friendly"
+      "seniors"
     ],
     "crowdLevel": "balanced",
     "durationMinutes": 60,
@@ -709,7 +617,6 @@ export const meknesThings: ThingToDoListing[] = [
       "family",
       "friends",
       "seniors",
-      "kids-friendly",
       "business-friendly"
     ],
     "crowdLevel": "balanced",
@@ -756,8 +663,7 @@ export const meknesThings: ThingToDoListing[] = [
       "couple",
       "family",
       "friends",
-      "seniors",
-      "kids-friendly"
+      "seniors"
     ],
     "crowdLevel": "balanced",
     "durationMinutes": 90,

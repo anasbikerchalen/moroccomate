@@ -1,75 +1,50 @@
-/**
- * =========================================================================
- * MOROCCAN MATE — FOOD (EAT) LISTINGS: TAGHAZOUT
- * =========================================================================
- * MASTER TEMPLATE REFERENCE & ALLOWED ARRAY OPTIONS BIBLE
- * Canonical Bible File: src/listings/eat/template.eat.ts
- *
- * When updating or generating new food entries with external AI or web search,
- * you MUST strictly adhere to the following allowed array values:
- *
- * ALLOWED OPTIONS BIBLE:
- * - lifestyle:        'lean' | 'balanced' | 'premium'
- * - groupTypes:       'solo' | 'couple' | 'family' | 'friends' | 'large-groups' | 'seniors'
- * - mealTypes:        'breakfast' | 'lunch' | 'dinner' | 'late-night' | 'snack' | 'brunch' | 'drinks'
- * - experienceTypes:  'street-food' | 'fine-dining' | 'casual' | 'cafes-tea' | 'hidden-gem' | 'rooftop' | 'traditional' | 'market-stall'
- * - foodStyles:       'Moroccan' | 'Seafood' | 'Berber' | 'Tagine & Couscous' | 'French-Moroccan' | 'Italian' | 'Mediterranean' | 'Middle Eastern' | 'Cafe & Pastry' | 'Grill & BBQ' | 'Vegetarian/Vegan' | 'International'
- * - paymentMethods:   'cash' | 'credit_card' | 'visa' | 'mastercard' | 'apple_pay' | 'google_pay'
- * - reservationMethod:'whatsapp' | 'phone' | 'website' | 'walk-in' | 'email'
- * - closedDays:       'monday' | 'tuesday' | 'wednesday' | 'thursday' | 'friday' | 'saturday' | 'sunday'
- * - seatingTypes:     'indoor' | 'outdoor' | 'rooftop' | 'terrace' | 'courtyard' | 'street-side'
- * - alcoholPolicy:    'serves-alcohol' | 'dry'
- * - crowdLevel:       'quiet' | 'balanced' | 'bustling'
- * - badge:            'local' | 'splurge' | 'hidden-gem' | 'local-favorite' | 'tourist-trap'
- *
- * BLANK COPY-PASTE TEMPLATE FOR NEW ENTRIES:
- * {
- *   id: 'eat-[city]-[slug]',
- *   city: 'taghazout',
- *   name: '',
- *   neighborhood: '',
- *   description: '',
- *   pricePerPerson: 15,
- *   lifestyle: 'balanced',
- *   groupTypes: ['solo', 'couple', 'family', 'friends'],
- *   mealTypes: ['lunch', 'dinner'],
- *   experienceTypes: ['casual', 'traditional'],
- *   foodStyles: ['Moroccan'],
- *   bestDishes: [],
- *   isHalal: true,
- *   isVegetarianFriendly: false,
- *   servesAlcohol: false,
- *   alcoholPolicy: 'dry',
- *   hasDelivery: false,
- *   nearMedina: true,
- *   nearBeach: false,
- *   nearCenter: true,
- *   hasEnglishStaff: true,
- *   hasFrenchStaff: true,
- *   hasParking: false,
- *   crowdLevel: 'balanced',
- *   openTime: '11:00',
- *   closeTime: '23:00',
- *   closedDays: [],
- *   paymentMethods: ['cash'],
- *   reservationMethod: ['walk-in'],
- *   reservationContact: '',
- *   bookingUrl: '',
- *   whatsappNumber: '',
- *   googleRating: 4.5,
- *   googleReviewCount: 100,
- *   googleMapsUrl: 'https://maps.google.com/?q=',
- *   seatingTypes: ['indoor'],
- *   tags: ['moroccan', 'halal', 'lunch'],
- *   vibeTags: ['authentic'],
- *   pros: [],
- *   cons: [],
- *   tip: '',
- *   badge: 'local-favorite'
- * }
- * =========================================================================
- */
 import type { EatListing } from '../types';
+
+/**
+ * EAT LISTING TEMPLATE
+ * {
+ *   id: 'e-[city]-[name]',
+ *   city: '[city]',
+ *   name: '[Name]',
+ *   neighborhood: '[Neighborhood]',
+ *   description: '[Long description]',
+ *   pricePerPerson: [number],
+ *   lifestyle: 'lean' | 'balanced' | 'premium',
+ *   mealTypes: ['breakfast', 'lunch', 'dinner', 'brunch', 'latenight', 'afternoon-tea', 'flexible'],
+ *   experienceTypes: ['Fine Dining' | 'Waterfront Dining' | 'Romantic Sunset' | 'Beachfront Dining' | 'Garden restaurant with live music' | 'Fountain courtyard' | 'French-Moroccan fusion' | 'Casual Italian Dining' | 'Family Pizza Night' | 'Spanish Beach Lounge' | 'Paella & Tapas' | 'Live Music Terrace' | 'Upscale Romantic Dining' | 'Fine Seafood' | 'Classic Royal Ambiance' | '24/7 Brasserie' | 'People Watching' | 'Bakery-Patisserie' | 'Traditional Breakfast Ritual' | 'Local Gathering Spot' | 'Fishing Harbor Dining' | 'Gourmet Seafood' | 'French-Italian Fusion' | 'Authentic Berber Feast' | 'Traditional Dining' | 'Cozy casual family-run Moroccan eatery' | 'Amazigh-inspired decor' | 'Beachfront Grill' | 'Casual Dining' | 'Sunset Views' | 'Wood-Fired Pizza' | 'Family Friendly' | 'Leafy Tennis Oasis' | 'Tranquil Dining' | 'Upscale Lounge' | 'Modern Fusion Dining' | 'Unverified'],
+ *   foodStyles: ['French' | 'Moroccan' | 'Seafood' | 'Mediterranean' | 'European' | 'International' | 'Italian' | 'Pizza' | 'Spanish' | 'Berber' | 'Barbecue' | 'Middle Eastern' | 'Healthy' | 'Cafe' | 'Bakery' | 'Patisserie' | 'Gourmet' | 'Fast Food'],
+ *   crowdLevel: 'bustling' | 'balanced' | 'quiet',
+ *   groupTypes: ['solo', 'couple', 'family', 'friends', 'seniors', 'kids-friendly', 'large-groups', 'business-friendly'],
+ *   hasEnglishStaff: true | false,
+ *   hasFrenchStaff: true | false,
+ *   hasDelivery: true | false,
+ *   hasParking: true | false,
+ *   nearMedina: true | false,
+ *   nearBeach: true | false,
+ *   nearCenter: true | false,
+ *   isVegetarianFriendly: true | false,
+ *   isHalal: true | false,
+ *   openTime: 'HH:mm',
+ *   closeTime: 'HH:mm',
+ *   badge: 'local-favorite' | 'splurge' | 'hidden-gem' | 'local',
+ *   fullMenu: { type: 'image' | 'text', content: 'https://...' },
+ *   tip: '[Short tip]',
+ *   googleMapsUrl: 'https://maps.google.com/?q=[Name]+[City]',
+ *   reservationContact: '+212XXXXXXXXX',
+ *   bestDishes: ['Dish 1', 'Dish 2'],
+ *   alcoholPolicy: 'serves-alcohol' | 'dry',
+ *   ramadanFriendly: 'serves-lunch' | 'special-ftour' | 'closed',
+ *   bestTimeToVisit: 'Early evening around 18:30 for sunset' | 'Lunch around 13:00 for quiet' | 'Late evening after 20:00 for lively crowd' | 'Early morning for fresh baked goods' | 'Sunday morning for brunch peak',
+ *   averageWaitMinutes: 0 | 5 | 10 | 15 | 20 | 30 | 45 | 60,
+ *   seatingTypes: ['indoor'] | ['terrace'] | ['rooftop'] | ['garden'] | ['beachfront'] | ['indoor', 'terrace'] | ['indoor', 'garden'] | ['terrace', 'rooftop'],
+ *   viewType: 'beach' | 'mountain' | 'city' | 'garden' | 'none',
+ *   wiFi: true | false,
+ *   airConditioning: true | false,
+ *   wheelchairAccessible: true | false,
+ *   website: 'https://...',
+ *   instagram: '@handle' | 'https://instagram.com/...'
+ * }
+ */
 
 export const taghazoutEat: EatListing[] = [
   {
@@ -83,8 +58,6 @@ export const taghazoutEat: EatListing[] = [
     mealTypes: ['breakfast', 'lunch', 'dinner', 'brunch', 'flexible'],
     experienceTypes: ['Waterfront Dining', 'Casual Dining', 'Beachfront Grill'],
     foodStyles: ['Mediterranean', 'Seafood', 'Moroccan'],
-    // food-cuisine quiz question tags
-    cuisineTags: ['international', 'seafood', 'moroccan-traditional'],
     crowdLevel: 'bustling',
     groupTypes: ['couple', 'friends', 'family', 'solo'],
     hasEnglishStaff: true,
@@ -96,7 +69,6 @@ export const taghazoutEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
-    servesAlcohol: true,
     halalStatus: 'likely-halal-food',
     verificationStatus: 'verified',
     openTime: '08:00',
@@ -122,8 +94,6 @@ export const taghazoutEat: EatListing[] = [
     reservationMethod: ['phone', 'online'],
     reservationContact: '+212528200101',
     googleMapsUrl: 'https://maps.google.com/?q=World+of+Waves+Taghazout',
-    website: 'not-available',
-    instagram: 'not-available',
     bestDishes: ['Shrimp Curry', 'Ocean Seafood Pasta', 'Moroccan Shakshuka Breakfast'],
     alcoholPolicy: 'serves-alcohol',
     ramadanFriendly: 'serves-lunch',
@@ -151,7 +121,9 @@ export const taghazoutEat: EatListing[] = [
     airConditioning: false,
     wheelchairAccessible: true
   ,
-    tags: ["alcohol", "breakfast", "budget", "dinner", "terrace", "wifi"]
+    tags: ["alcohol", "breakfast", "budget", "dinner", "terrace", "wifi"],
+    fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
+    menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
   },
   {
     id: 'e-taghazout-2',
@@ -164,8 +136,6 @@ export const taghazoutEat: EatListing[] = [
     mealTypes: ['breakfast', 'lunch', 'brunch', 'flexible'],
     experienceTypes: ['Cafe', 'Casual Dining'],
     foodStyles: ['Mediterranean', 'Healthy', 'Cafe'],
-    // food-cuisine quiz question tags
-    cuisineTags: ['international', 'cafe-pastry'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'couple', 'friends'],
     hasEnglishStaff: true,
@@ -177,7 +147,6 @@ export const taghazoutEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
-    servesAlcohol: false,
     halalStatus: 'halal-certified',
     verificationStatus: 'verified',
     openTime: '08:30',
@@ -203,8 +172,6 @@ export const taghazoutEat: EatListing[] = [
     reservationMethod: ['none'],
     reservationContact: '+212612345678',
     googleMapsUrl: 'https://maps.google.com/?q=Teapot+Cafe+Taghazout',
-    website: 'not-available',
-    instagram: 'not-available',
     bestDishes: ['Avocado Poached Eggs on Toast', 'Açai Power Bowl', 'Iced Almond Latte'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
@@ -232,7 +199,9 @@ export const taghazoutEat: EatListing[] = [
     airConditioning: false,
     wheelchairAccessible: true
   ,
-    tags: ["breakfast", "budget", "cafe-pastry", "dry", "juice", "wifi"]
+    tags: ["breakfast", "budget", "cafe-pastry", "dry", "juice", "wifi"],
+    fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
+    menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
   },
   {
     id: 'e-taghazout-3',
@@ -245,8 +214,6 @@ export const taghazoutEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Casual Dining', 'Traditional Dining', 'Cozy casual family-run Moroccan eatery'],
     foodStyles: ['Moroccan', 'Mediterranean'],
-    // food-cuisine quiz question tags
-    cuisineTags: ['moroccan-traditional', 'international'],
     crowdLevel: 'balanced',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'kids-friendly'],
     hasEnglishStaff: true,
@@ -258,7 +225,6 @@ export const taghazoutEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
-    servesAlcohol: false,
     halalStatus: 'halal-certified',
     verificationStatus: 'verified',
     openTime: '12:00',
@@ -284,8 +250,6 @@ export const taghazoutEat: EatListing[] = [
     reservationMethod: ['none'],
     reservationContact: '+212670123456',
     googleMapsUrl: 'https://maps.google.com/?q=Chez+Titrite+Taghazout',
-    website: 'not-available',
-    instagram: 'not-available',
     bestDishes: ['Berber Plum Beef Tagine', 'Gourmet Lamb Burger', 'Authentic Ramen'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
@@ -313,7 +277,9 @@ export const taghazoutEat: EatListing[] = [
     airConditioning: false,
     wheelchairAccessible: false
   ,
-    tags: ["budget", "dinner", "dry", "tagine"]
+    tags: ["budget", "dinner", "dry", "tagine"],
+    fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
+    menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
   },
   {
     id: 'e-taghazout-4',
@@ -326,8 +292,6 @@ export const taghazoutEat: EatListing[] = [
     mealTypes: ['breakfast', 'lunch', 'brunch', 'flexible'],
     experienceTypes: ['Cafe', 'Casual Dining'],
     foodStyles: ['Healthy', 'Mediterranean', 'Cafe'],
-    // food-cuisine quiz question tags
-    cuisineTags: ['international', 'cafe-pastry'],
     crowdLevel: 'balanced',
     groupTypes: ['solo', 'couple', 'friends'],
     hasEnglishStaff: true,
@@ -339,7 +303,6 @@ export const taghazoutEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
-    servesAlcohol: false,
     halalStatus: 'halal-certified',
     verificationStatus: 'verified',
     openTime: '08:30',
@@ -365,8 +328,6 @@ export const taghazoutEat: EatListing[] = [
     reservationMethod: ['none'],
     reservationContact: '+212655443322',
     googleMapsUrl: 'https://maps.google.com/?q=Red+Clay+Cafe+Taghazout',
-    website: 'not-available',
-    instagram: 'not-available',
     bestDishes: ['Spiced Falafel Bowl', 'Oat Milk Flat White', 'Vegan Banana Bread'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
@@ -394,7 +355,9 @@ export const taghazoutEat: EatListing[] = [
     airConditioning: false,
     wheelchairAccessible: true
   ,
-    tags: ["breakfast", "budget", "cafe-pastry", "dry", "wifi"]
+    tags: ["breakfast", "budget", "cafe-pastry", "dry", "wifi"],
+    fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
+    menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
   },
   {
     id: 'e-taghazout-5',
@@ -407,8 +370,6 @@ export const taghazoutEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner', 'flexible'],
     experienceTypes: ['Casual Dining', 'Family Friendly', 'Wood-Fired Pizza'],
     foodStyles: ['Italian', 'Seafood', 'Moroccan', 'Pizza'],
-    // food-cuisine quiz question tags
-    cuisineTags: ['international', 'seafood', 'moroccan-traditional'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'kids-friendly'],
     hasEnglishStaff: true,
@@ -420,7 +381,6 @@ export const taghazoutEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
-    servesAlcohol: false,
     halalStatus: 'halal-certified',
     verificationStatus: 'verified',
     openTime: '11:30',
@@ -446,8 +406,6 @@ export const taghazoutEat: EatListing[] = [
     reservationMethod: ['none'],
     reservationContact: '+212528200333',
     googleMapsUrl: 'https://maps.google.com/?q=Le+Spot+Taghazout',
-    website: 'not-available',
-    instagram: 'not-available',
     bestDishes: ['Taghazout Seafood Pizza', 'Alfredo Chicken Penne', 'Sweet Nutella Crêpe'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
@@ -475,7 +433,9 @@ export const taghazoutEat: EatListing[] = [
     airConditioning: false,
     wheelchairAccessible: true
   ,
-    tags: ["budget", "dinner", "dry", "wifi"]
+    tags: ["budget", "dinner", "dry", "wifi"],
+    fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
+    menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
   },
   {
     id: 'e-taghazout-6',
@@ -524,8 +484,6 @@ export const taghazoutEat: EatListing[] = [
     reservationMethod: ['phone'],
     reservationContact: '+212698765432',
     googleMapsUrl: 'https://maps.google.com/?q=Mungas+Kitchen+Taghazout',
-    website: 'not-available',
-    instagram: 'not-available',
     bestDishes: ['Sourdough Seafood Pizza', 'Seared Yellowfin Tuna', 'Warm Goat Cheese Salad'],
     alcoholPolicy: 'serves-alcohol',
     ramadanFriendly: 'serves-lunch',
@@ -553,7 +511,9 @@ export const taghazoutEat: EatListing[] = [
     airConditioning: true,
     wheelchairAccessible: false
   ,
-    tags: ["alcohol", "budget", "dinner", "fine", "wifi"]
+    tags: ["alcohol", "budget", "dinner", "fine", "wifi"],
+    fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
+    menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
   },
   {
     id: 'e-taghazout-7',
@@ -566,8 +526,6 @@ export const taghazoutEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner', 'brunch', 'flexible'],
     experienceTypes: ['Fine Dining', 'Waterfront Dining', 'Romantic Sunset', 'Upscale Lounge'],
     foodStyles: ['Mediterranean', 'Seafood', 'Moroccan', 'Gourmet'],
-    // food-cuisine quiz question tags
-    cuisineTags: ['international', 'seafood', 'moroccan-traditional'],
     crowdLevel: 'balanced',
     groupTypes: ['couple', 'friends', 'business-friendly'],
     hasEnglishStaff: true,
@@ -579,7 +537,6 @@ export const taghazoutEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
-    servesAlcohol: true,
     halalStatus: 'likely-halal-food',
     verificationStatus: 'verified',
     openTime: '12:00',
@@ -605,8 +562,6 @@ export const taghazoutEat: EatListing[] = [
     reservationMethod: ['online', 'phone'],
     reservationContact: '+212528300200',
     googleMapsUrl: 'https://maps.google.com/?q=Kitchen+Club+Seaside+Taghazout',
-    website: 'not-available',
-    instagram: 'not-available',
     bestDishes: ['Mediterranean Mezze Board', 'Charcoal-Grilled Squid', 'Beef Ribeye Steak'],
     alcoholPolicy: 'serves-alcohol',
     ramadanFriendly: 'serves-lunch',
@@ -634,7 +589,9 @@ export const taghazoutEat: EatListing[] = [
     airConditioning: true,
     wheelchairAccessible: true
   ,
-    tags: ["alcohol", "breakfast", "budget", "dinner", "fine", "late-night", "sunset", "terrace", "wifi"]
+    tags: ["alcohol", "breakfast", "budget", "dinner", "fine", "late-night", "sunset", "terrace", "wifi"],
+    fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
+    menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
   },
   {
     id: 'e-taghazout-8',
@@ -647,8 +604,6 @@ export const taghazoutEat: EatListing[] = [
     mealTypes: ['breakfast', 'lunch', 'dinner', 'brunch', 'flexible'],
     experienceTypes: ['Waterfront Dining', 'Beachfront Grill', 'Sunset Views', 'Upscale Lounge'],
     foodStyles: ['Mediterranean', 'Seafood', 'Moroccan'],
-    // food-cuisine quiz question tags
-    cuisineTags: ['international', 'seafood', 'moroccan-traditional'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'couple', 'friends', 'family'],
     hasEnglishStaff: true,
@@ -660,7 +615,6 @@ export const taghazoutEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
-    servesAlcohol: true,
     halalStatus: 'likely-halal-food',
     verificationStatus: 'verified',
     openTime: '08:00',
@@ -686,8 +640,6 @@ export const taghazoutEat: EatListing[] = [
     reservationMethod: ['phone', 'online'],
     reservationContact: '+212528200000',
     googleMapsUrl: 'https://maps.google.com/?q=Amouage+Taghazout',
-    website: 'not-available',
-    instagram: 'not-available',
     bestDishes: ['Spiced Lamb Chops', 'Grilled Sea Bass', 'Moroccan Night Buffet'],
     alcoholPolicy: 'serves-alcohol',
     ramadanFriendly: 'serves-lunch',
@@ -715,7 +667,9 @@ export const taghazoutEat: EatListing[] = [
     airConditioning: true,
     wheelchairAccessible: true
   ,
-    tags: ["alcohol", "breakfast", "budget", "dinner", "fine", "late-night", "sunset", "terrace", "wifi"]
+    tags: ["alcohol", "breakfast", "budget", "dinner", "fine", "late-night", "sunset", "terrace", "wifi"],
+    fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
+    menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
   },
   {
     id: 'e-taghazout-9',
@@ -728,8 +682,6 @@ export const taghazoutEat: EatListing[] = [
     mealTypes: ['breakfast', 'lunch', 'dinner', 'brunch', 'flexible'],
     experienceTypes: ['Cafe', 'Casual Dining', 'Waterfront Dining'],
     foodStyles: ['Mediterranean', 'Italian', 'Cafe'],
-    // food-cuisine quiz question tags
-    cuisineTags: ['international', 'cafe-pastry'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'kids-friendly'],
     hasEnglishStaff: true,
@@ -741,7 +693,6 @@ export const taghazoutEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
-    servesAlcohol: false,
     halalStatus: 'halal-certified',
     verificationStatus: 'verified',
     openTime: '08:00',
@@ -767,8 +718,6 @@ export const taghazoutEat: EatListing[] = [
     reservationMethod: ['none'],
     reservationContact: '+212622114477',
     googleMapsUrl: 'https://maps.google.com/?q=Windy+Bay+Taghazout',
-    website: 'not-available',
-    instagram: 'not-available',
     bestDishes: ['Pizza Windy Bay', 'Healthy Fruit Smoothie Bowl', 'Smoked Salmon Eggs Benedict'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'serves-lunch',
@@ -796,7 +745,9 @@ export const taghazoutEat: EatListing[] = [
     airConditioning: false,
     wheelchairAccessible: true
   ,
-    tags: ["breakfast", "budget", "cafe-pastry", "dinner", "dry", "juice", "terrace", "wifi"]
+    tags: ["breakfast", "budget", "cafe-pastry", "dinner", "dry", "juice", "terrace", "wifi"],
+    fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
+    menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
   },
   {
     id: 'e-taghazout-10',
@@ -809,8 +760,6 @@ export const taghazoutEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Fine Dining', 'Romantic Sunset', 'Garden restaurant with live music'],
     foodStyles: ['French', 'Moroccan', 'Mediterranean'],
-    // food-cuisine quiz question tags
-    cuisineTags: ['international', 'moroccan-traditional'],
     crowdLevel: 'balanced',
     groupTypes: ['couple', 'family', 'friends'],
     hasEnglishStaff: true,
@@ -822,7 +771,6 @@ export const taghazoutEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
-    servesAlcohol: false,
     halalStatus: 'halal-certified',
     verificationStatus: 'verified',
     openTime: '12:00',
@@ -848,8 +796,6 @@ export const taghazoutEat: EatListing[] = [
     reservationMethod: ['phone'],
     reservationContact: '+212528200421',
     googleMapsUrl: 'https://maps.google.com/?q=Dar+Josephine+Taghazout',
-    website: 'not-available',
-    instagram: 'not-available',
     bestDishes: ['Slow-roasted Beef Pastilla', 'Classic French Beef Bourguignon', 'Goat Cheese and Olive Tart'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
@@ -877,7 +823,9 @@ export const taghazoutEat: EatListing[] = [
     airConditioning: false,
     wheelchairAccessible: false
   ,
-    tags: ["budget", "dinner", "dry", "fine", "live-music", "pastilla", "sunset", "terrace", "wifi"]
+    tags: ["budget", "dinner", "dry", "fine", "live-music", "pastilla", "sunset", "terrace", "wifi"],
+    fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
+    menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
   },
   {
     id: 'e-taghazout-11',
@@ -890,8 +838,6 @@ export const taghazoutEat: EatListing[] = [
     mealTypes: ['breakfast', 'lunch', 'brunch', 'flexible'],
     experienceTypes: ['Cafe', 'Sunset Views', 'Casual Dining'],
     foodStyles: ['Mediterranean', 'Healthy', 'Cafe'],
-    // food-cuisine quiz question tags
-    cuisineTags: ['international', 'cafe-pastry'],
     crowdLevel: 'balanced',
     groupTypes: ['solo', 'couple', 'friends'],
     hasEnglishStaff: true,
@@ -903,7 +849,6 @@ export const taghazoutEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
-    servesAlcohol: false,
     halalStatus: 'halal-certified',
     verificationStatus: 'verified',
     openTime: '08:00',
@@ -929,8 +874,6 @@ export const taghazoutEat: EatListing[] = [
     reservationMethod: ['none'],
     reservationContact: '+212528200001',
     googleMapsUrl: 'https://maps.google.com/?q=Cafe+Mouja+Taghazout',
-    website: 'not-available',
-    instagram: 'not-available',
     bestDishes: ['Mighty Green Protein Bowl', 'Avocado Toast with Poached Egg', 'Cold-Pressed Ginger Turmeric Shot'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'serves-lunch',
@@ -958,7 +901,9 @@ export const taghazoutEat: EatListing[] = [
     airConditioning: false,
     wheelchairAccessible: true
   ,
-    tags: ["breakfast", "budget", "cafe-pastry", "dry", "juice", "sunset", "terrace", "wifi"]
+    tags: ["breakfast", "budget", "cafe-pastry", "dry", "juice", "sunset", "terrace", "wifi"],
+    fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
+    menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
   },
   {
     id: 'e-taghazout-12',
@@ -971,8 +916,6 @@ export const taghazoutEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner', 'latenight', 'flexible'],
     experienceTypes: ['Waterfront Dining', 'Sunset Views', 'Upscale Lounge'],
     foodStyles: ['Mediterranean', 'Seafood'],
-    // food-cuisine quiz question tags
-    cuisineTags: ['international', 'seafood'],
     crowdLevel: 'bustling',
     groupTypes: ['couple', 'friends', 'solo'],
     hasEnglishStaff: true,
@@ -984,7 +927,6 @@ export const taghazoutEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
-    servesAlcohol: true,
     halalStatus: 'likely-halal-food',
     verificationStatus: 'verified',
     openTime: '16:00',
@@ -1010,8 +952,6 @@ export const taghazoutEat: EatListing[] = [
     reservationMethod: ['none'],
     reservationContact: '+212661889900',
     googleMapsUrl: 'https://maps.google.com/?q=Bohemian+Berber+Bar+Taghazout',
-    website: 'not-available',
-    instagram: 'not-available',
     bestDishes: ['Tapas Sharing Platter', 'Fried Calamari with Alioli', 'Taghazout Sunset Spritz'],
     alcoholPolicy: 'serves-alcohol',
     ramadanFriendly: 'closed',
@@ -1039,7 +979,9 @@ export const taghazoutEat: EatListing[] = [
     airConditioning: false,
     wheelchairAccessible: false
   ,
-    tags: ["alcohol", "budget", "dinner", "fine", "late-night", "sunset", "terrace", "wifi"]
+    tags: ["alcohol", "budget", "dinner", "fine", "late-night", "sunset", "terrace", "wifi"],
+    fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
+    menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
   },
   {
     id: 'e-taghazout-13',
@@ -1052,8 +994,6 @@ export const taghazoutEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner', 'latenight'],
     experienceTypes: ['Traditional Dining', 'Casual Dining', 'Cozy casual family-run Moroccan eatery'],
     foodStyles: ['Moroccan'],
-    // food-cuisine quiz question tags
-    cuisineTags: ['moroccan-traditional'],
     crowdLevel: 'balanced',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'kids-friendly'],
     hasEnglishStaff: true,
@@ -1065,7 +1005,6 @@ export const taghazoutEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
-    servesAlcohol: false,
     halalStatus: 'halal-certified',
     verificationStatus: 'verified',
     openTime: '11:30',
@@ -1091,8 +1030,6 @@ export const taghazoutEat: EatListing[] = [
     reservationMethod: ['none'],
     reservationContact: '+212633221100',
     googleMapsUrl: 'https://maps.google.com/?q=Taghazout+Tajine+Palace',
-    website: 'not-available',
-    instagram: 'not-available',
     bestDishes: ['Berber Beef and Prune Tagine', 'Lemon Chicken Tagine', 'Freshly Cooked Harira Soup'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
@@ -1120,7 +1057,9 @@ export const taghazoutEat: EatListing[] = [
     airConditioning: false,
     wheelchairAccessible: false
   ,
-    tags: ["budget", "dinner", "dry", "late-night", "palace", "tagine"]
+    tags: ["budget", "dinner", "dry", "late-night", "palace", "tagine"],
+    fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
+    menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
   },
   {
     id: 'e-taghazout-14',
@@ -1133,8 +1072,6 @@ export const taghazoutEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner', 'latenight'],
     experienceTypes: ['Casual Dining', 'Quick Bites', 'Local Gathering Spot'],
     foodStyles: ['Moroccan', 'Fast Food'],
-    // food-cuisine quiz question tags
-    cuisineTags: ['moroccan-traditional', 'international'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'friends'],
     hasEnglishStaff: false,
@@ -1146,7 +1083,6 @@ export const taghazoutEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: false,
     isHalal: true,
-    servesAlcohol: false,
     halalStatus: 'halal-certified',
     verificationStatus: 'verified',
     openTime: '11:00',
@@ -1172,8 +1108,6 @@ export const taghazoutEat: EatListing[] = [
     reservationMethod: ['none'],
     reservationContact: '+212644778899',
     googleMapsUrl: 'https://maps.google.com/?q=Snack+Ida+Omahmod+Taghazout',
-    website: 'not-available',
-    instagram: 'not-available',
     bestDishes: ['Spiced Kofta Sandwich', 'Merguez Sausage Skewers', 'Fresh Fries Box'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
@@ -1201,7 +1135,9 @@ export const taghazoutEat: EatListing[] = [
     airConditioning: false,
     wheelchairAccessible: false
   ,
-    tags: ["budget", "dinner", "dry", "late-night", "street-food"]
+    tags: ["budget", "dinner", "dry", "late-night", "street-food"],
+    fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
+    menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
   },
   {
     id: 'e-taghazout-15',
@@ -1214,8 +1150,6 @@ export const taghazoutEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner', 'flexible'],
     experienceTypes: ['Casual Dining', 'Sunset Views'],
     foodStyles: ['Mediterranean', 'International', 'Fast Food'],
-    // food-cuisine quiz question tags
-    cuisineTags: ['international'],
     crowdLevel: 'balanced',
     groupTypes: ['solo', 'couple', 'family', 'friends', 'kids-friendly'],
     hasEnglishStaff: true,
@@ -1227,7 +1161,6 @@ export const taghazoutEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
-    servesAlcohol: false,
     halalStatus: 'halal-certified',
     verificationStatus: 'verified',
     openTime: '12:00',
@@ -1253,8 +1186,6 @@ export const taghazoutEat: EatListing[] = [
     reservationMethod: ['none'],
     reservationContact: '+212677552211',
     googleMapsUrl: 'https://maps.google.com/?q=Sunset+Burger+Taghazout',
-    website: 'not-available',
-    instagram: 'not-available',
     bestDishes: ['Classic Cheese Burger', 'Spicy Crispy Chicken Burger', 'Sweet Potato Fries'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
@@ -1282,7 +1213,9 @@ export const taghazoutEat: EatListing[] = [
     airConditioning: false,
     wheelchairAccessible: true
   ,
-    tags: ["budget", "dinner", "dry", "street-food", "sunset", "wifi"]
+    tags: ["budget", "dinner", "dry", "street-food", "sunset", "wifi"],
+    fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
+    menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
   },
   {
     id: 'e-taghazout-16',
@@ -1295,8 +1228,6 @@ export const taghazoutEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Casual Dining', 'Traditional Dining', 'Local Gathering Spot'],
     foodStyles: ['Moroccan'],
-    // food-cuisine quiz question tags
-    cuisineTags: ['moroccan-traditional', 'cafe-pastry'],
     crowdLevel: 'balanced',
     groupTypes: ['solo', 'couple', 'family', 'friends'],
     hasEnglishStaff: true,
@@ -1308,7 +1239,6 @@ export const taghazoutEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
-    servesAlcohol: false,
     halalStatus: 'halal-certified',
     verificationStatus: 'verified',
     openTime: '11:30',
@@ -1334,8 +1264,6 @@ export const taghazoutEat: EatListing[] = [
     reservationMethod: ['none'],
     reservationContact: '+212688990011',
     googleMapsUrl: 'https://maps.google.com/?q=Cafe+Taliouine+Taghazout',
-    website: 'not-available',
-    instagram: 'not-available',
     bestDishes: ['Chicken Tagine with Olives & Lemon', 'Kefta Tagine with Egg', 'Moroccan Cooked Salads'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
@@ -1363,7 +1291,9 @@ export const taghazoutEat: EatListing[] = [
     airConditioning: false,
     wheelchairAccessible: false
   ,
-    tags: ["budget", "cafe-pastry", "dinner", "dry", "tagine"]
+    tags: ["budget", "cafe-pastry", "dinner", "dry", "tagine"],
+    fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
+    menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
   },
   {
     id: 'e-taghazout-17',
@@ -1376,8 +1306,6 @@ export const taghazoutEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner', 'flexible'],
     experienceTypes: ['Fishing Harbor Dining', 'Casual Dining', 'Local Gathering Spot'],
     foodStyles: ['Seafood'],
-    // food-cuisine quiz question tags
-    cuisineTags: ['seafood'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'couple', 'family', 'friends'],
     hasEnglishStaff: true,
@@ -1389,7 +1317,6 @@ export const taghazoutEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: false,
     isHalal: true,
-    servesAlcohol: false,
     halalStatus: 'halal-certified',
     verificationStatus: 'verified',
     openTime: '11:00',
@@ -1415,8 +1342,6 @@ export const taghazoutEat: EatListing[] = [
     reservationMethod: ['none'],
     reservationContact: '+212611998877',
     googleMapsUrl: 'https://maps.google.com/?q=Taghazout+Fish+Market',
-    website: 'not-available',
-    instagram: 'not-available',
     bestDishes: ['Coal-Grilled Sardines', 'Grilled Jumbo Prawns', 'Crispy Squid Skewers'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'serves-lunch',
@@ -1444,7 +1369,9 @@ export const taghazoutEat: EatListing[] = [
     airConditioning: false,
     wheelchairAccessible: true
   ,
-    tags: ["budget", "dinner", "dry"]
+    tags: ["budget", "dinner", "dry"],
+    fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
+    menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
   },
   {
     id: 'e-taghazout-18',
@@ -1457,8 +1384,6 @@ export const taghazoutEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Casual Italian Dining', 'Romantic Sunset', 'Wood-Fired Pizza'],
     foodStyles: ['Italian', 'Seafood', 'Mediterranean', 'Pizza'],
-    // food-cuisine quiz question tags
-    cuisineTags: ['international', 'seafood'],
     crowdLevel: 'balanced',
     groupTypes: ['couple', 'family', 'friends', 'kids-friendly'],
     hasEnglishStaff: true,
@@ -1470,7 +1395,6 @@ export const taghazoutEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
-    servesAlcohol: false,
     halalStatus: 'halal-certified',
     verificationStatus: 'verified',
     openTime: '12:00',
@@ -1496,8 +1420,6 @@ export const taghazoutEat: EatListing[] = [
     reservationMethod: ['phone'],
     reservationContact: '+212528200555',
     googleMapsUrl: 'https://maps.google.com/?q=La+Favella+Taghazout',
-    website: 'not-available',
-    instagram: 'not-available',
     bestDishes: ['Pizza La Favella', 'Shrimp Spaghetti', 'Caprese Salad'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
@@ -1525,7 +1447,9 @@ export const taghazoutEat: EatListing[] = [
     airConditioning: false,
     wheelchairAccessible: false
   ,
-    tags: ["budget", "dinner", "dry", "rooftop", "sunset", "terrace", "wifi"]
+    tags: ["budget", "dinner", "dry", "rooftop", "sunset", "terrace", "wifi"],
+    fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
+    menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
   },
   {
     id: 'e-taghazout-19',
@@ -1538,8 +1462,6 @@ export const taghazoutEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Fine Dining', 'Romantic Sunset', 'Waterfront Dining'],
     foodStyles: ['Italian', 'Seafood', 'Mediterranean', 'Gourmet'],
-    // food-cuisine quiz question tags
-    cuisineTags: ['international', 'seafood'],
     crowdLevel: 'quiet',
     groupTypes: ['couple', 'family', 'seniors', 'business-friendly'],
     hasEnglishStaff: true,
@@ -1551,7 +1473,6 @@ export const taghazoutEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
-    servesAlcohol: true,
     halalStatus: 'likely-halal-food',
     verificationStatus: 'verified',
     openTime: '12:30',
@@ -1577,8 +1498,6 @@ export const taghazoutEat: EatListing[] = [
     reservationMethod: ['online', 'phone'],
     reservationContact: '+212528200888',
     googleMapsUrl: 'https://maps.google.com/?q=Paper+Moon+Fairmont+Taghazout+Bay',
-    website: 'not-available',
-    instagram: 'not-available',
     bestDishes: ['Milanese Veal Cutlet', 'House-made Gnocchi', 'Paper Moon Tiramisu'],
     alcoholPolicy: 'serves-alcohol',
     ramadanFriendly: 'serves-lunch',
@@ -1606,7 +1525,9 @@ export const taghazoutEat: EatListing[] = [
     airConditioning: true,
     wheelchairAccessible: true
   ,
-    tags: ["alcohol", "dinner", "fine", "quiet", "sunset", "wifi"]
+    tags: ["alcohol", "dinner", "fine", "quiet", "sunset", "wifi"],
+    fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
+    menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
   },
   {
     id: 'e-taghazout-20',
@@ -1619,8 +1540,6 @@ export const taghazoutEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Fine Dining', 'Waterfront Dining', 'Beachfront Grill'],
     foodStyles: ['Seafood', 'Mediterranean', 'European', 'Gourmet'],
-    // food-cuisine quiz question tags
-    cuisineTags: ['seafood', 'international'],
     crowdLevel: 'balanced',
     groupTypes: ['couple', 'family', 'friends', 'business-friendly'],
     hasEnglishStaff: true,
@@ -1632,7 +1551,6 @@ export const taghazoutEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
-    servesAlcohol: true,
     halalStatus: 'likely-halal-food',
     verificationStatus: 'verified',
     openTime: '12:00',
@@ -1658,8 +1576,6 @@ export const taghazoutEat: EatListing[] = [
     reservationMethod: ['online', 'phone'],
     reservationContact: '+212528200889',
     googleMapsUrl: 'https://maps.google.com/?q=Beef+and+Reef+Fairmont+Taghazout+Bay',
-    website: 'not-available',
-    instagram: 'not-available',
     bestDishes: ['Charcoal-grilled Wagyu Ribeye', 'Sea Bass in Salt Crust', 'Spiced Grilled Lobster'],
     alcoholPolicy: 'serves-alcohol',
     ramadanFriendly: 'serves-lunch',
@@ -1687,6 +1603,8 @@ export const taghazoutEat: EatListing[] = [
     airConditioning: true,
     wheelchairAccessible: true
   ,
-    tags: ["alcohol", "budget", "dinner", "fine", "terrace", "wifi"]
+    tags: ["alcohol", "budget", "dinner", "fine", "terrace", "wifi"],
+    fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
+    menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
   }
 ];

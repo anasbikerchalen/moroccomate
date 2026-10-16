@@ -1,75 +1,67 @@
-/**
- * =========================================================================
- * MOROCCAN MATE — FOOD (EAT) LISTINGS: TAROUDANT_TAFRAOUTE
- * =========================================================================
- * MASTER TEMPLATE REFERENCE & ALLOWED ARRAY OPTIONS BIBLE
- * Canonical Bible File: src/listings/eat/template.eat.ts
- *
- * When updating or generating new food entries with external AI or web search,
- * you MUST strictly adhere to the following allowed array values:
- *
- * ALLOWED OPTIONS BIBLE:
- * - lifestyle:        'lean' | 'balanced' | 'premium'
- * - groupTypes:       'solo' | 'couple' | 'family' | 'friends' | 'large-groups' | 'seniors'
- * - mealTypes:        'breakfast' | 'lunch' | 'dinner' | 'late-night' | 'snack' | 'brunch' | 'drinks'
- * - experienceTypes:  'street-food' | 'fine-dining' | 'casual' | 'cafes-tea' | 'hidden-gem' | 'rooftop' | 'traditional' | 'market-stall'
- * - foodStyles:       'Moroccan' | 'Seafood' | 'Berber' | 'Tagine & Couscous' | 'French-Moroccan' | 'Italian' | 'Mediterranean' | 'Middle Eastern' | 'Cafe & Pastry' | 'Grill & BBQ' | 'Vegetarian/Vegan' | 'International'
- * - paymentMethods:   'cash' | 'credit_card' | 'visa' | 'mastercard' | 'apple_pay' | 'google_pay'
- * - reservationMethod:'whatsapp' | 'phone' | 'website' | 'walk-in' | 'email'
- * - closedDays:       'monday' | 'tuesday' | 'wednesday' | 'thursday' | 'friday' | 'saturday' | 'sunday'
- * - seatingTypes:     'indoor' | 'outdoor' | 'rooftop' | 'terrace' | 'courtyard' | 'street-side'
- * - alcoholPolicy:    'serves-alcohol' | 'dry'
- * - crowdLevel:       'quiet' | 'balanced' | 'bustling'
- * - badge:            'local' | 'splurge' | 'hidden-gem' | 'local-favorite' | 'tourist-trap'
- *
- * BLANK COPY-PASTE TEMPLATE FOR NEW ENTRIES:
- * {
- *   id: 'eat-[city]-[slug]',
- *   city: 'taroudant_tafraoute',
- *   name: '',
- *   neighborhood: '',
- *   description: '',
- *   pricePerPerson: 15,
- *   lifestyle: 'balanced',
- *   groupTypes: ['solo', 'couple', 'family', 'friends'],
- *   mealTypes: ['lunch', 'dinner'],
- *   experienceTypes: ['casual', 'traditional'],
- *   foodStyles: ['Moroccan'],
- *   bestDishes: [],
- *   isHalal: true,
- *   isVegetarianFriendly: false,
- *   servesAlcohol: false,
- *   alcoholPolicy: 'dry',
- *   hasDelivery: false,
- *   nearMedina: true,
- *   nearBeach: false,
- *   nearCenter: true,
- *   hasEnglishStaff: true,
- *   hasFrenchStaff: true,
- *   hasParking: false,
- *   crowdLevel: 'balanced',
- *   openTime: '11:00',
- *   closeTime: '23:00',
- *   closedDays: [],
- *   paymentMethods: ['cash'],
- *   reservationMethod: ['walk-in'],
- *   reservationContact: '',
- *   bookingUrl: '',
- *   whatsappNumber: '',
- *   googleRating: 4.5,
- *   googleReviewCount: 100,
- *   googleMapsUrl: 'https://maps.google.com/?q=',
- *   seatingTypes: ['indoor'],
- *   tags: ['moroccan', 'halal', 'lunch'],
- *   vibeTags: ['authentic'],
- *   pros: [],
- *   cons: [],
- *   tip: '',
- *   badge: 'local-favorite'
- * }
- * =========================================================================
- */
 import type { EatListing } from '../types';
+
+/**
+ * EAT LISTING TEMPLATE
+ * {
+ *   id: 'e-[city]-[name]',
+ *   city: 'taroudant_tafraoute',
+ *   name: '[Name]',
+ *   neighborhood: '[Neighborhood]',
+ *   description: '[Long description]',
+ *   pricePerPerson: [number],
+ *   lifestyle: 'lean' | 'balanced' | 'premium',
+ *   mealTypes: ['breakfast', 'lunch', 'dinner', 'brunch', 'latenight', 'afternoon-tea', 'flexible'],
+ *   experienceTypes: ['Fine Dining' | 'Waterfront Dining' | 'Romantic Sunset' | 'Garden restaurant with live music' | 'Fountain courtyard' | 'Authentic Berber Feast' | 'Traditional Dining' | 'Cozy casual family-run Moroccan eatery' | 'Casual Dining' | 'Sunset Views' | 'Family Friendly' | 'Tranquil Dining' | 'Modern Fusion Dining'],
+ *   foodStyles: ['French' | 'Moroccan' | 'Mediterranean' | 'European' | 'Berber' | 'Barbecue' | 'Healthy' | 'Cafe' | 'Bakery' | 'Patisserie'],
+ *   crowdLevel: 'bustling' | 'balanced' | 'quiet',
+ *   groupTypes: ['solo' | 'couple' | 'family' | 'friends' | 'seniors' | 'kids-friendly' | 'large-groups' | 'business-friendly'],
+ *   hasEnglishStaff: true | false,
+ *   hasFrenchStaff: true | false,
+ *   hasDelivery: true | false,
+ *   hasParking: true | false,
+ *   nearMedina: true | false,
+ *   nearBeach: false,
+ *   nearCenter: true | false,
+ *   isVegetarianFriendly: true | false,
+ *   isHalal: true | false,
+ *   halalStatus: 'likely-halal-food' | 'halal-certified' | 'unknown',
+ *   verificationStatus: 'verified',
+ *   openTime: 'HH:mm',
+ *   closeTime: 'HH:mm',
+ *   badge: 'local-favorite' | 'splurge' | 'hidden-gem' | 'local',
+ *   googleRating: [4.x],
+ *   googleReviewCount: [number],
+ *   tripadvisorRating: [4.x],
+ *   tripadvisorReviewCount: [number],
+ *   theforkRating: [4.x],
+ *   theforkReviewCount: [number],
+ *   restaurantguruRating: [4.x],
+ *   restaurantguruReviewCount: [number],
+ *   tip: '[Short tip]',
+ *   archetypeAffinity: [...],
+ *   vibeTags: [...],
+ *   isHiddenGem: true | false,
+ *   paymentMethods: ['cash'] | ['cash', 'card'],
+ *   reservationMethod: ['none'] | ['phone'] | ['phone', 'online'],
+ *   reservationContact: '+212XXXXXXXXX',
+ *   googleMapsUrl: 'https://maps.google.com/?q=[Name]+[City]',
+ *   bestDishes: ['Dish 1', 'Dish 2'],
+ *   alcoholPolicy: 'serves-alcohol' | 'dry',
+ *   ramadanFriendly: 'serves-lunch' | 'special-ftour' | 'closed',
+ *   customStory: '[Rich contextual story]',
+ *   languagesSpoken: ['Arabic/Darija', 'French', 'English', 'Tachelhit/Berber'],
+ *   exactAddressAndCoordinates: { address: '...', lat: 0.0, lng: 0.0 },
+ *   pros: [...],
+ *   cons: [...],
+ *   bestTimeToVisit: '...',
+ *   averageWaitMinutes: 5,
+ *   seatingTypes: ['indoor', 'garden', 'terrace', 'rooftop'],
+ *   viewType: 'garden' | 'mountain' | 'city' | 'none',
+ *   wiFi: true | false,
+ *   airConditioning: true | false,
+ *   wheelchairAccessible: true | false
+ * }
+ */
 
 export const taroudant_tafraouteEat: EatListing[] = [
   // ── 1. RIAD MARYAM (TAROUDANT MEDINA) ──
@@ -77,15 +69,13 @@ export const taroudant_tafraouteEat: EatListing[] = [
     id: 'e-taroudant-1',
     city: 'taroudant_tafraoute',
     name: 'Restaurant Riad Maryam',
-    neighborhood: 'Médina (Derb Jdid',
+    neighborhood: 'Medina',
     description: 'A celebrated family-run riad dining room tucked inside the historic red-mud ramparts of Taroudant Medina. Famed for exquisite home-style Souss valley cuisine, fragrant chicken pastilla with roasted almonds, slow-cooked lamb tagines, and their signature dessert "Pastilla au Lait" served in a tranquil orange-tree patio courtyard.',
     pricePerPerson: 22,
     lifestyle: 'balanced',
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Fountain courtyard', 'Authentic Berber Feast', 'Traditional Dining'],
     foodStyles: ['Moroccan', 'Berber'],
-    // food-cuisine quiz question tags
-    cuisineTags: ['moroccan-traditional'],
     crowdLevel: 'quiet',
     groupTypes: ['couple', 'family', 'friends', 'seniors'],
     hasEnglishStaff: true,
@@ -97,7 +87,6 @@ export const taroudant_tafraouteEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
-    servesAlcohol: false,
     halalStatus: 'likely-halal-food',
     verificationStatus: 'verified',
     openTime: '12:30',
@@ -123,8 +112,6 @@ export const taroudant_tafraouteEat: EatListing[] = [
     reservationMethod: ['phone', 'online'],
     reservationContact: '+212528852270',
     googleMapsUrl: 'https://maps.google.com/?q=Riad+Maryam+Taroudant',
-    website: 'not-available',
-    instagram: 'not-available',
     bestDishes: ['Chicken Pastilla with Almonds & Cinnamon', 'Pastilla au Lait Dessert', 'Tajine de Veau aux Pruneaux'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
@@ -152,7 +139,9 @@ export const taroudant_tafraouteEat: EatListing[] = [
     airConditioning: true,
     wheelchairAccessible: true
   ,
-    tags: ["budget", "dinner", "dry", "medina", "pastilla", "quiet", "riad", "tagine", "terrace", "wifi"]
+    tags: ["budget", "dinner", "dry", "medina", "pastilla", "quiet", "riad", "tagine", "terrace", "wifi"],
+    fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
+    menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
   },
 
   // ── 2. DAR ZITOUNE (TAROUDANT COUNTRYSIDE) ──
@@ -167,8 +156,6 @@ export const taroudant_tafraouteEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Fine Dining', 'Tranquil Dining', 'Garden restaurant with live music'],
     foodStyles: ['French', 'Moroccan', 'Mediterranean'],
-    // food-cuisine quiz question tags
-    cuisineTags: ['international', 'moroccan-traditional'],
     crowdLevel: 'quiet',
     groupTypes: ['couple', 'seniors', 'business-friendly'],
     hasEnglishStaff: true,
@@ -180,7 +167,6 @@ export const taroudant_tafraouteEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
-    servesAlcohol: true,
     halalStatus: 'likely-halal-food',
     verificationStatus: 'verified',
     openTime: '12:00',
@@ -206,8 +192,6 @@ export const taroudant_tafraouteEat: EatListing[] = [
     reservationMethod: ['phone', 'online'],
     reservationContact: '+212528551140',
     googleMapsUrl: 'https://maps.google.com/?q=Dar+Zitoune+Taroudant',
-    website: 'not-available',
-    instagram: 'not-available',
     bestDishes: ['Organic Garden Salad Supreme', 'Souss Valley Roast Lamb Mechoui', 'Crème Brûlée Orange Blossom'],
     alcoholPolicy: 'serves-alcohol',
     ramadanFriendly: 'special-ftour',
@@ -235,7 +219,9 @@ export const taroudant_tafraouteEat: EatListing[] = [
     airConditioning: true,
     wheelchairAccessible: true
   ,
-    tags: ["alcohol", "budget", "dinner", "fine", "live-music", "quiet", "terrace", "wifi"]
+    tags: ["alcohol", "budget", "dinner", "fine", "live-music", "quiet", "terrace", "wifi"],
+    fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
+    menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
   },
 
   // ── 3. JNANE SOUSSIA (TAROUDANT OUTSKIRTS) ──
@@ -250,8 +236,6 @@ export const taroudant_tafraouteEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Authentic Berber Feast', 'Family Friendly', 'Live Music Terrace'],
     foodStyles: ['Moroccan', 'Berber', 'Barbecue'],
-    // food-cuisine quiz question tags
-    cuisineTags: ['moroccan-traditional', 'international'],
     crowdLevel: 'bustling',
     groupTypes: ['family', 'large-groups', 'friends'],
     hasEnglishStaff: false,
@@ -263,7 +247,6 @@ export const taroudant_tafraouteEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
-    servesAlcohol: false,
     halalStatus: 'halal-certified',
     verificationStatus: 'verified',
     openTime: '12:00',
@@ -289,8 +272,6 @@ export const taroudant_tafraouteEat: EatListing[] = [
     reservationMethod: ['phone'],
     reservationContact: '+212528854980',
     googleMapsUrl: 'https://maps.google.com/?q=Jnane+Soussia+Taroudant',
-    website: 'not-available',
-    instagram: 'not-available',
     bestDishes: ['Slow-Roasted Lamb Mechoui', 'Assorted Crispy Briouates', 'Friday Seven-Vegetable Couscous'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
@@ -318,7 +299,9 @@ export const taroudant_tafraouteEat: EatListing[] = [
     airConditioning: false,
     wheelchairAccessible: true
   ,
-    tags: ["budget", "couscous", "dinner", "dry", "live-music", "terrace"]
+    tags: ["budget", "couscous", "dinner", "dry", "live-music", "terrace"],
+    fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
+    menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
   },
 
   // ── 4. RESTAURANT CHEZ NADIA (TAROUDANT MEDINA) ──
@@ -326,15 +309,13 @@ export const taroudant_tafraouteEat: EatListing[] = [
     id: 'e-taroudant-4',
     city: 'taroudant_tafraoute',
     name: 'Restaurant Chez Nadia',
-    neighborhood: 'Médina (Derb Jdid',
+    neighborhood: 'Medina',
     description: 'An intimate, cozy local medina restaurant celebrated for home-style Roudani cooking. Nadia and her team prepare authentic Berber tagines, crisp pastillas, and warm semolina bread baked fresh in the neighborhood clay oven.',
     pricePerPerson: 9,
     lifestyle: 'lean',
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Cozy casual family-run Moroccan eatery', 'Authentic Berber Feast'],
     foodStyles: ['Moroccan', 'Berber'],
-    // food-cuisine quiz question tags
-    cuisineTags: ['moroccan-traditional'],
     crowdLevel: 'balanced',
     groupTypes: ['solo', 'couple', 'family', 'friends'],
     hasEnglishStaff: true,
@@ -346,7 +327,6 @@ export const taroudant_tafraouteEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
-    servesAlcohol: false,
     halalStatus: 'halal-certified',
     verificationStatus: 'verified',
     openTime: '11:30',
@@ -372,8 +352,6 @@ export const taroudant_tafraouteEat: EatListing[] = [
     reservationMethod: ['none'],
     reservationContact: '+212671239844',
     googleMapsUrl: 'https://maps.google.com/?q=Restaurant+Chez+Nadia+Taroudant',
-    website: 'not-available',
-    instagram: 'not-available',
     bestDishes: ['Chicken Tagine with Preserved Lemon & Olives', 'Vegetarian Souss Tagine', 'Fresh Seasonal Fruit Salad with Orange Blossom'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
@@ -401,7 +379,9 @@ export const taroudant_tafraouteEat: EatListing[] = [
     airConditioning: false,
     wheelchairAccessible: true
   ,
-    tags: ["budget", "dinner", "dry", "medina", "pastilla", "tagine", "wifi"]
+    tags: ["budget", "dinner", "dry", "medina", "pastilla", "tagine", "wifi"],
+    fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
+    menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
   },
 
   // ── 5. RESTAURANT ATLAS (PLACE ASSARAG, TAROUDANT) ──
@@ -416,8 +396,6 @@ export const taroudant_tafraouteEat: EatListing[] = [
     mealTypes: ['breakfast', 'lunch', 'dinner'],
     experienceTypes: ['Traditional Dining', 'People Watching', 'Casual Dining'],
     foodStyles: ['Moroccan', 'Berber', 'Cafe'],
-    // food-cuisine quiz question tags
-    cuisineTags: ['moroccan-traditional'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'couple', 'friends', 'family'],
     hasEnglishStaff: true,
@@ -429,7 +407,6 @@ export const taroudant_tafraouteEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
-    servesAlcohol: true,
     halalStatus: 'halal-certified',
     verificationStatus: 'verified',
     openTime: '07:00',
@@ -455,8 +432,6 @@ export const taroudant_tafraouteEat: EatListing[] = [
     reservationMethod: ['none'],
     reservationContact: '+212528852314',
     googleMapsUrl: 'https://maps.google.com/?q=Restaurant+Atlas+Place+Assarag+Taroudant',
-    website: 'not-available',
-    instagram: 'not-available',
     bestDishes: ['Spiced Souss Harira with Dates', 'Rotisserie Lemon Chicken & Fries', 'Minced Beef Kefta Tagine with Egg'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'serves-lunch',
@@ -484,7 +459,9 @@ export const taroudant_tafraouteEat: EatListing[] = [
     airConditioning: false,
     wheelchairAccessible: true
   ,
-    tags: ["breakfast", "budget", "cafe-pastry", "dinner", "dry", "medina", "tagine", "terrace", "wifi"]
+    tags: ["breakfast", "budget", "cafe-pastry", "dinner", "dry", "medina", "tagine", "terrace", "wifi"],
+    fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
+    menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
   },
 
   // ── 6. CAFE RESTAURANT LES ARCADES (PLACE TALMOKLATE, TAROUDANT) ──
@@ -499,8 +476,6 @@ export const taroudant_tafraouteEat: EatListing[] = [
     mealTypes: ['breakfast', 'lunch', 'afternoon-tea'],
     experienceTypes: ['People Watching', 'Cafe', 'Traditional Dining'],
     foodStyles: ['Cafe', 'Moroccan', 'Breakfast'],
-    // food-cuisine quiz question tags
-    cuisineTags: ['moroccan-traditional', 'cafe-pastry'],
     crowdLevel: 'bustling',
     groupTypes: ['solo', 'couple', 'friends'],
     hasEnglishStaff: true,
@@ -512,7 +487,6 @@ export const taroudant_tafraouteEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
-    servesAlcohol: true,
     halalStatus: 'halal-certified',
     verificationStatus: 'verified',
     openTime: '06:30',
@@ -538,8 +512,6 @@ export const taroudant_tafraouteEat: EatListing[] = [
     reservationMethod: ['none'],
     reservationContact: '+212528851490',
     googleMapsUrl: 'https://maps.google.com/?q=Cafe+Les+Arcades+Place+Talmoklate+Taroudant',
-    website: 'not-available',
-    instagram: 'not-available',
     bestDishes: ['Fresh Taroudant Orange Juice', 'Berber Breakfast with Amlou & Honey', 'Tagine of Kefta & Tomato'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'serves-lunch',
@@ -567,7 +539,9 @@ export const taroudant_tafraouteEat: EatListing[] = [
     airConditioning: false,
     wheelchairAccessible: true
   ,
-    tags: ["breakfast", "budget", "cafe-pastry", "dry", "juice", "medina", "tagine", "terrace", "wifi"]
+    tags: ["breakfast", "budget", "cafe-pastry", "dry", "juice", "medina", "tagine", "terrace", "wifi"],
+    fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
+    menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
   },
 
   // ── 7. RESTAURANT LE PALAIS SALAM (TAROUDANT KASBAH) ──
@@ -582,8 +556,6 @@ export const taroudant_tafraouteEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Historical Ambience', 'Fine Dining', 'Fountain courtyard'],
     foodStyles: ['Moroccan', 'French', 'Mediterranean'],
-    // food-cuisine quiz question tags
-    cuisineTags: ['moroccan-traditional'],
     crowdLevel: 'quiet',
     groupTypes: ['couple', 'seniors', 'family'],
     hasEnglishStaff: true,
@@ -595,7 +567,6 @@ export const taroudant_tafraouteEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
-    servesAlcohol: true,
     halalStatus: 'likely-halal-food',
     verificationStatus: 'verified',
     openTime: '12:00',
@@ -621,8 +592,6 @@ export const taroudant_tafraouteEat: EatListing[] = [
     reservationMethod: ['phone', 'online'],
     reservationContact: '+212528852312',
     googleMapsUrl: 'https://maps.google.com/?q=Palais+Salam+Restaurant+Taroudant',
-    website: 'not-available',
-    instagram: 'not-available',
     bestDishes: ['Royal Pigeon & Almond Pastilla', 'Slow-Simmered Lamb Tagine with Figs & Walnuts', 'Orange Carpaccio with Cinnamon'],
     alcoholPolicy: 'serves-alcohol',
     ramadanFriendly: 'special-ftour',
@@ -650,7 +619,9 @@ export const taroudant_tafraouteEat: EatListing[] = [
     airConditioning: true,
     wheelchairAccessible: false
   ,
-    tags: ["alcohol", "budget", "dinner", "fine", "medina", "palace", "pastilla", "quiet", "tagine", "terrace", "wifi"]
+    tags: ["alcohol", "budget", "dinner", "fine", "medina", "palace", "pastilla", "quiet", "tagine", "terrace", "wifi"],
+    fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
+    menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
   },
 
   // ── 8. RESTAURANT AL HASSAN (TAROUDANT BAB KASBAH) ──
@@ -665,8 +636,6 @@ export const taroudant_tafraouteEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Traditional Dining', 'Casual Dining'],
     foodStyles: ['Moroccan', 'Berber'],
-    // food-cuisine quiz question tags
-    cuisineTags: ['moroccan-traditional'],
     crowdLevel: 'balanced',
     groupTypes: ['solo', 'couple', 'family', 'friends'],
     hasEnglishStaff: true,
@@ -678,7 +647,6 @@ export const taroudant_tafraouteEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
-    servesAlcohol: true,
     halalStatus: 'halal-certified',
     verificationStatus: 'verified',
     openTime: '11:00',
@@ -704,8 +672,6 @@ export const taroudant_tafraouteEat: EatListing[] = [
     reservationMethod: ['none'],
     reservationContact: '+212668903344',
     googleMapsUrl: 'https://maps.google.com/?q=Restaurant+Al+Hassan+Bab+Kasbah+Taroudant',
-    website: 'not-available',
-    instagram: 'not-available',
     bestDishes: ['Charcoal-Grilled Kefta Skewers', 'Beef & Prune Tagine with Roasted Almonds', 'Cooked Zaalouk and Taktouka Salad Duo'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
@@ -733,7 +699,9 @@ export const taroudant_tafraouteEat: EatListing[] = [
     airConditioning: false,
     wheelchairAccessible: true
   ,
-    tags: ["budget", "dinner", "dry", "medina", "tagine", "terrace", "wifi"]
+    tags: ["budget", "dinner", "dry", "medina", "tagine", "terrace", "wifi"],
+    fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
+    menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
   },
 
   // ── 9. L'ETOILE DU SUD (TAFRAOUTE TOWN CENTER) ──
@@ -784,8 +752,6 @@ export const taroudant_tafraouteEat: EatListing[] = [
     reservationMethod: ['phone'],
     reservationContact: '+212528861217',
     googleMapsUrl: 'https://maps.google.com/?q=Etoile+du+Sud+Tafraoute',
-    website: 'not-available',
-    instagram: 'not-available',
     bestDishes: ['Tafraoute Almond Lamb Tagine', 'Berber Couscous Royal', 'Organic Amlou Dip with Fresh Bread'],
     alcoholPolicy: 'serves-alcohol',
     ramadanFriendly: 'special-ftour',
@@ -813,7 +779,9 @@ export const taroudant_tafraouteEat: EatListing[] = [
     airConditioning: true,
     wheelchairAccessible: true
   ,
-    tags: ["alcohol", "budget", "couscous", "dinner", "mountain", "sunset", "tagine", "terrace", "wifi"]
+    tags: ["alcohol", "budget", "couscous", "dinner", "mountain", "sunset", "tagine", "terrace", "wifi"],
+    fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
+    menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
   },
 
   // ── 10. CHEZ SABIR (TAFRAOUTE CENTER) ──
@@ -828,8 +796,6 @@ export const taroudant_tafraouteEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Cozy casual family-run Moroccan eatery', 'Authentic Berber Feast'],
     foodStyles: ['Moroccan', 'Berber'],
-    // food-cuisine quiz question tags
-    cuisineTags: ['moroccan-traditional'],
     crowdLevel: 'quiet',
     groupTypes: ['couple', 'solo', 'family', 'friends'],
     hasEnglishStaff: true,
@@ -841,7 +807,6 @@ export const taroudant_tafraouteEat: EatListing[] = [
     nearCenter: true,
     isVegetarianFriendly: true,
     isHalal: true,
-    servesAlcohol: false,
     halalStatus: 'halal-certified',
     verificationStatus: 'verified',
     openTime: '12:00',
@@ -867,8 +832,6 @@ export const taroudant_tafraouteEat: EatListing[] = [
     reservationMethod: ['none'],
     reservationContact: '+212672338810',
     googleMapsUrl: 'https://maps.google.com/?q=Chez+Sabir+Tafraoute',
-    website: 'not-available',
-    instagram: 'not-available',
     bestDishes: ['Homemade Harira Soup', 'Tagine of Beef with Caramelized Prunes & Almonds', 'Vegetable Tagine Soussia'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
@@ -896,7 +859,9 @@ export const taroudant_tafraouteEat: EatListing[] = [
     airConditioning: false,
     wheelchairAccessible: true
   ,
-    tags: ["budget", "dinner", "dry", "mountain", "quiet", "tagine", "wifi"]
+    tags: ["budget", "dinner", "dry", "mountain", "quiet", "tagine", "wifi"],
+    fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
+    menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
   },
 
   // ── 11. RESTAURANT LA KASBAH (TAFRAOUTE) ──
@@ -911,8 +876,6 @@ export const taroudant_tafraouteEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Sunset Views', 'Authentic Berber Feast', 'Traditional Dining'],
     foodStyles: ['Berber', 'Moroccan'],
-    // food-cuisine quiz question tags
-    cuisineTags: ['moroccan-traditional'],
     crowdLevel: 'balanced',
     groupTypes: ['family', 'friends', 'couple'],
     hasEnglishStaff: true,
@@ -924,7 +887,6 @@ export const taroudant_tafraouteEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
-    servesAlcohol: true,
     halalStatus: 'halal-certified',
     verificationStatus: 'verified',
     openTime: '11:00',
@@ -950,8 +912,6 @@ export const taroudant_tafraouteEat: EatListing[] = [
     reservationMethod: ['phone'],
     reservationContact: '+212528861545',
     googleMapsUrl: 'https://maps.google.com/?q=Restaurant+La+Kasbah+Tafraoute',
-    website: 'not-available',
-    instagram: 'not-available',
     bestDishes: ['Spiced Mountain Goat Tagine', 'Berber Couscous with Turnips & Pumpkin', 'Warm Msemen with Pure Mountain Honey'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
@@ -979,7 +939,9 @@ export const taroudant_tafraouteEat: EatListing[] = [
     airConditioning: false,
     wheelchairAccessible: true
   ,
-    tags: ["budget", "couscous", "dinner", "dry", "mountain", "sunset", "tagine", "terrace", "wifi"]
+    tags: ["budget", "couscous", "dinner", "dry", "mountain", "sunset", "tagine", "terrace", "wifi"],
+    fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
+    menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
   },
 
   // ── 12. RESTAURANT MAISON TISSALINE (TAFRAOUTE / AMELN VALLEY) ──
@@ -994,8 +956,6 @@ export const taroudant_tafraouteEat: EatListing[] = [
     mealTypes: ['lunch', 'dinner'],
     experienceTypes: ['Tranquil Dining', 'Authentic Berber Feast', 'Scenic Views'],
     foodStyles: ['Berber', 'Moroccan', 'Healthy'],
-    // food-cuisine quiz question tags
-    cuisineTags: ['moroccan-traditional'],
     crowdLevel: 'quiet',
     groupTypes: ['couple', 'seniors', 'nature-lover', 'family'],
     hasEnglishStaff: true,
@@ -1007,7 +967,6 @@ export const taroudant_tafraouteEat: EatListing[] = [
     nearCenter: false,
     isVegetarianFriendly: true,
     isHalal: true,
-    servesAlcohol: true,
     halalStatus: 'likely-halal-food',
     verificationStatus: 'verified',
     openTime: '12:00',
@@ -1033,8 +992,6 @@ export const taroudant_tafraouteEat: EatListing[] = [
     reservationMethod: ['phone'],
     reservationContact: '+212661849202',
     googleMapsUrl: 'https://maps.google.com/?q=Maison+Tissaline+Ameln+Valley+Tafraoute',
-    website: 'not-available',
-    instagram: 'not-available',
     bestDishes: ['Slow-Cooked Lamb with Wild Thyme & Figs', 'Ameln Garden Salad with Cold-Pressed Argan Oil', 'Fresh Fig & Almond Crumble Tart'],
     alcoholPolicy: 'dry',
     ramadanFriendly: 'special-ftour',
@@ -1062,6 +1019,8 @@ export const taroudant_tafraouteEat: EatListing[] = [
     airConditioning: false,
     wheelchairAccessible: true
   ,
-    tags: ["budget", "dinner", "dry", "mountain", "quiet", "terrace", "wifi"]
+    tags: ["budget", "dinner", "dry", "mountain", "quiet", "terrace", "wifi"],
+    fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
+    menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
   }
 ];

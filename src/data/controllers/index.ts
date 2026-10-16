@@ -50,7 +50,7 @@ export function auditAllCategories(): CategoryAuditResult[] {
 export function enrichListingTags(listing: any): any {
   if (!listing) return listing;
   if (listing.pricePerNight !== undefined) return enrichSleepTags(listing);
-  if (listing.mealTypes !== undefined || listing.pricePerPerson !== undefined) return enrichEatTags(listing);
+  if (listing.mealTypes !== undefined || listing.pricePerPerson !== undefined || listing.quiz !== undefined || listing.filter !== undefined) return enrichEatTags(listing);
   if (listing.durationMinutes !== undefined || listing.energyLevel !== undefined) return enrichThingsTags(listing);
   if (listing.productCategories !== undefined) return enrichShopTags(listing);
   return listing;

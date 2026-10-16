@@ -23,7 +23,7 @@ export type TransportMode =
   | 'walkable' | 'taxi' | 'transit' | 'mixed'
 
 export type MealType =
-  | 'breakfast' | 'lunch' | 'dinner' | 'latenight' | 'flexible' | 'afternoon-tea' | 'brunch' | 'snack'
+  | 'breakfast' | 'lunch' | 'dinner' | 'latenight' | 'late-night' | 'flexible' | 'afternoon-tea' | 'brunch' | 'snack' | 'drinks'
 
 export type AccommodationType =
   | 'riad' | 'dar' | 'desert-camp' | 'kasbah' | 'hotel' | 'guesthouse' | 'hostel' | 'lodge' | 'resort' | 'apartment' | 'villa'
@@ -175,12 +175,114 @@ export interface SleepListing {
   }
 }
 
-export interface EatListing {
-  servesAlcohol?: boolean;
-  id: string
-  city: CityId
+export interface EatListingQuiz {
+  lifestyle: LifestyleComfort
+  groupTypes: GroupType[]
+  mealTypes: MealType[]
+  experienceTypes: string[]
+  foodStyles: string[]
+  cuisineTags?: string[]
+  archetypeAffinity?: string[]
+  vibeTags?: string[]
+  crowdLevel: CrowdLevel
+}
+
+export interface EatListingFilter {
+  pricePerPerson: number
+  isHalal: boolean
+  halalStatus?: 'likely-halal-food' | 'halal-certified' | 'unknown' | 'non-halal'
+  isVegetarianFriendly: boolean
+  servesAlcohol?: boolean
+  alcoholPolicy?: 'serves-alcohol' | 'dry'
+  hasDelivery: boolean
+  hasParking: boolean
+  nearMedina: boolean
+  nearBeach?: boolean
+  nearCenter?: boolean
+  hasEnglishStaff: boolean
+  hasFrenchStaff: boolean
+  ramadanFriendly?: 'serves-lunch' | 'special-ftour' | 'closed'
+  closedDays?: string[]
+  seatingTypes?: string[]
+  paymentMethods?: string[]
+  tags?: string[]
+  isHiddenGem?: boolean
+  isTemporarilyHidden?: boolean
+  verificationStatus?: 'verified' | 'unverified' | 'possibly-closed' | 'wrong-city'
+  wiFi?: boolean
+  airConditioning?: boolean
+  wheelchairAccessible?: boolean
+}
+
+export interface EatListingUI {
   name: string
   neighborhood: string
+  district?: string
+  description: string
+  tip?: string
+  badge?: 'hidden-gem' | 'local-favorite' | 'splurge' | 'tourist-trap' | 'local'
+  bestDishes?: string[]
+  pros?: string[]
+  cons?: string[]
+  googleRating?: number
+  googleReviewCount?: number
+  tripadvisorRating?: number
+  tripadvisorReviewCount?: number
+  theforkRating?: number
+  theforkReviewCount?: number
+  restaurantguruRating?: number
+  restaurantguruReviewCount?: number
+  rating?: number
+  reviewCount?: number
+  openTime?: string
+  closeTime?: string
+  weeklySchedule?: {
+    day: 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'Saturday' | 'Sunday'
+    openTime: string
+    closeTime: string
+    isClosed?: boolean
+  }[]
+  exactAddressAndCoordinates?: {
+    address: string
+    lat: number
+    lng: number
+  }
+  address?: string
+  coordinates?: {
+    lat: number
+    lng: number
+  }
+  googleMapsUrl?: string
+  reservationMethod?: string[]
+  reservationContact?: string
+  whatsappNumber?: string
+  bookingUrl?: string
+  website?: string
+  instagram?: string
+  customStory?: string
+  viewType?: string
+  bestTimeToVisit?: string
+  averageWaitMinutes?: number
+  fullMenu?: {
+    type: 'image' | 'text'
+    content: string
+  }
+  languagesSpoken?: string[]
+}
+
+export interface EatListing {
+  id: string
+  city: CityId
+
+  // Structured sub-sections
+  quiz?: EatListingQuiz
+  filter?: EatListingFilter
+  ui?: EatListingUI
+
+  // Direct properties (supported for flat data and backward-compatibility)
+  name?: string
+  neighborhood?: string
+  servesAlcohol?: boolean;
   district?: string
   description: string
   pricePerPerson: number
@@ -268,6 +370,7 @@ export interface EatListing {
     lat: number
     lng: number
   }
+  menuUrl?: string
 }
 
 export type ActivityListing = ThingToDoListing

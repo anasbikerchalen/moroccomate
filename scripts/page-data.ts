@@ -40,6 +40,15 @@ export interface IndexablePage {
     rating?: number;
     reviewCount?: number;
     address?: string;
+    amenities?: string[];
+    cuisines?: string[];
+    bestDishes?: string[];
+    pros?: string[];
+    cons?: string[];
+    tip?: string;
+    openingHours?: string;
+    specialties?: string[];
+    lifestyle?: string;
     matchedPlaces?: Array<{ name: string; url: string; rating?: number; price?: number; neighborhood?: string }>;
   };
 }
@@ -59,11 +68,15 @@ export function collectPlacePages(): IndexablePage[] {
     const name = listing.name || listing.title || 'Place';
     const categoryLabel = PLACE_CATEGORY_LABEL[category];
     const isSleep = category === 'sleep';
-    const price = isSleep ? (listing.pricePerNight ?? 0) : 0;
+    const isEat = category === 'food';
+    const isShopping = category === 'shopping';
+    const price = isSleep ? (listing.pricePerNight ?? 0) : (listing.pricePerPerson ?? (listing.filter?.pricePerPerson ?? 0));
     const rawDescription = String(listing.description || '').slice(0, 155);
     const description = isSleep && price > 0
       ? `Price from ${price} MAD/night. ${rawDescription.slice(0, 115)}`
-      : rawDescription;
+      : isEat && price > 0
+        ? `Avg ${price} MAD/person. ${rawDescription.slice(0, 120)}`
+        : rawDescription;
     const rating = getListingRating(listing);
     const image = listing.nonCopyrightImage
       || (Array.isArray(listing.images) && listing.images[0])
@@ -106,10 +119,37 @@ export function collectPlacePages(): IndexablePage[] {
         priceCurrency: 'MAD',
         availability: 'https://schema.org/InStock',
       };
+      if (Array.isArray(listing.amenities) && listing.amenities.length > 0) {
+        jsonLd.amenityFeature = listing.amenities.slice(0, 10).map((a: string) => ({
+          '@type': 'LocationFeatureSpecification',
+          name: a,
+          value: true,
+        }));
+      }
+    }
+    if (isEat) {
+      if (price > 0) {
+        jsonLd.priceRange = `${price} MAD`;
+      }
+      const styles = listing.foodStyles || (listing.quiz && listing.quiz.foodStyles) || listing.cuisineTags || [];
+      if (Array.isArray(styles) && styles.length > 0) {
+        jsonLd.servesCuisine = styles;
+      }
+      if (listing.reservationMethod && listing.reservationMethod.length > 0) {
+        jsonLd.acceptsReservations = true;
+      }
+    }
+    if (isShopping) {
+      jsonLd.currenciesAccepted = 'MAD, EUR, USD';
+      jsonLd.paymentAccepted = 'Cash, Credit Card';
     }
 
     const faq = isSleep
       ? [{ question: `Who is the owner of ${name}?`, answer: getStayOwnerAnswer(listing) }]
+      : undefined;
+
+    const openingHoursStr = listing.openTime && listing.closeTime
+      ? `${listing.openTime} – ${listing.closeTime}`
       : undefined;
 
     pages.push({
@@ -125,10 +165,19 @@ export function collectPlacePages(): IndexablePage[] {
         city: label,
         category: categoryLabel,
         neighborhood: listing.neighborhood,
-        price: isSleep && price > 0 ? price : undefined,
+        price: price > 0 ? price : undefined,
         rating: rating?.averageRating,
         reviewCount: rating?.totalReviews,
         address: listing.address,
+        amenities: Array.isArray(listing.amenities) ? listing.amenities : undefined,
+        cuisines: Array.isArray(listing.foodStyles) ? listing.foodStyles : (Array.isArray(listing.quiz?.foodStyles) ? listing.quiz.foodStyles : undefined),
+        bestDishes: Array.isArray(listing.bestDishes) ? listing.bestDishes : (Array.isArray(listing.ui?.bestDishes) ? listing.ui.bestDishes : undefined),
+        pros: Array.isArray(listing.pros) ? listing.pros : (Array.isArray(listing.ui?.pros) ? listing.ui.pros : undefined),
+        cons: Array.isArray(listing.cons) ? listing.cons : (Array.isArray(listing.ui?.cons) ? listing.ui.cons : undefined),
+        tip: listing.tip || listing.ui?.tip,
+        openingHours: openingHoursStr,
+        specialties: Array.isArray(listing.specialties) ? listing.specialties : (Array.isArray(listing.products) ? listing.products : undefined),
+        lifestyle: typeof listing.lifestyle === 'string' ? listing.lifestyle : (Array.isArray(listing.lifestyle) ? listing.lifestyle.join(', ') : undefined),
       },
     });
   }
@@ -228,6 +277,39 @@ export function collectStaticPages(): IndexablePage[] {
     for (const city of getBrowseCities(segment)) {
       const label = cityLabel(city);
       const pretty = prettyLabel[segment];
+      const cityKey = city.toLowerCase();
+
+      const matchedPlaces: Array<{ name: string; url: string; rating?: number; price?: number; neighborhood?: string }> = [];
+      try {
+        if (segment === 'things-to-do') {
+          for (const act of getAllActivities().filter((a: any) => String(a.city || '').toLowerCase() === cityKey)) {
+            if (!act.slug) continue;
+            matchedPlaces.push({
+              name: act.name || 'Experience',
+              url: `/things/${cityKey}/${act.slug}`,
+              neighborhood: act.neighborhood,
+            });
+          }
+        } else {
+          const normCat = segment === 'food' ? 'food' : segment === 'sleep' ? 'sleep' : 'shopping';
+          const index = getPlaceIndex(cityKey, normCat as any);
+          for (const [s, l] of index.bySlug.entries()) {
+            const r = getListingRating(l);
+            const isSleep = normCat === 'sleep';
+            const price = isSleep ? (l.pricePerNight ?? 0) : (l.pricePerPerson ?? (l.filter?.pricePerPerson ?? 0));
+            matchedPlaces.push({
+              name: l.name || l.title || 'Place',
+              url: `/place/${cityKey}/${normCat}/${s}`,
+              rating: r?.averageRating,
+              price: price > 0 ? price : undefined,
+              neighborhood: l.neighborhood,
+            });
+          }
+        }
+      } catch {
+        // Graceful fallback
+      }
+
       pages.push({
         path: `/finder/${city}/${segment}`,
         priority: 0.8,
@@ -239,6 +321,7 @@ export function collectStaticPages(): IndexablePage[] {
         meta: {
           city: label,
           category: pretty,
+          matchedPlaces,
         },
       });
     }

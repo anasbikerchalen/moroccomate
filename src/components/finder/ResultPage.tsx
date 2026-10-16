@@ -191,14 +191,6 @@ export default function ResultPage() {
   const realListings = useMemo(() => {
     let listings = getListings(city || 'marrakech', focusKey);
 
-    // Exclude non-touristic areas (Rule 7)
-    listings = listings.filter(item => {
-      if (item.neighborhood && nonTouristicAreas.has(item.neighborhood.toLowerCase())) {
-        return false;
-      }
-      return true;
-    });
-
     if (neighborhood) {
       const selectedHood = String(neighborhood).toLowerCase().trim();
       listings = listings.filter(item => {
@@ -344,6 +336,7 @@ export default function ResultPage() {
           const pool = [
             ...(Array.isArray(item.vibeTags) ? item.vibeTags : []),
             ...(Array.isArray(item.tags) ? item.tags : []),
+            ...(Array.isArray((item as any).bestDishes) ? (item as any).bestDishes : []),
             ...(Array.isArray((item as any).amenities) ? (item as any).amenities : []),
             ...(Array.isArray((item as any).foodStyles) ? (item as any).foodStyles : []),
             ...(Array.isArray((item as any).experienceTypes) ? (item as any).experienceTypes : []),
@@ -487,6 +480,32 @@ export default function ResultPage() {
                return;
             }
 
+             if (questionId === 'dish-filter') {
+               const dishQuery = String(answerId).toLowerCase();
+               const dishes = Array.isArray((item as any).bestDishes) ? (item as any).bestDishes.map((d: any) => String(d).toLowerCase()) : [];
+               const foodStyles = Array.isArray((item as any).foodStyles) ? (item as any).foodStyles.map((f: any) => String(f).toLowerCase()) : [];
+               const desc = String(item.description || '').toLowerCase();
+               const name = String(item.name || '').toLowerCase();
+               
+               // Match against dish name or keywords (e.g. "Tanjia", "Sardines", "Pastilla", "Tagine")
+               const queryKeywords = dishQuery.split(/[\s,&-]+/).filter(w => w.length >= 4);
+               const matchesKeyword = queryKeywords.some(kw => 
+                 dishes.some(d => d.includes(kw)) ||
+                 foodStyles.some(f => f.includes(kw)) ||
+                 desc.includes(kw) ||
+                 name.includes(kw)
+               );
+               const exactMatch = dishes.some(d => d.includes(dishQuery) || dishQuery.includes(d))
+                 || foodStyles.some(f => f.includes(dishQuery) || dishQuery.includes(f))
+                 || desc.includes(dishQuery);
+
+               if (matchesKeyword || exactMatch) {
+                 matchScore += weightGain * 2;
+                 matchedTags.push(`Specialty: ${answerId}`);
+               }
+               return;
+             }
+
             const tagMap: Record<string, string> = {
               'relaxed': 'relaxed-energy',
               'moderate': 'moderate-energy',
@@ -502,6 +521,7 @@ export default function ResultPage() {
             } else {
               const vibeTags = Array.isArray(item.vibeTags) ? item.vibeTags : [];
               const foodStyles = Array.isArray((item as any).foodStyles) ? (item as any).foodStyles : [];
+              const bestDishes = Array.isArray((item as any).bestDishes) ? (item as any).bestDishes : [];
               const experienceTypes = Array.isArray((item as any).experienceTypes) ? (item as any).experienceTypes : [];
               const mealTypes = Array.isArray((item as any).mealTypes) ? (item as any).mealTypes : [];
               const amenities = Array.isArray((item as any).amenities) ? (item as any).amenities : [];
@@ -509,7 +529,7 @@ export default function ResultPage() {
               const searchableText = [
                 item.name, item.title, item.description, item.type, item.category, (item as any).cuisine,
                 String((item as any).neighborhood || ''), String((item as any).locationSummary || ''),
-                ...vibeTags, ...foodStyles, ...experienceTypes, ...mealTypes, ...amenities
+                ...vibeTags, ...foodStyles, ...bestDishes, ...experienceTypes, ...mealTypes, ...amenities
               ].filter(Boolean).map((t: any) => t.toString().toLowerCase());
               
               const answerParts = answerId.toString().toLowerCase().split('-')

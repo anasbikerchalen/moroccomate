@@ -31,15 +31,9 @@ export default function LocationPicker({ onCitySelect, onAreaSelect }: LocationP
   const [areaSearch, setAreaSearch] = useState('');
   const [showMoreCities, setShowMoreCities] = useState(false);
 
-  // Filter only Touristic and Mid-Touristic cities (Strictly exclude Low-Touristic)
+  // Include all cities from master registry
   const availableCities = useMemo(() => {
-    return cities.filter(c => {
-      // Must be Touristic or Mid-Touristic in the organization guide
-      if (!isCityTouristicOrMid(c.id)) return false;
-      // Must have actual listings
-      const count = getListings(c.id).length;
-      return count > 0 || c.isPrimary;
-    });
+    return cities;
   }, []);
 
   const filteredCities = useMemo(() => {
@@ -53,52 +47,72 @@ export default function LocationPicker({ onCitySelect, onAreaSelect }: LocationP
 
   const currentCityData = useMemo(() => city ? cityMap[city] : null, [city]);
 
-  // Extract ONLY neighborhoods that exist in real listings and are Touristic/Mid in touristic_organization.md
+  // Extract neighborhoods and split into 3 tiers (Touristic, Mid, Authentic & Off-Path)
   const areas = useMemo(() => {
-    if (!city || !cityMap[city]) return { neighborhoods: [], satellites: [] };
+    if (!city || !cityMap[city]) return { touristic: [], mid: [], offPath: [], satellites: [] };
     const cityData = cityMap[city];
+    const profile = getCityProfile(city);
     
-    // 1. Satellite regions
+    const touristicSet = new Set((profile?.touristicNeighborhoods || []).map(n => n.toLowerCase()));
+    const midSet = new Set((profile?.midNeighborhoods || []).map(n => n.toLowerCase()));
+    const lowSet = new Set((profile?.lowNeighborhoods || []).map(n => n.toLowerCase()));
+
     const satellites = (cityData.subRegions || [])
       .map((id: string) => cityMap[id]?.name)
-      .filter(Boolean)
-      .filter((sName: string) => isCityTouristicOrMid(sName.toLowerCase()));
+      .filter(Boolean);
 
-    // 2. Scan actual listings for this category/city
     const focusMap: Record<string, string> = {
       'food': 'eat', 'things-to-do': 'things', 'experiences': 'things', 
       'sleep': 'sleep', 'shopping': 'shopping'
     };
     const categoriesToScan = activeCategory ? [focusMap[activeCategory] || 'things'] : ['eat', 'sleep', 'things', 'shopping'];
     
-    // Count listings per neighborhood
     const counts: Record<string, number> = {};
     categoriesToScan.forEach(focus => {
       const list = getListings(city, focus);
       list.forEach(item => {
         const n = item?.neighborhood;
         if (n && typeof n === 'string' && n.trim() && !satellites.includes(n)) {
-          // Check against low-touristic exclusions
-          if (isNeighborhoodAllowed(city, n)) {
-            counts[n] = (counts[n] || 0) + 1;
-          }
+          counts[n] = (counts[n] || 0) + 1;
         }
       });
     });
 
-    const validNeighborhoods = Object.keys(counts).sort((a, b) => counts[b] - counts[a]);
+    const allProfileNeighborhoods = [
+      ...(profile?.touristicNeighborhoods || []),
+      ...(profile?.midNeighborhoods || []),
+      ...(profile?.lowNeighborhoods || [])
+    ];
+    allProfileNeighborhoods.forEach(n => {
+      if (!counts[n]) {
+        counts[n] = getListings(city).filter(i => i.neighborhood?.toLowerCase() === n.toLowerCase()).length;
+      }
+    });
 
     const q = areaSearch.trim().toLowerCase();
-    const finalNeighborhoods = q 
-      ? validNeighborhoods.filter(n => n.toLowerCase().includes(q))
-      : validNeighborhoods;
-    const finalSatellites = q 
-      ? satellites.filter((s: string) => s.toLowerCase().includes(q)) 
-      : satellites;
-    
+    const matchesQuery = (n: string) => !q || n.toLowerCase().includes(q);
+
+    const touristic: Array<{ name: string; count: number }> = [];
+    const mid: Array<{ name: string; count: number }> = [];
+    const offPath: Array<{ name: string; count: number }> = [];
+
+    Object.entries(counts).forEach(([name, count]) => {
+      if (!matchesQuery(name)) return;
+      const lower = name.toLowerCase();
+      if (touristicSet.has(lower) || (!midSet.has(lower) && !lowSet.has(lower))) {
+        touristic.push({ name, count });
+      } else if (midSet.has(lower)) {
+        mid.push({ name, count });
+      } else {
+        offPath.push({ name, count });
+      }
+    });
+
     return { 
-      neighborhoods: finalNeighborhoods.map(n => ({ name: n, count: counts[n] || 0 })), 
-      satellites: finalSatellites.sort() 
+      touristic, 
+      mid, 
+      offPath, 
+      satellites: satellites.filter((s: string) => !q || s.toLowerCase().includes(q)).sort() 
     };
   }, [city, activeCategory, areaSearch]);
 
@@ -437,13 +451,15 @@ export default function LocationPicker({ onCitySelect, onAreaSelect }: LocationP
                 <span className="text-[10px] font-bold text-[#C2613C] uppercase tracking-wider">All Places</span>
               </button>
 
-              {areas.neighborhoods.length > 0 && (
+              {/* Touristic Hubs */}
+              {areas.touristic.length > 0 && (
                 <div className="mt-2">
-                  <div className="px-1 py-1.5 text-[10px] font-black uppercase tracking-[0.2em] text-stone-400">
-                    Active Touristic Neighborhoods
+                  <div className="px-1 py-1.5 text-[10px] font-black uppercase tracking-[0.2em] text-[#C2613C] flex items-center gap-1">
+                    <Sparkles className="w-3 h-3" />
+                    <span>Touristic Hubs</span>
                   </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
-                    {areas.neighborhoods.map(n => (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 mt-1">
+                    {areas.touristic.map(n => (
                       <button
                         key={n.name}
                         onClick={() => handleAreaSelect(n.name)}
@@ -458,6 +474,76 @@ export default function LocationPicker({ onCitySelect, onAreaSelect }: LocationP
                           <div className={cn(
                             "w-2 h-2 rounded-full shrink-0",
                             neighborhood === n.name ? "bg-[#C2613C]" : "bg-stone-300"
+                          )} />
+                          <span className="text-xs truncate font-medium">{n.name}</span>
+                        </div>
+                        <span className="text-[10px] font-bold text-stone-400 ml-2 px-1.5 py-0.5 bg-stone-100 rounded-md shrink-0">
+                          {n.count}
+                        </span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Mid-Touristic */}
+              {areas.mid.length > 0 && (
+                <div className="mt-3 pt-3 border-t border-stone-100">
+                  <div className="px-1 py-1.5 text-[10px] font-black uppercase tracking-[0.2em] text-amber-700 flex items-center gap-1">
+                    <Compass className="w-3 h-3" />
+                    <span>Mid-Touristic Neighborhoods</span>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 mt-1">
+                    {areas.mid.map(n => (
+                      <button
+                        key={n.name}
+                        onClick={() => handleAreaSelect(n.name)}
+                        className={cn(
+                          "flex items-center justify-between p-2.5 rounded-xl transition-all text-left cursor-pointer border",
+                          neighborhood === n.name 
+                            ? "bg-amber-50 border-amber-500 text-stone-900 font-bold shadow-2xs" 
+                            : "border-stone-200/60 hover:bg-stone-50 hover:border-stone-300 text-stone-700"
+                        )}
+                      >
+                        <div className="flex items-center gap-2 min-w-0">
+                          <div className={cn(
+                            "w-2 h-2 rounded-full shrink-0",
+                            neighborhood === n.name ? "bg-amber-600" : "bg-stone-300"
+                          )} />
+                          <span className="text-xs truncate font-medium">{n.name}</span>
+                        </div>
+                        <span className="text-[10px] font-bold text-stone-400 ml-2 px-1.5 py-0.5 bg-stone-100 rounded-md shrink-0">
+                          {n.count}
+                        </span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Authentic & Off-Path */}
+              {areas.offPath.length > 0 && (
+                <div className="mt-3 pt-3 border-t border-stone-100">
+                  <div className="px-1 py-1.5 text-[10px] font-black uppercase tracking-[0.2em] text-stone-500 flex items-center gap-1">
+                    <span>🗺️</span>
+                    <span>Authentic & Off-Path</span>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 mt-1">
+                    {areas.offPath.map(n => (
+                      <button
+                        key={n.name}
+                        onClick={() => handleAreaSelect(n.name)}
+                        className={cn(
+                          "flex items-center justify-between p-2.5 rounded-xl transition-all text-left cursor-pointer border",
+                          neighborhood === n.name 
+                            ? "bg-stone-100 border-stone-400 text-stone-900 font-bold shadow-2xs" 
+                            : "border-stone-200/60 hover:bg-stone-50 hover:border-stone-300 text-stone-700"
+                        )}
+                      >
+                        <div className="flex items-center gap-2 min-w-0">
+                          <div className={cn(
+                            "w-2 h-2 rounded-full shrink-0",
+                            neighborhood === n.name ? "bg-stone-600" : "bg-stone-300"
                           )} />
                           <span className="text-xs truncate font-medium">{n.name}</span>
                         </div>
@@ -498,7 +584,7 @@ export default function LocationPicker({ onCitySelect, onAreaSelect }: LocationP
                 </div>
               )}
 
-              {areas.neighborhoods.length === 0 && areas.satellites.length === 0 && (
+              {areas.touristic.length === 0 && areas.mid.length === 0 && areas.offPath.length === 0 && areas.satellites.length === 0 && (
                 <div className="py-6 text-center text-stone-400 text-xs italic">
                   No areas found matching "{areaSearch}"
                 </div>

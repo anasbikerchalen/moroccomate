@@ -10,7 +10,7 @@
  *
  * ALLOWED OPTIONS BIBLE:
  * - lifestyle:        'lean' | 'balanced' | 'premium'
- * - groupTypes:       'solo' | 'couple' | 'family' | 'friends' | 'large-groups' | 'seniors'
+ * - groupTypes:       'solo' | 'couple' | 'family' | 'friends' | 'large-groups' | 'seniors' | 'business-friendly' | 'nature-lover'
  * - crowdLevel:       'quiet' | 'moderate' | 'bustling'
  * - energyLevel:      'easy' | 'moderate' | 'high'
  * - transportMode:    'walk' | 'taxi' | 'bus' | 'car' | '4x4'

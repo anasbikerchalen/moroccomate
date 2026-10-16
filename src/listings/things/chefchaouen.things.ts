@@ -10,7 +10,7 @@
  *
  * ALLOWED OPTIONS BIBLE:
  * - lifestyle:        'lean' | 'balanced' | 'premium'
- * - groupTypes:       'solo' | 'couple' | 'family' | 'friends' | 'large-groups' | 'seniors'
+ * - groupTypes:       'solo' | 'couple' | 'family' | 'friends' | 'large-groups' | 'seniors' | 'business-friendly' | 'nature-lover'
  * - crowdLevel:       'quiet' | 'moderate' | 'bustling'
  * - energyLevel:      'easy' | 'moderate' | 'high'
  * - transportMode:    'walk' | 'taxi' | 'bus' | 'car' | '4x4'
@@ -387,7 +387,7 @@ export const chefchaouenThings: ThingToDoListing[] = [
     pricePerPerson: 0,
     entryPrice: 0,
     lifestyle: ["lean", "balanced", "premium"],
-    groupTypes: ["solo", "couple", "family", "friends", "seniors", "kids-friendly"],
+    groupTypes: ["solo", "couple", "family", "friends", "seniors"],
     crowdLevel: "bustling",
     durationMinutes: 90,
     hasEnglishGuide: false,
@@ -664,7 +664,7 @@ export const chefchaouenThings: ThingToDoListing[] = [
     pricePerPerson: 0,
     entryPrice: 0,
     lifestyle: ["lean", "balanced"],
-    groupTypes: ["solo", "couple", "family", "friends", "seniors", "kids-friendly"],
+    groupTypes: ["solo", "couple", "family", "friends", "seniors"],
     crowdLevel: "balanced",
     durationMinutes: 60,
     hasEnglishGuide: false,
@@ -1392,7 +1392,7 @@ export const chefchaouenThings: ThingToDoListing[] = [
     pricePerPerson: 0,
     entryPrice: 0,
     lifestyle: ["lean", "balanced", "premium"],
-    groupTypes: ["solo", "couple", "family", "friends", "seniors", "kids-friendly"],
+    groupTypes: ["solo", "couple", "family", "friends", "seniors"],
     crowdLevel: "balanced",
     durationMinutes: 45,
     hasEnglishGuide: false,
@@ -2076,7 +2076,7 @@ export const chefchaouenThings: ThingToDoListing[] = [
     pricePerPerson: 350,
     entryPrice: 350,
     lifestyle: ["balanced", "premium"],
-    groupTypes: ["solo", "couple", "family", "friends", "kids-friendly"],
+    groupTypes: ["solo", "couple", "family", "friends"],
     crowdLevel: "balanced",
     durationMinutes: 240,
     hasEnglishGuide: true,
@@ -3115,7 +3115,7 @@ export const chefchaouenThings: ThingToDoListing[] = [
     pricePerPerson: 20,
     entryPrice: 20,
     lifestyle: ["lean", "balanced"],
-    groupTypes: ["solo", "couple", "family", "friends", "seniors", "kids-friendly"],
+    groupTypes: ["solo", "couple", "family", "friends", "seniors"],
     crowdLevel: "balanced",
     durationMinutes: 90,
     hasEnglishGuide: false,
@@ -3475,7 +3475,7 @@ export const chefchaouenThings: ThingToDoListing[] = [
     pricePerPerson: 150,
     entryPrice: 150,
     lifestyle: ["balanced", "premium"],
-    groupTypes: ["solo", "couple", "friends", "business"],
+    groupTypes: ["solo", "couple", "friends", "business-friendly"],
     crowdLevel: "quiet",
     durationMinutes: 120,
     hasEnglishGuide: true,
@@ -3658,7 +3658,7 @@ export const chefchaouenThings: ThingToDoListing[] = [
     pricePerPerson: 25,
     entryPrice: 25,
     lifestyle: ["lean", "balanced"],
-    groupTypes: ["solo", "couple", "family", "friends", "kids-friendly"],
+    groupTypes: ["solo", "couple", "family", "friends"],
     crowdLevel: "balanced",
     durationMinutes: 90,
     hasEnglishGuide: false,

@@ -12,7 +12,7 @@
  * - type:             'riad' | 'dar' | 'hotel' | 'kasbah' | 'desert-camp' | 'guesthouse' | 'hostel' | 'resort' | 'apartment' | 'villa' | 'lodge'
  * - lifestyle:        'lean' | 'balanced' | 'premium'
  * - locationFeel:     'medina-heart' | 'ville-nouvelle' | 'countryside'
- * - groupTypes:       'solo' | 'couple' | 'family' | 'friends' | 'large-groups' | 'seniors'
+ * - groupTypes:       'solo' | 'couple' | 'family' | 'friends' | 'large-groups' | 'seniors' | 'business-friendly' | 'nature-lover'
  * - safetyLevel:      1 | 2 | 3 | 4 | 5
  * - paymentMethods:   'cash' | 'credit_card' | 'visa' | 'mastercard' | 'apple_pay' | 'google_pay' | 'bank_transfer'
  * - amenities:        'pool' | 'breakfast' | 'ac' | 'heating' | 'wifi' | 'rooftop' | 'ensuite' | 'restaurant' | 'bar' | 'gym' | 'elevator' | 'laundry' | 'room-service' | 'pet-friendly'
@@ -170,7 +170,7 @@ import type { SleepListing } from '../types'
  *
  *   paymentMethods: ['card', 'cash'],
  *   languagesSpoken: ['Arabic', 'French', 'English', 'Spanish', 'German'],
- *   groupTypes: ['solo', 'couple', 'family', 'friends', 'seniors', 'kids-friendly', 'large-groups', 'business-friendly'],
+ *   groupTypes: ['solo', 'couple', 'family', 'friends', 'seniors', 'large-groups', 'business-friendly'],
  *
  *   // ═══════════════════════════════════════════════════
  *
@@ -1550,7 +1550,7 @@ export const ouzoudSleep: SleepListing[] = [
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
-    groupTypes: ["solo", "couple", "friends", "solo"],
+    groupTypes: ["solo", "couple", "friends"],
     tip: "Perfect if traveling by bus, as it sits close to the main local taxi drop-off point.",
     vibeTags: ["Budget", "Practical", "Taxi-Access", "Terrace"],
     locationSummary: "Ouzoud Waterfalls - Grand Atlas",
@@ -2012,7 +2012,7 @@ export const ouzoudSleep: SleepListing[] = [
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
-    groupTypes: ["solo", "couple", "friends", "solo"],
+    groupTypes: ["solo", "couple", "friends"],
     tip: "Sit on the terrace at sunset as the red sandstone cliffs glow copper.",
     vibeTags: ["Budget", "Canyon-Views", "Terrace", "Authentic"],
     locationSummary: "Ouzoud Waterfalls - Grand Atlas",
@@ -2129,7 +2129,7 @@ export const ouzoudSleep: SleepListing[] = [
     nearBeach: false,
     nearMosque: true,
     safetyLevel: 4,
-    groupTypes: ["solo", "couple", "friends", "solo"],
+    groupTypes: ["solo", "couple", "friends"],
     tip: "Request extra heavy blankets in winter, as nights in the Atlas foothills get cool.",
     vibeTags: ["Budget", "Quiet-Patio", "Traditional", "Waterfall-Tours"],
     locationSummary: "Ouzoud Waterfalls - Grand Atlas",
@@ -2357,7 +2357,7 @@ export const ouzoudSleep: SleepListing[] = [
     nearBeach: false,
     nearMosque: false,
     safetyLevel: 4,
-    groupTypes: ["solo", "friends", "friends", "solo"],
+    groupTypes: ["solo", "friends"],
     tip: "Walk to the waterfall source at sunrise for birdsong and roaring water before daily crowds arrive.",
     vibeTags: ["Rustic", "Spring-Access", "Backpacker", "Unplugged"],
     locationSummary: "Near Waterfalls - Spring Source Lodge",

@@ -78,43 +78,311 @@ const defaultStays: CuratedCategoryItem[] = [
   }
 ];
 
-const defaultEats: CuratedCategoryItem[] = [
+export const marrakechDishes: CuratedCategoryItem[] = [
   {
-    id: 'seafood-dining',
-    name: 'Fresh Seafood & Marina Dining',
-    emoji: '🦐',
-    description: 'For upscale harbor views, fresh catch of the day, grilled fish, and sophisticated coastal plates.',
-    associatedTags: ['Seafood', 'Marina', 'Upscale']
+    id: 'tanjia-marrakchia',
+    name: 'Tanjia Marrakchia',
+    emoji: '🏺',
+    description: 'The soul of Marrakech: spiced lamb or beef slow-braised for hours inside an earthenware clay urn in the public hammam embers.',
+    associatedTags: ['tanjia', 'moroccan', 'lamb', 'traditional']
   },
   {
-    id: 'traditional-moroccan',
-    name: 'Traditional Moroccan Cuisine',
+    id: 'heritage-lamb-tagine',
+    name: 'Heritage Tagine with Prunes',
     emoji: '🍲',
-    description: 'For authentic tagines, slow-cooked lamb, couscous feasts, and local mint tea spots.',
-    associatedTags: ['Traditional', 'Moroccan', 'Tagine']
+    description: 'Slow-simmered tender meat glazed with caramelized prunes, toasted almonds, sesame seeds, and saffron broth.',
+    associatedTags: ['tagine', 'moroccan', 'prunes', 'traditional']
   },
   {
-    id: 'street-food',
-    name: 'Street Food & Local Markets',
+    id: 'moroccan-pastilla',
+    name: 'Traditional Pastilla',
+    emoji: '🥧',
+    description: 'Crisp layered warqa pastry filled with tender spiced poultry, crushed almonds, cinnamon, and powdered sugar.',
+    associatedTags: ['pastilla', 'moroccan', 'pastry']
+  },
+  {
+    id: 'medina-brochettes',
+    name: 'Medina Charcoal Brochettes',
     emoji: '🍢',
-    description: 'For gritty, ultra-local stalls, grilled skewers, fresh sfenj doughnuts, and cheap eats.',
-    associatedTags: ['Street Food', 'Market', 'Budget']
+    description: 'Freshly minced kefta and spiced lamb skewers grilled over open red embers and tucked into hearth-baked bread.',
+    associatedTags: ['grill', 'street-food', 'kefta', 'brochettes']
   },
   {
-    id: 'cafes-brunch',
-    name: 'International Cafes & Brunch',
-    emoji: '☕',
-    description: 'For western-style specialty coffee, breakfast bowls, pastries, and modern bistros.',
-    associatedTags: ['Café', 'Brunch', 'Coffee']
-  },
-  {
-    id: 'promenades-lounges',
-    name: 'Beachfront Promenades & Lounges',
-    emoji: '🌅',
-    description: 'For dinner with panoramic sunset views, evening drinks, and relaxed lounge music.',
-    associatedTags: ['Rooftop', 'Lounge', 'Views']
+    id: 'pit-roasted-mechoui',
+    name: 'Pit-Roasted Mechoui',
+    emoji: '🍖',
+    description: 'Melt-in-your-mouth whole lamb roasted in subterranean clay ovens until falling off the bone, seasoned with cumin and coarse salt.',
+    associatedTags: ['mechoui', 'lamb', 'traditional', 'roast']
   }
 ];
+
+export const agadirDishes: CuratedCategoryItem[] = [
+  {
+    id: 'grilled-atlantic-sardines',
+    name: 'Grilled Atlantic Sardines',
+    emoji: '🐟',
+    description: 'Fresh morning ocean catch seasoned simply with coarse sea salt, cumin, and fresh lemon, grilled over glowing charcoal.',
+    associatedTags: ['sardines', 'seafood', 'grill', 'atlantic']
+  },
+  {
+    id: 'souss-seafood-tagine',
+    name: 'Souss Seafood Tagine',
+    emoji: '🦐',
+    description: 'White Atlantic fish, calamari, and prawns slow-cooked with tomatoes, sweet bell peppers, and fragrant garlic chermoula.',
+    associatedTags: ['seafood', 'tagine', 'fish', 'prawns']
+  },
+  {
+    id: 'amlou-argan-breakfast',
+    name: 'Souss Amlou & Argan Plate',
+    emoji: '🥣',
+    description: 'Rich stone-ground toasted almond dip whipped with pure culinary argan oil and wild wildflower honey, served with warm bread.',
+    associatedTags: ['amlou', 'argan', 'breakfast', 'berber']
+  },
+  {
+    id: 'calamari-fresh-catch',
+    name: 'Crisp Calamari & Squid',
+    emoji: '🦑',
+    description: 'Tender ocean squid rings delicately fried or pan-seared with garlic parsley butter and spicy harissa.',
+    associatedTags: ['calamari', 'seafood', 'squid']
+  },
+  {
+    id: 'berber-vegetable-tagine',
+    name: 'Berber Souss Tagine',
+    emoji: '🥦',
+    description: 'Pyramid of crisp seasonal valley vegetables stewed with saffron, ginger, and extra virgin olive oil over charcoal brazier.',
+    associatedTags: ['tagine', 'berber', 'vegetarian', 'vegetables']
+  }
+];
+
+export const fesDishes: CuratedCategoryItem[] = [
+  {
+    id: 'fassi-pigeon-pastilla',
+    name: 'Fassi Pigeon & Chicken Pastilla',
+    emoji: '🥧',
+    description: 'The crowning glory of imperial Fes: wafer-thin pastry encasing spiced poultry, eggs, and cinnamon-scented almonds.',
+    associatedTags: ['pastilla', 'fassi', 'moroccan']
+  },
+  {
+    id: 'khlii-with-eggs',
+    name: 'Khlii with Fried Farm Eggs',
+    emoji: '🍳',
+    description: 'Imperial preserved sun-dried beef strips fried in their own aromatic cumin-spiced tallow with fresh runny eggs.',
+    associatedTags: ['khlii', 'breakfast', 'traditional']
+  },
+  {
+    id: 'fassi-lamb-prunes',
+    name: 'Imperial Lamb Tagine',
+    emoji: '🍲',
+    description: 'Centuries-old royal recipe of lamb shank glazed with caramelized quinces, figs, or prunes and toasted sesame.',
+    associatedTags: ['tagine', 'lamb', 'fassi', 'traditional']
+  },
+  {
+    id: 'fassi-harira-chebakia',
+    name: 'Heritage Fassi Harira',
+    emoji: '🥣',
+    description: 'Silky tomato, lentil, and chickpea broth fragrant with fresh celery, cilantro, and ginger, paired with honey chebakia.',
+    associatedTags: ['harira', 'soup', 'chebakia']
+  },
+  {
+    id: 'seffa-medfouna',
+    name: 'Seffa Medfouna',
+    emoji: '🍝',
+    description: 'Steamed delicate vermicelli lightly dusted with cinnamon and sugar, concealing a succulent spiced chicken stew beneath.',
+    associatedTags: ['seffa', 'chicken', 'traditional']
+  }
+];
+
+export const essaouiraDishes: CuratedCategoryItem[] = [
+  {
+    id: 'port-grilled-fish',
+    name: 'Port-Side Grilled Fish Feast',
+    emoji: '🐟',
+    description: 'Selection of fresh sea bream, red mullet, and sardines straight off the wooden blue fishing skiffs and onto the charcoal grill.',
+    associatedTags: ['seafood', 'fish', 'grill', 'port']
+  },
+  {
+    id: 'sardine-kowari-tagine',
+    name: 'Sardine Kowari Tagine',
+    emoji: '🍲',
+    description: 'Hand-minced fresh sardine balls infused with coriander, cumin, and garlic, simmered in a spiced tomato sauce.',
+    associatedTags: ['sardines', 'tagine', 'seafood']
+  },
+  {
+    id: 'essaouira-seafood-pastilla',
+    name: 'Atlantic Seafood Pastilla',
+    emoji: '🥟',
+    description: 'Crispy pastry parcels packed with Atlantic prawns, tender white fish, vermicelli, and mild chili chermoula.',
+    associatedTags: ['pastilla', 'seafood', 'prawns']
+  },
+  {
+    id: 'chermoula-fish-tagine',
+    name: 'Chermoula Ocean Fish Tagine',
+    emoji: '🍅',
+    description: 'Fresh local white fish baked with sweet tomatoes, bell peppers, carrots, and preserved Moroccan lemons.',
+    associatedTags: ['tagine', 'fish', 'seafood']
+  },
+  {
+    id: 'argan-goat-cheese-salad',
+    name: 'Local Goat Cheese & Argan Salad',
+    emoji: '🥗',
+    description: 'Fresh creamy goat cheese from the nearby Argan hills paired with local salad greens and cold-pressed argan oil.',
+    associatedTags: ['argan', 'cheese', 'salad', 'vegetarian']
+  }
+];
+
+export const casablancaDishes: CuratedCategoryItem[] = [
+  {
+    id: 'corniche-fresh-seafood',
+    name: 'Corniche Seafood & Oysters',
+    emoji: '🦪',
+    description: 'Platters of Atlantic oysters, grilled king prawns, and fresh sole overlooking the ocean promenade.',
+    associatedTags: ['seafood', 'oysters', 'prawns', 'fish']
+  },
+  {
+    id: 'royal-seven-vegetable-couscous',
+    name: 'Royal Moroccan Couscous',
+    emoji: '🍲',
+    description: 'Fluffy hand-rolled semolina steamed over fragrant broth, crowned with sweet pumpkin, zucchini, turnips, and tender beef.',
+    associatedTags: ['couscous', 'moroccan', 'vegetables', 'beef']
+  },
+  {
+    id: 'coastal-fish-tagine',
+    name: 'Coastal Fish Tagine',
+    emoji: '🐟',
+    description: 'Tender white fish fillet stewed with tomatoes, red bell peppers, and purple olives in zesty chermoula.',
+    associatedTags: ['fish', 'tagine', 'seafood']
+  },
+  {
+    id: 'street-kefta-merguez',
+    name: 'Charcoal Kefta & Merguez',
+    emoji: '🥖',
+    description: 'Sizzling spicy lamb sausages and minced kefta patties grilled street-side and served in crusty baguettes.',
+    associatedTags: ['street-food', 'kefta', 'grill']
+  },
+  {
+    id: 'traditional-harira-dates',
+    name: 'Evening Harira & Dates',
+    emoji: '🥣',
+    description: 'Rich, warming tomato, chickpea, and coriander soup accompanied by sweet Majhoul dates and sesame pastries.',
+    associatedTags: ['harira', 'soup', 'dates']
+  }
+];
+
+export const tangierDishes: CuratedCategoryItem[] = [
+  {
+    id: 'strait-seafood-paella',
+    name: 'Strait Seafood & Fish Paella',
+    emoji: '🥘',
+    description: 'Mediterranean-influenced rice pan loaded with fresh Gibraltar Strait prawns, calamari, mussels, and saffron.',
+    associatedTags: ['seafood', 'rice', 'paella', 'fish']
+  },
+  {
+    id: 'tangier-calentita',
+    name: 'Tangier Calentita',
+    emoji: '🥧',
+    description: 'Historic Sephardic-Tangier baked chickpea flour tart, served warm and golden with a dusting of roasted cumin and black pepper.',
+    associatedTags: ['calentita', 'street-food', 'chickpea']
+  },
+  {
+    id: 'charcoal-swordfish',
+    name: 'Grilled Swordfish & Prawns',
+    emoji: '🗡️',
+    description: 'Meaty swordfish steaks marinated in garlic and lemon, charred to perfection over glowing lump charcoal.',
+    associatedTags: ['swordfish', 'seafood', 'grill']
+  },
+  {
+    id: 'historic-tea-churros',
+    name: 'Historic Cafe Mint Tea & Churros',
+    emoji: '☕',
+    description: 'Freshly infused northern mint tea served with golden crispy sugar-dusted churros or sfenj.',
+    associatedTags: ['cafe', 'tea', 'churros', 'breakfast']
+  },
+  {
+    id: 'northern-lamb-tagine',
+    name: 'Northern Herb Lamb Tagine',
+    emoji: '🍲',
+    description: 'Slow-braised lamb with sweet tender baby peas, wild artichoke hearts, and aromatic mountain herbs.',
+    associatedTags: ['tagine', 'lamb', 'moroccan']
+  }
+];
+
+export const chefchaouenDishes: CuratedCategoryItem[] = [
+  {
+    id: 'jbel-goat-cheese-honey',
+    name: 'Rif Goat Cheese & Wild Honey',
+    emoji: '🧀',
+    description: 'Fresh soft goat cheese crafted in the Rif mountains, drizzled with fragrant local mountain thyme honey.',
+    associatedTags: ['cheese', 'honey', 'breakfast', 'berber']
+  },
+  {
+    id: 'mountain-bissara',
+    name: 'Steaming Mountain Bissara',
+    emoji: '🥣',
+    description: 'Velvety dried fava bean soup served piping hot in an earthen bowl, swirled with green olive oil, cumin, and paprika.',
+    associatedTags: ['bissara', 'soup', 'vegetarian', 'traditional']
+  },
+  {
+    id: 'rif-mountain-goat-tagine',
+    name: 'Rif Mountain Goat Tagine',
+    emoji: '🍲',
+    description: 'Slow-stewed mountain goat with wild hillside oregano, garlic, and golden baby potatoes in clay.',
+    associatedTags: ['tagine', 'goat', 'traditional']
+  },
+  {
+    id: 'kefta-farm-eggs-tagine',
+    name: 'Kefta & Poached Farm Eggs',
+    emoji: '🍳',
+    description: 'Spiced minced lamb meatballs simmered in fresh tomato-garlic sauce with farm eggs gently poached on top.',
+    associatedTags: ['kefta', 'tagine', 'eggs']
+  },
+  {
+    id: 'hearth-village-bread',
+    name: 'Wood-Fired Bread & Green Olives',
+    emoji: '🥖',
+    description: 'Crusty round semolina bread pulled hot from village community ovens, served with cured mountain olives and olive oil.',
+    associatedTags: ['bread', 'olives', 'breakfast']
+  }
+];
+
+export const rabatDishes: CuratedCategoryItem[] = [
+  {
+    id: 'bouregreg-fish-tagine',
+    name: 'Bouregreg Sea Bass Tagine',
+    emoji: '🐟',
+    description: 'Fresh Atlantic sea bass seasoned with zesty chermoula, layered over sliced potatoes, sweet bell peppers, and preserved lemon.',
+    associatedTags: ['fish', 'tagine', 'seafood']
+  },
+  {
+    id: 'rabat-couscous-tfaya',
+    name: 'Rabat Couscous with Sweet Tfaya',
+    emoji: '🍲',
+    description: 'Traditional Friday dish with tender braised lamb crowned with golden caramelized onions, sweet raisins, and cinnamon.',
+    associatedTags: ['couscous', 'tfaya', 'lamb', 'traditional']
+  },
+  {
+    id: 'cornes-de-gazelle',
+    name: 'Authentic Cornes de Gazelle',
+    emoji: '🥐',
+    description: 'Refined Rabati pastry stuffed with pure almond paste, ground cinnamon, and perfumed with orange blossom water.',
+    associatedTags: ['pastry', 'almond', 'sweets']
+  },
+  {
+    id: 'capital-harira',
+    name: 'Royal Capital Harira',
+    emoji: '🥣',
+    description: 'Rich velvety soup of tomatoes, lentils, and chickpeas infused with fresh herbs and served with honey chebakia.',
+    associatedTags: ['harira', 'soup', 'chebakia']
+  },
+  {
+    id: 'beef-artichoke-tagine',
+    name: 'Beef & Artichoke Heart Tagine',
+    emoji: '🍲',
+    description: 'Tender beef shank gently simmered with baby peas, wild artichoke hearts, and sun-pickled lemons.',
+    associatedTags: ['tagine', 'beef', 'artichoke']
+  }
+];
+
+const defaultEats = marrakechDishes;
 
 const defaultActivities: CuratedCategoryItem[] = [
   {
@@ -204,49 +472,49 @@ const defaultShopping: CuratedCategoryItem[] = [
 
 export const FINDER_CURATED_DATA: Record<string, CityCuratedProfile> = {
   marrakech: {
-    dishes: defaultEats,
+    dishes: marrakechDishes,
     stays: defaultStays,
     activities: defaultActivities,
     shopping: defaultShopping,
   },
   fes: {
-    dishes: defaultEats,
+    dishes: fesDishes,
     stays: defaultStays,
     activities: defaultActivities,
     shopping: defaultShopping,
   },
   casablanca: {
-    dishes: defaultEats,
+    dishes: casablancaDishes,
     stays: defaultStays,
     activities: defaultActivities,
     shopping: defaultShopping,
   },
   agadir: {
-    dishes: defaultEats,
+    dishes: agadirDishes,
     stays: defaultStays,
     activities: defaultActivities,
     shopping: defaultShopping,
   },
   tangier: {
-    dishes: defaultEats,
+    dishes: tangierDishes,
     stays: defaultStays,
     activities: defaultActivities,
     shopping: defaultShopping,
   },
   chefchaouen: {
-    dishes: defaultEats,
+    dishes: chefchaouenDishes,
     stays: defaultStays,
     activities: defaultActivities,
     shopping: defaultShopping,
   },
   essaouira: {
-    dishes: defaultEats,
+    dishes: essaouiraDishes,
     stays: defaultStays,
     activities: defaultActivities,
     shopping: defaultShopping,
   },
   rabat: {
-    dishes: defaultEats,
+    dishes: rabatDishes,
     stays: defaultStays,
     activities: defaultActivities,
     shopping: defaultShopping,

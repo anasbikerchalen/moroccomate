@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState, useMemo } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { MapPin, ChevronDown, ChevronUp, ArrowRight, Heart, Check } from 'lucide-react';
 import { SEO } from '../components/ui/SEO';
@@ -8,7 +8,7 @@ import { useExploreStore } from '../state/exploreStore';
 import { useSavedStore } from '../state/savedStore';
 import FavoritesDrawer from '../components/finder/FavoritesDrawer';
 import { cities } from '../data/cities';
-import { isCityTouristicOrMid, getCityProfile } from '../data/touristicHierarchy';
+import { getCityTier, getCityProfile, CityTier } from '../data/touristicHierarchy';
 import { getListings } from '../listings';
 import heroIllustration from '../assets/images/finder/finder_hero_matte_1786297047661.jpg';
 import logoImg from '../assets/images/logo.png';
@@ -69,6 +69,7 @@ export default function HomePage() {
   const navigate = useNavigate();
   const [selectedCity, setLocalCity] = useState<string>('');
   const [selectedCategory, setLocalCategory] = useState<string | null>(null);
+  const [selectedTier, setSelectedTier] = useState<CityTier>('touristic');
   const [showAllCities, setShowAllCities] = useState(false);
   const [favoritesOpen, setFavoritesOpen] = useState(false);
   const bookmarks = useSavedStore((state) => state.bookmarks);
@@ -77,26 +78,39 @@ export default function HomePage() {
   const setActiveCategory = useExploreStore((state) => state.setActiveCategory);
   const setExploreView = useExploreStore((state) => state.setView);
 
-  // Only Touristic and Mid-Touristic cities (Low-Touristic are excluded)
-  const activeCities = cities.filter((c: any) => {
-    if (!isCityTouristicOrMid(c.id)) return false;
-    const count = getListings(c.id).length;
-    return count > 0 || c.isPrimary;
-  });
+  // 3-Tier organization matching touristic_organization.md
+  const touristicCities = useMemo(() => {
+    const list = cities.filter((c: any) => getCityTier(c.id) === 'touristic');
+    const ordered: any[] = [];
+    for (const name of RECOMMENDED_CITY_NAMES) {
+      const found = list.find((r: any) => r.name === name);
+      if (found) ordered.push(found);
+    }
+    const rest = list.filter((r: any) => !ordered.some((o: any) => o.id === r.id));
+    return [...ordered, ...rest];
+  }, []);
 
-  const recommendedCities = activeCities.filter((c: any) => {
-    const prof = getCityProfile(c.id);
-    return prof?.tier === 'touristic' || RECOMMENDED_CITY_NAMES.includes(c.name);
-  });
+  const midCities = useMemo(() => {
+    return cities.filter((c: any) => getCityTier(c.id) === 'mid');
+  }, []);
 
-  const orderedRecommended: any[] = [];
-  for (const name of RECOMMENDED_CITY_NAMES) {
-    const found = recommendedCities.find((r: any) => r.name === name);
-    if (found) orderedRecommended.push(found);
-  }
-  const restRecommended = recommendedCities.filter((r: any) => !orderedRecommended.some((o: any) => o.id === r.id));
-  const allRecommendedOrdered = [...orderedRecommended, ...restRecommended];
-  const visibleCities = showAllCities ? activeCities : allRecommendedOrdered.slice(0, 6);
+  const lowCities = useMemo(() => {
+    return cities.filter((c: any) => getCityTier(c.id) === 'low');
+  }, []);
+
+  const currentTierCities = useMemo(() => {
+    if (selectedTier === 'touristic') return touristicCities;
+    if (selectedTier === 'mid') return midCities;
+    return lowCities;
+  }, [selectedTier, touristicCities, midCities, lowCities]);
+
+  const visibleCities = showAllCities ? currentTierCities : currentTierCities.slice(0, 8);
+
+  const TIER_TABS: { id: CityTier; label: string; count: number; tooltip: string }[] = [
+    { id: 'touristic', label: 'Touristic Hubs', count: touristicCities.length, tooltip: 'Prime tourist cities with major heritage and seaside hubs' },
+    { id: 'mid', label: 'Mid-Touristic', count: midCities.length, tooltip: 'Regional gems, ecotourism, surf & cultural destinations' },
+    { id: 'low', label: 'Authentic & Off-Path', count: lowCities.length, tooltip: 'Real local living, traditional markets, and untouristed Morocco' },
+  ];
 
   const isAwaitingCity = Boolean(selectedCategory && !selectedCity);
 
@@ -110,6 +124,10 @@ export default function HomePage() {
 
   const handleCitySelect = (cityId: string) => {
     setLocalCity(cityId);
+    const tier = getCityTier(cityId);
+    if (tier !== selectedTier) {
+      setSelectedTier(tier);
+    }
     if (selectedCategory) {
       goFinder(cityId, selectedCategory);
     }
@@ -190,8 +208,38 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.25, ease: 'easeOut' }}
-            className="mt-6 md:mt-8 w-full max-w-[760px]"
+            className="mt-6 md:mt-8 w-full max-w-[840px]"
           >
+            {/* 3-Tier Segmented Tabs */}
+            <div className="flex items-center justify-center p-1 bg-[#F5EBE1]/90 backdrop-blur-xs border border-[#EADBCE] rounded-full max-w-fit mx-auto mb-3.5 shadow-xs">
+              {TIER_TABS.map((tab) => {
+                const isActive = selectedTier === tab.id;
+                return (
+                  <button
+                    key={tab.id}
+                    type="button"
+                    onClick={() => {
+                      setSelectedTier(tab.id);
+                      setShowAllCities(false);
+                    }}
+                    title={tab.tooltip}
+                    className={`px-3 sm:px-4 py-1.5 rounded-full text-xs font-sans font-semibold transition-all duration-200 cursor-pointer flex items-center gap-1.5 ${
+                      isActive
+                        ? 'bg-white text-[#29231F] shadow-xs border border-[#EADBCE]'
+                        : 'text-[#71685F] hover:text-[#29231F] hover:bg-white/40'
+                    }`}
+                  >
+                    <span>{tab.label}</span>
+                    <span className={`text-[10px] font-normal px-1.5 py-0.2 rounded-full ${
+                      isActive ? 'bg-[#FAF7F2] text-[#C9A84C] font-bold' : 'text-[#71685F]'
+                    }`}>
+                      {tab.count}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+
             <div className={`bg-[#FFFDF9]/95 backdrop-blur-sm border rounded-full px-4 py-2 flex items-center justify-center gap-2 md:gap-2.5 flex-wrap transition-all duration-300 ${
               isAwaitingCity
                 ? 'gold-breathe border-[#C9A84C] ring-2 ring-[#C9A84C]/35 shadow-[0_8px_32px_rgba(201,168,76,0.22)]'
@@ -204,7 +252,9 @@ export default function HomePage() {
                   Step 2: Pick your city
                 </span>
               ) : (
-                <span className="font-sans text-[11px] font-bold uppercase tracking-[0.16em] text-[#71685F] mr-1">Choose a city</span>
+                <span className="font-sans text-[11px] font-bold uppercase tracking-[0.16em] text-[#71685F] mr-1">
+                  {selectedTier === 'touristic' ? 'Touristic' : selectedTier === 'mid' ? 'Mid-Touristic' : 'Authentic'}
+                </span>
               )}
 
               {/* Show compact visible cities only when not expanded to avoid duplication */}
@@ -228,18 +278,20 @@ export default function HomePage() {
                 </a>
               ))}
 
-              <button
-                onClick={() => setShowAllCities(!showAllCities)}
-                aria-label={showAllCities ? 'Hide all cities' : 'Show all cities'}
-                className="w-8 h-8 rounded-full flex items-center justify-center text-[#71685F] hover:bg-[#F5EBE1] hover:text-[#C9A84C] transition-all duration-200 cursor-pointer shrink-0"
-              >
-                {showAllCities ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-              </button>
+              {currentTierCities.length > 8 && (
+                <button
+                  onClick={() => setShowAllCities(!showAllCities)}
+                  aria-label={showAllCities ? 'Hide extra cities' : `Show all ${currentTierCities.length} cities`}
+                  className="w-8 h-8 rounded-full flex items-center justify-center text-[#71685F] hover:bg-[#F5EBE1] hover:text-[#C9A84C] transition-all duration-200 cursor-pointer shrink-0"
+                >
+                  {showAllCities ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                </button>
+              )}
             </div>
 
             {showAllCities && (
               <div className="mt-3 flex flex-wrap justify-center gap-2">
-                {activeCities.map((c: any) => (
+                {currentTierCities.map((c: any) => (
                   <a
                     key={c.id}
                     href={`/finder/${c.id.toLowerCase()}/${selectedCategory || 'sleep'}`}
@@ -277,10 +329,8 @@ export default function HomePage() {
                     whileHover={{ y: active ? -4 : -3 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={(e) => {
-                      if (!selectedCity) {
-                        e.preventDefault();
-                        handleCategoryClick(cat.id);
-                      }
+                      e.preventDefault();
+                      handleCategoryClick(cat.id);
                     }}
                     className={`relative group text-left rounded-[28px] p-4 md:p-5 flex sm:flex-col gap-4 border transition-all duration-300 cursor-pointer ${
                       active
@@ -331,6 +381,48 @@ export default function HomePage() {
       <div className="max-w-[1200px] mx-auto px-6 md:px-10 pb-10">
         <div className="pt-8 border-t border-[#E9D8C8]/60">
           <h3 className="font-sans text-xs font-bold uppercase tracking-wider text-[#71685F] mb-4">
+            Featured Places to Eat, Stay & Shop in Morocco
+          </h3>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
+            <div className="space-y-2">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-[#C2613C] block">Where to Eat</span>
+              <ul className="space-y-1.5 text-xs">
+                <li><Link to="/place/marrakech/food/al-fassia" className="text-[#29231F] hover:text-[#C85A32] transition-colors">Al Fassia (Marrakech)</Link></li>
+                <li><Link to="/place/marrakech/food/le-jardin" className="text-[#29231F] hover:text-[#C85A32] transition-colors">Le Jardin (Marrakech)</Link></li>
+                <li><Link to="/place/casablanca/food/ricks-cafe" className="text-[#29231F] hover:text-[#C85A32] transition-colors">Rick's Café (Casablanca)</Link></li>
+                <li><Link to="/place/fes/food/dar-roumana" className="text-[#29231F] hover:text-[#C85A32] transition-colors">Dar Roumana (Fès)</Link></li>
+              </ul>
+            </div>
+            <div className="space-y-2">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-[#D99A30] block">Where to Stay</span>
+              <ul className="space-y-1.5 text-xs">
+                <li><Link to="/place/marrakech/sleep/la-mamounia" className="text-[#29231F] hover:text-[#C85A32] transition-colors">La Mamounia (Marrakech)</Link></li>
+                <li><Link to="/place/fes/sleep/riad-fes-relais-chateaux" className="text-[#29231F] hover:text-[#C85A32] transition-colors">Riad Fès (Fès)</Link></li>
+                <li><Link to="/place/chefchaouen/sleep/lina-ryad-spa" className="text-[#29231F] hover:text-[#C85A32] transition-colors">Lina Ryad & Spa (Chefchaouen)</Link></li>
+                <li><Link to="/place/fes/sleep/hotel-sahrai" className="text-[#29231F] hover:text-[#C85A32] transition-colors">Hotel Sahrai (Fès)</Link></li>
+              </ul>
+            </div>
+            <div className="space-y-2">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-[#C9A84C] block">Local Shopping</span>
+              <ul className="space-y-1.5 text-xs">
+                <li><Link to="/place/marrakech/shopping/ensemble-artisanal" className="text-[#29231F] hover:text-[#C85A32] transition-colors">Ensemble Artisanal (Marrakech)</Link></li>
+                <li><Link to="/place/fes/shopping/art-naji-fes-zellige-ceramics" className="text-[#29231F] hover:text-[#C85A32] transition-colors">Art Naji Ceramics (Fès)</Link></li>
+                <li><Link to="/place/fes/shopping/terrasse-tannerie-chouara-leather-shops" className="text-[#29231F] hover:text-[#C85A32] transition-colors">Chouara Leather (Fès)</Link></li>
+                <li><Link to="/finder/marrakech/shopping" className="text-[#29231F] hover:text-[#C85A32] transition-colors">Explore All Marrakech Shops &rarr;</Link></li>
+              </ul>
+            </div>
+            <div className="space-y-2">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-[#8A6D1F] block">Things to Do</span>
+              <ul className="space-y-1.5 text-xs">
+                <li><Link to="/things/marrakech/bahia-palace" className="text-[#29231F] hover:text-[#C85A32] transition-colors">Bahia Palace (Marrakech)</Link></li>
+                <li><Link to="/things/marrakech/jardin-majorelle" className="text-[#29231F] hover:text-[#C85A32] transition-colors">Jardin Majorelle (Marrakech)</Link></li>
+                <li><Link to="/things/casablanca/hassan-ii-mosque" className="text-[#29231F] hover:text-[#C85A32] transition-colors">Hassan II Mosque (Casablanca)</Link></li>
+                <li><Link to="/finder/marrakech/things-to-do" className="text-[#29231F] hover:text-[#C85A32] transition-colors">Explore All Activities &rarr;</Link></li>
+              </ul>
+            </div>
+          </div>
+
+          <h3 className="font-sans text-xs font-bold uppercase tracking-wider text-[#71685F] mb-4">
             Popular Search Highlights & Filter Guides
           </h3>
           <div className="flex flex-wrap gap-2.5">
@@ -348,13 +440,13 @@ export default function HomePage() {
               { title: 'Hotels with Mountain Views in Chefchaouen', url: '/finder/chefchaouen/sleep/mountain-view' },
               { title: 'Desert Camps & Stays in Merzouga', url: '/finder/merzouga/sleep/desert-camps' },
             ].map((linkItem) => (
-              <a
+              <Link
                 key={linkItem.url}
-                href={linkItem.url}
+                to={linkItem.url}
                 className="px-3.5 py-1.5 rounded-full text-xs font-medium bg-[#FAF7F2] text-[#29231F] hover:bg-[#FAF3EA] hover:text-[#C85A32] border border-[#E9D8C8] transition-colors"
               >
                 {linkItem.title}
-              </a>
+              </Link>
             ))}
           </div>
         </div>
@@ -362,7 +454,7 @@ export default function HomePage() {
         <div className="mt-12 pt-6 border-t border-[#E9D8C8]/60 flex flex-col sm:flex-row items-center justify-between text-xs text-[#71685F] gap-3">
           <p>© {new Date().getFullYear()} Moroccan Mate · Independent Morocco Guide</p>
           <div className="flex items-center gap-4">
-            <a href="/finder" className="hover:text-[#C9A84C] transition-colors">Browse Finder</a>
+            <Link to="/finder" className="hover:text-[#C9A84C] transition-colors">Browse Finder</Link>
             <a href="/sitemap.xml" className="hover:text-[#C9A84C] transition-colors">Sitemap</a>
           </div>
         </div>

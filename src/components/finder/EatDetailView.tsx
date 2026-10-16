@@ -25,6 +25,7 @@ import { useNavigate } from 'react-router-dom';
 import { WalkingDistanceMap } from './stay/WalkingDistanceMap';
 import { computePoiNearbyPlaces } from '../../engine/proximityEngine';
 import { getCityCenter } from '../../engine/stayAdapter';
+import { getPlaceSlugById, buildPlaceUrl } from '../../listings/placeRoutes';
 
 interface EatDetailViewProps {
   item: any;
@@ -248,43 +249,13 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
     return list;
   }, [groupTypes, crowdLevel, lifestyle, hasEnglishStaff]);
 
-  // Verified Dishes: pulls authentic dishes from backend database or derives cuisine-specific highlights
+  // Verified Dishes: pulls authentic dishes from data file ONLY. Zero hallucination.
   const finalBestDishes = useMemo(() => {
-    if (Array.isArray(bestDishes) && bestDishes.length > 0) return bestDishes;
-    
-    // Dynamic cuisine-aware derivation based on styles, primaryCuisine, and listing details
-    const safeFoodStyles = Array.isArray(foodStyles) ? foodStyles : typeof foodStyles === 'string' ? [foodStyles] : [];
-    const descriptor = [...safeFoodStyles, primaryCuisine, name, description].join(' ').toLowerCase();
-    
-    if (descriptor.includes('burger') || descriptor.includes('american') || descriptor.includes('mcdonald') || descriptor.includes('burger king')) {
-      return ['Signature Flame-Grilled Burger', 'Crispy Golden Fries', 'Thick Handspun Milkshake'];
+    if (Array.isArray(bestDishes) && bestDishes.length > 0) {
+      return bestDishes;
     }
-    if (descriptor.includes('chicken') || descriptor.includes('kfc') || descriptor.includes('poulet')) {
-      return ['Crispy Fried Chicken Platter', 'Spiced Tender Strips', 'Seasoned Golden Fries'];
-    }
-    if (descriptor.includes('pizza') || descriptor.includes('domino') || descriptor.includes('italian')) {
-      return ['Wood-Fired Artisanal Pizza', 'Fresh Handmade Pasta', 'Garlic Bread & Mixed Greens'];
-    }
-    if (descriptor.includes('seafood') || descriptor.includes('fish') || descriptor.includes('poisson') || descriptor.includes('ocean')) {
-      return ['Fresh Catch of the Day', 'Grilled Chermoula Sardines', 'Seafood Paella & Calamari'];
-    }
-    if (descriptor.includes('cafe') || descriptor.includes('coffee') || descriptor.includes('pastry') || descriptor.includes('tea') || descriptor.includes('breakfast')) {
-      return ['Specialty Roast Coffee', 'Fresh Flaky Croissant', 'Artisanal Moroccan Mint Tea'];
-    }
-    if (descriptor.includes('french') || descriptor.includes('bistro')) {
-      return ['Classic Steak Frites', 'Pan-Seared Duck Confit', 'Fresh Seasonal Fruit Tart'];
-    }
-    if (descriptor.includes('asian') || descriptor.includes('sushi') || descriptor.includes('japanese') || descriptor.includes('noodles')) {
-      return ['Signature Sushi Platter', 'Fresh Salmon Sashimi', 'Handcrafted Steamed Dumplings'];
-    }
-    if (descriptor.includes('snack') || descriptor.includes('fast food') || descriptor.includes('sandwich')) {
-      return ['Toasted Kefta Panini', 'Crispy Golden Wedges', 'Fresh Pressed Orange Juice'];
-    }
-    if (descriptor.includes('international') || descriptor.includes('fusion') || descriptor.includes('mediterranean')) {
-      return ["Chef's Daily Creation", 'Seasonal Market Plate', 'House Special Dessert'];
-    }
-    return ['Slow-Cooked Heritage Tagine', 'Seven-Vegetable Steamed Couscous', 'Traditional Moroccan Pastilla'];
-  }, [bestDishes, foodStyles, primaryCuisine, name, description]);
+    return [];
+  }, [bestDishes]);
 
   // Peer Eat Listings from Registry (bottom section)
   const peerListings = useMemo(() => {
@@ -1022,28 +993,45 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
             </button>
           </div>
 
-          {/* Dish cards grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3.5 mb-6">
-            {finalBestDishes.map((dishName: string, idx: number) => (
-              <div 
-                key={idx} 
-                className="group p-4 rounded-2xl border border-stone-200/80 bg-stone-50/60 hover:bg-stone-50 hover:border-[#D4863A]/40 transition-all flex flex-col justify-between"
-              >
-                <div className="w-full h-24 rounded-xl mb-3 flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-[#F6EFE5] to-[#EDE0D0] border border-[#E3D6C5]">
-                  <div className="absolute inset-0 bg-[radial-gradient(#C9A84C_1px,transparent_1px)] [background-size:16px_16px] opacity-15 pointer-events-none" />
-                  <UtensilsCrossed className="w-7 h-7 text-[#C2613C] relative z-10 group-hover:scale-110 transition-transform" />
+          {/* Dish cards grid or honest uncataloged status */}
+          {finalBestDishes.length > 0 ? (
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3.5 mb-6">
+              {finalBestDishes.map((dishName: string, idx: number) => (
+                <div 
+                  key={idx} 
+                  className="group p-4 rounded-2xl border border-stone-200/80 bg-stone-50/60 hover:bg-stone-50 hover:border-[#D4863A]/40 transition-all flex flex-col justify-between"
+                >
+                  <div className="w-full h-24 rounded-xl mb-3 flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-[#F6EFE5] to-[#EDE0D0] border border-[#E3D6C5]">
+                    <div className="absolute inset-0 bg-[radial-gradient(#C9A84C_1px,transparent_1px)] [background-size:16px_16px] opacity-15 pointer-events-none" />
+                    <UtensilsCrossed className="w-7 h-7 text-[#C2613C] relative z-10 group-hover:scale-110 transition-transform" />
+                  </div>
+                  <div>
+                    <h5 className="text-xs font-bold text-stone-900 line-clamp-2 min-h-[32px] leading-snug">
+                      {dishName}
+                    </h5>
+                    <span className="inline-block mt-2 text-[10px] uppercase font-bold tracking-wider text-amber-800 bg-amber-500/15 px-2 py-0.5 rounded-md border border-amber-500/25">
+                      Verified Dish
+                    </span>
+                  </div>
                 </div>
-                <div>
-                  <h5 className="text-xs font-bold text-stone-900 line-clamp-2 min-h-[32px] leading-snug">
-                    {dishName}
-                  </h5>
-                  <span className="inline-block mt-2 text-[10px] uppercase font-bold tracking-wider text-amber-800 bg-amber-500/15 px-2 py-0.5 rounded-md border border-amber-500/25">
-                    Verified Dish
-                  </span>
-                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="p-5 rounded-2xl border border-dashed border-stone-200 bg-stone-50/50 mb-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="flex items-center gap-3 text-stone-600 text-xs">
+                <Info className="w-4 h-4 text-stone-400 shrink-0" />
+                <span>
+                  Individual signature plates have not been cataloged yet for this venue. Browse their official menu or consult the host for seasonal daily specials.
+                </span>
               </div>
-            ))}
-          </div>
+              <button
+                onClick={() => setShowMenuModal(true)}
+                className="px-4 py-2 bg-white hover:bg-stone-50 text-stone-800 border border-stone-200 rounded-xl text-xs font-bold shrink-0 transition-colors shadow-2xs cursor-pointer"
+              >
+                View Menu Details
+              </button>
+            </div>
+          )}
 
           {/* Real Beverage Policy & Average Cost */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-4 border-t border-stone-100">
@@ -1309,14 +1297,19 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {peerListings.map((peer: any, idx: number) => {
                 const peerRating = getListingRating(peer);
+                const peerCity = String(peer.city || cityKey).toLowerCase();
+                const peerSlug = getPlaceSlugById(peerCity, 'food', peer.id) || (peer.name ? peer.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') : peer.id);
+                const peerUrl = buildPlaceUrl(peerCity, 'food', peerSlug);
                 return (
-                  <div
+                  <a
                     key={idx}
-                    onClick={() => {
+                    href={peerUrl}
+                    onClick={(e) => {
+                      e.preventDefault();
                       useExploreStore.getState().setActiveItem(peer.id);
-                      navigate(`/place/${peer.city || cityKey}/food/${peer.id}`);
+                      navigate(peerUrl);
                     }}
-                    className="group bg-white rounded-2xl border border-stone-200/90 p-4 hover:shadow-md hover:border-[#234E35]/60 transition-all cursor-pointer flex flex-col justify-between space-y-3"
+                    className="group bg-white rounded-2xl border border-stone-200/90 p-4 hover:shadow-md hover:border-[#234E35]/60 transition-all cursor-pointer flex flex-col justify-between space-y-3 no-underline text-inherit"
                   >
                     <div>
                       <div className="flex items-center justify-between gap-2 mb-1.5">
@@ -1339,7 +1332,7 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
                         <ChevronRight className="w-4 h-4" />
                       </span>
                     </div>
-                  </div>
+                  </a>
                 );
               })}
             </div>

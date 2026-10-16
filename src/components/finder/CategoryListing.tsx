@@ -6,7 +6,7 @@ import { cn } from '../../utils/cn';
 import { useParameterStore } from '../../state/parameterStore';
 import { getListings } from '../../listings';
 import { getListingUrl } from '../../listings/placeRoutes';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import FilterPanel from './modals/FilterPanel';
 import { SavvyScoreEngine } from '../../engine/savvyScoreEngine';
 import SavvyBadge from '../savvy/SavvyBadge';
@@ -251,11 +251,13 @@ export default function CategoryListing() {
           }
 
           // Shop category: template-designed cards (sleep-shop-template design)
+          const listingUrl = getListingUrl(item) || `/finder/${item.city || city || 'marrakech'}/${item.id}`;
+
           if (isShopping) {
             return (
-              <div
+              <Link
                 key={item.id}
-                onClick={() => openListing(item)}
+                to={listingUrl}
                 className="bg-white rounded-2xl border border-[#E8DDD0] overflow-hidden hover:shadow-md hover:border-[#C4973A] transition-all flex flex-col cursor-pointer group"
               >
                 <div className="p-5 flex-1 flex flex-col">
@@ -315,15 +317,15 @@ export default function CategoryListing() {
                     </span>
                   </div>
                 </div>
-              </div>
+              </Link>
             );
           }
 
           return (
-            <div
+            <Link
               key={item.id}
-              onClick={() => openListing(item)}
-              className="p-4 md:p-6 bg-white border border-stone-100 rounded-[32px] text-left flex flex-col sm:flex-row gap-5 hover:shadow-md transition-all cursor-pointer hover:border-[#C9A84C]/30 items-stretch sm:items-center"
+              to={listingUrl}
+              className="p-4 md:p-6 bg-white border border-stone-100 rounded-[32px] text-left flex flex-col sm:flex-row gap-5 hover:shadow-md transition-all cursor-pointer hover:border-[#C9A84C]/30 items-stretch sm:items-center group"
             >
               {/* No-Image Slot — category icon + Google Maps photos link */}
               <div className="w-full sm:w-40 h-36 sm:h-32 rounded-2xl overflow-hidden shrink-0 relative
@@ -359,7 +361,7 @@ export default function CategoryListing() {
 
               <div className="space-y-2 flex-1 min-w-0">
                 <div className="flex items-center gap-2.5 flex-wrap">
-                  <h3 className="font-bold text-lg text-stone-850 flex items-center gap-1.5 truncate">
+                  <h3 className="font-bold text-lg text-stone-850 flex items-center gap-1.5 truncate group-hover:text-[#C9A84C] transition-colors">
                     {isShopping && (item as any).isVerified && (
                       <span className="text-emerald-600 text-sm" title="Verified Authentic Shop">🛡️</span>
                     )}
@@ -403,14 +405,11 @@ export default function CategoryListing() {
                 )}
               </div>
               <div className="flex items-center gap-2 shrink-0 md:self-center">
-                <button
-                  onClick={() => openListing(item)}
-                  className="text-[#C9A84C] hover:text-[#b49542] font-black tracking-wider text-xs uppercase transition-colors shrink-0"
-                >
+                <span className="text-[#C9A84C] group-hover:text-[#b49542] font-black tracking-wider text-xs uppercase transition-colors shrink-0">
                   View Details →
-                </button>
+                </span>
               </div>
-            </div>
+            </Link>
           );
         })}
       </div>

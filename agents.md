@@ -44,3 +44,11 @@ All agent workflows must operate within this deterministic lifecycle:
 * [`/tasks_by_manager.md`](./tasks_by_manager.md) — The Manager's Task Backlog for data gaps, enhancements, and follow-ups.
 * `/src/listings/types.ts` — Core TypeScript data contracts.
 * `/src/data/controllers/` — Data controllers and query helpers.
+
+---
+
+## 5. Communication Style & Tone
+
+* **Human-Friendly Summaries**: Do not respond with long lists of code files, file paths, or dense technical jargon. Keep answers simple, natural, clear, and easy to read.
+* **Direct Instruction**: *dont answer me this way (texts with files name) i dont want to read thechniclas, im not rebot, i want to read human text (summary, easy language)*
+
