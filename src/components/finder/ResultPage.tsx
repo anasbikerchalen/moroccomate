@@ -31,6 +31,7 @@ import { getShopStatus } from '../../utils/timeEngine';
 import FilterPanel from './modals/FilterPanel';
 import { ARCHETYPE_METADATA } from '../../data/explore/archetypes';
 import { getTagForOptionId, getQuizWeightForQuestionId, QUIZ_STOP_WORDS, getAllQuizQuestions, getQuizOptionLabel, type QuizQuestion } from '../../data/explore/questions';
+import { THINGS_QUIZ_FILTERS, evaluateThingsQuizAnswer, THINGS_TREE_ROOT_ID, THINGS_TREE_FOLLOW_UP_QUESTION_IDS } from '../../data/explore/thingsQuiz';
 import { cn } from '../../utils/cn';
 import { useNavigate, useParams, useLocation } from 'react-router-dom';
 import { SEO } from '../ui/SEO';
@@ -369,6 +370,22 @@ export default function ResultPage() {
             if (!answerId) return;
             totalCriteria += weightGain;
 
+            // Decision-tree answers (Things To Do) score against the structured
+            // FILTER ARRAYS in data/explore/thingsQuiz.ts
+            if (THINGS_QUIZ_FILTERS[String(answerId)]) {
+              const treeResult = evaluateThingsQuizAnswer(item, String(answerId));
+              if (treeResult === 'match') {
+                matchScore += weightGain;
+                matchedTags.push(getQuizOptionLabel(questionId, answerId));
+              } else if (treeResult === 'miss') {
+                matchScore += missPenalty;
+                missedTags.push(getQuizOptionLabel(questionId, answerId));
+              } else {
+                // Neutral: the listing data cannot confirm or deny - not counted
+                totalCriteria -= weightGain;
+              }
+              return;
+            }
             if (questionId === 'base-lifestyle' || questionId === 'ft-style') {
                const tag = getTagForOptionId(answerId);
                // Shops store spending style as the structured priceLevel (canonical shop
@@ -646,6 +663,12 @@ export default function ResultPage() {
         label: labels,
         question,
         onRemove: () => {
+          // Decision-tree: removing the Road answer also drops the old road's follow-ups
+          if (questionId === THINGS_TREE_ROOT_ID) {
+            const cleaned = { ...quizAnswers };
+            THINGS_TREE_FOLLOW_UP_QUESTION_IDS.forEach(id => delete cleaned[id]);
+            useExploreStore.setState({ quizAnswers: cleaned });
+          }
           setQuizAnswer(questionId, Array.isArray(answerValue) ? [] : null);
           // Also clear auto-filters that came from this answer
           if (questionId === 'base-group') setFilter('isKidFriendly', false);
@@ -973,6 +996,12 @@ export default function ResultPage() {
                                         const next = arr.includes(opt.id) ? arr.filter(v => v !== opt.id) : [...arr, opt.id];
                                         setQuizAnswer(pill.questionId, next);
                                       } else {
+                                        // Decision-tree: switching the Road drops the old road's answers
+                                        if (pill.questionId === THINGS_TREE_ROOT_ID && quizAnswers[pill.questionId] !== opt.id) {
+                                          const cleaned = { ...quizAnswers };
+                                          THINGS_TREE_FOLLOW_UP_QUESTION_IDS.forEach(id => delete cleaned[id]);
+                                          useExploreStore.setState({ quizAnswers: cleaned });
+                                        }
                                         setQuizAnswer(pill.questionId, opt.id);
                                         setEditingQuestionId(null);
                                       }

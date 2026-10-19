@@ -29,7 +29,7 @@ export const SEO: React.FC<SEOProps> = ({
   schemaData,
   faq
 }) => {
-  const BASE_URL = 'https://moroccanmate.com';
+  const BASE_URL = 'https://www.moroccanmate.com';
   const siteName = 'Moroccan Mate';
   const fullTitle = title 
     ? (title.toLowerCase().includes(siteName.toLowerCase()) ? title : `${title} | ${siteName}`) 

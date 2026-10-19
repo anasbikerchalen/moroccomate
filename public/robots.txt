@@ -5,4 +5,4 @@ Allow: /
 Disallow: /*start=quiz*
 Disallow: /*view=quiz*
 
-Sitemap: https://moroccanmate.com/sitemap.xml
+Sitemap: https://www.moroccanmate.com/sitemap.xml

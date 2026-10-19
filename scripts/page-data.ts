@@ -20,7 +20,7 @@ import { cityMap } from '../src/data/cities';
 import { getStayOwnerAnswer } from '../src/engine/stayAdapter';
 import { CITY_SEARCH_INTENTS, getSearchIntent, doesListingMatchIntent } from '../src/data/seo/searchIntents';
 
-export const BASE_URL = 'https://moroccanmate.com';
+export const BASE_URL = 'https://www.moroccanmate.com';
 export const DEFAULT_OG_IMAGE = `${BASE_URL}/assets/home/backgrounds/homepage_default_image.jpg`;
 
 export interface IndexablePage {

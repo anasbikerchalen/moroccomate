@@ -444,7 +444,7 @@ export interface ThingToDoListing {
   bestTimeToVisit?: string          // D3
   typicalWaitTimeMinutes?: number   // D5
   seasonality?: string              // D7
-  ticketTypes?: { name: string; price: number }[] // E3
+  ticketTypes?: { name: string; price: number; currency?: string; category?: string; conditions?: string }[] // E3
   discountsInfo?: string            // E4
   includedServices?: string[]       // E5
   hiddenCostsInfo?: string          // E6
@@ -459,7 +459,7 @@ export interface ThingToDoListing {
   safetyNotes?: string              // H6
   languages?: string[]              // H7
   visitorQuotes?: { quote: string; author: string; type: string; rating: number }[] // I1, C2
-  nearbyCombos?: { name: string; type: 'eat' | 'visit' | 'shop' | 'sleep'; id?: string }[] // J1-J3
+  nearbyCombos?: { name: string; type: 'eat' | 'visit' | 'shop' | 'sleep'; id?: string; distanceKm?: number; recommendedTransition?: string }[] // J1-J3
   storyTitle?: string               // K-level
   history?: string                  // K1
   culturalImportance?: string       // K2
@@ -484,6 +484,19 @@ export interface ThingToDoListing {
   duration?: string;
   equipmentIncluded?: boolean;
   instructorAvailable?: boolean;
+
+  // Operational extension fields (optional — enriched real data; see shared/thingsBible.ts)
+  // Placeholders use the value "not available" until real data is collected.
+  badges?: string[];
+  transportModes?: string[];
+  accessibilityFeatures?: string[];
+  openingHoursStructured?: { dayOfWeek: number; open: string; close: string }[];
+  paymentMethods?: string[];
+  amenities?: string[];
+  restrictions?: string[];
+  healthContraindications?: string[];
+  tips?: string[];
+  excludedServices?: string[];
 }
 
 export type PricingModel = 'fixed' | 'negotiable' | 'mixed' | 'market_price'

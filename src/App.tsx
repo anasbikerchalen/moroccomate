@@ -32,6 +32,10 @@ const FinderPage = lazyWithRetry(() => import('./components/finder/FinderPage'))
 const ExplorePage = lazyWithRetry(() => import('./components/finder/ExplorePage'));
 const ThingsListingPage = lazyWithRetry(() => import('./pages/ThingsListingPage'));
 const PlaceListingPage = lazyWithRetry(() => import('./pages/PlaceListingPage'));
+// 🧪 PROTOTYPE — design review page for the "Things You're Worried About!" section.
+// TEMPORARY: remove this import + the /prototype/worries route below once the
+// section is implemented on the real listing pages (or if the prototype is rejected).
+const WorriesPrototypePage = lazyWithRetry(() => import('./pages/WorriesPrototypePage'));
 
 /**
  * Moroccan Mate — standalone Finder website.
@@ -55,6 +59,8 @@ export default function App() {
         <Route path="/place/:city/:category/:slug" element={<PlaceListingPage />} />
         <Route path="/place/:city/:categoryOrSlug" element={<PlaceListingPage />} />
         <Route path="/things/:city/:slug?" element={<ThingsListingPage />} />
+        {/* 🧪 PROTOTYPE — design review for the worries section. Remove after review. */}
+        <Route path="/prototype/worries" element={<WorriesPrototypePage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Suspense>

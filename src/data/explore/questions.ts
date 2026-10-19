@@ -1,4 +1,5 @@
 import { JourneyType, ExploreCategory, ThingsToDoSubCategory, SportIntent } from '../../types';
+import { THINGS_TREE_ROOT_QUESTION, THINGS_TREE_ALL_QUESTIONS } from './thingsQuiz';
 
 export interface QuizOption {
   id: string;
@@ -65,51 +66,13 @@ export const CATEGORY_QUESTIONS: Record<Exclude<ExploreCategory, 'photos'>, Quiz
       ]
     }
   ],
-  'things-to-do': [
-    ...BASE_QUESTIONS,
-    {
-      id: 'setting',
-      question: "Where would you like to be?",
-      weight: 'strong', // Location matters a lot for activities
-      options: [
-        { id: 'medina', label: 'Medina', tag: 'medina', icon: '🏘️', sub: 'Historic old city centers' },
-        { id: 'nature', label: 'Nature & Rural', tag: 'nature', icon: '🌿', sub: 'Mountains, oases, and countryside' },
-        { id: 'desert', label: 'Desert', tag: 'desert', icon: '🏜️', sub: 'Sand dunes and rocky plateaus' },
-        { id: 'coastal', label: 'Coastal', tag: 'coastal', icon: '🌊', sub: 'Beaches and port towns' }
-      ]
-    },
-    {
-      id: 'interests',
-      question: "What do you want to experience?",
-      multiSelect: true,
-      options: [
-        { id: 'culture', label: 'History & Heritage', tag: 'culture', icon: '🏛️', sub: 'Palaces, medinas, and ancient cities' },
-        { id: 'food', label: 'Food & Cooking', tag: 'food', icon: '🍲', sub: 'Markets, cooking classes, tastings' },
-        { id: 'adventure', label: 'Adventure & Outdoors', tag: 'adventure', icon: '🧗', sub: 'Trekking, surfing, desert trips' },
-        { id: 'slow', label: 'Hammam & Wellness', tag: 'slow', icon: '🧘', sub: 'Spas, hammams, and slow relaxation' }
-      ]
-    },
-    {
-      id: 'energy-level',
-      question: "How active do you want your days to be?",
-      options: [
-        { id: 'relaxed', label: 'Zen & Chill', tag: 'relaxed', icon: '🧘', sub: 'Low physical effort' },
-        { id: 'moderate', label: 'Steady & Curious', tag: 'moderate', icon: '🚶', sub: 'Standard exploration' },
-        { id: 'active', label: 'Full Send', tag: 'active', icon: '🧗', sub: 'Lots of walking/moving' }
-      ]
-    },
-    {
-      id: 'vibe',
-      question: "What kind of experiences are you drawn to?",
-      multiSelect: true,
-      options: [
-        { id: 'authentic', label: 'Local & Genuine', tag: 'authentic', icon: '🧿', sub: 'Genuine, non-touristy experiences' },
-        { id: 'instagrammable', label: 'Photo-Worthy Spots', tag: 'instagrammable', icon: '✨', sub: 'Visually iconic and trendy spots' },
-        { id: 'relaxed', label: 'Easy & Unhurried', tag: 'relaxed', icon: '😌', sub: 'Slow-paced and low pressure' },
-        { id: 'off-the-beaten-path', label: 'Hidden Gems', tag: 'off-the-beaten-path', icon: '🗺️', sub: 'Away from the main crowds' }
-      ]
-    }
-  ],
+  // ==================================================================
+  // QUIZ ARRAYS - THINGS TO DO DECISION TREE (data/explore/thingsQuiz.ts)
+  // Question 1 ('things-road') picks the traveler's Road and CategoryQuiz
+  // appends the matching Road questions (A2-A5 / B2-B5 / C2-C5) live.
+  // The previous flat quiz is preserved below as the legacy array.
+  // ==================================================================
+  'things-to-do': [THINGS_TREE_ROOT_QUESTION],
   'food': [
     ...BASE_QUESTIONS,
     {
@@ -224,6 +187,57 @@ export const CATEGORY_QUESTIONS: Record<Exclude<ExploreCategory, 'photos'>, Quiz
     }
   ]
 };
+// ====================================================================
+// QUIZ ARRAYS - LEGACY THINGS TO DO (previous flat quiz)
+// Not used by the quiz itself anymore. Kept registered so old persisted
+// answers, curated-flow answers, and result pills still resolve labels.
+// ====================================================================
+export const THINGS_TO_DO_LEGACY_QUESTIONS: QuizQuestion[] = [
+    ...BASE_QUESTIONS,
+    {
+      id: 'setting',
+      question: "Where would you like to be?",
+      weight: 'strong', // Location matters a lot for activities
+      options: [
+        { id: 'medina', label: 'Medina', tag: 'medina', icon: '🏘️', sub: 'Historic old city centers' },
+        { id: 'nature', label: 'Nature & Rural', tag: 'nature', icon: '🌿', sub: 'Mountains, oases, and countryside' },
+        { id: 'desert', label: 'Desert', tag: 'desert', icon: '🏜️', sub: 'Sand dunes and rocky plateaus' },
+        { id: 'coastal', label: 'Coastal', tag: 'coastal', icon: '🌊', sub: 'Beaches and port towns' }
+      ]
+    },
+    {
+      id: 'interests',
+      question: "What do you want to experience?",
+      multiSelect: true,
+      options: [
+        { id: 'culture', label: 'History & Heritage', tag: 'culture', icon: '🏛️', sub: 'Palaces, medinas, and ancient cities' },
+        { id: 'food', label: 'Food & Cooking', tag: 'food', icon: '🍲', sub: 'Markets, cooking classes, tastings' },
+        { id: 'adventure', label: 'Adventure & Outdoors', tag: 'adventure', icon: '🧗', sub: 'Trekking, surfing, desert trips' },
+        { id: 'slow', label: 'Hammam & Wellness', tag: 'slow', icon: '🧘', sub: 'Spas, hammams, and slow relaxation' }
+      ]
+    },
+    {
+      id: 'energy-level',
+      question: "How active do you want your days to be?",
+      options: [
+        { id: 'relaxed', label: 'Zen & Chill', tag: 'relaxed', icon: '🧘', sub: 'Low physical effort' },
+        { id: 'moderate', label: 'Steady & Curious', tag: 'moderate', icon: '🚶', sub: 'Standard exploration' },
+        { id: 'active', label: 'Full Send', tag: 'active', icon: '🧗', sub: 'Lots of walking/moving' }
+      ]
+    },
+    {
+      id: 'vibe',
+      question: "What kind of experiences are you drawn to?",
+      multiSelect: true,
+      options: [
+        { id: 'authentic', label: 'Local & Genuine', tag: 'authentic', icon: '🧿', sub: 'Genuine, non-touristy experiences' },
+        { id: 'instagrammable', label: 'Photo-Worthy Spots', tag: 'instagrammable', icon: '✨', sub: 'Visually iconic and trendy spots' },
+        { id: 'relaxed', label: 'Easy & Unhurried', tag: 'relaxed', icon: '😌', sub: 'Slow-paced and low pressure' },
+        { id: 'off-the-beaten-path', label: 'Hidden Gems', tag: 'off-the-beaten-path', icon: '🗺️', sub: 'Away from the main crowds' }
+      ]
+    }
+];
+
 
 export const PATH_SPECIFIC_QUESTIONS: Record<string, QuizQuestion[]> = {
   'first-timer': [
@@ -857,6 +871,8 @@ export const getTagForOptionId = (optionId: string): string => {
     ...Object.values(CATEGORY_QUESTIONS).flat(),
     ...Object.values(PATH_SPECIFIC_QUESTIONS).flat(),
     ...BASE_QUESTIONS,
+    ...THINGS_TREE_ALL_QUESTIONS,
+    ...THINGS_TO_DO_LEGACY_QUESTIONS,
     ...PRACTICAL_SPORT_QUESTIONS,
     ...EXPERIENCE_SPORT_QUESTIONS,
     ...Object.values(SUB_SPECIFIC_QUESTIONS).flat(),
@@ -884,6 +900,8 @@ export const getQuizWeightForQuestionId = (questionId: string): 'hard' | 'strong
     ...Object.values(CATEGORY_QUESTIONS).flat(),
     ...Object.values(PATH_SPECIFIC_QUESTIONS).flat(),
     ...BASE_QUESTIONS,
+    ...THINGS_TREE_ALL_QUESTIONS,
+    ...THINGS_TO_DO_LEGACY_QUESTIONS,
     ...PRACTICAL_SPORT_QUESTIONS,
     ...EXPERIENCE_SPORT_QUESTIONS,
     ...Object.values(SUB_SPECIFIC_QUESTIONS).flat(),
@@ -899,6 +917,8 @@ export const getAllQuizQuestions = (): QuizQuestion[] => [
   ...Object.values(CATEGORY_QUESTIONS).flat(),
   ...Object.values(PATH_SPECIFIC_QUESTIONS).flat(),
   ...BASE_QUESTIONS,
+  ...THINGS_TREE_ALL_QUESTIONS,
+  ...THINGS_TO_DO_LEGACY_QUESTIONS,
   ...PRACTICAL_SPORT_QUESTIONS,
   ...EXPERIENCE_SPORT_QUESTIONS,
   ...Object.values(SUB_SPECIFIC_QUESTIONS).flat()

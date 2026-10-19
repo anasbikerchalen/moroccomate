@@ -19,25 +19,25 @@
 import type { TagRule, CategoryAuditResult, TagAuditIssue } from './types';
 
 // ── Master catalog: all things city files linked together ──
-import { agadirThings } from '../../listings/things/agadir.things';
-import { al_hoceimaThings } from '../../listings/things/al_hoceima.things';
-import { asilahThings } from '../../listings/things/asilah.things';
-import { casablancaThings } from '../../listings/things/casablanca.things';
-import { chefchaouenThings } from '../../listings/things/chefchaouen.things';
-import { dakhlaThings } from '../../listings/things/dakhla.things';
-import { el_jadidaThings } from '../../listings/things/el_jadida.things';
-import { essaouiraThings } from '../../listings/things/essaouira.things';
-import { fesThings } from '../../listings/things/fes.things';
-import { ifrane_azrouThings } from '../../listings/things/ifrane_azrou.things';
-import { marrakechThings } from '../../listings/things/marrakech.things';
-import { meknesThings } from '../../listings/things/meknes.things';
-import { merzougaThings } from '../../listings/things/merzouga.things';
-import { ouarzazateThings } from '../../listings/things/ouarzazate.things';
-import { rabatThings } from '../../listings/things/rabat.things';
-import { saidiaThings } from '../../listings/things/saidia.things';
-import { tangierThings } from '../../listings/things/tangier.things';
-import { tetouan_martilThings } from '../../listings/things/tetouan_martil.things';
-import { taroudant_tafraouteThings } from '../../listings/things/taroudant_tafraoute.things';
+import { agadirThings } from '../../listings/things/agadir/index';
+import { al_hoceimaThings } from '../../listings/things/al_hoceima/index';
+import { asilahThings } from '../../listings/things/asilah/index';
+import { casablancaThings } from '../../listings/things/casablanca/index';
+import { chefchaouenThings } from '../../listings/things/chefchaouen/index';
+import { dakhlaThings } from '../../listings/things/dakhla/index';
+import { el_jadidaThings } from '../../listings/things/el_jadida/index';
+import { essaouiraThings } from '../../listings/things/essaouira/index';
+import { fesThings } from '../../listings/things/fes/index';
+import { ifrane_azrouThings } from '../../listings/things/ifrane_azrou/index';
+import { marrakechThings } from '../../listings/things/marrakech/index';
+import { meknesThings } from '../../listings/things/meknes/index';
+import { merzougaThings } from '../../listings/things/merzouga/index';
+import { ouarzazateThings } from '../../listings/things/ouarzazate/index';
+import { rabatThings } from '../../listings/things/rabat/index';
+import { saidiaThings } from '../../listings/things/saidia/index';
+import { tangierThings } from '../../listings/things/tangier/index';
+import { tetouan_martilThings } from '../../listings/things/tetouan_martil/index';
+import { taroudant_tafraouteThings } from '../../listings/things/taroudant_tafraoute/index';
 
 export const THINGS_MASTER: any[] = [
   ...agadirThings, ...al_hoceimaThings, ...asilahThings, ...casablancaThings,

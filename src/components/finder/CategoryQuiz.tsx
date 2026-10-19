@@ -1,6 +1,14 @@
 import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { QuizQuestion, QuizOption, getTagForOptionId, QUIZ_STOP_WORDS } from '../../data/explore/questions';
+import {
+  THINGS_TREE_ROOT_ID,
+  THINGS_ROAD_QUESTIONS,
+  THINGS_QUIZ_OPTION_IMAGES,
+  THINGS_TREE_OPTION_IDS,
+  THINGS_TREE_FOLLOW_UP_QUESTION_IDS,
+  matchesThingsQuizAnswer
+} from '../../data/explore/thingsQuiz';
 import PreQuizShortcutBar from './PreQuizShortcutBar';
 import { getCityCategoryPicks, type CityCategoryPick } from '../../data/explore/cityCategoryPicks';
 import { useParameterStore } from '../../state/parameterStore';
@@ -257,6 +265,13 @@ const getOptionImage = (option: QuizOption, questionId: string, stepIndex: numbe
   const id = (option.id || '').toLowerCase();
   const label = (option.label || '').toLowerCase();
   const tag = (option.tag || '').toLowerCase();
+
+  // 0. Decision-tree quiz options (Things To Do): images come from the curated UI
+  // ARRAYS in data/explore/thingsQuiz.ts. Options without a fitting existing image
+  // stay on the pending placeholder - never a fake or unrelated image.
+  if (THINGS_TREE_OPTION_IDS.has(option.id)) {
+    return THINGS_QUIZ_OPTION_IMAGES[option.id] || quizPlaceholderPending;
+  }
 
   // 1. Shared Context Questions (MUST be at the absolute top so categoryId doesn't intercept them!)
   if (questionId === 'base-group' || id === 'solo' || id === 'couple' || id === 'family' || id === 'friends') {
@@ -560,14 +575,32 @@ export default function CategoryQuiz({ questions, onComplete, onBack, listings =
     return getCityCategoryPicks(parameterCity || 'agadir', categoryId);
   }, [parameterCity, categoryId]);
 
-  const effectiveQuestions = questions;
-  const currentQuestion = effectiveQuestions[currentStep];
+  // Decision-tree branching (Things To Do): Question 1 ('things-road') picks the
+  // traveler's Road and the matching Road questions from the QUIZ ARRAYS in
+  // data/explore/thingsQuiz.ts are appended live (5 questions total, never more).
+  const effectiveQuestions = useMemo(() => {
+    const isThingsTree = questions.length === 1 && questions[0].id === THINGS_TREE_ROOT_ID;
+    if (isThingsTree) {
+      const road = answers[THINGS_TREE_ROOT_ID];
+      return [questions[0], ...(road ? THINGS_ROAD_QUESTIONS[road] || [] : [])];
+    }
+    return questions;
+  }, [questions, answers]);
+
+  // Safe index: can never step past the currently built question path
+  const stepIndex = Math.min(currentStep, effectiveQuestions.length - 1);
+  const currentQuestion = effectiveQuestions[stepIndex];
 
   // Single-answer matcher: does one quiz answer match one listing?
   // Extracted from the live match counter so the full-quiz AND-counter and the
   // quick-shortcut OR-counter share the exact same matching rules.
   const answerMatchesListing = (item: any, questionId: string, ids: string[]): boolean => {
     return ids.some(id => {
+      // Decision-tree options match via the structured FILTER ARRAYS in
+      // data/explore/thingsQuiz.ts (identical rules to the results page scoring)
+      if (THINGS_TREE_OPTION_IDS.has(id)) {
+        return matchesThingsQuizAnswer(item, id);
+      }
       if (questionId === 'base-lifestyle' || questionId === 'ft-style') {
         const tag = getTagForOptionId(id);
         // Shops: lifestyle maps to the structured priceLevel (canonical shop schema)
@@ -667,14 +700,23 @@ export default function CategoryQuiz({ questions, onComplete, onBack, listings =
       
       setAnswers({ ...answers, [questionId]: updated });
     } else {
+      // Decision-tree: switching the Road resets the previous road's follow-up
+      // answers so stale filters never leak into the new branch
+      if (questionId === THINGS_TREE_ROOT_ID && answers[questionId] && answers[questionId] !== optionId) {
+        const cleaned: Record<string, any> = { ...answers };
+        THINGS_TREE_FOLLOW_UP_QUESTION_IDS.forEach(id => delete cleaned[id]);
+        cleaned[questionId] = optionId;
+        setAnswers(cleaned);
+        return;
+      }
       const updatedAnswers = { ...answers, [questionId]: optionId };
       setAnswers(updatedAnswers);
     }
   };
 
   const handleNext = () => {
-    if (currentStep < effectiveQuestions.length - 1) {
-      setCurrentStep(prev => prev + 1);
+    if (stepIndex < effectiveQuestions.length - 1) {
+      setCurrentStep(stepIndex + 1);
     } else {
       applyQuizAutoFilters(answers);
       useExploreStore.setState({ quizAnswers: answers });
@@ -733,7 +775,7 @@ export default function CategoryQuiz({ questions, onComplete, onBack, listings =
     ? (Array.isArray(currentAnswer) && currentAnswer.length > 0)
     : Boolean(currentAnswer);
 
-  const progressPercentage = Math.round(((currentStep + 1) / effectiveQuestions.length) * 100);
+  const progressPercentage = Math.round(((stepIndex + 1) / effectiveQuestions.length) * 100);
 
   const stepLabels = [
     'Your Preferences',
@@ -916,7 +958,7 @@ export default function CategoryQuiz({ questions, onComplete, onBack, listings =
                   : "bg-stone-200 text-stone-400 cursor-not-allowed shadow-none"
               )}
             >
-              {currentStep < effectiveQuestions.length - 1 ? (
+              {stepIndex < effectiveQuestions.length - 1 ? (
                 <>
                   Next Question
                   <ArrowRight className="w-4 h-4" />
