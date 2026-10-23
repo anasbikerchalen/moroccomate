@@ -35,11 +35,12 @@ export const ActivityTemplateView: React.FC<ActivityTemplateViewProps> = ({ acti
   const cityLabel = getCityLabel(activity.city);
 
   return (
-    <div className="space-y-7 pb-10">
-      {/* 1. Header: Hero Carousel & Experience Identity */}
+    <div className="w-full pb-10">
+      {/* 1. Header: Full-bleed wide banner & experience identity */}
       <ActivityHeader activity={activity} />
 
-      {/* 2. Row 1: "What you'll experience" (Left) + "Why visit?" (Right) */}
+      <div className="mx-auto w-full max-w-6xl px-4 pt-8 sm:px-6 lg:px-8 space-y-7">
+        {/* 2. Row 1: "What you'll experience" (Left) + "Why visit?" (Right) */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-7 items-stretch">
         <div className="lg:col-span-7">
           {v.show_experiences !== false && (
@@ -103,6 +104,7 @@ export const ActivityTemplateView: React.FC<ActivityTemplateViewProps> = ({ acti
 
       {/* 8. Reviews */}
       {v.show_reviews !== false && <ActivityReviewsSection reviews={activity.reviews} />}
+      </div>
     </div>
   );
 };

@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import {
   Heart, MapPin, Clock, Shield, ThumbsUp, ThumbsDown,
   Navigation, CheckCircle2, ChevronRight, ArrowLeft, ExternalLink, MessageSquare, X,
-  BookOpen, type LucideIcon, Wifi, Wind, Star,
+  BookOpen, type LucideIcon, Wifi, Wind, Star, Share2,
   Info, Sparkles, HelpCircle, User, Award, Layers, Compass, Camera, Calendar, Flame, AlertCircle, Video, ShieldAlert
 } from 'lucide-react';
 import { cn } from '../../utils/cn';
@@ -14,6 +14,9 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { cityMap } from '../../data/cities';
 import PlaceSavvyProfile from '../savvy/PlaceSavvyProfile';
 import { getCityTheme } from '../../utils/cityPalette';
+import { getListingRating } from '../../listings/utils';
+import CamelRating from './CamelRating';
+import thingsHeroEditorialImg from '../../assets/images/botanical_things_flat.jpg';
 
 const cityYoutubeMap: Record<string, string> = {
   marrakech: "0T2QZfUvF3I",   // Marrakech Medina 4K walking tour
@@ -130,6 +133,21 @@ export default function ActivityDetailView({ item, onBack }: ActivityDetailViewP
     }
   }, [id, name]);
   const resolvedCityName = cityMap[city]?.name || (city ? city.charAt(0).toUpperCase() + city.slice(1) : '');
+
+  const { averageRating, totalReviews } = useMemo(() => {
+    return getListingRating(item);
+  }, [item]);
+
+  const handleShare = () => {
+    if (navigator.share) {
+      navigator.share({
+        title: `${name} — Moroccan Mate`,
+        url: window.location.href,
+      }).catch(() => {});
+    } else {
+      navigator.clipboard?.writeText(window.location.href);
+    }
+  };
 
   const themeColors = useMemo(() => {
     return getCityTheme(city);
@@ -269,117 +287,153 @@ export default function ActivityDetailView({ item, onBack }: ActivityDetailViewP
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
-      className="max-w-4xl mx-auto pb-16 px-4 md:px-0"
+      className="w-full pb-16 font-sans text-stone-900"
     >
       {/* JSON-LD Structured Data */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(activitySchema) }} />
 
-      {/* Header Back & Action Row */}
-      <div className="flex items-center justify-between mb-6">
-        <button
-          onClick={onBack}
-          className="flex items-center gap-2 text-stone-500 hover:text-stone-900 font-bold text-xs uppercase tracking-widest transition-colors cursor-pointer"
-        >
-          <ArrowLeft className="w-4 h-4" />
-          Back to results
-        </button>
-
-        <div className="flex items-center gap-2">
-          {/* Saved State Heart */}
-          <button
-            onClick={handleToggleBookmark}
-            className={cn(
-              "p-3 rounded-full border transition-all cursor-pointer shadow-sm",
-              bookmarked 
-                ? "bg-rose-50 border-rose-200 text-rose-600 hover:bg-rose-100" 
-                : "bg-white border-stone-200 text-stone-400 hover:text-stone-700 hover:bg-stone-50"
-            )}
-            title={bookmarked ? "Saved in wish list" : "Save to wish list"}
-          >
-            <Heart className={cn("w-5 h-5", bookmarked && "fill-rose-600")} />
-          </button>
-        </div>
-      </div>
-
-      {/* Hero Visual Area (Level A) */}
-      <div 
-        className="relative w-full h-80 md:h-[420px] rounded-[32px] overflow-hidden mb-8 shadow-xl flex flex-col justify-end p-8 md:p-12 border border-stone-200 bg-stone-900"
-        style={{
-          background: `radial-gradient(circle at 80% 20%, ${themeColors.secondary}35 0%, transparent 60%), 
-                       radial-gradient(circle at 20% 80%, ${themeColors.primary}25 0%, transparent 50%), 
-                       linear-gradient(135deg, ${themeColors.primary}12 0%, ${themeColors.primary}40 100%)`
-        }}
-      >
-        {/* No hosted image — the themed gradient above is the hero. Real photos live on Google Maps. */}
-
-        {/* Moroccan paper grain pattern effect overlay */}
-        <div className="absolute inset-0 pointer-events-none opacity-[0.03] mix-blend-multiply bg-[url('/textures/paper-grain-1.svg')] z-10" />
+      {/* ─────────────────────────────────────────────────────────────
+          1. FULL-BLEED UPPER SECTION (EDGE-TO-EDGE, UNBOXED WITH DROP SHADOW)
+          - Wide Things to Do Image spanning full width
+          - Floating White Round Controls (Bookmark & Share)
+          - Full-width Organic Curved Wave Transition
+          - Unboxed, spacious title & metadata area
+          - Rating with Camel Logo + Google & TripAdvisor badges
+      ───────────────────────────────────────────────────────────── */}
+      <div className="w-full bg-white border-b border-stone-200/80 shadow-[0_10px_30px_-5px_rgba(0,0,0,0.07),0_4px_12px_-2px_rgba(0,0,0,0.03)] relative z-20 mb-8">
         
-        {/* Subtle geometric pattern overlay */}
-        <div className="absolute inset-0 bg-[radial-gradient(#C9A84C_1px,transparent_1px)] [background-size:16px_16px] opacity-15 pointer-events-none z-10" />
+        {/* SLIM WIDE IMAGE BANNER (COMPACT 160-210px, FULL WIDTH) */}
+        <div className="relative w-full h-[160px] sm:h-[185px] md:h-[210px] overflow-hidden bg-[#FAF7F2]">
+          <img
+            src={thingsHeroEditorialImg}
+            alt={`${name} Moroccan experience`}
+            className="w-full h-full object-cover object-center select-none"
+          />
 
-        <div className="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-900/40 to-transparent pointer-events-none z-10" />
-
-        {/* Floating Badges */}
-        <div className="absolute top-6 left-6 flex gap-2">
-          <div className="px-3 py-1.5 bg-stone-900/85 backdrop-blur-md text-white rounded-full text-[10px] font-black uppercase tracking-widest border border-white/10">
-            🏃 {energyLevel.toUpperCase()} ENERGY
+          {/* FLOATING WHITE ROUND BUTTONS: BOOKMARK & SHARE (TOP RIGHT) */}
+          <div className="absolute top-4 right-4 sm:top-5 sm:right-6 z-20 flex items-center gap-2">
+            <button
+              onClick={handleToggleBookmark}
+              className={cn(
+                "w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white shadow-md hover:shadow-lg flex items-center justify-center transition-all cursor-pointer border border-stone-200/70 hover:bg-stone-50 active:scale-95",
+                bookmarked ? "text-red-500" : "text-stone-700 hover:text-red-500"
+              )}
+              title={bookmarked ? "Saved in favorites" : "Save experience"}
+            >
+              <Heart className={cn("w-4 h-4", bookmarked && "fill-current")} />
+            </button>
+            <button
+              onClick={handleShare}
+              className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white shadow-md hover:shadow-lg flex items-center justify-center text-stone-700 hover:text-stone-950 transition-all cursor-pointer border border-stone-200/70 hover:bg-stone-50 active:scale-95"
+              title="Share listing"
+            >
+              <Share2 className="w-4 h-4" />
+            </button>
           </div>
-          {badge && (
-            <div className="px-3 py-1.5 bg-[#C9A84C] text-stone-950 rounded-full text-[10px] font-black uppercase tracking-widest">
-              ✨ {badge.replace('-', ' ').toUpperCase()}
-            </div>
-          )}
+
+          {/* FULL-WIDTH ORGANIC CURVED SVG WAVE */}
+          <div className="absolute bottom-0 left-0 right-0 w-full overflow-hidden leading-none z-10 pointer-events-none">
+            <svg
+              viewBox="0 0 1440 120"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-full h-7 sm:h-9 md:h-11 block"
+              preserveAspectRatio="none"
+            >
+              <path
+                d="M0,45 C280,110 520,120 780,55 C1040,-10 1260,70 1440,35 L1440,120 L0,120 Z"
+                fill="#FFFFFF"
+              />
+            </svg>
+          </div>
         </div>
 
-        {/* Text Details in Hero */}
-        <div className="relative z-10 text-white">
-          <div className="flex items-center gap-2 text-[#C9A84C] font-semibold text-xs tracking-wider uppercase mb-2">
-            <Compass className="w-4 h-4 text-[#C9A84C]" />
-            <span>{tags[0] || 'Experience'}</span>
-            <span>•</span>
-            <span>{resolvedCityName}</span>
-          </div>
-          <h1 className="font-display text-3xl md:text-5xl font-bold tracking-tight mb-3 text-white drop-shadow-md">
-            {name}
-          </h1>
-          {shortValueProp && (
-            <p className="text-stone-200 text-xs md:text-sm font-sans mb-3 font-semibold tracking-wide drop-shadow max-w-2xl">
-              💡 {shortValueProp}
-            </p>
-          )}
-          <div className="flex items-center gap-4 text-sm text-stone-200 flex-wrap">
-            <span className="flex items-center gap-1.5">
-              <MapPin className="w-4 h-4 text-[#C9A84C]" />
-              {neighborhood}
-              {distanceFromCenterKm !== undefined && ` (${distanceFromCenterKm} km from center)`}
-            </span>
-            <span className="flex items-center gap-1.5">
-              <Clock className="w-4 h-4 text-[#C9A84C]" />
-              ~{durationMinutes >= 60 ? `${Math.round(durationMinutes / 60)} hours` : `${durationMinutes} mins`}
-            </span>
-            <span className="flex items-center gap-1.5">
-              <Star className="w-4 h-4 text-amber-400 fill-amber-400" />
-              <strong>{googleRating.toFixed(1)}</strong> ({reviewCount} ratings)
-            </span>
-          </div>
+        {/* UNBOXED, OPEN TITLE & METADATA BAR */}
+        <div className="w-full px-5 sm:px-8 lg:px-12 pb-8 pt-3 sm:pt-4">
+          <div className="max-w-6xl mx-auto space-y-2">
+            <div className="flex items-center gap-2 flex-wrap">
+              <span className="px-3 py-1 bg-amber-50 border border-amber-200/70 text-[#96700A] rounded-full text-[10px] font-black uppercase tracking-widest">
+                🏃 {energyLevel.toUpperCase()} ENERGY
+              </span>
+              {badge && (
+                <span className="px-3 py-1 bg-[#C9A84C]/15 text-stone-900 rounded-full text-[10px] font-black uppercase tracking-widest border border-[#C9A84C]/30">
+                  ✨ {badge.replace('-', ' ').toUpperCase()}
+                </span>
+              )}
+            </div>
 
-          {/* View photos on Google Maps */}
-          <a
-            href={googleMapsUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${name} ${resolvedCityName} Morocco`)}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-4 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/90 hover:bg-white text-[#29231F] text-sm font-bold shadow-md hover:shadow-lg transition-all w-fit cursor-pointer"
-          >
-            <MapPin className="w-4 h-4 text-[#C2613C]" />
-            View photos on Google Maps
-            <ExternalLink className="w-3.5 h-3.5 opacity-60" />
-          </a>
+            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#173042] tracking-tight">
+              {name}
+            </h1>
+            
+            {/* Clean, readable sub-header line */}
+            <div className="flex flex-wrap items-center gap-2.5 text-sm sm:text-base text-stone-600 font-medium">
+              <span className="inline-flex items-center gap-1.5 text-stone-900 font-semibold">
+                <MapPin className="w-4 h-4 text-emerald-700 shrink-0" />
+                <span>{resolvedCityName} · {neighborhood}</span>
+              </span>
+              <span className="text-stone-300">·</span>
+              <span className="inline-flex items-center gap-1.5 text-stone-800 font-semibold capitalize">
+                <Compass className="w-4 h-4 text-amber-700 shrink-0" />
+                <span>{tags[0] || 'Experience'}</span>
+              </span>
+              <span className="text-stone-300">·</span>
+              <span className="inline-flex items-center gap-1.5 font-bold text-stone-900">
+                <span>{entryPrice > 0 ? `${entryPrice} MAD` : price > 0 ? `${price} MAD` : 'Free entry'}</span>
+              </span>
+              <span className="text-stone-300">·</span>
+              <span className="inline-flex items-center gap-1 text-stone-500 font-normal text-xs sm:text-sm">
+                <Clock className="w-3.5 h-3.5 text-stone-400" />
+                <span>~{durationMinutes >= 60 ? `${Math.round(durationMinutes / 60)} hours` : `${durationMinutes} mins`}</span>
+              </span>
+            </div>
+
+            {/* Ratings Block with Camel Logo */}
+            <div className="mt-6 bg-[#FAF7F2] border border-[#EAE2D5] rounded-2xl p-4 sm:p-5 shadow-2xs">
+              <div className="flex flex-wrap items-center justify-between gap-3">
+                <div className="flex items-center gap-3">
+                  <CamelRating rating={averageRating} size="md" />
+                  {totalReviews > 0 && (
+                    <span className="text-xs sm:text-sm text-stone-500 font-medium">
+                      ({totalReviews.toLocaleString()} authentic reviews)
+                    </span>
+                  )}
+                </div>
+                
+                <div className="flex flex-wrap items-center gap-2">
+                  {googleRating && (
+                    <span className="inline-flex items-center gap-1 px-3 py-1 rounded-xl text-xs font-semibold bg-white text-stone-800 border border-stone-200/90 shadow-2xs">
+                      <span className="text-amber-500 font-bold">★</span>
+                      <span>Google {googleRating}</span>
+                      {reviewCount && <span className="text-stone-400 font-normal">({reviewCount})</span>}
+                    </span>
+                  )}
+                  {item?.tripadvisorRating && (
+                    <span className="inline-flex items-center gap-1 px-3 py-1 rounded-xl text-xs font-semibold bg-emerald-50 text-emerald-900 border border-emerald-200 shadow-2xs">
+                      <span className="text-emerald-600 font-bold">★</span>
+                      <span>TripAdvisor {item.tripadvisorRating}</span>
+                    </span>
+                  )}
+                  <a
+                    href={googleMapsUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${name} ${resolvedCityName} Morocco`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl text-xs font-semibold bg-[#FAF3EA] text-stone-800 hover:text-stone-950 border border-[#E8DAAA] shadow-2xs transition-all cursor-pointer"
+                  >
+                    <MapPin className="w-3.5 h-3.5 text-[#C2613C]" />
+                    <span>View photos on Google Maps</span>
+                    <ExternalLink className="w-3.5 h-3.5 opacity-60" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
       {/* Main Grid Layout: left detail column, right interactive booking panel */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         
         {/* Left Interactive Column (Tabs and content details) */}
         <div className="lg:col-span-8 space-y-8">
@@ -867,6 +921,7 @@ export default function ActivityDetailView({ item, onBack }: ActivityDetailViewP
             </div>
           )}
         </div>
+      </div>
       </div>
     </motion.div>
   );

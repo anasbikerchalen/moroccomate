@@ -19,9 +19,6 @@ export const ShopTemplateView: React.FC<ShopTemplateViewProps> = ({ shop }) => {
 
   return (
     <div className="space-y-7 pb-10">
-      {/* 1. Header: Hero Carousel & Shop Identity */}
-      <ShopHeader shop={shop} />
-
       {/* 2. Row 1: "What you'll find" (Left) + "Why visit?" (Right) */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-7 items-stretch">
         <div className="lg:col-span-7">

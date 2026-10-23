@@ -110,11 +110,11 @@ export default function ThingsListingPage() {
       </nav>
 
       {/* Main content: the complete activity listing page */}
-      <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-8 sm:px-6 lg:px-8">
+      <main className="w-full flex-1">
         <ActivityTemplateView activity={activity} />
 
         {/* Crawlable City Category Cross-Links */}
-        <section className="mt-12 pt-8 border-t border-[#ece4d5]">
+        <section className="mx-auto w-full max-w-6xl px-4 pb-12 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-[#ece4d5]">
           <h3 className="text-xs font-bold uppercase tracking-wider text-[#66757D] mb-3">
             More in {cityLabel}
           </h3>

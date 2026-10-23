@@ -202,53 +202,6 @@ import type { ThingToDoListing } from '../../types';
 export const fesWellnessThings: ThingToDoListing[] = [
   {
     // ── CORE IDENTITY ───────────────────────────────────────
-    id: "fes-jnan-sbil",
-    city: "fes",
-    name: "Jnan Sbil Gardens",
-    neighborhood: "Fes el-Jdid",
-    // ── 1. QUIZ — matching, mood & personalization —
-    lifestyle: ["lean"],
-    groupTypes: ["solo", "couple", "family", "friends", "seniors"],
-    crowdLevel: "quiet",
-    energyLevel: "relaxed",
-    archetypeAffinity: ["nomad", "first-timer"],
-    tags: ["authentic", "nature", "relaxed", "walk-in", "wellness"],
-    badges: ["not available"],
-    // ── 2. FILTER — result-page filters & logistics —
-    price: 0,
-    durationMinutes: 60,
-    transportMode: "walkable",
-    transportModes: ["not available"],
-    safetyLevel: 5,
-    walkInOkay: true,
-    hasEnglishGuide: false,
-    hasFrenchGuide: false,
-    isKidFriendly: true,
-    isFemaleFriendly: true,
-    isWheelchairAccessible: true,
-    accessibilityFeatures: ["not available"],
-    isPhotographyFriendly: true,
-    hasPrivateOption: false,
-    hasSunsetView: false,
-    paymentMethods: ["not available"],
-    amenities: ["not available"],
-    restrictions: ["not available"],
-    healthContraindications: ["not available"],
-    // ── 3. UI — presentation & social proof —───────────────
-    description: "A peaceful 19th-century public garden that spans 7.5 hectares, offering a calm green retreat from the crowded stone streets. It is home to more than 3,000 plant species, water features, and grand avenues of palm trees.",
-    images: [
-      "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae",
-      "https://images.unsplash.com/photo-1444021201704-406d755abbde"
-    ],
-    googleRating: 4.5,
-    reviewCount: 4653,
-    tip: "The park is strictly closed on Mondays. Consider visiting mid-week to stroll alongside local families enjoying the shade.",
-    tips: ["not available"],
-    excludedServices: ["not available"],
-    googleMapsUrl: "https://maps.google.com/?q=Jardin+Jnan+Sbil,+Fes,+Morocco",
-  },
-  {
-    // ── CORE IDENTITY ───────────────────────────────────────
     id: "fes-art-naji",
     city: "fes",
     name: "Pottery & Mosaic Workshop at Art Naji",

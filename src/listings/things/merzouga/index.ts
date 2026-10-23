@@ -25,37 +25,41 @@ export const merzougaThings: ThingToDoListing[] = [
 // ══ SECTION 2 — QUIZ ARRAYS (decision-tree roads → real listing ids) ══
 // Computed with the REAL road matcher (src/data/explore/thingsQuiz.ts).
 export const MERZOUGA_ROAD_LISTING_IDS: Record<string, string[]> = {
-  "road-heritage": ["merzouga-auto-museum", "merzouga-rissani-souk", "merzouga-fossil-hunting"],
+  "road-heritage": [
+    "merzouga-gnawa-music",
+    "merzouga-taouz-petroglyphs",
+    "merzouga-mfis-mines",
+    "merzouga-hassi-labied-oasis",
+    "merzouga-auto-museum",
+    "merzouga-ksar-heritage"
+  ],
   "road-nature": [
-  "merzouga-camel-trek",
-  "merzouga-gnawa-music",
-  "merzouga-quad-adventure",
-  "merzouga-glamping",
-  "merzouga-dayet-srji",
-  "merzouga-mifis-mines",
-  "merzouga-sandboarding",
-  "merzouga-auto-museum",
-  "merzouga-hassi-labied-oasis",
-  "merzouga-nomad-family",
-  "merzouga-rissani-souk",
-  "merzouga-madfouna",
-  "merzouga-stargazing",
-  "merzouga-sand-bath",
-  "merzouga-hammam",
-  "merzouga-safari",
-  "merzouga-horse-riding",
-  "merzouga-fossil-hunting",
-  "merzouga-chez-artistes"
-],
+    "merzouga-camel-trek",
+    "merzouga-gnawa-music",
+    "merzouga-quad-adventure",
+    "merzouga-glamping",
+    "merzouga-dayet-srji",
+    "merzouga-mfis-mines",
+    "merzouga-sandboarding",
+    "merzouga-auto-museum",
+    "merzouga-hassi-labied-oasis",
+    "merzouga-nomad-family",
+    "merzouga-madfouna",
+    "merzouga-stargazing",
+    "merzouga-sand-bath",
+    "merzouga-hammam",
+    "merzouga-safari",
+    "merzouga-horse-riding",
+    "merzouga-chez-artistes"
+  ],
   "road-wellness": [
-  "merzouga-gnawa-music",
-  "merzouga-glamping",
-  "merzouga-hassi-labied-oasis",
-  "merzouga-cooking-class",
-  "merzouga-sand-bath",
-  "merzouga-hammam",
-  "merzouga-fossil-hunting"
-]
+    "merzouga-gnawa-music",
+    "merzouga-glamping",
+    "merzouga-hassi-labied-oasis",
+    "merzouga-cooking-class",
+    "merzouga-sand-bath",
+    "merzouga-hammam"
+  ]
 };
 
 // ══ SECTION 3 — UI ARRAYS (category browsing helpers) ══

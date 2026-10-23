@@ -322,6 +322,11 @@
   * **7.7.1 Touristic Neighborhoods:** Vallée des Roses
   * **7.7.2 Low-Touristic Neighborhoods:** Centre-Ville, Hay Al Massira, Hay Al Wahda
 
+* **7.8 Merzouga (Erg Chebbi)**
+  * **7.x.1 Touristic Neighborhoods / Zones: Erg Chebbi (Dunes & Desert Luxury Camps), Hassi Labied(Palmeraie & Lodges), Khamlia (Gnawa Cultural Village), Dayet Srji (Flamingo Lake)**
+  * **7.x.2 Mid-Touristic Neighborhoods: Centre-Village (Auberges Strip & Craft Shops), Ksar Merzouga**
+  * **7.x.3 Low-Touristic Neighborhoods: Taous (Administrative Centre), Douar Jedaid**
+
 #### Mid-Touristic Cities
 * **7.8 Midelt**
   * **7.8.1 Touristic Neighborhoods:** Berrem, Souk El Qdim
