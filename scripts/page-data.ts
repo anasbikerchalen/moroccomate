@@ -199,6 +199,33 @@ export function collectPlacePages(): IndexablePage[] {
         lifestyle: typeof listing.lifestyle === 'string' ? listing.lifestyle : (Array.isArray(listing.lifestyle) ? listing.lifestyle.join(', ') : undefined),
       },
     });
+
+    // If restaurant has verified digital menu, index its dedicated /menu SEO page
+    if (isEat && (listing.menu || listing.ui?.menu)) {
+      const menuPath = `${path}/menu`;
+      pages.push({
+        path: menuPath,
+        priority: 0.8,
+        title: `${name} Menu & Prices (${label})`,
+        description: `Verified menu and prices (MAD) for ${name} in ${listing.neighborhood || 'Morocco'}, ${label}.`,
+        image,
+        jsonLd: {
+          '@context': 'https://schema.org',
+          '@type': 'Menu',
+          name: `${name} Menu`,
+          url: `${BASE_URL}${menuPath}`,
+          inLanguage: 'en',
+        },
+        h1: `${name} Menu`,
+        meta: {
+          city: label,
+          category: 'Restaurant Menu',
+          neighborhood: listing.neighborhood,
+          price: price > 0 ? price : undefined,
+          rating: rating?.averageRating,
+        },
+      });
+    }
   }
   return pages;
 }
