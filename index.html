@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en" style="height: 100%; margin: 0;">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Moroccan Mate</title>
+    <meta name="description" content="Pick your city, answer a short quiz, and get personalized local recommendations for food, stays, things to do, and shopping in Morocco." />
+    <meta name="theme-color" content="#FAF7F2" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/logo192.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/logo192.png" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=DM+Sans:wght@400;500;700&display=swap" />
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Moroccan Mate" />
+    <meta property="og:title" content="Moroccan Mate" />
+    <meta property="og:description" content="Pick your city, answer a short quiz, and get personalized local recommendations for food, stays, things to do, and shopping in Morocco." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Moroccan Mate" />
+    <meta name="twitter:description" content="Pick your city, answer a short quiz, and get personalized local recommendations for food, stays, things to do, and shopping in Morocco." />
+    <style>
+      @keyframes mateFade {
+        0% { opacity: 0.35; transform: scale(0.97); }
+        50% { opacity: 1; transform: scale(1); }
+        100% { opacity: 0.35; transform: scale(0.97); }
+      }
+      .mate-splash {
+        animation: mateFade 1.8s ease-in-out infinite;
+      }
+    </style>
+  </head>
+  <body style="height: 100%; margin: 0; background-color: #FAF7F2;">
+    <div id="root" style="height: 100%;">
+      <div style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#FAF7F2;font-family:system-ui,-apple-system,sans-serif;">
+        <div class="mate-splash" style="display:flex;flex-direction:column;align-items:center;">
+          <img src="/logo192.png" alt="Moroccan Mate" style="width:52px;height:52px;margin-bottom:14px;object-fit:contain;" />
+          <span style="font-size:13px;font-weight:700;color:#173042;letter-spacing:0.14em;text-transform:uppercase;">Moroccan Mate</span>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

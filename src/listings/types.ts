@@ -1,0 +1,686 @@
+import { SportFacilityType, SportExperienceType, SportIntent } from '../types'
+
+export type FocusType = 'sleep' | 'eat' | 'things-to-do' | 'transport' | 'visit' | 'activities' | 'shopping'
+
+export type CityId =
+  | 'marrakech' | 'fes' | 'agadir' | 'chefchaouen' | 'essaouira' | 'casablanca' | 'tangier' 
+  | 'merzouga' | 'rabat' | 'meknes' | 'mhamid' | 'imlil_toubkal' | 'ourika' | 'ouzoud' 
+  | 'todra_dades' | 'ouarzazate' | 'paradise_valley' | 'taghazout' | 'imsouane' | 'dakhla' 
+  | 'asilah' | 'saidia' | 'al_hoceima' | 'ifrane_azrou' | 'oukaimeden' | 'el_jadida' 
+  | 'tetouan' | 'tetouan_martil' | 'taroudant_tafraoute' | 'skoura_draa' | 'moulay_idriss'
+  | 'ifrane' | 'taroudant' | 'zagora' | 'oualidia'
+
+export type LifestyleComfort = 'lean' | 'balanced' | 'premium'
+
+export type GroupType =
+  | 'solo' | 'couple' | 'couples' | 'family' | 'families' | 'friends' | 'seniors' | 'kids-friendly' | 'large-groups' | 'business-friendly' | 'business' | 'nature-lover'
+
+export type CrowdLevel = 'bustling' | 'balanced' | 'quiet'
+
+export type SafetySensitivity = 'high' | 'neutral' | 'okay'
+
+export type TransportMode =
+  | 'walkable' | 'taxi' | 'transit' | 'mixed'
+
+export type MealType =
+  | 'breakfast' | 'lunch' | 'dinner' | 'latenight' | 'late-night' | 'flexible' | 'afternoon-tea' | 'brunch' | 'snack' | 'drinks'
+
+export type AccommodationType =
+  | 'riad' | 'dar' | 'desert-camp' | 'kasbah' | 'hotel' | 'guesthouse' | 'hostel' | 'lodge' | 'resort' | 'apartment' | 'villa'
+
+export type EnergyLevel =
+  | 'relaxed'
+  | 'moderate'
+  | 'active'
+  | 'intense'
+
+export interface FrictionProfile {
+  walkingFatigue: number     // 1 to 5
+  heatExposure: number       // 1 to 5
+  touristCrowd: number       // 1 to 5
+  noiseLevel: number         // 1 to 5
+  scamRisk: number           // 1 to 5
+  physicalIntensity: number  // 1 to 5
+  kidSuitable: boolean
+}
+
+export interface SleepListing {
+  id: string
+  city: CityId
+  name: string
+  type: AccommodationType
+  neighborhood: string
+  address?: string
+  description: string
+  pricePerNight: number
+  lifestyle: LifestyleComfort
+  amenities: string[]
+  googleRating?: number
+  googleReviewCount?: number
+  tripadvisorRating?: number
+  tripadvisorReviewCount?: number
+  bookingRating?: number
+  bookingReviewCount?: number
+  hotelguruRating?: number
+  hotelguruReviewCount?: number
+  rating?: number // Legacy support
+  reviewCount?: number // Legacy support
+  safetyLevel: 1 | 2 | 3 | 4 | 5
+  groupTypes: GroupType[]
+  hasPool: boolean
+  hasBreakfast: boolean
+  hasAC: boolean
+  hasHeating?: boolean
+  hasRooftop: boolean
+  hasEnsuite: boolean
+  hasRestaurant?: boolean
+  hasBar?: boolean
+  hasGym?: boolean
+  hasElevator?: boolean
+  hasLaundryService?: boolean
+  hasRoomService?: boolean
+  petFriendly?: boolean
+  taxesIncluded?: boolean
+  freeCancellation?: boolean
+  kidsStayFree?: boolean
+  nearMedina: boolean
+  nearBeach?: boolean
+  nearMosque: boolean
+  images?: string[]
+  tip?: string
+  archetypeAffinity?: string[]
+  vibeTags?: string[]
+  tags?: string[]
+  isHiddenGem?: boolean
+  // New fields for Stay Detail View
+  locationSummary?: string // e.g. "Beachfront", "City Center"
+  // Sleep-location quiz question tag ("Where should your stay be?"):
+  // 'medina-heart' | 'ville-nouvelle' | 'countryside' - the results scoring
+  // uses this tag first (then nearMedina/locationSummary/neighborhood as
+  // fallback) so travelers get the best-listed stay for their location choice
+  locationFeel?: 'medina-heart' | 'ville-nouvelle' | 'countryside'
+  availabilityText?: string // e.g. "2 rooms left", "Available tonight"
+  googleMapsUrl?: string
+  contactWhatsApp?: string
+  bookingUrl?: string
+  paymentMethods?: string[]
+  languagesSpoken?: string[]
+  customStory?: string
+  neighborhoodOverview?: string
+  hiddenFeesNotice?: string
+  pros?: string[]
+  cons?: string[]
+  trustScores?: {
+    cleanliness: number
+    safety: number
+    staff: number
+    value: number
+    comfort: number
+    location: number
+  }
+  logistics?: {
+    checkIn: string
+    checkOut: string
+    luggageStorage: string
+    parking: string
+    airportTransfer?: string
+    contact: string
+  }
+  roomFeatures?: string[] // e.g. ["soundproof", "workspace", "balcony"]
+  roomTypes?: {
+    name: string
+    view?: string
+    price: number
+    beds: string
+    size: string
+    available?: boolean
+    urgentText?: string
+    image?: string
+  }[]
+  neighborhoodDistances?: {
+    label: string
+    distance: string
+    time?: string
+    icon?: string
+  }[]
+  /**
+   * Geographic coordinates of the stay (verified via web search / data entry).
+   * When present, the proximity engine computes real distance + direction
+   * (bearing) for the walking-distance radar map. When absent, the map falls
+   * back to the collected neighborhood distance data.
+   */
+  coordinates?: {
+    lat: number
+    lng: number
+  }
+  cancellationPolicy?: string
+  childPolicy?: string
+  officialWebsite?: string
+  instagramHandle?: string
+  virtualTourUrl?: string
+  isWheelchairAccessible?: boolean
+  accessibilityDetails?: string
+  googlePlaceId?: string
+  nonCopyrightImage?: string
+  faqs?: {
+    question: string
+    answer: string
+  }[]
+  reviewHighlights?: {
+    solo?: string
+    couples?: string
+    families?: string
+    business?: string
+    nomad?: string
+  }
+}
+
+export interface MenuItem {
+  id: string;
+  name: string;
+  localName?: string;
+  translations?: {
+    ar?: string;
+    en?: string;
+    es?: string;
+    de?: string;
+  };
+  description?: string;
+  price: number; // In Moroccan Dirham (MAD)
+  isSignature?: boolean;
+  isSpicy?: boolean;
+  dietary?: ('vegetarian' | 'vegan' | 'halal' | 'gluten-free' | 'dairy-free')[];
+  image?: string;
+  portionNotes?: string;
+}
+
+export interface MenuSection {
+  id: string;
+  title: string;
+  description?: string;
+  items: MenuItem[];
+}
+
+export interface EatMenu {
+  currency?: 'MAD';
+  lastUpdated?: string;
+  serviceChargeIncluded?: boolean;
+  sections: MenuSection[];
+  pdfUrl?: string;
+  scannedMenuPhotos?: string[];
+}
+
+export interface EatListingQuiz {
+  lifestyle: LifestyleComfort
+  groupTypes: GroupType[]
+  mealTypes: MealType[]
+  experienceTypes: string[]
+  foodStyles: string[]
+  cuisineTags?: string[]
+  archetypeAffinity?: string[]
+  vibeTags?: string[]
+  crowdLevel: CrowdLevel
+}
+
+export interface EatListingFilter {
+  pricePerPerson: number
+  isHalal: boolean
+  halalStatus?: 'likely-halal-food' | 'halal-certified' | 'unknown' | 'non-halal'
+  isVegetarianFriendly: boolean
+  servesAlcohol?: boolean
+  alcoholPolicy?: 'serves-alcohol' | 'dry'
+  hasDelivery: boolean
+  hasParking: boolean
+  nearMedina: boolean
+  nearBeach?: boolean
+  nearCenter?: boolean
+  hasEnglishStaff: boolean
+  hasFrenchStaff: boolean
+  ramadanFriendly?: 'serves-lunch' | 'special-ftour' | 'closed'
+  closedDays?: string[]
+  seatingTypes?: string[]
+  paymentMethods?: string[]
+  tags?: string[]
+  isHiddenGem?: boolean
+  isTemporarilyHidden?: boolean
+  verificationStatus?: 'verified' | 'unverified' | 'possibly-closed' | 'wrong-city'
+  wiFi?: boolean
+  airConditioning?: boolean
+  wheelchairAccessible?: boolean
+}
+
+export interface EatListingUI {
+  name: string
+  neighborhood: string
+  district?: string
+  description: string
+  tip?: string
+  badge?: 'hidden-gem' | 'local-favorite' | 'splurge' | 'tourist-trap' | 'local'
+  bestDishes?: string[]
+  pros?: string[]
+  cons?: string[]
+  googleRating?: number
+  googleReviewCount?: number
+  tripadvisorRating?: number
+  tripadvisorReviewCount?: number
+  theforkRating?: number
+  theforkReviewCount?: number
+  restaurantguruRating?: number
+  restaurantguruReviewCount?: number
+  rating?: number
+  reviewCount?: number
+  openTime?: string
+  closeTime?: string
+  weeklySchedule?: {
+    day: 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'Saturday' | 'Sunday'
+    openTime: string
+    closeTime: string
+    isClosed?: boolean
+  }[]
+  exactAddressAndCoordinates?: {
+    address: string
+    lat: number
+    lng: number
+  }
+  address?: string
+  coordinates?: {
+    lat: number
+    lng: number
+  }
+  googleMapsUrl?: string
+  reservationMethod?: string[]
+  reservationContact?: string
+  whatsappNumber?: string
+  bookingUrl?: string
+  website?: string
+  instagram?: string
+  customStory?: string
+  viewType?: string
+  bestTimeToVisit?: string
+  averageWaitMinutes?: number
+  fullMenu?: {
+    type: 'image' | 'text'
+    content: string
+  }
+  menu?: EatMenu
+  languagesSpoken?: string[]
+  googlePlaceId?: string
+  nonCopyrightImage?: string
+}
+
+export interface EatListing {
+  id: string
+  city: CityId
+
+  // Structured sub-sections
+  quiz?: EatListingQuiz
+  filter?: EatListingFilter
+  ui?: EatListingUI
+
+  // Direct properties (supported for flat data and backward-compatibility)
+  name?: string
+  neighborhood?: string
+  servesAlcohol?: boolean;
+  district?: string
+  description?: string
+  pricePerPerson?: number
+  lifestyle?: LifestyleComfort
+  mealTypes?: MealType[]
+  experienceTypes?: string[]
+  foodStyles?: string[]
+  // Food-cuisine quiz question tag ("What kind of food are you craving?"):
+  // 'moroccan-traditional' | 'international' | 'cafe-pastry' | 'seafood' -
+  // the results scoring uses this tag first (then foodStyles as fallback)
+  cuisineTags?: string[]
+  crowdLevel?: CrowdLevel
+  groupTypes?: GroupType[]
+  hasEnglishStaff?: boolean
+  hasFrenchStaff?: boolean
+  hasDelivery?: boolean
+  hasParking?: boolean
+  nearMedina?: boolean
+  nearBeach?: boolean
+  nearCenter?: boolean
+  isVegetarianFriendly?: boolean
+  isHalal?: boolean
+  halalStatus?: 'likely-halal-food' | 'halal-certified' | 'unknown' | 'non-halal'
+  verificationStatus?: 'verified' | 'unverified' | 'possibly-closed' | 'wrong-city'
+  isTemporarilyHidden?: boolean
+  openTime?: string
+  closeTime?: string
+  badge?: 'hidden-gem' | 'local-favorite' | 'splurge' | 'tourist-trap' | 'local'
+  images?: string[]
+  rating?: number
+  reviewCount?: number
+  googleReviewCount?: number
+  tripadvisorRating?: number
+  tripadvisorReviewCount?: number
+  theforkRating?: number
+  theforkReviewCount?: number
+  restaurantguruRating?: number
+  restaurantguruReviewCount?: number
+  tip?: string
+  archetypeAffinity?: string[]
+  vibeTags?: string[]
+  tags?: string[]
+  isHiddenGem?: boolean
+  // New fields
+  paymentMethods?: string[]
+  reservationMethod?: string[]
+  reservationContact?: string
+  googleMapsUrl?: string
+  bestDishes?: string[]
+  alcoholPolicy?: 'serves-alcohol' | 'dry'
+  ramadanFriendly?: 'serves-lunch' | 'special-ftour' | 'closed'
+  ratingSource?: 'tripadvisor' | 'google' | 'restaurantguru'
+  fullMenu?: {
+    type: 'image' | 'text'
+    content: string // image url or text content
+  }
+  menu?: EatMenu
+  customStory?: string
+  languagesSpoken?: string[]
+  pros?: string[]
+  cons?: string[]
+  googlePlaceId?: string
+  nonCopyrightImage?: string
+  googleRating?: number
+  bestTimeToVisit?: string
+  averageWaitMinutes?: number
+  seatingTypes?: string[]
+  viewType?: string
+  wiFi?: boolean
+  airConditioning?: boolean
+  wheelchairAccessible?: boolean
+  website?: string
+  instagram?: string
+  bookingUrl?: string
+  whatsappNumber?: string
+  closedDays?: string[]
+  weeklySchedule?: {
+    day: 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'Saturday' | 'Sunday'
+    open: string
+    close: string
+    isClosed?: boolean
+    note?: string
+  }[]
+  exactAddressAndCoordinates?: {
+    address: string
+    lat: number
+    lng: number
+  }
+  menuUrl?: string
+}
+
+export type ActivityListing = ThingToDoListing
+export type VisitListing = ThingToDoListing
+export interface ThingToDoListing {
+  id: string
+  city: CityId
+  name: string
+  neighborhood: string
+  description: string
+  price: number // Combined entryPrice / pricePerPerson
+  pricePerPerson?: number
+  entryPrice?: number
+  lifestyle: LifestyleComfort[]
+  groupTypes: GroupType[]
+  crowdLevel: CrowdLevel
+  durationMinutes: number
+  hasEnglishGuide: boolean
+  hasFrenchGuide: boolean
+  images?: string[]
+  googleRating?: number // Replaces raw rating
+  reviewCount?: number
+  googleReviewCount?: number
+  tripadvisorRating?: number
+  tripadvisorReviewCount?: number
+  viatorRating?: number
+  viatorReviewCount?: number
+  getyourguideRating?: number
+  getyourguideReviewCount?: number
+  googlePlaceId?: string
+  nonCopyrightImage?: string
+  youtubeVideoId?: string
+  googleMapsUrl: string // Added for external linking
+  safetyLevel: 1 | 2 | 3 | 4 | 5
+  // Visit-specific
+  cluster?: string
+  bookingRequired?: boolean
+  walkInOkay?: boolean
+  // Activity-specific
+  energyLevel?: EnergyLevel
+  timeOfDay?: string[]
+  transportMode?: TransportMode
+  isKidFriendly?: boolean
+  isFemaleFriendly?: boolean
+  isWheelchairAccessible?: boolean
+  isPhotographyFriendly?: boolean
+  hasPrivateOption?: boolean
+  hasSunsetView?: boolean
+  avoidAnimals?: boolean
+  hasIndoorRest?: boolean
+  hasWiFi?: boolean
+  hasAC?: boolean
+  nearMedina?: boolean
+  nearBeach?: boolean
+  goodForRain?: boolean
+  hasLocalGuide?: boolean
+  friction?: FrictionProfile
+  tip?: string
+  badge?: string
+  archetypeAffinity?: string[]
+  vibeTags?: string[]
+  tags?: string[] // Unified kebab-case tags for 7-pillar taxonomy
+  isHiddenGem?: boolean
+
+  // A-to-M Level Planning and Storytelling Fields
+  shortValueProp?: string           // A6
+  distanceFromCenterKm?: number     // A8
+  highlights?: string[]             // B4
+  emotionalBenefits?: string[]      // C3
+  openingHours?: string             // D2
+  bestTimeToVisit?: string          // D3
+  typicalWaitTimeMinutes?: number   // D5
+  seasonality?: string              // D7
+  ticketTypes?: { name: string; price: number; currency?: string; category?: string; conditions?: string }[] // E3
+  discountsInfo?: string            // E4
+  includedServices?: string[]       // E5
+  hiddenCostsInfo?: string          // E6
+  address?: string                  // F1
+  coordinates?: { lat: number; lng: number } // GPS pinpoint coordinates
+  parkingInfo?: string              // F4
+  publicTransportInfo?: string      // F5
+  dressCode?: string                // H1
+  equipmentNeeded?: string[]        // H2
+  fitnessLevel?: string             // H3
+  ageRestrictions?: string          // H5
+  safetyNotes?: string              // H6
+  languages?: string[]              // H7
+  visitorQuotes?: { quote: string; author: string; type: string; rating: number }[] // I1, C2
+  nearbyCombos?: { name: string; type: 'eat' | 'visit' | 'shop' | 'sleep'; id?: string; distanceKm?: number; recommendedTransition?: string }[] // J1-J3
+  storyTitle?: string               // K-level
+  history?: string                  // K1
+  culturalImportance?: string       // K2
+  localLegend?: string              // K3
+  funFact?: string                  // K4, K5
+  seasonalInfo?: { bestSeason: string; impactText: string; festivalNote?: string } // L-level
+  officialWebsite?: string          // M1
+  ticketWebsite?: string            // M2
+  faq?: { q: string; a: string }[]  // M4
+  contactPhone?: string             // M5
+
+  // Sport-specific fields (optional, only for sport listings)
+  facilityType?: SportFacilityType;
+  experienceType?: SportExperienceType;
+  sportIntent?: SportIntent;
+  hasDayPass?: boolean;
+  hasWomenOnlyHours?: boolean;
+  hasGroupClasses?: boolean;
+  hasFullWeights?: boolean;
+  distanceFromUser?: number;
+  skillLevel?: ('beginner' | 'intermediate' | 'advanced')[];
+  duration?: string;
+  equipmentIncluded?: boolean;
+  instructorAvailable?: boolean;
+
+  // Operational extension fields (optional — enriched real data; see shared/thingsBible.ts)
+  // Placeholders use the value "not available" until real data is collected.
+  badges?: string[];
+  transportModes?: string[];
+  accessibilityFeatures?: string[];
+  openingHoursStructured?: { dayOfWeek: number; open: string; close: string }[];
+  paymentMethods?: string[];
+  amenities?: string[];
+  restrictions?: string[];
+  healthContraindications?: string[];
+  tips?: string[];
+  excludedServices?: string[];
+
+  // Worries Section ("Things You're Worried About!")
+  // Per-listing traveler worries — the worry DATA lives inside each listing
+  // file (src/listings/things/<city>/*.things.ts), under the listing itself.
+  // Each entry keeps tag/description "not available" until verified by real
+  // web research — never guessed. Shape: ThingWorryEntry (bottom of this file).
+  worries?: ThingWorryEntry[] | string[];
+}
+
+/**
+ * One traveler worry entry for the "Things You're Worried About!" section.
+ * Data lives inside each Things listing file — an array of 5 entries per
+ * listing (activity-safety / activity-scams / activity-pricing /
+ * activity-authenticity / activity-difficulty).
+ * STRICT RULE: tag & description stay "not available" until verified via
+ * real web research. Never invent a nice-sounding answer.
+ */
+export interface ThingWorryEntry {
+  id: string;            // canonical worry id, e.g. 'activity-safety'
+  title?: string;        // display title, e.g. 'Safety'
+  icon?: string;         // icon key mapped in components/worries/WorriesSection.tsx
+  tag: string;           // 1-2 words max — an adjective naming the worry's
+                         // state (e.g. 'Clean', 'Filtered', 'Fixed Price');
+                         // never just good/bad; 'not available' until verified
+  description: string;   // max 2 lines describing the worry's state at the
+                         // place; 'not available' until verified
+  tone?: 'good' | 'caution';  // what the research found (result tone, not the worry)
+  tagColor?: 'water' | 'money' | 'hygiene' | 'safety' | 'noise' | 'food' | 'craft' | 'alert'; // chip topic color
+  state?: 'verified' | 'pending';
+  image?: string;        // optional 1:1 image fitting the research result
+  source?: string;       // where the answer was verified
+}
+
+export type PricingModel = 'fixed' | 'negotiable' | 'mixed' | 'market_price'
+export type ShopType = 'souk_stall' | 'boutique' | 'cooperative' | 'mall_store' | 'pharmacy' | 'supermarket' | 'designer_atelier' | 'concept_store'
+export type AuthenticitySeal = 'label_artisanat' | 'wfto' | 'zellige_de_fes' | 'anou' | 'maalem_certified'
+
+export interface ShopListing {
+  id: string
+  city: CityId
+  name: string
+  type: ShopType
+  category: string
+  neighborhood: string
+  description: string
+  googlePlaceId?: string;   // Google Place ID — used to fetch photos from Google Places API
+  nonCopyrightImage?: string; // Copyright-free / Wikimedia / CC photo URL
+  images?: string[];         // DEPRECATED — keep as optional for transition, remove later
+  googleRating?: number
+  googleReviewCount?: number
+  priceLevel: 'budget' | 'mid-range' | 'premium' | 'luxury'
+  pricingModel: PricingModel
+  isVerified: boolean
+  isWheelchairAccessible?: boolean
+  hasDelivery?: boolean
+  
+  // P0 & Navigation
+  googleMapsUrl: string
+  address: string
+  landmark?: string // Landmarks for medina navigation
+  
+  /**
+   * Turn-by-turn walking directions for medina navigation.
+   * GPS doesn't work in medina alleys — these text steps are critical.
+   * Example: ["Walk toward Koutoubia Mosque", "Turn right at blue fountain", "3rd green door on left"]
+   */
+  navSteps?: string[];
+
+  /**
+   * Geographic coordinates for distance calculation from user's GPS.
+   */
+  coordinates?: {
+    lat: number;
+    lng: number;
+  };
+
+  /**
+   * Pre-computed display distance from a key landmark or city center.
+   * Shows in the hero: "8 min walk · 450m from Koutoubia"
+   * The actual real-time distance will be computed via GPS, but this
+   * gives a "typical" reference for list/map views before GPS lock.
+   */
+  distanceText?: string;
+
+  what3words?: string
+  
+  // P1 - Evaluation
+  tags: string[]
+  authenticitySeals?: AuthenticitySeal[]
+  paymentMethods: ('cash' | 'visa' | 'mastercard' | 'apple_pay' | 'google_pay' | 'amex')[]
+  productCategories: string[]
+  languagesSpoken: string[]
+  
+  // P2 - Details
+  phoneNumber?: string
+  website?: string
+  instagram?: string
+  openingHours: { day: string; hours: string }[]
+  fridayHours?: string // Specific for prayer pause
+  ramadanHours?: string
+  
+  shipping?: {
+    available: boolean
+    partner?: 'dhl' | 'fedex' | 'la_poste' | 'shop_arranges'
+    details?: string
+  }
+  
+  workshopVisitable?: boolean
+  returnPolicy?: string
+  establishedYear?: number
+  bestTimeToVisit?: string
+  
+  // Experience
+  atmosphere?: string
+  storeSize?: 'boutique' | 'medium' | 'large' | 'department-store'
+  crowdLevel?: 'quiet' | 'moderate' | 'busy'
+  
+  // Products & Prices
+  whatTheySell?: { item: string; range?: string; priceEstimate?: string }[]
+  
+  // Trust & Reviews
+  reviewSummary?: string
+  recentReviews?: { author: string; text: string; rating: number; type: 'tourist' | 'local' }[]
+  isLocalFavorite?: boolean
+  
+  // Local Context
+  nearbyLandmarks?: string[]
+  
+  // Story
+  history?: string
+  ownerName?: string
+  ownerBio?: string
+  
+  // Legacy / Shared
+  tip?: string
+  badge?: string
+}
+
+export interface SmartSuggestion {
+  id: string
+  city: CityId
+  focus: FocusType
+  triggerConditions: Record<string, unknown>
+  title: string
+  description: string
+  badge: string
+}
+

@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Prevent personalized interactive quiz flows and temporary quiz states from search index
+Disallow: /*start=quiz*
+Disallow: /*view=quiz*
+
+Sitemap: https://www.moroccanmate.com/sitemap.xml

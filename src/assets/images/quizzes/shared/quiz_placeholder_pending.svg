@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <!--
+    PLACEHOLDER IMAGE (not AI-generated)
+    Used for NEW quiz options that don't have real illustrations yet.
+    Each usage in src/components/finder/CategoryQuiz.tsx has its AI generation
+    prompt in the comment above it. Generate the real image, save it into
+    assets/images/quizzes/, then swap the import in CategoryQuiz.tsx.
+  -->
+  <rect width="800" height="600" fill="#FAF3EA"/>
+  <rect x="24" y="24" width="752" height="552" fill="none" stroke="#E7DCC8" stroke-width="2" stroke-dasharray="10 8" rx="24"/>
+  <text x="400" y="292" text-anchor="middle" font-family="Georgia, serif" font-size="46" fill="#D9C6A8">&#10022;</text>
+  <text x="400" y="334" text-anchor="middle" font-family="Georgia, serif" font-size="20" fill="#B8A98C" letter-spacing="2">Image coming soon</text>
+</svg>

@@ -1,0 +1,486 @@
+/**
+ * =========================================================================
+ * [ESSAOUIRA] THINGS TO DO — WELLNESS & LIVING ARTS
+ * =========================================================================
+ * Category file of the 4-file city split (heritage / nature / wellness / sport).
+ * • Category registry:  src/listings/things/shared/categories.ts
+ * • Canonical bible:   src/listings/things/shared/thingsBible.ts
+ * • City connector:    src/listings/things/essaouira/index.ts
+ *
+ * DATA: real collected listings (never AI-generated). Optional operational
+ * arrays carry ["not available"] until real data is collected.
+ *
+ * ──────────────────────────────────────────────────────────────────────
+ * MASTER TEMPLATE & ALLOWED VALUES BIBLE (for web-research agents)
+ * ──────────────────────────────────────────────────────────────────────
+ * RULES FOR DATA AGENTS:
+ *  1. Use ONLY the values listed in this bible. Never invent random values.
+ *  2. If a genuinely new value is needed, add it to the canonical bible
+ *     (src/listings/things/shared/thingsBible.ts) FIRST, then use it here.
+ *  3. Replace ["not available"] markers with real, source-verified values only.
+ *  4. The values you SEE in this file are NOT the full vocabulary — the
+ *     lists below are. Example: lifestyle also has 'premium' even if this
+ *     file only uses 'lean' and 'balanced'.
+ *
+ * FIXED ENUMS (exhaustive — from src/listings/types.ts):
+ * - lifestyle:        'lean' | 'balanced' | 'premium'
+ * - groupTypes:       'solo' | 'couple' | 'couples' | 'family' | 'families' | 'friends' |
+ *                     'seniors' | 'kids-friendly' | 'large-groups' | 'business-friendly' |
+ *                     'business' | 'nature-lover'
+ * - crowdLevel:       'quiet' | 'balanced' | 'bustling'
+ * - energyLevel:      'relaxed' | 'moderate' | 'active' | 'intense'
+ * - transportMode:    'walkable' | 'taxi' | 'transit' | 'mixed'
+ * - safetyLevel:      1 | 2 | 3 | 4 | 5
+ * - friction:         { walkingFatigue: 1-5, heatExposure: 1-5, touristCrowd: 1-5,
+ *                      noiseLevel: 1-5, scamRisk: 1-5, physicalIntensity: 1-5, kidSuitable: boolean }
+ * - sportIntent:      'practical' | 'experience'   (sport listings only)
+ * - facilityType:     'gym-fitness' | 'running-outdoor' | 'swimming-pool' |
+ *                     'yoga-movement' | 'combat-sports' | 'team-sports'
+ * - experienceType:   'surf-kitesurf' | 'hiking-trek' | 'climbing-adventure' |
+ *                     'desert-sport' | 'water-sport'
+ * - skillLevel:       'beginner' | 'intermediate' | 'advanced'
+ * - ticketTypes:      [{ name, price, currency: 'MAD', category?, conditions? }]
+ * - nearbyCombos:     [{ name, type: 'eat'|'visit'|'shop'|'sleep', id?, distanceKm?,
+ *                      recommendedTransition? }]
+ * - visitorQuotes:    [{ quote, author, type, rating: 1-5 }]
+ * - faq:              [{ q, a }]
+ * - coordinates:      { lat, lng }
+ * - openingHoursStructured: [{ dayOfWeek: 0-6 (0=Sunday), open: 'HH:MM', close: 'HH:MM' }]
+ *   (add ONLY with real verified hours — no placeholder fits this type)
+ *
+ * OPEN VOCABULARIES (every real value in the dataset — extend via the bible only):
+ * - tags (106): '16th-century-ramparts' | 'active' | 'adobe-fortress' | 'adventure' | 'alpine-park'
+ *     'ameln-valley' | 'anti-atlas' | 'anti-atlas-hiking' | 'architectural' | 'atlantic'
+ *     'atlas-history' | 'authentic' | 'barbary-macaques' | 'birdwatching' | 'boat-tour'
+ *     'calèche-ride' | 'camp' | 'cedar-forest' | 'climbing-adventure' | 'coastal'
+ *     'combat-sports' | 'cooking-class' | 'cultural-tour' | 'culture' | 'day-pass'
+ *     'day-trip' | 'desert' | 'desert-sport' | 'donkey-ride' | 'dramatic-gorges'
+ *     'family' | 'festival' | 'first-timer' | 'foodie' | 'geological-wonder'
+ *     'golden-hour' | 'granite-peaks' | 'guide-required' | 'gym-fitness' | 'hiking-trek'
+ *     'historical' | 'horse-riding' | 'iconic-landmark' | 'instagrammable' | 'kitesurf'
+ *     'lagoon' | 'land-art' | 'local-life' | 'market' | 'medina'
+ *     'modern' | 'morning' | 'mountain' | 'mountain-biking' | 'mountain-lake'
+ *     'napoleon-hat' | 'nature' | 'nature-walk' | 'off-the-beaten-path' | 'painted-rocks'
+ *     'palm-canyon' | 'palm-oasis' | 'pedal-boating' | 'photo-spot' | 'photography'
+ *     'photospot' | 'picnic-spot' | 'port-express' | 'premium' | 'private'
+ *     'quad-bike' | 'relaxed' | 'relaxed-energy' | 'running-outdoor' | 'saadian-dynasty'
+ *     'saadian-kasbah' | 'self-guided' | 'shopping' | 'ski-resort' | 'snow-sledding'
+ *     'spring-water' | 'step-free' | 'street-food' | 'sunset' | 'sunset-view'
+ *     'surf-culture' | 'surf-kitesurf' | 'surreal-landscape' | 'swimming-pool' | 'team-sports'
+ *     'traditional-irrigation' | 'tripod-allowed' | 'urban' | 'volcanic-crater' | 'walk'
+ *     'walk-in' | 'water-sport' | 'waterfall' | 'waterfront' | 'wellness'
+ *     'wildlife-encounter' | 'wingfoil' | 'winter-sports' | 'women-only' | 'working-port'
+ *     'workshop'
+ * - vibeTags (23): 'architectural' | 'artistic' | 'botanical' | 'chaotic' | 'cosy' | 'elegant'
+ *     'energetic' | 'geometric' | 'historical' | 'iconic' | 'intricate' | 'lush'
+ *     'nostalgic' | 'ornate' | 'peaceful' | 'regal' | 'scenic' | 'sensory'
+ *     'serene' | 'solemn' | 'spiritual' | 'tranquil' | 'vibrant'
+ * - archetypeAffinity (23): 'adventure' | 'art-and-culture' | 'couple' | 'culture' | 'family'
+ *     'first-timer' | 'foodie' | 'history' | 'history-weaver' | 'luxury'
+ *     'luxury-curator' | 'modern-nomad' | 'nature' | 'nomad' | 'photographer'
+ *     'photography' | 'quiet-mystic' | 'relaxation' | 'romantic' | 'seniors'
+ *     'sensory-seeker' | 'social-collector' | 'wildlife'
+ * - badges (array) (23): 'architectural-gem' | 'architectural-landmark' | 'artisan-village' | 'budget-friendly' | 'cultural-icon'
+ *     'cultural-immersion' | 'educational' | 'family-friendly' | 'foodie-paradise' | 'green-oasis'
+ *     'hidden-gem' | 'historic-landmark' | 'historic-memorial' | 'market-experience' | 'moving-experience'
+ *     'must-see' | 'panoramic-view' | 'peaceful-escape' | 'photography-spot' | 'quiet-retreat'
+ *     'shopping-hub' | 'spiritual-hub' | 'sunset-spot'
+ * - badge (single string) (6): 'architectural-gem' | 'essential' | 'hidden-gem' | 'historical' | 'popular' | 'top-pick'
+ * - transportModes (5): 'bus' | 'cable-car' | 'drive' | 'taxi' | 'walk'
+ * - paymentMethods (2): 'cash_mad' | 'credit_card'
+ * - accessibilityFeatures (17): 'cobblestone_paths' | 'flat_courtyard' | 'flat_ground' | 'flat_walkways'
+ *     'ground_floor_access' | 'level_entry_doorway' | 'partial_wheelchair_access' | 'perimeter_ramps'
+ *     'shaded_benches' | 'some_steps' | 'steep_exterior_approach' | 'step_free_access'
+ *     'step_free_exterior_view' | 'step_free_interior_boardwalk' | 'step_free_paved_paths' | 'wide_flat_walkways'
+ *     'wide_main_corridors'
+ * - amenities (29): 'ablution_facilities_worshippers' | 'artisan_workshops' | 'atm_nearby' | 'audioguide_service'
+ *     'cafe' | 'children_playground' | 'exhibition_hall' | 'food_stalls'
+ *     'fountains' | 'fresh_juice_bars' | 'garden_seating_access' | 'gift_shop'
+ *     'historical_documentation' | 'information_desk' | 'mosque_prayer_room' | 'panoramic_viewpoint'
+ *     'parking' | 'parking_perimeter' | 'perimeter_benches' | 'public_toilets_nearby'
+ *     'restrooms' | 'shaded_benches' | 'shaded_courtyards' | 'street_parking'
+ *     'ticket_booth' | 'traditional_fountains' | 'traditional_restaurant' | 'walking_paths'
+ *     'wooden_boardwalk'
+ *
+ * FREE-TEXT FIELDS (write clear, factual, source-verified strings):
+ * - fitnessLevel:     starts with 'Relaxed' | 'Moderate' | 'Active' | 'Intense' + short detail
+ * - openingHours:     human-readable, e.g. '10:00 AM - 07:00 PM (Daily)'
+ * - sentence arrays:  restrictions, healthContraindications, tips, excludedServices,
+ *                     highlights, emotionalBenefits, includedServices, equipmentNeeded,
+ *                     languages, dressCode, ageRestrictions, safetyNotes
+ *
+ * LISTING SECTIONS (field grouping used in this file):
+ *   CORE:       id, city, name, neighborhood, cluster
+ *   1. QUIZ:    lifestyle, groupTypes, crowdLevel, energyLevel, timeOfDay,
+ *               archetypeAffinity, vibeTags, tags, badges, isHiddenGem
+ *   2. FILTER:  price, pricePerPerson, entryPrice, durationMinutes, distanceFromCenterKm,
+ *               transportMode, transportModes, safetyLevel, bookingRequired, walkInOkay,
+ *               hasLocalGuide, hasEnglishGuide, hasFrenchGuide, isKidFriendly,
+ *               isFemaleFriendly, isWheelchairAccessible, accessibilityFeatures,
+ *               isPhotographyFriendly, hasPrivateOption, hasSunsetView, avoidAnimals,
+ *               hasIndoorRest, hasWiFi, hasAC, nearMedina, nearBeach, goodForRain,
+ *               friction, openingHours, openingHoursStructured, paymentMethods, amenities,
+ *               restrictions, healthContraindications, facilityType, experienceType,
+ *               sportIntent, hasDayPass, hasWomenOnlyHours, hasGroupClasses, hasFullWeights,
+ *               distanceFromUser, skillLevel, duration, equipmentIncluded, instructorAvailable
+ *   3. UI:      description, shortValueProp, images, nonCopyrightImage, googlePlaceId,
+ *               youtubeVideoId, googleRating, reviewCount, googleReviewCount,
+ *               tripadvisorRating/ReviewCount, viatorRating/ReviewCount,
+ *               getyourguideRating/ReviewCount, badge, tip, tips, highlights,
+ *               emotionalBenefits, bestTimeToVisit, typicalWaitTimeMinutes, seasonality,
+ *               ticketTypes, discountsInfo, includedServices, excludedServices,
+ *               hiddenCostsInfo, worries, address, coordinates, googleMapsUrl, parkingInfo,
+ *               publicTransportInfo, dressCode, equipmentNeeded, fitnessLevel,
+ *               ageRestrictions, safetyNotes, languages, visitorQuotes, nearbyCombos,
+ *               storyTitle, history, culturalImportance, localLegend, funFact,
+ *               seasonalInfo, officialWebsite, ticketWebsite, faq, contactPhone
+ *
+ * BLANK COPY-PASTE TEMPLATE FOR NEW LISTINGS:
+ * {
+ *   // ── CORE IDENTITY ──
+ *   id: "[city]-[slug]",
+ *   city: "[city]",
+ *   name: "",
+ *   neighborhood: "",
+ *   // ── 1. QUIZ ──
+ *   lifestyle: ["balanced"],
+ *   groupTypes: ["solo", "couple", "family", "friends"],
+ *   crowdLevel: "balanced",
+ *   energyLevel: "moderate",
+ *   archetypeAffinity: ["first-timer"],
+ *   vibeTags: ["authentic"],
+ *   tags: ["cultural-tour"],
+ *   badges: ["must-see"],
+ *   // ── 2. FILTER ──
+ *   price: 0, pricePerPerson: 0, entryPrice: 0,
+ *   durationMinutes: 90,
+ *   distanceFromCenterKm: 1.0,
+ *   transportMode: "walkable",
+ *   transportModes: ["walk"],
+ *   safetyLevel: 5,
+ *   walkInOkay: true,
+ *   hasEnglishGuide: false,
+ *   hasFrenchGuide: false,
+ *   isKidFriendly: true,
+ *   isFemaleFriendly: true,
+ *   isWheelchairAccessible: false,
+ *   accessibilityFeatures: ["not available"],
+ *   hasPrivateOption: false,
+ *   hasSunsetView: false,
+ *   nearMedina: false,
+ *   goodForRain: false,
+ *   friction: { walkingFatigue: 2, heatExposure: 2, touristCrowd: 3, noiseLevel: 2, scamRisk: 1, physicalIntensity: 2, kidSuitable: true },
+ *   openingHours: "10:00 AM - 07:00 PM (Daily)",
+ *   openingHoursStructured: [{ dayOfWeek: 0, open: "10:00", close: "19:00" }],
+ *   paymentMethods: ["not available"],
+ *   amenities: ["not available"],
+ *   restrictions: ["not available"],
+ *   healthContraindications: ["not available"],
+ *   // ── 3. UI ──
+ *   description: "",
+ *   shortValueProp: "",
+ *   images: [],
+ *   googleRating: 4.5,
+ *   reviewCount: 0,
+ *   badge: "popular",
+ *   tip: "",
+ *   tips: ["not available"],
+ *   highlights: ["", ""],
+ *   emotionalBenefits: ["", ""],
+ *   ticketTypes: [{ name: "General Entry", price: 20, currency: "MAD" }],
+ *   includedServices: [""],
+ *   excludedServices: ["not available"],
+ *   // ── 4. WORRIES ("Things You're Worried About!") — one entry per traveler
+ *   // worry. Keep tag/description "not available" until verified web research.
+ *   // tag = 1-2 words max, an adjective naming the worry's state (e.g. "Clean",
+ *   // "Filtered") — never just good/bad. description = max 2 lines.
+ *   worries: [
+ *     { id: "activity-safety", title: "Safety", icon: "shield", tag: "not available", description: "not available", state: "pending" },
+ *     { id: "activity-scams", title: "Scams", icon: "warning", tag: "not available", description: "not available", state: "pending" },
+ *     { id: "activity-pricing", title: "Pricing", icon: "tag", tag: "not available", description: "not available", state: "pending" },
+ *     { id: "activity-authenticity", title: "Authenticity", icon: "gem", tag: "not available", description: "not available", state: "pending" },
+ *     { id: "activity-difficulty", title: "Difficulty", icon: "mountain", tag: "not available", description: "not available", state: "pending" },
+ *   ],
+ *   address: "",
+ *   coordinates: { lat: 0, lng: 0 },
+ *   googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=",
+ * }
+ * =========================================================================
+ */
+import type { ThingToDoListing } from '../../types';
+
+// ══ LISTINGS — WELLNESS & LIVING ARTS ══
+export const essaouiraWellnessThings: ThingToDoListing[] = [
+  {
+    // ── CORE IDENTITY ───────────────────────────────────────
+    id: "essaouira-cooking-class",
+    city: "essaouira",
+    name: "L'Atelier Essaouira (Cooking Class)",
+    neighborhood: "Médina Ancienne",
+    // ── 1. QUIZ — matching, mood & personalization —
+    lifestyle: ["balanced", "premium"],
+    groupTypes: ["solo", "couple", "family", "friends", "seniors"],
+    crowdLevel: "balanced",
+    energyLevel: "moderate",
+    archetypeAffinity: ["culture", "first-timer"],
+    tags: ["authentic", "cultural-tour", "medina", "morning", "private", "workshop"],
+    badges: ["not available"],
+    // ── 2. FILTER — result-page filters & logistics —
+    price: 60,
+    durationMinutes: 180,
+    transportMode: "walkable",
+    transportModes: ["not available"],
+    safetyLevel: 5,
+    walkInOkay: false,
+    hasEnglishGuide: true,
+    hasFrenchGuide: true,
+    isKidFriendly: true,
+    isFemaleFriendly: true,
+    isWheelchairAccessible: true,
+    accessibilityFeatures: ["not available"],
+    isPhotographyFriendly: true,
+    hasPrivateOption: true,
+    hasSunsetView: false,
+    paymentMethods: ["not available"],
+    amenities: ["not available"],
+    restrictions: ["not available"],
+    healthContraindications: ["not available"],
+    // ── 3. UI — presentation & social proof —───────────────
+    description: "Learn traditional Moroccan recipes inside a beautifully converted industrial warehouse. Classes are small, trilingual, and include shopping for fresh ingredients in the local spice markets.",
+    images: [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Medina_Street_and_Fortified_Tower%2C_Essaouira%2C_Morocco.jpg/1280px-Medina_Street_and_Fortified_Tower%2C_Essaouira%2C_Morocco.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Argan_Oil_Cooperative_02.jpg/1280px-Argan_Oil_Cooperative_02.jpg"
+    ],
+    googlePlaceId: "ChIJ339_AWHyrw0Rr092M10123o",
+    googleRating: 4.8,
+    reviewCount: 38,
+    tip: "If you prefer sweet over savory, they also offer a specialized pastry class where you can learn to make delicate 'gazelle horns'.",
+    tips: ["not available"],
+    excludedServices: ["not available"],
+    // ── WORRIES ("Things You're Worried About!") ────────────
+    worries: [
+      {
+        id: "activity-safety",
+        title: "Safety",
+        icon: "shield",
+        tag: "Sanitized Stations",
+        tagColor: "safety",
+        tone: "good",
+        description: "Clean, modern culinary studio in a converted warehouse with dedicated cooking stations, supervised burners, and strict food hygiene.",
+        state: "verified"
+      },
+      {
+        id: "activity-scams",
+        title: "Scams",
+        icon: "warning",
+        tag: "Established Studio",
+        tagColor: "safety",
+        tone: "good",
+        description: "Operating since 2017 with verified online bookings, confirmed itineraries, and no unexpected third-party middlemen.",
+        state: "verified"
+      },
+      {
+        id: "activity-pricing",
+        title: "Pricing",
+        icon: "tag",
+        tag: "All Inclusive",
+        tagColor: "money",
+        tone: "good",
+        description: "Fixed upfront tuition (~600 MAD / ~€60 per person) covering guided souk shopping, all ingredients, mint tea, and a full 2-course meal.",
+        state: "verified"
+      },
+      {
+        id: "activity-authenticity",
+        title: "Authenticity",
+        icon: "gem",
+        tag: "Hands-On Local",
+        tagColor: "craft",
+        tone: "good",
+        description: "Sourcing spices directly in the local medina souk followed by hands-on crafting of traditional tagines, pastillas, or couscous.",
+        state: "verified"
+      },
+      {
+        id: "activity-difficulty",
+        title: "Difficulty",
+        icon: "mountain",
+        tag: "Gentle Standing",
+        tagColor: "safety",
+        tone: "good",
+        description: "Involves a leisurely 45-minute flat souk walk, followed by comfortable standing and seated food preparation.",
+        state: "verified"
+      }
+    ],
+    googleMapsUrl: "https://maps.google.com/?cid=11190467520194830172",
+  },
+  {
+    // ── CORE IDENTITY ───────────────────────────────────────
+    id: "essaouira-hammam-mounia",
+    city: "essaouira",
+    name: "Hammam Mounia / the Two Doors",
+    neighborhood: "Médina Ancienne",
+    // ── 1. QUIZ — matching, mood & personalization —
+    lifestyle: ["balanced", "premium"],
+    groupTypes: ["solo", "couple", "family", "friends", "seniors"],
+    crowdLevel: "balanced",
+    energyLevel: "relaxed",
+    archetypeAffinity: ["culture", "nomad"],
+    tags: ["authentic", "medina", "relaxed", "walk-in", "wellness"],
+    badges: ["not available"],
+    // ── 2. FILTER — result-page filters & logistics —
+    price: 30,
+    durationMinutes: 90,
+    transportMode: "walkable",
+    transportModes: ["not available"],
+    safetyLevel: 5,
+    walkInOkay: true,
+    hasEnglishGuide: true,
+    hasFrenchGuide: true,
+    isKidFriendly: false,
+    isFemaleFriendly: true,
+    isWheelchairAccessible: false,
+    accessibilityFeatures: ["not available"],
+    isPhotographyFriendly: true,
+    hasPrivateOption: false,
+    hasSunsetView: false,
+    paymentMethods: ["not available"],
+    amenities: ["not available"],
+    restrictions: ["not available"],
+    healthContraindications: ["not available"],
+    // ── 3. UI — presentation & social proof —───────────────
+    description: "Experience a highly authentic, traditional Moroccan bathhouse treatment in a clean, quiet environment. Enjoy a warm steam room treatment, black soap body scrubbing, and a relaxing argan oil massage.",
+    images: [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Medina_Street_and_Fortified_Tower%2C_Essaouira%2C_Morocco.jpg/1280px-Medina_Street_and_Fortified_Tower%2C_Essaouira%2C_Morocco.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Argan_Oil_Cooperative_02.jpg/1280px-Argan_Oil_Cooperative_02.jpg"
+    ],
+    googlePlaceId: "ChIJb77622Pyrw0R1029384756o",
+    googleRating: 4.8,
+    reviewCount: 213,
+    tip: "They offer an excellent couple's package that includes hot mint tea and traditional Moroccan sweets at the end of the session.",
+    tips: ["not available"],
+    excludedServices: ["not available"],
+    // ── WORRIES ("Things You're Worried About!") ────────────
+    worries: [
+      {
+        id: "activity-safety",
+        title: "Safety",
+        icon: "shield",
+        tag: "Slick Tiling",
+        tagColor: "alert",
+        tone: "caution",
+        description: "Steamy, wet marble and tile floors can be slippery underfoot; sanitized private rooms with assisted care from staff.",
+        state: "verified"
+      },
+      {
+        id: "activity-scams",
+        title: "Scams",
+        icon: "warning",
+        tag: "Direct Booking",
+        tagColor: "safety",
+        tone: "good",
+        description: "Well-regarded medina bathhouse operating since 2001 with transparent reservations, designated private slots, and no street touts.",
+        state: "verified"
+      },
+      {
+        id: "activity-pricing",
+        title: "Pricing",
+        icon: "tag",
+        tag: "Fixed Menu",
+        tagColor: "money",
+        tone: "good",
+        description: "Transparent treatment menu starting from ~250 MAD (€25) for traditional scrubs up to ~450–600 MAD for packages with argan oil massage.",
+        state: "verified"
+      },
+      {
+        id: "activity-authenticity",
+        title: "Authenticity",
+        icon: "gem",
+        tag: "Ancestral Ritual",
+        tagColor: "craft",
+        tone: "good",
+        description: "Traditional five-step Moroccan cleansing ritual utilizing authentic black soap, kessa glove exfoliation, ghassoul clay, and pure argan oil.",
+        state: "verified"
+      },
+      {
+        id: "activity-difficulty",
+        title: "Difficulty",
+        icon: "mountain",
+        tag: "Steam Heat",
+        tagColor: "alert",
+        tone: "caution",
+        description: "Involves sustained warm steam room exposure, firm full-body exfoliating scrubs, and reclining on warm stone benches.",
+        state: "verified"
+      }
+    ],
+    googleMapsUrl: "https://maps.google.com/?cid=11190467520194830173",
+  },
+  {
+    // ── CORE IDENTITY ───────────────────────────────────────
+    id: "essaouira-marjana-cooperative",
+    city: "essaouira",
+    name: "Cooperative Marjana (Argan Oil Cooperative)",
+    neighborhood: "Ounagha",
+    // ── 1. QUIZ — matching, mood & personalization —
+    lifestyle: ["lean", "balanced"],
+    groupTypes: ["solo", "couple", "family", "friends", "seniors"],
+    crowdLevel: "balanced",
+    energyLevel: "relaxed",
+    archetypeAffinity: ["culture", "first-timer"],
+    tags: ["authentic", "cultural-tour", "nature", "relaxed", "walk-in", "workshop"],
+    badges: ["not available"],
+    // ── 2. FILTER — result-page filters & logistics —
+    price: 0,
+    durationMinutes: 45,
+    transportMode: "taxi",
+    transportModes: ["not available"],
+    safetyLevel: 5,
+    walkInOkay: true,
+    hasEnglishGuide: false,
+    hasFrenchGuide: false,
+    isKidFriendly: true,
+    isFemaleFriendly: true,
+    isWheelchairAccessible: true,
+    accessibilityFeatures: ["not available"],
+    isPhotographyFriendly: true,
+    hasPrivateOption: false,
+    hasSunsetView: false,
+    paymentMethods: ["not available"],
+    amenities: ["not available"],
+    restrictions: ["not available"],
+    healthContraindications: ["not available"],
+    // ── 3. UI — presentation & social proof —───────────────
+    description: "Stop at this certified female-run cooperative situated 14 km east of Essaouira. See how regional Berber women manually shell, roast, and extract pure organic cosmetic and culinary argan oil.",
+    images: [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Argan_Oil_Cooperative_02.jpg/1280px-Argan_Oil_Cooperative_02.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Argan_Oil_Cooperative_01.jpg/1280px-Argan_Oil_Cooperative_01.jpg"
+    ],
+    googlePlaceId: "ChIJt334093wrw0R7162534120o",
+    googleRating: 4.4,
+    reviewCount: 110,
+    tip: "Take the time to sample their homemade culinary Amlou, a highly addictive Moroccan dip made from argan oil, almonds, and honey.",
+    tips: ["not available"],
+    excludedServices: ["not available"],
+    // ── WORRIES ("Things You're Worried About!") ────────────
+    // Worry data for THIS listing lives here, inside the listing file.
+    // STRICT RULE (no hallucination): fill tag/description ONLY with real,
+    // source-verified web research — never guess. Keep "not available" until
+    // verified. A verified entry also sets: tone ("good" | "caution"), tagColor
+    // (water|money|hygiene|safety|noise|food|craft|alert — follows the TAG's
+    // topic), state: "verified", source, and an optional image.
+    // FORMAT — tag: 1-2 words max, an adjective naming the worry's state
+    // (e.g. "Clean", "Filtered", "Fixed Price") — never just "good"/"bad".
+    // FORMAT — description: max 2 lines describing the worry's state at this place.
+    worries: [
+      // ── WORRY SUMMARY: SAFETY — equipment condition, certified guides, safety protocol
+      { id: "activity-safety", title: "Safety", icon: "shield", tag: "not available", description: "not available", state: "pending" },
+      // ── WORRY SUMMARY: SCAMS — licensed provider, promised itinerary, no fake tours
+      { id: "activity-scams", title: "Scams", icon: "warning", tag: "not available", description: "not available", state: "pending" },
+      // ── WORRY SUMMARY: PRICING — clear pricing, transparent extras, no surprise bills
+      { id: "activity-pricing", title: "Pricing", icon: "tag", tag: "not available", description: "not available", state: "pending" },
+      // ── WORRY SUMMARY: AUTHENTICITY — real Moroccan craft/culture vs staged tourist show
+      { id: "activity-authenticity", title: "Authenticity", icon: "gem", tag: "not available", description: "not available", state: "pending" },
+      // ── WORRY SUMMARY: DIFFICULTY — physical demands, trail difficulty, suitability for all
+      { id: "activity-difficulty", title: "Difficulty", icon: "mountain", tag: "not available", description: "not available", state: "pending" },
+    ],
+    googleMapsUrl: "https://maps.google.com/?cid=11190467520194830176",
+  }
+];

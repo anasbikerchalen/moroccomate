@@ -1,0 +1,189 @@
+/**
+ * =========================================================================
+ * MOROCCAN MATE — SHOPPING & ARTISANS LISTINGS: SAIDIA
+ * =========================================================================
+ * MASTER TEMPLATE REFERENCE & ALLOWED ARRAY OPTIONS BIBLE
+ * Canonical Bible File: src/listings/shop/template.shop.ts
+ *
+ * When updating or generating new artisan shop entries with external AI or web search,
+ * you MUST strictly adhere to the following allowed array values:
+ *
+ * ALLOWED OPTIONS BIBLE:
+ * - type:              'souk_stall' | 'boutique' | 'cooperative' | 'mall_store' | 'pharmacy' | 'supermarket' | 'designer_atelier' | 'concept_store'
+ * - priceLevel:        'budget' | 'mid-range' | 'premium' | 'luxury'
+ * - pricingModel:      'fixed' | 'negotiable' | 'mixed' | 'market_price'
+ * - authenticitySeals: 'label_artisanat' | 'wfto' | 'zellige_de_fes' | 'anou' | 'maalem_certified'
+ * - paymentMethods:    'cash' | 'visa' | 'mastercard' | 'apple_pay' | 'google_pay' | 'amex'
+ * - productCategories: 'Berber Rugs & Carpets' | 'Leather Goods & Babouches' | 'Ceramics & Pottery' | 'Spices & Apothecary' | 'Argan Oil & Cosmetics' | 'Jewelry & Silver' | 'Brass & Metal Lanterns' | 'Woodwork & Thuya Wood' | 'Textiles & Caftans' | 'Artisan Crafts'
+ * - languagesSpoken:   'Arabic' | 'French' | 'English' | 'Spanish' | 'German' | 'Italian' | 'Berber / Tamazight'
+ * - storeSize:         'boutique' | 'medium' | 'large' | 'department-store'
+ * - crowdLevel:        'quiet' | 'moderate' | 'busy'
+ *
+ * BLANK COPY-PASTE TEMPLATE FOR NEW ENTRIES:
+ * {
+ *   id: 'sh-[city]-[slug]',
+ *   city: 'saidia',
+ *   name: '',
+ *   type: 'boutique',
+ *   category: 'Artisan Crafts',
+ *   neighborhood: 'Medina',
+ *   description: '',
+ *   priceLevel: 'mid-range',
+ *   pricingModel: 'fixed',
+ *   isVerified: true,
+ *   isWheelchairAccessible: false,
+ *   hasDelivery: false,
+ *   googleMapsUrl: 'https://maps.google.com/?q=',
+ *   address: '',
+ *   landmark: '',
+ *   coordinates: { lat: 31.6295, lng: -7.9811 },
+ *   distanceText: '',
+ *   navSteps: [],
+ *   tags: ['artisan', 'fixed-price', 'authentic'],
+ *   authenticitySeals: ['label_artisanat'],
+ *   paymentMethods: ['cash', 'visa', 'mastercard'],
+ *   productCategories: ['Leather Goods & Babouches'],
+ *   languagesSpoken: ['Arabic', 'French', 'English'],
+ *   phoneNumber: '',
+ *   website: '',
+ *   instagram: '',
+ *   openingHours: [{ day: 'Monday', hours: '09:00 - 19:00' }],
+ *   fridayHours: 'Friday prayer break 12:30 - 14:30',
+ *   shipping: { available: false, partner: 'shop_arranges', details: '' },
+ *   workshopVisitable: false,
+ *   returnPolicy: '',
+ *   bestTimeToVisit: '',
+ *   atmosphere: 'Relaxed browsing environment',
+ *   storeSize: 'boutique',
+ *   crowdLevel: 'moderate',
+ *   whatTheySell: [{ item: 'Handmade Babouches', range: '120 - 180 MAD', priceEstimate: '150 MAD' }],
+ *   googleRating: 4.5,
+ *   googleReviewCount: 100,
+ *   reviewSummary: ''
+ * }
+ * =========================================================================
+ */
+import { ShopListing } from '../types'
+
+export const saidiaShops: ShopListing[] = [
+  {
+    id: 'sh-saidia-1',
+    city: 'saidia',
+    name: 'Medina Mall Saïdia',
+    type: 'concept_store',
+    category: 'Moroccan Crafts & Boutiques',
+    neighborhood: 'Médina',
+    description: 'An elegant shopping arcade designed in traditional Moroccan architecture within the Saïdia Mediterrania complex. Features dedicated artisan boutiques selling hand-carved pottery, woven baskets, leather slippers, and local Oriental products.',
+    googleRating: 4.5,
+    googleReviewCount: 310,
+    priceLevel: 'mid-range',
+    pricingModel: 'fixed',
+    isVerified: true,
+    googlePlaceId: 'ChIJMedinaMallSaidia',
+    googleMapsUrl: 'https://maps.google.com/?q=Medina+Mall+Saidia',
+    address: 'Station Balnéaire Saïdia Mediterrania, Saïdia',
+    landmark: 'Saïdia Marina',
+    coordinates: { lat: 35.0865, lng: -2.2530 },
+    distanceText: '3 min walk from Saïdia Marina quay',
+    tags: ['Artisan Pottery', 'Woven Baskets', 'Modern Medina Arcade', 'Resort Shopping', 'ceramics', 'spices', 'souvenirs', 'fixed-price'],
+    paymentMethods: ['cash', 'visa', 'mastercard', 'apple_pay'],
+    productCategories: ['Traditional Ceramics', 'Woven Accessories', 'Local Oriental Oils', 'Handmade Gifts'],
+    languagesSpoken: ['Arabic', 'French', 'English'],
+    phoneNumber: '+212 5366-25000',
+    openingHours: [{ day: 'Mon-Sun', hours: '10:00 - 23:00' }]
+  },
+  {
+    id: 'sh-saidia-2',
+    city: 'saidia',
+    name: 'Souk Artisanat Saïdia',
+    type: 'souk_stall',
+    category: 'Traditional Market & Spices',
+    neighborhood: 'Saïdia City Center',
+    description: 'A vibrant outdoor local souk where artisans and regional producers gather. Renowned for aromatic Oriental spices, Berkane orange blossom waters, hand-woven carpets, and authentic brass lanterns.',
+    googleRating: 4.4,
+    googleReviewCount: 220,
+    priceLevel: 'budget',
+    pricingModel: 'negotiable',
+    isVerified: true,
+    googlePlaceId: 'ChIJSoukArtisanatSaidia',
+    googleMapsUrl: 'https://maps.google.com/?q=Souk+Saidia+Morocco',
+    address: 'Avenue Hassan II, Saïdia',
+    landmark: 'Central Mosque Saïdia',
+    coordinates: { lat: 35.0810, lng: -2.2350 },
+    distanceText: '5 min walk from Saïdia Public Beach',
+    tags: ['Oriental Spices', 'Berkane Orange Blossom', 'Handmade Lanterns', 'Weekly Souk', 'spices'],
+    paymentMethods: ['cash'],
+    productCategories: ['Fresh Spices & Herbs', 'Traditional Djellabas', 'Brass Lanterns', 'Local Olives'],
+    languagesSpoken: ['Arabic', 'French'],
+    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 21:00' }]
+  },
+  {
+    id: 'sh-saidia-3',
+    city: 'saidia',
+    name: 'Marina Saïdia Promenade Boutiques',
+    type: 'boutique',
+    category: 'Beachwear & Nautical Souvenirs',
+    neighborhood: 'Marina Saïdia',
+    description: 'A picturesque harborfront shopping promenade overlooking Mediterranean yachts. Features summer fashion boutiques, sunwear shops, maritime art, and premium Moroccan leather goods.',
+    googleRating: 4.6,
+    googleReviewCount: 180,
+    priceLevel: 'mid-range',
+    pricingModel: 'fixed',
+    isVerified: true,
+    googlePlaceId: 'ChIJMarinaSaidiaBoutiques',
+    googleMapsUrl: 'https://maps.google.com/?q=Marina+Saidia',
+    address: 'Port de Plaisance, Saïdia',
+    landmark: 'Radisson Blu Resort Saïdia',
+    coordinates: { lat: 35.0880, lng: -2.2560 },
+    distanceText: 'Directly on the yacht harbor boardwalk',
+    tags: ['Harbor Boardwalk', 'Nautical Fashion', 'Moroccan Leather', 'Sunwear', 'leather', 'souvenirs', 'fixed-price'],
+    paymentMethods: ['cash', 'visa', 'mastercard'],
+    productCategories: ['Beachwear & Swimsuits', 'Leather Handbags', 'Nautical Accessories', 'Artisan Souvenirs'],
+    languagesSpoken: ['Arabic', 'French', 'English'],
+    openingHours: [{ day: 'Mon-Sun', hours: '10:00 - 00:00' }]
+  },
+  {
+    id: 'sh-saidia-marjane-1',
+    city: 'saidia',
+    name: 'Marjane Market Saïdia',
+    type: 'supermarket',
+    category: 'Supermarket',
+    neighborhood: 'Marina Saïdia',
+    description: 'Marina supermarket in the Saïdia Med resort complex. Fully stocked with chilled beverages, fresh bakery goods, beach accessories, sunscreen, and holiday provisions for visitors and yacht owners.',
+    googleRating: 4.2,
+    googleReviewCount: 1420,
+    priceLevel: 'budget',
+    pricingModel: 'fixed',
+    isVerified: true,
+    googleMapsUrl: 'https://www.google.com/maps/search/Marjane+Market+Marina+Saidia/@35.0990,-2.2850,13z',
+    address: 'Boulevard de la Marina, Marina Saïdia, Saïdia',
+    coordinates: { lat: 35.099, lng: -2.285 },
+    tags: ["supermarket","beach-resort","groceries","sunscreen","fixed-price","verified"],
+    paymentMethods: ["cash","visa","mastercard","apple_pay"],
+    productCategories: ["Groceries","Beach Accessories","Cold Drinks","Bakery","Toiletries"],
+    languagesSpoken: ["Arabic","French","English"],
+    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 22:00"}]
+  },
+  {
+    id: 'sh-saidia-bim-1',
+    city: 'saidia',
+    name: 'BIM Saïdia',
+    type: 'supermarket',
+    category: 'Supermarket',
+    neighborhood: 'Saïdia City Center',
+    description: 'Centrally located discount supermarket at Place Tunisie in downtown Saïdia. Quick and budget-friendly for bottled water, juices, bread, and daily grocery items.',
+    googleRating: 4,
+    googleReviewCount: 260,
+    priceLevel: 'budget',
+    pricingModel: 'fixed',
+    isVerified: true,
+    googleMapsUrl: 'https://www.google.com/maps/search/BIM+Place+Tunisie+Saidia/@35.0878,-2.2385,13z',
+    address: 'Place Tunisie, Saïdia City Center, Saïdia',
+    coordinates: { lat: 35.0878, lng: -2.2385 },
+    tags: ["supermarket","discount-grocery","snacks","water","fixed-price","verified"],
+    paymentMethods: ["cash","visa","mastercard"],
+    productCategories: ["Mineral Water","Biscuits","Dairy","Snacks","Basic Hygiene"],
+    languagesSpoken: ["Arabic","French"],
+    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 21:00"}]
+  }
+];
