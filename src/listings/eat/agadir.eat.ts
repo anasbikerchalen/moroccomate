@@ -108,6 +108,342 @@ import type { EatListing } from '../types';
 
 export const agadirEat: EatListing[] = [
   {
+    id: "e-agadir-amsterdam-luxury",
+    city: "agadir",
+
+    // ── 1. QUIZ (personalization & recommendation matching) ──
+    quiz: {
+      lifestyle: "premium",
+      groupTypes: ["couple", "friends", "family", "business-friendly"],
+      mealTypes: ["lunch", "dinner", "drinks"],
+      experienceTypes: ["fine-dining", "casual"],
+      foodStyles: [
+        "International",
+        "Grill & BBQ",
+        "Seafood",
+        "Mediterranean"
+      ],
+      cuisineTags: ["international"],
+      archetypeAffinity: ["luxury", "first-timer"],
+      vibeTags: ["chic", "theatrical", "luxurious", "intimate"],
+      crowdLevel: "bustling"
+    },
+
+    // ── 2. FILTER (search criteria, dietary rules & flags) ──
+    filter: {
+      pricePerPerson: 38,
+      isHalal: true,
+      halalStatus: "halal-certified",
+      isVegetarianFriendly: true,
+      servesAlcohol: false,
+      alcoholPolicy: "dry",
+      hasDelivery: false,
+      hasParking: true,
+      nearMedina: false,
+      nearBeach: false,
+      nearCenter: true,
+      hasEnglishStaff: true,
+      hasFrenchStaff: true,
+      ramadanFriendly: "special-ftour",
+      closedDays: [],
+      seatingTypes: ["indoor"],
+      paymentMethods: ["credit_card", "cash", "visa", "mastercard"],
+      tags: [
+        "fine-dining",
+        "halal",
+        "steaks",
+        "wagyu",
+        "live-music",
+        "luxury",
+        "dinner",
+        "mocktails"
+      ],
+      isHiddenGem: false,
+      isTemporarilyHidden: false,
+      verificationStatus: "verified"
+    },
+
+    // ── 3. UI (presentation, reviews, dishes & contacts) ──
+    ui: {
+      name: "Amsterdam Luxury Restaurant",
+      neighborhood: "Hay Mohammadi",
+      description: "An upscale fine-dining destination in Hay Mohammadi renowned for its dramatic tableside culinary presentations, charcoal-grilled dry-aged steaks, certified A5 Wagyu, and creative Dutch-international fusion. A strictly alcohol-free luxury establishment featuring artisanal virgin mixology and weekend live acoustic violin and guitar performances.",
+      tip: "Weekend dinner slots fill up rapidly due to the live violin performances. Reserve 24–48 hours in advance via WhatsApp.",
+      badge: "splurge",
+      bestDishes: [
+        "Côte de Bœuf Maturée",
+        "Golden Wagyu Burger",
+        "Black Angus Rossini",
+        "Dutch Bitterballen",
+        "Poffertjes au Beurre",
+        "Risotto Saint-Jacques & Gambas"
+      ],
+      pros: [
+        "Theatrical tableside presentations with aromatic smoke and cloches",
+        "Top-grade certified Wagyu and dry-aged Himalayan salt beef",
+        "Live acoustic violin and guitar performances on Friday and Saturday evenings",
+        "Strictly 100% halal with an inventive artisanal mocktail bar"
+      ],
+      cons: [
+        "Dry establishment (no wine or alcohol served for diners seeking pairings)",
+        "Premium fine-dining price bracket reflects luxury imported ingredients"
+      ],
+      googleRating: 4.9,
+      googleReviewCount: 680,
+      tripadvisorRating: 4.9,
+      tripadvisorReviewCount: 190,
+      theforkRating: 4.8,
+      theforkReviewCount: 85,
+      openTime: "12:00",
+      closeTime: "00:00",
+      weeklySchedule: [
+        { day: "Monday", openTime: "12:00", closeTime: "00:00", isClosed: false },
+        { day: "Tuesday", openTime: "12:00", closeTime: "00:00", isClosed: false },
+        { day: "Wednesday", openTime: "12:00", closeTime: "00:00", isClosed: false },
+        { day: "Thursday", openTime: "12:00", closeTime: "00:00", isClosed: false },
+        { day: "Friday", openTime: "12:00", closeTime: "00:00", isClosed: false },
+        { day: "Saturday", openTime: "12:00", closeTime: "00:00", isClosed: false },
+        { day: "Sunday", openTime: "12:00", closeTime: "00:00", isClosed: false },
+      ],
+      exactAddressAndCoordinates: {
+        address: "Résidence Islane GH14, N6, Hay Al Mohammadi, Agadir 80000",
+        lat: 30.4358,
+        lng: -9.5786
+      },
+      address: "Résidence Islane GH14, N6, Hay Al Mohammadi, Agadir 80000",
+      coordinates: {
+        lat: 30.4358,
+        lng: -9.5786
+      },
+      googleMapsUrl: "https://maps.google.com/?q=Amsterdam+Luxury+Restaurant+Agadir",
+      reservationMethod: ["whatsapp", "phone", "website"],
+      reservationContact: "+212 5282-01799",
+      whatsappNumber: "+212609070598",
+      bookingUrl: "https://amsterdamagadir.com",
+      website: "https://amsterdamagadir.com",
+      instagram: "https://instagram.com/amsterdamluxuryrestaurant",
+      customStory: "Created to bring European cosmopolitan luxury and Dutch culinary hospitality to Agadir, Amsterdam Luxury Restaurant pairs culinary theater with meticulous charcoal gastronomy in a sophisticated multi-level lounge setting.",
+      viewType: "Interior Design Lounge",
+      bestTimeToVisit: "20:00 for the weekend live violin and guitar dinner show",
+      averageWaitMinutes: 15,
+      menu: {
+        currency: "MAD",
+        lastUpdated: "Verified March 2026",
+        serviceChargeIncluded: true,
+        sections: [
+          {
+            id: 'entrees-starters',
+            title: 'Entrées & Starters',
+            description: 'Refined cold and warm starters crafted with premium imported ingredients',
+            items: [
+              {
+                id: 'al-carpaccio-truffle',
+                name: 'Carpaccio de Bœuf Black Angus aux Truffes',
+                localName: 'كارباتشيو لحم أنجوس الأسود بالكمأة والبارميزان',
+                translations: {
+                  ar: 'كارباتشيو لحم أنجوس الأسود بالكمأة وجبن البارميزان',
+                  en: 'Black Angus Beef Carpaccio with Black Truffle & Aged Parmesan',
+                  es: 'Carpaccio de Ternera Black Angus con Trufa Negra y Parmesano',
+                  de: 'Black-Angus-Rinder-Carpaccio mit schwarzem Trüffel & Parmesan',
+                },
+                description: 'Thinly sliced tender Black Angus beef, white truffle infused olive oil, shavings of 24-month Parmigiano Reggiano, and baby arugula.',
+                price: 130,
+                isSignature: true,
+                dietary: ['halal'],
+                portionNotes: 'Served with warm artisan herb bread'
+              },
+              {
+                id: 'al-burrata-pesto',
+                name: 'Burrata Crémeuse aux Tomates Anciennes',
+                localName: 'جبنة بوراتا الإيطالية مع الطماطم والبيستو',
+                translations: {
+                  ar: 'جبنة بوراتا كريمية طازجة مع طماطم كرزية وبيستو الريحان',
+                  en: 'Creamy Fresh Burrata with Heirloom Tomatoes & Basil Pesto',
+                  es: 'Burrata Cremosa Fresca con Tomates Confitados y Pesto Verde',
+                  de: 'Cremige Burrata mit bunten Gartentomaten & hausgemachtem Pesto',
+                },
+                description: 'Fresh 250g Italian burrata heart, confit colorful heirloom tomatoes, roasted pine nuts, and reduction of balsamic glaze.',
+                price: 120,
+                dietary: ['vegetarian', 'halal'],
+                portionNotes: 'Ideal for sharing'
+              },
+              {
+                id: 'al-tartare-salmon',
+                name: 'Tartare de Saumon Frais & Mangue',
+                localName: 'تارتار السلمون الطازج مع المانجو والليمون',
+                translations: {
+                  ar: 'تارتار السلمون النرويجي الطازج مع المانجو والزنجبيل',
+                  en: 'Fresh Salmon Tartare with Diced Mango & Citrus Dressing',
+                  es: 'Tartar de Salmón Fresco con Mango Maduro y Cítricos',
+                  de: 'Frisches Lachs-Tatar mit reifer Mango & Zitrus-Vinaigrette',
+                },
+                description: 'Hand-cut fresh Norwegian salmon, diced sweet mango, shallots, chives, and citrus ginger emulsion.',
+                price: 140,
+                isSignature: false,
+                dietary: ['halal'],
+                portionNotes: 'Chilled presentation'
+              },
+              {
+                id: 'al-dutch-bitterballen',
+                name: 'Dutch Bitterballen Traditionnelles',
+                localName: 'كرات اللحم الهولندية المقرمشة مع الخردل',
+                translations: {
+                  ar: 'كرات اللحم الهولندية المقرمشة مع الخردل الهولندي التقليدي',
+                  en: 'Traditional Dutch Crispy Beef Croquette Balls with Mustard',
+                  es: 'Croquetas Holandesas Crujientes de Ternera con Mostaza',
+                  de: 'Klassische niederländische Bitterballen mit feinem Senf',
+                },
+                description: 'The national Dutch specialty: crispy golden bite-sized croquette balls filled with savory slow-simmered beef ragout, served with Dutch mustard.',
+                price: 95,
+                isSignature: true,
+                dietary: ['halal'],
+                portionNotes: '6 pieces'
+              }
+            ]
+          },
+          {
+            id: 'prestige-grills',
+            title: 'Grills & Plats de Prestige',
+            description: 'Prime charcoal-grilled beef cuts and noble seafood with tableside smoke presentation',
+            items: [
+              {
+                id: 'al-cote-de-boeuf',
+                name: 'Côte de Bœuf Maturée au Sel de l’Himalaya',
+                localName: 'كوت دو بوف معتقة بملح الهملايا على الفحم',
+                translations: {
+                  ar: 'شريحة كوت دو بوف لحم بقري معتقة مشوية على الفحم',
+                  en: 'Dry-Aged Ribeye on the Bone with Himalayan Salt (Smoke Show)',
+                  es: 'Chuletón de Ternera Madurado a la Brasa con Sal Rosa',
+                  de: 'Dry-Aged Ribeye am Knochen mit Himalaya-Salz vom Holzkohlegrill',
+                },
+                description: '45-day dry-aged prime beef ribeye grilled over olive wood charcoal, presented under an aromatic rosemary smoke cloche with truffle mashed potatoes.',
+                price: 380,
+                isSignature: true,
+                dietary: ['halal'],
+                portionNotes: 'Generous 500g cut for 1–2 diners'
+              },
+              {
+                id: 'al-filet-rossini',
+                name: 'Filet de Bœuf Black Angus Façon Rossini',
+                localName: 'فيليه لحم أنجوس فاخر بصلصة الفطر والكمأة',
+                translations: {
+                  ar: 'فيليه لحم أنجوس البقري الطري مع صلصة الترفاس الأسود',
+                  en: 'Prime Black Angus Beef Tenderloin with Truffle Reduction',
+                  es: 'Solomillo Black Angus con Reducción de Trufa Negra y Setas',
+                  de: 'Zartes Black-Angus-Rinderfilet mit feiner Trüffeljus',
+                },
+                description: 'Center-cut Black Angus beef tenderloin, sautéed wild mushrooms, potato gratin dauphinois, and rich black truffle jus.',
+                price: 320,
+                isSignature: true,
+                dietary: ['halal'],
+                portionNotes: 'Cooked to temperature preference'
+              },
+              {
+                id: 'al-golden-wagyu-burger',
+                name: 'Burger Signature Amsterdam Golden Wagyu',
+                localName: 'برغر واغيو الفاخر مع البطاطس المقلية بالكمأة',
+                translations: {
+                  ar: 'برغر لحم واغيو الياباني الفاخر مع بطاطس مقلية بالكمأة والبارميزان',
+                  en: 'Signature Amsterdam Wagyu Burger with Truffle Fries',
+                  es: 'Hamburguesa de Wagyu de Lujo con Patatas a la Trufa',
+                  de: 'Luxus-Wagyu-Burger mit Trüffelpommes & Parmesan',
+                },
+                description: 'Pure Wagyu beef patty, brioche bun with gold leaf accent, caramelized shallots, melted aged cheddar, and house truffle fries.',
+                price: 240,
+                isSignature: true,
+                dietary: ['halal'],
+                portionNotes: 'Includes house fries & dip'
+              },
+              {
+                id: 'al-risotto-saint-jacques',
+                name: 'Risotto Crémeux aux Noix de Saint-Jacques & Gambas',
+                localName: 'ريزوتو ثمار البحر مع الإسكالوب والجمبري الملكي',
+                translations: {
+                  ar: 'ريزوتو إيطالي كريمي بالمحار والجمبري الملكي والزعفران',
+                  en: 'Creamy Carnaroli Risotto with Sea Scallops & Jumbo Prawns',
+                  es: 'Risotto Cremoso con Vieiras del Mar y Gambas Reales',
+                  de: 'Cremiges Risotto mit Jakobsmuscheln & Riesen-Garnelen',
+                },
+                description: 'Slow-stirred Carnaroli rice with Saffron of Taliouine, pan-seared sea scallops, jumbo Atlantic prawns, and aged parmesan fondue.',
+                price: 260,
+                dietary: ['halal'],
+                portionNotes: 'Fresh Atlantic catch'
+              },
+              {
+                id: 'al-pave-saumon',
+                name: 'Pavé de Saumon Sauvage Rôti à la Crème d’Aneth',
+                localName: 'فيليه السلمون المشوي بالفرن مع صلصة الشبت والليمون',
+                translations: {
+                  ar: 'فيليه سلمون مشوي بالفرن بصلصة الكريمة والشبت الطازج',
+                  en: 'Pan-Roasted Wild Salmon Fillet with Lemon Dill Velouté',
+                  es: 'Lomo de Salmón Asado con Crema Ligera de Eneldo y Limón',
+                  de: 'Gebratenes Lachsfilet in Zitronen-Dillrahmsauce mit Spargel',
+                },
+                description: 'Crispy skin salmon fillet, green asparagus spears, saffron baby potatoes, and light white cream dill sauce.',
+                price: 210,
+                dietary: ['halal'],
+                portionNotes: 'Gluten-free friendly'
+              }
+            ]
+          },
+          {
+            id: 'desserts-douceurs',
+            title: 'Desserts & Douceurs Néerlandaises',
+            description: 'Decadent post-dinner finishes and beloved Amsterdam pastry traditions',
+            items: [
+              {
+                id: 'al-poffertjes',
+                name: 'Poffertjes Néerlandais Traditionnels',
+                localName: 'بان كيك بوفيرتيس الهولندي الصغير بالزبدة والسكر',
+                translations: {
+                  ar: 'فطائر بوفيرتيس الهولندية التقليدية بالزبدة وسكر البودرة',
+                  en: 'Warm Traditional Dutch Mini Yeast Pancakes with Butter & Sugar',
+                  es: 'Mini Tortitas Holandesas Poffertjes con Mantequilla y Azúcar',
+                  de: 'Original holländische Poffertjes mit Puderzucker & Butter',
+                },
+                description: 'A beloved Dutch tradition: a platter of freshly griddled fluffy mini pancakes melted in farm butter and dusted with powdered sugar.',
+                price: 75,
+                isSignature: true,
+                dietary: ['vegetarian', 'halal'],
+                portionNotes: 'Served warm in 12 pieces'
+              },
+              {
+                id: 'al-fondant-chocolat',
+                name: 'Fondant Coulant au Chocolat Belge',
+                localName: 'فوندان الشوكولاتة البلجيكية الساخن مع آيس كريم الفانيليا',
+                translations: {
+                  ar: 'كيك الشوكولاتة الساخن بالقلب الذائب مع آيس كريم فانيليا',
+                  en: 'Warm Molten Belgian Chocolate Lava Cake with Vanilla Gelato',
+                  es: 'Volcán de Chocolate Belga Fundido con Helado de Vainilla',
+                  de: 'Warmes belgisches Schokoladenküchlein mit Vanilleeis',
+                },
+                description: '70% dark Belgian cocoa fondant with warm flowing center, Madagascar bourbon vanilla gelato, and fresh berries.',
+                price: 85,
+                dietary: ['vegetarian', 'halal'],
+                portionNotes: 'Baked to order (10 min)'
+              },
+              {
+                id: 'al-virgin-mojito',
+                name: 'Virgin Mojito Passion & Fruit du Dragon',
+                localName: 'موخيتو منعش خالي من الكحول بفاكهة التنين والباشن فروت',
+                translations: {
+                  ar: 'كوكتيل موخيتو منعش بدون كحول بفاكهة التنين والباشن فروت',
+                  en: 'Signature Passionfruit & Dragonfruit Virgin Mocktail Mojito',
+                  es: 'Mojito Sin Alcohol de Fruta de la Pasión y Pitahaya Fresca',
+                  de: 'Alkoholfreier Virgin Mojito mit Maracuja & Drachenfrucht',
+                },
+                description: 'Crafted alcohol-free mixology: fresh crushed mint leaves, passion fruit purée, dragonfruit cubes, and sparkling citrus water.',
+                price: 65,
+                dietary: ['vegan', 'halal'],
+                portionNotes: 'Artisan Mocktail'
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
     id: "e-agadir-1",
     city: "agadir",
 

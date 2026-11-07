@@ -448,6 +448,80 @@ export const DISH_TRANSLATIONS: Record<string, Record<MenuLanguage, string>> = {
     es: 'Cuernos de Gacela Artesanales con Pasta de Almendras',
     de: 'Traditionelle Gazellenhörnchen mit feiner Mandelpaste',
   },
+
+  // --- Amsterdam Luxury Restaurant Agadir ---
+  'Carpaccio de Bœuf Black Angus aux Truffes': {
+    ar: 'كارباتشيو لحم أنجوس الأسود بالكمأة وجبن البارميزان',
+    en: 'Black Angus Beef Carpaccio with Black Truffle & Aged Parmesan',
+    es: 'Carpaccio de Ternera Black Angus con Trufa Negra y Parmesano',
+    de: 'Black-Angus-Rinder-Carpaccio mit schwarzem Trüffel & Parmesan',
+  },
+  'Burrata Crémeuse aux Tomates Anciennes': {
+    ar: 'جبنة بوراتا كريمية طازجة مع طماطم كرزية وبيستو الريحان',
+    en: 'Creamy Fresh Burrata with Heirloom Tomatoes & Basil Pesto',
+    es: 'Burrata Cremosa Fresca con Tomates Confitados y Pesto Verde',
+    de: 'Cremige Burrata mit bunten Gartentomaten & hausgemachtem Pesto',
+  },
+  'Tartare de Saumon Frais & Mangue': {
+    ar: 'تارتار السلمون النرويجي الطازج مع المانجو والزنجبيل',
+    en: 'Fresh Salmon Tartare with Diced Mango & Citrus Dressing',
+    es: 'Tartar de Salmón Fresco con Mango Maduro y Cítricos',
+    de: 'Frisches Lachs-Tatar mit reifer Mango & Zitrus-Vinaigrette',
+  },
+  'Dutch Bitterballen Traditionnelles': {
+    ar: 'كرات اللحم الهولندية المقرمشة مع الخردل الهولندي التقليدي',
+    en: 'Traditional Dutch Crispy Beef Croquette Balls with Mustard',
+    es: 'Croquetas Holandesas Crujientes de Ternera con Mostaza',
+    de: 'Klassische niederländische Bitterballen mit feinem Senf',
+  },
+  'Côte de Bœuf Maturée au Sel de l’Himalaya': {
+    ar: 'شريحة كوت دو بوف لحم بقري معتقة مشوية على الفحم',
+    en: 'Dry-Aged Ribeye on the Bone with Himalayan Salt (Smoke Show)',
+    es: 'Chuletón de Ternera Madurado a la Brasa con Sal Rosa',
+    de: 'Dry-Aged Ribeye am Knochen mit Himalaya-Salz vom Holzkohlegrill',
+  },
+  'Filet de Bœuf Black Angus Façon Rossini': {
+    ar: 'فيليه لحم أنجوس البقري الطري مع صلصة الترفاس الأسود',
+    en: 'Prime Black Angus Beef Tenderloin with Truffle Reduction',
+    es: 'Solomillo Black Angus con Reducción de Trufa Negra y Setas',
+    de: 'Zartes Black-Angus-Rinderfilet mit feiner Trüffeljus',
+  },
+  'Burger Signature Amsterdam Golden Wagyu': {
+    ar: 'برغر لحم واغيو الياباني الفاخر مع بطاطس مقلية بالكمأة والبارميزان',
+    en: 'Signature Amsterdam Wagyu Burger with Truffle Fries',
+    es: 'Hamburguesa de Wagyu de Lujo con Patatas a la Trufa',
+    de: 'Luxus-Wagyu-Burger mit Trüffelpommes & Parmesan',
+  },
+  'Risotto Crémeux aux Noix de Saint-Jacques & Gambas': {
+    ar: 'ريزوتو إيطالي كريمي بالمحار والجمبري الملكي والزعفران',
+    en: 'Creamy Carnaroli Risotto with Sea Scallops & Jumbo Prawns',
+    es: 'Risotto Cremoso con Vieiras del Mar y Gambas Reales',
+    de: 'Cremiges Risotto mit Jakobsmuscheln & Riesen-Garnelen',
+  },
+  'Pavé de Saumon Sauvage Rôti à la Crème d’Aneth': {
+    ar: 'فيليه سلمون مشوي بالفرن بصلصة الكريمة والشبت الطازج',
+    en: 'Pan-Roasted Wild Salmon Fillet with Lemon Dill Velouté',
+    es: 'Lomo de Salmón Asado con Crema Ligera de Eneldo y Limón',
+    de: 'Gebratenes Lachsfilet in Zitronen-Dillrahmsauce mit Spargel',
+  },
+  'Poffertjes Néerlandais Traditionnels': {
+    ar: 'فطائر بوفيرتيس الهولندية التقليدية بالزبدة وسكر البودرة',
+    en: 'Warm Traditional Dutch Mini Yeast Pancakes with Butter & Sugar',
+    es: 'Mini Tortitas Holandesas Poffertjes con Mantequilla y Azúcar',
+    de: 'Original holländische Poffertjes mit Puderzucker & Butter',
+  },
+  'Fondant Coulant au Chocolat Belge': {
+    ar: 'كيك الشوكولاتة الساخن بالقلب الذائب مع آيس كريم فانيليا',
+    en: 'Warm Molten Belgian Chocolate Lava Cake with Vanilla Gelato',
+    es: 'Volcán de Chocolate Belga Fundido con Helado de Vainilla',
+    de: 'Warmes belgisches Schokoladenküchlein mit Vanilleeis',
+  },
+  'Virgin Mojito Passion & Fruit du Dragon': {
+    ar: 'كوكتيل موخيتو منعش بدون كحول بفاكهة التنين والباشن فروت',
+    en: 'Signature Passionfruit & Dragonfruit Virgin Mocktail Mojito',
+    es: 'Mojito Sin Alcohol de Fruta de la Pasión y Pitahaya Fresca',
+    de: 'Alkoholfreier Virgin Mojito mit Maracuja & Drachenfrucht',
+  },
 };
 
 /**
