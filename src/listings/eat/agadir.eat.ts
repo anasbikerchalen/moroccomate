@@ -107,26 +107,26 @@
 import type { EatListing } from '../types';
 
 export const agadirEat: EatListing[] = [
-  {
+ {
     id: "e-agadir-amsterdam-luxury",
     city: "agadir",
-    openTime: "12:00",
+    openTime: "07:00",
     closeTime: "00:00",
     weeklySchedule: [
-      { day: "Monday", open: "12:00", close: "00:00", isClosed: false },
-      { day: "Tuesday", open: "12:00", close: "00:00", isClosed: false },
-      { day: "Wednesday", open: "12:00", close: "00:00", isClosed: false },
-      { day: "Thursday", open: "12:00", close: "00:00", isClosed: false },
-      { day: "Friday", open: "12:00", close: "00:00", isClosed: false, note: "Live Violin & Acoustic Show (from 20:30)" },
-      { day: "Saturday", open: "12:00", close: "00:00", isClosed: false, note: "Live Violin & Acoustic Show (from 20:30)" },
-      { day: "Sunday", open: "12:00", close: "00:00", isClosed: false },
+      { day: "Monday", open: "07:00", close: "00:00", isClosed: false },
+      { day: "Tuesday", open: "07:00", close: "00:00", isClosed: false },
+      { day: "Wednesday", open: "07:00", close: "00:00", isClosed: false },
+      { day: "Thursday", open: "07:00", close: "00:00", isClosed: false },
+      { day: "Friday", open: "07:00", close: "00:00", isClosed: false, note: "Live Violin & Acoustic Show (from 20:30)" },
+      { day: "Saturday", open: "07:00", close: "00:00", isClosed: false, note: "Live Violin & Acoustic Show (from 20:30)" },
+      { day: "Sunday", open: "07:00", close: "00:00", isClosed: false },
     ],
 
     // ── 1. QUIZ (personalization & recommendation matching) ──
     quiz: {
       lifestyle: "premium",
       groupTypes: ["couple", "friends", "family", "business-friendly"],
-      mealTypes: ["lunch", "dinner", "drinks"],
+      mealTypes: ["breakfast", "brunch", "lunch", "dinner", "drinks"],
       experienceTypes: ["fine-dining", "casual"],
       foodStyles: [
         "International",
@@ -148,7 +148,7 @@ export const agadirEat: EatListing[] = [
       isVegetarianFriendly: true,
       servesAlcohol: false,
       alcoholPolicy: "dry",
-      hasDelivery: false,
+      hasDelivery: true,
       hasParking: true,
       nearMedina: false,
       nearBeach: false,
@@ -157,7 +157,7 @@ export const agadirEat: EatListing[] = [
       hasFrenchStaff: true,
       ramadanFriendly: "special-ftour",
       closedDays: [],
-      seatingTypes: ["indoor"],
+      seatingTypes: ["indoor", "outdoor"],
       paymentMethods: ["credit_card", "cash", "visa", "mastercard"],
       tags: [
         "fine-dining",
@@ -167,6 +167,7 @@ export const agadirEat: EatListing[] = [
         "live-music",
         "luxury",
         "dinner",
+        "breakfast",
         "mocktails"
       ],
       isHiddenGem: false,
@@ -199,22 +200,22 @@ export const agadirEat: EatListing[] = [
         "Dry establishment (strictly alcohol-free venue)",
         "Luxury fine-dining price range for gold and certified Wagyu cuts"
       ],
-      googleRating: 4.9,
-      googleReviewCount: 680,
-      tripadvisorRating: 4.9,
-      tripadvisorReviewCount: 190,
+      googleRating: 4.8,
+      googleReviewCount: 3860,
+      tripadvisorRating: 4.5,
+      tripadvisorReviewCount: 110,
       theforkRating: 4.8,
       theforkReviewCount: 85,
-      openTime: "12:00",
+      openTime: "07:00",
       closeTime: "00:00",
       weeklySchedule: [
-        { day: "Monday", openTime: "12:00", closeTime: "00:00", isClosed: false },
-        { day: "Tuesday", openTime: "12:00", closeTime: "00:00", isClosed: false },
-        { day: "Wednesday", openTime: "12:00", closeTime: "00:00", isClosed: false },
-        { day: "Thursday", openTime: "12:00", closeTime: "00:00", isClosed: false },
-        { day: "Friday", openTime: "12:00", closeTime: "00:00", isClosed: false, note: "Live Violin & Acoustic Show (from 20:30)" },
-        { day: "Saturday", openTime: "12:00", closeTime: "00:00", isClosed: false, note: "Live Violin & Acoustic Show (from 20:30)" },
-        { day: "Sunday", openTime: "12:00", closeTime: "00:00", isClosed: false },
+        { day: "Monday", openTime: "07:00", closeTime: "00:00", isClosed: false },
+        { day: "Tuesday", openTime: "07:00", closeTime: "00:00", isClosed: false },
+        { day: "Wednesday", openTime: "07:00", closeTime: "00:00", isClosed: false },
+        { day: "Thursday", openTime: "07:00", closeTime: "00:00", isClosed: false },
+        { day: "Friday", openTime: "07:00", closeTime: "00:00", isClosed: false, note: "Live Violin & Acoustic Show (from 20:30)" },
+        { day: "Saturday", openTime: "07:00", closeTime: "00:00", isClosed: false, note: "Live Violin & Acoustic Show (from 20:30)" },
+        { day: "Sunday", openTime: "07:00", closeTime: "00:00", isClosed: false },
       ],
       exactAddressAndCoordinates: {
         address: "Résidence Islane GH14, N6, Hay Mohammadi, Agadir, Morocco",
