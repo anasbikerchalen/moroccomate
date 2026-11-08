@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'motion/react';
 import { Plus, Minus, Flame, HelpCircle } from 'lucide-react';
 import { useTastingStore, formatPrice } from '../../state/tastingStore';
 import { findGlossaryEntryForDish, type MoroccanDishGlossaryEntry } from '../../data/culinaryGlossary';
@@ -38,19 +37,19 @@ export default function ClassicalDishRow({
 
   return (
     <div
-      className={`group py-2.5 transition-colors ${
-        selected ? 'bg-amber-500/5 -mx-2 px-2 rounded-lg' : ''
+      className={`group py-2 transition-colors ${
+        selected ? 'bg-[#C2613C]/5 -mx-1.5 px-1.5 rounded' : ''
       }`}
     >
-      {/* Top line: Dish Name + Dotted Leader + Price + (+) Button */}
-      <div className="flex items-baseline gap-2">
-        {/* Dish Name */}
-        <div className="flex items-baseline gap-1.5 shrink-0 max-w-[70%] sm:max-w-[75%]">
-          <h4 className="font-serif text-[14px] sm:text-[15px] font-bold text-stone-900 tracking-tight leading-snug">
+      {/* ── Main line: Name ····· Price (+) ── */}
+      <div className="flex items-baseline gap-1">
+        {/* Dish name */}
+        <div className="flex items-baseline gap-1 shrink-0 max-w-[68%] sm:max-w-[72%]">
+          <h4 className="font-serif text-[13px] sm:text-[14px] font-bold text-[#3D2B1F] leading-snug">
             {dish.name}
           </h4>
           {dish.isSignature && (
-            <span className="text-[9px] font-black uppercase tracking-wider text-[#C2613C] shrink-0">
+            <span className="text-[8px] text-[#C2613C] shrink-0" title="Signature dish">
               ★
             </span>
           )}
@@ -62,27 +61,30 @@ export default function ClassicalDishRow({
               type="button"
               onClick={() => onOpenGlossary(glossaryEntry)}
               title={`Learn about ${glossaryEntry.term}`}
-              className="text-[#D4863A] hover:text-[#b56e29] transition-colors cursor-pointer inline-flex self-center"
+              className="text-[#B8A080] hover:text-[#8B6F4E] transition-colors cursor-pointer inline-flex self-center"
             >
-              <HelpCircle className="w-3 h-3" />
+              <HelpCircle className="w-2.5 h-2.5" />
             </button>
           )}
         </div>
 
-        {/* Dotted Leader Line */}
+        {/* Dotted leader line */}
         <div
-          className="flex-1 border-b border-dotted border-stone-300 self-baseline mb-1 min-w-[16px]"
+          className="flex-1 self-baseline mb-[3px] min-w-[10px]"
+          style={{
+            borderBottom: '1.5px dotted #C9B99A',
+          }}
           aria-hidden="true"
         />
 
-        {/* Price & Add Button */}
-        <div className="flex items-center gap-1.5 shrink-0">
-          <span className="font-mono text-[13px] sm:text-[14px] font-bold text-stone-900 tabular-nums">
+        {/* Price & add button */}
+        <div className="flex items-center gap-1 shrink-0">
+          <span className="font-serif text-[13px] sm:text-[14px] font-bold text-[#3D2B1F] tabular-nums">
             {formatPrice(dish.price, currency)}
           </span>
 
           {selected ? (
-            <div className="flex items-center gap-0.5 bg-white border border-[#D4863A]/40 rounded-full px-1 py-0.2 shadow-2xs ml-1">
+            <div className="flex items-center gap-0.5 bg-white/80 border border-[#C2613C]/30 rounded-full px-0.5 py-px shadow-2xs ml-0.5">
               <button
                 type="button"
                 onClick={() => decrementDish(dish.id)}
@@ -91,14 +93,14 @@ export default function ClassicalDishRow({
               >
                 <Minus className="w-2.5 h-2.5" />
               </button>
-              <span className="w-4 text-center text-[10px] font-black text-stone-900 tabular-nums">
+              <span className="w-3.5 text-center text-[10px] font-black text-[#3D2B1F] tabular-nums">
                 {quantity}
               </span>
               <button
                 type="button"
                 onClick={() => incrementDish(dish, placeId, placeName, city)}
                 aria-label={`Increase ${dish.name}`}
-                className="w-4 h-4 rounded-full bg-[#D4863A] text-white flex items-center justify-center transition-colors cursor-pointer"
+                className="w-4 h-4 rounded-full bg-[#C2613C] text-white flex items-center justify-center transition-colors cursor-pointer"
               >
                 <Plus className="w-2.5 h-2.5" />
               </button>
@@ -108,19 +110,19 @@ export default function ClassicalDishRow({
               type="button"
               onClick={() => toggleDish(dish, placeId, placeName, city)}
               aria-label={`Add ${dish.name}`}
-              className="w-5 h-5 rounded-full border border-stone-300 hover:border-[#D4863A] hover:bg-[#D4863A] text-stone-400 hover:text-white flex items-center justify-center transition-all cursor-pointer ml-1"
+              className="w-4.5 h-4.5 rounded-full border border-[#C9B99A] hover:border-[#C2613C] hover:bg-[#C2613C] text-[#B8A080] hover:text-white flex items-center justify-center transition-all cursor-pointer ml-0.5 opacity-0 group-hover:opacity-100"
             >
-              <Plus className="w-3 h-3" />
+              <Plus className="w-2.5 h-2.5" />
             </button>
           )}
         </div>
       </div>
 
-      {/* Multilingual Translation Subtext in Red & Bold */}
+      {/* ── Translation subtext (red, bold) ── */}
       {translationText && (
         <p
-          className={`text-[11px] sm:text-xs font-semibold text-rose-700 mt-0.5 leading-snug tracking-wide ${
-            menuLanguage === 'ar' ? 'font-arabic text-xs' : 'font-sans'
+          className={`text-[10px] sm:text-[11px] font-semibold text-rose-700/90 mt-px leading-snug ${
+            menuLanguage === 'ar' ? 'font-arabic text-[11px]' : 'font-serif italic'
           }`}
           dir={menuLanguage === 'ar' ? 'rtl' : 'ltr'}
         >
@@ -128,16 +130,16 @@ export default function ClassicalDishRow({
         </p>
       )}
 
-      {/* Description / Portion notes */}
+      {/* ── Description / portion notes ── */}
       {(dish.description || dish.portionNotes) && (
-        <div className="mt-0.5 space-y-0.5">
+        <div className="mt-px space-y-px">
           {dish.description && (
-            <p className="text-[11px] text-stone-500 font-serif italic leading-relaxed line-clamp-2">
+            <p className="text-[10px] text-[#8B7D6B] font-serif italic leading-relaxed line-clamp-1">
               {dish.description}
             </p>
           )}
           {dish.portionNotes && (
-            <span className="inline-block text-[10px] text-stone-400 font-mono">
+            <span className="inline-block text-[9px] text-[#A0917B] font-mono">
               ※ {dish.portionNotes}
             </span>
           )}
