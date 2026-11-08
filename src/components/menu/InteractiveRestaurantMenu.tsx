@@ -8,9 +8,11 @@ import {
   MapPin,
   ExternalLink,
   Languages,
+  LayoutList,
   X
 } from 'lucide-react';
 import MenuItemCard from './MenuItemCard';
+import ClassicalMenuBooklet from './ClassicalMenuBooklet';
 import MoroccanGlossaryModal from './MoroccanGlossaryModal';
 import MenuReservationModal from './MenuReservationModal';
 import TastingSelectionBar from './TastingSelectionBar';
@@ -55,6 +57,7 @@ export default function InteractiveRestaurantMenu({
   isStandalonePage = false,
 }: InteractiveRestaurantMenuProps) {
   const { currency, setCurrency, menuLanguage, setMenuLanguage } = useTastingStore();
+  const [viewMode, setViewMode] = useState<'booklet' | 'list'>('booklet');
   const [activeCategory, setActiveCategory] = useState<string>('all');
   const [dietaryFilter, setDietaryFilter] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
@@ -64,7 +67,41 @@ export default function InteractiveRestaurantMenu({
   const sections = menu?.sections || [];
   const hasSections = sections.length > 0;
 
-  // Filter items based on active category, dietary preference, and search term
+  // For booklet view: retain all sections (filtered by dietary and search query)
+  // so the diner can freely flip through the entire booklet
+  const bookletSections = useMemo(() => {
+    if (!hasSections) return [];
+
+    return sections
+      .map((section) => {
+        const filteredItems = section.items.filter((item) => {
+          if (dietaryFilter === 'signature' && !item.isSignature) return false;
+          if (dietaryFilter === 'vegetarian' && !item.dietary?.includes('vegetarian')) return false;
+          if (dietaryFilter === 'vegan' && !item.dietary?.includes('vegan')) return false;
+          if (dietaryFilter === 'gluten-free' && !item.dietary?.includes('gluten-free')) return false;
+
+          if (searchQuery.trim()) {
+            const q = searchQuery.toLowerCase();
+            const matchesName = item.name.toLowerCase().includes(q);
+            const matchesDesc = (item.description || '').toLowerCase().includes(q);
+            const matchesLocal = (item.localName || '').toLowerCase().includes(q);
+            if (!matchesName && !matchesDesc && !matchesLocal) return false;
+          }
+
+          return true;
+        });
+
+        if (filteredItems.length === 0) return null;
+
+        return {
+          ...section,
+          items: filteredItems,
+        };
+      })
+      .filter(Boolean) as typeof sections;
+  }, [sections, dietaryFilter, searchQuery, hasSections]);
+
+  // Filter items based on active category, dietary preference, and search term (for list view)
   const filteredSections = useMemo(() => {
     if (!hasSections) return [];
 
@@ -150,8 +187,38 @@ export default function InteractiveRestaurantMenu({
             )}
           </div>
 
-          {/* Controls: Translation Language, Currency, & Dietary filters */}
+          {/* Controls: Translation Language, Currency, View Mode & Dietary filters */}
           <div className="flex items-center gap-2 self-start sm:self-auto flex-wrap">
+            {/* View Mode Switcher: Classical Booklet vs Modern List */}
+            <div className="flex items-center bg-stone-100/90 p-0.5 rounded-full border border-stone-200/60 shadow-2xs">
+              <button
+                type="button"
+                onClick={() => setViewMode('booklet')}
+                title="Classical printed menu booklet view"
+                className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold transition-all cursor-pointer ${
+                  viewMode === 'booklet'
+                    ? 'bg-amber-900 text-amber-50 shadow-2xs'
+                    : 'text-stone-600 hover:text-stone-900'
+                }`}
+              >
+                <BookOpen className="w-3 h-3 text-amber-400" />
+                <span>Booklet</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => setViewMode('list')}
+                title="Modern vertical list view"
+                className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold transition-all cursor-pointer ${
+                  viewMode === 'list'
+                    ? 'bg-stone-900 text-white shadow-2xs'
+                    : 'text-stone-600 hover:text-stone-900'
+                }`}
+              >
+                <LayoutList className="w-3 h-3" />
+                <span>List</span>
+              </button>
+            </div>
+
             {/* Translation Language Selector */}
             <div className="flex items-center gap-1 bg-stone-100/90 p-0.5 rounded-full border border-stone-200/60 shadow-2xs">
               <span className="text-[10px] font-bold text-stone-500 pl-2 pr-0.5 flex items-center gap-1">
@@ -214,8 +281,8 @@ export default function InteractiveRestaurantMenu({
           </div>
         </div>
 
-        {/* Minimalist category tab bar */}
-        {hasSections && (
+        {/* Minimalist category tab bar (shown in list view) */}
+        {hasSections && viewMode === 'list' && (
           <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none border-b border-stone-100">
             <button
               onClick={() => setActiveCategory('all')}
@@ -245,53 +312,80 @@ export default function InteractiveRestaurantMenu({
       </div>
 
       {hasSections ? (
-        <div className="space-y-10">
-          {filteredSections.length > 0 ? (
-            filteredSections.map((section) => (
-              <div key={section.id} className="space-y-1">
-                {/* Editorial Section Header */}
-                <div className="flex items-baseline justify-between pt-2 pb-1 border-b-2 border-stone-800">
-                  <h3 className="font-serif text-lg sm:text-xl font-bold tracking-tight text-stone-900 uppercase">
-                    {section.title}
-                  </h3>
-                  {section.description && (
-                    <span className="text-xs text-stone-500 italic hidden sm:inline">
-                      {section.description}
-                    </span>
-                  )}
-                </div>
-
-                {/* Printed Menu Style Item List */}
-                <div className="divide-y-0">
-                  {section.items.map((dish) => (
-                    <MenuItemCard
-                      key={dish.id}
-                      dish={dish}
-                      placeId={restaurantId}
-                      placeName={restaurantName}
-                      city={city}
-                      onOpenGlossary={setGlossaryEntry}
-                    />
-                  ))}
-                </div>
-              </div>
-            ))
+        viewMode === 'booklet' ? (
+          bookletSections.length > 0 ? (
+            <ClassicalMenuBooklet
+              sections={bookletSections}
+              restaurantName={restaurantName}
+              restaurantId={restaurantId}
+              city={city}
+              onOpenGlossary={setGlossaryEntry}
+            />
           ) : (
-            <div className="py-12 text-center text-stone-500 text-xs">
+            <div className="py-12 text-center text-stone-500 text-xs bg-[#FAF6EF]/60 rounded-2xl border border-stone-200/80 p-6">
               <p>No dishes found matching your current filter.</p>
               <button
+                type="button"
                 onClick={() => {
                   setSearchQuery('');
                   setDietaryFilter('all');
-                  setActiveCategory('all');
                 }}
                 className="mt-2 text-[#D4863A] hover:underline font-bold cursor-pointer"
               >
                 Reset filters
               </button>
             </div>
-          )}
-        </div>
+          )
+        ) : (
+          <div className="space-y-10">
+            {filteredSections.length > 0 ? (
+              filteredSections.map((section) => (
+                <div key={section.id} className="space-y-1">
+                  {/* Editorial Section Header */}
+                  <div className="flex items-baseline justify-between pt-2 pb-1 border-b-2 border-stone-800">
+                    <h3 className="font-serif text-lg sm:text-xl font-bold tracking-tight text-stone-900 uppercase">
+                      {section.title}
+                    </h3>
+                    {section.description && (
+                      <span className="text-xs text-stone-500 italic hidden sm:inline">
+                        {section.description}
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Printed Menu Style Item List */}
+                  <div className="divide-y-0">
+                    {section.items.map((dish) => (
+                      <MenuItemCard
+                        key={dish.id}
+                        dish={dish}
+                        placeId={restaurantId}
+                        placeName={restaurantName}
+                        city={city}
+                        onOpenGlossary={setGlossaryEntry}
+                      />
+                    ))}
+                  </div>
+                </div>
+              ))
+            ) : (
+              <div className="py-12 text-center text-stone-500 text-xs">
+                <p>No dishes found matching your current filter.</p>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSearchQuery('');
+                    setDietaryFilter('all');
+                    setActiveCategory('all');
+                  }}
+                  className="mt-2 text-[#D4863A] hover:underline font-bold cursor-pointer"
+                >
+                  Reset filters
+                </button>
+              </div>
+            )}
+          </div>
+        )
       ) : (
         /* Honest Fallback for venues where menu digitization is pending */
         <div className="py-12 text-center space-y-3">
