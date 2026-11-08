@@ -10,6 +10,7 @@ interface ClassicalDishRowProps {
   placeId: string;
   placeName: string;
   city: string;
+  highlightedDishes?: string[];
   onOpenGlossary: (entry: MoroccanDishGlossaryEntry) => void;
 }
 
@@ -18,6 +19,7 @@ export default function ClassicalDishRow({
   placeId,
   placeName,
   city,
+  highlightedDishes = [],
   onOpenGlossary,
 }: ClassicalDishRowProps) {
   const {
@@ -35,22 +37,38 @@ export default function ClassicalDishRow({
   const glossaryEntry = findGlossaryEntryForDish(dish.name);
   const translationText = getDishTranslation(dish, menuLanguage);
 
+  const isRecommended =
+    dish.isSignature ||
+    (highlightedDishes &&
+      highlightedDishes.some((h) => {
+        const hLow = h.toLowerCase().trim();
+        const dLow = dish.name.toLowerCase().trim();
+        return dLow.includes(hLow) || hLow.includes(dLow);
+      }));
+
   return (
     <div
-      className={`group py-2 transition-colors ${
-        selected ? 'bg-[#C2613C]/5 -mx-1.5 px-1.5 rounded' : ''
+      className={`group py-2 transition-all ${
+        selected
+          ? 'bg-[#C2613C]/10 -mx-2 px-2 rounded-md'
+          : isRecommended
+          ? 'bg-amber-600/[0.08] -mx-2 px-2 rounded-md border-l-2 border-[#C2613C] shadow-2xs'
+          : ''
       }`}
     >
       {/* ── Main line: Name ····· Price (+) ── */}
       <div className="flex items-baseline gap-1">
-        {/* Dish name */}
-        <div className="flex items-baseline gap-1 shrink-0 max-w-[68%] sm:max-w-[72%]">
+        {/* Dish name & badges */}
+        <div className="flex items-baseline gap-1.5 shrink-0 max-w-[68%] sm:max-w-[72%] flex-wrap">
           <h4 className="font-serif text-[13px] sm:text-[14px] font-bold text-[#3D2B1F] leading-snug">
             {dish.name}
           </h4>
-          {dish.isSignature && (
-            <span className="text-[8px] text-[#C2613C] shrink-0" title="Signature dish">
-              ★
+          {isRecommended && (
+            <span
+              className="inline-flex items-center gap-0.5 px-1.5 py-0.2 rounded text-[8px] sm:text-[9px] font-black uppercase tracking-wider bg-amber-600/15 text-amber-950 border border-amber-600/30 shrink-0 shadow-2xs"
+              title="Chef's Highly Recommended Plate"
+            >
+              ★ Recommended
             </span>
           )}
           {dish.isSpicy && (

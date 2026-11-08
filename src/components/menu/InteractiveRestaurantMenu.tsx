@@ -37,7 +37,18 @@ interface InteractiveRestaurantMenuProps {
   paymentMethods?: string[];
   directionsUrl?: string;
   isStandalonePage?: boolean;
+  highlightedDishes?: string[];
 }
+
+const isDishHighlighted = (dish: MenuItem, highlightedDishes: string[] = []) => {
+  if (dish.isSignature) return true;
+  if (!highlightedDishes || highlightedDishes.length === 0) return false;
+  const nameLower = dish.name.toLowerCase().trim();
+  return highlightedDishes.some((h) => {
+    const hLower = h.toLowerCase().trim();
+    return nameLower.includes(hLower) || hLower.includes(nameLower);
+  });
+};
 
 export default function InteractiveRestaurantMenu({
   menu,
@@ -55,6 +66,7 @@ export default function InteractiveRestaurantMenu({
   paymentMethods = [],
   directionsUrl = '',
   isStandalonePage = false,
+  highlightedDishes = [],
 }: InteractiveRestaurantMenuProps) {
   const { currency, setCurrency, menuLanguage, setMenuLanguage } = useTastingStore();
   const [viewMode, setViewMode] = useState<'booklet' | 'list'>('booklet');
@@ -67,6 +79,13 @@ export default function InteractiveRestaurantMenu({
   const sections = menu?.sections || [];
   const hasSections = sections.length > 0;
 
+  // Count how many dishes are marked as signature or in the recommended plates list
+  const recommendedCount = useMemo(() => {
+    return sections.reduce((acc, sec) => {
+      return acc + sec.items.filter((item) => isDishHighlighted(item, highlightedDishes)).length;
+    }, 0);
+  }, [sections, highlightedDishes]);
+
   // For booklet view: retain all sections (filtered by dietary and search query)
   // so the diner can freely flip through the entire booklet
   const bookletSections = useMemo(() => {
@@ -75,7 +94,7 @@ export default function InteractiveRestaurantMenu({
     return sections
       .map((section) => {
         const filteredItems = section.items.filter((item) => {
-          if (dietaryFilter === 'signature' && !item.isSignature) return false;
+          if (dietaryFilter === 'signature' && !isDishHighlighted(item, highlightedDishes)) return false;
           if (dietaryFilter === 'vegetarian' && !item.dietary?.includes('vegetarian')) return false;
           if (dietaryFilter === 'vegan' && !item.dietary?.includes('vegan')) return false;
           if (dietaryFilter === 'gluten-free' && !item.dietary?.includes('gluten-free')) return false;
@@ -99,7 +118,7 @@ export default function InteractiveRestaurantMenu({
         };
       })
       .filter(Boolean) as typeof sections;
-  }, [sections, dietaryFilter, searchQuery, hasSections]);
+  }, [sections, dietaryFilter, searchQuery, hasSections, highlightedDishes]);
 
   // Filter items based on active category, dietary preference, and search term (for list view)
   const filteredSections = useMemo(() => {
@@ -112,7 +131,7 @@ export default function InteractiveRestaurantMenu({
         }
 
         const filteredItems = section.items.filter((item) => {
-          if (dietaryFilter === 'signature' && !item.isSignature) return false;
+          if (dietaryFilter === 'signature' && !isDishHighlighted(item, highlightedDishes)) return false;
           if (dietaryFilter === 'vegetarian' && !item.dietary?.includes('vegetarian')) return false;
           if (dietaryFilter === 'vegan' && !item.dietary?.includes('vegan')) return false;
           if (dietaryFilter === 'gluten-free' && !item.dietary?.includes('gluten-free')) return false;
@@ -136,20 +155,34 @@ export default function InteractiveRestaurantMenu({
         };
       })
       .filter(Boolean) as typeof sections;
-  }, [sections, activeCategory, dietaryFilter, searchQuery, hasSections]);
+  }, [sections, activeCategory, dietaryFilter, searchQuery, hasSections, highlightedDishes]);
 
   return (
     <section className={isStandalonePage ? 'pt-1' : 'mt-10 pt-8 border-t border-stone-200'} id="restaurant-menu-section">
       {/* Title on Main Listing Page */}
       {!isStandalonePage && (
         <div className="pb-4 mb-4 border-b border-stone-200">
-          <div className="flex items-center gap-2 mb-1.5">
+          <div className="flex items-center gap-2 mb-1.5 flex-wrap">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-extrabold uppercase tracking-wider bg-amber-500/15 text-[#C2613C] border border-amber-500/25">
               <UtensilsCrossed className="w-3.5 h-3.5" />
               Verified Menu & Prices
             </span>
+            {recommendedCount > 0 && (
+              <button
+                type="button"
+                onClick={() => setDietaryFilter(dietaryFilter === 'signature' ? 'all' : 'signature')}
+                className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold transition-all cursor-pointer border ${
+                  dietaryFilter === 'signature'
+                    ? 'bg-[#C2613C] text-white border-[#C2613C] shadow-2xs'
+                    : 'bg-amber-500/10 hover:bg-amber-500/20 text-[#A0522D] border-amber-500/25'
+                }`}
+                title="Filter by Highly Recommended Plates"
+              >
+                <span>★ {recommendedCount} Highly Recommended</span>
+              </button>
+            )}
             {menu?.lastUpdated && (
-              <span className="text-[11px] text-stone-500 font-medium">
+              <span className="text-[11px] text-stone-500 font-medium ml-auto">
                 {menu.lastUpdated}
               </span>
             )}
@@ -158,7 +191,7 @@ export default function InteractiveRestaurantMenu({
             {restaurantName} Menu & Prices
           </h2>
           <p className="text-xs sm:text-sm text-stone-600 font-medium mt-1">
-            Prices in local Moroccan Dirhams (MAD). Tap <span className="font-bold text-[#D4863A]">(+)</span> on any dish to save to your personal tasting selection before reserving.
+            Prices in local Moroccan Dirhams (MAD). Highly recommended plates are highlighted with <span className="font-bold text-[#C2613C]">★ Recommended</span>. Tap <span className="font-bold text-[#D4863A]">(+)</span> on any dish to save to your personal tasting selection.
           </p>
         </div>
       )}
@@ -262,7 +295,10 @@ export default function InteractiveRestaurantMenu({
             <div className="flex items-center gap-0.5 bg-stone-100/80 p-0.5 rounded-full border border-stone-200/50">
               {[
                 { id: 'all', label: 'All' },
-                { id: 'signature', label: '★ Star' },
+                {
+                  id: 'signature',
+                  label: `★ Recommended${recommendedCount > 0 ? ` (${recommendedCount})` : ''}`,
+                },
                 { id: 'vegetarian', label: '🌱 Veg' },
               ].map((pill) => (
                 <button
@@ -270,7 +306,7 @@ export default function InteractiveRestaurantMenu({
                   onClick={() => setDietaryFilter(pill.id)}
                   className={`px-2 py-0.5 rounded-full text-[10px] font-semibold transition-all cursor-pointer ${
                     dietaryFilter === pill.id
-                      ? 'bg-white text-stone-900 shadow-2xs font-bold'
+                      ? 'bg-amber-900 text-amber-50 shadow-2xs font-bold'
                       : 'text-stone-500 hover:text-stone-800'
                   }`}
                 >
@@ -319,6 +355,7 @@ export default function InteractiveRestaurantMenu({
               restaurantName={restaurantName}
               restaurantId={restaurantId}
               city={city}
+              highlightedDishes={highlightedDishes}
               onOpenGlossary={setGlossaryEntry}
             />
           ) : (
@@ -362,6 +399,7 @@ export default function InteractiveRestaurantMenu({
                         placeId={restaurantId}
                         placeName={restaurantName}
                         city={city}
+                        highlightedDishes={highlightedDishes}
                         onOpenGlossary={setGlossaryEntry}
                       />
                     ))}

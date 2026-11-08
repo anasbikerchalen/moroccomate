@@ -218,6 +218,7 @@ export default function PlaceMenuPage() {
           restaurantName={name}
           city={cityLabel}
           primaryCuisine={primaryCuisine}
+          highlightedDishes={bestDishes}
           reservationContact={listing.ui?.reservationContact || listing.reservationContact}
           whatsappNumber={listing.ui?.whatsappNumber || listing.whatsappNumber}
           bookingUrl={listing.ui?.bookingUrl || listing.bookingUrl}

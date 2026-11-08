@@ -983,104 +983,7 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
 
 
         {/* ───────────────────────────────────────────────────────────
-            4. HIGHLY RECOMMENDED PLATES
-        ─────────────────────────────────────────────────────────── */}
-        <div className="bg-white border border-stone-200/80 rounded-3xl p-6 sm:p-8 shadow-xs" id="eat-dishes-section">
-          
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-2xl bg-amber-500/15 flex items-center justify-center text-[#D4863A] shadow-2xs">
-                <UtensilsCrossed className="w-5 h-5" />
-              </div>
-              <div>
-                <h3 className="font-display text-2xl sm:text-3xl font-extrabold text-stone-900 tracking-tight">
-                  Highly Recommended Plates
-                </h3>
-                <p className="text-xs text-stone-500 font-medium mt-0.5">
-                  Signature {primaryCuisine ? `${primaryCuisine} ` : ''}culinary highlights verified for {name}
-                </p>
-              </div>
-            </div>
-
-            <Link
-              to={dedicatedMenuUrl}
-              className="inline-flex items-center gap-2.5 px-4 py-3 sm:py-3.5 rounded-2xl bg-amber-500/15 hover:bg-amber-500/25 text-[#C2613C] border border-amber-500/30 shadow-2xs hover:shadow-xs transition-all cursor-pointer self-start sm:self-auto active:scale-98 font-bold text-xs group"
-              title={`View ${name} full menu & prices`}
-            >
-              <div className="w-6 h-6 rounded-lg bg-amber-500/20 flex items-center justify-center text-[#D4863A] shrink-0 group-hover:scale-105 transition-transform">
-                <BookOpen className="w-3.5 h-3.5 text-[#D4863A]" />
-              </div>
-              <span>Full Menu & Prices (MAD)</span>
-              <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-            </Link>
-          </div>
-
-          {/* Dish cards grid or honest uncataloged status */}
-          {finalBestDishes.length > 0 ? (
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3.5 mb-6">
-              {finalBestDishes.map((dishName: string, idx: number) => (
-                <div 
-                  key={idx} 
-                  className="group p-4 rounded-2xl border border-stone-200/80 bg-stone-50/60 hover:bg-stone-50 hover:border-[#D4863A]/40 transition-all flex flex-col justify-between"
-                >
-                  <div className="w-full h-24 rounded-xl mb-3 flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-[#F6EFE5] to-[#EDE0D0] border border-[#E3D6C5]">
-                    <div className="absolute inset-0 bg-[radial-gradient(#C9A84C_1px,transparent_1px)] [background-size:16px_16px] opacity-15 pointer-events-none" />
-                    <UtensilsCrossed className="w-7 h-7 text-[#C2613C] relative z-10 group-hover:scale-110 transition-transform" />
-                  </div>
-                  <div>
-                    <h5 className="text-xs font-bold text-stone-900 line-clamp-2 min-h-[32px] leading-snug">
-                      {dishName}
-                    </h5>
-                    <span className="inline-block mt-2 text-[10px] uppercase font-bold tracking-wider text-amber-800 bg-amber-500/15 px-2 py-0.5 rounded-md border border-amber-500/25">
-                      Verified Dish
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          ) : (
-            <div className="p-5 rounded-2xl border border-dashed border-stone-200 bg-stone-50/50 mb-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-              <div className="flex items-center gap-3 text-stone-600 text-xs">
-                <Info className="w-4 h-4 text-stone-400 shrink-0" />
-                <span>
-                  Individual signature plates have not been cataloged yet for this venue. Browse their official menu or consult the host for seasonal daily specials.
-                </span>
-              </div>
-              <button
-                onClick={() => setShowMenuModal(true)}
-                className="px-4 py-2 bg-white hover:bg-stone-50 text-stone-800 border border-stone-200 rounded-xl text-xs font-bold shrink-0 transition-colors shadow-2xs cursor-pointer"
-              >
-                View Menu Details
-              </button>
-            </div>
-          )}
-
-          {/* Real Beverage Policy & Average Cost */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-4 border-t border-stone-100">
-            <div className="flex items-center gap-3 p-3.5 rounded-2xl border border-stone-200/70 bg-stone-50/50">
-              <DollarSign className="w-5 h-5 text-emerald-700" />
-              <div>
-                <span className="block text-xs uppercase font-bold text-stone-500">Average Meal Cost</span>
-                <span className="text-sm font-bold text-stone-900">~{pricePerPerson * 12} MAD per person</span>
-              </div>
-            </div>
-            {alcoholPolicy && (
-              <div className="flex items-center gap-3 p-3.5 rounded-2xl border border-stone-200/70 bg-stone-50/50">
-                <Info className="w-5 h-5 text-amber-700" />
-                <div>
-                  <span className="block text-xs uppercase font-bold text-stone-500">Beverage Policy</span>
-                  <span className="text-sm font-bold text-stone-900 capitalize">
-                    {alcoholPolicy === 'serves-alcohol' ? 'Licensed (Serves Alcohol)' : 'Dry Dining (Alcohol-free venue)'}
-                  </span>
-                </div>
-              </div>
-            )}
-          </div>
-
-        </div>
-
-        {/* ───────────────────────────────────────────────────────────
-            4B. FULL INTERACTIVE MENU & TASTING SELECTION
+            4. VERIFIED MENU & TASTING SELECTION (WITH HIGHLY RECOMMENDED PLATES)
         ─────────────────────────────────────────────────────────── */}
         <InteractiveRestaurantMenu
           menu={item.menu || item.ui?.menu}
@@ -1088,6 +991,7 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
           restaurantName={name}
           city={cityLabel}
           primaryCuisine={primaryCuisine}
+          highlightedDishes={finalBestDishes}
           reservationContact={reservationContact}
           whatsappNumber={whatsappNumber}
           bookingUrl={bookingUrl}
@@ -1219,6 +1123,26 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
             </div>
 
             <div className="divide-y divide-stone-100 text-sm">
+              <div className="py-3.5 flex items-center justify-between gap-4">
+                <span className="flex items-center gap-2 text-sm font-bold text-stone-900">
+                  <DollarSign className="w-4 h-4 text-emerald-700" /> Average Meal Cost
+                </span>
+                <span className="text-sm font-bold text-stone-900">
+                  ~{pricePerPerson * 12} MAD per person
+                </span>
+              </div>
+
+              {alcoholPolicy && (
+                <div className="py-3.5 flex items-center justify-between gap-4">
+                  <span className="flex items-center gap-2 text-sm font-bold text-stone-900">
+                    <Info className="w-4 h-4 text-amber-700" /> Beverage Policy
+                  </span>
+                  <span className="text-sm font-semibold text-stone-800 capitalize">
+                    {alcoholPolicy === 'serves-alcohol' ? 'Licensed (Serves Alcohol)' : 'Dry Dining (Alcohol-free venue)'}
+                  </span>
+                </div>
+              )}
+
               {openTime && closeTime && (
                 <div className="py-3.5 flex items-center justify-between gap-4">
                   <span className="flex items-center gap-2 text-sm font-bold text-stone-900">

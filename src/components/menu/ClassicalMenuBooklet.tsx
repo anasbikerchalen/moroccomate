@@ -46,6 +46,7 @@ interface ClassicalMenuBookletProps {
   restaurantName: string;
   restaurantId: string;
   city: string;
+  highlightedDishes?: string[];
   onOpenGlossary: (entry: MoroccanDishGlossaryEntry) => void;
 }
 
@@ -56,6 +57,7 @@ export default function ClassicalMenuBooklet({
   restaurantName,
   restaurantId,
   city,
+  highlightedDishes = [],
   onOpenGlossary,
 }: ClassicalMenuBookletProps) {
   const [currentPage, setCurrentPage] = useState(0);
@@ -170,6 +172,7 @@ export default function ClassicalMenuBooklet({
               placeId={restaurantId}
               placeName={restaurantName}
               city={city}
+              highlightedDishes={highlightedDishes}
               onOpenGlossary={onOpenGlossary}
             />
           ))}

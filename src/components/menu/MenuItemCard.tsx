@@ -11,6 +11,7 @@ interface MenuItemCardProps {
   placeId: string;
   placeName: string;
   city: string;
+  highlightedDishes?: string[];
   onOpenGlossary: (entry: MoroccanDishGlossaryEntry) => void;
 }
 
@@ -19,6 +20,7 @@ export default function MenuItemCard({
   placeId,
   placeName,
   city,
+  highlightedDishes = [],
   onOpenGlossary,
 }: MenuItemCardProps) {
   const {
@@ -38,6 +40,15 @@ export default function MenuItemCard({
   const translationText = getDishTranslation(dish, menuLanguage);
   const hasDetail = !!(dish.description || dish.portionNotes);
 
+  const isRecommended =
+    dish.isSignature ||
+    (highlightedDishes &&
+      highlightedDishes.some((h) => {
+        const hLow = h.toLowerCase().trim();
+        const dLow = dish.name.toLowerCase().trim();
+        return dLow.includes(hLow) || hLow.includes(dLow);
+      }));
+
   return (
     <motion.div
       layout
@@ -49,18 +60,22 @@ export default function MenuItemCard({
     >
       {/* Main row */}
       <div
-        className={`flex items-start gap-3 py-4 transition-colors ${
-          selected ? 'opacity-100' : 'opacity-90 hover:opacity-100'
+        className={`flex items-start gap-3 py-3 transition-colors ${
+          selected
+            ? 'opacity-100 bg-[#C2613C]/10 rounded-xl px-2.5'
+            : isRecommended
+            ? 'opacity-100 bg-amber-500/[0.07] rounded-xl px-2.5 border-l-2 border-amber-600/70'
+            : 'opacity-90 hover:opacity-100'
         }`}
       >
         {/* Left: name + badges + description toggle */}
         <div className="flex-1 min-w-0">
           {/* Badges row */}
-          {(dish.isSignature || dish.isSpicy || (dish.dietary && dish.dietary.length > 0)) && (
+          {(isRecommended || dish.isSpicy || (dish.dietary && dish.dietary.length > 0)) && (
             <div className="flex flex-wrap items-center gap-2 mb-1">
-              {dish.isSignature && (
-                <span className="text-[10px] font-black uppercase tracking-widest text-[#C2613C]">
-                  ★ Signature
+              {isRecommended && (
+                <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-amber-500/15 text-amber-900 border border-amber-500/30">
+                  ★ Highly Recommended
                 </span>
               )}
               {dish.isSpicy && (
