@@ -103,6 +103,29 @@ export default function InteractiveRestaurantMenu({
 
   return (
     <section className={isStandalonePage ? 'pt-1' : 'mt-10 pt-8 border-t border-stone-200'} id="restaurant-menu-section">
+      {/* Title on Main Listing Page */}
+      {!isStandalonePage && (
+        <div className="pb-4 mb-4 border-b border-stone-200">
+          <div className="flex items-center gap-2 mb-1.5">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-extrabold uppercase tracking-wider bg-amber-500/15 text-[#C2613C] border border-amber-500/25">
+              <UtensilsCrossed className="w-3.5 h-3.5" />
+              Verified Menu & Prices
+            </span>
+            {menu?.lastUpdated && (
+              <span className="text-[11px] text-stone-500 font-medium">
+                {menu.lastUpdated}
+              </span>
+            )}
+          </div>
+          <h2 className="font-serif text-2xl sm:text-3xl font-extrabold text-stone-900 tracking-tight">
+            {restaurantName} Menu & Prices
+          </h2>
+          <p className="text-xs sm:text-sm text-stone-600 font-medium mt-1">
+            Prices in local Moroccan Dirhams (MAD). Tap <span className="font-bold text-[#D4863A]">(+)</span> on any dish to save to your personal tasting selection before reserving.
+          </p>
+        </div>
+      )}
+
       {/* Sleek inline control bar: Search + Category + Currency */}
       <div className="space-y-3 mb-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-2">

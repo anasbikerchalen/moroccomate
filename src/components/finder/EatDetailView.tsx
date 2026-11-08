@@ -109,7 +109,22 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
 
   // Operational schedule resolved dynamically via backend time engine
   const scheduleData = useMemo(() => {
-    return getEatWeeklySchedule(item || {});
+    const raw = item || {};
+    const weekly = raw.weeklySchedule || raw.ui?.weeklySchedule;
+    return getEatWeeklySchedule({
+      ...raw,
+      openTime: raw.openTime || raw.ui?.openTime,
+      closeTime: raw.closeTime || raw.ui?.closeTime,
+      weeklySchedule: weekly?.map((s: any) => ({
+        day: s.day,
+        open: s.open || s.openTime,
+        close: s.close || s.closeTime,
+        isClosed: s.isClosed,
+        note: s.note
+      })),
+      closedDays: raw.closedDays || raw.filter?.closedDays,
+      ramadanFriendly: raw.ramadanFriendly || raw.filter?.ramadanFriendly
+    });
   }, [item]);
 
   // Consolidated ratings from real backend database

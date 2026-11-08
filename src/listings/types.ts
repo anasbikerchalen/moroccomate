@@ -276,6 +276,7 @@ export interface EatListingUI {
     openTime: string
     closeTime: string
     isClosed?: boolean
+    note?: string
   }[]
   exactAddressAndCoordinates?: {
     address: string
