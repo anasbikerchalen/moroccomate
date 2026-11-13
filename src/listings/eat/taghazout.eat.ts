@@ -124,6 +124,17 @@ export const taghazoutEat: EatListing[] = [
     tags: ["alcohol", "breakfast", "budget", "dinner", "terrace", "wifi"],
     fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
     menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
+  
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'e-taghazout-2',
@@ -202,6 +213,17 @@ export const taghazoutEat: EatListing[] = [
     tags: ["breakfast", "budget", "cafe-pastry", "dry", "juice", "wifi"],
     fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
     menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
+  
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'e-taghazout-3',
@@ -280,6 +302,17 @@ export const taghazoutEat: EatListing[] = [
     tags: ["budget", "dinner", "dry", "tagine"],
     fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
     menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
+  
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'e-taghazout-4',
@@ -358,6 +391,17 @@ export const taghazoutEat: EatListing[] = [
     tags: ["breakfast", "budget", "cafe-pastry", "dry", "wifi"],
     fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
     menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
+  
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'e-taghazout-5',
@@ -436,6 +480,17 @@ export const taghazoutEat: EatListing[] = [
     tags: ["budget", "dinner", "dry", "wifi"],
     fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
     menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
+  
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'e-taghazout-6',
@@ -514,6 +569,17 @@ export const taghazoutEat: EatListing[] = [
     tags: ["alcohol", "budget", "dinner", "fine", "wifi"],
     fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
     menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
+  
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'e-taghazout-7',
@@ -592,6 +658,17 @@ export const taghazoutEat: EatListing[] = [
     tags: ["alcohol", "breakfast", "budget", "dinner", "fine", "late-night", "sunset", "terrace", "wifi"],
     fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
     menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
+  
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'e-taghazout-8',
@@ -670,6 +747,17 @@ export const taghazoutEat: EatListing[] = [
     tags: ["alcohol", "breakfast", "budget", "dinner", "fine", "late-night", "sunset", "terrace", "wifi"],
     fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
     menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
+  
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'e-taghazout-9',
@@ -748,6 +836,17 @@ export const taghazoutEat: EatListing[] = [
     tags: ["breakfast", "budget", "cafe-pastry", "dinner", "dry", "juice", "terrace", "wifi"],
     fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
     menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
+  
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'e-taghazout-10',
@@ -826,6 +925,17 @@ export const taghazoutEat: EatListing[] = [
     tags: ["budget", "dinner", "dry", "fine", "live-music", "pastilla", "sunset", "terrace", "wifi"],
     fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
     menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
+  
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'e-taghazout-11',
@@ -904,6 +1014,17 @@ export const taghazoutEat: EatListing[] = [
     tags: ["breakfast", "budget", "cafe-pastry", "dry", "juice", "sunset", "terrace", "wifi"],
     fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
     menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
+  
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'e-taghazout-12',
@@ -982,6 +1103,17 @@ export const taghazoutEat: EatListing[] = [
     tags: ["alcohol", "budget", "dinner", "fine", "late-night", "sunset", "terrace", "wifi"],
     fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
     menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
+  
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'e-taghazout-13',
@@ -1060,6 +1192,17 @@ export const taghazoutEat: EatListing[] = [
     tags: ["budget", "dinner", "dry", "late-night", "palace", "tagine"],
     fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
     menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
+  
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'e-taghazout-14',
@@ -1138,6 +1281,17 @@ export const taghazoutEat: EatListing[] = [
     tags: ["budget", "dinner", "dry", "late-night", "street-food"],
     fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
     menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
+  
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'e-taghazout-15',
@@ -1216,6 +1370,17 @@ export const taghazoutEat: EatListing[] = [
     tags: ["budget", "dinner", "dry", "street-food", "sunset", "wifi"],
     fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
     menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
+  
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'e-taghazout-16',
@@ -1294,6 +1459,17 @@ export const taghazoutEat: EatListing[] = [
     tags: ["budget", "cafe-pastry", "dinner", "dry", "tagine"],
     fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
     menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
+  
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'e-taghazout-17',
@@ -1372,6 +1548,17 @@ export const taghazoutEat: EatListing[] = [
     tags: ["budget", "dinner", "dry"],
     fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
     menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
+  
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'e-taghazout-18',
@@ -1450,6 +1637,17 @@ export const taghazoutEat: EatListing[] = [
     tags: ["budget", "dinner", "dry", "rooftop", "sunset", "terrace", "wifi"],
     fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
     menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
+  
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'e-taghazout-19',
@@ -1528,6 +1726,17 @@ export const taghazoutEat: EatListing[] = [
     tags: ["alcohol", "dinner", "fine", "quiet", "sunset", "wifi"],
     fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
     menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
+  
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'e-taghazout-20',
@@ -1606,5 +1815,16 @@ export const taghazoutEat: EatListing[] = [
     tags: ["alcohol", "budget", "dinner", "fine", "terrace", "wifi"],
     fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
     menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
+  
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

@@ -90,7 +90,9 @@ function getEatHeader(cityName: string): string {
  *   pros: [],
  *   cons: [],
  *   tip: '',
- *   badge: 'local-favorite'
+ *   badge: 'local-favorite',
+ *   // Multi-platform reviews holder (hidden on UI until populated)
+ *   reviewsData: { sources: [], reviews: [] }
  * }
  * =========================================================================
  */
@@ -179,7 +181,9 @@ function getSleepHeader(cityName: string): string {
  *   roomTypes: [{ name: 'Standard Double Room', view: 'Courtyard view', price: 850, beds: '1 Double bed', size: '20 sqm', available: true }],
  *   coordinates: { lat: 31.6295, lng: -7.9811 },
  *   googleRating: 4.7,
- *   googleReviewCount: 200
+ *   googleReviewCount: 200,
+ *   // Multi-platform reviews holder (hidden on UI until populated)
+ *   reviewsData: { sources: [], reviews: [] }
  * }
  * =========================================================================
  */
@@ -266,7 +270,9 @@ function getThingsHeader(cityName: string): string {
  *     kidSuitable: true
  *   },
  *   tip: '',
- *   badge: 'popular'
+ *   badge: 'popular',
+ *   // Multi-platform reviews holder (hidden on UI until populated)
+ *   reviewsData: { sources: [], reviews: [] }
  * }
  * =========================================================================
  */
@@ -338,7 +344,9 @@ function getShopHeader(cityName: string): string {
  *   whatTheySell: [{ item: 'Handmade Babouches', range: '120 - 180 MAD', priceEstimate: '150 MAD' }],
  *   googleRating: 4.5,
  *   googleReviewCount: 100,
- *   reviewSummary: ''
+ *   reviewSummary: '',
+ *   // Multi-platform reviews holder (hidden on UI until populated)
+ *   reviewsData: { sources: [], reviews: [] }
  * }
  * =========================================================================
  */

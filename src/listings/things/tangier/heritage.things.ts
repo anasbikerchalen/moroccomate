@@ -275,6 +275,8 @@ export const tangierHeritageThings: ThingToDoListing[] = [
       { id: "activity-difficulty", title: "Difficulty", icon: "mountain", tag: "Moderate Incline", description: "Walking up from the lower medina involves steep cobbled hills; petit taxis can drop you directly at the top gate.", state: "verified" },
     ],
     googleMapsUrl: "https://www.google.com/maps/place/Kasbah+Museum/@35.7891334,-5.8143962,17z",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -330,6 +332,8 @@ export const tangierHeritageThings: ThingToDoListing[] = [
       { id: "activity-difficulty", title: "Difficulty", icon: "mountain", tag: "Narrow Stairs", description: "Requires climbing three floors of historic winding tile staircases.", state: "verified" },
     ],
     googleMapsUrl: "https://www.google.com/maps/place/Tangier+American+Legation+Museum/@35.7836109,-5.8118029,17z",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -385,6 +389,8 @@ export const tangierHeritageThings: ThingToDoListing[] = [
       { id: "activity-difficulty", title: "Difficulty", icon: "mountain", tag: "Very Easy", description: "Paved, level walkways with ample bench seating around the central fountain.", state: "verified" },
     ],
     googleMapsUrl: "https://www.google.com/maps/place/Grand+Socco/@35.7853112,-5.814522,17z",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -449,6 +455,8 @@ export const tangierHeritageThings: ThingToDoListing[] = [
       { id: "activity-difficulty", title: "Difficulty", icon: "mountain", tag: "Gentle Walk", description: "Easy pedestrian access along Rue Siaghine from Grand Socco.", state: "verified" },
     ],
     googleMapsUrl: "https://www.google.com/maps/place/Petit+Socco/@35.7849684,-5.8115668,17z",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -504,6 +512,8 @@ export const tangierHeritageThings: ThingToDoListing[] = [
       { id: "activity-difficulty", title: "Difficulty", icon: "mountain", tag: "Minimal", description: "A few steps up to the nave; lush walking path through the graveyard.", state: "verified" },
     ],
     googleMapsUrl: "https://www.google.com/maps/place/St.+Andrew's+Church/@35.7845612,-5.815915,17z",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -567,6 +577,8 @@ export const tangierHeritageThings: ThingToDoListing[] = [
       { id: "activity-difficulty", title: "Difficulty", icon: "mountain", tag: "Accessible", description: "Fully wheelchair and stroller friendly with level garden pathways and elevator.", state: "verified" },
     ],
     googleMapsUrl: "https://www.google.com/maps/place/Villa+Harris+Museum/@35.7766521,-5.7733475,17z",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -622,6 +634,8 @@ export const tangierHeritageThings: ThingToDoListing[] = [
       { id: "activity-difficulty", title: "Difficulty", icon: "mountain", tag: "Low Incline", description: "Ground floor courtyard is easy to navigate; upper gallery accessed via stairs.", state: "verified" },
     ],
     googleMapsUrl: "https://www.google.com/maps/place/Mus%C3%A9e+Dar+Niaba/@35.7847125,-5.8130252,17z",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -677,6 +691,8 @@ export const tangierHeritageThings: ThingToDoListing[] = [
       { id: "activity-difficulty", title: "Difficulty", icon: "mountain", tag: "Hidden Steps", description: "Located behind an unmarked doorway up small cobblestone alley stairs.", state: "verified" },
     ],
     googleMapsUrl: "https://www.google.com/maps/place/Moshe+Nahon+Synagogue/@35.7851121,-5.8119123,17z",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -732,6 +748,8 @@ export const tangierHeritageThings: ThingToDoListing[] = [
       { id: "activity-difficulty", title: "Difficulty", icon: "mountain", tag: "Effortless", description: "Gentle paved paths and abundant shaded benches.", state: "verified" },
     ],
     googleMapsUrl: "https://www.google.com/maps/place/Mendoubia+Garden/@35.7865123,-5.8159124,17z",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -787,6 +805,8 @@ export const tangierHeritageThings: ThingToDoListing[] = [
       { id: "activity-difficulty", title: "Difficulty", icon: "mountain", tag: "Uneven Slope", description: "Terraced steep slope with weathered steps and narrow paths between graves.", state: "verified" },
     ],
     googleMapsUrl: "https://www.google.com/maps/place/Jewish+Cemetery+Tangier/@35.7855123,-5.8105124,17z",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -842,6 +862,8 @@ export const tangierHeritageThings: ThingToDoListing[] = [
       { id: "activity-difficulty", title: "Difficulty", icon: "mountain", tag: "Cobbled Alleys", description: "Requires walking uphill through winding, narrow Kasbah alleys.", state: "verified" },
     ],
     googleMapsUrl: "https://maps.google.com/?q=Tomb+of+Ibn+Battouta/@35.7874125,-5.8149124,17z",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -897,6 +919,8 @@ export const tangierHeritageThings: ThingToDoListing[] = [
       { id: "activity-difficulty", title: "Difficulty", icon: "mountain", tag: "Step Free", description: "Ground floor courtyard easily accessible right from the street off Grand Socco.", state: "verified" },
     ],
     googleMapsUrl: "https://maps.google.com/?q=Darna/@35.7844123,-5.8155124,17z",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1003,6 +1027,8 @@ export const tangierHeritageThings: ThingToDoListing[] = [
     address: "Plateau du Marshan, 90000 Tangier",
     coordinates: { lat: 35.7906, lng: -5.8173 },
     googleMapsUrl: "https://www.google.com/maps/place/Phoenician+Tombs/@35.7906,-5.8173,17z",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1107,6 +1133,8 @@ export const tangierHeritageThings: ThingToDoListing[] = [
     address: "Boulevard Pasteur (Place Faro), 90000 Tangier",
     coordinates: { lat: 35.7828, lng: -5.8105 },
     googleMapsUrl: "https://www.google.com/maps/place/La+Terrasse+des+Paresseux/@35.7828,-5.8105,17z",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1213,6 +1241,8 @@ export const tangierHeritageThings: ThingToDoListing[] = [
     address: "Cinéma Rif, Place du 9 Avril 1947, 90000 Tangier",
     coordinates: { lat: 35.7847, lng: -5.8142 },
     googleMapsUrl: "https://www.google.com/maps/place/Cin%C3%A9math%C3%A8que+de+Tanger/@35.7847,-5.8142,17z",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1320,6 +1350,8 @@ export const tangierHeritageThings: ThingToDoListing[] = [
     address: "Place Bab El Marsa / Rue Dar el-Baroud, 90000 Tangier",
     coordinates: { lat: 35.7876, lng: -5.8088 },
     googleMapsUrl: "https://www.google.com/maps/place/Borj+Dar+El+Baroud/@35.7876,-5.8088,17z",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1425,5 +1457,7 @@ export const tangierHeritageThings: ThingToDoListing[] = [
     address: "61 Rue Riad Sultan, Kasbah, 90000 Tangier",
     coordinates: { lat: 35.7900, lng: -5.8130 },
     googleMapsUrl: "https://www.google.com/maps/place/Borj+En-Na%C3%A2m/@35.7900,-5.8130,17z",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

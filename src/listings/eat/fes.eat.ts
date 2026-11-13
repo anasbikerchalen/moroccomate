@@ -191,7 +191,56 @@ export const fesEat: EatListing[] = [
       viewType: "garden",
       bestTimeToVisit: "Early evening around 18:30 for sunset",
       averageWaitMinutes: 0
-    }
+    },
+    worries: [
+      {
+        id: "financial-trust",
+        title: "Financial Trust",
+        tag: "Set Tasting Menu",
+        description: "Transparent fixed-price 3-course menu with pricing published in advance; no surprises on bill.",
+        tone: "good",
+        tagColor: "money",
+        state: "verified"
+      },
+      {
+        id: "health-safety",
+        title: "Health & Safety",
+        tag: "Chef-Led Hygiene",
+        description: "European-standard kitchen led by professional executive chefs; purified water and meticulously sourced ingredients.",
+        tone: "good",
+        tagColor: "water",
+        state: "verified"
+      },
+      {
+        id: "culinary-authenticity",
+        title: "Culinary Authenticity",
+        tag: "Fassi Gourmet Fusion",
+        description: "Inventive blend of heritage Fes gastronomy and contemporary French techniques celebrating local seasonal market finds.",
+        tone: "good",
+        tagColor: "food",
+        state: "verified"
+      },
+      {
+        id: "comfort-environment",
+        title: "Comfort & Atmosphere",
+        tag: "Riad Sanctuary",
+        description: "Intimate restored riad courtyard in Fes El Bali; riad staff can meet you at nearby gate to guide you through winding alleys.",
+        tone: "good",
+        tagColor: "safety",
+        state: "verified"
+      },
+      {
+        id: "service-expectations",
+        title: "Service Expectations",
+        tag: "Intimate Dinner Only",
+        description: "Dinner-only service with very limited seating; booking weeks in advance is essential.",
+        tone: "good",
+        tagColor: "safety",
+        state: "verified"
+      }
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -277,6 +326,17 @@ export const fesEat: EatListing[] = [
       bestTimeToVisit: "Lunch around 13:00 for quiet",
       averageWaitMinutes: 10
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -356,6 +416,17 @@ export const fesEat: EatListing[] = [
       bestTimeToVisit: "Early evening around 18:30 for sunset",
       averageWaitMinutes: 10
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -429,6 +500,17 @@ export const fesEat: EatListing[] = [
       bestTimeToVisit: "Late evening after 20:00 for lively crowd",
       averageWaitMinutes: 0
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -514,6 +596,17 @@ export const fesEat: EatListing[] = [
       bestTimeToVisit: "Early evening around 18:30 for sunset",
       averageWaitMinutes: 10
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -603,6 +696,17 @@ export const fesEat: EatListing[] = [
       bestTimeToVisit: "Lunch around 13:00 for quiet",
       averageWaitMinutes: 5
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -687,6 +791,17 @@ export const fesEat: EatListing[] = [
       bestTimeToVisit: "Lunch around 13:00 for quiet",
       averageWaitMinutes: 10
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -776,6 +891,17 @@ export const fesEat: EatListing[] = [
       bestTimeToVisit: "Early evening around 18:30 for sunset",
       averageWaitMinutes: 5
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -858,6 +984,17 @@ export const fesEat: EatListing[] = [
       bestTimeToVisit: "Late evening after 20:00 for lively crowd",
       averageWaitMinutes: 10
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -944,6 +1081,17 @@ export const fesEat: EatListing[] = [
       bestTimeToVisit: "Lunch around 13:00 for quiet",
       averageWaitMinutes: 5
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -1025,6 +1173,17 @@ export const fesEat: EatListing[] = [
       bestTimeToVisit: "Lunch around 13:00 for quiet",
       averageWaitMinutes: 10
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -1110,6 +1269,17 @@ export const fesEat: EatListing[] = [
       bestTimeToVisit: "Lunch around 13:00 for quiet",
       averageWaitMinutes: 5
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -1194,6 +1364,17 @@ export const fesEat: EatListing[] = [
       bestTimeToVisit: "Late evening after 20:00 for lively crowd",
       averageWaitMinutes: 0
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -1280,6 +1461,17 @@ export const fesEat: EatListing[] = [
       bestTimeToVisit: "Lunch around 13:00 for quiet",
       averageWaitMinutes: 10
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -1362,6 +1554,17 @@ export const fesEat: EatListing[] = [
       bestTimeToVisit: "Early evening around 18:30 for sunset",
       averageWaitMinutes: 5
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -1435,6 +1638,17 @@ export const fesEat: EatListing[] = [
       bestTimeToVisit: "Late evening after 20:00 for lively crowd",
       averageWaitMinutes: 5
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -1508,6 +1722,17 @@ export const fesEat: EatListing[] = [
       bestTimeToVisit: "Lunch around 13:00 for quiet",
       averageWaitMinutes: 10
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -1591,6 +1816,17 @@ export const fesEat: EatListing[] = [
       bestTimeToVisit: "Early evening around 18:30 for sunset",
       averageWaitMinutes: 10
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -1677,6 +1913,17 @@ export const fesEat: EatListing[] = [
       bestTimeToVisit: "Lunch around 13:00 for quiet",
       averageWaitMinutes: 10
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -1759,6 +2006,17 @@ export const fesEat: EatListing[] = [
       bestTimeToVisit: "Lunch around 13:00 for quiet",
       averageWaitMinutes: 5
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -1820,6 +2078,17 @@ export const fesEat: EatListing[] = [
       instagram: "https://instagram.com/mcdonalds_maroc",
       languagesSpoken: ["Arabic", "French", "English"]
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -1883,6 +2152,17 @@ export const fesEat: EatListing[] = [
       instagram: "https://instagram.com/kfc_maroc",
       languagesSpoken: ["Arabic", "French", "English"]
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -1946,6 +2226,17 @@ export const fesEat: EatListing[] = [
       instagram: "https://instagram.com/burgerkingmaroc",
       languagesSpoken: ["Arabic", "French", "English"]
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -2009,6 +2300,17 @@ export const fesEat: EatListing[] = [
       instagram: "https://instagram.com/pizzahut_maroc",
       languagesSpoken: ["Arabic", "French", "English"]
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -2070,5 +2372,16 @@ export const fesEat: EatListing[] = [
       instagram: "https://instagram.com/dominos_maroc",
       languagesSpoken: ["Arabic", "French", "English"]
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

@@ -231,7 +231,9 @@ export const asilahNatureThings: ThingToDoListing[] = [
         a: "Yes, it's a pleasant 45-60 minute walk along the coast."
       }
     ],
-    contactPhone: ""
+    contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -421,7 +423,9 @@ export const asilahNatureThings: ThingToDoListing[] = [
         a: "Yes in summer, but the Atlantic can have strong waves."
       }
     ],
-    contactPhone: ""
+    contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -611,7 +615,9 @@ export const asilahNatureThings: ThingToDoListing[] = [
         a: "Small improvised beach restaurants in summer."
       }
     ],
-    contactPhone: ""
+    contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -797,7 +803,9 @@ export const asilahNatureThings: ThingToDoListing[] = [
         a: "A few small places, especially in summer."
       }
     ],
-    contactPhone: ""
+    contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -983,7 +991,9 @@ export const asilahNatureThings: ThingToDoListing[] = [
         a: "A local guide is strongly recommended."
       }
     ],
-    contactPhone: ""
+    contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1173,7 +1183,9 @@ export const asilahNatureThings: ThingToDoListing[] = [
         a: "It gets lively but never overcrowded. Great for families."
       }
     ],
-    contactPhone: ""
+    contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   // ── 5 NEW LISTINGS — NATURE & ADVENTURE ───────────────────
   {
@@ -1364,7 +1376,9 @@ export const asilahNatureThings: ThingToDoListing[] = [
         a: "About 40 minutes before sunset when the ocean rocks catch the amber rays."
       }
     ],
-    contactPhone: ""
+    contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1554,7 +1568,9 @@ export const asilahNatureThings: ThingToDoListing[] = [
         a: "Yes, flamingos and other migratory waterfowl winter in the estuary between October and March."
       }
     ],
-    contactPhone: ""
+    contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1753,7 +1769,9 @@ export const asilahNatureThings: ThingToDoListing[] = [
         a: "Yes, all primary gates and walkways are completely flat and step-free."
       }
     ],
-    contactPhone: ""
+    contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1943,7 +1961,9 @@ export const asilahNatureThings: ThingToDoListing[] = [
         a: "Around 3.5 to 4 hours round-trip, including time spent at Paradise Beach."
       }
     ],
-    contactPhone: ""
+    contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -2133,6 +2153,8 @@ export const asilahNatureThings: ThingToDoListing[] = [
         a: "Yes, the grassy hillside banks overlooking the reservoir are popular for peaceful rural picnics."
       }
     ],
-    contactPhone: ""
+    contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

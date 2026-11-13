@@ -353,7 +353,9 @@ export const mhamidSleep: SleepListing[] = [
       lat: 29.826809,
       lng: -5.724011
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "mh-sleep-2",
@@ -468,7 +470,9 @@ export const mhamidSleep: SleepListing[] = [
       lat: 29.836463,
       lng: -5.738189
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "mh-sleep-3",
@@ -585,7 +589,9 @@ export const mhamidSleep: SleepListing[] = [
       lat: 29.838571,
       lng: -5.73814
     },
-    tags: ["dorm", "family-favorite"]
+    tags: ["dorm", "family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "mh-sleep-4",
@@ -702,7 +708,9 @@ export const mhamidSleep: SleepListing[] = [
       lat: 29.827921,
       lng: -5.667453
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "mh-sleep-5",
@@ -819,7 +827,9 @@ export const mhamidSleep: SleepListing[] = [
       lat: 29.809028,
       lng: -5.734266
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "mh-sleep-6",
@@ -936,7 +946,9 @@ export const mhamidSleep: SleepListing[] = [
       lat: 29.825457,
       lng: -5.680737
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "mh-sleep-7",
@@ -1053,7 +1065,9 @@ export const mhamidSleep: SleepListing[] = [
       lat: 29.838571,
       lng: -5.73814
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "mh-sleep-8",
@@ -1170,7 +1184,9 @@ export const mhamidSleep: SleepListing[] = [
       lat: 29.836463,
       lng: -5.738189
     },
-    tags: []
+    tags: [],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "mh-sleep-9",
@@ -1287,7 +1303,9 @@ export const mhamidSleep: SleepListing[] = [
       lat: 29.809028,
       lng: -5.734266
     },
-    tags: ["dorm", "family-favorite"]
+    tags: ["dorm", "family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "mh-sleep-10",
@@ -1404,7 +1422,9 @@ export const mhamidSleep: SleepListing[] = [
       lat: 29.836463,
       lng: -5.738189
     },
-    tags: []
+    tags: [],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "mh-sleep-11",
@@ -1521,7 +1541,9 @@ export const mhamidSleep: SleepListing[] = [
       lat: 29.825084,
       lng: -5.719808
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "mh-sleep-12",
@@ -1638,7 +1660,9 @@ export const mhamidSleep: SleepListing[] = [
       lat: 29.825084,
       lng: -5.719808
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "mh-sleep-13",
@@ -1755,7 +1779,9 @@ export const mhamidSleep: SleepListing[] = [
       lat: 29.836463,
       lng: -5.738189
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "mh-sleep-14",
@@ -1872,7 +1898,9 @@ export const mhamidSleep: SleepListing[] = [
       lat: 29.829348,
       lng: -5.663746
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "mh-sleep-15",
@@ -1989,7 +2017,9 @@ export const mhamidSleep: SleepListing[] = [
       lat: 29.825084,
       lng: -5.719808
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "mh-sleep-16",
@@ -2106,7 +2136,9 @@ export const mhamidSleep: SleepListing[] = [
       lat: 29.833017,
       lng: -5.668361
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "mh-sleep-17",
@@ -2223,7 +2255,9 @@ export const mhamidSleep: SleepListing[] = [
       lat: 29.828929,
       lng: -5.713361
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "mh-sleep-18",
@@ -2340,7 +2374,9 @@ export const mhamidSleep: SleepListing[] = [
       lat: 29.872776,
       lng: -5.687676
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "mh-sleep-19",
@@ -2455,7 +2491,9 @@ export const mhamidSleep: SleepListing[] = [
       lat: 29.834136,
       lng: -5.73584
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "mh-sleep-20",
@@ -2572,6 +2610,8 @@ export const mhamidSleep: SleepListing[] = [
       lat: 29.821101,
       lng: -5.718188
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ]

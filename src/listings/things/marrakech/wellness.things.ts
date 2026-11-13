@@ -345,5 +345,7 @@ export const marrakechWellnessThings: ThingToDoListing[] = [
       lng: -8.002327
     },
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=31.641434,-8.002327",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

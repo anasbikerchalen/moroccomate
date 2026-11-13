@@ -99,7 +99,9 @@ export const ouarzazateShops: ShopListing[] = [
     phoneNumber: '+212 5248-82410',
     openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 20:00' }],
     shipping: { available: true, partner: 'dhl', details: 'Worldwide shipping for architectural antiques' },
-    isLocalFavorite: true
+    isLocalFavorite: true,
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-ouz-2',
@@ -126,7 +128,9 @@ export const ouarzazateShops: ShopListing[] = [
     productCategories: ['Stone Carvings', 'Silver Jewelry', 'Rose Cosmetics', 'Woven Rugs'],
     languagesSpoken: ['Arabic', 'French', 'English', 'Berber'],
     openingHours: [{ day: 'Mon-Sat', hours: '08:30 - 18:30' }],
-    workshopVisitable: true
+    workshopVisitable: true,
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-ouz-3',
@@ -151,7 +155,9 @@ export const ouarzazateShops: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Amber Necklaces', 'Silver Fibulas', 'Carved Camel Bone', 'Leather Bags'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 19:30' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 19:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-ouz-4',
@@ -176,7 +182,9 @@ export const ouarzazateShops: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard', 'apple_pay'],
     productCategories: ['Canvas Paintings', 'Fine Copper Lamps', 'Organic Tea Blends', 'Design Ceramics'],
     languagesSpoken: ['French', 'English', 'Arabic'],
-    openingHours: [{ day: 'Mon-Sat', hours: '10:00 - 19:00' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '10:00 - 19:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-ouz-5',
@@ -201,7 +209,9 @@ export const ouarzazateShops: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard'],
     productCategories: ['Pure Saffron', 'Leather Babouches', 'Ceramic Bowls', 'Brass Lamps'],
     languagesSpoken: ['Arabic', 'French', 'English', 'Spanish'],
-    openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 20:30' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 20:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-ouz-6',
@@ -226,7 +236,9 @@ export const ouarzazateShops: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Green Tamegroute Plates', 'Tagine Pots', 'Straw Baskets', 'Terracotta Lamps'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 19:30' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 19:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-ouz-7',
@@ -251,7 +263,9 @@ export const ouarzazateShops: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard'],
     productCategories: ['Cosmetic Argan Oil', 'Kelaat Rose Elixir', 'Saffron Threads', 'Ghassoul Clay'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 20:00' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 20:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-ouz-8',
@@ -279,7 +293,9 @@ export const ouarzazateShops: ShopListing[] = [
     languagesSpoken: ['Arabic', 'Berber', 'French', 'English'],
     openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 18:30' }],
     shipping: { available: true, partner: 'dhl' },
-    workshopVisitable: true
+    workshopVisitable: true,
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-ouz-9',
@@ -304,7 +320,9 @@ export const ouarzazateShops: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Grade 1 Saffron', 'Anti-Atlas Rugs', 'Wild Thyme', 'Argan Oil'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 20:00' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 20:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-ouz-10',
@@ -330,7 +348,9 @@ export const ouarzazateShops: ShopListing[] = [
     productCategories: ['Engraved Silver Rings', 'Southern Fibula Pins', 'Chiseled Pendants'],
     languagesSpoken: ['Arabic', 'Berber', 'French', 'English'],
     openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 19:00' }],
-    workshopVisitable: true
+    workshopVisitable: true,
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-ouarzazate-marjane-1',
@@ -352,7 +372,9 @@ export const ouarzazateShops: ShopListing[] = [
     paymentMethods: ["cash","visa","mastercard","apple_pay"],
     productCategories: ["Bulk Water","Dried Dates & Nuts","Canned Goods","Sunscreen","Camping Supplies"],
     languagesSpoken: ["Arabic","French","English"],
-    openingHours: [{"day":"Mon-Sun","hours":"09:00 - 21:30"}]
+    openingHours: [{"day":"Mon-Sun","hours":"09:00 - 21:30"}],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-ouarzazate-carrefour-1',
@@ -374,7 +396,9 @@ export const ouarzazateShops: ShopListing[] = [
     paymentMethods: ["cash","visa","mastercard","apple_pay"],
     productCategories: ["European Groceries","Dairy","Bakery","Beverages","Toiletries"],
     languagesSpoken: ["French","English","Arabic"],
-    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 21:00"}]
+    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 21:00"}],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-ouarzazate-bim-1',
@@ -396,7 +420,9 @@ export const ouarzazateShops: ShopListing[] = [
     paymentMethods: ["cash","visa","mastercard"],
     productCategories: ["Mineral Water","Biscuits","Dairy","Snacks","Basic Toiletries"],
     languagesSpoken: ["Arabic","French"],
-    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 21:00"}]
+    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 21:00"}],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-ouarzazate-ensemble-1',
@@ -418,6 +444,8 @@ export const ouarzazateShops: ShopListing[] = [
     paymentMethods: ["cash","visa","mastercard"],
     productCategories: ["Ouzguita Berber Carpets","Carved Stone","Wrought Iron","Pottery"],
     languagesSpoken: ["Arabic","French","English"],
-    openingHours: [{"day":"Mon-Sat","hours":"09:00 - 19:00"}]
+    openingHours: [{"day":"Mon-Sat","hours":"09:00 - 19:00"}],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

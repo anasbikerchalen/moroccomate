@@ -355,7 +355,9 @@ export const merzougaSleep: SleepListing[] = [
       lat: 31.08945,
       lng: -3.965227
     },
-    tags: ["family-favorite", "heritage", "desert-camps", "dune-view", "private-bathroom", "camel-ride", "5-star"]
+    tags: ["family-favorite", "heritage", "desert-camps", "dune-view", "private-bathroom", "camel-ride", "5-star"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "me-sleep-2",
@@ -472,7 +474,9 @@ export const merzougaSleep: SleepListing[] = [
       lat: 31.056466,
       lng: -4.019328
     },
-    tags: ["family-favorite", "air-conditioning", "dune-view", "camel-ride"]
+    tags: ["family-favorite", "air-conditioning", "dune-view", "camel-ride"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "me-sleep-3",
@@ -591,7 +595,9 @@ export const merzougaSleep: SleepListing[] = [
       lat: 31.173397,
       lng: -3.940539
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "me-sleep-4",
@@ -708,7 +714,9 @@ export const merzougaSleep: SleepListing[] = [
       lat: 31.13958,
       lng: -4.022909
     },
-    tags: ["family-favorite", "pool", "air-conditioning", "dune-view", "5-star"]
+    tags: ["family-favorite", "pool", "air-conditioning", "dune-view", "5-star"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "me-sleep-5",
@@ -825,7 +833,9 @@ export const merzougaSleep: SleepListing[] = [
       lat: 31.13958,
       lng: -4.022909
     },
-    tags: ["family-favorite", "pool", "air-conditioning", "dune-view"]
+    tags: ["family-favorite", "pool", "air-conditioning", "dune-view"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "me-sleep-6",
@@ -942,7 +952,9 @@ export const merzougaSleep: SleepListing[] = [
       lat: 31.089533,
       lng: -4.004971
     },
-    tags: ["family-favorite", "heritage", "pool", "spa", "air-conditioning", "dune-view", "5-star"]
+    tags: ["family-favorite", "heritage", "pool", "spa", "air-conditioning", "dune-view", "5-star"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "me-sleep-7",
@@ -1059,7 +1071,9 @@ export const merzougaSleep: SleepListing[] = [
       lat: 31.131494,
       lng: -4.016547
     },
-    tags: ["family-favorite", "heritage", "pool", "air-conditioning", "dune-view", "camel-ride"]
+    tags: ["family-favorite", "heritage", "pool", "air-conditioning", "dune-view", "camel-ride"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "me-sleep-8",
@@ -1176,7 +1190,9 @@ export const merzougaSleep: SleepListing[] = [
       lat: 31.11069,
       lng: -4.011867
     },
-    tags: ["family-favorite", "pool", "air-conditioning", "dune-view", "camel-ride"]
+    tags: ["family-favorite", "pool", "air-conditioning", "dune-view", "camel-ride"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "me-sleep-9",
@@ -1293,7 +1309,9 @@ export const merzougaSleep: SleepListing[] = [
       lat: 30.764892,
       lng: -4.172767
     },
-    tags: ["dorm", "camel-ride", "dune-view"]
+    tags: ["dorm", "camel-ride", "dune-view"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "me-sleep-10",
@@ -1410,7 +1428,9 @@ export const merzougaSleep: SleepListing[] = [
       lat: 31.13958,
       lng: -4.022909
     },
-    tags: ["dorm", "pool", "camel-ride", "dune-view"]
+    tags: ["dorm", "pool", "camel-ride", "dune-view"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "me-sleep-11",
@@ -1527,7 +1547,9 @@ export const merzougaSleep: SleepListing[] = [
       lat: 31.10004,
       lng: -4.007933
     },
-    tags: ["family-favorite", "air-conditioning", "dune-view", "camel-ride"]
+    tags: ["family-favorite", "air-conditioning", "dune-view", "camel-ride"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "me-sleep-12",
@@ -1644,7 +1666,9 @@ export const merzougaSleep: SleepListing[] = [
       lat: 31.057991,
       lng: -3.989364
     },
-    tags: ["family-favorite", "desert-camps", "dune-view", "private-bathroom", "camel-ride", "5-star"]
+    tags: ["family-favorite", "desert-camps", "dune-view", "private-bathroom", "camel-ride", "5-star"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "me-sleep-13",
@@ -1757,7 +1781,9 @@ export const merzougaSleep: SleepListing[] = [
       business: "Not ideal for business, but good for a digital reset.",
       nomad: "Low connectivity but strong atmosphere for reflective work.",
     },
-    tags: ["family-favorite", "desert-camps", "dune-view", "private-bathroom", "camel-ride"]
+    tags: ["family-favorite", "desert-camps", "dune-view", "private-bathroom", "camel-ride"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "me-sleep-14",
@@ -1870,7 +1896,9 @@ export const merzougaSleep: SleepListing[] = [
       business: "Not a business stay, but calm for disconnecting.",
       nomad: "A high-inspiration camp for low-connectivity creative work.",
     },
-    tags: ["family-favorite", "desert-camps", "dune-view", "private-bathroom", "camel-ride", "5-star"]
+    tags: ["family-favorite", "desert-camps", "dune-view", "private-bathroom", "camel-ride", "5-star"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "me-sleep-15",
@@ -1987,7 +2015,9 @@ export const merzougaSleep: SleepListing[] = [
       lat: 31.087191,
       lng: -3.966015
     },
-    tags: ["family-favorite", "desert-camps", "dune-view", "camel-ride"]
+    tags: ["family-favorite", "desert-camps", "dune-view", "camel-ride"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "me-sleep-16",
@@ -2104,7 +2134,9 @@ export const merzougaSleep: SleepListing[] = [
       lat: 31.173397,
       lng: -3.940539
     },
-    tags: ["family-favorite", "desert-camps", "dune-view", "private-bathroom", "camel-ride", "5-star"]
+    tags: ["family-favorite", "desert-camps", "dune-view", "private-bathroom", "camel-ride", "5-star"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "me-sleep-17",
@@ -2217,7 +2249,9 @@ export const merzougaSleep: SleepListing[] = [
       business: "Not for regular business, but great for disconnecting.",
       nomad: "A memorable low-connectivity creative reset.",
     },
-    tags: ["family-favorite", "heritage", "desert-camps", "dune-view", "private-bathroom", "camel-ride", "5-star"]
+    tags: ["family-favorite", "heritage", "desert-camps", "dune-view", "private-bathroom", "camel-ride", "5-star"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "me-sleep-18",
@@ -2334,7 +2368,9 @@ export const merzougaSleep: SleepListing[] = [
       lat: 31.216994,
       lng: -3.978941
     },
-    tags: ["family-favorite", "desert-camps", "dune-view", "private-bathroom", "camel-ride", "5-star"]
+    tags: ["family-favorite", "desert-camps", "dune-view", "private-bathroom", "camel-ride", "5-star"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "me-sleep-19",
@@ -2451,7 +2487,9 @@ export const merzougaSleep: SleepListing[] = [
       lat: 31.08945,
       lng: -3.965227
     },
-    tags: ["dorm", "family-favorite", "desert-camps", "dune-view", "camel-ride"]
+    tags: ["dorm", "family-favorite", "desert-camps", "dune-view", "camel-ride"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "me-sleep-20",
@@ -2568,6 +2606,8 @@ export const merzougaSleep: SleepListing[] = [
       lat: 31.132232,
       lng: -4.01657
     },
-    tags: ["family-favorite", "heritage", "pool", "air-conditioning", "dune-view"]
+    tags: ["family-favorite", "heritage", "pool", "air-conditioning", "dune-view"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ]

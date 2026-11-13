@@ -186,7 +186,56 @@ export const essaouiraEat: EatListing[] = [
       viewType: "beach",
       bestTimeToVisit: "Early evening around 19:30 for candlelit arches",
       averageWaitMinutes: 0
-    }
+    },
+    worries: [
+      {
+        id: "financial-trust",
+        title: "Financial Trust",
+        tag: "Itemized Card Bill",
+        description: "Official fine dining menu with clear pricing and wine list; all taxes included, cards accepted seamlessly.",
+        tone: "good",
+        tagColor: "money",
+        state: "verified"
+      },
+      {
+        id: "health-safety",
+        title: "Health & Safety",
+        tag: "Daily Port Catch",
+        description: "Fresh seafood sourced daily directly from Essaouira fishing port docks; high culinary refrigeration and sanitation.",
+        tone: "good",
+        tagColor: "water",
+        state: "verified"
+      },
+      {
+        id: "culinary-authenticity",
+        title: "Culinary Authenticity",
+        tag: "Seafood Gastronomy",
+        description: "Elevated coastal Moroccan cooking (lobster couscous, spider crab gratin, sea bass in salt crust) by expert local chefs.",
+        tone: "good",
+        tagColor: "food",
+        state: "verified"
+      },
+      {
+        id: "comfort-environment",
+        title: "Comfort & Atmosphere",
+        tag: "Stone Vault Haven",
+        description: "Atmospheric candlelit dining beneath historic 18th-century stone arches; tranquil and insulated from port winds.",
+        tone: "good",
+        tagColor: "safety",
+        state: "verified"
+      },
+      {
+        id: "service-expectations",
+        title: "Service Expectations",
+        tag: "Book Ahead",
+        description: "High demand dinner service; table reservation recommended several days in advance during tourist season.",
+        tone: "good",
+        tagColor: "safety",
+        state: "verified"
+      }
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -274,6 +323,17 @@ export const essaouiraEat: EatListing[] = [
       bestTimeToVisit: "Early evening around 18:30 for sunset",
       averageWaitMinutes: 10
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -361,6 +421,17 @@ export const essaouiraEat: EatListing[] = [
       bestTimeToVisit: "Late evening after 20:00 for lively crowd",
       averageWaitMinutes: 15
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -438,6 +509,17 @@ export const essaouiraEat: EatListing[] = [
       bestTimeToVisit: "Late evening after 20:00 for lively crowd",
       averageWaitMinutes: 10
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -520,6 +602,17 @@ export const essaouiraEat: EatListing[] = [
       bestTimeToVisit: "Lunch around 13:00 for breezy beach vibes",
       averageWaitMinutes: 15
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -602,6 +695,17 @@ export const essaouiraEat: EatListing[] = [
       bestTimeToVisit: "Early evening around 18:30 for sunset",
       averageWaitMinutes: 10
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -671,6 +775,17 @@ export const essaouiraEat: EatListing[] = [
       bestTimeToVisit: "Lunch around 13:00 for quiet",
       averageWaitMinutes: 10
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -751,6 +866,17 @@ export const essaouiraEat: EatListing[] = [
       bestTimeToVisit: "Lunch around 13:00 for quiet",
       averageWaitMinutes: 5
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -835,6 +961,17 @@ export const essaouiraEat: EatListing[] = [
       bestTimeToVisit: "Early evening around 18:30 for sunset",
       averageWaitMinutes: 15
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -908,6 +1045,17 @@ export const essaouiraEat: EatListing[] = [
       bestTimeToVisit: "Lunch around 13:00 for lively dockside atmosphere",
       averageWaitMinutes: 5
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -992,6 +1140,17 @@ export const essaouiraEat: EatListing[] = [
       bestTimeToVisit: "Late evening after 20:00 for lively crowd",
       averageWaitMinutes: 10
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -1076,6 +1235,17 @@ export const essaouiraEat: EatListing[] = [
       bestTimeToVisit: "Lunch around 13:00 for quiet",
       averageWaitMinutes: 5
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -1160,6 +1330,17 @@ export const essaouiraEat: EatListing[] = [
       bestTimeToVisit: "Early evening around 18:30 for sunset",
       averageWaitMinutes: 10
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -1232,6 +1413,17 @@ export const essaouiraEat: EatListing[] = [
       bestTimeToVisit: "Late evening after 20:00 for lively crowd",
       averageWaitMinutes: 10
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -1313,6 +1505,17 @@ export const essaouiraEat: EatListing[] = [
       bestTimeToVisit: "Late evening after 20:00 for lively crowd",
       averageWaitMinutes: 5
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -1397,6 +1600,17 @@ export const essaouiraEat: EatListing[] = [
       bestTimeToVisit: "Lunch around 13:00 for quiet",
       averageWaitMinutes: 5
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -1481,6 +1695,17 @@ export const essaouiraEat: EatListing[] = [
       bestTimeToVisit: "Lunch around 13:00 for quiet",
       averageWaitMinutes: 5
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -1554,6 +1779,17 @@ export const essaouiraEat: EatListing[] = [
       bestTimeToVisit: "Late evening after 20:00 for lively crowd",
       averageWaitMinutes: 10
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -1627,6 +1863,17 @@ export const essaouiraEat: EatListing[] = [
       bestTimeToVisit: "Lunch around 13:00 for quiet",
       averageWaitMinutes: 5
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -1708,5 +1955,16 @@ export const essaouiraEat: EatListing[] = [
       bestTimeToVisit: "Early morning for fresh baked goods",
       averageWaitMinutes: 5
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

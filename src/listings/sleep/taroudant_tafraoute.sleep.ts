@@ -142,7 +142,9 @@ export const taroudant_tafraouteSleep: SleepListing[] = [
       lat: 30.468992,
       lng: -8.886579
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 's-taroudant-dar-zitoune',
@@ -203,7 +205,9 @@ export const taroudant_tafraouteSleep: SleepListing[] = [
       lat: 30.452155,
       lng: -8.88022
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 's-tafraoute-les-amandiers',
@@ -264,7 +268,9 @@ export const taroudant_tafraouteSleep: SleepListing[] = [
       lat: 29.71778,
       lng: -8.974484
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 's-taroudant-palais-salam',
@@ -325,6 +331,8 @@ export const taroudant_tafraouteSleep: SleepListing[] = [
       lat: 30.472915,
       lng: -8.871303
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

@@ -383,5 +383,7 @@ export const casablancaWellnessThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

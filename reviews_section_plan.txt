@@ -1,0 +1,60 @@
+i want to add this (reviews) sections to all categories (eat, sleep, things to do , shopping) at the buttom of the page.
+its gonna be visible on ui only if the info (revews are on the code of that listing, if not, we hide it on ui)
+im gonna show you an exmaple of how the reviw section should be, but with adjustements.
+1: the date that shown beside the source shouldnt be as a text on the code, but a calculation, bc im gonna give on the code (date posted of that review, and you should calculate it compared to today date).
+2: the image of icon of the review , should not be images, only icon of (man or woman)
+3: add a small filter above reviews for user to toggle between good/bad reveiws or all.
+4: also beside that toggle a (tags, catgeories of those reviews (service, food, breakfast......) each place gonna have its own special tags based on the reveiws, on the code you explain  what those tags are with a comment, dont put strict tags like the ones i gave you n but thay gerenated based on the given reveiws im gonna get.
+5: the rating (starts) should be with not stasrt, but with the camel image of my webiste  logo (see listing pages ratings at the top)
+6: that see all reveiws we wont make it for the reviws we gather about that palce, but direct user to reviews on sources (google, tripadvisor...) thats why we shoulnt keep it (see all reviws) but change the button . maybe we make those icons of sources at the top click able, if user click on them we filter the reveiws we have to show only reveiws frm that source, then that (see all reviews) button we add beside it the icon of that source so user can click and we direct him to the source.
+
+on the attached image you see desktop / mobile version.
+
+
+this is the info you should know abou tthe new section of (reveiws)
+this section should have its own section code on listing code files like (agadir.eat.ts or agadir.shop.ts .... for all categories and all cities)
+the section code should be at first as a holder only not visible on ui, but if the section ocde have info, its should be visible on ui.
+
+here is what each review info the holder should put : 
+1: reviews publisher gander (man/woman) if you dont kno, just guess.
+2: exact review text
+3: date posted
+4: source of the review
+5: review rating (if available) ?/5
+6: review sentiment (bad/neutral/good)
+7: url to the reviews page of that source of that exact listing
+8: rating by diff sources  (to e calculated and give the average)
+
+each categorie have diff sources : Places to Eat
+
+1. Tripadvisor
+2. Google Maps
+3. TheFork
+4. Wanderlog
+5. Reddit  
+
+Places to Sleep
+
+1. Tripadvisor
+2. Booking.com
+3. Google Travel (Google Hotels)
+4. Hotels.com
+5. Expedia
+
+Things to Do
+
+1. Tripadvisor
+2. GetYourGuide
+3. Viator
+4. Google Travel (Things to Do)
+5. Lonely Planet
+
+Shopping
+
+1. Tripadvisor
+2. Google Maps
+3. Trustpilot
+4. Lonely Planet
+5. Reddit 
+
+

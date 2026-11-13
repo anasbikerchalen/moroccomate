@@ -297,6 +297,7 @@ export function adaptToTemplateShop(listing: any): ShopListing {
     opening_hours: deriveOpeningHours(listing),
     languages,
     shipping: deriveShipping(listing),
+    reviewsData: listing?.reviewsData || listing?.ui?.reviewsData || undefined,
     is_published: true,
     created_at: new Date().toISOString(),
     updated_at: new Date().toISOString(),

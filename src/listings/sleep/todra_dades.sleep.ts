@@ -360,7 +360,9 @@ export const todra_dadesSleep: SleepListing[] = [
       lat: 31.50273,
       lng: -5.946036
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "td-sleep-2",
@@ -481,7 +483,9 @@ export const todra_dadesSleep: SleepListing[] = [
       lat: 31.511465,
       lng: -5.936727
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "td-sleep-3",
@@ -602,7 +606,9 @@ export const todra_dadesSleep: SleepListing[] = [
       lat: 31.548327,
       lng: -5.581136
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "td-sleep-4",
@@ -723,7 +729,9 @@ export const todra_dadesSleep: SleepListing[] = [
       lat: 31.37143,
       lng: -5.986998
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "td-sleep-5",
@@ -844,7 +852,9 @@ export const todra_dadesSleep: SleepListing[] = [
       lat: 31.448968,
       lng: -5.975935
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "td-sleep-6",
@@ -965,7 +975,9 @@ export const todra_dadesSleep: SleepListing[] = [
       lat: 31.390036,
       lng: -5.982079
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "td-sleep-7",
@@ -1086,7 +1098,9 @@ export const todra_dadesSleep: SleepListing[] = [
       lat: 31.524661,
       lng: -5.545481
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "td-sleep-8",
@@ -1205,7 +1219,9 @@ export const todra_dadesSleep: SleepListing[] = [
       lat: 31.4675,
       lng: -5.96796
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "td-sleep-9",
@@ -1326,7 +1342,9 @@ export const todra_dadesSleep: SleepListing[] = [
       lat: 31.508061,
       lng: -5.618009
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "td-sleep-10",
@@ -1447,7 +1465,9 @@ export const todra_dadesSleep: SleepListing[] = [
       lat: 31.515483,
       lng: -5.533497
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "td-sleep-11",
@@ -1568,7 +1588,9 @@ export const todra_dadesSleep: SleepListing[] = [
       lat: 31.374311,
       lng: -5.982667
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "td-sleep-12",
@@ -1689,7 +1711,9 @@ export const todra_dadesSleep: SleepListing[] = [
       lat: 31.49975,
       lng: -5.943984
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "td-sleep-13",
@@ -1810,7 +1834,9 @@ export const todra_dadesSleep: SleepListing[] = [
       lat: 31.444564,
       lng: -5.980598
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "td-sleep-14",
@@ -1929,7 +1955,9 @@ export const todra_dadesSleep: SleepListing[] = [
       lat: 31.37143,
       lng: -5.986998
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "td-sleep-15",
@@ -2050,7 +2078,9 @@ export const todra_dadesSleep: SleepListing[] = [
       lat: 31.576696,
       lng: -5.585492
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "td-sleep-16",
@@ -2171,7 +2201,9 @@ export const todra_dadesSleep: SleepListing[] = [
       lat: 31.309842,
       lng: -6.02437
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "td-sleep-17",
@@ -2292,7 +2324,9 @@ export const todra_dadesSleep: SleepListing[] = [
       lat: 31.366539,
       lng: -5.987078
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "td-sleep-18",
@@ -2413,7 +2447,9 @@ export const todra_dadesSleep: SleepListing[] = [
       lat: 31.680151,
       lng: -5.534802
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "td-sleep-19",
@@ -2534,7 +2570,9 @@ export const todra_dadesSleep: SleepListing[] = [
       lat: 31.578133,
       lng: -5.587717
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "td-sleep-20",
@@ -2655,6 +2693,8 @@ export const todra_dadesSleep: SleepListing[] = [
       lat: 31.548327,
       lng: -5.581136
     },
-    tags: ["dorm", "family-favorite"]
+    tags: ["dorm", "family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ]

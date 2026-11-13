@@ -142,6 +142,17 @@ export const tetouan_martilEat: EatListing[] = [
     tags: ["alcohol", "budget", "dinner", "fine", "medina", "palace", "pastilla", "riad", "sunset", "terrace", "wifi"],
     fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
     menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
+  
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   // ── 2. BLANCO RIAD RESTAURANT ──
@@ -222,6 +233,17 @@ export const tetouan_martilEat: EatListing[] = [
     tags: ["breakfast", "budget", "couscous", "dinner", "dry", "fine", "medina", "riad", "sunset", "tagine", "wifi"],
     fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
     menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
+  
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   // ── 3. DAR LA MÉDINA TETAWEN ──
@@ -302,6 +324,17 @@ export const tetouan_martilEat: EatListing[] = [
     tags: ["budget", "dinner", "dry", "medina", "pastilla", "rooftop", "sunset"],
     fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
     menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
+  
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   // ── 4. LA ESQUINA DEL PESCADO ──
@@ -382,6 +415,17 @@ export const tetouan_martilEat: EatListing[] = [
     tags: ["budget", "dinner", "dry"],
     fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
     menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
+  
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   // ── 5. LA CASA DE ESPAÑA ──
@@ -462,6 +506,17 @@ export const tetouan_martilEat: EatListing[] = [
     tags: ["alcohol", "budget", "dinner", "fine", "wifi"],
     fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
     menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
+  
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   // ── 6. RESTAURANT RESTINGA ──
@@ -542,6 +597,17 @@ export const tetouan_martilEat: EatListing[] = [
     tags: ["alcohol", "budget", "dinner", "live-music", "wifi"],
     fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
     menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
+  
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   // ── 7. PÂTISSERIE-CAFÉTÉRIA RAHMOUNI ──
@@ -622,6 +688,17 @@ export const tetouan_martilEat: EatListing[] = [
     tags: ["breakfast", "budget", "cafe-pastry", "dry", "pastry", "wifi"],
     fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
     menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
+  
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   // ── 8. CAFE JENIN ──
@@ -702,6 +779,17 @@ export const tetouan_martilEat: EatListing[] = [
     tags: ["breakfast", "budget", "cafe-pastry", "dry", "pastry", "wifi"],
     fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
     menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
+  
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   // ── 9. TALIB MUHAMMAD RESTAURANT ──
@@ -782,6 +870,17 @@ export const tetouan_martilEat: EatListing[] = [
     tags: ["breakfast", "budget", "dry", "medina", "street-food"],
     fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
     menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
+  
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   // ── 10. BORAS SFENJ (CHEZ ABDESSALAM) ──
@@ -862,6 +961,17 @@ export const tetouan_martilEat: EatListing[] = [
     tags: ["breakfast", "budget", "cafe-pastry", "dry", "medina", "pastry", "street-food"],
     fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
     menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
+  
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   // ── 11. CAFÉ AL AMAL ──
@@ -942,6 +1052,17 @@ export const tetouan_martilEat: EatListing[] = [
     tags: ["breakfast", "budget", "cafe-pastry", "dry"],
     fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
     menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
+  
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   // ── 12. RESTAURANT SAFAE ──
@@ -1022,6 +1143,17 @@ export const tetouan_martilEat: EatListing[] = [
     tags: ["budget", "dinner", "dry", "medina", "tagine"],
     fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
     menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
+  
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   // ── 13. VENEZIA ICE TETOUAN ──
@@ -1102,6 +1234,17 @@ export const tetouan_martilEat: EatListing[] = [
     tags: ["breakfast", "budget", "cafe-pastry", "dry", "late-night", "pastry", "wifi"],
     fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
     menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
+  
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   // ── 14. JABAL BRUNCH CAFÉ ──
@@ -1182,6 +1325,17 @@ export const tetouan_martilEat: EatListing[] = [
     tags: ["breakfast", "budget", "cafe-pastry", "dry", "wifi"],
     fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
     menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
+  
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   // ── 15. RESTAURANT MORISCO ──
@@ -1262,6 +1416,17 @@ export const tetouan_martilEat: EatListing[] = [
     tags: ["budget", "couscous", "dinner", "dry", "medina", "tagine"],
     fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
     menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
+  
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   // ── 16. AL BARAKATE BAKERY & CATERING ──
@@ -1342,6 +1507,17 @@ export const tetouan_martilEat: EatListing[] = [
     tags: ["breakfast", "budget", "cafe-pastry", "dry", "pastry", "wifi"],
     fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
     menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
+  
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   // ── 17. RESTAURANT ALI-BABA ──
@@ -1422,6 +1598,17 @@ export const tetouan_martilEat: EatListing[] = [
     tags: ["budget", "dinner", "dry", "late-night", "street-food"],
     fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
     menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
+  
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   // ── 18. RESTAURANT CHEZ FOUAD ──
@@ -1502,6 +1689,17 @@ export const tetouan_martilEat: EatListing[] = [
     tags: ["budget", "dinner", "dry"],
     fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
     menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
+  
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   // ── 19. CAFÉTÉRIA PÂTISSERIE ACHRAF ──
@@ -1582,6 +1780,17 @@ export const tetouan_martilEat: EatListing[] = [
     tags: ["breakfast", "budget", "cafe-pastry", "dry", "pastry", "terrace"],
     fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
     menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
+  
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   // ── 20. DAR EL KASBAH (LA TERRASSE) ──
@@ -1662,6 +1871,17 @@ export const tetouan_martilEat: EatListing[] = [
     tags: ["budget", "dinner", "dry", "fine", "medina", "mountain", "rooftop", "sunset", "tagine", "wifi"],
     fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
     menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
+  
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "e-tetouan-mcdonalds-far",
@@ -1709,6 +1929,17 @@ export const tetouan_martilEat: EatListing[] = [
     },
     fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
     menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
+  
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "e-tetouan-burger-king-marjane",
@@ -1756,6 +1987,17 @@ export const tetouan_martilEat: EatListing[] = [
     },
     fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
     menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
+  
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "e-tetouan-pizza-hut-ensanche",
@@ -1803,5 +2045,16 @@ export const tetouan_martilEat: EatListing[] = [
     },
     fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
     menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
+  
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

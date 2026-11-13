@@ -98,7 +98,9 @@ export const taroudantShops: ShopListing[] = [
     languagesSpoken: ['Arabic', 'French', 'English', 'Berber', 'German'],
     phoneNumber: '+212 5288-52140',
     openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 19:30' }],
-    isLocalFavorite: true
+    isLocalFavorite: true,
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-tar-2',
@@ -124,7 +126,9 @@ export const taroudantShops: ShopListing[] = [
     productCategories: ['Taliouine Saffron Threads', 'Argan Nuts', 'Wild Thyme', 'Reed Mats'],
     languagesSpoken: ['Arabic', 'Berber', 'French'],
     openingHours: [{ day: 'Mon-Sun', hours: '08:00 - 19:00' }],
-    isLocalFavorite: true
+    isLocalFavorite: true,
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-tar-3',
@@ -150,7 +154,9 @@ export const taroudantShops: ShopListing[] = [
     productCategories: ['Leather Travel Bags', 'Royal Yellow Babouches', 'Leather Jackets', 'Belts'],
     languagesSpoken: ['Arabic', 'French', 'English', 'Berber'],
     openingHours: [{ day: 'Mon-Sat', hours: '08:00 - 18:00' }],
-    workshopVisitable: true
+    workshopVisitable: true,
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-tar-4',
@@ -175,7 +181,9 @@ export const taroudantShops: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard'],
     productCategories: ['Vintage Fibula Pins', 'Natural Amber Necklaces', 'Filigree Silver Rings'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 19:30' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 19:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-tar-5',
@@ -202,7 +210,9 @@ export const taroudantShops: ShopListing[] = [
     productCategories: ['Soft Yellow Limestone Carvings', 'Engraved Brass Trays', 'Atlas Wool Rugs'],
     languagesSpoken: ['Arabic', 'French', 'English'],
     openingHours: [{ day: 'Mon-Sat', hours: '08:30 - 18:00' }],
-    workshopVisitable: true
+    workshopVisitable: true,
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-tar-6',
@@ -230,7 +240,9 @@ export const taroudantShops: ShopListing[] = [
     languagesSpoken: ['Arabic', 'Berber', 'French', 'English'],
     openingHours: [{ day: 'Mon-Sat', hours: '08:30 - 19:30' }],
     workshopVisitable: true,
-    isLocalFavorite: true
+    isLocalFavorite: true,
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-tar-7',
@@ -255,7 +267,9 @@ export const taroudantShops: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Hand-hammered Copper Lamps', 'Brass Tea Pots', 'Glazed Ceramic Plates'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 19:30' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 19:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-tar-8',
@@ -280,7 +294,9 @@ export const taroudantShops: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard'],
     productCategories: ['Taliouine Saffron Threads (Gram Glass Vials)', 'Saffron Tea', 'Dried Wild Thyme'],
     languagesSpoken: ['Arabic', 'French', 'English', 'Berber'],
-    openingHours: [{ day: 'Mon-Sat', hours: '08:30 - 20:00' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '08:30 - 20:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-tar-9',
@@ -305,7 +321,9 @@ export const taroudantShops: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Moroccan Black Soap', 'Ghassoul Mineral Clay', 'Cold-pressed Nigella Oil'],
     languagesSpoken: ['Arabic', 'French'],
-    openingHours: [{ day: 'Mon-Sat', hours: '08:30 - 20:00' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '08:30 - 20:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-tar-10',
@@ -331,6 +349,8 @@ export const taroudantShops: ShopListing[] = [
     productCategories: ['Carved Limestone Plaques', 'Stone Urns', 'Custom House Numbers'],
     languagesSpoken: ['Arabic', 'French'],
     openingHours: [{ day: 'Mon-Sat', hours: '08:30 - 18:00' }],
-    workshopVisitable: true
+    workshopVisitable: true,
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ]

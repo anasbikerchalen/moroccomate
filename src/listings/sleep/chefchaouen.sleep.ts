@@ -333,7 +333,9 @@ export const chefchaouenSleep: SleepListing[] = [
       lat: 35.170047,
       lng: -5.262226
     },
-    tags: ["family-favorite", "mountain-view", "pool", "heated-pools", "indoor-pool", "rooftop-terrace", "in-medina", "spa", "5-star", "airport-shuttle"]
+    tags: ["family-favorite", "mountain-view", "pool", "heated-pools", "indoor-pool", "rooftop-terrace", "in-medina", "spa", "5-star", "airport-shuttle"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'ch-sleep-2',
@@ -428,7 +430,9 @@ export const chefchaouenSleep: SleepListing[] = [
       lat: 35.163816,
       lng: -5.261529
     },
-    tags: ["family-favorite", "mountain-view", "pool", "in-medina", "5-star", "airport-shuttle"]
+    tags: ["family-favorite", "mountain-view", "pool", "in-medina", "5-star", "airport-shuttle"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'ch-sleep-3',
@@ -525,7 +529,9 @@ export const chefchaouenSleep: SleepListing[] = [
       lat: 35.167806,
       lng: -5.256446
     },
-    tags: ["family-favorite", "mountain-view", "pool", "rooftop-terrace", "5-star", "in-medina", "spa", "airport-shuttle"]
+    tags: ["family-favorite", "mountain-view", "pool", "rooftop-terrace", "5-star", "in-medina", "spa", "airport-shuttle"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'ch-sleep-4',
@@ -620,7 +626,9 @@ export const chefchaouenSleep: SleepListing[] = [
       lat: 35.170192,
       lng: -5.264034
     },
-    tags: ["family-favorite", "heritage", "pool", "rooftop-terrace", "in-medina", "spa", "mountain-view"]
+    tags: ["family-favorite", "heritage", "pool", "rooftop-terrace", "in-medina", "spa", "mountain-view"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'ch-sleep-5',
@@ -715,7 +723,9 @@ export const chefchaouenSleep: SleepListing[] = [
       lat: 35.105094,
       lng: -5.28026
     },
-    tags: ["family-favorite", "heritage", "mountain-view", "pool", "rooftop-terrace", "airport-shuttle"]
+    tags: ["family-favorite", "heritage", "mountain-view", "pool", "rooftop-terrace", "airport-shuttle"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'ch-sleep-6',
@@ -810,7 +820,9 @@ export const chefchaouenSleep: SleepListing[] = [
       lat: 35.169993,
       lng: -5.263992
     },
-    tags: ["family-favorite", "rooftop-terrace", "in-medina", "mountain-view"]
+    tags: ["family-favorite", "rooftop-terrace", "in-medina", "mountain-view"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'ch-sleep-7',
@@ -905,7 +917,9 @@ export const chefchaouenSleep: SleepListing[] = [
       lat: 35.168818,
       lng: -5.261114
     },
-    tags: ["family-favorite", "heritage", "rooftop-terrace", "in-medina", "mountain-view"]
+    tags: ["family-favorite", "heritage", "rooftop-terrace", "in-medina", "mountain-view"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'ch-sleep-8',
@@ -1000,7 +1014,9 @@ export const chefchaouenSleep: SleepListing[] = [
       lat: 35.169461,
       lng: -5.26211
     },
-    tags: ["family-favorite", "spa", "rooftop-terrace", "in-medina"]
+    tags: ["family-favorite", "spa", "rooftop-terrace", "in-medina"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'ch-sleep-9',
@@ -1095,7 +1111,9 @@ export const chefchaouenSleep: SleepListing[] = [
       lat: 35.168647,
       lng: -5.259919
     },
-    tags: ["family-favorite", "heritage", "spa", "rooftop-terrace", "in-medina", "mountain-view"]
+    tags: ["family-favorite", "heritage", "spa", "rooftop-terrace", "in-medina", "mountain-view"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'ch-sleep-10',
@@ -1190,7 +1208,9 @@ export const chefchaouenSleep: SleepListing[] = [
       lat: 35.170544,
       lng: -5.264177
     },
-    tags: ["family-favorite", "rooftop-terrace", "in-medina", "mountain-view"]
+    tags: ["family-favorite", "rooftop-terrace", "in-medina", "mountain-view"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'ch-sleep-11',
@@ -1285,7 +1305,9 @@ export const chefchaouenSleep: SleepListing[] = [
       lat: 35.16883,
       lng: -5.263661
     },
-    tags: ["family-favorite", "heritage", "rooftop-terrace", "in-medina", "mountain-view"]
+    tags: ["family-favorite", "heritage", "rooftop-terrace", "in-medina", "mountain-view"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'ch-sleep-12',
@@ -1380,7 +1402,9 @@ export const chefchaouenSleep: SleepListing[] = [
       lat: 35.168085,
       lng: -5.263539
     },
-    tags: ["family-favorite", "rooftop-terrace", "in-medina", "mountain-view"]
+    tags: ["family-favorite", "rooftop-terrace", "in-medina", "mountain-view"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'ch-sleep-13',
@@ -1475,7 +1499,9 @@ export const chefchaouenSleep: SleepListing[] = [
       lat: 35.168726,
       lng: -5.25927
     },
-    tags: ["dorm", "rooftop-terrace", "mountain-view", "in-medina"]
+    tags: ["dorm", "rooftop-terrace", "mountain-view", "in-medina"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'ch-sleep-14',
@@ -1570,7 +1596,9 @@ export const chefchaouenSleep: SleepListing[] = [
       lat: 35.170037,
       lng: -5.258924
     },
-    tags: ["dorm", "rooftop-terrace", "mountain-view", "in-medina"]
+    tags: ["dorm", "rooftop-terrace", "mountain-view", "in-medina"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'ch-sleep-15',
@@ -1665,7 +1693,9 @@ export const chefchaouenSleep: SleepListing[] = [
       lat: 35.168628,
       lng: -5.2644
     },
-    tags: ["family-favorite", "rooftop-terrace", "in-medina"]
+    tags: ["family-favorite", "rooftop-terrace", "in-medina"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'ch-sleep-16',
@@ -1760,7 +1790,9 @@ export const chefchaouenSleep: SleepListing[] = [
       lat: 35.175444,
       lng: -5.266178
     },
-    tags: ["dorm", "heritage", "rooftop-terrace", "in-medina"]
+    tags: ["dorm", "heritage", "rooftop-terrace", "in-medina"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'ch-sleep-17',
@@ -1855,7 +1887,9 @@ export const chefchaouenSleep: SleepListing[] = [
       lat: 35.169925,
       lng: -5.265558
     },
-    tags: ["family-favorite", "mountain-view", "rooftop-terrace", "in-medina"]
+    tags: ["family-favorite", "mountain-view", "rooftop-terrace", "in-medina"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'ch-sleep-18',
@@ -1950,7 +1984,9 @@ export const chefchaouenSleep: SleepListing[] = [
       lat: 35.175444,
       lng: -5.266178
     },
-    tags: ["dorm", "rooftop-terrace", "mountain-view", "in-medina"]
+    tags: ["dorm", "rooftop-terrace", "mountain-view", "in-medina"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'ch-sleep-19',
@@ -2045,7 +2081,9 @@ export const chefchaouenSleep: SleepListing[] = [
       lat: 35.16937,
       lng: -5.262922
     },
-    tags: ["dorm", "rooftop-terrace", "in-medina"]
+    tags: ["dorm", "rooftop-terrace", "in-medina"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'ch-sleep-20',
@@ -2140,6 +2178,8 @@ export const chefchaouenSleep: SleepListing[] = [
       lat: 35.168821,
       lng: -5.260698
     },
-    tags: ["family-favorite", "heritage", "pool", "mountain-view", "rooftop-terrace", "in-medina"]
+    tags: ["family-favorite", "heritage", "pool", "mountain-view", "rooftop-terrace", "in-medina"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ]

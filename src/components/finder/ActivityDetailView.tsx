@@ -1,24 +1,20 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import {
-  Heart, MapPin, Clock, Shield, ThumbsUp, ThumbsDown,
-  Navigation, CheckCircle2, ChevronRight, ArrowLeft, ExternalLink, MessageSquare, X,
-  BookOpen, type LucideIcon, Wifi, Wind, Star, Share2,
-  Info, Sparkles, HelpCircle, User, Award, Layers, Compass, Camera, Calendar, Flame, AlertCircle, Video, ShieldAlert
+  MapPin, Clock, ThumbsUp, ThumbsDown,
+  Navigation, CheckCircle2, ExternalLink,
+  BookOpen, Star, Users, Languages, CalendarCheck,
+  Sparkles, Compass, Video, AlertCircle, ShieldAlert, Accessibility, Sun
 } from 'lucide-react';
 import { cn } from '../../utils/cn';
 import { useSavedStore } from '../../state/savedStore';
-import { useParameterStore } from '../../state/parameterStore';
-import { useExploreStore } from '../../state/exploreStore';
-import { useNavigate, useLocation } from 'react-router-dom';
 import { cityMap } from '../../data/cities';
 import PlaceSavvyProfile from '../savvy/PlaceSavvyProfile';
-import { getCityTheme } from '../../utils/cityPalette';
-import { getListingRating } from '../../listings/utils';
-import CamelRating from './CamelRating';
-import thingsHeroEditorialImg from '../../assets/images/botanical_things_flat.jpg';
 import WorriesSection from '../worries/WorriesSection';
 import { resolveThingsWorries } from '../../utils/worriesResolver';
+import ListingHeroHeader, { type HeroFeatureChip, type HeroMetadataItem } from './ListingHeroHeader';
+import PlaceReviewsSection from '../reviews/PlaceReviewsSection';
+import type { ReviewSource } from '../../types/reviews';
 
 const cityYoutubeMap: Record<string, string> = {
   marrakech: "0T2QZfUvF3I",   // Marrakech Medina 4K walking tour
@@ -37,14 +33,13 @@ interface ActivityDetailViewProps {
   onBack: () => void;
 }
 
-export default function ActivityDetailView({ item, onBack }: ActivityDetailViewProps) {
-  const { omitGoogleImage } = useExploreStore();
-  const navigate = useNavigate();
+export default function ActivityDetailView({ item }: ActivityDetailViewProps) {
   const { toggleBookmark, isBookmarked } = useSavedStore();
-  const { city: currentCityStore } = useParameterStore();
 
   // Active tab selection: 'experience', 'social', 'savvy'
   const [activeTab, setActiveTab] = useState<'experience' | 'social' | 'savvy'>('experience');
+  const [selectedReviewSource, setSelectedReviewSource] = useState<ReviewSource | null>(null);
+  const [copiedLink, setCopiedLink] = useState(false);
 
   // FAQ state
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
@@ -137,10 +132,6 @@ export default function ActivityDetailView({ item, onBack }: ActivityDetailViewP
   }, [id, name]);
   const resolvedCityName = cityMap[city]?.name || (city ? city.charAt(0).toUpperCase() + city.slice(1) : '');
 
-  const { averageRating, totalReviews } = useMemo(() => {
-    return getListingRating(item);
-  }, [item]);
-
   const handleShare = () => {
     if (navigator.share) {
       navigator.share({
@@ -149,12 +140,102 @@ export default function ActivityDetailView({ item, onBack }: ActivityDetailViewP
       }).catch(() => {});
     } else {
       navigator.clipboard?.writeText(window.location.href);
+      setCopiedLink(true);
+      setTimeout(() => setCopiedLink(false), 2000);
     }
   };
 
-  const themeColors = useMemo(() => {
-    return getCityTheme(city);
-  }, [city]);
+  const directionsUrl = useMemo(() => {
+    if (googleMapsUrl) return googleMapsUrl;
+    return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+      `${name} ${resolvedCityName} Morocco`
+    )}`;
+  }, [googleMapsUrl, name, resolvedCityName]);
+
+  const activityCategoryLabel = useMemo(() => {
+    if (Array.isArray(tags) && tags.length > 0) {
+      return String(tags[0])
+        .replace(/-/g, ' ')
+        .replace(/\b\w/g, (c) => c.toUpperCase());
+    }
+    return 'Experience';
+  }, [tags]);
+
+  const priceDisplay = entryPrice > 0 ? `${entryPrice} MAD` : price > 0 ? `${price} MAD` : 'Free Entry';
+  const durationDisplay = durationMinutes >= 60 ? `~${Math.round(durationMinutes / 60)} hours` : `~${durationMinutes} mins`;
+
+  const heroMetadata: HeroMetadataItem[] = [
+    {
+      id: 'location',
+      icon: <MapPin className="w-4 h-4 text-[#C85A32] shrink-0" />,
+      label: `${resolvedCityName}, Morocco`,
+      sublabel: neighborhood ? `· ${neighborhood}` : undefined,
+    },
+    {
+      id: 'category-price',
+      icon: <Compass className="w-4 h-4 text-[#C85A32] shrink-0" />,
+      label: activityCategoryLabel,
+      sublabel: `· ${priceDisplay}`,
+      tone: 'accent',
+    },
+    {
+      id: 'duration',
+      icon: <Clock className="w-4 h-4 text-[#1F5A3B] shrink-0" />,
+      label: durationDisplay,
+      tone: 'open',
+    },
+  ];
+
+  const heroFeatures: HeroFeatureChip[] = [
+    {
+      id: 'energy',
+      label: `${String(energyLevel).charAt(0).toUpperCase() + String(energyLevel).slice(1)} Energy`,
+      icon: <Compass className="w-3.5 h-3.5 text-[#C85A32]" />,
+    },
+    ...(badge
+      ? [
+          {
+            id: 'badge',
+            label: String(badge).replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase()),
+            icon: <Sparkles className="w-3.5 h-3.5 text-amber-600" />,
+            tone: 'amber' as const,
+          },
+        ]
+      : []),
+    ...(hasEnglishGuide || hasFrenchGuide
+      ? [
+          {
+            id: 'guides',
+            label: [hasEnglishGuide && 'English', hasFrenchGuide && 'French'].filter(Boolean).join(' & ') + ' Guide',
+            icon: <Languages className="w-3.5 h-3.5 text-sky-600" />,
+          },
+        ]
+      : []),
+    ...(isKidFriendly
+      ? [{ id: 'kid-friendly', label: 'Kid Friendly', icon: <Users className="w-3.5 h-3.5 text-emerald-700" />, tone: 'emerald' as const }]
+      : []),
+    ...(hasSunsetView
+      ? [{ id: 'sunset', label: 'Sunset View', icon: <Sun className="w-3.5 h-3.5 text-amber-600" />, tone: 'amber' as const }]
+      : []),
+    ...(isWheelchairAccessible
+      ? [{ id: 'accessible', label: 'Wheelchair Accessible', icon: <Accessibility className="w-3.5 h-3.5 text-emerald-700" /> }]
+      : []),
+  ];
+
+  const primaryBookingUrl = ticketWebsite || officialWebsite;
+  const heroPrimaryAction = primaryBookingUrl
+    ? {
+        label: ticketWebsite ? 'Pre-Book Tickets' : 'Official Website',
+        href: primaryBookingUrl,
+        icon: <CalendarCheck className="w-4 h-4 shrink-0" />,
+        variant: 'terracotta' as const,
+      }
+    : {
+        label: 'View on Maps',
+        href: directionsUrl,
+        icon: <ExternalLink className="w-4 h-4 shrink-0" />,
+        variant: 'dark' as const,
+      };
 
   const videoId = useMemo(() => {
     if (item?.youtubeVideoId) return item.youtubeVideoId;
@@ -295,144 +376,32 @@ export default function ActivityDetailView({ item, onBack }: ActivityDetailViewP
       {/* JSON-LD Structured Data */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(activitySchema) }} />
 
-      {/* ─────────────────────────────────────────────────────────────
-          1. FULL-BLEED UPPER SECTION (EDGE-TO-EDGE, UNBOXED WITH DROP SHADOW)
-          - Wide Things to Do Image spanning full width
-          - Floating White Round Controls (Bookmark & Share)
-          - Full-width Organic Curved Wave Transition
-          - Unboxed, spacious title & metadata area
-          - Rating with Camel Logo + Google & TripAdvisor badges
-      ───────────────────────────────────────────────────────────── */}
-      <div className="w-full bg-white border-b border-stone-200/80 shadow-[0_10px_30px_-5px_rgba(0,0,0,0.07),0_4px_12px_-2px_rgba(0,0,0,0.03)] relative z-20 mb-8">
-        
-        {/* SLIM WIDE IMAGE BANNER (COMPACT 160-210px, FULL WIDTH) */}
-        <div className="relative w-full h-[160px] sm:h-[185px] md:h-[210px] overflow-hidden bg-[#FAF7F2]">
-          <img
-            src={thingsHeroEditorialImg}
-            alt={`${name} Moroccan experience`}
-            className="w-full h-full object-cover object-center select-none"
-          />
-
-          {/* FLOATING WHITE ROUND BUTTONS: BOOKMARK & SHARE (TOP RIGHT) */}
-          <div className="absolute top-4 right-4 sm:top-5 sm:right-6 z-20 flex items-center gap-2">
-            <button
-              onClick={handleToggleBookmark}
-              className={cn(
-                "w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white shadow-md hover:shadow-lg flex items-center justify-center transition-all cursor-pointer border border-stone-200/70 hover:bg-stone-50 active:scale-95",
-                bookmarked ? "text-red-500" : "text-stone-700 hover:text-red-500"
-              )}
-              title={bookmarked ? "Saved in favorites" : "Save experience"}
-            >
-              <Heart className={cn("w-4 h-4", bookmarked && "fill-current")} />
-            </button>
-            <button
-              onClick={handleShare}
-              className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white shadow-md hover:shadow-lg flex items-center justify-center text-stone-700 hover:text-stone-950 transition-all cursor-pointer border border-stone-200/70 hover:bg-stone-50 active:scale-95"
-              title="Share listing"
-            >
-              <Share2 className="w-4 h-4" />
-            </button>
-          </div>
-
-          {/* FULL-WIDTH ORGANIC CURVED SVG WAVE */}
-          <div className="absolute bottom-0 left-0 right-0 w-full overflow-hidden leading-none z-10 pointer-events-none">
-            <svg
-              viewBox="0 0 1440 120"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-full h-7 sm:h-9 md:h-11 block"
-              preserveAspectRatio="none"
-            >
-              <path
-                d="M0,45 C280,110 520,120 780,55 C1040,-10 1260,70 1440,35 L1440,120 L0,120 Z"
-                fill="#FFFFFF"
-              />
-            </svg>
-          </div>
-        </div>
-
-        {/* UNBOXED, OPEN TITLE & METADATA BAR */}
-        <div className="w-full px-5 sm:px-8 lg:px-12 pb-8 pt-3 sm:pt-4">
-          <div className="max-w-6xl mx-auto space-y-2">
-            <div className="flex items-center gap-2 flex-wrap">
-              <span className="px-3 py-1 bg-amber-50 border border-amber-200/70 text-[#96700A] rounded-full text-[10px] font-black uppercase tracking-widest">
-                🏃 {energyLevel.toUpperCase()} ENERGY
-              </span>
-              {badge && (
-                <span className="px-3 py-1 bg-[#C9A84C]/15 text-stone-900 rounded-full text-[10px] font-black uppercase tracking-widest border border-[#C9A84C]/30">
-                  ✨ {badge.replace('-', ' ').toUpperCase()}
-                </span>
-              )}
-            </div>
-
-            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#173042] tracking-tight">
-              {name}
-            </h1>
-            
-            {/* Clean, readable sub-header line */}
-            <div className="flex flex-wrap items-center gap-2.5 text-sm sm:text-base text-stone-600 font-medium">
-              <span className="inline-flex items-center gap-1.5 text-stone-900 font-semibold">
-                <MapPin className="w-4 h-4 text-emerald-700 shrink-0" />
-                <span>{resolvedCityName} · {neighborhood}</span>
-              </span>
-              <span className="text-stone-300">·</span>
-              <span className="inline-flex items-center gap-1.5 text-stone-800 font-semibold capitalize">
-                <Compass className="w-4 h-4 text-amber-700 shrink-0" />
-                <span>{tags[0] || 'Experience'}</span>
-              </span>
-              <span className="text-stone-300">·</span>
-              <span className="inline-flex items-center gap-1.5 font-bold text-stone-900">
-                <span>{entryPrice > 0 ? `${entryPrice} MAD` : price > 0 ? `${price} MAD` : 'Free entry'}</span>
-              </span>
-              <span className="text-stone-300">·</span>
-              <span className="inline-flex items-center gap-1 text-stone-500 font-normal text-xs sm:text-sm">
-                <Clock className="w-3.5 h-3.5 text-stone-400" />
-                <span>~{durationMinutes >= 60 ? `${Math.round(durationMinutes / 60)} hours` : `${durationMinutes} mins`}</span>
-              </span>
-            </div>
-
-            {/* Ratings Block with Camel Logo */}
-            <div className="mt-6 bg-[#FAF7F2] border border-[#EAE2D5] rounded-2xl p-4 sm:p-5 shadow-2xs">
-              <div className="flex flex-wrap items-center justify-between gap-3">
-                <div className="flex items-center gap-3">
-                  <CamelRating rating={averageRating} size="md" />
-                  {totalReviews > 0 && (
-                    <span className="text-xs sm:text-sm text-stone-500 font-medium">
-                      ({totalReviews.toLocaleString()} authentic reviews)
-                    </span>
-                  )}
-                </div>
-                
-                <div className="flex flex-wrap items-center gap-2">
-                  {googleRating && (
-                    <span className="inline-flex items-center gap-1 px-3 py-1 rounded-xl text-xs font-semibold bg-white text-stone-800 border border-stone-200/90 shadow-2xs">
-                      <span className="text-amber-500 font-bold">★</span>
-                      <span>Google {googleRating}</span>
-                      {reviewCount && <span className="text-stone-400 font-normal">({reviewCount})</span>}
-                    </span>
-                  )}
-                  {item?.tripadvisorRating && (
-                    <span className="inline-flex items-center gap-1 px-3 py-1 rounded-xl text-xs font-semibold bg-emerald-50 text-emerald-900 border border-emerald-200 shadow-2xs">
-                      <span className="text-emerald-600 font-bold">★</span>
-                      <span>TripAdvisor {item.tripadvisorRating}</span>
-                    </span>
-                  )}
-                  <a
-                    href={googleMapsUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${name} ${resolvedCityName} Morocco`)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl text-xs font-semibold bg-[#FAF3EA] text-stone-800 hover:text-stone-950 border border-[#E8DAAA] shadow-2xs transition-all cursor-pointer"
-                  >
-                    <MapPin className="w-3.5 h-3.5 text-[#C2613C]" />
-                    <span>View photos on Google Maps</span>
-                    <ExternalLink className="w-3.5 h-3.5 opacity-60" />
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      {/* 1. UNIFIED UPPER HERO SECTION */}
+      <ListingHeroHeader
+        category="things"
+        categoryBadge={activityCategoryLabel}
+        title={name}
+        subtitle={shortValueProp || undefined}
+        metadata={heroMetadata}
+        reviewsData={item?.reviewsData}
+        activeReviewSource={selectedReviewSource}
+        onSelectReviewSource={setSelectedReviewSource}
+        features={heroFeatures}
+        className="mb-8"
+        actions={{
+          directionsUrl,
+          directionsLabel: 'Get Directions',
+          primaryAction: heroPrimaryAction,
+          phone: contactPhone || undefined,
+          websiteUrl: ticketWebsite && officialWebsite ? officialWebsite : undefined,
+          isBookmarked: bookmarked,
+          onToggleBookmark: handleToggleBookmark,
+          onShare: handleShare,
+          copiedLink,
+          saveLabel: 'Save to Favorites',
+          savedLabel: 'Saved in Favorites',
+        }}
+      />
 
       {/* Main Grid Layout: left detail column, right interactive booking panel */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
@@ -930,6 +899,15 @@ export default function ActivityDetailView({ item, onBack }: ActivityDetailViewP
           )}
         </div>
       </div>
+
+      {/* Multi-platform Traveler Reviews & Community Intelligence (strictly hidden until populated) */}
+      <PlaceReviewsSection
+        reviewsData={item?.reviewsData}
+        placeName={name}
+        category="things-to-do"
+        externalSelectedSource={selectedReviewSource}
+        onSelectedSourceChange={setSelectedReviewSource}
+      />
       </div>
     </motion.div>
   );

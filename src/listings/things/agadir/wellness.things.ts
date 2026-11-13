@@ -386,5 +386,7 @@ export const agadirWellnessThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "+212 528-848484",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

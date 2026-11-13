@@ -310,6 +310,8 @@ export const merzougaWellnessThings: ThingToDoListing[] = [
       }
     ],
     googleMapsUrl: "https://maps.google.com/?q=Hassi+Labied,+Merzouga,+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -410,5 +412,7 @@ export const merzougaWellnessThings: ThingToDoListing[] = [
       }
     ],
     googleMapsUrl: "https://maps.google.com/?q=Hassi+Labied,+Merzouga,+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

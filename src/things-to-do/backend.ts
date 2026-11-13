@@ -593,6 +593,7 @@ export function toActivityListing(t: ThingToDoListing): ActivityListing {
     // Trust & Reviews
     worries: resolveThingsWorries(t.worries),
     reviews: makeReviews(t),
+    reviewsData: t.reviewsData,
     google_rating: t.googleRating,
     review_count: t.googleReviewCount ?? t.reviewCount,
 

@@ -1,7 +1,7 @@
 import { useState, useMemo } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { MapPin, ChevronDown, ChevronUp, ArrowRight, Heart, Check, Search, X } from 'lucide-react';
+import { MapPin, ChevronDown, ChevronUp, ArrowRight, Heart, Check, Search, X, Compass } from 'lucide-react';
 import { SEO } from '../components/ui/SEO';
 import { useParameterStore } from '../state/parameterStore';
 import { useExploreStore } from '../state/exploreStore';
@@ -197,10 +197,20 @@ export default function HomePage() {
             <p className="font-sans text-[9px] font-bold uppercase tracking-[0.22em] text-[#71685F] mt-1">Real places. Local vibes.</p>
           </div>
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
           <div className="hidden md:flex items-center gap-2 mr-1">
             <span className="font-sans text-xs text-[#71685F]">Your personal Moroccan guide</span>
           </div>
+
+          {/* Near Me Navigation Link */}
+          <Link
+            to={`/${selectedCategory === 'sleep' ? 'sleep' : selectedCategory === 'things-to-do' ? 'things' : selectedCategory === 'shopping' ? 'shop' : 'eat'}/${(selectedCity || 'marrakech').toLowerCase()}/near-me`}
+            className="group relative flex items-center gap-1.5 px-3 py-1.5 sm:px-3.5 sm:py-1.5 rounded-full bg-white/90 hover:bg-white border border-[#EADBCE] shadow-xs hover:shadow-md hover:border-[#EADBCE] transition-all duration-200"
+            title="Find places near me"
+          >
+            <Compass className="w-4 h-4 text-[#C2613C] transition-transform group-hover:rotate-45" />
+            <span className="font-sans text-xs font-semibold text-[#29231F]">Near Me</span>
+          </Link>
 
           <button
             type="button"
@@ -547,6 +557,8 @@ export default function HomePage() {
             </div>
           </div>
 
+          <hr className="border-t border-[#E9D8C8] my-8" />
+
           <h3 className="font-sans text-xs font-bold uppercase tracking-wider text-[#71685F] mb-4">
             Popular Search Highlights & Filter Guides
           </h3>
@@ -579,7 +591,7 @@ export default function HomePage() {
         <div className="mt-12 pt-6 border-t border-[#E9D8C8]/60 flex flex-col sm:flex-row items-center justify-between text-xs text-[#71685F] gap-3">
           <p>© {new Date().getFullYear()} Moroccan Mate · Independent Morocco Guide</p>
           <div className="flex items-center gap-4">
-            <Link to="/finder" className="hover:text-[#C9A84C] transition-colors">Browse Finder</Link>
+            <Link to="/eat/marrakech/near-me" className="hover:text-[#C9A84C] transition-colors">Near Me</Link>
             <a href="/sitemap.xml" className="hover:text-[#C9A84C] transition-colors">Sitemap</a>
           </div>
         </div>

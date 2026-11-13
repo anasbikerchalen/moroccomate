@@ -260,6 +260,8 @@ export const merzougaHeritageThings: ThingToDoListing[] = [
       lng: -4.0073,
     },
     googleMapsUrl: "https://maps.google.com/?q=31.0351,-4.0073",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -407,6 +409,8 @@ export const merzougaHeritageThings: ThingToDoListing[] = [
       lng: -4.0274,
     },
     googleMapsUrl: "https://maps.google.com/?q=30.9360,-4.0274",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -554,6 +558,8 @@ export const merzougaHeritageThings: ThingToDoListing[] = [
       lng: -3.9506,
     },
     googleMapsUrl: "https://maps.google.com/?q=31.0339,-3.9506",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -701,6 +707,8 @@ export const merzougaHeritageThings: ThingToDoListing[] = [
       lng: -4.0150,
     },
     googleMapsUrl: "https://maps.google.com/?q=31.1350,-4.0150",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -848,6 +856,8 @@ export const merzougaHeritageThings: ThingToDoListing[] = [
       lng: -4.0121,
     },
     googleMapsUrl: "https://maps.google.com/?q=31.0720,-4.0121",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -995,5 +1005,7 @@ export const merzougaHeritageThings: ThingToDoListing[] = [
       lng: -4.0135,
     },
     googleMapsUrl: "https://maps.google.com/?q=31.0967,-4.0135",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 ];

@@ -308,6 +308,8 @@ export const meknesHeritageThings: ThingToDoListing[] = [
     address: "Place El Hedim, Médina Ancienne, Meknès",
     coordinates: { lat: 33.8927, lng: -5.5647 },
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Bab+Mansour%2C+Meknes%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -405,6 +407,8 @@ export const meknesHeritageThings: ThingToDoListing[] = [
     address: "Place El Hedim, Médina Ancienne, Meknès",
     coordinates: { lat: 33.8932, lng: -5.5652 },
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Place+El+Hedim%2C+Meknes%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -502,6 +506,8 @@ export const meknesHeritageThings: ThingToDoListing[] = [
     address: "Boulevard Moulay Ismail, Médina Ancienne, Meknès",
     coordinates: { lat: 33.8906, lng: -5.5626 },
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Mausoleum+of+Moulay+Ismail%2C+Meknes%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -601,6 +607,8 @@ export const meknesHeritageThings: ThingToDoListing[] = [
     address: "Place El Hedim, Médina Ancienne, Meknès",
     coordinates: { lat: 33.8939, lng: -5.5654 },
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Dar+Jamai+Museum%2C+Meknes%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -701,6 +709,8 @@ export const meknesHeritageThings: ThingToDoListing[] = [
     address: "Rue Souk Sebbat, Médina Ancienne, Meknès",
     coordinates: { lat: 33.8953, lng: -5.5650 },
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Bou+Inania+Medersa%2C+Meknes%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -801,6 +811,8 @@ export const meknesHeritageThings: ThingToDoListing[] = [
     address: "Avenue Bab Siba, Quartier Agdal, Meknès",
     coordinates: { lat: 33.8824, lng: -5.5562 },
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Heri+es-Souani%2C+Meknes%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -901,6 +913,8 @@ export const meknesHeritageThings: ThingToDoListing[] = [
     address: "Adjacent to Heri es-Souani, Quartier Agdal, Meknès",
     coordinates: { lat: 33.8818, lng: -5.5566 },
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Royal+Stables%2C+Meknes%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1001,6 +1015,8 @@ export const meknesHeritageThings: ThingToDoListing[] = [
     address: "Place Lalla Aouda, Médina Ancienne, Meknès",
     coordinates: { lat: 33.8913, lng: -5.5628 },
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Qara+Prison%2C+Meknes%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1098,6 +1114,8 @@ export const meknesHeritageThings: ThingToDoListing[] = [
     address: "Souk Sebbat, Médina Ancienne, Meknès",
     coordinates: { lat: 33.8945, lng: -5.5648 },
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Meknes+Medina+Souk+Walk%2C+Meknes%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1195,6 +1213,8 @@ export const meknesHeritageThings: ThingToDoListing[] = [
     address: "Avenue Bab El Khemis, Médina Ancienne, Meknès",
     coordinates: { lat: 33.8975, lng: -5.5765 },
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Bab+el-Khemis%2C+Meknes%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1292,6 +1312,8 @@ export const meknesHeritageThings: ThingToDoListing[] = [
     address: "Place Lalla Aouda, Médina Ancienne, Meknès",
     coordinates: { lat: 33.8918, lng: -5.5620 },
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Lalla+Aouda%2C+Meknes%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1389,6 +1411,8 @@ export const meknesHeritageThings: ThingToDoListing[] = [
     address: "Boulevard Mohammed VI, Quartier Agdal, Meknès",
     coordinates: { lat: 33.8829, lng: -5.5578 },
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Sahrij+Swani%2C+Meknes%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1485,6 +1509,8 @@ export const meknesHeritageThings: ThingToDoListing[] = [
     address: "Boulevard Circulaire, Borj Belkari, Quartier Agdal, Meknès",
     coordinates: { lat: 33.8872, lng: -5.5583 },
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Borj+Belkari+Pottery+Museum%2C+Meknes%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1582,6 +1608,8 @@ export const meknesHeritageThings: ThingToDoListing[] = [
     address: "Quartier Mellah, Médina Ancienne, Meknès",
     coordinates: { lat: 33.8942, lng: -5.5702 },
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Jewish+Mellah%2C+Meknes%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1684,6 +1712,8 @@ export const meknesHeritageThings: ThingToDoListing[] = [
     address: "Route de Volubilis (31 km north of Meknès), Zerhoun",
     coordinates: { lat: 34.0722, lng: -5.5542 },
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Volubilis%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1781,6 +1811,8 @@ export const meknesHeritageThings: ThingToDoListing[] = [
     address: "Moulay Idriss Zerhoun (27 km north of Meknès)",
     coordinates: { lat: 34.0567, lng: -5.5256 },
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Moulay+Idriss+Zerhoun%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1878,6 +1910,8 @@ export const meknesHeritageThings: ThingToDoListing[] = [
     address: "Station Calèches, Place El Hedim, Médina Ancienne, Meknès",
     coordinates: { lat: 33.8930, lng: -5.5645 },
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Place+El+Hedim+Caleche%2C+Meknes%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   // ── NEW SITES ADDED ───────────────────────────────────────
   {
@@ -1979,6 +2013,8 @@ export const meknesHeritageThings: ThingToDoListing[] = [
     address: "Place Lalla Aouda, Médina Ancienne, Meknès",
     coordinates: { lat: 33.8914, lng: -5.5629 },
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Koubba+El+Khayatine%2C+Meknes%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -2074,6 +2110,8 @@ export const meknesHeritageThings: ThingToDoListing[] = [
     address: "Boulevard Prince Moulay Abdallah, Quartier Agdal, Meknès",
     coordinates: { lat: 33.8797, lng: -5.5492 },
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Haras+National+Meknes%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -2171,6 +2209,8 @@ export const meknesHeritageThings: ThingToDoListing[] = [
     address: "Place Bab Berdaine, Médina Ancienne, Meknès",
     coordinates: { lat: 33.9015, lng: -5.5639 },
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Bab+Berdaine%2C+Meknes%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -2268,6 +2308,8 @@ export const meknesHeritageThings: ThingToDoListing[] = [
     address: "Derb Nejjarine, Médina Ancienne, Meknès",
     coordinates: { lat: 33.8962, lng: -5.5640 },
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Fondouk+El+Henna%2C+Meknes%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -2365,6 +2407,8 @@ export const meknesHeritageThings: ThingToDoListing[] = [
     address: "Bab Dar El-Kebira, Médina Ancienne, Meknès",
     coordinates: { lat: 33.8908, lng: -5.5615 },
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Dar+El+Kebira%2C+Meknes%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -2462,5 +2506,7 @@ export const meknesHeritageThings: ThingToDoListing[] = [
     address: "Rue de la Grande Mosquée, Médina Ancienne, Meknès",
     coordinates: { lat: 33.8958, lng: -5.5658 },
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Grande+Mosquee+Meknes%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

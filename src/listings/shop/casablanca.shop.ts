@@ -99,7 +99,9 @@ export const casablancaShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard'],
     productCategories: ['Cornes de Gazelle', 'Pastilla', 'Fekkas', 'Ghriba'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '08:00 - 19:30' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '08:00 - 19:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-casa-2',
@@ -124,7 +126,9 @@ export const casablancaShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Art Books', 'Literature', 'Histories', 'Postcards'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 19:00' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 19:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-casa-3',
@@ -149,7 +153,9 @@ export const casablancaShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Saffron', 'Argan Oil', 'Fresh Flowers', 'Spices', 'Seafood'],
     languagesSpoken: ['Arabic', 'French', 'English', 'Spanish'],
-    openingHours: [{ day: 'Mon-Sun', hours: '08:00 - 17:00' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '08:00 - 17:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-casa-4',
@@ -174,7 +180,9 @@ export const casablancaShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard', 'apple_pay'],
     productCategories: ['Modern Kaftans', 'Designer Ceramics', 'Leather Totes', 'Art Prints'],
     languagesSpoken: ['French', 'English', 'Arabic'],
-    openingHours: [{ day: 'Mon-Sat', hours: '10:00 - 19:30' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '10:00 - 19:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-casa-5',
@@ -199,7 +207,9 @@ export const casablancaShopListings: ShopListing[] = [
     paymentMethods: ['cash'],
     productCategories: ['Green & Black Olives', 'Harissa Paste', 'Preserved Lemons'],
     languagesSpoken: ['Arabic', 'French'],
-    openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 19:30' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 19:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-casa-6',
@@ -225,7 +235,9 @@ export const casablancaShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard'],
     productCategories: ['Cosmetic Argan Oil', 'Culinary Argan Oil', 'Prickly Pear Elixir', 'Black Soap'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sat', hours: '09:30 - 19:30' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '09:30 - 19:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-casa-7',
@@ -251,7 +263,9 @@ export const casablancaShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Leather Bags', 'Carved Wood', 'Brass Lamps', 'Ceramics'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 18:30' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 18:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-casa-8',
@@ -276,7 +290,9 @@ export const casablancaShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard', 'apple_pay', 'amex'],
     productCategories: ['Haute Couture Caftans', 'Silverware', 'Thuya Wood', 'Designer Jewelry'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '10:00 - 21:00' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '10:00 - 21:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-casa-9',
@@ -301,7 +317,9 @@ export const casablancaShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard', 'amex'],
     productCategories: ['Calfskin Weekenders', 'Leather Jackets', 'Riding Boots'],
     languagesSpoken: ['French', 'English', 'Arabic'],
-    openingHours: [{ day: 'Mon-Sat', hours: '10:00 - 20:00' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '10:00 - 20:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-casa-10',
@@ -326,7 +344,9 @@ export const casablancaShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Brass Tables', 'Teapots', 'Hanging Lanterns', 'Incense Burners'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 19:00' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 19:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-casa-11',
@@ -351,7 +371,9 @@ export const casablancaShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard'],
     productCategories: ['Handbags', 'Wallets', 'Travel Duffels', 'Leather Belts'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 19:00' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 19:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-casa-12',
@@ -377,7 +399,9 @@ export const casablancaShopListings: ShopListing[] = [
     productCategories: ['Beni Ourain Carpets', 'Azilal Rugs', 'Contemporary Art'],
     languagesSpoken: ['French', 'English', 'Arabic'],
     openingHours: [{ day: 'Mon-Sat', hours: '10:00 - 19:00' }],
-    shipping: { available: true, partner: 'dhl' }
+    shipping: { available: true, partner: 'dhl' },
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-casa-13',
@@ -402,7 +426,9 @@ export const casablancaShopListings: ShopListing[] = [
     paymentMethods: ['cash'],
     productCategories: ['Ceramic Dishes', 'Teapots', 'Keychains', 'Magnet Sets', 'Scarves'],
     languagesSpoken: ['Arabic', 'French', 'English', 'Spanish'],
-    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 20:00' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 20:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-casa-14',
@@ -427,7 +453,9 @@ export const casablancaShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Cumin & Saffron', 'Ghassoul Clay', 'Eucalyptus Crystals', 'Argan Skincare'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sat', hours: '08:30 - 19:00' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '08:30 - 19:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-casa-15',
@@ -452,7 +480,9 @@ export const casablancaShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard', 'apple_pay'],
     productCategories: ['Linen Dresses', 'Moroccan Sandals', 'Beach Accessories'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '10:00 - 21:00' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '10:00 - 21:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-casa-16',
@@ -477,7 +507,9 @@ export const casablancaShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard'],
     productCategories: ['Silk Caftans', 'Takchitas', 'Embroidered Belts'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sat', hours: '10:00 - 19:00' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '10:00 - 19:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-casa-17',
@@ -502,7 +534,9 @@ export const casablancaShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Secret Boxes', 'Chess Boards', 'Salad Bowls', 'Wooden Coasters'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 19:00' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 19:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-casa-18',
@@ -529,7 +563,9 @@ export const casablancaShopListings: ShopListing[] = [
     productCategories: ['Wool Rugs', 'Kilim Runners', 'Cushions'],
     languagesSpoken: ['Arabic', 'French', 'English'],
     openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 19:00' }],
-    shipping: { available: true, partner: 'dhl' }
+    shipping: { available: true, partner: 'dhl' },
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-casa-19',
@@ -554,7 +590,9 @@ export const casablancaShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard', 'apple_pay'],
     productCategories: ['Glazed Coffee Cups', 'Terracotta Plates', 'Design Vases'],
     languagesSpoken: ['French', 'English', 'Arabic'],
-    openingHours: [{ day: 'Mon-Sat', hours: '10:00 - 19:00' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '10:00 - 19:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-casa-20',
@@ -579,7 +617,9 @@ export const casablancaShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Sterling Silver Rings', 'Amber Necklaces', 'Silver Pendants'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sat', hours: '09:30 - 19:30' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '09:30 - 19:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-casablanca-marjane-1',
@@ -601,7 +641,9 @@ export const casablancaShopListings: ShopListing[] = [
     paymentMethods: ["cash","visa","mastercard","apple_pay"],
     productCategories: ["Groceries","Beverages","Bakery","Toiletries","Electronics","Beach Accessories"],
     languagesSpoken: ["Arabic","French","English"],
-    openingHours: [{"day":"Mon-Sun","hours":"09:00 - 22:00"}]
+    openingHours: [{"day":"Mon-Sun","hours":"09:00 - 22:00"}],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-casablanca-carrefour-1',
@@ -623,7 +665,9 @@ export const casablancaShopListings: ShopListing[] = [
     paymentMethods: ["cash","visa","mastercard","apple_pay"],
     productCategories: ["Groceries","French Cheese","Bakery","Fresh Fruit","Snacks","Personal Care"],
     languagesSpoken: ["French","Arabic","English"],
-    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 21:30"}]
+    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 21:30"}],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-casablanca-decathlon-1',
@@ -645,7 +689,9 @@ export const casablancaShopListings: ShopListing[] = [
     paymentMethods: ["cash","visa","mastercard","apple_pay"],
     productCategories: ["Swimwear","Wetsuits","Running Shoes","Backpacks","Fitness Gear","Sun Protection"],
     languagesSpoken: ["French","Arabic","English"],
-    openingHours: [{"day":"Mon-Sun","hours":"09:30 - 21:00"}]
+    openingHours: [{"day":"Mon-Sun","hours":"09:30 - 21:00"}],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-casablanca-bim-1',
@@ -667,7 +713,9 @@ export const casablancaShopListings: ShopListing[] = [
     paymentMethods: ["cash","visa","mastercard"],
     productCategories: ["Mineral Water","Biscuits","Dairy","Snacks","Basic Toiletries"],
     languagesSpoken: ["Arabic","French"],
-    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 21:00"}]
+    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 21:00"}],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-casablanca-ensemble-1',
@@ -689,6 +737,8 @@ export const casablancaShopListings: ShopListing[] = [
     paymentMethods: ["cash","visa","mastercard"],
     productCategories: ["Handmade Leather Bags","Carved Wood","Brass Lanterns","Silver Jewelry","Ceramics"],
     languagesSpoken: ["Arabic","French","English"],
-    openingHours: [{"day":"Mon-Sat","hours":"09:00 - 19:00"}]
+    openingHours: [{"day":"Mon-Sat","hours":"09:00 - 19:00"}],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

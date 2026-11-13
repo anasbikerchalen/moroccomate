@@ -8,6 +8,8 @@
  * 3. CONDITIONAL: Sections that can be toggled on/off per stay
  */
 
+import type { PlaceReviewsData } from './reviews';
+
 // ==========================================
 // 1. FIXED SECTIONS & ENUMS
 // ==========================================
@@ -254,6 +256,7 @@ export interface SectionVisibilityFlags {
   show_extra_services?: boolean;
   show_policies?: boolean;
   show_exact_location?: boolean;
+  show_reviews?: boolean;
 }
 
 // ==========================================
@@ -275,6 +278,8 @@ export interface StayListing {
   amenities: PropertyAmenities;
   policies: PropertyPolicies;
   visibility: SectionVisibilityFlags;
+  /** Multi-platform reviews section data (Tripadvisor, Booking.com, Google Travel, Hotels.com, Expedia) */
+  reviewsData?: PlaceReviewsData;
   // Direct contact and booking actions
   contact_whatsapp?: string;
   booking_url?: string;

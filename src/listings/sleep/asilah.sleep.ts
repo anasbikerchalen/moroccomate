@@ -293,7 +293,9 @@ export const asilahSleep: SleepListing[] = [
       lat: 35.443279,
       lng: -6.051271
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'as-sleep-2',
@@ -388,7 +390,9 @@ export const asilahSleep: SleepListing[] = [
       lat: 35.443279,
       lng: -6.051271
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'as-sleep-3',
@@ -483,7 +487,9 @@ export const asilahSleep: SleepListing[] = [
       lat: 35.465042,
       lng: -6.038228
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'as-sleep-4',
@@ -577,7 +583,9 @@ export const asilahSleep: SleepListing[] = [
       lat: 35.763453,
       lng: -5.836498
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'as-sleep-5',
@@ -671,7 +679,9 @@ export const asilahSleep: SleepListing[] = [
       lat: 35.464288,
       lng: -6.039951
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'as-sleep-6',
@@ -765,7 +775,9 @@ export const asilahSleep: SleepListing[] = [
       lat: 35.461928,
       lng: -6.036545
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'as-sleep-7',
@@ -859,7 +871,9 @@ export const asilahSleep: SleepListing[] = [
       lat: 35.470971,
       lng: -6.028359
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'as-sleep-8',
@@ -953,7 +967,9 @@ export const asilahSleep: SleepListing[] = [
       lat: 35.465042,
       lng: -6.038228
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'as-sleep-9',
@@ -1047,7 +1063,9 @@ export const asilahSleep: SleepListing[] = [
       lat: 35.464288,
       lng: -6.039951
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'as-sleep-10',
@@ -1141,7 +1159,9 @@ export const asilahSleep: SleepListing[] = [
       lat: 35.464584,
       lng: -6.039407
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'as-sleep-11',
@@ -1235,7 +1255,9 @@ export const asilahSleep: SleepListing[] = [
       lat: 35.415891,
       lng: -6.008196
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'as-sleep-12',
@@ -1329,7 +1351,9 @@ export const asilahSleep: SleepListing[] = [
       lat: 35.466311,
       lng: -6.037083
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'as-sleep-13',
@@ -1423,7 +1447,9 @@ export const asilahSleep: SleepListing[] = [
       lat: 35.465909,
       lng: -6.037641
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'as-sleep-14',
@@ -1517,7 +1543,9 @@ export const asilahSleep: SleepListing[] = [
       lat: 35.408325,
       lng: -6.020334
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'as-sleep-15',
@@ -1611,7 +1639,9 @@ export const asilahSleep: SleepListing[] = [
       lat: 35.747449,
       lng: -5.768112
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'as-sleep-16',
@@ -1705,7 +1735,9 @@ export const asilahSleep: SleepListing[] = [
       lat: 35.467905,
       lng: -6.031041
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'as-sleep-17',
@@ -1799,7 +1831,9 @@ export const asilahSleep: SleepListing[] = [
       lat: 35.464288,
       lng: -6.039951
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'as-sleep-18',
@@ -1893,7 +1927,9 @@ export const asilahSleep: SleepListing[] = [
       lat: 35.467432,
       lng: -6.031591
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'as-sleep-19',
@@ -1987,7 +2023,9 @@ export const asilahSleep: SleepListing[] = [
       lat: 35.474373,
       lng: -6.026015
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'as-sleep-20',
@@ -2081,6 +2119,8 @@ export const asilahSleep: SleepListing[] = [
       lat: 35.46648,
       lng: -6.035642
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ]

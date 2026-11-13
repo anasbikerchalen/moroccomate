@@ -279,6 +279,8 @@ export const saidiaHeritageThings: ThingToDoListing[] = [
       { id: "activity-difficulty", title: "Difficulty", icon: "mountain", tag: "not available", description: "not available", state: "pending" },
     ],
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Souk+de+Sa%C3%AFdia%2C+saidia%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -348,6 +350,8 @@ export const saidiaHeritageThings: ThingToDoListing[] = [
       { id: "activity-difficulty", title: "Difficulty", icon: "mountain", tag: "not available", description: "not available", state: "pending" },
     ],
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Sunday+Open-Air+Souk%2C+saidia%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -417,6 +421,8 @@ export const saidiaHeritageThings: ThingToDoListing[] = [
       { id: "activity-difficulty", title: "Difficulty", icon: "mountain", tag: "not available", description: "not available", state: "pending" },
     ],
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=March%C3%A9+Couvert%2C+saidia%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -486,6 +492,8 @@ export const saidiaHeritageThings: ThingToDoListing[] = [
       { id: "activity-difficulty", title: "Difficulty", icon: "mountain", tag: "not available", description: "not available", state: "pending" },
     ],
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Sa%C3%AFdia+Kasbah%2C+saidia%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -555,5 +563,7 @@ export const saidiaHeritageThings: ThingToDoListing[] = [
       { id: "activity-difficulty", title: "Difficulty", icon: "mountain", tag: "not available", description: "not available", state: "pending" },
     ],
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Berkane+Orange+Market+Day+Trip%2C+saidia%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

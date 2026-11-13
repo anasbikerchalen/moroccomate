@@ -330,6 +330,8 @@ export const taroudantTafraouteHeritageThings: ThingToDoListing[] = [
     address: "Boulevard des Remparts, 83000 Taroudant",
     coordinates: { lat: 30.4705, lng: -8.8770 },
     googleMapsUrl: "https://www.google.com/maps/place/Remparts+de+Taroudant/@30.4705,-8.8770,16z",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -437,6 +439,8 @@ export const taroudantTafraouteHeritageThings: ThingToDoListing[] = [
     address: "Avenue Moulay Rachid, Quartier Kasbah, 83000 Taroudant",
     coordinates: { lat: 30.4725, lng: -8.8746 },
     googleMapsUrl: "https://www.google.com/maps/place/Bab+El+Kasbah/@30.4725,-8.8746,17z",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -542,6 +546,8 @@ export const taroudantTafraouteHeritageThings: ThingToDoListing[] = [
     address: "Place Al-Alaouiyine (Place Assarag), Médina, 83000 Taroudant",
     coordinates: { lat: 30.4717, lng: -8.8787 },
     googleMapsUrl: "https://www.google.com/maps/place/Place+Assarag/@30.4717,-8.8787,17z",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -646,6 +652,8 @@ export const taroudantTafraouteHeritageThings: ThingToDoListing[] = [
     address: "Rue Bin-Anzarane, Médina, 83000 Taroudant",
     coordinates: { lat: 30.4722, lng: -8.8775 },
     googleMapsUrl: "https://www.google.com/maps/place/Souk+Arabe+Taroudant/@30.4722,-8.8775,17z",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -753,6 +761,8 @@ export const taroudantTafraouteHeritageThings: ThingToDoListing[] = [
     address: "Place Talmoklate / Souk Jnane El Jamaa, Médina, 83000 Taroudant",
     coordinates: { lat: 30.4735, lng: -8.8765 },
     googleMapsUrl: "https://www.google.com/maps/place/Marche+Jnane+El+Jamaa/@30.4735,-8.8765,17z",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -856,6 +866,8 @@ export const taroudantTafraouteHeritageThings: ThingToDoListing[] = [
     address: "Extérieur Bab Targhount, 83000 Taroudant",
     coordinates: { lat: 30.4730, lng: -8.8890 },
     googleMapsUrl: "https://www.google.com/maps/place/Tannerie+Taroudant/@30.4730,-8.8890,17z",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -962,6 +974,8 @@ export const taroudantTafraouteHeritageThings: ThingToDoListing[] = [
     address: "Boulevard Hassan II, Bab Zorgan, 83000 Taroudant",
     coordinates: { lat: 30.4682, lng: -8.8795 },
     googleMapsUrl: "https://www.google.com/maps/place/Bab+Zorgan/@30.4682,-8.8795,17z",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1068,6 +1082,8 @@ export const taroudantTafraouteHeritageThings: ThingToDoListing[] = [
     address: "Rue de la Grande Mosquée (Jamaa Lakbir), Médina, 83000 Taroudant",
     coordinates: { lat: 30.4710, lng: -8.8735 },
     googleMapsUrl: "https://www.google.com/maps/place/Grande+Mosqu%C3%A9e+Taroudant/@30.4710,-8.8735,17z",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1175,6 +1191,8 @@ export const taroudantTafraouteHeritageThings: ThingToDoListing[] = [
     address: "Boulevard Moulay Rachid, Quartier Kasbah, 83000 Taroudant",
     coordinates: { lat: 30.4715, lng: -8.8752 },
     googleMapsUrl: "https://www.google.com/maps/place/Palais+Salam+Taroudant/@30.4715,-8.8752,17z",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1277,6 +1295,8 @@ export const taroudantTafraouteHeritageThings: ThingToDoListing[] = [
     address: "Avenue Al Qods (Avenue du Mellah), Derb Jdid, Médina, 83000 Taroudant",
     coordinates: { lat: 30.4700, lng: -8.8760 },
     googleMapsUrl: "https://www.google.com/maps/place/Mellah+Taroudant/@30.4700,-8.8760,17z",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1382,6 +1402,8 @@ export const taroudantTafraouteHeritageThings: ThingToDoListing[] = [
     address: "Boulevard Al Moukaouama, Ouled Bounouna, 83000 Taroudant",
     coordinates: { lat: 30.4772, lng: -8.8875 },
     googleMapsUrl: "https://www.google.com/maps/place/Bab+Ouled+Bounouna/@30.4772,-8.8875,17z",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1490,6 +1512,8 @@ export const taroudantTafraouteHeritageThings: ThingToDoListing[] = [
     address: "Quartier Hossoun (Sidi Mbark), Lasstah, 83000 Taroudant",
     coordinates: { lat: 30.4780, lng: -8.8680 },
     googleMapsUrl: "https://www.google.com/maps/place/Dar+Al+Hossoun/@30.4780,-8.8680,17z",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1600,6 +1624,8 @@ export const taroudantTafraouteHeritageThings: ThingToDoListing[] = [
     address: "Route de Tamaloukt, Ouled Bounouna, 83000 Taroudant",
     coordinates: { lat: 30.5501, lng: -8.8771 },
     googleMapsUrl: "https://www.google.com/maps/place/Palais+Mus%C3%A9e+Claudio+Bravo/@30.5501,-8.8771,17z",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1705,6 +1731,8 @@ export const taroudantTafraouteHeritageThings: ThingToDoListing[] = [
     address: "Avenue Moulay Rachid (en face de Bab Sedra), Quartier Kasbah, 83000 Taroudant",
     coordinates: { lat: 30.4731, lng: -8.8741 },
     googleMapsUrl: "https://www.google.com/maps/place/Dar+Baroud+Taroudant/@30.4731,-8.8741,17z",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1808,6 +1836,8 @@ export const taroudantTafraouteHeritageThings: ThingToDoListing[] = [
     address: "Avenue Moulay Youssef, Hay Al Mohammadi, 83000 Taroudant",
     coordinates: { lat: 30.4650, lng: -8.8650 },
     googleMapsUrl: "https://www.google.com/maps/place/Complexe+Artisanal+Taroudant/@30.4650,-8.8650,17z",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];
 

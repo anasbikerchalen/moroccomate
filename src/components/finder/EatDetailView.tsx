@@ -6,7 +6,7 @@ import {
   BookOpen, Wifi, Wind, Globe, Instagram, UtensilsCrossed,
   Info, Sparkles, Car, Languages, CreditCard,
   Accessibility, DollarSign, Moon, Sun, Armchair, Leaf, ShieldCheck,
-  Compass, Award, Share2, Phone, PhoneCall, MessageSquare, Check, Copy, Lightbulb,
+  Compass, Award, Share2, Phone, PhoneCall, Check, Copy, Lightbulb,
   CalendarCheck, Settings, Footprints
 } from 'lucide-react';
 import { cn } from '../../utils/cn';
@@ -27,6 +27,11 @@ import { computePoiNearbyPlaces } from '../../engine/proximityEngine';
 import { getCityCenter } from '../../engine/stayAdapter';
 import { getPlaceSlugById, buildPlaceUrl } from '../../listings/placeRoutes';
 import InteractiveRestaurantMenu from '../menu/InteractiveRestaurantMenu';
+import WorriesSection from '../worries/WorriesSection';
+import { resolveEatWorries } from '../../utils/eatWorriesResolver';
+import PlaceReviewsSection from '../reviews/PlaceReviewsSection';
+import ListingHeroHeader, { WhatsAppIcon, type HeroFeatureChip, type HeroMetadataItem } from './ListingHeroHeader';
+import type { ReviewSource } from '../../types/reviews';
 
 interface EatDetailViewProps {
   item: any;
@@ -42,6 +47,12 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
   const [copiedPhone, setCopiedPhone] = useState(false);
   const [isScheduleOpen, setIsScheduleOpen] = useState(false);
   const [hoveredPlaceId, setHoveredPlaceId] = useState<string | null>(null);
+  const [selectedReviewSource, setSelectedReviewSource] = useState<ReviewSource | null>(null);
+
+  // Resolve traveler worries (strictly null if unverified or empty so section is completely hidden)
+  const resolvedWorries = useMemo(() => {
+    return resolveEatWorries(item?.worries || item?.ui?.worries || item?.data?.worries);
+  }, [item?.worries, item?.ui?.worries, item?.data?.worries]);
 
   // Listing Attributes from Database / Registry
   const {
@@ -163,6 +174,25 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
 
   // Bookmarking
   const bookmarked = isBookmarked(id);
+
+  // Close Weekly Schedule popover on outside click or Escape
+  useEffect(() => {
+    if (!isScheduleOpen) return;
+    const handlePointerDown = (event: MouseEvent) => {
+      const target = event.target as HTMLElement | null;
+      if (target && target.closest('[data-schedule-container="true"]')) return;
+      setIsScheduleOpen(false);
+    };
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setIsScheduleOpen(false);
+    };
+    document.addEventListener('mousedown', handlePointerDown);
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('mousedown', handlePointerDown);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isScheduleOpen]);
 
   // Save last viewed listing to localStorage
   useEffect(() => {
@@ -318,476 +348,263 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
     );
   }
 
-  return (
-    <div className="w-full" id={`eat-detail-${id}`}>
-      
-      {/* ─────────────────────────────────────────────────────────────
-          1. FULL-BLEED UPPER SECTION (EDGE-TO-EDGE, UNBOXED WITH DROP SHADOW)
-          - Wide Garden Dining Image spanning full width
-          - Floating White Back Button & Controls
-          - Full-width Organic Curved Wave Transition
-          - Unboxed, spacious title & metadata area
-          - Drop shadow separating cleanly from background
-      ───────────────────────────────────────────────────────────── */}
-      <div className="w-full bg-white border-b border-stone-200/80 shadow-[0_10px_30px_-5px_rgba(0,0,0,0.07),0_4px_12px_-2px_rgba(0,0,0,0.03)] relative z-20">
-        
-        {/* SLIM WIDE IMAGE BANNER (COMPACT 160-210px, FULL WIDTH) */}
-        <div className="relative w-full h-[160px] sm:h-[185px] md:h-[210px] overflow-hidden bg-[#FAF7F2]">
-          <img
-            src={diningHeroEditorialImg}
-            alt={`${name} Moroccan dining setting`}
-            className="w-full h-full object-cover object-center select-none"
-          />
+  const eatReviewsData = item?.reviewsData || item?.ui?.reviewsData || item?.data?.reviewsData;
 
-          {/* FLOATING WHITE ROUND BUTTONS: BOOKMARK & SHARE (TOP RIGHT) */}
-          <div className="absolute top-4 right-4 sm:top-5 sm:right-6 z-20 flex items-center gap-2">
-            <button
-              onClick={() => toggleBookmark({ id, type: 'eat', name, city: item.city || city || 'marrakech' })}
-              id={`eat-btn-bookmark-${id}`}
-              className={cn(
-                "w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white shadow-md hover:shadow-lg flex items-center justify-center transition-all cursor-pointer border border-stone-200/70 hover:bg-stone-50 active:scale-95",
-                bookmarked ? "text-red-500" : "text-stone-700 hover:text-red-500"
-              )}
-              title={bookmarked ? "Saved in favorites" : "Save spot"}
-            >
-              <Heart className={cn("w-4 h-4", bookmarked && "fill-current")} />
-            </button>
-            <button
-              onClick={handleShare}
-              className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white shadow-md hover:shadow-lg flex items-center justify-center text-stone-700 hover:text-stone-950 transition-all cursor-pointer border border-stone-200/70 hover:bg-stone-50 active:scale-95"
-              title="Share listing"
-            >
-              <Share2 className="w-4 h-4" />
-            </button>
-          </div>
-
-          {/* FULL-WIDTH ORGANIC CURVED SVG WAVE */}
-          <div className="absolute bottom-0 left-0 right-0 w-full overflow-hidden leading-none z-10 pointer-events-none">
-            <svg
-              viewBox="0 0 1440 120"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-full h-7 sm:h-9 md:h-11 block"
-              preserveAspectRatio="none"
-            >
-              <path
-                d="M0,45 C280,110 520,120 780,55 C1040,-10 1260,70 1440,35 L1440,120 L0,120 Z"
-                fill="#FFFFFF"
-              />
-            </svg>
-          </div>
-        </div>
-
-        {/* UNBOXED, OPEN TITLE & METADATA BAR (FULL WIDTH WITH INNER MAX-W-7XL) */}
-        <div className="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 pb-8 pt-2 sm:pt-4">
-          
-          {/* Header Title & Clean Breadcrumb Subline */}
-          <div className="space-y-2">
-            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#173042] tracking-tight">
-              {name}
-            </h1>
-            
-            {/* Clean, readable sub-header line */}
-            <div className="flex flex-wrap items-center gap-2.5 text-sm sm:text-base text-stone-600 font-medium">
-              <span className="inline-flex items-center gap-1.5 text-stone-900 font-semibold">
-                <MapPin className="w-4 h-4 text-emerald-700 shrink-0" />
-                <span>{cityLabel} · {neighborhood}</span>
-              </span>
-              <span className="text-stone-300">·</span>
-              <span className="inline-flex items-center gap-1.5 text-stone-800 font-semibold capitalize">
-                <UtensilsCrossed className="w-4 h-4 text-amber-700 shrink-0" />
-                <span>{primaryCuisine}</span>
-              </span>
-              <span className="text-stone-300">·</span>
-              <span className="inline-flex items-center gap-1.5 font-bold text-stone-900">
-                <span>{priceTier}</span>
-                {calculatedPriceRange && (
-                  <span className="text-stone-500 font-normal text-xs sm:text-sm">
-                    (~{calculatedPriceRange}/person)
+  // Build Eat hero metadata items (Location | Cuisine & Price | Live Schedule)
+  const eatMetadata: HeroMetadataItem[] = [
+    {
+      id: 'location',
+      icon: <MapPin className="w-4 h-4 text-[#C85A32] shrink-0" />,
+      label: `${cityLabel}, Morocco`,
+      sublabel: neighborhood ? `· ${neighborhood}` : undefined,
+    },
+    {
+      id: 'cuisine',
+      icon: <UtensilsCrossed className="w-4 h-4 text-[#C85A32] shrink-0" />,
+      label: `${primaryCuisine} Cuisine`,
+      sublabel: calculatedPriceRange ? `· ${priceTier} (~${calculatedPriceRange})` : `· ${priceTier}`,
+    },
+    ...((openTime || scheduleData.schedule.length > 0)
+      ? [
+          {
+            id: 'hours',
+            icon: <Clock className={cn('w-4 h-4 shrink-0', scheduleData.isOpenNow ? 'text-[#1F5A3B]' : 'text-stone-500')} />,
+            label: scheduleData.statusLabel.replace(/^[🟢🟡🔵🟣🔴⚪]\s*/, ''),
+            tone: (scheduleData.isOpenNow ? 'open' : 'closed') as 'open' | 'closed',
+            onClick: () => setIsScheduleOpen((prev) => !prev),
+            isExpanded: isScheduleOpen,
+            popoverContent: (
+              <motion.div
+                initial={{ opacity: 0, y: 6, scale: 0.98 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: 6, scale: 0.98 }}
+                transition={{ duration: 0.15, ease: 'easeOut' }}
+                className="absolute top-full left-0 mt-2 z-50 w-72 sm:w-80 bg-white rounded-2xl shadow-xl border border-stone-200/90 p-4 space-y-3"
+              >
+                <div className="flex items-center justify-between pb-2 border-b border-stone-100">
+                  <span className="text-xs font-bold text-stone-900 uppercase tracking-wider flex items-center gap-1.5">
+                    <Clock className="w-3.5 h-3.5 text-[#C9A84C]" /> Weekly Schedule
                   </span>
-                )}
-              </span>
-            </div>
-          </div>
-
-          {/* SPLIT TWO-COLUMN ARCHITECTURE (MODERN CARD LAYOUT) */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mt-6 items-start">
-            
-            {/* LEFT COLUMN: Ratings, Atmosphere & Dietary, Meal Services (7 cols on lg) */}
-            <div className="lg:col-span-7 space-y-4">
-              
-              {/* Ratings Block */}
-              <div className="bg-[#FAF7F2] border border-[#EAE2D5] rounded-2xl p-4 sm:p-5 shadow-2xs">
-                <div className="flex flex-wrap items-center justify-between gap-3">
-                  <div className="flex items-center gap-3">
-                    <CamelRating rating={averageRating} size="md" />
-                    {totalReviews > 0 && (
-                      <span className="text-xs sm:text-sm text-stone-500 font-medium">
-                        ({totalReviews.toLocaleString()} authentic reviews)
-                      </span>
+                  <span
+                    className={cn(
+                      'text-[10px] font-semibold px-2 py-0.5 rounded-md border',
+                      scheduleData.isOpenNow
+                        ? 'text-emerald-700 bg-emerald-50 border-emerald-200/60'
+                        : 'text-rose-700 bg-rose-50 border-rose-200/60'
                     )}
-                  </div>
-                  
-                  <div className="flex flex-wrap items-center gap-2">
-                    {googleRating && (
-                      <span className="inline-flex items-center gap-1 px-3 py-1 rounded-xl text-xs font-semibold bg-white text-stone-800 border border-stone-200/90 shadow-2xs">
-                        <span className="text-amber-500 font-bold">★</span>
-                        <span>Google {googleRating}</span>
-                        {googleReviewCount && <span className="text-stone-400 font-normal">({googleReviewCount.toLocaleString()})</span>}
-                      </span>
-                    )}
-                    {tripadvisorRating && (
-                      <span className="inline-flex items-center gap-1 px-3 py-1 rounded-xl text-xs font-semibold bg-emerald-50 text-emerald-900 border border-emerald-200 shadow-2xs">
-                        <span className="text-emerald-600 font-bold">★</span>
-                        <span>TripAdvisor {tripadvisorRating}</span>
-                      </span>
-                    )}
-                  </div>
+                  >
+                    {scheduleData.isOpenNow ? 'Open Now' : 'Closed'} · Morocco
+                  </span>
                 </div>
-              </div>
-
-              {/* Operating Status & Dining Features */}
-              <div className="flex flex-wrap items-center gap-2" id="eat-tags-row">
-                
-                {/* 1. Clickable Operating Hours Accordion Dropdown */}
-                {(openTime || scheduleData.schedule.length > 0) && (
-                  <div className="relative inline-block" id="eat-hours-accordion-container">
-                    <button
-                      type="button"
-                      onClick={() => setIsScheduleOpen(!isScheduleOpen)}
+                <div className="space-y-1.5 text-xs">
+                  {scheduleData.schedule.map((dayItem) => (
+                    <div
+                      key={dayItem.dayName}
                       className={cn(
-                        "inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold border transition-all cursor-pointer shadow-2xs select-none active:scale-98",
-                        scheduleData.isOpenNow
-                          ? "bg-emerald-50 text-emerald-900 border-emerald-200/90 hover:bg-emerald-100/70"
-                          : "bg-stone-100 text-stone-700 border-stone-200/90 hover:bg-stone-200/70"
+                        'flex items-start justify-between gap-2 py-1.5 px-2.5 rounded-lg transition-colors',
+                        dayItem.isToday
+                          ? 'bg-amber-500/10 font-bold text-stone-900 border border-amber-500/25'
+                          : 'text-stone-600 hover:bg-stone-50'
                       )}
-                      aria-expanded={isScheduleOpen}
-                      title="Click to view full weekly hours"
                     >
-                      <span className={cn(
-                        "w-2 h-2 rounded-full shrink-0",
-                        scheduleData.isOpenNow ? "bg-emerald-500 animate-pulse" : "bg-stone-400"
-                      )} />
-                      <span>{scheduleData.statusLabel}</span>
-                      <ChevronDown className={cn(
-                        "w-3.5 h-3.5 text-stone-500 transition-transform duration-200",
-                        isScheduleOpen && "rotate-180 text-emerald-700"
-                      )} />
-                    </button>
-
-                    {/* Accordion Dropdown Content */}
-                    <AnimatePresence>
-                      {isScheduleOpen && (
-                        <motion.div
-                          initial={{ opacity: 0, y: 6, scale: 0.98 }}
-                          animate={{ opacity: 1, y: 0, scale: 1 }}
-                          exit={{ opacity: 0, y: 6, scale: 0.98 }}
-                          transition={{ duration: 0.15, ease: "easeOut" }}
-                          className="absolute top-full left-0 mt-2 z-50 w-72 sm:w-80 bg-white rounded-2xl shadow-xl border border-stone-200/90 p-4 space-y-3"
-                        >
-                          <div className="flex items-center justify-between pb-2 border-b border-stone-100">
-                            <span className="text-xs font-bold text-stone-900 uppercase tracking-wider flex items-center gap-1.5">
-                              <Clock className="w-3.5 h-3.5 text-[#C9A84C]" /> Weekly Schedule
-                            </span>
-                            <span className="text-[10px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200/60">
-                              Live Schedule
-                            </span>
-                          </div>
-
-                          {/* Day-by-day table */}
-                          <div className="space-y-1.5 text-xs">
-                            {scheduleData.schedule.map((dayItem) => (
-                              <div
-                                key={dayItem.dayName}
-                                className={cn(
-                                  "flex items-center justify-between py-1.5 px-2.5 rounded-lg transition-colors",
-                                  dayItem.isToday
-                                    ? "bg-amber-500/10 font-bold text-stone-900 border border-amber-500/25"
-                                    : "text-stone-600 hover:bg-stone-50"
-                                )}
-                              >
-                                <span className="flex items-center gap-1.5">
-                                  {dayItem.isToday && <span className="w-1.5 h-1.5 rounded-full bg-[#C9A84C]" />}
-                                  <span>{dayItem.dayName}</span>
-                                  {dayItem.isToday && <span className="text-[10px] text-[#C9A84C] font-semibold">(Today)</span>}
-                                </span>
-                                <span className={cn(
-                                  "tabular-nums text-right",
-                                  dayItem.isClosed ? "text-rose-600 font-medium" : "text-stone-800"
-                                )}>
-                                  {dayItem.hoursText}
-                                </span>
-                              </div>
-                            ))}
-                          </div>
-
-                          {/* Friday Prayer / Special Notice */}
-                          {scheduleData.specialNote && (
-                            <div className="p-2.5 rounded-xl bg-amber-50 border border-amber-200/80 text-[11px] text-amber-900 leading-snug">
-                              {scheduleData.specialNote}
-                            </div>
-                          )}
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                )}
-
-                {/* 2. Halal Food & Alcohol Truth Verification */}
-                {isHalal && (servesAlcohol || alcoholPolicy === 'serves-alcohol') ? (
-                  <TagTooltip content="All meat dishes and ingredients are 100% Halal. The venue holds a liquor license and serves alcoholic beverages.">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-amber-50 text-amber-900 border border-amber-200/90 shadow-2xs hover:bg-amber-100/70 transition-colors cursor-help">
-                      <ShieldCheck className="w-3.5 h-3.5 text-amber-600 shrink-0" />
-                      <span>Halal Food · Serves Alcohol</span>
-                    </span>
-                  </TagTooltip>
-                ) : isHalal ? (
-                  <TagTooltip content="Strictly Halal certified kitchen in a 100% alcohol-free, pork-free venue.">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-amber-50 text-amber-900 border border-amber-200/90 shadow-2xs hover:bg-amber-100/70 transition-colors cursor-help">
-                      <ShieldCheck className="w-3.5 h-3.5 text-amber-600 shrink-0" />
-                      <span>Halal Certified (Dry)</span>
-                    </span>
-                  </TagTooltip>
-                ) : null}
-
-                {/* 3. Vegetarian Friendly with Tooltip */}
-                {isVegetarianFriendly && (
-                  <TagTooltip content="Offers verified vegetarian tajines, couscous, fresh salads, and plant-based Moroccan specialties.">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-green-50 text-green-900 border border-green-200/90 shadow-2xs hover:bg-green-100/70 transition-colors cursor-help">
-                      <Leaf className="w-3.5 h-3.5 text-green-600 shrink-0" />
-                      <span>Vegetarian Friendly</span>
-                    </span>
-                  </TagTooltip>
-                )}
-
-                {/* 4. Medina Courtyard with Tooltip */}
-                {nearMedina && (
-                  <TagTooltip content="Located inside the historical Medina pedestrian quarter with an authentic open-air courtyard.">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-stone-100 text-stone-700 border border-stone-200/90 shadow-2xs hover:bg-stone-200/70 transition-colors cursor-help">
-                      <MapPin className="w-3.5 h-3.5 text-stone-500 shrink-0" />
-                      <span>Medina Courtyard</span>
-                    </span>
-                  </TagTooltip>
-                )}
-
-                {/* 5. Hidden Gem with Tooltip */}
-                {badge === 'hidden-gem' && (
-                  <TagTooltip content="Authentic local gem cherished by locals and tucked away from tourist crowds.">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-purple-50 text-purple-900 border border-purple-200/90 shadow-2xs hover:bg-purple-100/70 transition-colors cursor-help">
-                      <Sparkles className="w-3.5 h-3.5 text-purple-600 shrink-0" />
-                      <span>Hidden Gem</span>
-                    </span>
-                  </TagTooltip>
-                )}
-
-                {/* 6. Delivery Available with Tooltip */}
-                {hasDelivery && (
-                  <TagTooltip content="Local delivery available to your riad or hotel via Glovo or direct dispatch.">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-blue-50 text-blue-900 border border-blue-200/90 shadow-2xs hover:bg-blue-100/70 transition-colors cursor-help">
-                      <Car className="w-3.5 h-3.5 text-blue-600 shrink-0" />
-                      <span>Delivery Available</span>
-                    </span>
-                  </TagTooltip>
-                )}
-              </div>
-
-              {/* Meal Service Types Row: Converted to Sleek Pill Badges */}
-              {Array.isArray(mealTypes) && mealTypes.length > 0 && (
-                <div className="flex flex-wrap items-center gap-1.5 pt-1.5" id="eat-meal-types-row">
-                  <span className="text-[11px] font-bold text-stone-400 uppercase tracking-wider mr-1">
-                    Served For:
-                  </span>
-                  {mealTypes.map((meal: string, idx: number) => (
-                    <span
-                      key={idx}
-                      className="inline-flex items-center px-3 py-1 rounded-full bg-stone-100/90 text-stone-800 text-xs font-semibold capitalize border border-stone-200/80 shadow-2xs hover:bg-stone-200/60 transition-colors"
-                    >
-                      {meal.replace(/-/g, ' ')}
-                    </span>
+                      <div className="min-w-0">
+                        <span className="flex items-center gap-1.5">
+                          {dayItem.isToday && <span className="w-1.5 h-1.5 rounded-full bg-[#C9A84C] shrink-0" />}
+                          <span>{dayItem.dayName}</span>
+                          {dayItem.isToday && <span className="text-[10px] text-[#C9A84C] font-semibold">(Today)</span>}
+                        </span>
+                        {dayItem.note && (
+                          <p className="text-[10px] font-normal text-stone-500 mt-0.5 leading-snug">
+                            {dayItem.note}
+                          </p>
+                        )}
+                      </div>
+                      <span
+                        className={cn(
+                          'tabular-nums text-right shrink-0',
+                          dayItem.isClosed ? 'text-rose-600 font-medium' : 'text-stone-800'
+                        )}
+                      >
+                        {dayItem.hoursText}
+                      </span>
+                    </div>
                   ))}
                 </div>
-              )}
-
-            </div>
-
-            {/* RIGHT COLUMN: Quick Action, Direct Calling & Social Links Hub (5 cols on lg) */}
-            <div className="lg:col-span-5 bg-[#FAF7F2] border border-[#EAE2D5] rounded-2xl p-5 shadow-xs space-y-4">
-              
-              {/* Primary Dual CTA Row: Get Directions + Reservation Action */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                {/* 1. Directions */}
-                <a
-                  href={directionsUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  id="eat-btn-get-directions"
-                  className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-xl bg-[#234E35] hover:bg-[#1A3D29] text-white font-bold text-xs tracking-wide shadow-xs hover:shadow-md transition-all cursor-pointer group active:scale-98"
-                >
-                  <Navigation className="w-4 h-4 text-emerald-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform shrink-0" />
-                  <span>Get directions</span>
-                </a>
-
-                {/* 2. Dynamic Data-Backed Reservation Action */}
-                {bookingUrl || (reservationMethod?.includes('online') && cleanWebsite) ? (
-                  <a
-                    href={bookingUrl || cleanWebsite || '#'}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    id="eat-btn-book-table"
-                    className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-xl bg-[#C9A84C] hover:bg-[#b8953d] text-stone-950 font-bold text-xs tracking-wide shadow-xs hover:shadow-md transition-all cursor-pointer group active:scale-98"
-                    title="Book a table online"
-                  >
-                    <CalendarCheck className="w-4 h-4 text-stone-950 group-hover:scale-110 transition-transform shrink-0" />
-                    <span>Book a Table</span>
-                  </a>
-                ) : whatsappNumber || (reservationMethod?.includes('whatsapp') && cleanPhoneForWhatsApp) ? (
-                  <a
-                    href={`https://wa.me/${whatsappNumber?.replace(/[^0-9]/g, '') || cleanPhoneForWhatsApp}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    id="eat-btn-reserve-whatsapp"
-                    className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-xl bg-[#25D366] hover:bg-[#20ba59] text-white font-bold text-xs tracking-wide shadow-xs hover:shadow-md transition-all cursor-pointer group active:scale-98"
-                    title="Reserve via WhatsApp"
-                  >
-                    <MessageSquare className="w-4 h-4 text-white group-hover:scale-110 transition-transform shrink-0" />
-                    <span>Reserve via WhatsApp</span>
-                  </a>
-                ) : cleanPhoneForTel ? (
-                  <a
-                    href={`tel:${cleanPhoneForTel}`}
-                    id="eat-btn-call-to-book"
-                    className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-xl bg-stone-900 hover:bg-stone-800 text-white font-bold text-xs tracking-wide shadow-xs hover:shadow-md transition-all cursor-pointer group active:scale-98"
-                    title={`Call ${reservationContact || 'to book'}`}
-                  >
-                    <PhoneCall className="w-4 h-4 text-amber-300 group-hover:scale-110 transition-transform shrink-0" />
-                    <span>Call to Book</span>
-                  </a>
-                ) : (
-                  <div className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-xl bg-stone-200/60 text-stone-400 font-bold text-xs cursor-not-allowed select-none border border-stone-200">
-                    <span>Walk-in Only</span>
+                {scheduleData.specialNote && (
+                  <div className="p-2.5 rounded-xl bg-amber-50 border border-amber-200/80 text-[11px] text-amber-900 leading-snug">
+                    {scheduleData.specialNote}
                   </div>
                 )}
-              </div>
+              </motion.div>
+            ),
+          },
+        ]
+      : []),
+  ];
 
-              {/* Direct Reservation & Phone Action Strip */}
-              {reservationContact && (
-                <div className="flex items-center gap-2">
-                  <a
-                    href={`tel:${cleanPhoneForTel}`}
-                    id="eat-btn-call"
-                    className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-white hover:bg-stone-50 text-[#234E35] border border-stone-200/90 font-bold text-xs tracking-wide shadow-2xs transition-all active:scale-95"
-                    title={`Call ${reservationContact}`}
-                  >
-                    <PhoneCall className="w-3.5 h-3.5 text-emerald-700" />
-                    <span>Call {reservationContact}</span>
-                  </a>
-                  <button
-                    onClick={handleCopyPhone}
-                    type="button"
-                    className="px-3 py-2.5 rounded-xl bg-white hover:bg-stone-50 text-stone-700 transition-colors border border-stone-200/90 text-xs font-semibold flex items-center gap-1.5 cursor-pointer shadow-2xs"
-                    title="Copy phone number"
-                  >
-                    {copiedPhone ? (
-                      <>
-                        <Check className="w-3.5 h-3.5 text-emerald-600" />
-                        <span className="text-emerald-700 font-bold">Copied</span>
-                      </>
-                    ) : (
-                      <>
-                        <Copy className="w-3.5 h-3.5 text-stone-500" />
-                        <span>Copy</span>
-                      </>
-                    )}
-                  </button>
-                  {reservationMethod?.includes('whatsapp') && cleanPhoneForWhatsApp && (
-                    <a
-                      href={`https://wa.me/${cleanPhoneForWhatsApp}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center px-3 py-2.5 rounded-xl bg-[#25D366]/10 hover:bg-[#25D366]/20 text-[#128C7E] text-xs font-bold transition-all border border-[#25D366]/30 shadow-2xs"
-                      title="Message on WhatsApp"
-                    >
-                      <MessageSquare className="w-3.5 h-3.5 text-[#128C7E]" />
-                      <span className="hidden sm:inline">WhatsApp</span>
-                    </a>
-                  )}
-                </div>
-              )}
+  // Build verified feature chips (collapsible via +N more)
+  const eatFeatures: HeroFeatureChip[] = [
+    {
+      id: 'cuisine-chip',
+      label: `${primaryCuisine} Food`,
+      icon: <UtensilsCrossed className="w-3.5 h-3.5 text-[#C85A32]" />,
+    },
+    ...(isHalal
+      ? [
+          {
+            id: 'halal-chip',
+            label:
+              servesAlcohol || alcoholPolicy === 'serves-alcohol'
+                ? 'Halal Food · Serves Alcohol'
+                : 'Halal Certified (Dry)',
+            icon: <ShieldCheck className="w-3.5 h-3.5 text-amber-600" />,
+            tooltip:
+              servesAlcohol || alcoholPolicy === 'serves-alcohol'
+                ? 'All meat dishes and ingredients are 100% Halal. The venue holds a liquor license and serves alcoholic beverages.'
+                : 'Strictly Halal certified kitchen in a 100% alcohol-free, pork-free venue.',
+            tone: 'amber' as const,
+          },
+        ]
+      : []),
+    ...(isVegetarianFriendly
+      ? [
+          {
+            id: 'veg-chip',
+            label: 'Vegetarian Friendly',
+            icon: <Leaf className="w-3.5 h-3.5 text-emerald-600" />,
+            tooltip: 'Offers verified vegetarian tajines, couscous, fresh salads, and plant-based Moroccan specialties.',
+            tone: 'emerald' as const,
+          },
+        ]
+      : []),
+    ...(wiFi
+      ? [{ id: 'wifi-chip', label: 'Free Wi-Fi', icon: <Wifi className="w-3.5 h-3.5 text-sky-600" /> }]
+      : []),
+    ...(airConditioning
+      ? [{ id: 'ac-chip', label: 'Air Conditioning', icon: <Wind className="w-3.5 h-3.5 text-sky-600" /> }]
+      : []),
+    ...(nearMedina
+      ? [
+          {
+            id: 'medina-chip',
+            label: 'Medina Courtyard',
+            icon: <MapPin className="w-3.5 h-3.5 text-stone-500" />,
+            tooltip: 'Located inside the historical Medina pedestrian quarter with an authentic open-air courtyard.',
+          },
+        ]
+      : []),
+    ...(badge === 'hidden-gem'
+      ? [
+          {
+            id: 'gem-chip',
+            label: 'Hidden Gem',
+            icon: <Sparkles className="w-3.5 h-3.5 text-purple-600" />,
+            tooltip: 'Authentic local gem cherished by locals and tucked away from tourist crowds.',
+            tone: 'purple' as const,
+          },
+        ]
+      : []),
+    ...(hasDelivery
+      ? [
+          {
+            id: 'delivery-chip',
+            label: 'Delivery Available',
+            icon: <Car className="w-3.5 h-3.5 text-sky-600" />,
+            tooltip: 'Local delivery available to your riad or hotel via Glovo or direct dispatch.',
+            tone: 'sky' as const,
+          },
+        ]
+      : []),
+    ...(wheelchairAccessible
+      ? [
+          {
+            id: 'access-chip',
+            label: 'Step-Free Access',
+            icon: <Accessibility className="w-3.5 h-3.5 text-emerald-700" />,
+          },
+        ]
+      : []),
+  ];
 
-              {/* Official Channels Hub: Styled Tactile Buttons */}
-              <div className="pt-2 border-t border-stone-200/70">
-                <div className="text-[11px] font-bold text-stone-400 uppercase tracking-wider mb-2">
-                  Official Channels
-                </div>
-                <div className="grid grid-cols-2 gap-2.5">
-                  
-                  {/* Website Button */}
-                  {cleanWebsite ? (
-                    <a
-                      href={cleanWebsite}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-xl bg-white hover:bg-stone-50 text-stone-800 border border-stone-200 font-bold text-xs transition-all shadow-xs hover:shadow-sm active:scale-95 group cursor-pointer"
-                      title="Visit official website"
-                    >
-                      <Globe className="w-4 h-4 text-emerald-700 group-hover:scale-110 transition-transform shrink-0" />
-                      <span className="truncate">Website</span>
-                      <ExternalLink className="w-3 h-3 text-stone-400 ml-auto shrink-0" />
-                    </a>
-                  ) : (
-                    <a
-                      href={webSearchUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-xl bg-white hover:bg-stone-50 text-stone-700 border border-stone-200 font-bold text-xs transition-all shadow-xs hover:shadow-sm active:scale-95 group cursor-pointer"
-                      title="Search photos & reviews online"
-                    >
-                      <Globe className="w-4 h-4 text-stone-500 group-hover:scale-110 transition-transform shrink-0" />
-                      <span className="truncate">Web / Photos</span>
-                      <ExternalLink className="w-3 h-3 text-stone-400 ml-auto shrink-0" />
-                    </a>
-                  )}
+  const hasOnlineBooking = Boolean(bookingUrl || (reservationMethod?.includes('online') && cleanWebsite));
+  const hasWhatsappBooking = Boolean(whatsappNumber || (reservationMethod?.includes('whatsapp') && cleanPhoneForWhatsApp));
+  const resolvedPrimaryWhatsapp = whatsappNumber?.replace(/[^0-9]/g, '') || cleanPhoneForWhatsApp;
 
-                  {/* Instagram Button */}
-                  {cleanInstagram ? (
-                    <a
-                      href={cleanInstagram}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-xl bg-gradient-to-r from-rose-50 to-pink-50 hover:from-rose-100 hover:to-pink-100 text-rose-700 border border-rose-200 font-bold text-xs transition-all shadow-xs hover:shadow-sm active:scale-95 group cursor-pointer"
-                      title="Open Instagram profile"
-                    >
-                      <Instagram className="w-4 h-4 text-rose-600 group-hover:scale-110 transition-transform shrink-0" />
-                      <span className="truncate">Instagram</span>
-                      <ExternalLink className="w-3 h-3 text-rose-400 ml-auto shrink-0" />
-                    </a>
-                  ) : (
-                    <TagTooltip content="No official Instagram profile on file for this venue.">
-                      <div
-                        className="w-full inline-flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-xl bg-stone-100/80 text-stone-400 border border-stone-200 text-xs font-semibold cursor-not-allowed select-none shadow-2xs"
-                        title="No Instagram profile on file"
-                      >
-                        <Instagram className="w-4 h-4 text-stone-400 shrink-0" />
-                        <span className="truncate">No Instagram</span>
-                      </div>
-                    </TagTooltip>
-                  )}
+  const eatPrimaryAction = hasOnlineBooking
+    ? {
+        label: 'Book a Table',
+        href: bookingUrl || cleanWebsite || '#',
+        icon: <CalendarCheck className="w-4 h-4 shrink-0" />,
+        variant: 'terracotta' as const,
+        title: 'Book a table online',
+      }
+    : hasWhatsappBooking
+      ? {
+          label: 'Reserve via WhatsApp',
+          href: `https://wa.me/${resolvedPrimaryWhatsapp}`,
+          icon: <WhatsAppIcon variant="monochrome" className="w-4 h-4 shrink-0" />,
+          variant: 'whatsapp' as const,
+          title: 'Reserve via WhatsApp',
+        }
+      : cleanPhoneForTel
+        ? {
+            label: 'Call to Book',
+            href: `tel:${cleanPhoneForTel}`,
+            icon: <PhoneCall className="w-4 h-4 text-amber-300 shrink-0" />,
+            variant: 'dark' as const,
+            title: `Call ${reservationContact || 'to book'}`,
+          }
+        : {
+            label: 'Walk-in Only',
+            variant: 'muted' as const,
+          };
 
-                </div>
-              </div>
-
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-
+  return (
+    <div className="w-full" id={`eat-detail-${id}`}>
+      {/* UNIFIED UPPER HERO SECTION (Warm Skyline Watermark · Strictly Gated Ratings · Action Hub) */}
+      <ListingHeroHeader
+        category="eat"
+        categoryBadge={experienceTypes?.[0] ? String(experienceTypes[0]).replace(/-/g, ' ') : 'Restaurant'}
+        title={name}
+        metadata={eatMetadata}
+        reviewsData={eatReviewsData}
+        activeReviewSource={selectedReviewSource}
+        onSelectReviewSource={setSelectedReviewSource}
+        features={eatFeatures}
+        servedFor={Array.isArray(mealTypes) ? mealTypes : []}
+        servedForLabel="Served For"
+        actions={{
+          directionsUrl,
+          directionsLabel: 'Get Directions',
+          primaryAction: eatPrimaryAction,
+          phone: reservationContact || undefined,
+          onCopyPhone: handleCopyPhone,
+          copiedPhone,
+          whatsappNumber: !hasOnlineBooking && hasWhatsappBooking ? undefined : cleanPhoneForWhatsApp || undefined,
+          websiteUrl: cleanWebsite || webSearchUrl,
+          websiteTitle: cleanWebsite ? 'Visit official website' : 'Search online',
+          instagramUrl: cleanInstagram || undefined,
+          isBookmarked: bookmarked,
+          onToggleBookmark: () => toggleBookmark({ id, type: 'eat', name, city: item.city || city || 'marrakech' }),
+          onShare: handleShare,
+          copiedLink,
+          saveLabel: 'Save to Favorites',
+          savedLabel: 'Saved in Favorites',
+        }}
+      />
 
       {/* ─────────────────────────────────────────────────────────────
           MAIN CONTENT CONTAINER (SPACIOUS, CENTERED CONTENT)
       ───────────────────────────────────────────────────────────── */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
+        {/* "Things You're Worried About!" — strictly rendered only if verified data is available */}
+        {resolvedWorries && (
+          <WorriesSection
+            worries={resolvedWorries}
+            title="Things You're Worried About!"
+            subtitle="Honest answers to what usually worries diners — checked and verified, never guessed."
+          />
+        )}
         
         {/* ───────────────────────────────────────────────────────────
             LOCAL INSIDER TIP (AUTHENTIC EXPERT ADVICE FROM DATA)
@@ -1242,6 +1059,17 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
 
         </div>
 
+        {/* ───────────────────────────────────────────────────────────
+            5.5. TRAVELER REVIEWS & COMMUNITY RATINGS
+        ─────────────────────────────────────────────────────────── */}
+        <PlaceReviewsSection
+          reviewsData={eatReviewsData}
+          placeName={name}
+          category="eat"
+          className="mt-12"
+          externalSelectedSource={selectedReviewSource}
+          onSelectedSourceChange={setSelectedReviewSource}
+        />
 
         {/* ───────────────────────────────────────────────────────────
             6. EXPLORE PEER RESTAURANTS (CLEAN HORIZONTAL TEXT CARDS, ZERO IMAGES)

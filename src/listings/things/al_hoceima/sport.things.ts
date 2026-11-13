@@ -387,6 +387,8 @@ export const alHoceimaSportThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "+212 5399-XXXXXX",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -570,6 +572,8 @@ export const alHoceimaSportThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "+212 661-XXXXXX",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -753,6 +757,8 @@ export const alHoceimaSportThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -936,6 +942,8 @@ export const alHoceimaSportThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1119,6 +1127,8 @@ export const alHoceimaSportThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1298,6 +1308,8 @@ export const alHoceimaSportThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1481,6 +1493,8 @@ export const alHoceimaSportThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1660,6 +1674,8 @@ export const alHoceimaSportThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1839,6 +1855,8 @@ export const alHoceimaSportThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -2022,6 +2040,8 @@ export const alHoceimaSportThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -2205,6 +2225,8 @@ export const alHoceimaSportThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -2380,6 +2402,8 @@ export const alHoceimaSportThings: ThingToDoListing[] = [
         a: "Yes, day passes are available for 40 MAD."
       }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -2555,6 +2579,8 @@ export const alHoceimaSportThings: ThingToDoListing[] = [
         a: "Yes, mornings 8-12."
       }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -2726,6 +2752,8 @@ export const alHoceimaSportThings: ThingToDoListing[] = [
         a: "Small but clean and heated."
       }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -2897,6 +2925,8 @@ export const alHoceimaSportThings: ThingToDoListing[] = [
         a: "Yes, 100% women-only at all times."
       }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -3068,6 +3098,8 @@ export const alHoceimaSportThings: ThingToDoListing[] = [
         a: "Yes, a nice functional training area outside."
       }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -3243,6 +3275,8 @@ export const alHoceimaSportThings: ThingToDoListing[] = [
         a: "No pool, but excellent gym and classes."
       }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -3414,6 +3448,8 @@ export const alHoceimaSportThings: ThingToDoListing[] = [
         a: "Yes, beginner-friendly classes are offered daily."
       }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -3585,6 +3621,8 @@ export const alHoceimaSportThings: ThingToDoListing[] = [
         a: "Yes, but more popular with intermediate lifters."
       }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -3756,6 +3794,8 @@ export const alHoceimaSportThings: ThingToDoListing[] = [
         a: "Functional and well-used, but maintained."
       }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -3927,6 +3967,8 @@ export const alHoceimaSportThings: ThingToDoListing[] = [
         a: "Peak hours are 6-8 PM."
       }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -4098,6 +4140,8 @@ export const alHoceimaSportThings: ThingToDoListing[] = [
         a: "Yes, one of the best in town for new gym-goers."
       }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -4269,6 +4313,8 @@ export const alHoceimaSportThings: ThingToDoListing[] = [
         a: "Yes, full access including pool and sauna."
       }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -4440,6 +4486,8 @@ export const alHoceimaSportThings: ThingToDoListing[] = [
         a: "Yes, all levels welcome with scalable workouts."
       }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -4611,6 +4659,8 @@ export const alHoceimaSportThings: ThingToDoListing[] = [
         a: "Yes, year-round."
       }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -4782,5 +4832,7 @@ export const alHoceimaSportThings: ThingToDoListing[] = [
         a: "Better for intermediate to advanced lifters."
       }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

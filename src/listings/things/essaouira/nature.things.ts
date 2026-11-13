@@ -319,6 +319,8 @@ export const essaouiraNatureThings: ThingToDoListing[] = [
       }
     ],
     googleMapsUrl: "https://maps.google.com/?cid=12140685934522430155",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -420,6 +422,8 @@ export const essaouiraNatureThings: ThingToDoListing[] = [
       }
     ],
     googleMapsUrl: "https://maps.google.com/?cid=1456983726194830172",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -499,6 +503,8 @@ export const essaouiraNatureThings: ThingToDoListing[] = [
       { id: "activity-difficulty", title: "Difficulty", icon: "mountain", tag: "not available", description: "not available", state: "pending" },
     ],
     googleMapsUrl: "https://maps.google.com/?cid=1230495867382910475",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -578,6 +584,8 @@ export const essaouiraNatureThings: ThingToDoListing[] = [
       { id: "activity-difficulty", title: "Difficulty", icon: "mountain", tag: "not available", description: "not available", state: "pending" },
     ],
     googleMapsUrl: "https://maps.google.com/?cid=1756284903829102837",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -648,6 +656,8 @@ export const essaouiraNatureThings: ThingToDoListing[] = [
       { id: "activity-difficulty", title: "Difficulty", icon: "mountain", tag: "not available", description: "not available", state: "pending" },
     ],
     googleMapsUrl: "https://maps.google.com/?cid=1293847291038475630",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -718,6 +728,8 @@ export const essaouiraNatureThings: ThingToDoListing[] = [
       { id: "activity-difficulty", title: "Difficulty", icon: "mountain", tag: "not available", description: "not available", state: "pending" },
     ],
     googleMapsUrl: "https://maps.google.com/?cid=11190467520194830175",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -788,6 +800,8 @@ export const essaouiraNatureThings: ThingToDoListing[] = [
       { id: "activity-difficulty", title: "Difficulty", icon: "mountain", tag: "not available", description: "not available", state: "pending" },
     ],
     googleMapsUrl: "https://maps.google.com/?cid=11190467520194830177",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -858,5 +872,7 @@ export const essaouiraNatureThings: ThingToDoListing[] = [
       { id: "activity-difficulty", title: "Difficulty", icon: "mountain", tag: "not available", description: "not available", state: "pending" },
     ],
     googleMapsUrl: "https://maps.google.com/?cid=11190467520194830178",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

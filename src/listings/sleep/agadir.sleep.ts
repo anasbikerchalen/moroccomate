@@ -338,7 +338,9 @@ export const agadirSleep: SleepListing[] = [
       lat: 30.391612,
       lng: -9.598192
     },
-    tags: ["family-favorite", "5-star", "beachfront", "private-beach", "heated-pool"]
+    tags: ["family-favorite", "5-star", "beachfront", "private-beach", "heated-pool"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'a-sleep-2',
@@ -438,7 +440,9 @@ export const agadirSleep: SleepListing[] = [
       lat: 30.39325,
       lng: -9.597075
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'a-sleep-3',
@@ -538,7 +542,9 @@ export const agadirSleep: SleepListing[] = [
       lat: 30.51659,
       lng: -9.686777
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'a-sleep-4',
@@ -638,7 +644,9 @@ export const agadirSleep: SleepListing[] = [
       lat: 30.415524,
       lng: -9.603529
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'a-sleep-5',
@@ -737,7 +745,9 @@ export const agadirSleep: SleepListing[] = [
       lat: 30.389913,
       lng: -9.594137
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'a-sleep-6',
@@ -836,7 +846,9 @@ export const agadirSleep: SleepListing[] = [
       lat: 30.407955,
       lng: -9.600393
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'a-sleep-7',
@@ -935,7 +947,9 @@ export const agadirSleep: SleepListing[] = [
       lat: 30.396726,
       lng: -9.597228
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'a-sleep-8',
@@ -1034,7 +1048,9 @@ export const agadirSleep: SleepListing[] = [
       lat: 30.416926,
       lng: -9.600162
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'a-sleep-9',
@@ -1133,7 +1149,9 @@ export const agadirSleep: SleepListing[] = [
       lat: 30.417156,
       lng: -9.602838
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'a-sleep-10',
@@ -1231,7 +1249,9 @@ export const agadirSleep: SleepListing[] = [
       lat: 30.417117,
       lng: -9.588974
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'a-sleep-11',
@@ -1330,7 +1350,9 @@ export const agadirSleep: SleepListing[] = [
       lat: 30.424696,
       lng: -9.592979
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'a-sleep-12',
@@ -1430,7 +1452,9 @@ export const agadirSleep: SleepListing[] = [
       lat: 30.455,
       lng: -9.631722
     },
-    tags: ["dorm", "heritage"]
+    tags: ["dorm", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'a-sleep-13',
@@ -1529,7 +1553,9 @@ export const agadirSleep: SleepListing[] = [
       lat: 30.396718,
       lng: -9.593944
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'a-sleep-14',
@@ -1628,7 +1654,9 @@ export const agadirSleep: SleepListing[] = [
       lat: 30.413432,
       lng: -9.598213
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'a-sleep-15',
@@ -1727,7 +1755,9 @@ export const agadirSleep: SleepListing[] = [
       lat: 30.599145,
       lng: -9.497195
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'a-sleep-16',
@@ -1827,7 +1857,9 @@ export const agadirSleep: SleepListing[] = [
       lat: 30.420516,
       lng: -9.583853
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'a-sleep-17',
@@ -1927,7 +1959,9 @@ export const agadirSleep: SleepListing[] = [
       lat: 30.583867,
       lng: -9.756632
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'a-sleep-18',
@@ -2026,7 +2060,9 @@ export const agadirSleep: SleepListing[] = [
       lat: 30.546191,
       lng: -9.708367
     },
-    tags: ["dorm"]
+    tags: ["dorm"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'a-sleep-19',
@@ -2125,7 +2161,9 @@ export const agadirSleep: SleepListing[] = [
       lat: 30.410423,
       lng: -9.601297
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'a-sleep-20',
@@ -2224,6 +2262,8 @@ export const agadirSleep: SleepListing[] = [
       lat: 30.407955,
       lng: -9.600393
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ]

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import type { ActivityListing } from '../../things-to-do';
 import { getCityLabel } from '../../things-to-do';
 import { ActivityHeader } from './ActivityHeader';
@@ -18,7 +18,9 @@ import { ActivityBookingCard } from './ActivityBookingCard';
 import { ActivityCancellationCard } from './ActivityCancellationCard';
 import { ActivityMeetingPointBanner } from './ActivityMeetingPointBanner';
 import { ActivityReviewsSection } from './ActivityReviewsSection';
+import PlaceReviewsSection from '../reviews/PlaceReviewsSection';
 import WorriesSection from '../worries/WorriesSection';
+import { hasPopulatedReviewsData, type ReviewSource } from '../../types/reviews';
 interface ActivityTemplateViewProps {
   activity: ActivityListing;
 }
@@ -31,13 +33,18 @@ interface ActivityTemplateViewProps {
  * Conditional rendering: sections without data never show (no empty boxes).
  */
 export const ActivityTemplateView: React.FC<ActivityTemplateViewProps> = ({ activity }) => {
+  const [selectedReviewSource, setSelectedReviewSource] = useState<ReviewSource | null>(null);
   const v = activity.visibility || {};
   const cityLabel = getCityLabel(activity.city);
 
   return (
     <div className="w-full pb-10">
-      {/* 1. Header: Full-bleed wide banner & experience identity */}
-      <ActivityHeader activity={activity} />
+      {/* 1. Header: Unified editorial hero with skyline watermark */}
+      <ActivityHeader
+        activity={activity}
+        activeReviewSource={selectedReviewSource}
+        onSelectReviewSource={setSelectedReviewSource}
+      />
 
       <div className="mx-auto w-full max-w-6xl px-4 pt-8 sm:px-6 lg:px-8 space-y-7">
         {/* 2. "Things You're Worried About!" — placed right under upper part of page */}
@@ -109,8 +116,20 @@ export const ActivityTemplateView: React.FC<ActivityTemplateViewProps> = ({ acti
       {/* 7. Meeting point (Full width) */}
       {v.show_meeting_point !== false && <ActivityMeetingPointBanner activity={activity} />}
 
-      {/* 8. Reviews */}
-      {v.show_reviews !== false && <ActivityReviewsSection reviews={activity.reviews} />}
+      {/* 8. Multi-platform Traveler Reviews & Community Intelligence */}
+      {v.show_reviews !== false && (
+        hasPopulatedReviewsData(activity.reviewsData) ? (
+          <PlaceReviewsSection
+            reviewsData={activity.reviewsData}
+            placeName={activity.name}
+            category="things-to-do"
+            externalSelectedSource={selectedReviewSource}
+            onSelectedSourceChange={setSelectedReviewSource}
+          />
+        ) : (
+          <ActivityReviewsSection reviews={activity.reviews} />
+        )
+      )}
       </div>
     </div>
   );

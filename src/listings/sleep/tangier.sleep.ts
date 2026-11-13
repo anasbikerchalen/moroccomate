@@ -360,7 +360,9 @@ export const tangierSleep: SleepListing[] = [
       lat: 35.78187,
       lng: -5.850714
     },
-    tags: ["family-favorite", "heritage", "5-star", "pool", "spa", "rooftop-terrace", "ocean-view", "airport-shuttle"]
+    tags: ["family-favorite", "heritage", "5-star", "pool", "spa", "rooftop-terrace", "ocean-view", "airport-shuttle"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "t-sleep-2",
@@ -481,7 +483,9 @@ export const tangierSleep: SleepListing[] = [
       lat: 35.785681,
       lng: -5.810089
     },
-    tags: ["family-favorite", "heritage", "in-medina", "spa", "rooftop-terrace", "5-star"]
+    tags: ["family-favorite", "heritage", "in-medina", "spa", "rooftop-terrace", "5-star"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "t-sleep-3",
@@ -602,7 +606,9 @@ export const tangierSleep: SleepListing[] = [
       lat: 35.781874,
       lng: -5.812409
     },
-    tags: ["family-favorite", "heritage", "5-star", "pool", "spa", "rooftop-terrace", "in-medina", "ocean-view"]
+    tags: ["family-favorite", "heritage", "5-star", "pool", "spa", "rooftop-terrace", "in-medina", "ocean-view"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "t-sleep-4",
@@ -723,7 +729,9 @@ export const tangierSleep: SleepListing[] = [
       lat: 35.787519,
       lng: -5.809523
     },
-    tags: ["family-favorite", "heritage", "ocean-view", "rooftop-terrace", "in-medina"]
+    tags: ["family-favorite", "heritage", "ocean-view", "rooftop-terrace", "in-medina"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "t-sleep-5",
@@ -844,7 +852,9 @@ export const tangierSleep: SleepListing[] = [
       lat: 35.782312,
       lng: -5.8145
     },
-    tags: ["family-favorite", "heritage", "5-star", "pool", "ocean-view", "rooftop-terrace", "spa"]
+    tags: ["family-favorite", "heritage", "5-star", "pool", "ocean-view", "rooftop-terrace", "spa"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "t-sleep-6",
@@ -965,7 +975,9 @@ export const tangierSleep: SleepListing[] = [
       lat: 35.78786,
       lng: -5.814188
     },
-    tags: ["in-medina", "rooftop-terrace", "ocean-view"]
+    tags: ["in-medina", "rooftop-terrace", "ocean-view"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "t-sleep-7",
@@ -1086,7 +1098,9 @@ export const tangierSleep: SleepListing[] = [
       lat: 35.768132,
       lng: -5.761399
     },
-    tags: ["heritage"]
+    tags: ["heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "t-sleep-8",
@@ -1207,7 +1221,9 @@ export const tangierSleep: SleepListing[] = [
       lat: 35.787137,
       lng: -5.810573
     },
-    tags: ["in-medina", "rooftop-terrace"]
+    tags: ["in-medina", "rooftop-terrace"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "t-sleep-9",
@@ -1328,7 +1344,9 @@ export const tangierSleep: SleepListing[] = [
       lat: 35.729194,
       lng: -5.912969
     },
-    tags: ["dorm"]
+    tags: ["dorm"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "t-sleep-10",
@@ -1449,7 +1467,9 @@ export const tangierSleep: SleepListing[] = [
       lat: 35.787859,
       lng: -5.812366
     },
-    tags: ["dorm", "heritage"]
+    tags: ["dorm", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "t-sleep-11",
@@ -1570,7 +1590,9 @@ export const tangierSleep: SleepListing[] = [
       lat: 35.787354,
       lng: -5.810295
     },
-    tags: ["dorm"]
+    tags: ["dorm"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "t-sleep-12",
@@ -1691,7 +1713,9 @@ export const tangierSleep: SleepListing[] = [
       lat: 35.802699,
       lng: -5.743784
     },
-    tags: ["heritage"]
+    tags: ["heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "t-sleep-13",
@@ -1810,7 +1834,9 @@ export const tangierSleep: SleepListing[] = [
       lat: 35.790437,
       lng: -5.816798
     },
-    tags: ["heritage", "in-medina", "rooftop-terrace", "ocean-view", "spa", "5-star"]
+    tags: ["heritage", "in-medina", "rooftop-terrace", "ocean-view", "spa", "5-star"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "t-sleep-14",
@@ -1931,7 +1957,9 @@ export const tangierSleep: SleepListing[] = [
       lat: 35.776386,
       lng: -5.796169
     },
-    tags: ["heritage", "pool", "ocean-view", "rooftop-terrace"]
+    tags: ["heritage", "pool", "ocean-view", "rooftop-terrace"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "t-sleep-15",
@@ -2052,7 +2080,9 @@ export const tangierSleep: SleepListing[] = [
       lat: 35.780999,
       lng: -5.806343
     },
-    tags: ["on-the-beach", "ocean-view", "pool", "rooftop-terrace"]
+    tags: ["on-the-beach", "ocean-view", "pool", "rooftop-terrace"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "t-sleep-16",
@@ -2173,7 +2203,9 @@ export const tangierSleep: SleepListing[] = [
       lat: 35.667332,
       lng: -5.965774
     },
-    tags: ["family-favorite", "5-star", "on-the-beach", "ocean-view", "pool", "spa", "golf-course", "kids-club", "airport-shuttle"]
+    tags: ["family-favorite", "5-star", "on-the-beach", "ocean-view", "pool", "spa", "golf-course", "kids-club", "airport-shuttle"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "t-sleep-17",
@@ -2294,7 +2326,9 @@ export const tangierSleep: SleepListing[] = [
       lat: 35.77764,
       lng: -5.800003
     },
-    tags: ["5-star", "on-the-beach", "ocean-view", "pool", "spa", "rooftop-terrace", "rooftop-bar"]
+    tags: ["5-star", "on-the-beach", "ocean-view", "pool", "spa", "rooftop-terrace", "rooftop-bar"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "t-sleep-18",
@@ -2415,7 +2449,9 @@ export const tangierSleep: SleepListing[] = [
       lat: 35.776487,
       lng: -5.797505
     },
-    tags: ["family-favorite", "on-the-beach", "ocean-view", "pool", "spa", "rooftop-bar", "nightclubs"]
+    tags: ["family-favorite", "on-the-beach", "ocean-view", "pool", "spa", "rooftop-bar", "nightclubs"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "t-sleep-19",
@@ -2536,7 +2572,9 @@ export const tangierSleep: SleepListing[] = [
       lat: 35.772285,
       lng: -5.782874
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "t-sleep-20",
@@ -2657,6 +2695,8 @@ export const tangierSleep: SleepListing[] = [
       lat: 35.787354,
       lng: -5.810295
     },
-    tags: []
+    tags: [],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ]

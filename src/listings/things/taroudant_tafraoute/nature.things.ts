@@ -278,6 +278,8 @@ export const taroudantTafraouteNatureThings: ThingToDoListing[] = [
       { id: "activity-difficulty", title: "Difficulty", icon: "mountain", tag: "not available", description: "not available", state: "pending" },
     ],
     googleMapsUrl: "https://maps.google.com/?q=Les+Peintures+Tafraoute+Blue+Rocks",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -354,6 +356,8 @@ export const taroudantTafraouteNatureThings: ThingToDoListing[] = [
       { id: "activity-difficulty", title: "Difficulty", icon: "mountain", tag: "not available", description: "not available", state: "pending" },
     ],
     googleMapsUrl: "https://maps.google.com/?q=Oasis+de+Tiout+Kasbah",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -430,6 +434,8 @@ export const taroudantTafraouteNatureThings: ThingToDoListing[] = [
       { id: "activity-difficulty", title: "Difficulty", icon: "mountain", tag: "not available", description: "not available", state: "pending" },
     ],
     googleMapsUrl: "https://maps.google.com/?q=Chapeau+de+Napoleon+Tafraoute",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -498,5 +504,7 @@ export const taroudantTafraouteNatureThings: ThingToDoListing[] = [
       { id: "activity-difficulty", title: "Difficulty", icon: "mountain", tag: "not available", description: "not available", state: "pending" },
     ],
     googleMapsUrl: "https://maps.google.com/?q=Gorges+Ait+Mansour+Tafraoute",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

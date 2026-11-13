@@ -353,7 +353,9 @@ export const meknesSleep: SleepListing[] = [
       lat: 33.89523,
       lng: -5.566176
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "mk-sleep-2",
@@ -470,7 +472,9 @@ export const meknesSleep: SleepListing[] = [
       lat: 33.895925,
       lng: -5.568195
     },
-    tags: ["heritage"]
+    tags: ["heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "mk-sleep-3",
@@ -587,7 +591,9 @@ export const meknesSleep: SleepListing[] = [
       lat: 33.893641,
       lng: -5.562787
     },
-    tags: ["heritage"]
+    tags: ["heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "mk-sleep-4",
@@ -704,7 +710,9 @@ export const meknesSleep: SleepListing[] = [
       lat: 33.89403,
       lng: -5.567542
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "mk-sleep-5",
@@ -821,7 +829,9 @@ export const meknesSleep: SleepListing[] = [
       lat: 33.888592,
       lng: -5.57312
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "mk-sleep-6",
@@ -938,7 +948,9 @@ export const meknesSleep: SleepListing[] = [
       lat: 33.758701,
       lng: -5.438871
     },
-    tags: []
+    tags: [],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "mk-sleep-7",
@@ -1053,7 +1065,9 @@ export const meknesSleep: SleepListing[] = [
       lat: 33.852355,
       lng: -5.57884
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "mk-sleep-8",
@@ -1170,7 +1184,9 @@ export const meknesSleep: SleepListing[] = [
       lat: 33.899413,
       lng: -5.567292
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "mk-sleep-9",
@@ -1287,7 +1303,9 @@ export const meknesSleep: SleepListing[] = [
       lat: 33.8943,
       lng: -5.56623
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "mk-sleep-10",
@@ -1404,7 +1422,9 @@ export const meknesSleep: SleepListing[] = [
       lat: 33.899413,
       lng: -5.567292
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "mk-sleep-11",
@@ -1521,7 +1541,9 @@ export const meknesSleep: SleepListing[] = [
       lat: 33.89058,
       lng: -5.561973
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "mk-sleep-12",
@@ -1638,7 +1660,9 @@ export const meknesSleep: SleepListing[] = [
       lat: 33.895611,
       lng: -5.56333
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "mk-sleep-13",
@@ -1761,7 +1785,9 @@ export const meknesSleep: SleepListing[] = [
       lat: 33.89477,
       lng: -5.566406
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "mk-sleep-14",
@@ -1878,7 +1904,9 @@ export const meknesSleep: SleepListing[] = [
       lat: 33.89387,
       lng: -5.565986
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "mk-sleep-15",
@@ -1995,7 +2023,9 @@ export const meknesSleep: SleepListing[] = [
       lat: 33.865135,
       lng: -5.576339
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "mk-sleep-16",
@@ -2108,7 +2138,9 @@ export const meknesSleep: SleepListing[] = [
       business: "Rooftop is usable for light work.",
       nomad: "A low-cost medina base for practical remote work.",
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "mk-sleep-17",
@@ -2225,7 +2257,9 @@ export const meknesSleep: SleepListing[] = [
       lat: 33.881045,
       lng: -5.533418
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "mk-sleep-18",
@@ -2342,7 +2376,9 @@ export const meknesSleep: SleepListing[] = [
       lat: 33.857595,
       lng: -5.585847
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "mk-sleep-19",
@@ -2459,7 +2495,9 @@ export const meknesSleep: SleepListing[] = [
       lat: 33.903402,
       lng: -5.560149
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "mk-sleep-20",
@@ -2576,6 +2614,8 @@ export const meknesSleep: SleepListing[] = [
       lat: 33.894666,
       lng: -5.549977
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ]

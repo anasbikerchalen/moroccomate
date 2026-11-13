@@ -101,7 +101,9 @@ export const rabatShopListings: ShopListing[] = [
     productCategories: ['Rabati Wool Carpets', 'Leather Poufs', 'Embroidered Cushions', 'Silver Jewelry'],
     languagesSpoken: ['Arabic', 'French', 'English'],
     openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 19:30' }],
-    shipping: { available: true, partner: 'dhl' }
+    shipping: { available: true, partner: 'dhl' },
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-rab-2',
@@ -128,7 +130,9 @@ export const rabatShopListings: ShopListing[] = [
     productCategories: ['Rabati Rugs', 'Glazed Pottery', 'Engraved Brassware', 'Leather Bags'],
     languagesSpoken: ['Arabic', 'French', 'English'],
     openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 19:00' }],
-    workshopVisitable: true
+    workshopVisitable: true,
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-rab-3',
@@ -155,7 +159,9 @@ export const rabatShopListings: ShopListing[] = [
     productCategories: ['Rabati Medallion Carpets', 'Fine Wool Runners', 'Traditional Tapestries'],
     languagesSpoken: ['Arabic', 'French', 'English'],
     openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 19:00' }],
-    shipping: { available: true, partner: 'dhl' }
+    shipping: { available: true, partner: 'dhl' },
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-rab-4',
@@ -181,7 +187,9 @@ export const rabatShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Terracotta Urns', 'Glazed Tagines', 'Zellige Water Fountains', 'Planters'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 19:00' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 19:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-rab-5',
@@ -206,7 +214,9 @@ export const rabatShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard', 'apple_pay'],
     productCategories: ['Cornes de Gazelle', 'Feuilleté Pastilla', 'Macarons Moroccan Style', 'Briouates'],
     languagesSpoken: ['French', 'Arabic', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '07:30 - 20:30' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '07:30 - 20:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-rab-6',
@@ -231,7 +241,9 @@ export const rabatShopListings: ShopListing[] = [
     paymentMethods: ['cash'],
     productCategories: ['Yellow Babouches', 'Embroidered Slippers', 'Leather Sandals'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 19:30' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 19:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-rab-7',
@@ -256,7 +268,9 @@ export const rabatShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard'],
     productCategories: ['Tuareg Silver Crosses', 'Amber Beads', 'Filigree Earrings'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '09:30 - 19:00' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '09:30 - 19:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-rab-8',
@@ -281,7 +295,9 @@ export const rabatShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard', 'apple_pay'],
     productCategories: ['Modern Fashion', 'Designer Cosmetics', 'Leather Accessories'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '10:00 - 21:00' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '10:00 - 21:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-rab-9',
@@ -307,7 +323,9 @@ export const rabatShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard', 'apple_pay'],
     productCategories: ['Organic Argan Oil', 'Taliouine Saffron', 'Prickly Pear Oil', 'Rose Water'],
     languagesSpoken: ['French', 'English', 'Arabic'],
-    openingHours: [{ day: 'Mon-Sat', hours: '09:30 - 19:30' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '09:30 - 19:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-rab-10',
@@ -333,7 +351,9 @@ export const rabatShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard'],
     productCategories: ['Monochrome Tablecloths', 'Embroidered Cushions', 'Bridal Linens'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 18:30' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 18:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-rab-11',
@@ -359,7 +379,9 @@ export const rabatShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Briefcases', 'Travel Duffels', 'Belts', 'Wallets'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 19:00' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 19:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-rab-12',
@@ -384,7 +406,9 @@ export const rabatShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard'],
     productCategories: ['Carved Cedar Chests', 'Vintage Brass Lamps', 'Antique Daggers'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sat', hours: '09:30 - 19:00' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '09:30 - 19:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-rab-13',
@@ -409,7 +433,9 @@ export const rabatShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard', 'apple_pay', 'amex'],
     productCategories: ['Velvet Caftans', 'Silk Scarves', 'Silverware'],
     languagesSpoken: ['French', 'English', 'Arabic'],
-    openingHours: [{ day: 'Mon-Sun', hours: '10:00 - 20:30' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '10:00 - 20:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-rab-14',
@@ -434,7 +460,9 @@ export const rabatShopListings: ShopListing[] = [
     paymentMethods: ['cash'],
     productCategories: ['Ras El Hanout', 'Black Cumin Oil', 'Ghassoul Clay', 'Henna Powder'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 19:30' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 19:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-rab-15',
@@ -459,7 +487,9 @@ export const rabatShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Engraved Teapots', 'Tea Trays', 'Wall Sconces'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 19:00' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 19:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-rab-16',
@@ -484,7 +514,9 @@ export const rabatShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard'],
     productCategories: ['Palm Leaf Baskets', 'Linen Shirts', 'Organic Candles'],
     languagesSpoken: ['French', 'English', 'Arabic'],
-    openingHours: [{ day: 'Tue-Sun', hours: '10:00 - 18:30' }]
+    openingHours: [{ day: 'Tue-Sun', hours: '10:00 - 18:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-rab-17',
@@ -509,7 +541,9 @@ export const rabatShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Cedar Boxes', 'Mirror Frames', 'Backgammon Boards'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 19:00' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 19:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-rab-18',
@@ -534,7 +568,9 @@ export const rabatShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard', 'apple_pay'],
     productCategories: ['Modern Kaftans', 'Linen Dresses', 'Leather Mules'],
     languagesSpoken: ['French', 'English', 'Arabic'],
-    openingHours: [{ day: 'Mon-Sat', hours: '10:00 - 20:00' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '10:00 - 20:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-rab-19',
@@ -559,7 +595,9 @@ export const rabatShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Serving Bowls', 'Tajines', 'Decorative Vases'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 19:30' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 19:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-rab-20',
@@ -585,7 +623,9 @@ export const rabatShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Babouches', 'Leather Bags', 'Wallets'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 19:00' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 19:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-rabat-marjane-1',
@@ -607,7 +647,9 @@ export const rabatShopListings: ShopListing[] = [
     paymentMethods: ["cash","visa","mastercard","apple_pay"],
     productCategories: ["Groceries","Fresh Fish","Bakery","Household","Electronics","Personal Care"],
     languagesSpoken: ["Arabic","French","English"],
-    openingHours: [{"day":"Mon-Sun","hours":"09:00 - 22:00"}]
+    openingHours: [{"day":"Mon-Sun","hours":"09:00 - 22:00"}],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-rabat-carrefour-1',
@@ -629,7 +671,9 @@ export const rabatShopListings: ShopListing[] = [
     paymentMethods: ["cash","visa","mastercard","apple_pay"],
     productCategories: ["European Groceries","Dairy","Bakery","Fresh Meat","Cosmetics"],
     languagesSpoken: ["French","Arabic","English"],
-    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 21:30"}]
+    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 21:30"}],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-rabat-decathlon-1',
@@ -651,7 +695,9 @@ export const rabatShopListings: ShopListing[] = [
     paymentMethods: ["cash","visa","mastercard","apple_pay"],
     productCategories: ["Running Shoes","Trekking Packs","Athletic Clothing","Swim Gear","Luggage"],
     languagesSpoken: ["French","Arabic","English"],
-    openingHours: [{"day":"Mon-Sun","hours":"10:00 - 21:00"}]
+    openingHours: [{"day":"Mon-Sun","hours":"10:00 - 21:00"}],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-rabat-atacadao-1',
@@ -673,7 +719,9 @@ export const rabatShopListings: ShopListing[] = [
     paymentMethods: ["cash","visa","mastercard"],
     productCategories: ["Bulk Water","Canned Goods","Flour & Rice","Household Detergents"],
     languagesSpoken: ["Arabic","French"],
-    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 20:30"}]
+    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 20:30"}],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-rabat-bim-1',
@@ -695,6 +743,8 @@ export const rabatShopListings: ShopListing[] = [
     paymentMethods: ["cash","visa","mastercard"],
     productCategories: ["Bottled Water","Cookies","Dairy","Snacks","Basic Toiletries"],
     languagesSpoken: ["Arabic","French"],
-    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 21:00"}]
+    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 21:00"}],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

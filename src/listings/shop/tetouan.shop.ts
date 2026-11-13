@@ -99,7 +99,9 @@ export const tetouanShops: ShopListing[] = [
     phoneNumber: '+212 5399-63210',
     openingHours: [{ day: 'Mon-Sat', hours: '08:30 - 18:00' }],
     workshopVisitable: true,
-    isLocalFavorite: true
+    isLocalFavorite: true,
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-tet-2',
@@ -125,7 +127,9 @@ export const tetouanShops: ShopListing[] = [
     productCategories: ['Gold Filigree Necklaces', 'Bridal Crowns', 'Silver Fibulas', 'Engraved Bangles'],
     languagesSpoken: ['Arabic', 'Spanish', 'French'],
     openingHours: [{ day: 'Mon-Sat', hours: '09:30 - 19:30' }],
-    isLocalFavorite: true
+    isLocalFavorite: true,
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-tet-3',
@@ -151,7 +155,9 @@ export const tetouanShops: ShopListing[] = [
     productCategories: ['Leather Travel Bags', 'Crossbody Purses', 'Embossed Wallets', 'Leather Belts'],
     languagesSpoken: ['Arabic', 'Spanish', 'French', 'English'],
     openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 19:00' }],
-    workshopVisitable: true
+    workshopVisitable: true,
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-tet-4',
@@ -176,7 +182,9 @@ export const tetouanShops: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Blue & White Ceramic Plates', 'Antique Tile Fragments', 'Copper Lanterns'],
     languagesSpoken: ['Arabic', 'Spanish', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 19:00' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 19:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-tet-5',
@@ -203,7 +211,9 @@ export const tetouanShops: ShopListing[] = [
     productCategories: ['Hand-embroidered Linens', 'Silk Caftans', 'Velvet Cushion Covers'],
     languagesSpoken: ['Arabic', 'Spanish', 'French', 'English'],
     openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 18:00' }],
-    shipping: { available: true, partner: 'dhl' }
+    shipping: { available: true, partner: 'dhl' },
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-tet-6',
@@ -228,7 +238,9 @@ export const tetouanShops: ShopListing[] = [
     paymentMethods: ['cash'],
     productCategories: ['Taraza Straw Hats with Pom-poms', 'Striped M\'ndil Cloths', 'Straw Beach Baskets'],
     languagesSpoken: ['Arabic', 'Spanish', 'French'],
-    openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 19:30' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 19:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-tet-7',
@@ -253,7 +265,9 @@ export const tetouanShops: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Orange Blossom Water', 'Cosmetic Argan Oil', 'Mountain Thyme Tea', 'Kohl Eye Powder'],
     languagesSpoken: ['Arabic', 'Spanish', 'French'],
-    openingHours: [{ day: 'Mon-Sat', hours: '08:30 - 20:00' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '08:30 - 20:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-tet-8',
@@ -278,7 +292,9 @@ export const tetouanShops: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard'],
     productCategories: ['Brass Hanging Lamps', 'Chiseled Silver Trays', 'Ancient Daggers'],
     languagesSpoken: ['Arabic', 'Spanish', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 19:00' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 19:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-tet-9',
@@ -303,7 +319,9 @@ export const tetouanShops: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard'],
     productCategories: ['Cold Pressed Virgin Olive Oil', 'Spiced Table Olives', 'Olive Tapenade'],
     languagesSpoken: ['Arabic', 'Spanish', 'French'],
-    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 20:00' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 20:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-tet-10',
@@ -328,6 +346,8 @@ export const tetouanShops: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard'],
     productCategories: ['White Wool Northern Jellabas', 'Silk Sfifa Trim', 'Traditional Gandouras'],
     languagesSpoken: ['Arabic', 'Spanish', 'French'],
-    openingHours: [{ day: 'Mon-Sat', hours: '09:30 - 20:00' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '09:30 - 20:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ]

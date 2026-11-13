@@ -1,3 +1,5 @@
+import type { PlaceReviewsData } from '../types/reviews';
+
 export type CityId =
   | 'marrakech' | 'fes' | 'agadir' | 'chefchaouen' | 'essaouira' | 'casablanca' | 'tangier' 
   | 'merzouga' | 'rabat' | 'meknes' | 'mhamid' | 'imlil_toubkal' | 'ourika' | 'ouzoud' 
@@ -119,6 +121,8 @@ export interface ShopListing {
   reviewSummary?: string;
   recentReviews?: ShopReviewItem[];
   isLocalFavorite?: boolean;
+  /** Multi-platform reviews section data (Tripadvisor, Google Maps, Trustpilot, Lonely Planet, Reddit) */
+  reviewsData?: PlaceReviewsData;
   
   // Local Context
   nearbyLandmarks?: string[];

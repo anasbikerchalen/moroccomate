@@ -101,7 +101,9 @@ export const essaouiraShopListings: ShopListing[] = [
     productCategories: ['Cosmetic Argan Oil', 'Culinary Argan Oil', 'Amlou Paste', 'Black Soap', 'Prickly Pear Oil'],
     languagesSpoken: ['Arabic', 'French', 'English', 'German'],
     openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 19:30' }],
-    shipping: { available: true, partner: 'dhl' }
+    shipping: { available: true, partner: 'dhl' },
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-ess-2',
@@ -128,7 +130,9 @@ export const essaouiraShopListings: ShopListing[] = [
     productCategories: ['Thuya Secret Boxes', 'Inlaid Chess Sets', 'Carved Mirrors', 'Salad Bowls'],
     languagesSpoken: ['Arabic', 'French', 'English', 'Spanish'],
     openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 19:30' }],
-    workshopVisitable: true
+    workshopVisitable: true,
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-ess-3',
@@ -153,7 +157,9 @@ export const essaouiraShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard', 'apple_pay'],
     productCategories: ['Linen Dresses', 'Beach Totes', 'Silver Rings', 'Design Ceramics'],
     languagesSpoken: ['French', 'English', 'Arabic'],
-    openingHours: [{ day: 'Mon-Sun', hours: '10:00 - 19:30' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '10:00 - 19:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-ess-4',
@@ -178,7 +184,9 @@ export const essaouiraShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Enamel Silver Cuffs', 'Fibula Pins', 'Amber Necklaces'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 20:00' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 20:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-ess-5',
@@ -205,7 +213,9 @@ export const essaouiraShopListings: ShopListing[] = [
     productCategories: ['Tribal Wool Rugs', 'Flat-Woven Kilims', 'Local Paintings'],
     languagesSpoken: ['Arabic', 'French', 'English', 'German'],
     openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 19:30' }],
-    shipping: { available: true, partner: 'dhl' }
+    shipping: { available: true, partner: 'dhl' },
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-ess-6',
@@ -231,7 +241,9 @@ export const essaouiraShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard'],
     productCategories: ['Toasted Culinary Argan Oil', 'Argan Face Serum', 'Black Soap'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 19:30' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 19:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-ess-7',
@@ -256,7 +268,9 @@ export const essaouiraShopListings: ShopListing[] = [
     paymentMethods: ['cash'],
     productCategories: ['Fish BBQ Spice Rub', 'Rock Salt', 'Sea Cumin'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '08:00 - 17:00' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '08:00 - 17:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-ess-8',
@@ -281,7 +295,9 @@ export const essaouiraShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Beach Blankets', 'Pestemal Towels', 'Striped Cushions'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 19:30' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 19:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-ess-9',
@@ -306,7 +322,9 @@ export const essaouiraShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard'],
     productCategories: ['Raffia Shoes', 'Raffia Hats', 'Woven Totes'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sat', hours: '09:30 - 19:00' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '09:30 - 19:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-ess-10',
@@ -331,7 +349,9 @@ export const essaouiraShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Leather Backpacks', 'Embossed Journals', 'Babouche Slippers'],
     languagesSpoken: ['Arabic', 'French', 'English', 'Spanish'],
-    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 19:30' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 19:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-ess-11',
@@ -356,7 +376,9 @@ export const essaouiraShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Saffron', 'Eucalyptus Honey', 'Organic Spices', 'Rose Water'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 20:00' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 20:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-ess-12',
@@ -381,7 +403,9 @@ export const essaouiraShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Cedar Cutting Boards', 'Wood Sculptures', 'Thuya Bowls'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 19:00' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 19:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-ess-13',
@@ -406,7 +430,9 @@ export const essaouiraShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard', 'apple_pay'],
     productCategories: ['Matte Ceramics', 'Linen Napkins', 'Brass Lamps'],
     languagesSpoken: ['French', 'English', 'Arabic'],
-    openingHours: [{ day: 'Tue-Sun', hours: '10:00 - 19:00' }]
+    openingHours: [{ day: 'Tue-Sun', hours: '10:00 - 19:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-ess-14',
@@ -431,7 +457,9 @@ export const essaouiraShopListings: ShopListing[] = [
     paymentMethods: ['cash'],
     productCategories: ['Vintage Copperware', 'Reclaimed Wood Frames', 'Brass Lamps'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 19:00' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 19:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-ess-15',
@@ -456,7 +484,9 @@ export const essaouiraShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Leather Sandals', 'Laptop Sleeves', 'Travel Bags'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 19:30' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 19:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-ess-16',
@@ -482,7 +512,9 @@ export const essaouiraShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Pom-Pom Throws', 'Heavy Wool Blankets', 'Floor Cushions'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 18:30' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 18:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-ess-17',
@@ -508,7 +540,9 @@ export const essaouiraShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard'],
     productCategories: ['Silver Fibulas', 'Coral Rings', 'Ear Cuffs'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sat', hours: '09:30 - 19:00' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '09:30 - 19:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-ess-18',
@@ -533,7 +567,9 @@ export const essaouiraShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Guembri Lutes', 'Krakeb Castanets', 'Goat Skin Drums'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '09:30 - 20:00' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '09:30 - 20:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-ess-19',
@@ -558,7 +594,9 @@ export const essaouiraShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Acrylic Canvas Paintings', 'Art Prints', 'Painted Tiles'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '10:00 - 19:00' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '10:00 - 19:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-ess-20',
@@ -583,7 +621,9 @@ export const essaouiraShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Prickly Pear Oil', 'Rose Water', 'Ghassoul Clay', 'Eucalyptus Salt'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 19:30' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 19:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-essaouira-marjane-1',
@@ -605,7 +645,9 @@ export const essaouiraShopListings: ShopListing[] = [
     paymentMethods: ["cash","visa","mastercard","apple_pay"],
     productCategories: ["Groceries","Local Argan Oil","Fresh Produce","Bakery","Toiletries"],
     languagesSpoken: ["Arabic","French","English"],
-    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 21:30"}]
+    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 21:30"}],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-essaouira-carrefour-1',
@@ -627,7 +669,9 @@ export const essaouiraShopListings: ShopListing[] = [
     paymentMethods: ["cash","visa","mastercard","apple_pay"],
     productCategories: ["European Groceries","Dairy & Cheese","Bakery","Wines","Personal Care"],
     languagesSpoken: ["French","English","Arabic"],
-    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 21:30"}]
+    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 21:30"}],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-essaouira-bim-1',
@@ -649,7 +693,9 @@ export const essaouiraShopListings: ShopListing[] = [
     paymentMethods: ["cash","visa","mastercard"],
     productCategories: ["Mineral Water","Biscuits","Dairy","Snacks","Basic Hygiene"],
     languagesSpoken: ["Arabic","French"],
-    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 21:00"}]
+    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 21:00"}],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-essaouira-ensemble-1',
@@ -671,6 +717,8 @@ export const essaouiraShopListings: ShopListing[] = [
     paymentMethods: ["cash","visa","mastercard"],
     productCategories: ["Thuya Wood Carvings","Silver Jewelry","Wool Blankets","Pottery"],
     languagesSpoken: ["Arabic","French","English"],
-    openingHours: [{"day":"Mon-Sat","hours":"09:00 - 19:30"}]
+    openingHours: [{"day":"Mon-Sat","hours":"09:00 - 19:30"}],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

@@ -204,7 +204,9 @@ export const essaouiraHeritageThings: ThingToDoListing[] = [
     ],
     address: "Rue de la Skala, Médina Ancienne, 44000 Essaouira, Morocco",
     coordinates: { lat: 31.5147, lng: -9.7732 },
-    googleMapsUrl: "https://maps.google.com/?q=31.5147,-9.7732"
+    googleMapsUrl: "https://maps.google.com/?q=31.5147,-9.7732",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -371,7 +373,9 @@ export const essaouiraHeritageThings: ThingToDoListing[] = [
     ],
     address: "Bab el-Marsa, Port d'Essaouira, 44000 Essaouira, Morocco",
     coordinates: { lat: 31.5097, lng: -9.7712 },
-    googleMapsUrl: "https://maps.google.com/?q=31.5097,-9.7712"
+    googleMapsUrl: "https://maps.google.com/?q=31.5097,-9.7712",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -547,7 +551,9 @@ export const essaouiraHeritageThings: ThingToDoListing[] = [
     ],
     address: "Médina Ancienne, 44000 Essaouira, Morocco",
     coordinates: { lat: 31.5138, lng: -9.7697 },
-    googleMapsUrl: "https://maps.google.com/?q=31.5138,-9.7697"
+    googleMapsUrl: "https://maps.google.com/?q=31.5138,-9.7697",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -708,7 +714,9 @@ export const essaouiraHeritageThings: ThingToDoListing[] = [
     ],
     address: "Avenue Oqba Ibn Nafi, Place El Menzeh, Médina Ancienne, 44000 Essaouira, Morocco",
     coordinates: { lat: 31.5132, lng: -9.7708 },
-    googleMapsUrl: "https://maps.google.com/?q=31.5132,-9.7708"
+    googleMapsUrl: "https://maps.google.com/?q=31.5132,-9.7708",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -870,7 +878,9 @@ export const essaouiraHeritageThings: ThingToDoListing[] = [
     ],
     address: "119 Rue du Mellah, Mellah, 44000 Essaouira, Morocco",
     coordinates: { lat: 31.5161, lng: -9.7675 },
-    googleMapsUrl: "https://maps.google.com/?q=31.5161,-9.7675"
+    googleMapsUrl: "https://maps.google.com/?q=31.5161,-9.7675",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1035,7 +1045,9 @@ export const essaouiraHeritageThings: ThingToDoListing[] = [
     ],
     address: "Quartier Mellah, 44000 Essaouira, Morocco",
     coordinates: { lat: 31.5165, lng: -9.7667 },
-    googleMapsUrl: "https://maps.google.com/?q=31.5165,-9.7667"
+    googleMapsUrl: "https://maps.google.com/?q=31.5165,-9.7667",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1200,7 +1212,9 @@ export const essaouiraHeritageThings: ThingToDoListing[] = [
     ],
     address: "Rue Ziry Ibn Atiyah, Mellah, 44000 Essaouira, Morocco",
     coordinates: { lat: 31.5156, lng: -9.7673 },
-    googleMapsUrl: "https://maps.google.com/?q=31.5156,-9.7673"
+    googleMapsUrl: "https://maps.google.com/?q=31.5156,-9.7673",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1355,7 +1369,9 @@ export const essaouiraHeritageThings: ThingToDoListing[] = [
     ],
     address: "10 Rue El Hajjali, Médina Ancienne, 44000 Essaouira, Morocco",
     coordinates: { lat: 31.5126, lng: -9.7702 },
-    googleMapsUrl: "https://maps.google.com/?q=31.5126,-9.7702"
+    googleMapsUrl: "https://maps.google.com/?q=31.5126,-9.7702",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1523,7 +1539,9 @@ export const essaouiraHeritageThings: ThingToDoListing[] = [
     ],
     address: "10 Avenue du Caire, Médina Ancienne, 44000 Essaouira, Morocco",
     coordinates: { lat: 31.5140, lng: -9.7686 },
-    googleMapsUrl: "https://maps.google.com/?q=31.5140,-9.7686"
+    googleMapsUrl: "https://maps.google.com/?q=31.5140,-9.7686",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1684,7 +1702,9 @@ export const essaouiraHeritageThings: ThingToDoListing[] = [
     ],
     address: "Rue Derb Laâlouj, Médina Ancienne, 44000 Essaouira, Morocco",
     coordinates: { lat: 31.5135, lng: -9.7717 },
-    googleMapsUrl: "https://maps.google.com/?q=31.5135,-9.7717"
+    googleMapsUrl: "https://maps.google.com/?q=31.5135,-9.7717",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1848,7 +1868,9 @@ export const essaouiraHeritageThings: ThingToDoListing[] = [
     ],
     address: "Rue du Mellah, Mellah, 44000 Essaouira, Morocco",
     coordinates: { lat: 31.5167, lng: -9.7672 },
-    googleMapsUrl: "https://maps.google.com/?q=31.5167,-9.7672"
+    googleMapsUrl: "https://maps.google.com/?q=31.5167,-9.7672",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -2020,7 +2042,9 @@ export const essaouiraHeritageThings: ThingToDoListing[] = [
     ],
     address: "Plage de Diabat, Diabat, 44000 Essaouira, Morocco",
     coordinates: { lat: 31.4883, lng: -9.7686 },
-    googleMapsUrl: "https://maps.google.com/?q=31.4883,-9.7686"
+    googleMapsUrl: "https://maps.google.com/?q=31.4883,-9.7686",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -2203,7 +2227,9 @@ export const essaouiraHeritageThings: ThingToDoListing[] = [
     ],
     address: "Place Moulay Hassan, Médina Ancienne, 44000 Essaouira, Morocco",
     coordinates: { lat: 31.5115, lng: -9.7710 },
-    googleMapsUrl: "https://maps.google.com/?q=31.5115,-9.7710"
+    googleMapsUrl: "https://maps.google.com/?q=31.5115,-9.7710",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -2366,6 +2392,8 @@ export const essaouiraHeritageThings: ThingToDoListing[] = [
     ],
     address: "Bab Doukkala, Avenue Mohamed Zerktouni, 44000 Essaouira, Morocco",
     coordinates: { lat: 31.5173, lng: -9.7661 },
-    googleMapsUrl: "https://maps.google.com/?q=31.5173,-9.7661"
+    googleMapsUrl: "https://maps.google.com/?q=31.5173,-9.7661",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

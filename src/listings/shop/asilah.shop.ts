@@ -98,7 +98,9 @@ export const asilahShops: ShopListing[] = [
     phoneNumber: '+212 5394-17850',
     openingHours: [{ day: 'Mon-Sun', hours: '10:00 - 20:00' }],
     shipping: { available: true, partner: 'dhl' },
-    isLocalFavorite: true
+    isLocalFavorite: true,
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-asi-2',
@@ -123,7 +125,9 @@ export const asilahShops: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Custom Straw Sun Hats', 'Leather-handled Beach Totes', 'Linen Beach Wraps'],
     languagesSpoken: ['Spanish', 'French', 'English', 'Arabic'],
-    openingHours: [{ day: 'Mon-Sun', hours: '09:30 - 21:00' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '09:30 - 21:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-asi-3',
@@ -150,7 +154,9 @@ export const asilahShops: ShopListing[] = [
     productCategories: ['Pastel Flat-weave Rugs', 'Striped Cotton Blankets', 'Floor Cushions'],
     languagesSpoken: ['Spanish', 'English', 'French', 'Arabic'],
     openingHours: [{ day: 'Mon-Sun', hours: '09:30 - 20:00' }],
-    shipping: { available: true, partner: 'fedex' }
+    shipping: { available: true, partner: 'fedex' },
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-asi-4',
@@ -176,7 +182,9 @@ export const asilahShops: ShopListing[] = [
     productCategories: ['White Linen Tunics', 'Silver Shell Necklaces', 'Hand-poured Scented Candles'],
     languagesSpoken: ['French', 'English', 'Spanish', 'Arabic'],
     openingHours: [{ day: 'Mon-Sun', hours: '10:00 - 21:00' }],
-    isLocalFavorite: true
+    isLocalFavorite: true,
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-asi-5',
@@ -201,7 +209,9 @@ export const asilahShops: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard'],
     productCategories: ['Pop Art Canvas Prints', 'Metal Fish Sculptures', 'Festival Catalogues'],
     languagesSpoken: ['Spanish', 'French', 'English', 'Arabic'],
-    openingHours: [{ day: 'Mon-Sat', hours: '10:30 - 19:30' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '10:30 - 19:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-asi-6',
@@ -227,7 +237,9 @@ export const asilahShops: ShopListing[] = [
     productCategories: ['Fresh Sole & Sea Bream', 'Goat Cheese Rounds', 'Marinated Olives'],
     languagesSpoken: ['Arabic', 'Spanish', 'French'],
     openingHours: [{ day: 'Mon-Sun', hours: '08:00 - 18:00' }],
-    isLocalFavorite: true
+    isLocalFavorite: true,
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-asi-7',
@@ -252,7 +264,9 @@ export const asilahShops: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Cosmetic Argan Elixir', 'Red Ghassoul Masks', 'Sea Salt Herbs', 'Black Soap'],
     languagesSpoken: ['Arabic', 'Spanish', 'French'],
-    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 20:30' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 20:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-asi-8',
@@ -277,7 +291,9 @@ export const asilahShops: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard'],
     productCategories: ['Framed Photo Prints', 'Postcard Packs', 'Art Canvas'],
     languagesSpoken: ['Spanish', 'English', 'French', 'Arabic'],
-    openingHours: [{ day: 'Mon-Sun', hours: '10:00 - 20:00' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '10:00 - 20:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-asi-9',
@@ -302,7 +318,9 @@ export const asilahShops: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Blue-rimmed Mugs', 'Striped Linen Robes', 'Cotton Throw Pillows'],
     languagesSpoken: ['Spanish', 'French', 'English', 'Arabic'],
-    openingHours: [{ day: 'Mon-Sun', hours: '09:30 - 20:30' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '09:30 - 20:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-asi-10',
@@ -327,7 +345,9 @@ export const asilahShops: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard'],
     productCategories: ['Mineral Sea Salt Flakes', 'Custom Ras El Hanout', 'Wild Herb Teas', 'Fresh Amlou'],
     languagesSpoken: ['Spanish', 'French', 'English', 'Arabic'],
-    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 20:30' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 20:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-asilah-bim-1',
@@ -349,6 +369,8 @@ export const asilahShops: ShopListing[] = [
     paymentMethods: ["cash","visa","mastercard"],
     productCategories: ["Mineral Water","Cookies","Dairy","Snacks","Basic Toiletries"],
     languagesSpoken: ["Arabic","Spanish","French"],
-    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 21:00"}]
+    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 21:00"}],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

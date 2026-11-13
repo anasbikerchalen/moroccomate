@@ -418,7 +418,9 @@ export const casablancaHeritageThings: ThingToDoListing[] = [
         a: "No, non-Muslim visitors may only enter the prayer hall as part of the scheduled official guided tours."
       }
     ],
-    contactPhone: "+212522482886"
+    contactPhone: "+212522482886",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -595,7 +597,9 @@ export const casablancaHeritageThings: ThingToDoListing[] = [
         a: "Yes, the main commercial thoroughfares are active and welcoming during daytime; basic situational awareness is all that is required."
       }
     ],
-    contactPhone: ""
+    contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -778,7 +782,9 @@ export const casablancaHeritageThings: ThingToDoListing[] = [
         a: "Interior tower visits are generally closed to the general public outside of organized European Heritage Day tours."
       }
     ],
-    contactPhone: ""
+    contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -965,7 +971,9 @@ export const casablancaHeritageThings: ThingToDoListing[] = [
         a: "Yes, historic bakeries like Pâtisserie Bennis accept only cash in Moroccan Dirhams."
       }
     ],
-    contactPhone: ""
+    contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1142,7 +1150,9 @@ export const casablancaHeritageThings: ThingToDoListing[] = [
         a: "Due to active administrative offices, guards at the door will usually only permit entry if accompanied by an on-site authorized guide."
       }
     ],
-    contactPhone: ""
+    contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1325,7 +1335,9 @@ export const casablancaHeritageThings: ThingToDoListing[] = [
         a: "Purchase your choice of raw seafood from the fish stands, then carry it to any of the surrounding grill restaurants; they will clean, season, grill, and serve it with bread and salad for a small service fee."
       }
     ],
-    contactPhone: ""
+    contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1502,7 +1514,9 @@ export const casablancaHeritageThings: ThingToDoListing[] = [
         a: "No, it was deconsecrated decades ago and operates exclusively as a municipal cultural center, exhibition hall, and architectural landmark."
       }
     ],
-    contactPhone: ""
+    contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1679,7 +1693,9 @@ export const casablancaHeritageThings: ThingToDoListing[] = [
         a: "No, general admission to all permanent collections and temporary exhibitions is completely free."
       }
     ],
-    contactPhone: "+212522295087"
+    contactPhone: "+212522295087",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1861,7 +1877,9 @@ export const casablancaHeritageThings: ThingToDoListing[] = [
         a: "It is closed on Saturdays for Shabbat, but opens on Sundays from 11:00 AM to 03:00 PM."
       }
     ],
-    contactPhone: "+212522994940"
+    contactPhone: "+212522994940",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -2038,7 +2056,9 @@ export const casablancaHeritageThings: ThingToDoListing[] = [
         a: "Yes, respectful visitors of all faiths are welcome to enter quietly and admire the artwork outside of scheduled mass times."
       }
     ],
-    contactPhone: "+212522861054"
+    contactPhone: "+212522861054",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -2221,6 +2241,8 @@ export const casablancaHeritageThings: ThingToDoListing[] = [
         a: "A comfortable stroll covering the main buildings along Boulevard Mohammed V, Rue Idriss Lahrizi, and Boulevard de Paris takes approximately 1.5 to 2 hours."
       }
     ],
-    contactPhone: ""
+    contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

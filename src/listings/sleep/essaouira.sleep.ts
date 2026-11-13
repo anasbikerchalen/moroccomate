@@ -357,7 +357,9 @@ export const essaouiraSleep: SleepListing[] = [
       lat: 31.512984,
       lng: -9.77108
     },
-    tags: ["heritage", "5-star", "ocean-view", "heated-pools", "rooftop-terrace", "in-medina", "spa"]
+    tags: ["heritage", "5-star", "ocean-view", "heated-pools", "rooftop-terrace", "in-medina", "spa"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "e-sleep-2",
@@ -476,7 +478,9 @@ export const essaouiraSleep: SleepListing[] = [
       lat: 31.495071,
       lng: -9.760809
     },
-    tags: ["family-favorite", "pool", "heated-pools", "spa", "kids-club"]
+    tags: ["family-favorite", "pool", "heated-pools", "spa", "kids-club"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "e-sleep-3",
@@ -595,7 +599,9 @@ export const essaouiraSleep: SleepListing[] = [
       lat: 31.399435,
       lng: -9.682864
     },
-    tags: ["ocean-view", "rooftop-terrace", "in-medina", "on-the-beach"]
+    tags: ["ocean-view", "rooftop-terrace", "in-medina", "on-the-beach"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "e-sleep-4",
@@ -712,7 +718,9 @@ export const essaouiraSleep: SleepListing[] = [
       lat: 31.511869,
       lng: -9.771237
     },
-    tags: ["family-favorite", "heritage", "ocean-view", "rooftop-terrace", "in-medina", "spa"]
+    tags: ["family-favorite", "heritage", "ocean-view", "rooftop-terrace", "in-medina", "spa"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "e-sleep-5",
@@ -829,7 +837,9 @@ export const essaouiraSleep: SleepListing[] = [
       lat: 31.513847,
       lng: -9.772292
     },
-    tags: ["heritage", "ocean-view", "rooftop-terrace", "rooftop-bar", "in-medina"]
+    tags: ["heritage", "ocean-view", "rooftop-terrace", "rooftop-bar", "in-medina"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "e-sleep-6",
@@ -946,7 +956,9 @@ export const essaouiraSleep: SleepListing[] = [
       lat: 31.431173,
       lng: -9.755045
     },
-    tags: ["family-favorite", "pool", "heated-pools", "spa", "rooftop-terrace"]
+    tags: ["family-favorite", "pool", "heated-pools", "spa", "rooftop-terrace"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "e-sleep-7",
@@ -1059,7 +1071,9 @@ export const essaouiraSleep: SleepListing[] = [
       business: "Excellent WiFi and coworking space.",
       nomad: "The best social hub in Essaouira for working and meeting people.",
     },
-    tags: ["dorm"]
+    tags: ["dorm"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "e-sleep-8",
@@ -1176,7 +1190,9 @@ export const essaouiraSleep: SleepListing[] = [
       lat: 31.513714,
       lng: -9.76529
     },
-    tags: ["family-favorite", "rooftop-terrace", "in-medina", "5-star"]
+    tags: ["family-favorite", "rooftop-terrace", "in-medina", "5-star"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "e-sleep-9",
@@ -1293,7 +1309,9 @@ export const essaouiraSleep: SleepListing[] = [
       lat: 31.501181,
       lng: -9.76208
     },
-    tags: ["family-favorite", "5-star", "pool", "on-the-beach", "ocean-view", "spa"]
+    tags: ["family-favorite", "5-star", "pool", "on-the-beach", "ocean-view", "spa"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "e-sleep-10",
@@ -1404,7 +1422,9 @@ export const essaouiraSleep: SleepListing[] = [
       lat: 31.515301,
       lng: -9.769648
     },
-    tags: ["pool", "heated-pools", "rooftop-terrace", "ocean-view", "in-medina", "spa", "5-star"]
+    tags: ["pool", "heated-pools", "rooftop-terrace", "ocean-view", "in-medina", "spa", "5-star"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "e-sleep-11",
@@ -1521,7 +1541,9 @@ export const essaouiraSleep: SleepListing[] = [
       lat: 31.511291,
       lng: -9.77019
     },
-    tags: ["heritage", "ocean-view", "rooftop-terrace", "in-medina", "spa"]
+    tags: ["heritage", "ocean-view", "rooftop-terrace", "in-medina", "spa"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "e-sleep-12",
@@ -1638,7 +1660,9 @@ export const essaouiraSleep: SleepListing[] = [
       lat: 31.514712,
       lng: -9.766856
     },
-    tags: ["dorm", "rooftop-terrace", "in-medina"]
+    tags: ["dorm", "rooftop-terrace", "in-medina"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "e-sleep-13",
@@ -1755,7 +1779,9 @@ export const essaouiraSleep: SleepListing[] = [
       lat: 31.513397,
       lng: -9.770598
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "e-sleep-14",
@@ -1872,7 +1898,9 @@ export const essaouiraSleep: SleepListing[] = [
       lat: 31.469635,
       lng: -9.767385
     },
-    tags: ["family-favorite", "5-star", "pool", "golf-course", "spa", "kids-club", "ocean-view"]
+    tags: ["family-favorite", "5-star", "pool", "golf-course", "spa", "kids-club", "ocean-view"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "e-sleep-15",
@@ -1983,7 +2011,9 @@ export const essaouiraSleep: SleepListing[] = [
       lat: 31.515369,
       lng: -9.768073
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "e-sleep-16",
@@ -2094,7 +2124,9 @@ export const essaouiraSleep: SleepListing[] = [
       lat: 31.514355,
       lng: -9.771061
     },
-    tags: []
+    tags: [],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "e-sleep-17",
@@ -2209,7 +2241,9 @@ export const essaouiraSleep: SleepListing[] = [
       lat: 31.513583,
       lng: -9.772511
     },
-    tags: ["family-favorite", "heritage", "ocean-view", "in-medina", "on-the-beach", "rooftop-terrace"]
+    tags: ["family-favorite", "heritage", "ocean-view", "in-medina", "on-the-beach", "rooftop-terrace"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "e-sleep-18",
@@ -2324,7 +2358,9 @@ export const essaouiraSleep: SleepListing[] = [
       lat: 31.5113,
       lng: -9.770314
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "e-sleep-19",
@@ -2441,7 +2477,9 @@ export const essaouiraSleep: SleepListing[] = [
       lat: 31.515734,
       lng: -9.770301
     },
-    tags: ["family-favorite", "heritage", "ocean-view", "in-medina", "on-the-beach", "rooftop-terrace", "spa"]
+    tags: ["family-favorite", "heritage", "ocean-view", "in-medina", "on-the-beach", "rooftop-terrace", "spa"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "e-sleep-20",
@@ -2552,6 +2590,8 @@ export const essaouiraSleep: SleepListing[] = [
       lat: 31.514564,
       lng: -9.771354
     },
-    tags: ["rooftop-terrace", "in-medina", "spa"]
+    tags: ["rooftop-terrace", "in-medina", "spa"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ]

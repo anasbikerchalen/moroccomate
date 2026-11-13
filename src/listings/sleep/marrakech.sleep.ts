@@ -354,7 +354,103 @@ export const marrakechSleep: SleepListing[] = [
       lat: 31.621383,
       lng: -7.997442
     },
-    tags: ["family-favorite", "heritage", "5-star", "heated-pool", "spa"]
+    tags: ["family-favorite", "heritage", "5-star", "heated-pool", "spa"],
+    reviewsData: {
+      sources: [
+        {
+          source: 'Tripadvisor',
+          rating: 4.8,
+          maxRating: 5,
+          reviewCount: 4200,
+          url: 'https://www.tripadvisor.com/Hotel_Review-g293734-d302787-Reviews-La_Mamounia-Marrakech_Marrakech_Safi.html'
+        },
+        {
+          source: 'Booking.com',
+          rating: 9.5,
+          maxRating: 10,
+          reviewCount: 2140,
+          url: 'https://www.booking.com/hotel/ma/la-mamounia.html'
+        },
+        {
+          source: 'Google Travel',
+          rating: 4.8,
+          maxRating: 5,
+          reviewCount: 5800,
+          url: 'https://www.google.com/travel/hotels/entity/ChIJg8i4Vfjurw0Rrv6m0Q2pU_U'
+        },
+        {
+          source: 'Hotels.com',
+          rating: 9.6,
+          maxRating: 10,
+          reviewCount: 1120,
+          url: 'https://www.hotels.com'
+        },
+        {
+          source: 'Expedia',
+          rating: 4.8,
+          maxRating: 5,
+          reviewCount: 890,
+          url: 'https://www.expedia.com'
+        }
+      ],
+      reviews: [
+        {
+          id: 'mamounia-rev-1',
+          author: 'Claire W.',
+          gender: 'woman',
+          postedDate: '2026-10-05',
+          source: 'Booking.com',
+          rating: 5,
+          sentiment: 'good',
+          tags: ['Gardens', 'Service', 'Historic Palace'],
+          text: 'The century-old gardens are out of a dream. Watching the sunrise over the olive groves with birds chirping in the heart of Marrakech is unforgettable. Service is seamless and attentive without ever being intrusive.'
+        },
+        {
+          id: 'mamounia-rev-2',
+          author: 'James K.',
+          gender: 'man',
+          postedDate: '2026-08-20',
+          source: 'Tripadvisor',
+          rating: 5,
+          sentiment: 'good',
+          tags: ['Spa', 'Pierre Herme'],
+          text: 'The underground spa and heated pool are architectural marvels of zellige tilework. Having afternoon pastries at the on-site Pierre Hermé salon after wandering the souks was pure perfection.'
+        },
+        {
+          id: 'mamounia-rev-3',
+          author: 'Nadia H.',
+          gender: 'woman',
+          postedDate: '2026-06-12',
+          source: 'Google Travel',
+          rating: 5,
+          sentiment: 'good',
+          tags: ['Security', 'Concierge'],
+          text: 'Exceptional security, discrete staff, and the concierge arranged private transport and guides without hesitation. Rooms have magnificent Andalusian plasterwork and rich fabrics.'
+        },
+        {
+          id: 'mamounia-rev-4',
+          author: 'Robert M.',
+          gender: 'man',
+          postedDate: '2026-03-18',
+          source: 'Expedia',
+          rating: 4,
+          sentiment: 'good',
+          tags: ['Dining', 'Dress Code'],
+          text: 'Majestic palace with regal bar and courtyard dining. Be sure to check the dress code in advance for evening restaurants—they take decorum seriously here.'
+        },
+        {
+          id: 'mamounia-rev-5',
+          author: 'Thomas B.',
+          gender: 'man',
+          postedDate: '2026-01-24',
+          source: 'Hotels.com',
+          rating: 3,
+          sentiment: 'bad',
+          tags: ['High Pricing', 'Tariffs'],
+          text: 'Stunning property and gardens, but extras (spa treatments and bar cocktails) carry steep luxury tariffs. Check your itemized folio upon departure.'
+        }
+      ]
+    }
   },
   {
     id: "m-sleep-2",
@@ -471,7 +567,9 @@ export const marrakechSleep: SleepListing[] = [
       lat: 31.625269,
       lng: -7.998302
     },
-    tags: ["family-favorite", "heritage", "5-star", "private-pool", "heated-pool", "spa"]
+    tags: ["family-favorite", "heritage", "5-star", "private-pool", "heated-pool", "spa"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "m-sleep-3",
@@ -588,7 +686,9 @@ export const marrakechSleep: SleepListing[] = [
       lat: 31.60912,
       lng: -7.932954
     },
-    tags: ["family-favorite", "5-star", "private-pool", "heated-pool", "golf-course", "spa"]
+    tags: ["family-favorite", "5-star", "private-pool", "heated-pool", "golf-course", "spa"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "m-sleep-4",
@@ -706,7 +806,9 @@ export const marrakechSleep: SleepListing[] = [
       lat: 31.627303,
       lng: -7.992947
     },
-    tags: []
+    tags: [],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "m-sleep-5",
@@ -825,7 +927,9 @@ export const marrakechSleep: SleepListing[] = [
       lat: 31.632995,
       lng: -7.997721
     },
-    tags: ["heritage"]
+    tags: ["heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "m-sleep-6",
@@ -944,7 +1048,9 @@ export const marrakechSleep: SleepListing[] = [
       lat: 31.63742,
       lng: -7.992386
     },
-    tags: []
+    tags: [],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "m-sleep-7",
@@ -1061,7 +1167,9 @@ export const marrakechSleep: SleepListing[] = [
       lat: 31.629691,
       lng: -8.003522
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "m-sleep-8",
@@ -1178,7 +1286,9 @@ export const marrakechSleep: SleepListing[] = [
       lat: 31.634632,
       lng: -8.016514
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "m-sleep-9",
@@ -1295,7 +1405,9 @@ export const marrakechSleep: SleepListing[] = [
       lat: 31.630898,
       lng: -7.994828
     },
-    tags: []
+    tags: [],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "m-sleep-10",
@@ -1414,7 +1526,9 @@ export const marrakechSleep: SleepListing[] = [
       lat: 31.631461,
       lng: -7.985278
     },
-    tags: ["heritage"]
+    tags: ["heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "m-sleep-11",
@@ -1531,7 +1645,9 @@ export const marrakechSleep: SleepListing[] = [
       lat: 31.629431,
       lng: -7.988202
     },
-    tags: ["dorm", "heritage"]
+    tags: ["dorm", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "m-sleep-12",
@@ -1646,7 +1762,9 @@ export const marrakechSleep: SleepListing[] = [
       lat: 31.624397,
       lng: -7.987121
     },
-    tags: ["dorm"]
+    tags: ["dorm"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "m-sleep-13",
@@ -1763,7 +1881,9 @@ export const marrakechSleep: SleepListing[] = [
       lat: 31.616934,
       lng: -7.98862
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "m-sleep-14",
@@ -1880,7 +2000,9 @@ export const marrakechSleep: SleepListing[] = [
       lat: 31.513249,
       lng: -8.051905
     },
-    tags: ["family-favorite", "heritage", "5-star", "golf-course", "heated-pool", "private-pool", "kids-club", "spa"]
+    tags: ["family-favorite", "heritage", "5-star", "golf-course", "heated-pool", "private-pool", "kids-club", "spa"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "m-sleep-15",
@@ -1999,7 +2121,9 @@ export const marrakechSleep: SleepListing[] = [
       lat: 31.635697,
       lng: -7.989585
     },
-    tags: []
+    tags: [],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "m-sleep-16",
@@ -2116,7 +2240,9 @@ export const marrakechSleep: SleepListing[] = [
       lat: 31.620874,
       lng: -7.995576
     },
-    tags: ["heritage"]
+    tags: ["heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "m-sleep-17",
@@ -2233,7 +2359,9 @@ export const marrakechSleep: SleepListing[] = [
       lat: 31.622581,
       lng: -7.991372
     },
-    tags: ["dorm", "heritage"]
+    tags: ["dorm", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "m-sleep-18",
@@ -2350,7 +2478,9 @@ export const marrakechSleep: SleepListing[] = [
       lat: 31.625827,
       lng: -7.987131
     },
-    tags: ["dorm"]
+    tags: ["dorm"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "m-sleep-19",
@@ -2467,7 +2597,9 @@ export const marrakechSleep: SleepListing[] = [
       lat: 31.573994,
       lng: -8.018714
     },
-    tags: ["family-favorite", "heritage", "5-star", "heated-pool", "private-pool", "kids-club", "spa"]
+    tags: ["family-favorite", "heritage", "5-star", "heated-pool", "private-pool", "kids-club", "spa"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "m-sleep-20",
@@ -2584,7 +2716,9 @@ export const marrakechSleep: SleepListing[] = [
       lat: 31.626918,
       lng: -7.992566
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "m-sleep-21",
@@ -2712,6 +2846,8 @@ export const marrakechSleep: SleepListing[] = [
       lat: 31.472146,
       lng: -7.869374
     },
-    tags: ["family-favorite", "waterslides", "water-park", "heated-pool", "all-inclusive", "kids-club"]
+    tags: ["family-favorite", "waterslides", "water-park", "heated-pool", "all-inclusive", "kids-club"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ]

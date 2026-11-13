@@ -100,7 +100,9 @@ export const agadirShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Argan Oil', 'Berber Rugs', 'Spices', 'Leather Sandal Slippers', 'Brass Lanterns'],
     languagesSpoken: ['Arabic', 'French', 'English', 'German'],
-    openingHours: [{ day: 'Tue-Sun', hours: '08:30 - 20:00' }]
+    openingHours: [{ day: 'Tue-Sun', hours: '08:30 - 20:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-aga-2',
@@ -127,7 +129,9 @@ export const agadirShopListings: ShopListing[] = [
     productCategories: ['Cosmetic Argan Oil', 'Toasted Culinary Argan Oil', 'Amlou Paste', 'Prickly Pear Oil'],
     languagesSpoken: ['Arabic', 'French', 'English', 'German'],
     openingHours: [{ day: 'Mon-Sat', hours: '08:30 - 19:30' }],
-    shipping: { available: true, partner: 'dhl' }
+    shipping: { available: true, partner: 'dhl' },
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-aga-3',
@@ -152,7 +156,9 @@ export const agadirShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard', 'apple_pay'],
     productCategories: ['Resort Dresses', 'Designer Caftans', 'Silver Jewelry', 'Sunglasses'],
     languagesSpoken: ['Arabic', 'French', 'English', 'German'],
-    openingHours: [{ day: 'Mon-Sun', hours: '10:00 - 22:00' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '10:00 - 22:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-aga-4',
@@ -178,7 +184,9 @@ export const agadirShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard'],
     productCategories: ['Stone Carvings', 'Wrought Iron', 'Zellige Tile Work', 'Terracotta'],
     languagesSpoken: ['Arabic', 'French', 'English', 'Italian'],
-    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 18:30' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 18:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-aga-5',
@@ -202,7 +210,9 @@ export const agadirShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Tiznit Silver Cuffs', 'Enamel Pendants', 'Amber Necklaces'],
     languagesSpoken: ['Arabic', 'French', 'English', 'German'],
-    openingHours: [{ day: 'Tue-Sun', hours: '09:00 - 19:30' }]
+    openingHours: [{ day: 'Tue-Sun', hours: '09:00 - 19:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-aga-6',
@@ -225,7 +235,9 @@ export const agadirShopListings: ShopListing[] = [
     paymentMethods: ['cash'],
     productCategories: ['Straw Hats', 'Beach Mats', 'Leather Sandals', 'Shell Jewelry'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 21:00' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 21:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-aga-7',
@@ -250,7 +262,9 @@ export const agadirShopListings: ShopListing[] = [
     productCategories: ['Tazenakht Wool Rugs', 'Glaoui Weaves', 'Kilim Runners'],
     languagesSpoken: ['Arabic', 'French', 'English', 'German'],
     openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 19:00' }],
-    shipping: { available: true, partner: 'dhl' }
+    shipping: { available: true, partner: 'dhl' },
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-aga-8',
@@ -275,7 +289,9 @@ export const agadirShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Taliouine Saffron', 'Ras El Hanout', 'Eucalyptus Crystals', 'Henna Powder'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Tue-Sun', hours: '08:30 - 19:30' }]
+    openingHours: [{ day: 'Tue-Sun', hours: '08:30 - 19:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-aga-9',
@@ -300,7 +316,9 @@ export const agadirShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard', 'apple_pay'],
     productCategories: ['Organic Cotton Hoodies', 'Raffia Shoes', 'Upcycled Totes', 'Surf Wax'],
     languagesSpoken: ['English', 'French', 'Arabic'],
-    openingHours: [{ day: 'Mon-Sun', hours: '09:30 - 19:30' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '09:30 - 19:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-aga-10',
@@ -325,7 +343,9 @@ export const agadirShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Travel Duffels', 'Leather Backpacks', 'Wallets', 'Slippers'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 19:30' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 19:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-aga-11',
@@ -350,7 +370,9 @@ export const agadirShopListings: ShopListing[] = [
     paymentMethods: ['cash'],
     productCategories: ['Cooking Tagines', 'Platters', 'Terracotta Planters'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Tue-Sun', hours: '08:30 - 19:00' }]
+    openingHours: [{ day: 'Tue-Sun', hours: '08:30 - 19:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-aga-12',
@@ -375,7 +397,9 @@ export const agadirShopListings: ShopListing[] = [
     paymentMethods: ['cash'],
     productCategories: ['Thuya Secret Boxes', 'Backgammon Boards', 'Coasters'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Tue-Sun', hours: '09:00 - 19:30' }]
+    openingHours: [{ day: 'Tue-Sun', hours: '09:00 - 19:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-aga-13',
@@ -400,7 +424,9 @@ export const agadirShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard'],
     productCategories: ['Argan Serum', 'Prickly Pear Oil', 'Natural Sunscreen', 'After-Sun Lotion'],
     languagesSpoken: ['Arabic', 'French', 'English', 'German'],
-    openingHours: [{ day: 'Mon-Sun', hours: '09:30 - 21:00' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '09:30 - 21:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-aga-14',
@@ -426,7 +452,9 @@ export const agadirShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Cactus Silk Blankets', 'Wool Throws', 'Pillowcases'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 19:00' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 19:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-aga-15',
@@ -451,7 +479,9 @@ export const agadirShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard'],
     productCategories: ['Silk Caftans', 'Takchitas', 'Linen Tunics'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sat', hours: '10:00 - 19:30' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '10:00 - 19:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-aga-16',
@@ -476,7 +506,9 @@ export const agadirShopListings: ShopListing[] = [
     paymentMethods: ['cash'],
     productCategories: ['Engraved Teapots', 'Tea Trays', 'Hanging Brass Lamps'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Tue-Sun', hours: '08:30 - 19:30' }]
+    openingHours: [{ day: 'Tue-Sun', hours: '08:30 - 19:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-aga-17',
@@ -501,7 +533,9 @@ export const agadirShopListings: ShopListing[] = [
     paymentMethods: ['cash'],
     productCategories: ['Cactus Honey', 'Wild Thyme Honey', 'Orange Blossom Honey', 'Pollen'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Tue-Sun', hours: '08:30 - 19:30' }]
+    openingHours: [{ day: 'Tue-Sun', hours: '08:30 - 19:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-aga-18',
@@ -526,7 +560,9 @@ export const agadirShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard'],
     productCategories: ['Vintage Doors', 'Silver Daggers', 'Antique Ceramics'],
     languagesSpoken: ['Arabic', 'French', 'English', 'German'],
-    openingHours: [{ day: 'Mon-Sat', hours: '09:30 - 19:00' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '09:30 - 19:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-aga-19',
@@ -551,7 +587,9 @@ export const agadirShopListings: ShopListing[] = [
     paymentMethods: ['cash'],
     productCategories: ['Leather Sandals', 'Yellow Babouches', 'Suede Mules'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Tue-Sun', hours: '08:30 - 19:30' }]
+    openingHours: [{ day: 'Tue-Sun', hours: '08:30 - 19:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-aga-20',
@@ -576,7 +614,9 @@ export const agadirShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard'],
     productCategories: ['Decorative Tagines', 'Serving Platters', 'Tile Coasters'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '10:00 - 21:00' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '10:00 - 21:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-agadir-marjane-1',
@@ -598,7 +638,9 @@ export const agadirShopListings: ShopListing[] = [
     paymentMethods: ["cash","visa","mastercard","apple_pay"],
     productCategories: ["Groceries","Argan Oil","Sunscreen","Swimwear","Electronics","Toiletries"],
     languagesSpoken: ["Arabic","French","English","German"],
-    openingHours: [{"day":"Mon-Sun","hours":"09:00 - 22:00"}]
+    openingHours: [{"day":"Mon-Sun","hours":"09:00 - 22:00"}],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-agadir-carrefour-1',
@@ -620,7 +662,9 @@ export const agadirShopListings: ShopListing[] = [
     paymentMethods: ["cash","visa","mastercard","apple_pay"],
     productCategories: ["European Groceries","Dairy","Bakery","Beverages","Cosmetics"],
     languagesSpoken: ["French","Arabic","English"],
-    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 21:30"}]
+    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 21:30"}],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-agadir-decathlon-1',
@@ -642,7 +686,9 @@ export const agadirShopListings: ShopListing[] = [
     paymentMethods: ["cash","visa","mastercard","apple_pay"],
     productCategories: ["Wetsuits","Surf Boards","Running Shoes","Sun Protection","Beach Games"],
     languagesSpoken: ["French","Arabic","English"],
-    openingHours: [{"day":"Mon-Sun","hours":"09:30 - 21:30"}]
+    openingHours: [{"day":"Mon-Sun","hours":"09:30 - 21:30"}],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-agadir-atacadao-1',
@@ -664,7 +710,9 @@ export const agadirShopListings: ShopListing[] = [
     paymentMethods: ["cash","visa","mastercard"],
     productCategories: ["Water Cases","Cooking Oil","Rice","Dairy","Snacks"],
     languagesSpoken: ["Arabic","French"],
-    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 20:30"}]
+    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 20:30"}],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-agadir-ensemble-1',
@@ -686,6 +734,8 @@ export const agadirShopListings: ShopListing[] = [
     paymentMethods: ["cash","visa","mastercard"],
     productCategories: ["Certified Argan Oil","Silver Berber Jewelry","Leather Babouches","Ceramics"],
     languagesSpoken: ["Arabic","French","English"],
-    openingHours: [{"day":"Mon-Sat","hours":"09:00 - 19:30"}]
+    openingHours: [{"day":"Mon-Sat","hours":"09:00 - 19:30"}],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

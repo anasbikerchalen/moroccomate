@@ -141,7 +141,14 @@ export const EMPTY_SHOP_TEMPLATE: ShopListing = {
   // Trust & Ratings
   googleRating: 4.6,
   googleReviewCount: 180,
-  reviewSummary: 'Travelers praise the unpressured atmosphere and reliable fixed pricing.'
+  reviewSummary: 'Travelers praise the unpressured atmosphere and reliable fixed pricing.',
+
+  // Multi-platform Reviews Section Holder (hidden on UI until populated)
+  // Sources for Shopping: Tripadvisor, Google Maps, Trustpilot, Lonely Planet, Reddit
+  reviewsData: {
+    sources: [],
+    reviews: []
+  }
 };
 
 /**

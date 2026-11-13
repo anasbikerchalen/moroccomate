@@ -90,7 +90,9 @@ export const taghazoutShops: ShopListing[] = [
     productCategories: ['Shortboards & Longboards', 'Wetsuits & Rashguards', 'Surf Wax & Leashes', 'Custom Village Apparel'],
     languagesSpoken: ['English', 'French', 'Arabic', 'Berber'],
     phoneNumber: '+212 5282-00000',
-    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 21:00' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 21:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-taghazout-2',
@@ -116,7 +118,9 @@ export const taghazoutShops: ShopListing[] = [
     productCategories: ['Cosmetic Argan Oil', 'Culinary Roasted Argan Oil', 'Wild Thyme Honey', 'Amlou Paste', 'Black Soap & Ghassoul'],
     languagesSpoken: ['Arabic', 'Berber', 'French', 'English'],
     authenticitySeals: ['label_artisanat', 'wfto'],
-    openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 20:00' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 20:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-taghazout-3',
@@ -141,6 +145,8 @@ export const taghazoutShops: ShopListing[] = [
     paymentMethods: ['cash'],
     productCategories: ['Vintage Berber Kilims', 'Handcrafted Silver Rings', 'Leather Sandals', 'Ceramic Dishes'],
     languagesSpoken: ['Arabic', 'Berber', 'English', 'French'],
-    openingHours: [{ day: 'Mon-Sun', hours: '10:00 - 22:30' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '10:00 - 22:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ]

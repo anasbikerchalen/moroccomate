@@ -288,6 +288,8 @@ export const tangierNatureThings: ThingToDoListing[] = [
       { id: "activity-difficulty", title: "Difficulty", icon: "mountain", tag: "not available", description: "not available", state: "pending" },
     ],
     googleMapsUrl: "https://www.google.com/maps/place/Caves+of+Hercules/@35.7599298,-5.9398553,17z",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -371,6 +373,8 @@ export const tangierNatureThings: ThingToDoListing[] = [
       { id: "activity-difficulty", title: "Difficulty", icon: "mountain", tag: "not available", description: "not available", state: "pending" },
     ],
     googleMapsUrl: "https://www.google.com/maps/place/Cap+Spartel/@35.7901765,-5.9238384,17z",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -448,6 +452,8 @@ export const tangierNatureThings: ThingToDoListing[] = [
       { id: "activity-difficulty", title: "Difficulty", icon: "mountain", tag: "not available", description: "not available", state: "pending" },
     ],
     googleMapsUrl: "https://www.google.com/maps/place/Caf%C3%A9+Hafa/@35.7912448,-5.8239088,17z",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -517,6 +523,8 @@ export const tangierNatureThings: ThingToDoListing[] = [
       { id: "activity-difficulty", title: "Difficulty", icon: "mountain", tag: "not available", description: "not available", state: "pending" },
     ],
     googleMapsUrl: "https://www.google.com/maps/place/Parc+Perdicaris/@35.7937965,-5.8659618,15z",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -586,6 +594,8 @@ export const tangierNatureThings: ThingToDoListing[] = [
       { id: "activity-difficulty", title: "Difficulty", icon: "mountain", tag: "not available", description: "not available", state: "pending" },
     ],
     googleMapsUrl: "https://www.google.com/maps/place/Phoenician+tombs/@35.7915562,-5.819875,17z",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -655,6 +665,8 @@ export const tangierNatureThings: ThingToDoListing[] = [
       { id: "activity-difficulty", title: "Difficulty", icon: "mountain", tag: "not available", description: "not available", state: "pending" },
     ],
     googleMapsUrl: "https://www.google.com/maps/place/Terrasse+des+Paresseux/@35.7841123,-5.8089254,17z",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -724,5 +736,7 @@ export const tangierNatureThings: ThingToDoListing[] = [
       { id: "activity-difficulty", title: "Difficulty", icon: "mountain", tag: "not available", description: "not available", state: "pending" },
     ],
     googleMapsUrl: "https://maps.google.com/?q=Achakkar+Beach/@35.7621124,-5.9379124,15z",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

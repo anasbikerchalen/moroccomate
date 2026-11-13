@@ -157,7 +157,9 @@ export const taghazoutSleep: SleepListing[] = [
       nomad: 'A lavish upgrade for deep creative work listening to the Atlantic surf.'
     },
     coordinates: { lat: 30.5284, lng: -9.6953 },
-    tags: ['on-the-beach', 'surf-hotels', 'pool', 'ocean-view', '5-star', 'spa', 'heated-pools', 'private-beach']
+    tags: ['on-the-beach', 'surf-hotels', 'pool', 'ocean-view', '5-star', 'spa', 'heated-pools', 'private-beach'],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'tag-sleep-2',
@@ -233,7 +235,9 @@ export const taghazoutSleep: SleepListing[] = [
       nomad: 'Inspiring environment right in front of the waves.'
     },
     coordinates: { lat: 30.5241, lng: -9.6918 },
-    tags: ['on-the-beach', 'surf-hotels', 'pool', 'ocean-view', '5-star', 'spa', 'heated-pools', 'private-beach']
+    tags: ['on-the-beach', 'surf-hotels', 'pool', 'ocean-view', '5-star', 'spa', 'heated-pools', 'private-beach'],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'tag-sleep-3',
@@ -309,7 +313,9 @@ export const taghazoutSleep: SleepListing[] = [
       nomad: 'Relaxing environment for poolside work.'
     },
     coordinates: { lat: 30.5262, lng: -9.6931 },
-    tags: ['on-the-beach', 'surf-hotels', 'pool', 'ocean-view', '5-star', 'spa', 'heated-pools', 'private-beach']
+    tags: ['on-the-beach', 'surf-hotels', 'pool', 'ocean-view', '5-star', 'spa', 'heated-pools', 'private-beach'],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'tag-sleep-4',
@@ -385,7 +391,9 @@ export const taghazoutSleep: SleepListing[] = [
       nomad: 'Active community and solid remote work desk options.'
     },
     coordinates: { lat: 30.5298, lng: -9.6974 },
-    tags: ['on-the-beach', 'surf-hotels', 'pool', 'ocean-view', 'spa']
+    tags: ['on-the-beach', 'surf-hotels', 'pool', 'ocean-view', 'spa'],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'tag-sleep-5',
@@ -461,7 +469,9 @@ export const taghazoutSleep: SleepListing[] = [
       nomad: 'A truly relaxing retreat between projects.'
     },
     coordinates: { lat: 30.5273, lng: -9.6942 },
-    tags: ['on-the-beach', 'surf-hotels', 'pool', 'ocean-view', 'all-inclusive', '5-star', 'spa', 'heated-pools', 'private-beach', 'swim-up-rooms']
+    tags: ['on-the-beach', 'surf-hotels', 'pool', 'ocean-view', 'all-inclusive', '5-star', 'spa', 'heated-pools', 'private-beach', 'swim-up-rooms'],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'tag-sleep-6',
@@ -537,7 +547,9 @@ export const taghazoutSleep: SleepListing[] = [
       nomad: 'Luxurious retreat with zero distractions.'
     },
     coordinates: { lat: 30.5255, lng: -9.6925 },
-    tags: ['on-the-beach', 'surf-hotels', 'pool', 'ocean-view', 'all-inclusive', '5-star', 'spa', 'heated-pools', 'private-beach', 'swim-up-rooms']
+    tags: ['on-the-beach', 'surf-hotels', 'pool', 'ocean-view', 'all-inclusive', '5-star', 'spa', 'heated-pools', 'private-beach', 'swim-up-rooms'],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'tag-sleep-7',
@@ -613,7 +625,9 @@ export const taghazoutSleep: SleepListing[] = [
       nomad: 'Strong eco ethos and restorative coastal atmosphere.'
     },
     coordinates: { lat: 30.5891, lng: -9.7398 },
-    tags: ['on-the-beach', 'surf-hotels', 'pool', 'ocean-view', 'spa', 'heated-pools', 'private-beach']
+    tags: ['on-the-beach', 'surf-hotels', 'pool', 'ocean-view', 'spa', 'heated-pools', 'private-beach'],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'tag-sleep-8',
@@ -691,7 +705,9 @@ export const taghazoutSleep: SleepListing[] = [
       nomad: 'The benchmark of coastal remote working and surfing in Morocco.'
     },
     coordinates: { lat: 30.5422, lng: -9.7088 },
-    tags: ['on-the-beach', 'surf-hotels', 'pool', 'ocean-view', 'spa', 'rooftop-terrace']
+    tags: ['on-the-beach', 'surf-hotels', 'pool', 'ocean-view', 'spa', 'rooftop-terrace'],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'tag-sleep-9',
@@ -767,7 +783,9 @@ export const taghazoutSleep: SleepListing[] = [
       nomad: 'Fun energy for digital nomads between surf sessions.'
     },
     coordinates: { lat: 30.5312, lng: -9.6991 },
-    tags: ['on-the-beach', 'surf-hotels', 'pool', 'ocean-view']
+    tags: ['on-the-beach', 'surf-hotels', 'pool', 'ocean-view'],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'tag-sleep-10',
@@ -845,7 +863,9 @@ export const taghazoutSleep: SleepListing[] = [
       nomad: 'Creative paradise for writers and designers.'
     },
     coordinates: { lat: 30.5441, lng: -9.7099 },
-    tags: ['surf-hotels', 'pool', 'ocean-view', 'rooftop-terrace']
+    tags: ['surf-hotels', 'pool', 'ocean-view', 'rooftop-terrace'],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'tag-sleep-11',
@@ -921,7 +941,9 @@ export const taghazoutSleep: SleepListing[] = [
       nomad: 'The quintessential Taghazout beach lifestyle hotel.'
     },
     coordinates: { lat: 30.5435, lng: -9.7092 },
-    tags: ['on-the-beach', 'surf-hotels', 'ocean-view']
+    tags: ['on-the-beach', 'surf-hotels', 'ocean-view'],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'tag-sleep-12',
@@ -997,7 +1019,9 @@ export const taghazoutSleep: SleepListing[] = [
       nomad: 'Friendly budget-conscious surf nomad haven.'
     },
     coordinates: { lat: 30.5448, lng: -9.7112 },
-    tags: ['on-the-beach', 'surf-hotels', 'ocean-view', 'rooftop-terrace']
+    tags: ['on-the-beach', 'surf-hotels', 'ocean-view', 'rooftop-terrace'],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'tag-sleep-13',
@@ -1073,7 +1097,9 @@ export const taghazoutSleep: SleepListing[] = [
       nomad: 'Popular spot for nomadic surfers.'
     },
     coordinates: { lat: 30.5438, lng: -9.7098 },
-    tags: ['on-the-beach', 'surf-hotels', 'ocean-view', 'rooftop-terrace']
+    tags: ['on-the-beach', 'surf-hotels', 'ocean-view', 'rooftop-terrace'],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'tag-sleep-14',
@@ -1149,7 +1175,9 @@ export const taghazoutSleep: SleepListing[] = [
       nomad: 'Superb remote work retreat with healthy food.'
     },
     coordinates: { lat: 30.5098, lng: -9.6784 },
-    tags: ['surf-hotels', 'pool', 'ocean-view', 'heated-pools', 'spa', 'rooftop-terrace']
+    tags: ['surf-hotels', 'pool', 'ocean-view', 'heated-pools', 'spa', 'rooftop-terrace'],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'tag-sleep-15',
@@ -1225,7 +1253,9 @@ export const taghazoutSleep: SleepListing[] = [
       nomad: 'Very productive workspace environment.'
     },
     coordinates: { lat: 30.5218, lng: -9.6865 },
-    tags: ['surf-hotels', 'pool', 'ocean-view', 'heated-pools', 'spa']
+    tags: ['surf-hotels', 'pool', 'ocean-view', 'heated-pools', 'spa'],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'tag-sleep-16',
@@ -1301,7 +1331,9 @@ export const taghazoutSleep: SleepListing[] = [
       nomad: 'A top choice for boutique work-and-surf trips.'
     },
     coordinates: { lat: 30.5444, lng: -9.7105 },
-    tags: ['on-the-beach', 'surf-hotels', 'ocean-view', 'rooftop-terrace']
+    tags: ['on-the-beach', 'surf-hotels', 'ocean-view', 'rooftop-terrace'],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'tag-sleep-17',
@@ -1377,7 +1409,9 @@ export const taghazoutSleep: SleepListing[] = [
       nomad: 'Budget surf nomad base.'
     },
     coordinates: { lat: 30.5431, lng: -9.7090 },
-    tags: ['on-the-beach', 'surf-hotels', 'ocean-view', 'rooftop-terrace']
+    tags: ['on-the-beach', 'surf-hotels', 'ocean-view', 'rooftop-terrace'],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'tag-sleep-18',
@@ -1453,7 +1487,9 @@ export const taghazoutSleep: SleepListing[] = [
       nomad: 'Budget nomad heaven.'
     },
     coordinates: { lat: 30.5439, lng: -9.7085 },
-    tags: ['on-the-beach', 'surf-hotels', 'ocean-view', 'rooftop-terrace']
+    tags: ['on-the-beach', 'surf-hotels', 'ocean-view', 'rooftop-terrace'],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'tag-sleep-19',
@@ -1529,7 +1565,9 @@ export const taghazoutSleep: SleepListing[] = [
       nomad: 'Relaxing base for remote working and surf breaks.'
     },
     coordinates: { lat: 30.5451, lng: -9.7081 },
-    tags: ['surf-hotels', 'ocean-view', 'rooftop-terrace']
+    tags: ['surf-hotels', 'ocean-view', 'rooftop-terrace'],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'tag-sleep-20',
@@ -1605,6 +1643,8 @@ export const taghazoutSleep: SleepListing[] = [
       nomad: 'Luxurious remote work experience.'
     },
     coordinates: { lat: 30.5268, lng: -9.6938 },
-    tags: ['on-the-beach', 'surf-hotels', 'pool', 'ocean-view', '5-star', 'spa', 'heated-pools', 'private-beach']
+    tags: ['on-the-beach', 'surf-hotels', 'pool', 'ocean-view', '5-star', 'spa', 'heated-pools', 'private-beach'],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

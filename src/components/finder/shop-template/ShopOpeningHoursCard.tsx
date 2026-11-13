@@ -1,15 +1,15 @@
 import React, { useMemo } from 'react';
 import { Clock } from 'lucide-react';
 import { ShopOpeningHours, DayOfWeek } from '../../../types/shop';
+import { getMoroccoTimeParts } from '../../../utils/timeEngine';
 
 interface ShopOpeningHoursCardProps {
   openingHours: ShopOpeningHours;
 }
 
-export const ShopOpeningHoursCard: React.FC<ShopOpeningHoursCardProps> = ({ openingHours }) => {
-  if (!openingHours || !Array.isArray(openingHours.schedule) || openingHours.schedule.length === 0) return null;
+const MINUTES_PER_DAY = 24 * 60;
 
-  // Day of week mapping
+export const ShopOpeningHoursCard: React.FC<ShopOpeningHoursCardProps> = ({ openingHours }) => {
   const daysMap: DayOfWeek[] = [
     'sunday',
     'monday',
@@ -20,25 +20,26 @@ export const ShopOpeningHoursCard: React.FC<ShopOpeningHoursCardProps> = ({ open
     'saturday'
   ];
 
-  const now = new Date();
-  const currentDayIndex = now.getDay();
+  const moroccoNow = getMoroccoTimeParts();
+  const currentDayIndex = moroccoNow.dayOfWeek;
   const currentDayName = daysMap[currentDayIndex];
-  const currentHours = now.getHours();
-  const currentMinutes = now.getMinutes();
-  const currentTimeNumber = currentHours * 60 + currentMinutes;
+  const currentTimeNumber = moroccoNow.currentMinutes;
+
+  const scheduleList = Array.isArray(openingHours?.schedule) ? openingHours.schedule : [];
 
   // Find today's schedule
   const todaySchedule = useMemo(() => {
+    if (scheduleList.length === 0) return undefined;
     return (
-      openingHours.schedule.find((s) => s.day_of_week === currentDayName) ||
-      openingHours.schedule[0]
+      scheduleList.find((s) => s.day_of_week === currentDayName) ||
+      scheduleList[0]
     );
-  }, [openingHours, currentDayName]);
+  }, [scheduleList, currentDayName]);
 
-  // Dynamic Open / Closed calculation
+  // Dynamic Open / Closed calculation in Morocco time (with overnight spillover support)
   const statusInfo = useMemo(() => {
-    if (!todaySchedule || todaySchedule.is_closed) {
-      return { isOpen: false, label: 'Closed today', color: 'bg-amber-100 text-amber-900' };
+    if (!todaySchedule) {
+      return { isOpen: false, label: 'Hours unconfirmed', color: 'bg-stone-100 text-stone-800 border-stone-300' };
     }
 
     const parseTime = (timeStr: string) => {
@@ -46,13 +47,38 @@ export const ShopOpeningHoursCard: React.FC<ShopOpeningHoursCardProps> = ({ open
       return (h || 0) * 60 + (m || 0);
     };
 
-    const openMin = parseTime(todaySchedule.open_time);
-    const closeMin = parseTime(todaySchedule.close_time);
+    // Check yesterday's overnight spillover (e.g. yesterday 07:00 - 02:00, now 00:30)
+    if (currentTimeNumber < 8 * 60) {
+      const yesterdayName = daysMap[(currentDayIndex + 6) % 7];
+      const yesterdaySchedule = scheduleList.find((s) => s.day_of_week === yesterdayName);
+      if (yesterdaySchedule && !yesterdaySchedule.is_closed) {
+        const yOpen = parseTime(yesterdaySchedule.open_time);
+        const yCloseRaw = parseTime(yesterdaySchedule.close_time);
+        if (yCloseRaw <= yOpen) {
+          const yEffectiveClose = yCloseRaw + MINUTES_PER_DAY;
+          if (currentTimeNumber + MINUTES_PER_DAY < yEffectiveClose) {
+            return {
+              isOpen: true,
+              label: `Open now · Closes ${yesterdaySchedule.close_time}`,
+              color: 'bg-emerald-100 text-emerald-900 border-emerald-300'
+            };
+          }
+        }
+      }
+    }
 
-    if (currentTimeNumber >= openMin && currentTimeNumber < closeMin) {
+    if (todaySchedule.is_closed) {
+      return { isOpen: false, label: 'Closed today', color: 'bg-amber-100 text-amber-900 border-amber-300' };
+    }
+
+    const openMin = parseTime(todaySchedule.open_time);
+    const rawCloseMin = parseTime(todaySchedule.close_time);
+    const effectiveCloseMin = rawCloseMin <= openMin ? rawCloseMin + MINUTES_PER_DAY : rawCloseMin;
+
+    if (currentTimeNumber >= openMin && currentTimeNumber < effectiveCloseMin) {
       return {
         isOpen: true,
-        label: 'Open now',
+        label: `Open now · Closes ${todaySchedule.close_time}`,
         color: 'bg-emerald-100 text-emerald-900 border-emerald-300'
       };
     } else if (currentTimeNumber < openMin) {
@@ -65,7 +91,7 @@ export const ShopOpeningHoursCard: React.FC<ShopOpeningHoursCardProps> = ({ open
       // Look up tomorrow's opening time
       const tomorrowIndex = (currentDayIndex + 1) % 7;
       const tomorrowDayName = daysMap[tomorrowIndex];
-      const tomorrowSchedule = openingHours.schedule.find((s) => s.day_of_week === tomorrowDayName);
+      const tomorrowSchedule = scheduleList.find((s) => s.day_of_week === tomorrowDayName);
       const tomorrowTime = tomorrowSchedule && !tomorrowSchedule.is_closed ? tomorrowSchedule.open_time : 'morning';
 
       return {
@@ -74,7 +100,9 @@ export const ShopOpeningHoursCard: React.FC<ShopOpeningHoursCardProps> = ({ open
         color: 'bg-stone-100 text-stone-800 border-stone-300'
       };
     }
-  }, [todaySchedule, currentTimeNumber, currentDayIndex, openingHours.schedule]);
+  }, [todaySchedule, currentTimeNumber, currentDayIndex, scheduleList]);
+
+  if (!openingHours || scheduleList.length === 0 || !todaySchedule) return null;
 
   return (
     <div className="rounded-2xl border border-[#ece4d5] bg-white p-6 sm:p-7 shadow-2xs">
@@ -118,7 +146,7 @@ export const ShopOpeningHoursCard: React.FC<ShopOpeningHoursCardProps> = ({ open
         {/* Right: 7-Day Schedule Grid matching mockup */}
         <div className="md:col-span-8">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-y-3.5 gap-x-4 text-xs">
-            {openingHours.schedule.map((day) => {
+            {scheduleList.map((day) => {
               const isToday = day.day_of_week === currentDayName;
               return (
                 <div

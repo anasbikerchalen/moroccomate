@@ -15,6 +15,7 @@
 
 import type { CityId } from '../listings/types';
 import type { WorryBoxData } from '../data/prototype/worriesPrototype';
+import type { PlaceReviewsData } from '../types/reviews';
 
 // Re-export so sibling modules (template.ts, components) can import CityId from here
 export type { CityId };
@@ -348,6 +349,8 @@ export interface ActivityListing {
   // Trust & Reviews
   worries?: WorryBoxData[];
   reviews?: ActivityReview[];
+  /** Multi-platform reviews section data (Tripadvisor, GetYourGuide, Viator, Google Travel, Lonely Planet) */
+  reviewsData?: PlaceReviewsData;
   review_summary?: string;
   google_rating?: number;
   review_count?: number;

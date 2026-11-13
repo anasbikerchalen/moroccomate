@@ -359,7 +359,9 @@ export const ourikaSleep: SleepListing[] = [
       lat: 31.358678,
       lng: -7.763159
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "or-sleep-2",
@@ -476,7 +478,9 @@ export const ourikaSleep: SleepListing[] = [
       lat: 31.344454,
       lng: -7.751827
     },
-    tags: []
+    tags: [],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "or-sleep-3",
@@ -593,7 +597,9 @@ export const ourikaSleep: SleepListing[] = [
       lat: 31.38038,
       lng: -7.784386
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "or-sleep-4",
@@ -710,7 +716,9 @@ export const ourikaSleep: SleepListing[] = [
       lat: 31.632146,
       lng: -7.990344
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "or-sleep-5",
@@ -827,7 +835,9 @@ export const ourikaSleep: SleepListing[] = [
       lat: 31.344454,
       lng: -7.751827
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "or-sleep-6",
@@ -944,7 +954,9 @@ export const ourikaSleep: SleepListing[] = [
       lat: 31.35608,
       lng: -7.801689
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "or-sleep-7",
@@ -1061,7 +1073,9 @@ export const ourikaSleep: SleepListing[] = [
       lat: 31.632146,
       lng: -7.990344
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "or-sleep-8",
@@ -1178,7 +1192,9 @@ export const ourikaSleep: SleepListing[] = [
       lat: 31.344454,
       lng: -7.751827
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "or-sleep-9",
@@ -1295,7 +1311,9 @@ export const ourikaSleep: SleepListing[] = [
       lat: 31.526682,
       lng: -7.959435
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "or-sleep-10",
@@ -1410,7 +1428,9 @@ export const ourikaSleep: SleepListing[] = [
       lat: 31.231566,
       lng: -7.666535
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "or-sleep-11",
@@ -1527,7 +1547,9 @@ export const ourikaSleep: SleepListing[] = [
       lat: 31.36687,
       lng: -7.774971
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "or-sleep-12",
@@ -1644,7 +1666,9 @@ export const ourikaSleep: SleepListing[] = [
       lat: 31.000049,
       lng: -8.158327
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "or-sleep-13",
@@ -1761,7 +1785,9 @@ export const ourikaSleep: SleepListing[] = [
       lat: 31.615416,
       lng: -7.988681
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "or-sleep-14",
@@ -1878,7 +1904,9 @@ export const ourikaSleep: SleepListing[] = [
       lat: 31.360698,
       lng: -7.773579
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "or-sleep-15",
@@ -1995,7 +2023,9 @@ export const ourikaSleep: SleepListing[] = [
       lat: 30.97522,
       lng: -7.104741
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "or-sleep-16",
@@ -2112,7 +2142,9 @@ export const ourikaSleep: SleepListing[] = [
       lat: 31.632146,
       lng: -7.990344
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "or-sleep-17",
@@ -2227,7 +2259,9 @@ export const ourikaSleep: SleepListing[] = [
       lat: 31.344454,
       lng: -7.751827
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "or-sleep-18",
@@ -2344,7 +2378,9 @@ export const ourikaSleep: SleepListing[] = [
       lat: 31.526682,
       lng: -7.959435
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "or-sleep-19",
@@ -2461,7 +2497,9 @@ export const ourikaSleep: SleepListing[] = [
       lat: 31.639013,
       lng: -7.98037
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "or-sleep-20",
@@ -2578,6 +2616,8 @@ export const ourikaSleep: SleepListing[] = [
       lat: 31.344454,
       lng: -7.751827
     },
-    tags: ["dorm", "family-favorite"]
+    tags: ["dorm", "family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ]

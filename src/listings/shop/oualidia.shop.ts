@@ -97,7 +97,9 @@ export const oualidiaShops: ShopListing[] = [
     languagesSpoken: ['French', 'Arabic', 'English'],
     phoneNumber: '+212 5233-66180',
     openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 19:30' }],
-    isLocalFavorite: true
+    isLocalFavorite: true,
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-oua-2',
@@ -123,7 +125,9 @@ export const oualidiaShops: ShopListing[] = [
     productCategories: ['Wild Sea Bass', 'Fresh Spider Crabs', 'Gilthead Bream', 'Live Lobsters'],
     languagesSpoken: ['Arabic', 'French'],
     openingHours: [{ day: 'Mon-Sun', hours: '08:00 - 16:30' }],
-    isLocalFavorite: true
+    isLocalFavorite: true,
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-oua-3',
@@ -148,7 +152,9 @@ export const oualidiaShops: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Woven Palm Totes', 'Custom Sun Hats', 'Linen Beach Wraps', 'Shell Necklaces'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 20:30' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 20:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-oua-4',
@@ -173,7 +179,9 @@ export const oualidiaShops: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard'],
     productCategories: ['Coarse Atlantic Sea Salt', 'Herb-Infused Sea Salt', 'Roasted Cumin'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 20:00' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 20:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-oua-5',
@@ -198,7 +206,9 @@ export const oualidiaShops: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard'],
     productCategories: ['Wetsuits', 'Surfboard Wax', 'UV Rashguards', 'Reef Safe Sunscreen'],
     languagesSpoken: ['French', 'English', 'Arabic'],
-    openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 19:30' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 19:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-oua-6',
@@ -224,7 +234,9 @@ export const oualidiaShops: ShopListing[] = [
     productCategories: ['Turquoise Glazed Oyster Platters', 'Seafood Bowls', 'Handpainted Marine Tiles'],
     languagesSpoken: ['Arabic', 'French', 'English'],
     openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 18:30' }],
-    workshopVisitable: true
+    workshopVisitable: true,
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-oua-7',
@@ -250,7 +262,9 @@ export const oualidiaShops: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Organic Cosmetic Argan Oil', 'After-Sun Lotion', 'Red Ghassoul Clay'],
     languagesSpoken: ['Arabic', 'French'],
-    openingHours: [{ day: 'Mon-Sat', hours: '08:30 - 19:30' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '08:30 - 19:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-oua-8',
@@ -276,7 +290,9 @@ export const oualidiaShops: ShopListing[] = [
     productCategories: ['Fresh Doukkala Melons', 'Local Tomatoes', 'Straw Mats', 'Spices'],
     languagesSpoken: ['Arabic', 'French'],
     openingHours: [{ day: 'Saturday', hours: '07:00 - 16:00' }],
-    isLocalFavorite: true
+    isLocalFavorite: true,
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-oua-9',
@@ -301,7 +317,9 @@ export const oualidiaShops: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Seashell Decorated Boxes', 'Flamingo Canvas Totes', 'Carved Wooden Birds'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 20:00' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 20:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-oua-10',
@@ -326,6 +344,8 @@ export const oualidiaShops: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Soft Leather Slippers', 'Crossbody Leather Bags', 'Handmade Belts'],
     languagesSpoken: ['Arabic', 'French'],
-    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 20:00' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 20:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ]

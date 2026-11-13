@@ -96,7 +96,9 @@ export const alHoceimaShops: ShopListing[] = [
     productCategories: ['Fresh Mediterranean Sardines & Bluefish', 'Rif Mountain Goat Cheese', 'Organic Figs'],
     languagesSpoken: ['Arabic', 'Spanish', 'French', 'Riffian Berber'],
     openingHours: [{ day: 'Mon-Sun', hours: '07:00 - 17:30' }],
-    isLocalFavorite: true
+    isLocalFavorite: true,
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-alh-2',
@@ -123,7 +125,9 @@ export const alHoceimaShops: ShopListing[] = [
     productCategories: ['Esparto Grass Floor Mats', 'Handwoven Baskets', 'Grass Footwear'],
     languagesSpoken: ['Arabic', 'Spanish', 'French', 'Riffian Berber'],
     openingHours: [{ day: 'Mon-Sat', hours: '08:30 - 18:00' }],
-    workshopVisitable: true
+    workshopVisitable: true,
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-alh-3',
@@ -148,7 +152,9 @@ export const alHoceimaShops: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard'],
     productCategories: ['Rif Geometric Plates', 'Copper Hanging Lamps', 'Leather Babouches'],
     languagesSpoken: ['Arabic', 'Spanish', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 20:30' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 20:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-alh-4',
@@ -174,7 +180,9 @@ export const alHoceimaShops: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard'],
     productCategories: ['Cold Pressed Virgin Olive Oil', 'Spiced Table Olives', 'Tapenade'],
     languagesSpoken: ['Arabic', 'Spanish', 'French'],
-    openingHours: [{ day: 'Mon-Sat', hours: '08:30 - 18:30' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '08:30 - 18:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-alh-5',
@@ -199,7 +207,9 @@ export const alHoceimaShops: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Dried Mountain Thyme', 'Wildflower Honey', 'Cosmetic Argan Oil'],
     languagesSpoken: ['Arabic', 'Spanish', 'French'],
-    openingHours: [{ day: 'Mon-Sat', hours: '08:30 - 20:00' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '08:30 - 20:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-alh-6',
@@ -224,7 +234,9 @@ export const alHoceimaShops: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard'],
     productCategories: ['Silk Tailored Caftans', 'Takchita Gowns', 'Rif Striped Throws'],
     languagesSpoken: ['Arabic', 'Spanish', 'French'],
-    openingHours: [{ day: 'Mon-Sat', hours: '09:30 - 20:00' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '09:30 - 20:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-alh-7',
@@ -250,7 +262,9 @@ export const alHoceimaShops: ShopListing[] = [
     productCategories: ['Hand Molded Clay Tagines', 'Terracotta Water Jars', 'Unfinished Clay Pots'],
     languagesSpoken: ['Arabic', 'Spanish', 'French', 'Riffian Berber'],
     openingHours: [{ day: 'Mon-Sat', hours: '08:30 - 18:00' }],
-    workshopVisitable: true
+    workshopVisitable: true,
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-alh-8',
@@ -276,7 +290,9 @@ export const alHoceimaShops: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard'],
     productCategories: ['Red & White Striped M\'ndil Cloths', 'Handwoven Cotton Shawls'],
     languagesSpoken: ['Arabic', 'Spanish', 'French'],
-    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 18:00' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 18:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-alh-9',
@@ -302,7 +318,9 @@ export const alHoceimaShops: ShopListing[] = [
     productCategories: ['Red Coral Silver Rings', 'Mediterranean Coral Pendants'],
     languagesSpoken: ['Arabic', 'Spanish', 'French', 'English'],
     openingHours: [{ day: 'Mon-Sat', hours: '09:30 - 19:30' }],
-    workshopVisitable: true
+    workshopVisitable: true,
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-alh-10',
@@ -327,7 +345,9 @@ export const alHoceimaShops: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Raw Mountain Almonds', 'Honey Glazed Roasted Almonds', 'Wildflower Honey Jar'],
     languagesSpoken: ['Arabic', 'Spanish', 'French'],
-    openingHours: [{ day: 'Mon-Sat', hours: '08:30 - 20:00' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '08:30 - 20:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-al_hoceima-marjane-1',
@@ -349,7 +369,9 @@ export const alHoceimaShops: ShopListing[] = [
     paymentMethods: ["cash","visa","mastercard","apple_pay"],
     productCategories: ["Groceries","Local Seafood","Bakery","Toiletries","Beach Gear"],
     languagesSpoken: ["Arabic","Spanish","French"],
-    openingHours: [{"day":"Mon-Sun","hours":"09:00 - 21:30"}]
+    openingHours: [{"day":"Mon-Sun","hours":"09:00 - 21:30"}],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-al_hoceima-bim-1',
@@ -371,6 +393,8 @@ export const alHoceimaShops: ShopListing[] = [
     paymentMethods: ["cash","visa","mastercard"],
     productCategories: ["Mineral Water","Biscuits","Dairy","Snacks","Basic Toiletries"],
     languagesSpoken: ["Arabic","Spanish","French"],
-    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 21:00"}]
+    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 21:00"}],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

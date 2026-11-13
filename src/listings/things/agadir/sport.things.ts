@@ -401,6 +401,8 @@ export const agadirSportThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "+212 661-223344",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -582,6 +584,8 @@ export const agadirSportThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "+212 528-825500",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -764,6 +768,8 @@ export const agadirSportThings: ThingToDoListing[] = [
         a: "Yes, dedicated women-only hours daily from 9:00 AM to 1:00 PM."
       }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -946,6 +952,8 @@ export const agadirSportThings: ThingToDoListing[] = [
         a: "Yes, day passes include access to both swimming pools."
       }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1128,6 +1136,8 @@ export const agadirSportThings: ThingToDoListing[] = [
         a: "Yes, women-only hours from 10:00 AM to 2:00 PM."
       }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1310,6 +1320,8 @@ export const agadirSportThings: ThingToDoListing[] = [
         a: "Yes, single class drop-ins are available for 70 MAD."
       }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1492,6 +1504,8 @@ export const agadirSportThings: ThingToDoListing[] = [
         a: "Most daytime classes are women-only or mixed with many women attending."
       }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1674,6 +1688,8 @@ export const agadirSportThings: ThingToDoListing[] = [
         a: "Yes, day passes are 50 MAD."
       }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1856,6 +1872,8 @@ export const agadirSportThings: ThingToDoListing[] = [
         a: "No pool, but excellent gym and class facilities."
       }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -2038,6 +2056,8 @@ export const agadirSportThings: ThingToDoListing[] = [
         a: "Yes, all levels are coached with scalable movements."
       }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -2220,6 +2240,8 @@ export const agadirSportThings: ThingToDoListing[] = [
         a: "Yes, 45 MAD for full access to pool and gym."
       }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -2402,5 +2424,7 @@ export const agadirSportThings: ThingToDoListing[] = [
         a: "Yes, full women-only section available all day."
       }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

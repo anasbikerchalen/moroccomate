@@ -309,6 +309,8 @@ export const ifraneAzrouNatureThings: ThingToDoListing[] = [
       }
     ],
     googleMapsUrl: "https://maps.google.com/?q=Cedre+Gouraud+Forest+Azrou",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -408,6 +410,8 @@ export const ifraneAzrouNatureThings: ThingToDoListing[] = [
       }
     ],
     googleMapsUrl: "https://maps.google.com/?q=Ain+Vittel+Ifrane",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -515,6 +519,8 @@ export const ifraneAzrouNatureThings: ThingToDoListing[] = [
       }
     ],
     googleMapsUrl: "https://maps.google.com/?q=Michlifen+Ski+Resort",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -624,5 +630,7 @@ export const ifraneAzrouNatureThings: ThingToDoListing[] = [
       }
     ],
     googleMapsUrl: "https://maps.google.com/?q=Dayet+Aoua+Lake+Ifrane",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

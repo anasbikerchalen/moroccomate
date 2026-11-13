@@ -251,7 +251,9 @@ export const chefchaouenHeritageThings: ThingToDoListing[] = [
         a: "Always ask first, especially for older residents and women. Many expect a small tip (5-10 MAD) for posed portraits."
       }
     ],
-    contactPhone: ""
+    contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -472,7 +474,9 @@ export const chefchaouenHeritageThings: ThingToDoListing[] = [
         a: "Yes, the square is well-lit and busy until at least 11 PM, with visible tourist police patrols."
       }
     ],
-    contactPhone: ""
+    contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -701,7 +705,9 @@ export const chefchaouenHeritageThings: ThingToDoListing[] = [
         a: "No, the spiral stone stairs with low ceilings are not suitable for mobility-impaired visitors or small children without assistance."
       }
     ],
-    contactPhone: "+212 539-988000"
+    contactPhone: "+212 539-988000",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -921,7 +927,9 @@ export const chefchaouenHeritageThings: ThingToDoListing[] = [
         a: "About 15-20 minutes from Bab el-Onsar at the medina edge. The path is steep but well-trodden."
       }
     ],
-    contactPhone: ""
+    contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1131,7 +1139,9 @@ export const chefchaouenHeritageThings: ThingToDoListing[] = [
         a: "Prayer times shift daily with the sun. Avoid lingering near the entrance during the call to prayer, especially on Fridays around noon."
       }
     ],
-    contactPhone: ""
+    contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1338,7 +1348,9 @@ export const chefchaouenHeritageThings: ThingToDoListing[] = [
         a: "Yes, the exterior is softly lit after dark, making it pleasant for an evening stroll."
       }
     ],
-    contactPhone: ""
+    contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1545,7 +1557,9 @@ export const chefchaouenHeritageThings: ThingToDoListing[] = [
         a: "Some towers are open to the public; others are private residences. Always check for signage or ask a local before climbing."
       }
     ],
-    contactPhone: ""
+    contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1771,7 +1785,9 @@ export const chefchaouenHeritageThings: ThingToDoListing[] = [
         a: "Yes, but strictly without flash to prevent textile degradation."
       }
     ],
-    contactPhone: "+212 539-988000"
+    contactPhone: "+212 539-988000",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1982,7 +1998,9 @@ export const chefchaouenHeritageThings: ThingToDoListing[] = [
         a: "Start at 40-50% of the initial asking price for souvenirs, and aim to settle around 60-70%. Be polite, smile, and walk away slowly if the price is too high."
       }
     ],
-    contactPhone: ""
+    contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -2188,7 +2206,9 @@ export const chefchaouenHeritageThings: ThingToDoListing[] = [
         a: "Yes, most workshops welcome respectful visitors. Always ask before photographing and consider leaving a small tip or purchasing a finished item."
       }
     ],
-    contactPhone: ""
+    contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -2393,7 +2413,9 @@ export const chefchaouenHeritageThings: ThingToDoListing[] = [
         a: "Yes, several bank ATMs are along the avenue, but they can run out of cash on weekends. Withdraw early."
       }
     ],
-    contactPhone: ""
+    contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   // ── NEW HERITAGE & CULTURE ADDITIONS ───────────────────────
   {
@@ -2603,7 +2625,9 @@ export const chefchaouenHeritageThings: ThingToDoListing[] = [
         a: "Walk southward down Rue Targui for approximately four minutes; a brief flight of stone steps leads directly into the square."
       }
     ],
-    contactPhone: ""
+    contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -2813,7 +2837,9 @@ export const chefchaouenHeritageThings: ThingToDoListing[] = [
         a: "While locals drink from the upper spring vents, visitors are advised to enjoy the water visually or filtered, and drink bottled or boiled water."
       }
     ],
-    contactPhone: ""
+    contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -3021,7 +3047,9 @@ export const chefchaouenHeritageThings: ThingToDoListing[] = [
         a: "Walking the stairs is completely free. Only if you stand directly on certain private decorated stoops do homeowners request a small 5 MAD tip."
       }
     ],
-    contactPhone: ""
+    contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -3228,7 +3256,9 @@ export const chefchaouenHeritageThings: ThingToDoListing[] = [
         a: "Yes, Bab El Ain is one of the only medina gates with direct vehicular access and a licensed taxi drop-off lane."
       }
     ],
-    contactPhone: ""
+    contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -3442,7 +3472,9 @@ export const chefchaouenHeritageThings: ThingToDoListing[] = [
         a: "Yes, traditional vegetable tagines, lentil stews, and fresh Moroccan salads can easily be accommodated upon advance request."
       }
     ],
-    contactPhone: ""
+    contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -3647,6 +3679,8 @@ export const chefchaouenHeritageThings: ThingToDoListing[] = [
         a: "Yes, general admission to the lobby and rotating art galleries is completely free during daytime operational hours."
       }
     ],
-    contactPhone: "+212 539-989727"
+    contactPhone: "+212 539-989727",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

@@ -315,6 +315,8 @@ export const merzougaNatureThings: ThingToDoListing[] = [
       lng: -4.010846
     },
     googleMapsUrl: "https://maps.google.com/?q=31.096088,-4.010846",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -420,6 +422,8 @@ export const merzougaNatureThings: ThingToDoListing[] = [
       lng: -4.001907
     },
     googleMapsUrl: "https://maps.google.com/?q=31.100112,-4.001907",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -520,6 +524,8 @@ export const merzougaNatureThings: ThingToDoListing[] = [
       }
     ],
     googleMapsUrl: "https://maps.google.com/?q=Erg+Chebbi+Dunes,+Merzouga,+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -620,6 +626,8 @@ export const merzougaNatureThings: ThingToDoListing[] = [
       }
     ],
     googleMapsUrl: "https://maps.google.com/?q=Dayet+Srji,+Merzouga,+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -720,6 +728,8 @@ export const merzougaNatureThings: ThingToDoListing[] = [
       }
     ],
     googleMapsUrl: "https://maps.google.com/?q=Mifis,+Merzouga,+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -820,6 +830,8 @@ export const merzougaNatureThings: ThingToDoListing[] = [
       }
     ],
     googleMapsUrl: "https://maps.google.com/?q=Erg+Chebbi+Dunes,+Merzouga,+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -920,6 +932,8 @@ export const merzougaNatureThings: ThingToDoListing[] = [
       }
     ],
     googleMapsUrl: "https://maps.google.com/?q=Merzouga+Outskirts,+Merzouga,+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1020,6 +1034,8 @@ export const merzougaNatureThings: ThingToDoListing[] = [
       }
     ],
     googleMapsUrl: "https://maps.google.com/?q=Merzouga+Center,+Merzouga,+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1120,6 +1136,8 @@ export const merzougaNatureThings: ThingToDoListing[] = [
       }
     ],
     googleMapsUrl: "https://maps.google.com/?q=Erg+Chebbi+Dunes,+Merzouga,+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1220,6 +1238,8 @@ export const merzougaNatureThings: ThingToDoListing[] = [
       }
     ],
     googleMapsUrl: "https://maps.google.com/?q=Merzouga+Dunes,+Merzouga,+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1320,6 +1340,8 @@ export const merzougaNatureThings: ThingToDoListing[] = [
       }
     ],
     googleMapsUrl: "https://maps.google.com/?q=Merzouga+Desert,+Merzouga,+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1429,6 +1451,8 @@ export const merzougaNatureThings: ThingToDoListing[] = [
       }
     ],
     googleMapsUrl: "https://maps.google.com/?q=Hassi+Labied,+Merzouga,+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1529,5 +1553,7 @@ export const merzougaNatureThings: ThingToDoListing[] = [
       }
     ],
     googleMapsUrl: "https://maps.google.com/?q=Khamlia,+Merzouga,+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

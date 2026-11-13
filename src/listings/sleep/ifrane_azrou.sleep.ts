@@ -353,7 +353,9 @@ export const ifrane_azrouSleep: SleepListing[] = [
       lat: 33.411416,
       lng: -5.078405
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "ia-sleep-2",
@@ -470,7 +472,9 @@ export const ifrane_azrouSleep: SleepListing[] = [
       lat: 33.443967,
       lng: -5.180024
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "ia-sleep-3",
@@ -583,7 +587,9 @@ export const ifrane_azrouSleep: SleepListing[] = [
       business: "Quiet enough for creative work, but remote.",
       nomad: "Good for nomads wanting nature, silence, and simple comfort.",
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "ia-sleep-4",
@@ -700,7 +706,9 @@ export const ifrane_azrouSleep: SleepListing[] = [
       lat: 33.4747,
       lng: -5.247636
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "ia-sleep-5",
@@ -815,7 +823,9 @@ export const ifrane_azrouSleep: SleepListing[] = [
       lat: 33.450729,
       lng: -5.229569
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "ia-sleep-6",
@@ -932,7 +942,9 @@ export const ifrane_azrouSleep: SleepListing[] = [
       lat: 33.50583,
       lng: -5.154719
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "ia-sleep-7",
@@ -1047,7 +1059,9 @@ export const ifrane_azrouSleep: SleepListing[] = [
       lat: 33.440752,
       lng: -5.225613
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "ia-sleep-8",
@@ -1164,7 +1178,9 @@ export const ifrane_azrouSleep: SleepListing[] = [
       lat: 33.653362,
       lng: -5.011236
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "ia-sleep-9",
@@ -1281,7 +1297,9 @@ export const ifrane_azrouSleep: SleepListing[] = [
       lat: 33.434868,
       lng: -5.220344
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "ia-sleep-10",
@@ -1394,7 +1412,9 @@ export const ifrane_azrouSleep: SleepListing[] = [
       business: "Not ideal for business, but quiet for basic work.",
       nomad: "A budget-friendly forest base for outdoorsy nomads.",
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "ia-sleep-11",
@@ -1511,7 +1531,9 @@ export const ifrane_azrouSleep: SleepListing[] = [
       lat: 33.434868,
       lng: -5.220344
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "ia-sleep-12",
@@ -1624,7 +1646,9 @@ export const ifrane_azrouSleep: SleepListing[] = [
       business: "Not business-focused, but calm for light remote tasks.",
       nomad: "A good base for nomads who mix work with hiking or quad rides.",
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "ia-sleep-13",
@@ -1741,7 +1765,9 @@ export const ifrane_azrouSleep: SleepListing[] = [
       lat: 33.433476,
       lng: -5.2262
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "ia-sleep-14",
@@ -1856,7 +1882,9 @@ export const ifrane_azrouSleep: SleepListing[] = [
       lat: 33.529342,
       lng: -5.107502
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "ia-sleep-15",
@@ -1973,7 +2001,9 @@ export const ifrane_azrouSleep: SleepListing[] = [
       lat: 33.464258,
       lng: -5.148528
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "ia-sleep-16",
@@ -2090,7 +2120,9 @@ export const ifrane_azrouSleep: SleepListing[] = [
       lat: 33.518382,
       lng: -5.133075
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "ia-sleep-17",
@@ -2207,7 +2239,9 @@ export const ifrane_azrouSleep: SleepListing[] = [
       lat: 33.528516,
       lng: -5.106531
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "ia-sleep-18",
@@ -2324,7 +2358,9 @@ export const ifrane_azrouSleep: SleepListing[] = [
       lat: 33.43652,
       lng: -5.214161
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "ia-sleep-19",
@@ -2441,7 +2477,9 @@ export const ifrane_azrouSleep: SleepListing[] = [
       lat: 33.438661,
       lng: -5.231223
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "ia-sleep-20",
@@ -2558,6 +2596,8 @@ export const ifrane_azrouSleep: SleepListing[] = [
       lat: 33.518382,
       lng: -5.133075
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ]

@@ -3,7 +3,7 @@
 // every listing read here is enriched at read time, so global tag updates
 // apply instantly to the quiz, results, and filters.
 import { enrichListingTags } from '../data/controllers';
-import { TOURISTIC_PROFILES } from '../data/touristicHierarchy';
+import { TOURISTIC_PROFILES, CITY_TO_LISTING_KEY_MAP } from '../data/touristicHierarchy';
 
 import { agadirSleep } from './sleep/agadir.sleep'
 import { alHoceimaSleep } from './sleep/al_hoceima.sleep'
@@ -317,9 +317,11 @@ export function getListings(city?: string, focus?: string): any[] {
   }
   
   const cityKey = city.toLowerCase();
-  const subDestinations = (hierarchy as any)[cityKey] || [];
+  const mappedListingKey = CITY_TO_LISTING_KEY_MAP[cityKey] || cityKey;
+  const subDestinations = (hierarchy as any)[mappedListingKey] || (hierarchy as any)[cityKey] || [];
   
-  const keysToFetch = [cityKey, ...subDestinations].map(c => `${c}-${normalizedFocus}`);
+  const citiesToFetch = Array.from(new Set([cityKey, mappedListingKey, ...subDestinations]));
+  const keysToFetch = citiesToFetch.map(c => `${c}-${normalizedFocus}`);
   
   const listings = keysToFetch.flatMap(key => listingsRegistry[key] || []);
   

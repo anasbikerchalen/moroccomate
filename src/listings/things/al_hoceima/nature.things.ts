@@ -409,6 +409,8 @@ export const alHoceimaNatureThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -599,6 +601,8 @@ export const alHoceimaNatureThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -794,6 +798,8 @@ export const alHoceimaNatureThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -984,6 +990,8 @@ export const alHoceimaNatureThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1170,6 +1178,8 @@ export const alHoceimaNatureThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1360,6 +1370,8 @@ export const alHoceimaNatureThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1546,6 +1558,8 @@ export const alHoceimaNatureThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1732,6 +1746,8 @@ export const alHoceimaNatureThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1918,6 +1934,8 @@ export const alHoceimaNatureThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -2104,6 +2122,8 @@ export const alHoceimaNatureThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -2294,5 +2314,7 @@ export const alHoceimaNatureThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

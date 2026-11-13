@@ -98,7 +98,9 @@ export const dakhlaShops: ShopListing[] = [
     phoneNumber: '+212 5288-97350',
     openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 19:00' }],
     website: 'https://dakhla-attitude.ma',
-    isLocalFavorite: true
+    isLocalFavorite: true,
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-dak-2',
@@ -123,7 +125,9 @@ export const dakhlaShops: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Sahrawi Silver Rings', 'Camel Leather Purses', 'Decorative Sand Vials', 'Keychains'],
     languagesSpoken: ['Arabic', 'French', 'English', 'Spanish'],
-    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 20:30' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 20:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-dak-3',
@@ -149,7 +153,9 @@ export const dakhlaShops: ShopListing[] = [
     productCategories: ['Fresh Atlantic Sea Bass', 'Octopus', 'Dakhla Dates', 'Fresh Camel Milk'],
     languagesSpoken: ['Arabic', 'Spanish', 'French'],
     openingHours: [{ day: 'Mon-Sun', hours: '07:30 - 18:30' }],
-    isLocalFavorite: true
+    isLocalFavorite: true,
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-dak-4',
@@ -174,7 +180,9 @@ export const dakhlaShops: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard'],
     productCategories: ['Boardshorts', 'Windbreakers', 'Reef Safe Sunscreen', 'Kite Lines & Pumps'],
     languagesSpoken: ['French', 'English', 'Spanish', 'Arabic'],
-    openingHours: [{ day: 'Mon-Sat', hours: '09:30 - 20:00' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '09:30 - 20:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-dak-5',
@@ -199,7 +207,9 @@ export const dakhlaShops: ShopListing[] = [
     paymentMethods: ['cash'],
     productCategories: ['Colorful Melhafa Fabrics', 'Bakhoor Incense', 'Brass Tea Pots', 'Loose Green Tea'],
     languagesSpoken: ['Arabic', 'Hasaniya', 'French'],
-    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 21:00' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 21:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-dak-6',
@@ -224,7 +234,9 @@ export const dakhlaShops: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard', 'apple_pay'],
     productCategories: ['Whole Bean Coffee', 'Espresso Blends', 'Coffee Mugs', 'Brewing Equipment'],
     languagesSpoken: ['English', 'French', 'Arabic', 'Spanish'],
-    openingHours: [{ day: 'Mon-Sun', hours: '07:30 - 21:00' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '07:30 - 21:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-dak-7',
@@ -250,7 +262,9 @@ export const dakhlaShops: ShopListing[] = [
     productCategories: ['Fresh Lagoon Oysters', 'Artisanal Sea Salt Flakes', 'Seafood Cans'],
     languagesSpoken: ['French', 'English', 'Arabic', 'Spanish'],
     openingHours: [{ day: 'Mon-Sun', hours: '10:00 - 18:30' }],
-    isLocalFavorite: true
+    isLocalFavorite: true,
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-dak-8',
@@ -275,7 +289,9 @@ export const dakhlaShops: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard'],
     productCategories: ['Ocean Surfboards', 'Eco Surf Wax', 'Branded Hoodies', 'Leashes & Fins'],
     languagesSpoken: ['English', 'French', 'Spanish', 'Arabic'],
-    openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 18:30' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 18:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-dak-9',
@@ -300,7 +316,9 @@ export const dakhlaShops: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard', 'apple_pay'],
     productCategories: ['Linen Resort Wear', 'Straw Sun Hats', 'Recycled Ocean Decor', 'Organic Sunscreen'],
     languagesSpoken: ['French', 'English', 'Spanish', 'Arabic'],
-    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 19:00' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 19:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-dak-10',
@@ -327,7 +345,9 @@ export const dakhlaShops: ShopListing[] = [
     productCategories: ['Camel Leather Bags', 'Tuareg Silver Jewelry', 'Carved Wood Bowls', 'Woven Rugs'],
     languagesSpoken: ['Arabic', 'French', 'Spanish'],
     openingHours: [{ day: 'Mon-Sat', hours: '08:30 - 18:00' }],
-    workshopVisitable: true
+    workshopVisitable: true,
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-dakhla-ensemble-1',
@@ -349,6 +369,8 @@ export const dakhlaShops: ShopListing[] = [
     paymentMethods: ["cash","visa","mastercard"],
     productCategories: ["Camel Leatherwork","Sahrawi Silver Jewelry","Melhfa Fabrics","Brass Tea Pots"],
     languagesSpoken: ["Arabic","French","Spanish","English"],
-    openingHours: [{"day":"Mon-Sat","hours":"09:30 - 19:30"}]
+    openingHours: [{"day":"Mon-Sat","hours":"09:30 - 19:30"}],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

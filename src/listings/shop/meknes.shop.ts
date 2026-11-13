@@ -99,7 +99,9 @@ export const meknesShops: ShopListing[] = [
     phoneNumber: '+212 5355-32140',
     openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 19:30' }],
     workshopVisitable: true,
-    isLocalFavorite: true
+    isLocalFavorite: true,
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-mek-2',
@@ -125,7 +127,9 @@ export const meknesShops: ShopListing[] = [
     productCategories: ['Silver Judaica', 'Antique Middle Atlas Rugs', 'Engraved Brass Trays'],
     languagesSpoken: ['Arabic', 'French', 'English', 'Spanish'],
     openingHours: [{ day: 'Mon-Sat', hours: '09:30 - 19:00' }],
-    shipping: { available: true, partner: 'dhl' }
+    shipping: { available: true, partner: 'dhl' },
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-mek-3',
@@ -151,7 +155,9 @@ export const meknesShops: ShopListing[] = [
     productCategories: ['Garlic Marinated Olives', 'Cured Harissa Paste', 'Ras El Hanout Spice', 'Meknes Olive Oil'],
     languagesSpoken: ['Arabic', 'French'],
     openingHours: [{ day: 'Mon-Sun', hours: '08:00 - 20:00' }],
-    isLocalFavorite: true
+    isLocalFavorite: true,
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-mek-4',
@@ -177,7 +183,9 @@ export const meknesShops: ShopListing[] = [
     productCategories: ['Hand-hammered Teapots', 'Copper Basins', 'Chef Knives', 'Brass Trays'],
     languagesSpoken: ['Arabic', 'French'],
     openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 19:00' }],
-    workshopVisitable: true
+    workshopVisitable: true,
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-mek-5',
@@ -202,7 +210,9 @@ export const meknesShops: ShopListing[] = [
     paymentMethods: ['cash'],
     productCategories: ['Wicker Laundry Baskets', 'Straw Hats', 'Cedar Spatulas', 'Palm Mats'],
     languagesSpoken: ['Arabic', 'French'],
-    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 19:00' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 19:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-mek-6',
@@ -227,7 +237,9 @@ export const meknesShops: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard', 'apple_pay'],
     productCategories: ['International Fashion', 'Cosmetics', 'Packaged Local Food', 'Electronics'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 21:00' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 21:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-mek-7',
@@ -252,7 +264,9 @@ export const meknesShops: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard'],
     productCategories: ['Zerhoun Virgin Olive Oil', 'Cornes de Gazelle', 'Lavender Honey', 'Almond Amlou'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sat', hours: '08:30 - 20:00' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '08:30 - 20:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-mek-8',
@@ -277,7 +291,9 @@ export const meknesShops: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Royal Yellow Babouches', 'Embroided Slippers', 'Leather Sandals'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 20:00' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 20:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-mek-9',
@@ -302,7 +318,9 @@ export const meknesShops: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Saffron Threads', 'Custom Herbal Teas', 'Argan Beauty Oil', 'Ghassoul Clay'],
     languagesSpoken: ['Arabic', 'French'],
-    openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 20:00' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 20:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-mek-10',
@@ -329,7 +347,9 @@ export const meknesShops: ShopListing[] = [
     productCategories: ['Beni Ourain Wool Carpets', 'Azilal Flat-weaves', 'Vintage Silk Cushions'],
     languagesSpoken: ['Arabic', 'French', 'English', 'German', 'Spanish'],
     openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 19:30' }],
-    shipping: { available: true, partner: 'dhl', details: 'International door-to-door carpet delivery' }
+    shipping: { available: true, partner: 'dhl', details: 'International door-to-door carpet delivery' },
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-meknes-marjane-1',
@@ -351,7 +371,9 @@ export const meknesShops: ShopListing[] = [
     paymentMethods: ["cash","visa","mastercard","apple_pay"],
     productCategories: ["Groceries","Meknes Olive Oil","Bakery","Electronics","Toiletries"],
     languagesSpoken: ["Arabic","French","English"],
-    openingHours: [{"day":"Mon-Sun","hours":"09:00 - 21:30"}]
+    openingHours: [{"day":"Mon-Sun","hours":"09:00 - 21:30"}],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-meknes-carrefour-1',
@@ -373,7 +395,9 @@ export const meknesShops: ShopListing[] = [
     paymentMethods: ["cash","visa","mastercard","apple_pay"],
     productCategories: ["European Food","Fresh Bread","Dairy","Snacks","Beverages"],
     languagesSpoken: ["French","Arabic","English"],
-    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 21:30"}]
+    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 21:30"}],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-meknes-decathlon-1',
@@ -395,7 +419,9 @@ export const meknesShops: ShopListing[] = [
     paymentMethods: ["cash","visa","mastercard","apple_pay"],
     productCategories: ["Walking Shoes","Backpacks","Sportswear","Sun Hats","Fitness Gear"],
     languagesSpoken: ["French","Arabic","English"],
-    openingHours: [{"day":"Mon-Sun","hours":"09:30 - 21:00"}]
+    openingHours: [{"day":"Mon-Sun","hours":"09:30 - 21:00"}],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-meknes-atacadao-1',
@@ -417,7 +443,9 @@ export const meknesShops: ShopListing[] = [
     paymentMethods: ["cash","visa","mastercard"],
     productCategories: ["Water Cases","Flour","Oil","Canned Foods","Detergent"],
     languagesSpoken: ["Arabic","French"],
-    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 20:30"}]
+    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 20:30"}],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-meknes-ensemble-1',
@@ -439,6 +467,8 @@ export const meknesShops: ShopListing[] = [
     paymentMethods: ["cash","visa","mastercard"],
     productCategories: ["Damascene Silver Inlay","Carved Cedar","Leather Goods","Berber Carpets"],
     languagesSpoken: ["Arabic","French","English"],
-    openingHours: [{"day":"Mon-Sat","hours":"09:00 - 19:00"}]
+    openingHours: [{"day":"Mon-Sat","hours":"09:00 - 19:00"}],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

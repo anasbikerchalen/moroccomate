@@ -142,7 +142,9 @@ export const tetouan_martilSleep: SleepListing[] = [
       lat: 35.570967,
       lng: -5.369959
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 's-tetouan-hotel-blanco-riad',
@@ -203,7 +205,9 @@ export const tetouan_martilSleep: SleepListing[] = [
       lat: 35.570753,
       lng: -5.370132
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 's-tetouan-riad-benyara',
@@ -264,7 +268,9 @@ export const tetouan_martilSleep: SleepListing[] = [
       lat: 35.61853,
       lng: -5.299971
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 's-martil-riad-salt-river',
@@ -325,6 +331,8 @@ export const tetouan_martilSleep: SleepListing[] = [
       lat: 35.557742,
       lng: -5.369806
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

@@ -311,5 +311,7 @@ export const marrakechNatureThings: ThingToDoListing[] = [
       lng: -7.99914
     },
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=31.62672,-7.99914",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

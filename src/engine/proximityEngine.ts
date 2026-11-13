@@ -24,6 +24,37 @@ export interface LatLng {
   lng: number;
 }
 
+/**
+ * Safely extract valid { lat, lng } coordinates from any listing schema
+ * (coordinates, exactAddressAndCoordinates, ui.*, or flat lat/lng/lon).
+ */
+export function extractListingCoords(item: any): LatLng | null {
+  if (!item) return null;
+  const candidates = [
+    item.coordinates,
+    item.exactAddressAndCoordinates,
+    item.ui?.coordinates,
+    item.ui?.exactAddressAndCoordinates,
+    item,
+  ];
+  for (const c of candidates) {
+    if (!c) continue;
+    const lat = c.lat ?? c.latitude;
+    const lng = c.lng ?? c.lon ?? c.longitude;
+    if (
+      typeof lat === 'number' &&
+      typeof lng === 'number' &&
+      !Number.isNaN(lat) &&
+      !Number.isNaN(lng) &&
+      lat !== 0 &&
+      lng !== 0
+    ) {
+      return { lat, lng };
+    }
+  }
+  return null;
+}
+
 /** Distance between two coordinates in meters (haversine). */
 export function haversineM(a: LatLng, b: LatLng): number {
   const toRad = (d: number) => (d * Math.PI) / 180;

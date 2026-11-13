@@ -110,6 +110,12 @@ export const EMPTY_ACTIVITY_TEMPLATE: ActivityListing = {
   media: [],
   worries: resolveThingsWorries(),
   reviews: [],
+  // Multi-platform Reviews Section Holder (hidden on UI until populated)
+  // Sources for Things to Do: Tripadvisor, GetYourGuide, Viator, Google Travel, Lonely Planet
+  reviewsData: {
+    sources: [],
+    reviews: []
+  },
   visibility: {},
   is_published: false
 };

@@ -8,11 +8,9 @@ import { getListings } from '../../listings';
 import { getListingUrl } from '../../listings/placeRoutes';
 import { useNavigate, Link } from 'react-router-dom';
 import FilterPanel from './modals/FilterPanel';
-import { SavvyScoreEngine } from '../../engine/savvyScoreEngine';
-import SavvyBadge from '../savvy/SavvyBadge';
 import { getShopStatus } from '../../utils/timeEngine';
 import { stayHasPool, stayHasAC, getCityCenter } from '../../engine/stayAdapter';
-import { haversineM, bearingDeg } from '../../engine/proximityEngine';
+import { haversineM, bearingDeg, extractListingCoords } from '../../engine/proximityEngine';
 import { WalkingDistanceMap } from './stay/WalkingDistanceMap';
 import type { NearbyPlace } from '../../types/stay';
 import { getAreasByCityBase } from '../../data/tourismAreas';
@@ -129,10 +127,12 @@ export default function CategoryListing() {
   const shopMapPlaces = useMemo<NearbyPlace[]>(() => {
     if (activeCategory !== 'shopping') return [];
     const center = getCityCenter(city || 'marrakech');
-    const withCoords = items.filter((item: any) => item.coordinates);
+    const withCoords = items
+      .map((item: any) => ({ item, coords: extractListingCoords(item) }))
+      .filter((entry): entry is { item: any; coords: { lat: number; lng: number } } => entry.coords !== null);
     if (!withCoords.length) return [];
     const limited = withCoords.slice(0, 8);
-    const maxRef = Math.max(1, ...limited.map((s: any) => haversineM(center, s.coordinates)));
+    const maxRef = Math.max(1, ...limited.map((entry) => haversineM(center, entry.coords)));
     const typeMap: Record<string, string> = {
       souk_stall: 'Souk / Market',
       cooperative: 'Landmark',
@@ -143,17 +143,17 @@ export default function CategoryListing() {
       designer_atelier: 'Landmark',
       concept_store: 'Landmark'
     };
-    return limited.map((s: any, i: number) => {
-      const distanceM = haversineM(center, s.coordinates);
-      const angle = ((bearingDeg(center, s.coordinates) % 360) + 360) % 360;
+    return limited.map(({ item: s, coords }, i: number) => {
+      const distanceM = haversineM(center, coords);
+      const angle = ((bearingDeg(center, coords) % 360) + 360) % 360;
       return {
         id: s.id,
         name: s.name || s.title || `Shop ${i + 1}`,
         category: (typeMap[s.type] || 'Other') as any,
         walking_time_minutes: Math.max(1, Math.round(distanceM / 80)),
         icon: s.type === 'souk_stall' ? 'souk' : 'store',
-        latitude: s.coordinates.lat,
-        longitude: s.coordinates.lng,
+        latitude: coords.lat,
+        longitude: coords.lng,
         relative_angle: Math.round(angle),
         relative_distance: Number(Math.min(0.95, Math.max(0.3, distanceM / maxRef)).toFixed(2))
       };
@@ -230,7 +230,6 @@ export default function CategoryListing() {
 
       <div className={isShoppingPage ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6' : 'grid grid-cols-1 gap-6'}>
         {items.slice(0, visibleCount).map((item) => {
-          const hasIntel = SavvyScoreEngine.getPlaceIntel(item.id) !== undefined;
           const isShopping = activeCategory === 'shopping';
 
           let shopStatusText = '';
@@ -273,7 +272,6 @@ export default function CategoryListing() {
                         {item.name || item.title}
                       </h3>
                     </div>
-                    {hasIntel && <SavvyBadge placeId={item.id} size="sm" showLabel={false} />}
                   </div>
 
                   {/* Neighborhood + open status */}
@@ -367,9 +365,6 @@ export default function CategoryListing() {
                     )}
                     {item.name || item.title}
                   </h3>
-                  {hasIntel && (
-                    <SavvyBadge placeId={item.id} size="sm" showLabel={false} />
-                  )}
                   {isShopping && (item as any).pricingModel && (
                     <span className="px-2 py-0.5 bg-stone-100 text-stone-600 rounded-lg text-[9px] font-black uppercase tracking-widest border border-stone-200">
                       {(item as any).pricingModel}

@@ -97,7 +97,9 @@ export const elJadidaShops: ShopListing[] = [
     languagesSpoken: ['Arabic', 'French', 'Portuguese', 'English'],
     phoneNumber: '+212 5233-42150',
     openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 19:00' }],
-    isLocalFavorite: true
+    isLocalFavorite: true,
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-elj-2',
@@ -123,7 +125,9 @@ export const elJadidaShops: ShopListing[] = [
     productCategories: ['Atlantic Sardines & Mullet', 'Fresh Sea Urchins', 'Spiced Doukkala Olives'],
     languagesSpoken: ['Arabic', 'French'],
     openingHours: [{ day: 'Mon-Sun', hours: '07:30 - 18:00' }],
-    isLocalFavorite: true
+    isLocalFavorite: true,
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-elj-3',
@@ -150,7 +154,9 @@ export const elJadidaShops: ShopListing[] = [
     productCategories: ['Blue Glazed Garden Pots', 'Terracotta Tagines', 'Decorative Ceramic Plates'],
     languagesSpoken: ['Arabic', 'French'],
     openingHours: [{ day: 'Mon-Sat', hours: '08:30 - 18:00' }],
-    workshopVisitable: true
+    workshopVisitable: true,
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-elj-4',
@@ -176,7 +182,9 @@ export const elJadidaShops: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard'],
     productCategories: ['Doukkala Wool Blankets', 'Striped Cotton Towels', 'Embroidered Table Runners'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 18:00' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 18:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-elj-5',
@@ -201,7 +209,9 @@ export const elJadidaShops: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Leather Travel Duffels', 'Yellow Slippers', 'Brass Lanterns'],
     languagesSpoken: ['Arabic', 'French', 'English', 'Portuguese'],
-    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 19:30' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 19:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-elj-6',
@@ -226,7 +236,9 @@ export const elJadidaShops: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Pure Cosmetic Argan Oil', 'Eucalyptus Honey', 'Ghassoul Clay', 'Orange Blossom Elixir'],
     languagesSpoken: ['Arabic', 'French'],
-    openingHours: [{ day: 'Mon-Sat', hours: '08:30 - 20:00' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '08:30 - 20:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-elj-7',
@@ -251,7 +263,9 @@ export const elJadidaShops: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard'],
     productCategories: ['Silk Embroidered Caftans', 'Bridal Takchitas', 'Sfifa Trim Gandouras'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sat', hours: '09:30 - 20:00' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '09:30 - 20:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-elj-8',
@@ -276,7 +290,9 @@ export const elJadidaShops: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Pure Eucalyptus Honey', 'Thyme Honey', 'Almond-Argan Amlou Dip'],
     languagesSpoken: ['Arabic', 'French'],
-    openingHours: [{ day: 'Mon-Sat', hours: '08:30 - 20:00' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '08:30 - 20:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-elj-9',
@@ -301,7 +317,9 @@ export const elJadidaShops: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Brass Filigree Hanging Lamps', 'Leather Ottoman Poufs', 'Ceramic Bowls'],
     languagesSpoken: ['Arabic', 'French', 'English', 'Spanish'],
-    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 19:30' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 19:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-elj-10',
@@ -327,7 +345,9 @@ export const elJadidaShops: ShopListing[] = [
     productCategories: ['Custom Stitched Leather Belts', 'Handmade Leather Wallets', 'Leather Watch Straps'],
     languagesSpoken: ['Arabic', 'French', 'English'],
     openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 18:30' }],
-    workshopVisitable: true
+    workshopVisitable: true,
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-el_jadida-marjane-1',
@@ -349,7 +369,9 @@ export const elJadidaShops: ShopListing[] = [
     paymentMethods: ["cash","visa","mastercard","apple_pay"],
     productCategories: ["Groceries","Local Dairy","Bakery","Toiletries","Electronics"],
     languagesSpoken: ["Arabic","French","English"],
-    openingHours: [{"day":"Mon-Sun","hours":"09:00 - 21:30"}]
+    openingHours: [{"day":"Mon-Sun","hours":"09:00 - 21:30"}],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-el_jadida-carrefour-1',
@@ -371,7 +393,9 @@ export const elJadidaShops: ShopListing[] = [
     paymentMethods: ["cash","visa","mastercard","apple_pay"],
     productCategories: ["European Groceries","Dairy","Bakery","Fresh Fruit","Toiletries"],
     languagesSpoken: ["French","Arabic","English"],
-    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 21:30"}]
+    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 21:30"}],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-el_jadida-decathlon-1',
@@ -393,7 +417,9 @@ export const elJadidaShops: ShopListing[] = [
     paymentMethods: ["cash","visa","mastercard","apple_pay"],
     productCategories: ["Swimwear","Wetsuits","Running Shoes","Backpacks","Sun Protection"],
     languagesSpoken: ["French","Arabic","English"],
-    openingHours: [{"day":"Mon-Sun","hours":"09:30 - 21:00"}]
+    openingHours: [{"day":"Mon-Sun","hours":"09:30 - 21:00"}],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-el_jadida-bim-1',
@@ -415,7 +441,9 @@ export const elJadidaShops: ShopListing[] = [
     paymentMethods: ["cash","visa","mastercard"],
     productCategories: ["Mineral Water","Cookies","Dairy","Snacks","Basic Toiletries"],
     languagesSpoken: ["Arabic","French"],
-    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 21:00"}]
+    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 21:00"}],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-el_jadida-ensemble-1',
@@ -437,6 +465,8 @@ export const elJadidaShops: ShopListing[] = [
     paymentMethods: ["cash","visa","mastercard"],
     productCategories: ["Doukkala Woven Rugs","Ceramics","Leather Babouches","Brasswork"],
     languagesSpoken: ["Arabic","French","English"],
-    openingHours: [{"day":"Mon-Sat","hours":"09:00 - 19:00"}]
+    openingHours: [{"day":"Mon-Sat","hours":"09:00 - 19:00"}],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

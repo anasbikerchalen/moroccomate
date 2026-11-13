@@ -359,7 +359,9 @@ export const el_jadidaSleep: SleepListing[] = [
       lat: 33.281921,
       lng: -8.384253
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "ej-sleep-2",
@@ -476,7 +478,9 @@ export const el_jadidaSleep: SleepListing[] = [
       lat: 33.257073,
       lng: -8.502065
     },
-    tags: ["heritage"]
+    tags: ["heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "ej-sleep-3",
@@ -599,7 +603,9 @@ export const el_jadidaSleep: SleepListing[] = [
       lat: 33.25934,
       lng: -8.422949
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "ej-sleep-4",
@@ -720,7 +726,9 @@ export const el_jadidaSleep: SleepListing[] = [
       lat: 33.256988,
       lng: -8.501786
     },
-    tags: ["heritage"]
+    tags: ["heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "ej-sleep-5",
@@ -835,7 +843,9 @@ export const el_jadidaSleep: SleepListing[] = [
       lat: 33.256758,
       lng: -8.509275
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "ej-sleep-6",
@@ -952,7 +962,9 @@ export const el_jadidaSleep: SleepListing[] = [
       lat: 33.254204,
       lng: -8.436855
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "ej-sleep-7",
@@ -1069,7 +1081,9 @@ export const el_jadidaSleep: SleepListing[] = [
       lat: 33.190796,
       lng: -8.443665
     },
-    tags: []
+    tags: [],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "ej-sleep-8",
@@ -1186,7 +1200,9 @@ export const el_jadidaSleep: SleepListing[] = [
       lat: 33.243795,
       lng: -8.4833
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "ej-sleep-9",
@@ -1303,7 +1319,9 @@ export const el_jadidaSleep: SleepListing[] = [
       lat: 33.244428,
       lng: -8.48919
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "ej-sleep-10",
@@ -1420,7 +1438,9 @@ export const el_jadidaSleep: SleepListing[] = [
       lat: 33.244359,
       lng: -8.488484
     },
-    tags: []
+    tags: [],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "ej-sleep-11",
@@ -1537,7 +1557,9 @@ export const el_jadidaSleep: SleepListing[] = [
       lat: 33.25771,
       lng: -8.501486
     },
-    tags: ["heritage"]
+    tags: ["heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "ej-sleep-12",
@@ -1654,7 +1676,9 @@ export const el_jadidaSleep: SleepListing[] = [
       lat: 33.256797,
       lng: -8.502332
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "ej-sleep-13",
@@ -1771,7 +1795,9 @@ export const el_jadidaSleep: SleepListing[] = [
       lat: 33.250667,
       lng: -8.502677
     },
-    tags: []
+    tags: [],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "ej-sleep-14",
@@ -1886,7 +1912,9 @@ export const el_jadidaSleep: SleepListing[] = [
       lat: 33.256134,
       lng: -8.502007
     },
-    tags: ["heritage"]
+    tags: ["heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "ej-sleep-15",
@@ -2003,7 +2031,9 @@ export const el_jadidaSleep: SleepListing[] = [
       lat: 33.243331,
       lng: -8.49884
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "ej-sleep-16",
@@ -2120,7 +2150,9 @@ export const el_jadidaSleep: SleepListing[] = [
       lat: 33.253448,
       lng: -8.505156
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "ej-sleep-17",
@@ -2237,7 +2269,9 @@ export const el_jadidaSleep: SleepListing[] = [
       lat: 33.243963,
       lng: -8.478969
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "ej-sleep-18",
@@ -2354,7 +2388,9 @@ export const el_jadidaSleep: SleepListing[] = [
       lat: 33.256078,
       lng: -8.501974
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "ej-sleep-19",
@@ -2465,7 +2501,9 @@ export const el_jadidaSleep: SleepListing[] = [
       lat: 33.241208,
       lng: -8.485129
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "ej-sleep-20",
@@ -2576,6 +2614,8 @@ export const el_jadidaSleep: SleepListing[] = [
       lat: 33.243011,
       lng: -8.497185
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ]

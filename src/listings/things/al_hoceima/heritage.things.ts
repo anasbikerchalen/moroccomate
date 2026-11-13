@@ -386,7 +386,9 @@ export const alHoceimaHeritageThings: ThingToDoListing[] = [
         a: "Yes, small-scale fishermen frequently sell portions of their morning catch directly on the dock, payable in cash."
       }
     ],
-    contactPhone: ""
+    contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -563,7 +565,9 @@ export const alHoceimaHeritageThings: ThingToDoListing[] = [
         a: "No. In Morocco, entry into mosque prayer halls is restricted to practicing Muslims. International visitors can view the architecture from the street."
       }
     ],
-    contactPhone: ""
+    contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -746,7 +750,9 @@ export const alHoceimaHeritageThings: ThingToDoListing[] = [
         a: "Yes, the main upper promenade is paved and flat with ramped entrances from the main roadway."
       }
     ],
-    contactPhone: ""
+    contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -923,7 +929,9 @@ export const alHoceimaHeritageThings: ThingToDoListing[] = [
         a: "Yes, the open-air terraces welcome families, couples, and solo travelers alike."
       }
     ],
-    contactPhone: ""
+    contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1100,6 +1108,8 @@ export const alHoceimaHeritageThings: ThingToDoListing[] = [
         a: "Yes, visitors are welcome to explore the art galleries and attend public exhibitions during operating hours."
       }
     ],
-    contactPhone: ""
+    contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

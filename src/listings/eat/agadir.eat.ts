@@ -204,8 +204,8 @@ export const agadirEat: EatListing[] = [
       googleReviewCount: 3860,
       tripadvisorRating: 4.5,
       tripadvisorReviewCount: 110,
-      theforkRating: 4.8,
-      theforkReviewCount: 85,
+      restaurantguruRating: 5.0,
+      restaurantguruReviewCount: 3952,
       openTime: "07:00",
       closeTime: "00:00",
       weeklySchedule: [
@@ -966,6 +966,366 @@ export const agadirEat: EatListing[] = [
           },
         ],
       }
+    },
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      {
+        id: "financial-trust",
+        title: "Financial Trust",
+        tag: "Clear Luxury Pricing",
+        tagColor: "money",
+        tone: "good",
+        description: "All steaks, certified Wagyu, and 24K gold items have clearly printed menu prices with service and tax included.",
+        state: "verified"
+      },
+      {
+        id: "health-safety",
+        title: "Health & Safety",
+        tag: "100% Halal Standards",
+        tagColor: "water",
+        tone: "good",
+        description: "Strict halal-certified dry-aging processes and spotless open kitchen hygiene; purified water used for all preparations.",
+        state: "verified"
+      },
+      {
+        id: "culinary-authenticity",
+        title: "Culinary Authenticity",
+        tag: "Steakhouse & Dutch",
+        tagColor: "food",
+        tone: "good",
+        description: "Upscale international steakhouse featuring genuine dry-aged Himalayan salt beef, Wagyu cuts, and traditional Dutch poffertjes.",
+        state: "verified"
+      },
+      {
+        id: "comfort-environment",
+        title: "Comfort & Atmosphere",
+        tag: "Modern Hay Mohammadi",
+        tagColor: "safety",
+        tone: "good",
+        description: "Located in Résidence Islane away from beachfront street touts; plush climate-controlled dining lounge with weekend live violin.",
+        state: "verified"
+      },
+      {
+        id: "service-expectations",
+        title: "Service Expectations",
+        tag: "Theatrical & Busy",
+        tagColor: "alert",
+        tone: "caution",
+        description: "Theatrical tableside smoke cloche presentations; weekend dinner slots fill quickly, making 24h advance reservation recommended.",
+        state: "verified"
+      }
+    ],
+    // ── 5. REVIEWS (Multi-platform aggregated traveler reviews) ──
+    // Place-specific dynamic tags are extracted from these reviews
+    // (Steak & Beef, Live Violin, Service, Presentation, Mocktails, Wait Time, Pricing, Desserts, Atmosphere)
+    reviewsData: {
+      sources: [
+        {
+          source: 'Google Maps',
+          rating: 4.8,
+          maxRating: 5,
+          reviewCount: 3860,
+          url: 'https://maps.google.com/?q=Amsterdam+Luxury+Restaurant+Agadir'
+        },
+        {
+          source: 'Wanderlog',
+          rating: 4.9,
+          maxRating: 5,
+          reviewCount: 14,
+          url: 'https://wanderlog.com/place/details/2184994/amsterdam-luxury-restaurant'
+        },
+        {
+          source: 'Tripadvisor',
+          rating: 4.5,
+          maxRating: 5,
+          reviewCount: 110,
+          url: 'https://www.tripadvisor.com'
+        },
+        {
+          source: 'Restaurant Guru',
+          rating: 5.0,
+          maxRating: 5,
+          reviewCount: 3952,
+          url: 'https://restaurantguru.com/Amsterdam-Luxury-Restaurant-Agadir-Agadir'
+        }
+      ],
+      reviews: [
+        {
+          id: 'amst-rev-1',
+          author: 'Google Maps Guest',
+          gender: 'man',
+          postedDate: '2026-06-15',
+          source: 'Google Maps',
+          rating: 3,
+          sentiment: 'bad',
+          tags: ['Wait Time', 'Steak & Beef', 'Pricing'],
+          text: "Aesthetic of the restaurant is beautiful. You can clearly see that the restaurant is presented in a way to attract people in. I would have rated more stars but the wait for the food was way too long. The entire family had their food arrive before myself and had eaten whilst i still waited for mine. When mine did come it was rare whilst i ordered medium well. So had to go back for a second round on the grill. When i did get the food the sides were already cold. Staff missed the 2x portions of fries we ordered and the family had already eaten so just asked for the one. The steak was nothing special and especially after paying the for the most expensive one. It was chewy and lacked any flavour. This was the same with the fillets the family ordered. The sauce that accompanied the food was really good and made up for the lack of flavour of the meat. The spaghetti was actually really good, full of flavour. Had to nibble on it whilst i waited on my dish. The experience was good but I wouldn't be returning, I've had better steaks in agadir from much cheaper places. The owner and staff were very friendly and even the waiter could tell the steak wasn't to the level i ordered and said he'll take it back to put back on. They did make it up with offering a free portion of dutch pancakes for the inconvenience and only the dutch pancakes which didn't make up for the price we paid considering the bill was around 1300-1500 dirhams for 4 people."
+        },
+        {
+          id: 'amst-rev-2',
+          author: 'Wanderlog Traveler',
+          gender: 'man',
+          postedDate: '2026-02-15',
+          source: 'Wanderlog',
+          rating: 4,
+          sentiment: 'neutral',
+          tags: ['Pricing', 'Live Music', 'Atmosphere'],
+          text: "Tutti dicono che è il miglior ristorante di Agadir ma io avrei qualcosa da ridire... Cibo discreto e prezzi folli! Do 4 stelle solo perché è elegante e c'è musica dal vivo."
+        },
+        {
+          id: 'amst-rev-3',
+          author: 'Google Maps Guest',
+          gender: 'woman',
+          postedDate: '2026-04-19',
+          source: 'Google Maps',
+          rating: 5,
+          sentiment: 'good',
+          tags: ['Atmosphere', 'Service'],
+          text: "We visited Amsterdam Luxury Restaurant today after my daughter saw it on social media and it came highly recommended by a friend. Although we didn't have a reservation, the staff were very accommodating and managed to find us a table straight away. The restaurant had a lovely mix of tourists and locals, which always feels like a good sign. I took my daughter and niece there to celebrate her birthday, and it was definitely worth the 20-minute taxi ride from the Agadir beach area (around £6). The restaurant itself is beautifully designed—modern, stylish, and very clean. The atmosphere is warm and inviting."
+        },
+        {
+          id: 'amst-rev-4',
+          author: 'Google Maps Guest',
+          gender: 'woman',
+          postedDate: '2026-05-15',
+          source: 'Google Maps',
+          rating: 5,
+          sentiment: 'good',
+          tags: ['Steak & Beef', 'Service', 'Pricing'],
+          text: "Visited Amsterdam Restaurant in Agadir and had a great experience. The restaurant has a beautiful atmosphere, stylish decor, and a welcoming vibe. The food was well presented, fresh, and full of flavour. I especially enjoyed the steak, which was cooked perfectly. The staff were friendly and attentive, making the experience even better. Prices are a little on the higher side, but the quality and ambiance make it worthwhile. Overall, a lovely place for dinner and I would happily visit again."
+        },
+        {
+          id: 'amst-rev-5',
+          author: 'Google Maps Guest',
+          gender: 'man',
+          postedDate: '2026-05-20',
+          source: 'Google Maps',
+          rating: 5,
+          sentiment: 'good',
+          tags: ['Steak & Beef', 'Service', 'Presentation'],
+          text: "Amsterdam Luxury Restaurant in Agadir does not welcome you like a restaurant. It receives you like an elegant promise. A place where you do not come simply to eat, but to understand what refinement looks like when it no longer needs to prove anything. We began exactly as we should have: with a guacamole tartare with prawns — fresh, clean, precise, and seductive. A start that does not raise its voice, yet captures your full attention from the very first second. Fine, balanced, with perfect texture and that kind of freshness that impresses not through excess, but through control. Then came the beef rib. And this is where things became serious. Cooked impeccably, deep, succulent, with that rare balance between strength and elegance. A cut with character, treated with respect, served without unnecessary theatre and left to speak exactly as it should: clearly, maturely, and memorably. Everything was elevated by fresh juices with the taste of paradise — vibrant, refreshing, and chosen with the same precision as the food itself, bringing brightness, balance, and a tropical lift to the table. And the service… the service was imperial. Rarely do you find that kind of attention that never suffocates, that kind of presence that never interrupts, that kind of class that cannot be taught from a manual. Elegant, precise, natural. Exactly as it should be in a place that knows exactly what it is. Amsterdam Luxury Restaurant Agadir is not simply a good restaurant. It is the kind of place that reminds you that true fine dining is not about opulence. It is about control, taste, atmosphere, and dignity."
+        },
+        {
+          id: 'amst-rev-6',
+          author: 'Wanderlog Traveler',
+          gender: 'woman',
+          postedDate: '2026-03-15',
+          source: 'Wanderlog',
+          rating: 5,
+          sentiment: 'good',
+          tags: ['Presentation', 'Mocktails', 'Steak & Beef', 'Live Music'],
+          text: "What a place, travelled 30 mins from Taghazout to get here but it was worth every penny. No alcohol in this restaurant so we opted for the cocktails - Mojito. Arrived in a display cabinet with liquid ice - unreal. We were given bread and olives to start and we ordered Spicy Prawns and Pil Pil Garlic Prawns as a starter and both were delicious. Onto the mains we ordered the gold cote de boeuf which came with 2 sides and 2 sauces. The edible gold was a rare treat and I've never ate this before. The cut was lovely, very tasty and suitable for 2 to share. What blew me away was the presentation as it arrived in a contained box with liquid ice. It also had live music who was unreal too. Safe to say we were impressed and would certainly recommend this place. Special mention to our server Abdul who went above and beyond."
+        },
+        {
+          id: 'amst-rev-7',
+          author: 'Wanderlog Traveler',
+          gender: 'woman',
+          postedDate: '2026-02-18',
+          source: 'Wanderlog',
+          rating: 5,
+          sentiment: 'good',
+          tags: ['Service', 'Live Music', 'Atmosphere'],
+          text: "If you visit Agadir and need a place for fine dining, Amsterdam luxury restaurant is the perfect place to be. Rachid and his entire team were so warm and receptive. The food was excellent. Portion was great. They performed a little birthday surprise for my husband and it was beautiful. Every experience from walking in to the end was perfect. The ambience and music was so soft and beautiful. There's a gentleman who played lovely jazz musics on the background. It's worth every penny and I highly recommend them."
+        },
+        {
+          id: 'amst-rev-8',
+          author: 'Google Maps Guest',
+          gender: 'woman',
+          postedDate: '2026-08-15',
+          source: 'Google Maps',
+          rating: 5,
+          sentiment: 'good',
+          tags: ['Live Music', 'Atmosphere'],
+          text: "Une superbe découverte ! Le restaurant est magnifique, avec une décoration élégante et soignée qui crée une ambiance vraiment agréable. Les plats étaient excellents, savoureux et préparés avec beaucoup de goût. Mention spéciale au violoniste, qui a apporté une touche unique à la soirée. Sa musique a créé une ambiance chaleureuse et raffinée, rendant ce moment encore plus mémorable. Je recommande cet endroit sans hésiter. Si vous cherchez un restaurant où l'on mange très bien, dans un cadre magnifique avec une ambiance exceptionnelle, vous ne serez pas déçus !"
+        },
+        {
+          id: 'amst-rev-9',
+          author: 'Google Maps Guest',
+          gender: 'man',
+          postedDate: '2026-09-10',
+          source: 'Google Maps',
+          rating: 5,
+          sentiment: 'good',
+          tags: ['Presentation', 'Service', 'Atmosphere'],
+          text: "Une expérience exceptionnelle à tous les niveaux ! Le restaurant 'Amsterdam' place la barre très haut et offre une expérience digne des grands restaurants européens. La propreté des lieux est irréprochable dès le premier instant, et le service est d'un grand raffinement grâce à une équipe très professionnelle et chaleureuse. Quant aux plats, ce sont de véritables œuvres d'art avec une présentation éblouissante, et le goût est tout simplement incroyable. Un endroit qui vaut vraiment le détour, je le recommande vivement à tous ceux qui recherchent la qualité et une ambiance unique. 5 étoiles bien méritées !"
+        },
+        {
+          id: 'amst-rev-10',
+          author: 'Google Maps Guest',
+          gender: 'man',
+          postedDate: '2026-09-14',
+          source: 'Google Maps',
+          rating: 5,
+          sentiment: 'good',
+          tags: ['Service', 'Steak & Beef', 'Wait Time'],
+          text: "Excellente expérience à Amsterdam Luxury Restaurant Agadir ! Tous les plats que nous avons goûtés étaient vraiment très bons, avec des produits de qualité et des assiettes généreuses, la viande tendre et les accompagnements de bonne qualité. Le service était également très agréable. Nous avons eu un léger retard lié au changement d'équipe entre les deux services, mais cela a été parfaitement rattrapé. Un grand merci à la gérante Mme Leila pour son accueil, son professionnalisme et surtout pour son geste commercial, que nous avons beaucoup apprécié. Une très bonne adresse à Agadir que nous recommandons sans hésiter."
+        },
+        {
+          id: 'amst-rev-11',
+          author: 'Google Maps Guest',
+          gender: 'man',
+          postedDate: '2026-09-22',
+          source: 'Google Maps',
+          rating: 5,
+          sentiment: 'good',
+          tags: ['Steak & Beef', 'Desserts', 'Service', 'Wait Time'],
+          text: "I've wanted to leave this review for a long time because I come here often. Between breakfast, and lunch, I've been here more than 25 times. Sometimes I even eat lunch somewhere else and still come here after just for a café crème and the homemade tiramisu, which is really good. I travel a lot for work, so I eat in restaurants hundreds of times per year. That's why I feel I can compare. For me, this is one of the best restaurants in Agadir. What makes it stand out is consistency of the food quality. The service is good, the staff are friendly, and the ingredients are high quality. You notice that when you come back many times. My favorite is the beef fillet — I've had it more than 10 times. I've also tried the chicken satay, the sliced chicken with mushrooms, and the Amsterdam burger. All of them were good. The place is clean and well organized. When it's full, there can be a little confusion and you wait a bit longer, which is normal. What matters most to me is that the quality stays the same every visit. Here it does, and that is rare. In Morocco many restaurants are good one day and not as good the next. This one stays consistent. I hope they keep the same service, the same ingredients, and the same taste. If they do, I will keep coming."
+        },
+        {
+          id: 'amst-rev-12',
+          author: 'Google Maps Guest',
+          gender: 'man',
+          postedDate: '2026-08-20',
+          source: 'Google Maps',
+          rating: 5,
+          sentiment: 'good',
+          tags: ['Atmosphere', 'Service'],
+          text: "Excellentes expérience. Food: 5 Service: 5 Atmosphere: 5."
+        },
+        {
+          id: 'amst-rev-13',
+          author: 'Google Maps Guest',
+          gender: 'man',
+          postedDate: '2026-08-22',
+          source: 'Google Maps',
+          rating: 5,
+          sentiment: 'good',
+          tags: ['Atmosphere', 'Service'],
+          text: "Amazing restaurant! Food: 5 Service: 5 Atmosphere: 5."
+        },
+        {
+          id: 'amst-rev-14',
+          author: 'Wanderlog Traveler',
+          gender: 'woman',
+          postedDate: '2026-01-12',
+          source: 'Wanderlog',
+          rating: 5,
+          sentiment: 'good',
+          tags: ['Service', 'Atmosphere'],
+          text: "Buon cibo in una tranquilla location ad Agadir. Consiglio gli hamburger. Lo staff è stato molto gentile e disponibile, in particolare Abderrahmane. Ristorante consigliato."
+        },
+        {
+          id: 'amst-rev-15',
+          author: 'Wanderlog Traveler',
+          gender: 'man',
+          postedDate: '2026-01-15',
+          source: 'Wanderlog',
+          rating: 5,
+          sentiment: 'good',
+          tags: ['Live Music', 'Service'],
+          text: "Locale molto bello con musica dal vivo precisamente un violinista e anche molto bravo, siamo stati accolti e coccolati da yassin Consigliato."
+        },
+        {
+          id: 'amst-rev-16',
+          author: 'Wanderlog Traveler',
+          gender: 'woman',
+          postedDate: '2026-02-10',
+          source: 'Wanderlog',
+          rating: 5,
+          sentiment: 'good',
+          tags: ['Service', 'Atmosphere'],
+          text: "Uno de los mejores restaurantes de Agadir!!!! instalaciones preciosas,La comida deliciosa,el servicio rápido y sobre todo la amabilidad de Leila y las recomendaciónes fueron de 5 estrellas!!! Recomiendo al 100 x 100!!!! Volveré seguro!!!! Gracias Leila."
+        },
+        {
+          id: 'amst-rev-17',
+          author: 'Wanderlog Traveler',
+          gender: 'woman',
+          postedDate: '2026-01-18',
+          source: 'Wanderlog',
+          rating: 5,
+          sentiment: 'good',
+          tags: ['Service', 'Atmosphere'],
+          text: "Un bellissimo ristorante ci siamo trovati bene anche con il staff ."
+        },
+        {
+          id: 'amst-rev-18',
+          author: 'Wanderlog Traveler',
+          gender: 'man',
+          postedDate: '2026-01-20',
+          source: 'Wanderlog',
+          rating: 5,
+          sentiment: 'good',
+          tags: ['Atmosphere'],
+          text: "Bella esperienza."
+        },
+        {
+          id: 'amst-rev-19',
+          author: 'Wanderlog Traveler',
+          gender: 'man',
+          postedDate: '2026-02-22',
+          source: 'Wanderlog',
+          rating: 5,
+          sentiment: 'good',
+          tags: ['Service'],
+          text: "Tout était vraiment parfait."
+        },
+        {
+          id: 'amst-rev-20',
+          author: 'Wanderlog Traveler',
+          gender: 'man',
+          postedDate: '2026-10-12',
+          source: 'Wanderlog',
+          rating: 5,
+          sentiment: 'good',
+          tags: ['Service'],
+          text: "We had a great experience at Agadir Restaurant in Amsterdam! The food was delicious, and everything was enjoyable from start to finish. A special shout-out to our waiter, Rashid, who provided amazing service. He was attentive, friendly, and made sure we felt welcome throughout our visit. Excellent service really makes a difference, and Rashid definitely made our experience extra special. Highly recommended, and we would definitely visit again!"
+        },
+        {
+          id: 'amst-rev-21',
+          author: 'Wanderlog Traveler',
+          gender: 'man',
+          postedDate: '2026-10-18',
+          source: 'Wanderlog',
+          rating: 5,
+          sentiment: 'good',
+          tags: ['Service', 'Atmosphere'],
+          text: "A wonderful restaurant with good food and Aesthetic. Moreover. The main reasoning for this very positive review is because of the waiter Samad. A true representation of quality service. Best service i have ever experienced!"
+        },
+        {
+          id: 'amst-rev-22',
+          author: 'Wanderlog Traveler',
+          gender: 'man',
+          postedDate: '2026-09-25',
+          source: 'Wanderlog',
+          rating: 5,
+          sentiment: 'good',
+          tags: ['Steak & Beef', 'Presentation', 'Atmosphere'],
+          text: "Absolutely excellent experience at Amsterdam Luxury Restaurant in Agadir. The beef fillet was cooked perfectly, tender, flavorful, and beautifully presented. Everything about the dish was on point, and the atmosphere topped it off."
+        },
+        {
+          id: 'amst-rev-23',
+          author: 'Wanderlog Traveler',
+          gender: 'man',
+          postedDate: '2026-08-26',
+          source: 'Wanderlog',
+          rating: 5,
+          sentiment: 'good',
+          tags: ['Service', 'Atmosphere'],
+          text: "Lekker gegeten bij Restaurant Amsterdam. We zijn goed ontvangen. De sfeer was goed, personeel was vriendelijk en het eten was ook erg lekker. We waren 'vroeg' dus het was nog rustig. De man van de eigenaresse was ook aanwezig en daar hebben we een tijdje mee staan praten. Erg vriendelijke man. Wij hadden chicken with mushroom en een entrecote. Voor onze dochter hadden we een pasta met roomsaus en kip. Alles was smaakvol en goed geserveerd. Een aanrader in Agadir."
+        },
+        {
+          id: 'amst-rev-24',
+          author: 'Wanderlog Traveler',
+          gender: 'woman',
+          postedDate: '2026-07-15',
+          source: 'Wanderlog',
+          rating: 5,
+          sentiment: 'good',
+          tags: ['Live Music', 'Atmosphere'],
+          text: "Leurs plats sont délicieux, l'accueil est très chaleureux, et l'ambiance est agréable avec un violoniste. Je vous recommande cet endroit pour une soirée romantique, un anniversaire ou même une soirée entre amis."
+        },
+        {
+          id: 'amst-rev-25',
+          author: 'Google Maps Guest',
+          gender: 'man',
+          postedDate: '2026-09-19',
+          source: 'Google Maps',
+          rating: 5,
+          sentiment: 'good',
+          tags: ['Steak & Beef', 'Pricing'],
+          text: "The steak was cooked really well, flavor was on point. Meat quality surprised me for the price. Solid spot if you're in Agadir and want a proper dinner."
+        }
+      ]
     }
   },
   {
@@ -1072,6 +1432,17 @@ export const agadirEat: EatListing[] = [
       customStory: "Pure Passion was founded around a 'love and passion for food' philosophy and has become one of Agadir Marina's most popular restaurants. It pairs a European-style fine-dining menu with Moroccan hospitality, beachfront views, and an extensive wine and cocktail list.",
       languagesSpoken: ["French", "Arabic/Darija", "English"]
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -1330,6 +1701,17 @@ export const agadirEat: EatListing[] = [
       customStory: "Les Blancs has established itself as the go-to Spanish beachfront venue at the entrance of Agadir Marina, offering a feet-in-the-sand atmosphere with white-on-white decor, live music, and a menu built around Spanish tapas and seafood.",
       languagesSpoken: ["French", "Arabic/Darija", "English", "Spanish"]
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -1542,6 +1924,17 @@ export const agadirEat: EatListing[] = [
       customStory: "Restaurant Yacht Club Agadir — also known as Restaurant du Port de Pêche — sits inside the Agadir fishing harbor, one of the busiest in Africa. The venue is built around the daily catch: fishermen unload sardines and shellfish in the morning, which are then transformed into French- and Italian-influenced plates.",
       languagesSpoken: ["French", "Arabic/Darija", "English"]
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -1633,6 +2026,17 @@ export const agadirEat: EatListing[] = [
       customStory: "Pâtisserie Tafarnout has been an Agadir institution since 1984, starting as a traditional bakery and evolving into a full-service patisserie, café, and breakfast room. It remains a morning ritual for locals and visitors seeking fresh baguettes, croissants, and Moroccan pastries.",
       languagesSpoken: ["French", "Arabic/Darija", "English"]
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -1729,6 +2133,17 @@ export const agadirEat: EatListing[] = [
       customStory: "La Scala has been a fixture of Agadir's tourist-zone dining scene for decades. It built its reputation on a French-influenced menu and a live lobster tank, attracting couples and families seeking a polished evening.",
       languagesSpoken: ["French", "Arabic/Darija", "English"]
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -1820,6 +2235,17 @@ export const agadirEat: EatListing[] = [
       website: "not-available",
       instagram: "not-available"
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -1919,6 +2345,17 @@ export const agadirEat: EatListing[] = [
       customStory: "Le Jardin d'Eau is one of Agadir's oldest dining institutions, set in a garden complex on Boulevard du 20 Août. It has long been a favorite for French-Moroccan fusion, live music, and a festive 'Bodeguita' atmosphere, pairing tagines and seafood with a lounge-style bar and cocktail program.",
       languagesSpoken: ["French", "Arabic/Darija", "English"]
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -2007,6 +2444,17 @@ export const agadirEat: EatListing[] = [
       website: "not-available",
       instagram: "not-available"
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -2095,6 +2543,17 @@ export const agadirEat: EatListing[] = [
       website: "https://www.lemauresque.ma",
       instagram: "https://instagram.com/restaurant_lemauresque_agadir"
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -2183,6 +2642,17 @@ export const agadirEat: EatListing[] = [
       website: "not-available",
       instagram: "not-available"
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -2271,6 +2741,17 @@ export const agadirEat: EatListing[] = [
       website: "not-available",
       instagram: "not-available"
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -2355,6 +2836,17 @@ export const agadirEat: EatListing[] = [
       website: "not-available",
       instagram: "not-available"
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -2449,6 +2941,17 @@ export const agadirEat: EatListing[] = [
       customStory: "Restaurant Daffy is a family-run institution in the Talborjt quarter, celebrated for more than 45 years of home-style Moroccan cooking. The dining room features traditional Amazigh decor, and the menu changes with the market, focusing on fresh tagines, couscous, grilled meats and a justly famous mint tea.",
       languagesSpoken: ["French", "Arabic/Darija", "English"]
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -2541,6 +3044,17 @@ export const agadirEat: EatListing[] = [
       customStory: "La Siciliana has been a downtown Agadir fixture since 1996, operating a Moroccan-run Italian pizzeria built around a wood-fired oven. It is known for thin, crispy pizzas, friendly service, and very reasonable prices, making it a reliable local favorite for casual lunches and dinners.",
       languagesSpoken: ["French", "Arabic/Darija", "English"]
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -2646,6 +3160,17 @@ export const agadirEat: EatListing[] = [
       customStory: "Dar Zitoune ('House of the Olives') opened as a 4-star boutique hotel in 2005, built in traditional Berber style on the edge of Taroudant. Its restaurant is set in a garden of olive, citrus and papaya trees, and is celebrated as one of the finest tables in the Souss region, blending refined European cuisine with Moroccan classics.",
       languagesSpoken: ["French", "Arabic/Darija", "English"]
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -2728,6 +3253,17 @@ export const agadirEat: EatListing[] = [
       website: "not-available",
       instagram: "not-available"
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -2810,6 +3346,17 @@ export const agadirEat: EatListing[] = [
       website: "not-available",
       instagram: "not-available"
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -2892,6 +3439,17 @@ export const agadirEat: EatListing[] = [
       website: "not-available",
       instagram: "not-available"
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -2988,6 +3546,17 @@ export const agadirEat: EatListing[] = [
       instagram: "https://instagram.com/mcdonalds_maroc",
       languagesSpoken: ["Arabic/Darija", "French", "English"]
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -3076,6 +3645,17 @@ export const agadirEat: EatListing[] = [
       instagram: "https://instagram.com/kfc_maroc",
       languagesSpoken: ["Arabic/Darija", "French", "English"]
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -3158,6 +3738,17 @@ export const agadirEat: EatListing[] = [
       website: "https://burgerkingmaroc.ma",
       instagram: "https://instagram.com/burgerkingmaroc"
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -3246,6 +3837,17 @@ export const agadirEat: EatListing[] = [
       instagram: "https://instagram.com/pizzahut_maroc",
       languagesSpoken: ["Arabic/Darija", "French", "English"]
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -3334,6 +3936,17 @@ export const agadirEat: EatListing[] = [
       instagram: "https://instagram.com/dominos_maroc",
       languagesSpoken: ["Arabic/Darija", "French", "English"]
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -3424,6 +4037,17 @@ export const agadirEat: EatListing[] = [
       instagram: "not-available",
       languagesSpoken: ["French", "English", "Arabic/Darija"]
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -3514,6 +4138,17 @@ export const agadirEat: EatListing[] = [
       instagram: "not-available",
       languagesSpoken: ["French", "English", "Arabic/Darija", "German"]
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -3604,6 +4239,17 @@ export const agadirEat: EatListing[] = [
       instagram: "not-available",
       languagesSpoken: ["French", "English", "Italian", "Arabic/Darija"]
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -3694,6 +4340,17 @@ export const agadirEat: EatListing[] = [
       instagram: "not-available",
       languagesSpoken: ["French", "Arabic/Darija", "English"]
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -3790,6 +4447,17 @@ export const agadirEat: EatListing[] = [
       instagram: "https://instagram.com/beldifusionkitchen.ma",
       languagesSpoken: ["French", "English", "Arabic/Darija"]
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -3880,6 +4548,17 @@ export const agadirEat: EatListing[] = [
       instagram: "not-available",
       languagesSpoken: ["French", "Italian", "English", "Arabic/Darija"]
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -3970,6 +4649,17 @@ export const agadirEat: EatListing[] = [
       instagram: "not-available",
       languagesSpoken: ["French", "English", "Spanish", "Arabic/Darija"]
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -4060,6 +4750,17 @@ export const agadirEat: EatListing[] = [
       instagram: "https://instagram.com/buddhabar_agadir",
       languagesSpoken: ["French", "English", "Arabic/Darija"]
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -4289,6 +4990,17 @@ export const agadirEat: EatListing[] = [
       instagram: "https://instagram.com/mamma.caterina",
       languagesSpoken: ["French", "Italian", "English", "Arabic/Darija"]
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -4485,6 +5197,17 @@ export const agadirEat: EatListing[] = [
       instagram: "https://instagram.com/ocomptoiragadir",
       languagesSpoken: ["French", "English", "Arabic/Darija"]
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -4575,6 +5298,17 @@ export const agadirEat: EatListing[] = [
       instagram: "not-available",
       languagesSpoken: ["French", "English"]
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -4665,6 +5399,17 @@ export const agadirEat: EatListing[] = [
       instagram: "not-available",
       languagesSpoken: ["French", "English", "Arabic/Darija"]
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -4755,6 +5500,17 @@ export const agadirEat: EatListing[] = [
       instagram: "https://instagram.com/theblacksmi.th",
       languagesSpoken: ["French", "English", "Arabic/Darija"]
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -4853,6 +5609,17 @@ export const agadirEat: EatListing[] = [
       instagram: "https://instagram.com/saykouk_rooftop",
       languagesSpoken: ["French", "English", "Arabic/Darija"]
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -4943,6 +5710,17 @@ export const agadirEat: EatListing[] = [
       instagram: "https://instagram.com/yuzaki_restaurant",
       languagesSpoken: ["French", "English", "Arabic/Darija"]
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -5135,6 +5913,17 @@ export const agadirEat: EatListing[] = [
       instagram: "https://instagram.com/la_madrague_ag",
       languagesSpoken: ["French", "English", "Arabic/Darija"]
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -5226,6 +6015,17 @@ export const agadirEat: EatListing[] = [
       instagram: "https://instagram.com/nazkaagadir",
       languagesSpoken: ["French", "English", "Spanish", "Arabic/Darija"]
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -5316,6 +6116,17 @@ export const agadirEat: EatListing[] = [
       instagram: "not-available",
       languagesSpoken: ["French", "English", "Arabic/Darija"]
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -5406,6 +6217,17 @@ export const agadirEat: EatListing[] = [
       instagram: "not-available",
       languagesSpoken: ["French", "English", "Arabic/Darija"]
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -5496,6 +6318,17 @@ export const agadirEat: EatListing[] = [
       instagram: "not-available",
       languagesSpoken: ["French", "English", "Spanish", "Arabic/Darija"]
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -5586,6 +6419,17 @@ export const agadirEat: EatListing[] = [
       instagram: "not-available",
       languagesSpoken: ["French", "English", "Arabic/Darija"]
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -5677,6 +6521,17 @@ export const agadirEat: EatListing[] = [
       instagram: "https://instagram.com/clayoven.agadir",
       languagesSpoken: ["English", "French", "Arabic/Darija"]
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -5768,6 +6623,17 @@ export const agadirEat: EatListing[] = [
       instagram: "not-available",
       languagesSpoken: ["French", "English", "Arabic/Darija"]
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -5859,6 +6725,17 @@ export const agadirEat: EatListing[] = [
       instagram: "https://instagram.com/littleitaly_agadir",
       languagesSpoken: ["French", "Italian", "English", "Arabic/Darija"]
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -5950,5 +6827,3107 @@ export const agadirEat: EatListing[] = [
       instagram: "https://instagram.com/restaurant_rafiq",
       languagesSpoken: ["Arabic/Darija", "French", "English"]
     }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
+  },
+  // =========================================================================
+  // 1. KABAB ERBIL AGADIR (Brand New Entry)
+  // =========================================================================
+  {
+    id: "e-agadir-kabab-erbil",
+    city: "agadir",
+    openTime: "11:30",
+    closeTime: "01:00",
+    weeklySchedule: [
+      { day: "Monday", open: "11:30", close: "01:00", isClosed: false },
+      { day: "Tuesday", open: "11:30", close: "01:00", isClosed: false },
+      { day: "Wednesday", open: "11:30", close: "01:00", isClosed: false },
+      { day: "Thursday", open: "11:30", close: "01:00", isClosed: false },
+      { day: "Friday", open: "11:30", close: "01:00", isClosed: false },
+      { day: "Saturday", open: "11:30", close: "01:00", isClosed: false },
+      { day: "Sunday", open: "11:30", close: "01:00", isClosed: false }
+    ],
+
+    // ── 1. QUIZ (personalization & recommendation matching) ──
+    quiz: {
+      lifestyle: "lean",
+      groupTypes: ["solo", "friends", "family", "couple"],
+      mealTypes: ["lunch", "dinner", "late-night"],
+      experienceTypes: ["casual", "traditional"],
+      foodStyles: ["Middle Eastern", "Grill & BBQ", "Vegetarian/Vegan"],
+      cuisineTags: ["international"],
+      archetypeAffinity: ["budget", "culture", "nomad"],
+      vibeTags: ["authentic", "warm", "casual", "hospitable"],
+      crowdLevel: "balanced"
+    },
+
+    // ── 2. FILTER (search criteria, dietary rules & flags) ──
+    filter: {
+      pricePerPerson: 10,
+      isHalal: true,
+      halalStatus: "halal-certified",
+      isVegetarianFriendly: true,
+      servesAlcohol: false,
+      alcoholPolicy: "dry",
+      hasDelivery: true,
+      hasParking: false,
+      nearMedina: false,
+      nearBeach: false,
+      nearCenter: true,
+      hasEnglishStaff: true,
+      hasFrenchStaff: true,
+      ramadanFriendly: "special-ftour",
+      closedDays: [],
+      seatingTypes: ["indoor"],
+      paymentMethods: ["cash"],
+      tags: ["street-food", "late-night", "budget", "dry", "dinner", "lunch"],
+      isHiddenGem: true,
+      isTemporarilyHidden: false,
+      verificationStatus: "verified"
+    },
+
+    // ── 3. UI (presentation, reviews, dishes & contacts) ──
+    ui: {
+      name: "Restaurant Kabab Erbil",
+      neighborhood: "Centre Ville",
+      description: "An authentic Iraqi grill and Middle Eastern diner on Avenue du Prince Moulay Abdallah. Celebrated for genuine Erbil-style minced lamb and beef kebabs grilled over open coals (no rotating spits), sizzling tikka skewers, freshly baked Iraqi flatbread (khubz), complimentary spiced lentil soup, and generous mezze platters.",
+      tip: "Every meal begins with a complimentary bowl of comforting lentil soup and warm bread. The mixed grill platter easily feeds 2 to 3 people.",
+      badge: "hidden-gem",
+      bestDishes: [
+        "Assiette Kabab Erbil",
+        "Mixed Grill 2 Personnes",
+        "Meat Tikka (Brochettes d'Agneau)",
+        "Mix Mezzés Froids",
+        "Plat Falafel Maison",
+        "Baklawa aux Pistaches"
+      ],
+      pros: [
+        "Authentic Iraqi charcoal grilling with hand-skewered seasoned minced meat",
+        "Complimentary hot lentil soup and freshly baked tandoor bread with each meal",
+        "Exceptional value-for-money and generous portions in central Agadir",
+        "Broad vegetarian and vegan-friendly selection (falafel, hummus, tabbouleh, fattoush)"
+      ],
+      cons: [
+        "Cash only (credit cards are not accepted)",
+        "Modest diner interior without an outdoor terrace"
+      ],
+      googleRating: 4.6,
+      googleReviewCount: 240,
+      tripadvisorRating: 4.5,
+      tripadvisorReviewCount: 80,
+      theforkRating: 4.5,
+      theforkReviewCount: 50,
+      restaurantguruRating: 4.8,
+      restaurantguruReviewCount: 180,
+      openTime: "11:30",
+      closeTime: "01:00",
+      weeklySchedule: [
+        { day: "Monday", openTime: "11:30", closeTime: "01:00", isClosed: false },
+        { day: "Tuesday", openTime: "11:30", closeTime: "01:00", isClosed: false },
+        { day: "Wednesday", openTime: "11:30", closeTime: "01:00", isClosed: false },
+        { day: "Thursday", openTime: "11:30", closeTime: "01:00", isClosed: false },
+        { day: "Friday", openTime: "11:30", closeTime: "01:00", isClosed: false },
+        { day: "Saturday", openTime: "11:30", closeTime: "01:00", isClosed: false },
+        { day: "Sunday", openTime: "11:30", closeTime: "01:00", isClosed: false }
+      ],
+      exactAddressAndCoordinates: {
+        address: "Avenue du Prince Moulay Abdallah, Centre Ville, Agadir 80000, Morocco",
+        lat: 30.4202,
+        lng: -9.5989
+      },
+      address: "Avenue du Prince Moulay Abdallah, Centre Ville, Agadir 80000, Morocco",
+      coordinates: {
+        lat: 30.4202,
+        lng: -9.5989
+      },
+      googleMapsUrl: "https://maps.google.com/?q=Restaurant+Kabab+Erbil+Agadir",
+      reservationMethod: ["phone", "walk-in"],
+      reservationContact: "+212528825202",
+      whatsappNumber: "",
+      bookingUrl: "",
+      website: "not-available",
+      instagram: "not-available",
+      customStory: "Restaurant Kabab Erbil brings authentic Iraqi Mesopotamian culinary traditions to Agadir. Instead of standard fast-food shawarma spits, the kitchen focuses on charcoal ember grilling, hand-kneaded tandoor bread, and fragrant Middle Eastern spices.",
+      languagesSpoken: ["Arabic/Darija", "French", "English"],
+      menu: {
+        currency: "MAD",
+        lastUpdated: "November 2026",
+        serviceChargeIncluded: true,
+        sections: [
+          {
+            id: "entrees-mezzes",
+            title: "Mezzés & Entrées Orientales (Appetizers & Mezze)",
+            description: "Mezzés traditionnels préparés maison, accompagnés de pain chaud cuit minute",
+            items: [
+              {
+                id: "erbil-soup-lentilles",
+                name: "Soupe de Lentilles Irakienne (Shorbat Adas)",
+                localName: "شوربة العدس العراقية المتبلة بالكمون والليمون",
+                translations: {
+                  ar: "شوربة العدس العراقية المتبلة بالكمون والليمون",
+                  en: "Traditional Iraqi spiced velvet lentil soup with cumin and lemon",
+                  es: "Sopa tradicional iraquí de lentejas con comino y limón",
+                  de: "Traditionelle irakische Linsensuppe mit Kreuzkümmel und Zitrone"
+                },
+                price: 35,
+                isSignature: true,
+                dietary: ["vegetarian", "vegan", "halal"],
+                portionNotes: "Régulièrement offerte en mise en bouche de bienvenue"
+              },
+              {
+                id: "erbil-mix-mezzes",
+                name: "Grand Mix Mezzés Froids",
+                localName: "صحن مقبلات مشكلة (حمص، بابا غنوج، تبولة، فتوش، لبنة)",
+                translations: {
+                  ar: "صحن مقبلات مشكلة (حمص، بابا غنوج، تبولة، فتوش، لبنة)",
+                  en: "Assorted cold mezze platter: hummus, baba ghanoush, tabbouleh, fattoush & yogurt",
+                  es: "Plato variado de mezzes fríos: hummus, baba ganush, tabulé, fattoush y yogur",
+                  de: "Gemischte kalte Vorspeisenplatte: Hummus, Baba Ghanoush, Tabouleh, Fattoush und Joghurt"
+                },
+                price: 145,
+                isSignature: true,
+                dietary: ["vegetarian", "halal"],
+                portionNotes: "Idéal pour 2 à 3 personnes avec pain chaud"
+              },
+              {
+                id: "erbil-hummus",
+                name: "Houmous Tahina",
+                localName: "حمص ناعم بالطحينة وزيت الزيتون البكر",
+                translations: {
+                  ar: "حمص ناعم بالطحينة وزيت الزيتون البكر",
+                  en: "Silky smooth chickpea dip with tahini, extra virgin olive oil, and sumac",
+                  es: "Hummus suave con tahini, aceite de oliva virgen extra y zumaque",
+                  de: "Cremiger Kichererbsen-Dip mit Tahini, Olivenöl und Sumach"
+                },
+                price: 45,
+                dietary: ["vegetarian", "vegan", "halal"]
+              },
+              {
+                id: "erbil-baba-ghanouj",
+                name: "Baba Ghanouj (Moutabal)",
+                localName: "بابا غنوج الباذنجان المشوي على الفحم مع الطحينة",
+                translations: {
+                  ar: "بابا غنوج الباذنجان المشوي على الفحم مع الطحينة",
+                  en: "Smoked eggplant dip with tahini, garlic, and pomegranate reduction",
+                  es: "Berenjena ahumada al carbón con tahini, ajo y granada",
+                  de: "Geräucherte Auberginencreme mit Tahini, Knoblauch und Granatapfelsirup"
+                },
+                price: 50,
+                dietary: ["vegetarian", "vegan", "halal"]
+              },
+              {
+                id: "erbil-tabbouleh",
+                name: "Taboulé Oriental",
+                localName: "تبولة الأعشاب الطازجة مع البقدونس والبرغل والليمون",
+                translations: {
+                  ar: "تبولة الأعشاب الطازجة مع البقدونس والبرغل والليمون",
+                  en: "Fresh parsley salad with fine bulgur, mint, diced tomatoes, and lemon juice",
+                  es: "Ensalada libanesa de perejil fresco, bulgur fino, tomate y limón",
+                  de: "Petersiliensalat mit feinem Bulgur, Minze, Tomaten und Zitronendressing"
+                },
+                price: 50,
+                dietary: ["vegetarian", "vegan", "halal"]
+              },
+              {
+                id: "erbil-fattoush",
+                name: "Salade Fattouche",
+                localName: "سلطة فتوش المقرمشة مع الخبز المحمص والسماق",
+                translations: {
+                  ar: "سلطة فتوش المقرمشة مع الخبز المحمص والسماق",
+                  en: "Crisp garden salad with toasted pita chips, radishes, sumac, and pomegranate molasses",
+                  es: "Ensalada crujiente fattoush con pan de pita tostado, rábanos y zumaque",
+                  de: "Knackiger Fattoush-Salat mit geröstetem Fladenbrot, Radieschen und Sumach"
+                },
+                price: 50,
+                dietary: ["vegetarian", "vegan", "halal"]
+              },
+              {
+                id: "erbil-falafel-plat",
+                name: "Assiette Falafel Croustillant",
+                localName: "صحن فلافل مقرمش مع الطحينة والمخللات",
+                translations: {
+                  ar: "صحن فلافل مقرمش مع الطحينة والمخللات",
+                  en: "Golden crispy homemade falafel patties served with tahini and pickles",
+                  es: "Falafel casero crujiente servido con salsa tahini y encurtidos",
+                  de: "Knusprige hausgemachte Falafel mit Tahini-Sauce und eingelegtem Gemüse"
+                },
+                price: 70,
+                isSignature: true,
+                dietary: ["vegetarian", "vegan", "halal"]
+              },
+              {
+                id: "erbil-batata-harra",
+                name: "Batata Harra (Pommes de Terre Épicées)",
+                localName: "بطاطا حرة مقلية بالثوم والكزبرة والفلفل الحار",
+                translations: {
+                  ar: "بطاطا حرة مقلية بالثوم والكزبرة والفلفل الحار",
+                  en: "Sautéed spicy potato cubes with garlic, fresh coriander, and chili flakes",
+                  es: "Patatas picantes salteadas con ajo, cilantro fresco y guindilla",
+                  de: "Würzige Röstkartoffelwürfel mit Knoblauch, frischem Koriander und Chili"
+                },
+                price: 60,
+                isSpicy: true,
+                dietary: ["vegetarian", "vegan", "halal"]
+              }
+            ]
+          },
+          {
+            id: "grillades-charbon",
+            title: "Grillades au Charbon de Bois d'Erbil (Charcoal-Grilled Specialties)",
+            description: "Viandes fraîches marinées et cuites sur braise vive selon la méthode irakienne",
+            items: [
+              {
+                id: "erbil-plat-kabab",
+                name: "Assiette Kabab Erbil Traditionnelle",
+                localName: "صحن كباب أربيل المشوي على الفحم مع الخبز الحار والأرز",
+                translations: {
+                  ar: "صحن كباب أربيل المشوي على الفحم مع الخبز الحار والأرز",
+                  en: "Signature Erbil spiced minced lamb & beef kebab skewers with grilled tomato, onion, and rice",
+                  es: "Pinchos de kebab Erbil de carne picada sazonada al carbón con arroz y verduras",
+                  de: "Erbil Hackfleisch-Kebabspieße vom Holzkohlegrill mit Reis, Grillgemüse und Fladenbrot"
+                },
+                price: 140,
+                isSignature: true,
+                dietary: ["halal"],
+                portionNotes: "Accompagné de pain chaud khubz et sauces maison"
+              },
+              {
+                id: "erbil-mixed-grills-2p",
+                name: "Grand Mix Grill Erbil (2 Personnes)",
+                localName: "مشاوي مشكلة لشخصين (كباب أربيل، شيش طاووق، شقف غنم، جوانح دجاج)",
+                translations: {
+                  ar: "مشاوي مشكلة لشخصين (كباب أربيل، شيش طاووق، شقف غنم، جوانح دجاج)",
+                  en: "Grand mixed grill for two: 2 Kabab Erbil, 2 Chicken Tikka, 1 Lamb Tikka, chicken wings, rice & salad",
+                  es: "Gran parrillada mixta para dos: 2 kebab Erbil, 2 pollo tikka, 1 cordero tikka, alitas, arroz y ensalada",
+                  de: "Große Grillplatte für zwei: 2 Erbil Kebab, 2 Hähnchen-Tikka, 1 Lamm-Tikka, Hähnchenflügel, Reis und Salat"
+                },
+                price: 380,
+                isSignature: true,
+                dietary: ["halal"],
+                portionNotes: "Plat généreux pour 2 à 3 personnes"
+              },
+              {
+                id: "erbil-meat-tikka",
+                name: "Meat Tikka (Brochettes d'Agneau Tendre)",
+                localName: "أشياخ شقف لحم الغنم الطري المشوي على الجمر",
+                translations: {
+                  ar: "أشياخ شقف لحم الغنم الطري المشوي على الجمر",
+                  en: "Tender marinated lamb cubes grilled over embers, served with sumac onions and rice",
+                  es: "Dados de cordero marinado a la brasa con cebollas al zumaque y arroz",
+                  de: "Zarte marinierte Lammfleischspieße vom Holzkohlegrill mit Sumach-Zwiebeln und Reis"
+                },
+                price: 150,
+                dietary: ["halal"]
+              },
+              {
+                id: "erbil-chicken-tikka",
+                name: "Chicken Tikka (Shish Taouk)",
+                localName: "شيش طاووق الدجاج المتبل بالزبادي والثوم والليمون",
+                translations: {
+                  ar: "شيش طاووق الدجاج المتبل بالزبادي والثوم والليمون",
+                  en: "Charcoal-grilled chicken breast skewers marinated in yogurt, garlic, and citrus spices",
+                  es: "Brochetas de pechuga de pollo marinadas con yogur, ajo y limón a la brasa",
+                  de: "Gegrillte Hähnchenbrustspieße mariniert in Knoblauch-Joghurt und Zitrusgewürzen"
+                },
+                price: 130,
+                dietary: ["halal"]
+              },
+              {
+                id: "erbil-chicken-jalfrezi",
+                name: "Chicken Jalfrezi Épicé",
+                localName: "دجاج جلفريزي المطهو بصلصة الطماطم والفلفل الحار مع الأرز",
+                translations: {
+                  ar: "دجاج جلفريزي المطهو بصلصة الطماطم والفلفل الحار مع الأرز",
+                  en: "Sautéed chicken strips simmered in rich spiced tomato, onion and bell pepper gravy over rice",
+                  es: "Pollo jalfrezi salteado con pimientos y salsa especiada de tomate con arroz",
+                  de: "Pikantes Hähnchen Jalfrezi in Tomaten-Paprika-Sauce serviert auf duftendem Reis"
+                },
+                price: 120,
+                isSpicy: true,
+                dietary: ["halal"]
+              }
+            ]
+          },
+          {
+            id: "sandwiches-streetfood",
+            title: "Sandwiches & Street Food (Wraps & Saj)",
+            description: "Servis dans du pain chaud avec frites croustillantes et sauces maison",
+            items: [
+              {
+                id: "erbil-sand-shawarma-poulet",
+                name: "Sandwich Shawarma Poulet Khubz",
+                localName: "سندويش شاورما دجاج بخبز الصاج مع الثومية والمخلل",
+                translations: {
+                  ar: "سندويش شاورما دجاج بخبز الصاج مع الثومية والمخلل",
+                  en: "Marinated chicken shawarma rolled in fresh khubz bread with toum garlic sauce and pickles",
+                  es: "Shawarma de pollo enrollado en pan khubz caliente con salsa toum de ajo",
+                  de: "Hähnchen-Shawarma im frisch gebackenen Khubz-Brot mit Knoblauchsauce und Pickles"
+                },
+                price: 65,
+                dietary: ["halal"]
+              },
+              {
+                id: "erbil-sand-kabab",
+                name: "Sandwich Brochette Kabab Erbil",
+                localName: "سندويش كباب أربيل بخبز التنور مع البصل والسماق",
+                translations: {
+                  ar: "سندويش كباب أربيل بخبز التنور مع البصل والسماق",
+                  en: "Charcoal-grilled minced kebab wrapped in tandoor bread with sumac onions and tahini",
+                  es: "Kebab a la brasa envuelto en pan tradicional con cebolla al zumaque y salsa tahini",
+                  de: "Kebabspieß vom Grill im Tandoor-Brot mit Sumach-Zwiebeln und Tahini"
+                },
+                price: 70,
+                isSignature: true,
+                dietary: ["halal"]
+              },
+              {
+                id: "erbil-sand-falafel",
+                name: "Sandwich Falafel Végétarien",
+                localName: "سندويش فلافل بالخبز العربي وسلطة الطحينة",
+                translations: {
+                  ar: "سندويش فلافل بالخبز العربي وسلطة الطحينة",
+                  en: "Crispy falafel wrap with tomatoes, mint, crunchy pickles, and tahini drizzle",
+                  es: "Wrap de falafel crujiente con tomate, menta fresca y salsa tahini",
+                  de: "Knuspriger Falafel-Wrap mit Tomaten, Minze, eingelegtem Gemüse und Tahini"
+                },
+                price: 45,
+                dietary: ["vegetarian", "vegan", "halal"]
+              }
+            ]
+          },
+          {
+            id: "douceurs-the",
+            title: "Douceurs & Boissons (Sweets & Beverages)",
+            description: "Pâtisseries orientales au miel et thés traditionnels infusés",
+            items: [
+              {
+                id: "erbil-baklawa",
+                name: "Baklawa Croustillante aux Pistaches",
+                localName: "بقلاوة شرقية مقرمشة بالفستق الحلبي والقطر",
+                translations: {
+                  ar: "بقلاوة شرقية مقرمشة بالفستق الحلبي والقطر",
+                  en: "Layered flaky filo pastry filled with roasted pistachios and orange blossom syrup",
+                  es: "Baklava de hojaldre crujiente relleno de pistachos y almíbar de azahar",
+                  de: "Knuspriges Baklava aus feinstem Filoteig gefüllt mit Pistazien und Zuckersirup"
+                },
+                price: 35,
+                isSignature: true,
+                dietary: ["vegetarian", "halal"]
+              },
+              {
+                id: "erbil-the-cardamome",
+                name: "Thé Noir Irakien à la Cardamome",
+                localName: "شاي عراقي مخدر بالهيل مع السكر",
+                translations: {
+                  ar: "شاي عراقي مخدر بالهيل مع السكر",
+                  en: "Slow-brewed strong Iraqi black tea infused with whole cardamom pods",
+                  es: "Té negro tradicional iraquí aromatizado con cardamomo",
+                  de: "Starker traditioneller irakischer Schwarztee mit Kardamom verfeinert"
+                },
+                price: 20,
+                dietary: ["vegetarian", "vegan", "halal"]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
+  },
+
+  // =========================================================================
+  // 2. THE BLACKSMITH AGADIR (Enriched with Complete Structured Menu)
+  // =========================================================================
+  {
+    id: "e-agadir-the-blacksmith",
+    city: "agadir",
+    openTime: "08:30",
+    closeTime: "01:00",
+    weeklySchedule: [
+      { day: "Monday", open: "08:30", close: "01:00", isClosed: false },
+      { day: "Tuesday", open: "08:30", close: "01:00", isClosed: false },
+      { day: "Wednesday", open: "08:30", close: "01:00", isClosed: false },
+      { day: "Thursday", open: "08:30", close: "01:00", isClosed: false },
+      { day: "Friday", open: "08:30", close: "01:00", isClosed: false, note: "Couscous Royal servi à midi" },
+      { day: "Saturday", open: "08:30", close: "01:00", isClosed: false },
+      { day: "Sunday", open: "08:30", close: "01:00", isClosed: false }
+    ],
+
+    // ── 1. QUIZ (personalization & recommendation matching) ──
+    quiz: {
+      lifestyle: "balanced",
+      groupTypes: ["friends", "couple", "family", "solo"],
+      mealTypes: ["breakfast", "brunch", "lunch", "dinner", "late-night"],
+      experienceTypes: ["casual"],
+      foodStyles: ["Grill & BBQ", "Italian", "Moroccan", "International", "Cafe & Pastry"],
+      cuisineTags: ["international", "moroccan-traditional", "cafe-pastry"],
+      archetypeAffinity: ["first-timer", "nomad", "culture"],
+      vibeTags: ["lively", "casual", "warm", "trendy"],
+      crowdLevel: "bustling"
+    },
+
+    // ── 2. FILTER (search criteria, dietary rules & flags) ──
+    filter: {
+      pricePerPerson: 12,
+      isHalal: true,
+      halalStatus: "halal-certified",
+      isVegetarianFriendly: true,
+      servesAlcohol: false,
+      alcoholPolicy: "dry",
+      hasDelivery: true,
+      hasParking: true,
+      nearMedina: false,
+      nearBeach: false,
+      nearCenter: true,
+      hasEnglishStaff: true,
+      hasFrenchStaff: true,
+      ramadanFriendly: "special-ftour",
+      closedDays: [],
+      seatingTypes: ["indoor", "terrace"],
+      paymentMethods: ["credit_card", "cash", "visa", "mastercard"],
+      tags: ["late-night", "budget", "dry", "dinner", "couscous", "breakfast", "terrace"],
+      isHiddenGem: false,
+      isTemporarilyHidden: false,
+      verificationStatus: "verified"
+    },
+
+    // ── 3. UI (presentation, reviews, dishes & contacts) ──
+    ui: {
+      name: "The Blacksmith Agadir",
+      neighborhood: "Talborjt",
+      description: "A trendy open-flame smokehouse, wood-fired pizzeria, and specialty coffee bar situated on Rue des Orangers. Celebrated for its 'Crafted by Fire' culinary philosophy: slow-smoked brisket burgers, leopard-charred pizzas, tender braised lamb shanks, and traditional Friday royal couscous.",
+      tip: "Try the signature smoked brisket burger or visit on Friday for their generous beef couscous. Great spot for third-wave flat white coffees in the morning.",
+      badge: "local-favorite",
+      bestDishes: [
+        "Smoked Brisket Burger",
+        "The Blacksmith Grill Platter",
+        "Wood-Fired Pizza Margherita",
+        "Souris d'Agneau Confiture d'Épices",
+        "Friday Royal Couscous",
+        "Orange Pastilla Croustillante"
+      ],
+      pros: [
+        "Dynamic wood-fired pizza and charcoal grill menu executed with flair",
+        "Generous portions and pleasant shaded terrace on Rue des Orangers",
+        "Quality specialty coffee (flat whites, cold brew) served from 08:30 AM",
+        "Vibrant atmosphere popular with both international travelers and locals"
+      ],
+      cons: [
+        "Can experience short waits during peak weekend dinner hours",
+        "Strictly non-alcoholic venue"
+      ],
+      googleRating: 4.7,
+      googleReviewCount: 3880,
+      tripadvisorRating: 4.6,
+      tripadvisorReviewCount: 320,
+      theforkRating: 4.6,
+      theforkReviewCount: 140,
+      restaurantguruRating: 4.7,
+      restaurantguruReviewCount: 3880,
+      openTime: "08:30",
+      closeTime: "01:00",
+      weeklySchedule: [
+        { day: "Monday", openTime: "08:30", closeTime: "01:00", isClosed: false },
+        { day: "Tuesday", openTime: "08:30", closeTime: "01:00", isClosed: false },
+        { day: "Wednesday", openTime: "08:30", closeTime: "01:00", isClosed: false },
+        { day: "Thursday", openTime: "08:30", closeTime: "01:00", isClosed: false },
+        { day: "Friday", openTime: "08:30", closeTime: "01:00", isClosed: false, note: "Couscous Royal servi à midi" },
+        { day: "Saturday", openTime: "08:30", closeTime: "01:00", isClosed: false },
+        { day: "Sunday", openTime: "08:30", closeTime: "01:00", isClosed: false }
+      ],
+      exactAddressAndCoordinates: {
+        address: "2 Rue des Orangers, Talborjt, Agadir 80000, Morocco",
+        lat: 30.4226,
+        lng: -9.601
+      },
+      address: "2 Rue des Orangers, Talborjt, Agadir 80000, Morocco",
+      coordinates: {
+        lat: 30.4226,
+        lng: -9.601
+      },
+      googleMapsUrl: "https://maps.google.com/?q=The+Blacksmith+Agadir+Talborjt",
+      reservationMethod: ["phone", "website", "walk-in"],
+      reservationContact: "+212666540976",
+      whatsappNumber: "",
+      bookingUrl: "",
+      website: "not-available",
+      instagram: "https://instagram.com/theblacksmi.th",
+      languagesSpoken: ["French", "English", "Arabic/Darija"],
+      menu: {
+        currency: "MAD",
+        lastUpdated: "November 2026",
+        serviceChargeIncluded: true,
+        sections: [
+          {
+            id: "entrees-flamme",
+            title: "Entrées & Bouchées au Feu de Bois (Starters & Small Plates)",
+            description: "Bouchées saisies à la flamme, tartares et salades du chef",
+            items: [
+              {
+                id: "bs-tartare-thon",
+                name: "Tataki de Thon Rouge aux Épices Marocaines",
+                localName: "تاتاكي التونة الحمراء المشوية بنكهات مغربية وعسل التوت",
+                translations: {
+                  ar: "تاتاكي التونة الحمراء المشوية بنكهات مغربية وعسل التوت",
+                  en: "Seared red tuna tataki with Moroccan spices, sesame crust, and soy-citrus glaze",
+                  es: "Tataki de atún rojo sellado a la llama con especias marroquíes y sésamo",
+                  de: "Kurz angebratenes Rotes Thunfisch-Tataki mit marokkanischen Gewürzen und Sesam"
+                },
+                price: 95,
+                isSignature: true,
+                dietary: ["halal"]
+              },
+              {
+                id: "bs-seafood-cazuela",
+                name: "Cazuela de Fruits de Mer Sizzling",
+                localName: "طاجين كازويلا فواكه البحر مع الحبار والقريدس بصلصة الطماطم",
+                translations: {
+                  ar: "طاجين كازويلا فواكه البحر مع الحبار والقريدس بصلصة الطماطم",
+                  en: "Sizzling cast-iron skillet of calamari and prawns in a rich garlic tomato reduction",
+                  es: "Cazuela chisporroteante de calamares y gambas en salsa especiada de tomate",
+                  de: "Brutzelnde Meeresfrüchte-Pfanne mit Calamari und Garnelen in würziger Tomatensauce"
+                },
+                price: 140,
+                isSignature: true,
+                dietary: ["halal"]
+              },
+              {
+                id: "bs-chicken-wings",
+                name: "Ailes de Poulet Glacées au Miel & Piment Fumé",
+                localName: "أجنحة دجاج مقرمشة مدهونة بالعسل والصلصة المدخنة الحارة",
+                translations: {
+                  ar: "أجنحة دجاج مقرمشة مدهونة بالعسل والصلصة المدخنة الحارة",
+                  en: "Crispy chicken wings glazed in smoked chili honey BBQ sauce",
+                  es: "Alitas de pollo crujientes glaseadas con miel y salsa barbacoa picante",
+                  de: "Knusprige Hähnchenflügel glasiert mit Honig und rauchiger Chilisauce"
+                },
+                price: 75,
+                isSpicy: true,
+                dietary: ["halal"]
+              }
+            ]
+          },
+          {
+            id: "grillades-braise",
+            title: "La Forge : Grillades & Plats Signatures (From The Fire)",
+            description: "Viandes sélectionnées fumées au bois et saisies sur braises ardentes",
+            items: [
+              {
+                id: "bs-grill-platter",
+                name: "The Blacksmith Grill Platter (Pour 2)",
+                localName: "صينية مشاوي بلاك سميث الفاخرة (كفتة، ستيك، دجاج، بطاطس مقلية وسلطة)",
+                translations: {
+                  ar: "صينية مشاوي بلاك سميث الفاخرة (كفتة، ستيك، دجاج، بطاطس مقلية وسلطة)",
+                  en: "Grand charcoal grill platter: beef fillet skewers, kefta, chicken skewers, fries & house slaw",
+                  es: "Gran parrillada de carne The Blacksmith con brochetas, kefta, patatas y ensalada",
+                  de: "Große Grillplatte The Blacksmith: Rinderfilet-Spieße, Kefta, Hähnchen, Pommes und Salat"
+                },
+                price: 185,
+                isSignature: true,
+                dietary: ["halal"],
+                portionNotes: "Plat généreux conçu pour être partagé"
+              },
+              {
+                id: "bs-brisket-burger",
+                name: "Smoked Brisket Burger Maison",
+                localName: "برغر لحم البريسكت المدخن ببطء مع جبن الشيدر والبصل المكرمل",
+                translations: {
+                  ar: "برغر لحم البريسكت المدخن ببطء مع جبن الشيدر والبصل المكرمل",
+                  en: "Brioche burger with slow-smoked pulled brisket, aged cheddar, pickles, and crispy fries",
+                  es: "Hamburguesa en pan brioche con carne de brisket ahumada y queso cheddar fundido",
+                  de: "Brioche-Burger mit langsam geräucherter Rinderbrust, gereiftem Cheddar und Pommes"
+                },
+                price: 110,
+                isSignature: true,
+                dietary: ["halal"]
+              },
+              {
+                id: "bs-souris-agneau",
+                name: "Souris d'Agneau Confite au Miel & Épices",
+                localName: "ساق خروف مطهو ببطء بالعسل والتوابل الشرقية يقدم مع الأرز المتبل",
+                translations: {
+                  ar: "ساق خروف مطهو ببطء بالعسل والتوابل الشرقية يقدم مع الأرز المتبل",
+                  en: "Slow-roasted tender lamb shank falling off the bone with honey glaze and spiced rice",
+                  es: "Jarrete de cordero confitado al horno con miel y especias sobre arroz aromático",
+                  de: "Butterzarte geschmorte Lammhaxe mit Honigkruste auf gewürztem Duftreis"
+                },
+                price: 160,
+                isSignature: true,
+                dietary: ["halal"]
+              },
+              {
+                id: "bs-beef-tagliatelle",
+                name: "Tagliatelle Fraîches au Ragù de Bœuf Braisé",
+                localName: "باستا تالياتيلي طازجة بصلصة اللحم البقري المطهو ببطء والبارميزان",
+                translations: {
+                  ar: "باستا تالياتيلي طازجة بصلصة اللحم البقري المطهو ببطء والبارميزان",
+                  en: "Fresh handmade ribbon pasta with slow-braised rich beef ragù and shaved parmesan",
+                  es: "Tagliatelle frescos con ragú de ternera estofada y lascas de parmesano",
+                  de: "Frische Tagliatelle mit langsam geschmortem Rinderragout und gehobeltem Parmesan"
+                },
+                price: 96,
+                dietary: ["halal"]
+              }
+            ]
+          },
+          {
+            id: "wood-fired-pizza",
+            title: "Pizzas au Feu de Bois (Pizza Bar)",
+            description: "Pâte maturée 48 heures et cuite au feu de bois dans le four à briques",
+            items: [
+              {
+                id: "bs-pizza-margherita",
+                name: "Pizza Margherita Neapolitana",
+                localName: "بيتزا مارغريتا بصلصة طماطم سان مارزانو والموزاريلا والريحان",
+                translations: {
+                  ar: "بيتزا مارغريتا بصلصة طماطم سان مارزانو والموزاريلا والريحان",
+                  en: "Wood-fired Margherita with San Marzano tomato sauce, fior di latte mozzarella & fresh basil",
+                  es: "Pizza Margarita al horno de leña con salsa San Marzano, mozzarella y albahaca",
+                  de: "Holzofen-Pizza Margherita mit San-Marzano-Tomatensauce, Mozzarella und frischem Basilikum"
+                },
+                price: 78,
+                dietary: ["vegetarian", "halal"]
+              },
+              {
+                id: "bs-pizza-blacksmith",
+                name: "Pizza Blacksmith au Bœuf Fumé & Champignons",
+                localName: "بيتزا بلاك سميث المميزة باللحم البقري المدخن والفطر الطازج",
+                translations: {
+                  ar: "بيتزا بلاك سميث المميزة باللحم البقري المدخن والفطر الطازج",
+                  en: "House signature pizza topped with smoked beef brisket, sautéed wild mushrooms, and mozzarella",
+                  es: "Pizza especial de la casa con ternera ahumada, champiñones silvestres y mozzarella",
+                  de: "Hauspizza mit geräuchertem Rindfleisch, Waldpilzen und geschmolzenem Mozzarella"
+                },
+                price: 115,
+                isSignature: true,
+                dietary: ["halal"]
+              }
+            ]
+          },
+          {
+            id: "plats-marocains",
+            title: "Tradition Marocaine (Moroccan Heritage)",
+            description: "Les incontournables mijotés dans les règles de l'art",
+            items: [
+              {
+                id: "bs-couscous-royal",
+                name: "Couscous Royal aux Sept Légumes (Vendredi)",
+                localName: "كسكس ملكي بالسبع خضار واللحم البقري والدجاج والقرع المعسل",
+                translations: {
+                  ar: "كسكس ملكي بالسبع خضار واللحم البقري والدجاج والقرع المعسل",
+                  en: "Traditional Friday Royal Couscous with tender beef, chicken, 7 garden vegetables, and caramelized onions",
+                  es: "Cuscús real tradicional con ternera, pollo, siete verduras y tfaya caramelizada",
+                  de: "Traditioneller Freitags-Couscous Royal mit Rind, Hähnchen, sieben Gemüsesorten und Tfaya"
+                },
+                price: 120,
+                isSignature: true,
+                dietary: ["halal"],
+                portionNotes: "Spécialité incontournable du vendredi midi"
+              },
+              {
+                id: "bs-tagine-boeuf-pruneaux",
+                name: "Tajine de Bœuf aux Pruneaux & Amandes Dorées",
+                localName: "طاجين اللحم البقري المعسل بالبرقوق واللوز المقلي والسمسم",
+                translations: {
+                  ar: "طاجين اللحم البقري المعسل بالبرقوق واللوز المقلي والسمسم",
+                  en: "Slow-simmered beef tagine with caramelized prunes, toasted almonds, and sesame seeds",
+                  es: "Tajine de ternera con ciruelas pasas caramelizadas, almendras tostadas y sésamo",
+                  de: "Geschmorter Rindertagine mit karamellisierten Pflaumen, gerösteten Mandeln und Sesam"
+                },
+                price: 115,
+                dietary: ["halal"]
+              }
+            ]
+          },
+          {
+            id: "desserts-coffee",
+            title: "Desserts & Specialty Coffee",
+            description: "Pâtisseries maison et café d'origine fraîchement torréfié",
+            items: [
+              {
+                id: "bs-orange-pastilla",
+                name: "Pastilla Croustillante à l'Orange & Cannelle",
+                localName: "بسطيلة مقرمشة بشرائح البرتقال الطازج والكريمة والقرفة",
+                translations: {
+                  ar: "بسطيلة مقرمشة بشرائح البرتقال الطازج والكريمة والقرفة",
+                  en: "Crisp golden filo pastry layered with sweet milk cream, fresh orange slices, and cinnamon",
+                  es: "Pastela crujiente de hojaldre con crema dulce, naranja fresca y canela",
+                  de: "Knusprige Filoteig-Pastilla mit süßer Sahnecreme, frischen Orangen und Zimt"
+                },
+                price: 70,
+                isSignature: true,
+                dietary: ["vegetarian", "halal"]
+              },
+              {
+                id: "bs-specialty-flatwhite",
+                name: "Café Specialty Flat White",
+                localName: "قهوة فلات وايت مختصة محضرة بحليب مبخر ناعم",
+                translations: {
+                  ar: "قهوة فلات وايت مختصة محضرة بحليب مبخر ناعم",
+                  en: "Double shot of single-origin espresso with velvety micro-foam milk",
+                  es: "Café de especialidad flat white con microespuma de leche",
+                  de: "Specialty Coffee Flat White mit samtigem Mikroschaum"
+                },
+                price: 35,
+                dietary: ["vegetarian", "halal"]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
+  },
+
+  // =========================================================================
+  // 3. RESTAURANT LE 20' (Enriched with Complete Structured Menu)
+  // =========================================================================
+  {
+    id: "e-agadir-le20",
+    city: "agadir",
+    openTime: "12:00",
+    closeTime: "00:00",
+    weeklySchedule: [
+      { day: "Monday", open: "12:00", close: "00:00", isClosed: false },
+      { day: "Tuesday", open: "12:00", close: "00:00", isClosed: false },
+      { day: "Wednesday", open: "12:00", close: "00:00", isClosed: false },
+      { day: "Thursday", open: "12:00", close: "00:00", isClosed: false },
+      { day: "Friday", open: "12:00", close: "00:00", isClosed: false },
+      { day: "Saturday", open: "12:00", close: "00:00", isClosed: false },
+      { day: "Sunday", open: "12:00", close: "00:00", isClosed: false }
+    ],
+
+    // ── 1. QUIZ (personalization & recommendation matching) ──
+    quiz: {
+      lifestyle: "balanced",
+      groupTypes: ["family", "couple", "friends", "seniors"],
+      mealTypes: ["lunch", "dinner"],
+      experienceTypes: ["traditional", "casual"],
+      foodStyles: ["Moroccan", "Mediterranean", "French-Moroccan", "Seafood"],
+      cuisineTags: ["moroccan-traditional", "international", "seafood"],
+      archetypeAffinity: ["culture", "first-timer"],
+      vibeTags: ["warm", "authentic", "hospitable", "classic"],
+      crowdLevel: "balanced"
+    },
+
+    // ── 2. FILTER (search criteria, dietary rules & flags) ──
+    filter: {
+      pricePerPerson: 16,
+      isHalal: true,
+      halalStatus: "likely-halal-food",
+      isVegetarianFriendly: true,
+      servesAlcohol: true,
+      alcoholPolicy: "serves-alcohol",
+      hasDelivery: false,
+      hasParking: true,
+      nearMedina: false,
+      nearBeach: true,
+      nearCenter: true,
+      hasEnglishStaff: true,
+      hasFrenchStaff: true,
+      ramadanFriendly: "serves-lunch",
+      closedDays: [],
+      seatingTypes: ["indoor", "terrace"],
+      paymentMethods: ["credit_card", "cash", "visa", "mastercard"],
+      tags: ["tagine", "budget", "alcohol", "dinner", "terrace", "seafood"],
+      isHiddenGem: false,
+      isTemporarilyHidden: false,
+      verificationStatus: "verified"
+    },
+
+    // ── 3. UI (presentation, reviews, dishes & contacts) ──
+    ui: {
+      name: "Restaurant Le 20'",
+      neighborhood: "Secteur Balnéaire",
+      description: "Operating in the Tagadirt complex since 1982, Le 20' is one of the oldest and most dependable culinary landmarks on Boulevard du 20 Août. It is celebrated for its slow-simmered lamb and fish tagines, chicken pastillas, grilled Atlantic Saint-Pierre, and a full licensed bar offering fine Moroccan wines.",
+      tip: "The slow-braised lamb tagine with prunes is among the tenderest on the strip. Book an evening table to enjoy a glass of Moroccan Vin Gris on the patio.",
+      badge: "local-favorite",
+      bestDishes: [
+        "Tajine d'Agneau aux Pruneaux & Amandes",
+        "Saint-Pierre Grillé Sauce Safran",
+        "Pastilla au Poulet & Amandes",
+        "Tajine de Poisson du Port",
+        "Calamars Sautés Sauce Champignons",
+        "Mousse au Chocolat Maison"
+      ],
+      pros: [
+        "Decades of consistent quality and warm, attentive family-friendly service",
+        "Extensive menu balancing Moroccan traditional cooking and fresh coastal seafood",
+        "Licensed bar featuring a quality selection of chilled Moroccan and French wines",
+        "Great value for money situated directly in the primary hotel strip"
+      ],
+      cons: [
+        "Located inside the Tagadirt complex arcade without direct beach views",
+        "Can fill quickly at peak dinner rush between 20:00 and 21:30"
+      ],
+      googleRating: 4.5,
+      googleReviewCount: 865,
+      tripadvisorRating: 4.5,
+      tripadvisorReviewCount: 320,
+      theforkRating: 4.4,
+      theforkReviewCount: 150,
+      restaurantguruRating: 4.4,
+      restaurantguruReviewCount: 865,
+      openTime: "12:00",
+      closeTime: "00:00",
+      weeklySchedule: [
+        { day: "Monday", openTime: "12:00", closeTime: "00:00", isClosed: false },
+        { day: "Tuesday", openTime: "12:00", closeTime: "00:00", isClosed: false },
+        { day: "Wednesday", openTime: "12:00", closeTime: "00:00", isClosed: false },
+        { day: "Thursday", openTime: "12:00", closeTime: "00:00", isClosed: false },
+        { day: "Friday", openTime: "12:00", closeTime: "00:00", isClosed: false },
+        { day: "Saturday", openTime: "12:00", closeTime: "00:00", isClosed: false },
+        { day: "Sunday", openTime: "12:00", closeTime: "00:00", isClosed: false }
+      ],
+      exactAddressAndCoordinates: {
+        address: "Complexe Tagadirt, Boulevard du 20 Août, Secteur Balnéaire, Agadir 80012, Morocco",
+        lat: 30.4146,
+        lng: -9.6009
+      },
+      address: "Complexe Tagadirt, Boulevard du 20 Août, Secteur Balnéaire, Agadir 80012, Morocco",
+      coordinates: {
+        lat: 30.4146,
+        lng: -9.6009
+      },
+      googleMapsUrl: "https://maps.google.com/?q=Restaurant+Le+20+Agadir",
+      reservationMethod: ["phone", "walk-in"],
+      reservationContact: "+212528840805",
+      whatsappNumber: "",
+      bookingUrl: "",
+      website: "https://le20.ma",
+      instagram: "not-available",
+      languagesSpoken: ["French", "English", "Arabic/Darija", "German"],
+      menu: {
+        currency: "MAD",
+        lastUpdated: "November 2026",
+        serviceChargeIncluded: true,
+        sections: [
+          {
+            id: "entrees-marocaines",
+            title: "Entrées Fraîches & Saveurs Marocaines (Starters & Pastilla)",
+            description: "Spécialités traditionnelles marocaines et fraîcheurs de l'Atlantique",
+            items: [
+              {
+                id: "le20-pastilla-poulet",
+                name: "Pastilla Traditionnelle au Poulet & Amandes",
+                localName: "بسطيلة الدجاج الفاسية باللوز المقلي والقرفة والسكر الصقيل",
+                translations: {
+                  ar: "بسطيلة الدجاج الفاسية باللوز المقلي والقرفة والسكر الصقيل",
+                  en: "Traditional sweet and savory chicken pastilla with crushed roasted almonds and cinnamon",
+                  es: "Pastela tradicional de pollo con almendras tostadas crujientes y canela",
+                  de: "Traditionelle süß-würzige Hähnchenpastilla mit gerösteten Mandeln und Zimt"
+                },
+                price: 85,
+                isSignature: true,
+                dietary: ["halal"]
+              },
+              {
+                id: "le20-assortiment-salades",
+                name: "Trio de Salades Marocaines Cuisinées",
+                localName: "تشكيلة مقبلات مغربية دافئة (زعلوك، تكتوكة، جزر متبل)",
+                translations: {
+                  ar: "تشكيلة مقبلات مغربية دافئة (زعلوك، تكتوكة، جزر متبل)",
+                  en: "Trio of cooked Moroccan salads: smoky zaalouk eggplant, taktouka peppers & spiced carrots",
+                  es: "Trío de ensaladas marroquíes cocinadas: zaalouk de berenjena, taktouka y zanahoria",
+                  de: "Trio gekochter marokkanischer Salate: Zaalouk Auberginen, Taktouka Paprika und Gewürzmöhren"
+                },
+                price: 55,
+                dietary: ["vegetarian", "vegan", "halal"]
+              },
+              {
+                id: "le20-bricks-viande",
+                name: "Bricks Croustillantes à la Viande Hachée",
+                localName: "بريوات مقرمشة باللحم المفروم والبيض والتوابل المغربية",
+                translations: {
+                  ar: "بريوات مقرمشة باللحم المفروم والبيض والتوابل المغربية",
+                  en: "Golden crispy filo rolls stuffed with spiced minced beef, fresh herbs, and egg",
+                  es: "Rollitos crujientes de pasta filo rellenos de carne picada especiada y hierbas",
+                  de: "Knusprige Briouats gefüllt mit gewürztem Rinderhackfleisch und Kräutern"
+                },
+                price: 60,
+                dietary: ["halal"]
+              }
+            ]
+          },
+          {
+            id: "tajines-miroites",
+            title: "Tajines Traditionnels Mijotés (Slow-Cooked Tagines)",
+            description: "Cuits lentement à l'étouffée dans des plats en terre cuite selon la tradition du Souss",
+            items: [
+              {
+                id: "le20-tajine-agneau",
+                name: "Tajine d'Agneau aux Pruneaux & Amandes",
+                localName: "طاجين لحم الغنم الطري بالبرقوق المعسل واللوز المحمص",
+                translations: {
+                  ar: "طاجين لحم الغنم الطري بالبرقوق المعسل واللوز المحمص",
+                  en: "Slow-braised tender lamb tagine with sweet caramelized prunes, toasted almonds, and saffron sauce",
+                  es: "Tajine de cordero estofado con ciruelas pasas caramelizadas y almendras tostadas",
+                  de: "Geschmorter zarter Lammtagine mit karamellisierten Pflaumen und gerösteten Mandeln"
+                },
+                price: 125,
+                isSignature: true,
+                dietary: ["halal"]
+              },
+              {
+                id: "le20-tajine-poulet-citron",
+                name: "Tajine de Poulet Fermier au Citron Confit & Olives",
+                localName: "طاجين الدجاج البلدي بالحامض المصير والزيتون الأحمر",
+                translations: {
+                  ar: "طاجين الدجاج البلدي بالحامض المصير والزيتون الأحمر",
+                  en: "Free-range chicken tagine braised with preserved lemons, red olives, ginger, and saffron",
+                  es: "Tajine de pollo de corral con limones confitados, aceitunas rojas y azafrán",
+                  de: "Hähnchentagine mit eingelegten Salzzitronen, roten Oliven und Safran"
+                },
+                price: 105,
+                dietary: ["halal"]
+              },
+              {
+                id: "le20-tajine-saint-pierre",
+                name: "Tajine de Saint-Pierre aux Épices Douces & Tomates",
+                localName: "طاجين سمك سان بيير الطازج بالطماطم والشرمولة السوسية",
+                translations: {
+                  ar: "طاجين سمك سان بيير الطازج بالطماطم والشرمولة السوسية",
+                  en: "Atlantic John Dory (Saint-Pierre) fish fillet simmered with fresh tomato chermoula and bell peppers",
+                  es: "Tajine de pez de San Pedro con chermoula de tomate fresco y pimientos",
+                  de: "Tagine vom Atlantik-Petersfisch (Saint-Pierre) mit frischer Tomaten-Chermoula"
+                },
+                price: 145,
+                isSignature: true,
+                dietary: ["halal"]
+              },
+              {
+                id: "le20-tajine-vegetarien",
+                name: "Tajine Berbère Végétarien du Souss",
+                localName: "طاجين الخضار الموسمية بالأعشاب وزيت الزيتون البكر",
+                translations: {
+                  ar: "طاجين الخضار الموسمية بالأعشاب وزيت الزيتون البكر",
+                  en: "Vegetarian Berber tagine loaded with seasonal garden vegetables, peas, and wild herbs",
+                  es: "Tajine bereber vegetariano de verduras de temporada con hierbas aromáticas",
+                  de: "Vegetarischer Berber-Tagine mit saisonalem Marktgemüse und frischen Kräutern"
+                },
+                price: 80,
+                dietary: ["vegetarian", "vegan", "halal"]
+              }
+            ]
+          },
+          {
+            id: "poissons-grillades",
+            title: "Poissons Nobles & Grillades de l'Atlantique (Fish & Steaks)",
+            description: "Arrivages quotidiens du port de pêche d'Agadir et découpes de boucherie",
+            items: [
+              {
+                id: "le20-saint-pierre-safran",
+                name: "Saint-Pierre Grillé Sauce Safran & Pommes Vapeur",
+                localName: "فيليه سمك سان بيير المشوي بصلصة الزعفران الحر والخضار",
+                translations: {
+                  ar: "فيليه سمك سان بيير المشوي بصلصة الزعفران الحر والخضار",
+                  en: "Grilled Saint-Pierre fillet served over a delicate saffron sauce with steamed potatoes",
+                  es: "Filete de pez de San Pedro a la plancha con salsa de azafrán y patatas al vapor",
+                  de: "Gegrilltes Petersfischfilet an feiner Safransauce mit Dampfkartoffeln"
+                },
+                price: 160,
+                isSignature: true,
+                dietary: ["halal"]
+              },
+              {
+                id: "le20-calamars-champignons",
+                name: "Calamars Sautés à la Crème de Champignons",
+                localName: "حبار طازج مقلي مع كريمة الفطر الأبيض والثوم",
+                translations: {
+                  ar: "حبار طازج مقلي مع كريمة الفطر الأبيض والثوم",
+                  en: "Tender sautéed Atlantic calamari finished in a rich garlic wild mushroom cream",
+                  es: "Calamares atlánticos salteados con crema suave de champiñones y ajo",
+                  de: "Zart gebratener Atlantik-Tintenfisch in cremiger Knoblauch-Pilzsauce"
+                },
+                price: 135,
+                dietary: ["halal"]
+              },
+              {
+                id: "le20-entrecote-poivre",
+                name: "Entrecôte de Bœuf Grillée au Poivre Vert",
+                localName: "شريحة لحم إنتركوت بقري مشوية بصلصة الفلفل الأخضر",
+                translations: {
+                  ar: "شريحة لحم إنتركوت بقري مشوية بصلصة الفلفل الأخضر",
+                  en: "Prime grilled ribeye steak with Madagascar green peppercorn cream sauce and fries",
+                  es: "Entrecot de ternera a la parrilla con salsa de pimienta verde y patatas fritas",
+                  de: "Gegrilltes Rib-Eye-Steak mit grüner Pfeffersauce und knusprigen Pommes"
+                },
+                price: 160,
+                dietary: ["halal"]
+              }
+            ]
+          },
+          {
+            id: "couscous-desserts",
+            title: "Couscous Royal & Douceurs (Couscous & Sweets)",
+            description: "Plats de fête et douceurs fraîches maison",
+            items: [
+              {
+                id: "le20-couscous-royal",
+                name: "Couscous Royal aux Sept Légumes (Bœuf, Agneau, Poulet)",
+                localName: "كسكس ملكي متكامل باللحم البقري والغنم والدجاج والسبع خضار",
+                translations: {
+                  ar: "كسكس ملكي متكامل باللحم البقري والغنم والدجاج والسبع خضار",
+                  en: "Royal Moroccan couscous platter with tender beef, lamb, chicken, merguez, and 7 garden vegetables",
+                  es: "Cuscús real marroquí completo con ternera, cordero, pollo y siete verduras frescas",
+                  de: "Königlicher marokkanischer Couscous mit Rind, Lamm, Hähnchen und sieben Gemüsesorten"
+                },
+                price: 140,
+                isSignature: true,
+                dietary: ["halal"]
+              },
+              {
+                id: "le20-salade-oranges",
+                name: "Salade d'Oranges à la Cannelle & Fleur d'Oranger",
+                localName: "سلطة البرتقال بالماء الزهر والقرفة",
+                translations: {
+                  ar: "سلطة البرتقال بالماء الزهر والقرفة",
+                  en: "Refreshing sliced oranges dusted with cinnamon, mint, and orange blossom water",
+                  es: "Rodajas de naranja refrescantes con canela y agua de azahar",
+                  de: "Erfrischender Orangensalat mit Zimt, Minze und Orangenblütenwasser"
+                },
+                price: 45,
+                dietary: ["vegetarian", "vegan", "halal"]
+              },
+              {
+                id: "le20-mousse-chocolat",
+                name: "Mousse au Chocolat Noir Intense Maison",
+                localName: "موس الشوكولاتة الداكنة المنزلية الفاخرة",
+                translations: {
+                  ar: "موس الشوكولاتة الداكنة المنزلية الفاخرة",
+                  en: "Homemade rich dark chocolate mousse with roasted almond flakes",
+                  es: "Mousse casera de chocolate negro intenso con almendras laminadas",
+                  de: "Hausgemachte dunkle Schokoladenmousse mit gerösteten Mandeln"
+                },
+                price: 50,
+                dietary: ["vegetarian", "halal"]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
+  },
+  // =========================================================================
+  // 1. RESTAURANT PLAGE BLEUE AGADIR
+  // =========================================================================
+  {
+    id: "e-agadir-plage-bleue",
+    city: "agadir",
+    openTime: "07:00",
+    closeTime: "02:00",
+    weeklySchedule: [
+      { day: "Monday", open: "07:00", close: "02:00", isClosed: false },
+      { day: "Tuesday", open: "07:00", close: "02:00", isClosed: false },
+      { day: "Wednesday", open: "07:00", close: "02:00", isClosed: false },
+      { day: "Thursday", open: "07:00", close: "02:00", isClosed: false },
+      { day: "Friday", open: "07:00", close: "02:00", isClosed: false, note: "Live music in the evening" },
+      { day: "Saturday", open: "07:00", close: "02:00", isClosed: false, note: "Live music in the evening" },
+      { day: "Sunday", open: "07:00", close: "02:00", isClosed: false }
+    ],
+
+    // ── 1. QUIZ (personalization & recommendation matching) ──
+    quiz: {
+      lifestyle: "balanced",
+      groupTypes: ["couple", "family", "friends", "solo"],
+      mealTypes: ["breakfast", "lunch", "dinner", "late-night", "drinks"],
+      experienceTypes: ["casual"],
+      foodStyles: ["Seafood", "Mediterranean", "Moroccan", "International"],
+      cuisineTags: ["seafood", "international", "moroccan-traditional"],
+      archetypeAffinity: ["first-timer", "adventure"],
+      vibeTags: ["coastal", "breezy", "scenic", "lively"],
+      crowdLevel: "bustling"
+    },
+
+    // ── 2. FILTER (search criteria, dietary rules & flags) ──
+    filter: {
+      pricePerPerson: 18,
+      isHalal: true,
+      halalStatus: "likely-halal-food",
+      isVegetarianFriendly: true,
+      servesAlcohol: true,
+      alcoholPolicy: "serves-alcohol",
+      hasDelivery: true,
+      hasParking: true,
+      nearMedina: false,
+      nearBeach: true,
+      nearCenter: false,
+      hasEnglishStaff: true,
+      hasFrenchStaff: true,
+      ramadanFriendly: "serves-lunch",
+      closedDays: [],
+      seatingTypes: ["indoor", "terrace"],
+      paymentMethods: ["credit_card", "cash", "visa", "mastercard"],
+      tags: ["sunset", "terrace", "alcohol", "dinner", "late-night", "seafood", "breakfast"],
+      isHiddenGem: false,
+      isTemporarilyHidden: false,
+      verificationStatus: "verified"
+    },
+
+    // ── 3. UI (presentation, reviews, dishes & contacts) ──
+    ui: {
+      name: "Restaurant Plage Bleue",
+      neighborhood: "Secteur Balnéaire",
+      description: "An oceanfront culinary staple situated at 2 Front de Mer along the coastal promenade. Beloved for panoramic views of Agadir Bay, generous seafood platters, whole grilled sea bass, Moroccan tagines, and evening acoustic live music with a chilled glass of local wine.",
+      tip: "Secure a frontline terrace table between 18:30 and 19:30 to catch the sunset directly across the Atlantic horizon while sharing their Atlantic seafood platter.",
+      badge: "local-favorite",
+      bestDishes: [
+        "Plateau Royal de Fruits de Mer",
+        "Loup de Mer (Bar) Entier Grillé",
+        "Gambas al Pil-Pil",
+        "Tajine d'Agneau aux Pruneaux",
+        "Salade Avocat & Crevettes",
+        "Pizza 4 Saisons"
+      ],
+      pros: [
+        "Direct Front de Mer location with uninterrupted Atlantic bay panoramas",
+        "Continuous service from 07:00 AM breakfast to 02:00 AM late-night dining",
+        "Licensed restaurant serving cold beer, Moroccan rosé, and cocktails",
+        "Live musical performances on weekend evenings"
+      ],
+      cons: [
+        "Terrace can get quite breezy when ocean winds pick up in the late afternoon",
+        "Service can slow down noticeably during peak sunset changeover"
+      ],
+      googleRating: 4.1,
+      googleReviewCount: 1250,
+      tripadvisorRating: 4.0,
+      tripadvisorReviewCount: 480,
+      theforkRating: 4.1,
+      theforkReviewCount: 160,
+      restaurantguruRating: 4.2,
+      restaurantguruReviewCount: 1250,
+      openTime: "07:00",
+      closeTime: "02:00",
+      weeklySchedule: [
+        { day: "Monday", openTime: "07:00", closeTime: "02:00", isClosed: false },
+        { day: "Tuesday", openTime: "07:00", closeTime: "02:00", isClosed: false },
+        { day: "Wednesday", openTime: "07:00", closeTime: "02:00", isClosed: false },
+        { day: "Thursday", openTime: "07:00", closeTime: "02:00", isClosed: false },
+        { day: "Friday", openTime: "07:00", closeTime: "02:00", isClosed: false, note: "Live music in the evening" },
+        { day: "Saturday", openTime: "07:00", closeTime: "02:00", isClosed: false, note: "Live music in the evening" },
+        { day: "Sunday", openTime: "07:00", closeTime: "02:00", isClosed: false }
+      ],
+      exactAddressAndCoordinates: {
+        address: "2 Front de Mer, Boulevard du 20 Août, Secteur Balnéaire, Agadir 80000, Morocco",
+        lat: 30.4182,
+        lng: -9.6025
+      },
+      address: "2 Front de Mer, Boulevard du 20 Août, Secteur Balnéaire, Agadir 80000, Morocco",
+      coordinates: {
+        lat: 30.4182,
+        lng: -9.6025
+      },
+      googleMapsUrl: "https://maps.google.com/?q=Restaurant+Plage+Bleue+Agadir",
+      reservationMethod: ["phone", "walk-in"],
+      reservationContact: "+212528842092",
+      whatsappNumber: "",
+      bookingUrl: "",
+      website: "https://www.plagebleue.com",
+      instagram: "not-available",
+      languagesSpoken: ["French", "English", "Arabic/Darija"],
+      menu: {
+        currency: "MAD",
+        lastUpdated: "November 2026",
+        serviceChargeIncluded: true,
+        sections: [
+          {
+            id: "entrees-marines",
+            title: "Entrées Marines & Salades Fraîches (Starters & Seafood Salads)",
+            description: "Produits de la criée d'Agadir et fraîcheurs du potager",
+            items: [
+              {
+                id: "pb-gambas-pilpil",
+                name: "Gambas Sautées au Pil-Pil",
+                localName: "جمبري مطهو بزيت الزيتون الحار والثوم والبقدونس",
+                translations: {
+                  ar: "جمبري مطهو بزيت الزيتون الحار والثوم والبقدونس",
+                  en: "Sizzling prawns in chili-garlic olive oil with fresh parsley",
+                  es: "Gambas al pil-pil chisporroteantes con ajo, guindilla y perejil",
+                  de: "Brutzelnde Garnelen in scharfem Knoblauch-Olivenöl"
+                },
+                price: 90,
+                isSignature: true,
+                isSpicy: true,
+                dietary: ["halal"]
+              },
+              {
+                id: "pb-salade-avocat-crevettes",
+                name: "Salade Fraîcheur Avocat & Crevettes",
+                localName: "سلطة الأفوكادو والروبيان الطازج مع صلصة الكوكتيل الخفيفة",
+                translations: {
+                  ar: "سلطة الأفوكادو والروبيان الطازج مع صلصة الكوكتيل الخفيفة",
+                  en: "Crisp salad with fresh local avocado, Atlantic pink shrimp, and light cocktail dressing",
+                  es: "Ensalada fresca de aguacate y gambas del Atlántico con salsa cóctel",
+                  de: "Frischer Avocadosalat mit Atlantik-Garnelen und feiner Cocktailsauce"
+                },
+                price: 85,
+                dietary: ["halal"]
+              },
+              {
+                id: "pb-soupe-poisson",
+                name: "Soupe de Poissons de l'Atlantique & Rouille",
+                localName: "شوربة السمك التقليدية مع الخبز المحمص والصلصة الثومية",
+                translations: {
+                  ar: "شوربة السمك التقليدية مع الخبز المحمص والصلصة الثومية",
+                  en: "Rich Atlantic rockfish soup served with golden garlic croutons, rouille, and grated cheese",
+                  es: "Sopa de pescado de roca atlántico con picatostes y salsa rouille",
+                  de: "Aromatische Atlantik-Fischsuppe mit Knoblauch-Croutons und Rouille"
+                },
+                price: 65,
+                dietary: ["halal"]
+              }
+            ]
+          },
+          {
+            id: "poissons-fruits-de-mer",
+            title: "Poissons Nobles & Fruits de Mer (Fresh Catch & Shellfish)",
+            description: "Arrivage quotidien des chalutiers du port d'Agadir",
+            items: [
+              {
+                id: "pb-plateau-royal",
+                name: "Plateau Royal de Fruits de Mer Plage Bleue",
+                localName: "صينية فواكه البحر الملكية (حبار مقلي، سمك الصول، روبيان مشوي، محار)",
+                translations: {
+                  ar: "صينية فواكه البحر الملكية (حبار مقلي، سمك الصول، روبيان مشوي، محار)",
+                  en: "Grand Atlantic seafood platter: grilled sea bass, fried calamari, king prawns, and sides",
+                  es: "Gran bandeja marinera real: lubina a la plancha, calamares fritos, gambas y guarnición",
+                  de: "Königliche Atlantik-Meeresfrüchteplatte mit Wolfsbarsch, Calamari, Garnelen und Beilagen"
+                },
+                price: 220,
+                isSignature: true,
+                dietary: ["halal"],
+                portionNotes: "Idéal pour 1 à 2 personnes face à la mer"
+              },
+              {
+                id: "pb-loup-grille",
+                name: "Loup de Mer (Bar) Entier Grillé aux Herbes",
+                localName: "سمك الدرعي الملكي مشوي على الفحم مع الخضار المشوية",
+                translations: {
+                  ar: "سمك الدرعي الملكي مشوي على الفحم مع الخضار المشوية",
+                  en: "Charcoal-grilled whole sea bass served with steamed potatoes and roasted vegetables",
+                  es: "Lubina salvaje entera a la brasa con patatas y verduras salteadas",
+                  de: "Gegrillter ganzer Wolfsbarsch mit Dampfkartoffeln und Marktgemüse"
+                },
+                price: 160,
+                isSignature: true,
+                dietary: ["halal"]
+              },
+              {
+                id: "pb-calamars-frits",
+                name: "Friture de Calamars Croustillants & Sauce Tartare",
+                localName: "حبار مقلي مقرمش مع شرائح الليمون وصلصة التارتار",
+                translations: {
+                  ar: "حبار مقلي مقرمش مع شرائح الليمون وصلصة التارتار",
+                  en: "Golden crispy fried calamari rings served with lemon wedges and house tartar sauce",
+                  es: "Calamares fritos crujientes servidos con limón y salsa tártara casera",
+                  de: "Knusprig frittierte Calamari-Ringe mit Zitrone und Remouladensauce"
+                },
+                price: 110,
+                dietary: ["halal"]
+              }
+            ]
+          },
+          {
+            id: "tajines-marocains",
+            title: "Tajines & Saveurs du Maroc (Moroccan Specialties)",
+            description: "Plats mijotés à feu doux dans des plats en terre cuite",
+            items: [
+              {
+                id: "pb-tajine-agneau-pruneaux",
+                name: "Tajine d'Agneau aux Pruneaux & Amandes",
+                localName: "طاجين لحم الغنم المعسل بالبرقوق واللوز والسمسم",
+                translations: {
+                  ar: "طاجين لحم الغنم المعسل بالبرقوق واللوز والسمسم",
+                  en: "Slow-simmered tender lamb tagine with sweet prunes, toasted almonds, and sesame seeds",
+                  es: "Tajine de cordero estofado con ciruelas pasas caramelizadas y almendras tostadas",
+                  de: "Geschmorter Lammtagine mit karamellisierten Pflaumen und gerösteten Mandeln"
+                },
+                price: 120,
+                isSignature: true,
+                dietary: ["halal"]
+              },
+              {
+                id: "pb-tajine-poulet-citron",
+                name: "Tajine de Poulet au Citron Confit & Olives",
+                localName: "طاجين الدجاج البلدي بالحامض المصير والزيتون",
+                translations: {
+                  ar: "طاجين الدجاج البلدي بالحامض المصير والزيتون",
+                  en: "Chicken tagine simmered with cured preserved lemons, red olives, and saffron sauce",
+                  es: "Tajine de pollo con limones confitados, aceitunas y salsa de azafrán",
+                  de: "Hähnchentagine mit Salzzitronen, roten Oliven und Safransauce"
+                },
+                price: 100,
+                dietary: ["halal"]
+              }
+            ]
+          },
+          {
+            id: "pizzas-desserts",
+            title: "Pizzas au Four & Desserts (Pizzas & Sweets)",
+            description: "Pizzas cuites au four et desserts rafraîchissants",
+            items: [
+              {
+                id: "pb-pizza-4saisons",
+                name: "Pizza 4 Saisons",
+                localName: "بيتزا الفصول الأربعة بالجبن والفطر والخرشوف والزيتون",
+                translations: {
+                  ar: "بيتزا الفصول الأربعة بالجبن والفطر والخرشوف والزيتون",
+                  en: "Four seasons pizza with mozzarella, mushrooms, bell peppers, turkey ham, and olives",
+                  es: "Pizza cuatro estaciones con mozzarella, champiñones, pimientos y aceitunas",
+                  de: "Pizza Vier Jahreszeiten mit Mozzarella, Pilzen, Paprika und Oliven"
+                },
+                price: 75,
+                dietary: ["halal"]
+              },
+              {
+                id: "pb-pizza-saumon",
+                name: "Pizza au Saumon Fumé & Crème",
+                localName: "بيتزا السلمون المدخن والكريمة وجبن الموزاريلا",
+                translations: {
+                  ar: "بيتزا السلمون المدخن والكريمة وجبن الموزاريلا",
+                  en: "White pizza with smoked salmon, dill cream, and melted mozzarella",
+                  es: "Pizza blanca con salmón ahumado, crema de eneldo y mozzarella",
+                  de: "Weiße Pizza mit Räucherlachs, Dillcreme und Mozzarella"
+                },
+                price: 80,
+                dietary: ["halal"]
+              },
+              {
+                id: "pb-parfait-glace",
+                name: "Parfait Glacé Maison aux Fruits Rouges",
+                localName: "حلوى بارفيه مثلجة منزلية بصلصة التوت البري",
+                translations: {
+                  ar: "حلوى بارفيه مثلجة منزلية بصلصة التوت البري",
+                  en: "House frozen parfait drizzled with fresh red berry coulis",
+                  es: "Parfait helado casero con coulis de frutos rojos",
+                  de: "Hausgemachtes Halbgefrorenes (Parfait) mit Waldbeeren-Coulis"
+                },
+                price: 50,
+                dietary: ["vegetarian", "halal"]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
+  },
+
+  // =========================================================================
+  // 2. RESTAURANT TAM TAM AGADIR (TamTam Brunch & Food)
+  // =========================================================================
+  {
+    id: "e-agadir-tam-tam",
+    city: "agadir",
+    openTime: "08:00",
+    closeTime: "00:00",
+    weeklySchedule: [
+      { day: "Monday", open: "08:00", close: "00:00", isClosed: false },
+      { day: "Tuesday", open: "08:00", close: "00:00", isClosed: false },
+      { day: "Wednesday", open: "08:00", close: "00:00", isClosed: false },
+      { day: "Thursday", open: "08:00", close: "00:00", isClosed: false },
+      { day: "Friday", open: "08:00", close: "00:00", isClosed: false },
+      { day: "Saturday", open: "08:00", close: "00:00", isClosed: false },
+      { day: "Sunday", open: "08:00", close: "00:00", isClosed: false }
+    ],
+
+    // ── 1. QUIZ (personalization & recommendation matching) ──
+    quiz: {
+      lifestyle: "balanced",
+      groupTypes: ["friends", "family", "couple", "solo"],
+      mealTypes: ["breakfast", "brunch", "lunch", "dinner", "snack"],
+      experienceTypes: ["casual", "cafes-tea"],
+      foodStyles: ["Mediterranean", "Moroccan", "International", "Cafe & Pastry", "Italian"],
+      cuisineTags: ["international", "cafe-pastry", "moroccan-traditional"],
+      archetypeAffinity: ["nomad", "first-timer", "budget"],
+      vibeTags: ["trendy", "lively", "modern", "stylish"],
+      crowdLevel: "bustling"
+    },
+
+    // ── 2. FILTER (search criteria, dietary rules & flags) ──
+    filter: {
+      pricePerPerson: 11,
+      isHalal: true,
+      halalStatus: "halal-certified",
+      isVegetarianFriendly: true,
+      servesAlcohol: false,
+      alcoholPolicy: "dry",
+      hasDelivery: true,
+      hasParking: true,
+      nearMedina: false,
+      nearBeach: false,
+      nearCenter: true,
+      hasEnglishStaff: true,
+      hasFrenchStaff: true,
+      ramadanFriendly: "special-ftour",
+      closedDays: [],
+      seatingTypes: ["indoor", "terrace"],
+      paymentMethods: ["credit_card", "cash", "visa", "mastercard"],
+      tags: ["breakfast", "brunch", "pastry", "budget", "dry", "dinner", "terrace"],
+      isHiddenGem: false,
+      isTemporarilyHidden: false,
+      verificationStatus: "verified"
+    },
+
+    // ── 3. UI (presentation, reviews, dishes & contacts) ──
+    ui: {
+      name: "Restaurant TamTam Brunch & Food",
+      neighborhood: "Hay Mohammadi",
+      description: "A trendy urban brunch destination and contemporary restaurant in Hay Mohammadi. Renowned for its lavish all-day brunch platters, crispy shrimp Caesar salads, artisan smash burgers, creamy salmon tagliatelle, and artisanal mocktails.",
+      tip: "Visit between 09:30 and 12:00 for the signature TamTam Brunch board, or stop by in the late afternoon for their molten San Sebastian cheesecake and signature iced teas.",
+      badge: "local-favorite",
+      bestDishes: [
+        "Brunch TamTam Signature",
+        "César aux Gambas Croustillantes",
+        "Fraîcheur d'Avocat & Crevettes",
+        "Burger Gourmet Black Angus",
+        "Tagliatelles au Saumon Frais",
+        "San Sebastian Cheesecake"
+      ],
+      pros: [
+        "Outstanding brunch, breakfast, and specialty coffee options",
+        "Modern, beautifully designed interior with cozy terrace seating",
+        "Strictly 100% halal with an inventive non-alcoholic mixology bar",
+        "Prompt, courteous service and active local delivery service"
+      ],
+      cons: [
+        "Can experience short wait times during Sunday brunch rush hours",
+        "Strictly non-alcoholic venue"
+      ],
+      googleRating: 4.4,
+      googleReviewCount: 850,
+      tripadvisorRating: 4.5,
+      tripadvisorReviewCount: 190,
+      theforkRating: 4.4,
+      theforkReviewCount: 95,
+      restaurantguruRating: 4.6,
+      restaurantguruReviewCount: 850,
+      openTime: "08:00",
+      closeTime: "00:00",
+      weeklySchedule: [
+        { day: "Monday", openTime: "08:00", closeTime: "00:00", isClosed: false },
+        { day: "Tuesday", openTime: "08:00", closeTime: "00:00", isClosed: false },
+        { day: "Wednesday", openTime: "08:00", closeTime: "00:00", isClosed: false },
+        { day: "Thursday", openTime: "08:00", closeTime: "00:00", isClosed: false },
+        { day: "Friday", openTime: "08:00", closeTime: "00:00", isClosed: false },
+        { day: "Saturday", openTime: "08:00", closeTime: "00:00", isClosed: false },
+        { day: "Sunday", openTime: "08:00", closeTime: "00:00", isClosed: false }
+      ],
+      exactAddressAndCoordinates: {
+        address: "Essada 3, 28 Rdc Immeuble 11 GH T2, Hay Mohammadi, Agadir 80000, Morocco",
+        lat: 30.4365,
+        lng: -9.5815
+      },
+      address: "Essada 3, 28 Rdc Immeuble 11 GH T2, Hay Mohammadi, Agadir 80000, Morocco",
+      coordinates: {
+        lat: 30.4365,
+        lng: -9.5815
+      },
+      googleMapsUrl: "https://maps.google.com/?q=Tam+Tam+Restaurant+Agadir+Hay+Mohammadi",
+      reservationMethod: ["phone", "walk-in"],
+      reservationContact: "+212525237688",
+      whatsappNumber: "",
+      bookingUrl: "",
+      website: "not-available",
+      instagram: "https://instagram.com/tamtam.agadir",
+      languagesSpoken: ["French", "English", "Arabic/Darija"],
+      menu: {
+        currency: "MAD",
+        lastUpdated: "November 2026",
+        serviceChargeIncluded: true,
+        sections: [
+          {
+            id: "brunch-matinal",
+            title: "Brunch & Formules Matinales (Brunch & Morning Spreads)",
+            description: "Servis dès 08h00 : viennoiseries, œufs pochés et douceurs",
+            items: [
+              {
+                id: "tt-brunch-signature",
+                name: "Grand Brunch TamTam Signature",
+                localName: "برانش طمطم الملكي الشامل (بيض، أفوكادو، سلمون، بانكيك، عصير طازج وقهوة)",
+                translations: {
+                  ar: "برانش طمطم الملكي الشامل (بيض، أفوكادو، سلمون، بانكيك، عصير طازج وقهوة)",
+                  en: "Signature TamTam brunch board: eggs benedict, smoked salmon, avocado toast, fluffy pancakes, fresh juice & coffee",
+                  es: "Gran brunch TamTam: huevos benedictinos, salmón ahumado, tostada de aguacate, tortitas y café",
+                  de: "TamTam Signature Brunchplatte: Eier Benedict, Räucherlachs, Avocado-Toast, Pancakes, frischer Saft und Kaffee"
+                },
+                price: 85,
+                isSignature: true,
+                dietary: ["halal"],
+                portionNotes: "Formule complète très copieuse"
+              },
+              {
+                id: "tt-avocado-toast",
+                name: "Toast Avocat & Œufs Pochés au Saumon",
+                localName: "توست الأفوكادو المهروس مع البيض المسلوق وشرائح السلمون المدخن",
+                translations: {
+                  ar: "توست الأفوكادو المهروس مع البيض المسلوق وشرائح السلمون المدخن",
+                  en: "Sourdough toast topped with smashed avocado, poached farm eggs, Norwegian smoked salmon & seeds",
+                  es: "Tostada de pan de masa madre con aguacate, huevos poché y salmón ahumado",
+                  de: "Sauerteigtoast mit zerdrückter Avocado, pochierten Eiern und Räucherlachs"
+                },
+                price: 75,
+                dietary: ["halal"]
+              },
+              {
+                id: "tt-pancakes-fruits",
+                name: "Pancakes Fluffy aux Fruits Rouges & Sirop d'Érable",
+                localName: "بانكيك قطني منفوش بالفواكه الحمراء الطازجة وشراب القيقب",
+                translations: {
+                  ar: "بانكيك قطني منفوش بالفواكه الحمراء الطازجة وشراب القيقب",
+                  en: "Fluffy stacked pancakes with mixed fresh berries, whipped cream, and pure maple syrup",
+                  es: "Tortitas esponjosas con frutos rojos frescos, nata montada y sirope de arce",
+                  de: "Fluffige Pfannkuchen mit frischen Beeren, Schlagsahne und Ahornsirup"
+                },
+                price: 55,
+                dietary: ["vegetarian", "halal"]
+              }
+            ]
+          },
+          {
+            id: "salades-fraicheurs",
+            title: "Salades Gourmandes & Entrées (Salads & Appetizers)",
+            description: "Bols colorés et recettes signatures élaborées minute",
+            items: [
+              {
+                id: "tt-cesar-gambas",
+                name: "Salade César aux Gambas Croustillantes",
+                localName: "سلطة سيزر بالجمبري المقرمش والبارميزان وصلصة السيزر المنزلية",
+                translations: {
+                  ar: "سلطة سيزر بالجمبري المقرمش والبارميزان وصلصة السيزر المنزلية",
+                  en: "Crispy panko prawns on romaine hearts with shaved parmesan, garlic croutons, and house Caesar dressing",
+                  es: "Ensalada César con langostinos crujientes al panko, parmesano y picatostes",
+                  de: "Caesar Salad mit knusprigen Panko-Garnelen, gehobeltem Parmesan und Knoblauch-Croutons"
+                },
+                price: 79,
+                isSignature: true,
+                dietary: ["halal"]
+              },
+              {
+                id: "tt-avocat-crevettes",
+                name: "Fraîcheur d'Avocat & Crevettes Roses",
+                localName: "سلطة الأفوكادو اللذيذة والروبيان مع الحمضيات والريحان",
+                translations: {
+                  ar: "سلطة الأفوكادو اللذيذة والروبيان مع الحمضيات والريحان",
+                  en: "Fresh local avocado diced with Atlantic pink shrimp, citrus vinaigrette, and fresh basil",
+                  es: "Tartar fresco de aguacate con gambas rosas, vinagreta de cítricos y albahaca",
+                  de: "Avocado-Garnelen-Salat mit Zitrusschmand und frischem Basilikum"
+                },
+                price: 79,
+                dietary: ["halal"]
+              },
+              {
+                id: "tt-burrata",
+                name: "Burrata Crémeuse aux Tomates Cerises Rôties",
+                localName: "جبنة بوراتا الإيطالية الطازجة مع الطماطم الكرزية والبيستو",
+                translations: {
+                  ar: "جبنة بوراتا الإيطالية الطازجة مع الطماطم الكرزية والبيستو",
+                  en: "Fresh Italian burrata with blistered cherry tomatoes, basil pesto, and balsamic glaze",
+                  es: "Burrata cremosa con tomates cherry asados, pesto de albahaca y reducción balsámica",
+                  de: "Cremige Burrata mit geschmorten Kirschtomaten, Basilikumpesto und Balsamico"
+                },
+                price: 85,
+                dietary: ["vegetarian", "halal"]
+              }
+            ]
+          },
+          {
+            id: "plats-burgers-pates",
+            title: "Burgers Gourmets, Pâtes & Plats (Mains & Pasta)",
+            description: "Viandes sélectionnées et pâtes fraîches préparées minute",
+            items: [
+              {
+                id: "tt-burger-angus",
+                name: "Burger Gourmet Black Angus TamTam",
+                localName: "برغر لحم البلاك أنجوس الفاخر بالجبن الذائب والصلصة الخاصة والبطاطس المقرمشة",
+                translations: {
+                  ar: "برغر لحم البلاك أنجوس الفاخر بالجبن الذائب والصلصة الخاصة والبطاطس المقرمشة",
+                  en: "Prime Black Angus patty in brioche bun with cheddar, caramelized onions, house relish & fries",
+                  es: "Hamburguesa de ternera Black Angus con queso cheddar, cebolla caramelizada y patatas",
+                  de: "Black Angus Burger im Brioche-Bun mit geschmolzenem Cheddar, Röstzwiebeln und Pommes"
+                },
+                price: 95,
+                isSignature: true,
+                dietary: ["halal"]
+              },
+              {
+                id: "tt-tagliatelle-saumon",
+                name: "Tagliatelles au Saumon Frais & Crème d'Aneth",
+                localName: "معكرونة تالياتيلي بالسلمون الطازج وكريمة الشبت والليمون",
+                translations: {
+                  ar: "معكرونة تالياتيلي بالسلمون الطازج وكريمة الشبت والليمون",
+                  en: "Fresh tagliatelle ribbon pasta tossed with fresh salmon chunks, lemon-dill cream, and parmesan",
+                  es: "Tagliatelle frescos con dados de salmón fresco, crema de eneldo y parmesano",
+                  de: "Frische Tagliatelle mit Lachsfiletstücken in Zitronen-Dill-Rahmsauce"
+                },
+                price: 90,
+                dietary: ["halal"]
+              },
+              {
+                id: "tt-filet-boeuf",
+                name: "Filet de Bœuf Grillé Sauce Champignons Sauvages",
+                localName: "فيليه لحم بقري مشوي بصلصة الفطر البري يقدم مع الخضار الموسمية",
+                translations: {
+                  ar: "فيليه لحم بقري مشوي بصلصة الفطر البري يقدم مع الخضار الموسمية",
+                  en: "Tender grilled beef fillet served with wild mushroom sauce, potato purée, and seasonal vegetables",
+                  es: "Solomillo de ternera a la parrilla con salsa de setas silvestres y puré de patatas",
+                  de: "Zartes Rinderfilet vom Grill mit Waldpilzsauce und feinem Kartoffelpüree"
+                },
+                price: 140,
+                dietary: ["halal"]
+              }
+            ]
+          },
+          {
+            id: "desserts-mocktails",
+            title: "Mocktails & Pâtisseries (Drinks & Sweets)",
+            description: "Boissons signatures pressées à froid et desserts maison",
+            items: [
+              {
+                id: "tt-san-sebastian",
+                name: "San Sebastian Cheesecake Coulant",
+                localName: "تشيز كيك سان سيباستيان الإسباني الشهير المحروق مع شوكولاتة بلجيكية ذائبة",
+                translations: {
+                  ar: "تشيز كيك سان سيباستيان الإسباني الشهير المحروق مع شوكولاتة بلجيكية ذائبة",
+                  en: "Molten creamy Basque burnt cheesecake served with warm Belgian chocolate drizzle",
+                  es: "Tarta de queso estilo San Sebastián con centro cremoso y chocolate belga caliente",
+                  de: "San Sebastian Cheesecake mit cremig-weichem Kern und warmer belgischer Schokolade"
+                },
+                price: 55,
+                isSignature: true,
+                dietary: ["vegetarian", "halal"]
+              },
+              {
+                id: "tt-virgin-mojito-passion",
+                name: "Virgin Mojito Fruit de la Passion",
+                localName: "موهيتو باشن فروت المنعش بالنعناع والليمون",
+                translations: {
+                  ar: "موهيتو باشن فروت المنعش بالنعناع والليمون",
+                  en: "Refreshing non-alcoholic passion fruit mojito with fresh mint and sparkling soda",
+                  es: "Mojito virgen refrescante de fruta de la pasión con menta fresca y lima",
+                  de: "Erfrischender alkoholfreier Passionsfrucht-Mojito mit frischer Minze"
+                },
+                price: 45,
+                dietary: ["vegan", "halal"]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
+  },
+
+  // =========================================================================
+  // 3. RESTAURANT CASA DE ESPAÑA AGADIR
+  // =========================================================================
+  {
+    id: "e-agadir-casa-de-espana",
+    city: "agadir",
+    openTime: "12:00",
+    closeTime: "02:00",
+    weeklySchedule: [
+      { day: "Monday", open: "12:00", close: "02:00", isClosed: false },
+      { day: "Tuesday", open: "12:00", close: "02:00", isClosed: false },
+      { day: "Wednesday", open: "12:00", close: "02:00", isClosed: false },
+      { day: "Thursday", open: "12:00", close: "02:00", isClosed: false },
+      { day: "Friday", open: "12:00", close: "02:00", isClosed: false },
+      { day: "Saturday", open: "12:00", close: "02:00", isClosed: false },
+      { day: "Sunday", open: "12:00", close: "02:00", isClosed: false }
+    ],
+
+    // ── 1. QUIZ (personalization & recommendation matching) ──
+    quiz: {
+      lifestyle: "balanced",
+      groupTypes: ["friends", "couple", "family", "solo"],
+      mealTypes: ["lunch", "dinner", "late-night", "drinks"],
+      experienceTypes: ["casual", "traditional"],
+      foodStyles: ["Mediterranean", "Seafood", "International"],
+      cuisineTags: ["international", "seafood"],
+      archetypeAffinity: ["first-timer", "culture", "adventure"],
+      vibeTags: ["lively", "authentic", "festive", "convivial"],
+      crowdLevel: "bustling"
+    },
+
+    // ── 2. FILTER (search criteria, dietary rules & flags) ──
+    filter: {
+      pricePerPerson: 20,
+      isHalal: true,
+      halalStatus: "likely-halal-food",
+      isVegetarianFriendly: true,
+      servesAlcohol: true,
+      alcoholPolicy: "serves-alcohol",
+      hasDelivery: true,
+      hasParking: true,
+      nearMedina: false,
+      nearBeach: false,
+      nearCenter: true,
+      hasEnglishStaff: true,
+      hasFrenchStaff: true,
+      ramadanFriendly: "serves-lunch",
+      closedDays: [],
+      seatingTypes: ["indoor", "terrace"],
+      paymentMethods: ["credit_card", "cash", "visa", "mastercard"],
+      tags: ["late-night", "terrace", "alcohol", "dinner", "lunch"],
+      isHiddenGem: false,
+      isTemporarilyHidden: false,
+      verificationStatus: "verified"
+    },
+
+    // ── 3. UI (presentation, reviews, dishes & contacts) ──
+    ui: {
+      name: "Restaurant Casa de España",
+      neighborhood: "Centre Ville",
+      description: "Agadir's historic Spanish tavern and restaurant located at N° 19 Avenue Hassan II near Cinéma Rialto. Famous for traditional Spanish tapas (gambas al ajillo, pulpo a la gallega, homemade tortilla), genuine seafood paellas, Spanish wines, house sangria, and live football broadcasts in a warm, authentic atmosphere.",
+      tip: "The seafood paella takes about 25–30 minutes to cook fresh from scratch; order a pitcher of homemade sangria with patatas bravas and garlic prawns while you wait.",
+      badge: "local-favorite",
+      bestDishes: [
+        "Paella Tradicional de Mariscos",
+        "Pulpo a la Gallega",
+        "Gambas al Ajillo (Crevettes à l'Ail)",
+        "Tortilla Española Casera",
+        "Patatas Bravas",
+        "Crème Catalane Caramélisée"
+      ],
+      pros: [
+        "Authentic Iberian tapas and paellas prepared to order with fresh Atlantic seafood",
+        "Licensed venue with Spanish wines, cold draft beer, and homemade sangria",
+        "Welcoming Iberian bodega ambiance with live football broadcasts",
+        "Continuous service from noon until 02:00 AM"
+      ],
+      cons: [
+        "Can become loud and very crowded during major European football nights",
+        "Smoking is permitted in certain indoor/covered sections"
+      ],
+      googleRating: 4.2,
+      googleReviewCount: 785,
+      tripadvisorRating: 4.1,
+      tripadvisorReviewCount: 310,
+      theforkRating: 4.2,
+      theforkReviewCount: 120,
+      restaurantguruRating: 4.3,
+      restaurantguruReviewCount: 785,
+      openTime: "12:00",
+      closeTime: "02:00",
+      weeklySchedule: [
+        { day: "Monday", openTime: "12:00", closeTime: "02:00", isClosed: false },
+        { day: "Tuesday", openTime: "12:00", closeTime: "02:00", isClosed: false },
+        { day: "Wednesday", openTime: "12:00", closeTime: "02:00", isClosed: false },
+        { day: "Thursday", openTime: "12:00", closeTime: "02:00", isClosed: false },
+        { day: "Friday", openTime: "12:00", closeTime: "02:00", isClosed: false },
+        { day: "Saturday", openTime: "12:00", closeTime: "02:00", isClosed: false },
+        { day: "Sunday", openTime: "12:00", closeTime: "02:00", isClosed: false }
+      ],
+      exactAddressAndCoordinates: {
+        address: "N° 19, Immeuble A, Avenue Hassan II, Centre Ville, Agadir 80000, Morocco",
+        lat: 30.4212,
+        lng: -9.5985
+      },
+      address: "N° 19, Immeuble A, Avenue Hassan II, Centre Ville, Agadir 80000, Morocco",
+      coordinates: {
+        lat: 30.4212,
+        lng: -9.5985
+      },
+      googleMapsUrl: "https://maps.google.com/?q=Restaurant+Casa+de+Espana+Agadir",
+      reservationMethod: ["phone", "walk-in"],
+      reservationContact: "+212528828211",
+      whatsappNumber: "",
+      bookingUrl: "",
+      website: "https://casadeespanaagadir.com",
+      instagram: "not-available",
+      languagesSpoken: ["Spanish", "French", "English", "Arabic/Darija"],
+      menu: {
+        currency: "MAD",
+        lastUpdated: "November 2026",
+        serviceChargeIncluded: true,
+        sections: [
+          {
+            id: "tapas-raciones",
+            title: "Tapas Españolas & Raciones (Spanish Tapas & Starters)",
+            description: "Plats et tapas authentiques à partager selon la tradition ibérique",
+            items: [
+              {
+                id: "cde-gambas-ajillo",
+                name: "Gambas al Ajillo (Crevettes à l'Ail)",
+                localName: "جمبري مطهو بزيت الزيتون البكر والثوم المحمر والفلفل الحار",
+                translations: {
+                  ar: "جمبري مطهو بزيت الزيتون البكر والثوم المحمر والفلفل الحار",
+                  en: "Sizzling garlic prawns sautéed in extra virgin olive oil and dried chili",
+                  es: "Gambas al ajillo chisporroteantes con ajo dorado, guindilla y aceite virgen extra",
+                  de: "Brutzelnde Knoblauchgarnelen in nativem Olivenöl mit Chili"
+                },
+                price: 95,
+                isSignature: true,
+                dietary: ["halal"]
+              },
+              {
+                id: "cde-pulpo-gallega",
+                name: "Pulpo a la Gallega (Poulpe à la Galicienne)",
+                localName: "أخطبوط طري على الطريقة الجاليكية مع البطاطس وزيت الزيتون والبابريكا المدخنة",
+                translations: {
+                  ar: "أخطبوط طري على الطريقة الجاليكية مع البطاطس وزيت الزيتون والبابريكا المدخنة",
+                  en: "Tender Galician-style octopus over sliced potatoes with sea salt and smoked paprika",
+                  es: "Pulpo a la gallega sobre patatas cocidas con pimentón de la Vera y flor de sal",
+                  de: "Galicischer Oktopus auf Kartoffelscheiben mit geräuchertem Paprikapulver und Meersalz"
+                },
+                price: 130,
+                isSignature: true,
+                dietary: ["halal"]
+              },
+              {
+                id: "cde-tortilla-espanola",
+                name: "Tortilla Española Casera",
+                localName: "تورتيلا إسبانية منزلية تقليدية بالبطاطس والبيض والبصل المكرمل",
+                translations: {
+                  ar: "تورتيلا إسبانية منزلية تقليدية بالبطاطس والبيض والبصل المكرمل",
+                  en: "Classic homemade Spanish potato and caramelized onion omelet",
+                  es: "Tortilla española clásica casera de patatas y cebolla pochada",
+                  de: "Klassisches hausgemachtes spanisches Kartoffel-Omelett mit Zwiebeln"
+                },
+                price: 45,
+                dietary: ["vegetarian", "halal"]
+              },
+              {
+                id: "cde-patatas-bravas",
+                name: "Patatas Bravas Tradicionales",
+                localName: "بطاطس برافاس مقرمشة مع الصلصة الحارة والمايونيز بالثوم",
+                translations: {
+                  ar: "بطاطس برافاس مقرمشة مع الصلصة الحارة والمايونيز بالثوم",
+                  en: "Crispy fried potato chunks smothered in spicy brava sauce and creamy garlic aïoli",
+                  es: "Patatas bravas crujientes con salsa brava picante casera y alioli suave",
+                  de: "Knusprige Patatas Bravas mit pikanter Bravasauce und cremigem Knoblauch-Aioli"
+                },
+                price: 50,
+                isSpicy: true,
+                dietary: ["vegetarian", "halal"]
+              }
+            ]
+          },
+          {
+            id: "paellas-arroces",
+            title: "Paellas & Riz Ibériques (Paellas & Rice)",
+            description: "Cuites minute au bouillon de poisson safrané (temps d'attente : ~25 min)",
+            items: [
+              {
+                id: "cde-paella-mariscos",
+                name: "Paella Tradicional de Mariscos",
+                localName: "بايلا فواكه البحر الإسبانية التقليدية بالجمبري والكالمار وبلح البحر والزعفران",
+                translations: {
+                  ar: "بايلا فواكه البحر الإسبانية التقليدية بالجمبري والكالمار وبلح البحر والزعفران",
+                  en: "Authentic saffron seafood paella with king prawns, calamari, fresh mussels, and white fish",
+                  es: "Paella marinera tradicional con gambas, calamares, mejillones y fumet de pescado",
+                  de: "Traditionelle Meeresfrüchte-Paella mit Garnelen, Tintenfisch, Muscheln und Safranreis"
+                },
+                price: 180,
+                isSignature: true,
+                dietary: ["halal"],
+                portionNotes: "Prix par personne • Préparation minute"
+              },
+              {
+                id: "cde-paella-mixta",
+                name: "Paella Valenciana Mixta",
+                localName: "بايلا فالنسيا المشكلة بالدجاج وفواكه البحر والخضار",
+                translations: {
+                  ar: "بايلا فالنسيا المشكلة بالدجاج وفواكه البحر والخضار",
+                  en: "Classic mixed Valencian paella with chicken, calamari, shrimp, and green beans",
+                  es: "Paella mixta valenciana con pollo dorado, mariscos y judías verdes",
+                  de: "Gemischte valencianische Paella mit Hähnchen, Meeresfrüchten und grünen Bohnen"
+                },
+                price: 160,
+                dietary: ["halal"]
+              },
+              {
+                id: "cde-arroz-negro",
+                name: "Arroz Negro con Calamares y Alioli",
+                localName: "أرز أسود بحبر السيبيا الطبيعي وقطع الحبار مع صلصة الأليولي",
+                translations: {
+                  ar: "أرز أسود بحبر السيبيا الطبيعي وقطع الحبار مع صلصة الأليولي",
+                  en: "Black squid ink rice simmered with tender cuttlefish chunks, served with garlic aïoli",
+                  es: "Arroz negro tradicional en tinta de sepia con calamares y alioli casero",
+                  de: "Schwarzer Tintenfisch-Reis mit Calamari-Stücken und feinem Knoblauch-Aioli"
+                },
+                price: 170,
+                isSignature: true,
+                dietary: ["halal"]
+              }
+            ]
+          },
+          {
+            id: "carnes-pescados",
+            title: "Plats Principaux & Poissons (Meats & Fish)",
+            description: "Grillades de poissons frais de l'Atlantique et viandes sélectionnées",
+            items: [
+              {
+                id: "cde-solomillo-ternera",
+                name: "Solomillo de Ternera al Vino Tinto",
+                localName: "فيليه لحم بقري مشوي بصلصة النبيذ الأحمر والبطاطس المحمرة",
+                translations: {
+                  ar: "فيليه لحم بقري مشوي بصلصة النبيذ الأحمر والبطاطس المحمرة",
+                  en: "Tender grilled beef fillet served with a rich red wine reduction and roasted potatoes",
+                  es: "Solomillo de ternera a la plancha con reducción de vino tinto y patatas panaderas",
+                  de: "Zartes Rinderfilet mit Rotweinreduktion und Röstkartoffeln"
+                },
+                price: 160,
+                dietary: ["halal"]
+              },
+              {
+                id: "cde-lubina-plancha",
+                name: "Lubina a la Plancha con Ajo y Perejil",
+                localName: "سمك الدرعي الطازج مشوي على البلانشا بزيت الزيتون والثوم والليمون",
+                translations: {
+                  ar: "سمك الدرعي الطازج مشوي على البلانشا بزيت الزيتون والثوم والليمون",
+                  en: "Fresh sea bass fillet seared à la plancha with extra virgin olive oil, garlic, and parsley",
+                  es: "Filete de lubina fresca a la plancha con ajo frito, perejil y verduras",
+                  de: "Frisches Wolfsbarschfilet von der Plancha mit Knoblauch-Kräuter-Öl"
+                },
+                price: 150,
+                dietary: ["halal"]
+              }
+            ]
+          },
+          {
+            id: "postres-caseros",
+            title: "Postres Caseros (Desserts)",
+            description: "Douceurs espagnoles traditionnelles faites maison",
+            items: [
+              {
+                id: "cde-crema-catalana",
+                name: "Crema Catalana Caramelizada al Momento",
+                localName: "كريم كاتالانا الإسباني المكرمل بالسكر المحروق والقرفة",
+                translations: {
+                  ar: "كريم كاتالانا الإسباني المكرمل بالسكر المحروق والقرفة",
+                  en: "Traditional rich Catalan cream scented with lemon and cinnamon under a crisp caramelized sugar crust",
+                  es: "Crema catalana artesanal caramelizada al momento con costra de azúcar crujiente",
+                  de: "Katalanische Creme mit karamellisierter Zuckerkruste und Zitrusschale"
+                },
+                price: 65,
+                isSignature: true,
+                dietary: ["vegetarian"]
+              },
+              {
+                id: "cde-flan-casa",
+                name: "Flan Tradicional con Nata y Caramelo",
+                localName: "فلان إسباني تقليدي بالكراميل والكريمة المخفوقة",
+                translations: {
+                  ar: "فلان إسباني تقليدي بالكراميل والكريمة المخفوقة",
+                  en: "Classic baked Spanish egg flan with amber caramel syrup and whipped cream",
+                  es: "Flan de huevo casero tradicional con caramelo líquido y nata",
+                  de: "Klassischer spanischer Eierflan mit Karamellsirup und Sahne"
+                },
+                price: 65,
+                dietary: ["vegetarian"]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
+  },
+
+  // =========================================================================
+  // 4. RESTAURANT AL WALIMA AGADIR
+  // =========================================================================
+  {
+    id: "e-agadir-al-walima",
+    city: "agadir",
+    openTime: "12:00",
+    closeTime: "00:00",
+    weeklySchedule: [
+      { day: "Monday", open: "12:00", close: "00:00", isClosed: false },
+      { day: "Tuesday", open: "12:00", close: "00:00", isClosed: false },
+      { day: "Wednesday", open: "12:00", close: "00:00", isClosed: false },
+      { day: "Thursday", open: "12:00", close: "00:00", isClosed: false },
+      { day: "Friday", open: "12:00", close: "00:00", isClosed: false, note: "Couscous Royal servi à midi" },
+      { day: "Saturday", open: "12:00", close: "00:00", isClosed: false },
+      { day: "Sunday", open: "12:00", close: "00:00", isClosed: false }
+    ],
+
+    // ── 1. QUIZ (personalization & recommendation matching) ──
+    quiz: {
+      lifestyle: "balanced",
+      groupTypes: ["family", "couple", "friends", "seniors"],
+      mealTypes: ["lunch", "dinner"],
+      experienceTypes: ["traditional", "casual"],
+      foodStyles: ["Moroccan", "Tagine & Couscous", "Berber", "Grill & BBQ"],
+      cuisineTags: ["moroccan-traditional"],
+      archetypeAffinity: ["culture", "first-timer"],
+      vibeTags: ["authentic", "hospitable", "warm", "traditional"],
+      crowdLevel: "balanced"
+    },
+
+    // ── 2. FILTER (search criteria, dietary rules & flags) ──
+    filter: {
+      pricePerPerson: 12,
+      isHalal: true,
+      halalStatus: "halal-certified",
+      isVegetarianFriendly: true,
+      servesAlcohol: false,
+      alcoholPolicy: "dry",
+      hasDelivery: true,
+      hasParking: true,
+      nearMedina: false,
+      nearBeach: false,
+      nearCenter: true,
+      hasEnglishStaff: true,
+      hasFrenchStaff: true,
+      ramadanFriendly: "special-ftour",
+      closedDays: [],
+      seatingTypes: ["indoor"],
+      paymentMethods: ["credit_card", "cash", "visa", "mastercard"],
+      tags: ["tagine", "couscous", "budget", "dry", "dinner", "pastilla"],
+      isHiddenGem: false,
+      isTemporarilyHidden: false,
+      verificationStatus: "verified"
+    },
+
+    // ── 3. UI (presentation, reviews, dishes & contacts) ──
+    ui: {
+      name: "Restaurant Al Walima",
+      neighborhood: "Centre Ville",
+      description: "An authentic Moroccan culinary establishment situated at Jardin Lalla Meryem on Rue de Marrakech. Renowned for genuine Moroccan banquet cooking: slow-simmered lamb and monkfish tagines, fragrant Friday royal couscous, authentic chicken rfissa, tender charcoal brochettes, and signature herbal mint tea.",
+      tip: "Order the traditional Tanjia Marrakchia or the monkfish (lotte) tagine with chermoula, and finish your meal with their signature Thé Al Walima infused with Souss herbs.",
+      badge: "local-favorite",
+      bestDishes: [
+        "Tajine d'Agneau aux Pruneaux & Amandes",
+        "Tajine de Lotte (Monkfish) à la Chermoula",
+        "Rfissa Traditionnelle au Poulet Beldi",
+        "Couscous Royal aux Sept Légumes",
+        "Pastilla au Poulet & Amandes",
+        "Thé Al Walima Signature"
+      ],
+      pros: [
+        "Deeply authentic, homestyle Moroccan recipes prepared with market-fresh spices",
+        "Attentive and hospitable family management led by team manager Malak",
+        "Exceptional price-to-portion ratio located right in central Agadir",
+        "Beautifully decorated dining room combining Moroccan zellige tilework with modern comfort"
+      ],
+      cons: [
+        "Strictly non-alcoholic venue",
+        "Kitchen prepares certain slow-braised specialties from scratch, which may involve modest waits during peak dining hours"
+      ],
+      googleRating: 4.8,
+      googleReviewCount: 1230,
+      tripadvisorRating: 4.7,
+      tripadvisorReviewCount: 220,
+      theforkRating: 4.6,
+      theforkReviewCount: 90,
+      restaurantguruRating: 4.8,
+      restaurantguruReviewCount: 1230,
+      openTime: "12:00",
+      closeTime: "00:00",
+      weeklySchedule: [
+        { day: "Monday", openTime: "12:00", closeTime: "00:00", isClosed: false },
+        { day: "Tuesday", openTime: "12:00", closeTime: "00:00", isClosed: false },
+        { day: "Wednesday", openTime: "12:00", closeTime: "00:00", isClosed: false },
+        { day: "Thursday", openTime: "12:00", closeTime: "00:00", isClosed: false },
+        { day: "Friday", openTime: "12:00", closeTime: "00:00", isClosed: false, note: "Couscous Royal servi à midi" },
+        { day: "Saturday", openTime: "12:00", closeTime: "00:00", isClosed: false },
+        { day: "Sunday", openTime: "12:00", closeTime: "00:00", isClosed: false }
+      ],
+      exactAddressAndCoordinates: {
+        address: "N° 9, Jardin Lalla Meryem, Bloc 1, Rue de Marrakech, Centre Ville, Agadir 80000, Morocco",
+        lat: 30.423,
+        lng: -9.5995
+      },
+      address: "N° 9, Jardin Lalla Meryem, Bloc 1, Rue de Marrakech, Centre Ville, Agadir 80000, Morocco",
+      coordinates: {
+        lat: 30.423,
+        lng: -9.5995
+      },
+      googleMapsUrl: "https://maps.google.com/?q=Restaurant+Al+Walima+Agadir+Jardin+Lalla+Meryem",
+      reservationMethod: ["phone", "website", "walk-in"],
+      reservationContact: "+212627711514",
+      whatsappNumber: "+212627711514",
+      bookingUrl: "https://www.restaurantalwalima.com",
+      website: "https://www.restaurantalwalima.com",
+      instagram: "not-available",
+      languagesSpoken: ["Arabic/Darija", "French", "English"],
+      menu: {
+        currency: "MAD",
+        lastUpdated: "November 2026",
+        serviceChargeIncluded: true,
+        sections: [
+          {
+            id: "entrees-terroir",
+            title: "Entrées du Terroir & Pastillas (Starters & Pastilla)",
+            description: "Saveurs d'accueil marocaines et salades cuisinées aux épices douces",
+            items: [
+              {
+                id: "walima-pastilla-poulet",
+                name: "Pastilla Traditionnelle au Poulet & Amandes",
+                localName: "بسطيلة الدجاج الفاسية باللوز المقلي والقرفة والسكر الصقيل",
+                translations: {
+                  ar: "بسطيلة الدجاج الفاسية باللوز المقلي والقرفة والسكر الصقيل",
+                  en: "Traditional chicken pastilla with layers of flaky warka pastry, roasted almonds, and cinnamon",
+                  es: "Pastela tradicional de pollo y almendras tostadas con canela y azúcar glas",
+                  de: "Traditionelle Hähnchenpastilla im feinen Filoteig mit gerösteten Mandeln und Zimt"
+                },
+                price: 75,
+                isSignature: true,
+                dietary: ["halal"]
+              },
+              {
+                id: "walima-trio-salades",
+                name: "Trio de Salades Marocaines Cuisinées (Zaalouk & Taktouka)",
+                localName: "تشكيلة مقبلات مغربية أصيلة (زعلوك الباذنجان، تكتوكة الفلفل، جزر مشرمل)",
+                translations: {
+                  ar: "تشكيلة مقبلات مغربية أصيلة (زعلوك الباذنجان، تكتوكة الفلفل، جزر مشرمل)",
+                  en: "Trio of cooked Moroccan mezze salads: smoky eggplant zaalouk, roasted pepper taktouka, and spiced carrots",
+                  es: "Trío de ensaladas cocinadas marroquíes: zaalouk de berenjenas, taktouka y zanahorias especiadas",
+                  de: "Trio marokkanischer Salate: Auberginen-Zaalouk, Paprika-Taktouka und Gewürzkarotten"
+                },
+                price: 50,
+                dietary: ["vegetarian", "vegan", "halal"]
+              },
+              {
+                id: "walima-harira",
+                name: "Harira Fassie Traditionnelle aux Dattes",
+                localName: "حريرة فاسية أصيلة بالحمص والعدس واللحم تقدم مع التمر والشباكية",
+                translations: {
+                  ar: "حريرة فاسية أصيلة بالحمص والعدس واللحم تقدم مع التمر والشباكية",
+                  en: "Traditional slow-simmered rich Moroccan tomato and lentil soup served with dates and sweet chebbakia",
+                  es: "Sopa tradicional marroquí harira servida con dátiles y chebbakia",
+                  de: "Traditionelle marokkanische Harira-Suppe mit Kichererbsen, Linsen, Datteln und Gebäck"
+                },
+                price: 40,
+                dietary: ["halal"]
+              }
+            ]
+          },
+          {
+            id: "tajines-plats-anciennes",
+            title: "Tajines Cuisinés à l'Ancienne (Authentic Tagines & Tanjia)",
+            description: "Mijotés patiemment en plats de terre cuite sur braises douces",
+            items: [
+              {
+                id: "walima-tajine-agneau",
+                name: "Tajine d'Agneau aux Pruneaux & Amandes Dorées",
+                localName: "طاجين لحم الغنم الطري بالبرقوق المعسل واللوز المقلي والسمسم",
+                translations: {
+                  ar: "طاجين لحم الغنم الطري بالبرقوق المعسل واللوز المقلي والسمسم",
+                  en: "Tender slow-braised lamb tagine with caramelized prunes, toasted golden almonds, and sesame seeds",
+                  es: "Tajine de cordero estofado con ciruelas pasas caramelizadas, almendras doradas y sésamo",
+                  de: "Geschmorter Lammtagine mit karamellisierten Pflaumen, Mandeln und Sesam"
+                },
+                price: 110,
+                isSignature: true,
+                dietary: ["halal"]
+              },
+              {
+                id: "walima-tajine-lotte",
+                name: "Tajine de Lotte (Monkfish) à la Chermoula Soussia",
+                localName: "طاجين سمك اللوط بالخضار وشرمولة سوسية أصيلة",
+                translations: {
+                  ar: "طاجين سمك اللوط بالخضار وشرمولة سوسية أصيلة",
+                  en: "Monkfish fillet tagine simmered in traditional Souss chermoula marinade, tomatoes, and bell peppers",
+                  es: "Tajine de rape fresco con chermoula tradicional del Souss, tomate y pimientos",
+                  de: "Seeteufeltagine (Lotte) geschmort in traditioneller Souss-Chermoula mit Gemüse"
+                },
+                price: 125,
+                isSignature: true,
+                dietary: ["halal"]
+              },
+              {
+                id: "walima-tanjia",
+                name: "Tanjia Marrakchia Cuite à l'Étouffée",
+                localName: "طنجية مراكشية أصيلة بلحم العجل والكمون الصوفي والليمون المصير",
+                translations: {
+                  ar: "طنجية مراكشية أصيلة بلحم العجل والكمون الصوفي والليمون المصير",
+                  en: "Traditional Marrakesh clay-pot veal tanjia braised for hours with preserved lemon, cumin, and smen butter",
+                  es: "Tanjia tradicional marrakchí de ternera cocinada a fuego lento en vasija de barro",
+                  de: "Traditionelle Tanjia Marrakchia aus dem Tonkrug mit geschmortem Kalbfleisch und Salzzitrone"
+                },
+                price: 120,
+                isSignature: true,
+                dietary: ["halal"]
+              },
+              {
+                id: "walima-tajine-poulet",
+                name: "Tajine de Poulet Beldi au Citron Confit & Olives Rouges",
+                localName: "طاجين الدجاج البلدي بالحامض المصير والزيتون الأحمر والزعفران الحر",
+                translations: {
+                  ar: "طاجين الدجاج البلدي بالحامض المصير والزيتون الأحمر والزعفران الحر",
+                  en: "Free-range chicken tagine cooked with cured lemons, red olives, and saffron ginger gravy",
+                  es: "Tajine de pollo de corral con limones confitados, aceitunas rojas y azafrán",
+                  de: "Hähnchentagine vom Freilandhuhn mit eingelegten Zitronen und roten Oliven"
+                },
+                price: 95,
+                dietary: ["halal"]
+              }
+            ]
+          },
+          {
+            id: "couscous-rfissa",
+            title: "Couscous, Rfissa & Plats de Fête (Feast Specialties)",
+            description: "Plats emblématiques de banquet marocain préparés selon les rituels familiaux",
+            items: [
+              {
+                id: "walima-couscous-royal",
+                name: "Couscous Royal aux Sept Légumes (Bœuf, Agneau, Poulet)",
+                localName: "كسكس ملكي فاخر بالسبع خضار واللحم البقري والغنم والدجاج والبصل المعسل",
+                translations: {
+                  ar: "كسكس ملكي فاخر بالسبع خضار واللحم البقري والغنم والدجاج والبصل المعسل",
+                  en: "Grand Royal Couscous with tender beef, lamb, chicken, 7 seasonal vegetables, and caramelized tfaya",
+                  es: "Cuscús real marroquí completo con ternera, cordero, pollo, siete verduras y tfaya",
+                  de: "Königlicher marokkanischer Couscous mit Rind, Lamm, Hähnchen, sieben Gemüsesorten und Tfaya"
+                },
+                price: 115,
+                isSignature: true,
+                dietary: ["halal"],
+                portionNotes: "Incontournable du vendredi midi et des repas de fête"
+              },
+              {
+                id: "walima-rfissa",
+                name: "Rfissa Traditionnelle au Poulet Beldi & Trid",
+                localName: "رفيسة تقليدية بالدجاج البلدي والتريد والعدس والحلبة ورأس الحانوت",
+                translations: {
+                  ar: "رفيسة تقليدية بالدجاج البلدي والتريد والعدس والحلبة ورأس الحانوت",
+                  en: "Traditional celebration rfissa: shredded trid crepes soaked in spiced chicken broth with lentils and fenugreek",
+                  es: "Rfissa tradicional de pollo campero con finas láminas de trid, lentejas y especias",
+                  de: "Traditionelle Festtags-Rfissa mit Hähnchen, Trid-Teigblättern, Linsen und Gewürzbrühe"
+                },
+                price: 95,
+                isSignature: true,
+                dietary: ["halal"]
+              },
+              {
+                id: "walima-grill-mix",
+                name: "Mixte Grillé Al Walima (Brochettes & Merguez)",
+                localName: "مشاوي مشكلة الوليمة (كباب كفتة، كباب دجاج، نقانق مرقاز)",
+                translations: {
+                  ar: "مشاوي مشكلة الوليمة (كباب كفتة، كباب دجاج، نقانق مرقاز)",
+                  en: "Charcoal-grilled skewer platter: seasoned minced kefta, chicken skewers, and artisanal merguez with fries",
+                  es: "Parrillada mixta de brochetas de kefta, pollo y merguez artesanal al carbón",
+                  de: "Gemischte Grillplatte vom Holzkohlegrill mit Kefta, Hähnchen und Merguez"
+                },
+                price: 70,
+                dietary: ["halal"]
+              }
+            ]
+          },
+          {
+            id: "douceurs-the-walima",
+            title: "Douceurs & Thé Al Walima (Desserts & Tea Ritual)",
+            description: "Touches sucrées parfumées à l'eau de fleur d'oranger et thé du Souss",
+            items: [
+              {
+                id: "walima-the-signature",
+                name: "Thé Al Walima aux Herbes du Souss",
+                localName: "شاي الوليمة الملكي بالأعشاب الطبية والنعناع السوسي",
+                translations: {
+                  ar: "شاي الوليمة الملكي بالأعشاب الطبية والنعناع السوسي",
+                  en: "Signature royal Moroccan green mint tea slow-brewed with wild Souss aromatic herbs and absinthe (chiba)",
+                  es: "Té verde tradicional Al Walima con menta fresca y hierbas aromáticas del Souss",
+                  de: "Königlicher Al Walima Minztee verfeinert mit aromatischen Wildkräutern aus dem Souss"
+                },
+                price: 25,
+                isSignature: true,
+                dietary: ["vegan", "halal"]
+              },
+              {
+                id: "walima-salade-oranges",
+                name: "Salade d'Oranges à la Cannelle & Eau de Fleur d'Oranger",
+                localName: "سلطة البرتقال الطازج بالقرفة وماء الزهر المقطر والنعناع",
+                translations: {
+                  ar: "سلطة البرتقال الطازج بالقرفة وماء الزهر المقطر والنعناع",
+                  en: "Freshly sliced Moroccan oranges dusted with ground cinnamon and pure distilled orange blossom water",
+                  es: "Ensalada de naranjas frescas con canela molida y agua de azahar",
+                  de: "Frischer Orangensalat mit gemahlenem Zimt und Orangenblütenwasser"
+                },
+                price: 35,
+                dietary: ["vegan", "halal"]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
+  },
+  // =========================================================================
+  // 1. RESTAURANT JADE | ASIAN FUSION
+  // =========================================================================
+  {
+    id: "e-agadir-jade-asian-fusion",
+    city: "agadir",
+    openTime: "12:00",
+    closeTime: "00:00",
+    weeklySchedule: [
+      { day: "Monday", open: "12:00", close: "00:00", isClosed: false },
+      { day: "Tuesday", open: "12:00", close: "00:00", isClosed: false },
+      { day: "Wednesday", open: "12:00", close: "00:00", isClosed: false },
+      { day: "Thursday", open: "11:00", close: "00:00", isClosed: false },
+      { day: "Friday", open: "12:00", close: "00:00", isClosed: false },
+      { day: "Saturday", open: "12:00", close: "00:00", isClosed: false },
+      { day: "Sunday", open: "12:00", close: "00:00", isClosed: false }
+    ],
+
+    // ── 1. QUIZ (personalization & recommendation matching) ──
+    quiz: {
+      lifestyle: "balanced",
+      groupTypes: ["couple", "friends", "family"],
+      mealTypes: ["lunch", "dinner", "late-night", "drinks"],
+      experienceTypes: ["casual", "fine-dining"],
+      foodStyles: ["International", "Seafood", "Vegetarian/Vegan"],
+      cuisineTags: ["international", "seafood"],
+      archetypeAffinity: ["first-timer", "adventure", "nomad"],
+      vibeTags: ["trendy", "coastal", "breezy", "modern"],
+      crowdLevel: "bustling"
+    },
+
+    // ── 2. FILTER (search criteria, dietary rules & flags) ──
+    filter: {
+      pricePerPerson: 22,
+      isHalal: true,
+      halalStatus: "likely-halal-food",
+      isVegetarianFriendly: true,
+      servesAlcohol: true,
+      alcoholPolicy: "serves-alcohol",
+      hasDelivery: true,
+      hasParking: true,
+      nearMedina: false,
+      nearBeach: true,
+      nearCenter: false,
+      hasEnglishStaff: true,
+      hasFrenchStaff: true,
+      ramadanFriendly: "serves-lunch",
+      closedDays: [],
+      seatingTypes: ["indoor", "terrace"],
+      paymentMethods: ["credit_card", "cash", "visa", "mastercard"],
+      tags: ["sunset", "terrace", "alcohol", "dinner", "lunch", "seafood", "late-night"],
+      isHiddenGem: false,
+      isTemporarilyHidden: false,
+      verificationStatus: "verified"
+    },
+
+    // ── 3. UI (presentation, reviews, dishes & contacts) ──
+    ui: {
+      name: "Restaurant Jade Asian Fusion",
+      neighborhood: "Secteur Balnéaire",
+      description: "A chic Asian-fusion jewel on Agadir's seaside promenade (Lot N° 6, right next to Ô Playa). Renowned for breaking the coastal grill-and-pizza monotony with creative sushi rolls, crispy dynamite shrimp, Cantonese sizzling beef, authentic Pad Thai, and glass-enclosed oceanfront terrace dining.",
+      tip: "Request an outdoor table behind the glass panels on the terrace: you get sweeping Atlantic sunset panoramas protected from the sea breeze. Don't skip the signature Dynamite Shrimp starter.",
+      badge: "local-favorite",
+      bestDishes: [
+        "Dynamite Shrimps",
+        "Dragon Roll Sushi",
+        "Pad Thaï Royal aux Crevettes",
+        "Poulet Général Tso Caramélisé",
+        "Bœuf Sizzling aux 5 Épices",
+        "Matcha Lava Cake & Glace Framboise"
+      ],
+      pros: [
+        "One of the rare high-quality Asian fusion and sushi venues directly on the beach promenade",
+        "Stunning oceanfront terrace protected from wind by elegant glass screens",
+        "Extensive menu accommodating meat-lovers, pescatarians, and vegans (Panang curry, poke bowls)",
+        "Licensed bar serving cold draft beers, cocktails, and chilled Moroccan wines"
+      ],
+      cons: [
+        "Inside dining room can feel slightly noisy when the open kitchen is operating at peak volume",
+        "Prices are slightly higher than average promenade cafés, reflecting specialized ingredients"
+      ],
+      googleRating: 4.3,
+      googleReviewCount: 1380,
+      tripadvisorRating: 4.4,
+      tripadvisorReviewCount: 325,
+      theforkRating: 4.3,
+      theforkReviewCount: 140,
+      restaurantguruRating: 4.9,
+      restaurantguruReviewCount: 1380,
+      openTime: "12:00",
+      closeTime: "00:00",
+      weeklySchedule: [
+        { day: "Monday", openTime: "12:00", closeTime: "00:00", isClosed: false },
+        { day: "Tuesday", openTime: "12:00", closeTime: "00:00", isClosed: false },
+        { day: "Wednesday", openTime: "12:00", closeTime: "00:00", isClosed: false },
+        { day: "Thursday", openTime: "11:00", closeTime: "00:00", isClosed: false },
+        { day: "Friday", openTime: "12:00", closeTime: "00:00", isClosed: false },
+        { day: "Saturday", openTime: "12:00", closeTime: "00:00", isClosed: false },
+        { day: "Sunday", openTime: "12:00", closeTime: "00:00", isClosed: false }
+      ],
+      exactAddressAndCoordinates: {
+        address: "Front de Mer, Lot N° 6, Plage d'Agadir, Secteur Balnéaire, Agadir 80000, Morocco",
+        lat: 30.4187,
+        lng: -9.6026
+      },
+      address: "Front de Mer, Lot N° 6, Plage d'Agadir, Secteur Balnéaire, Agadir 80000, Morocco",
+      coordinates: {
+        lat: 30.4187,
+        lng: -9.6026
+      },
+      googleMapsUrl: "https://maps.google.com/?q=Restaurant+Jade+Asian+Fusion+Agadir",
+      reservationMethod: ["phone", "walk-in"],
+      reservationContact: "+212528820507",
+      whatsappNumber: "",
+      bookingUrl: "",
+      website: "https://menu.restaurant-jade.com",
+      instagram: "not-available",
+      languagesSpoken: ["French", "English", "Arabic/Darija"],
+      menu: {
+        currency: "MAD",
+        lastUpdated: "November 2026",
+        serviceChargeIncluded: true,
+        sections: [
+          {
+            id: "entrees-dimsum",
+            title: "Entrées Croustillantes & Petites Assiettes (Small Plates & Starters)",
+            description: "Spécialités panées, vapeurs et bouchées de street food asiatique",
+            items: [
+              {
+                id: "jade-dynamite-shrimp",
+                name: "Dynamite Shrimps",
+                localName: "جمبري مقرمش بصلصة الديناميت الحارة ومايونيز السيراتشا",
+                translations: {
+                  ar: "جمبري مقرمش بصلصة الديناميت الحارة ومايونيز السيراتشا",
+                  en: "Crispy tempura prawns tossed in signature spicy sriracha glaze and scallions",
+                  es: "Langostinos crujientes bañados en salsa picante dinamita y cebolleta",
+                  de: "Knusprige Tempura-Garnelen in pikanter Dynamite-Sriracha-Sauce"
+                },
+                price: 95,
+                isSignature: true,
+                isSpicy: true,
+                dietary: ["halal"],
+                portionNotes: "Le grand favori incontournable des habitués"
+              },
+              {
+                id: "jade-spring-rolls",
+                name: "Rouleaux de Printemps Croustillants au Poulet",
+                localName: "لفائف السبرينغ رولز المقرمشة بالدجاج والخضار",
+                translations: {
+                  ar: "لفائف السبرينغ رولز المقرمشة بالدجاج والخضار",
+                  en: "Golden crispy fried chicken spring rolls served with sweet chili dipping sauce",
+                  es: "Rollitos de primavera crujientes de pollo servidos con salsa agridulce picante",
+                  de: "Knusprige Frühlingsrollen mit Hähnchenfüllung und süßer Chilisauce"
+                },
+                price: 65,
+                dietary: ["halal"]
+              },
+              {
+                id: "jade-calamars-tempura",
+                name: "Calamars Tempura & Aïoli au Wasabi",
+                localName: "حبار مقلي مقرمش بتتبيلة التمبورا وصلصة الواسابي",
+                translations: {
+                  ar: "حبار مقلي مقرمش بتتبيلة التمبورا وصلصة الواسابي",
+                  en: "Light tempura-battered tender calamari rings served with zesty wasabi dip",
+                  es: "Calamares en tempura ligera con alioli suave de wasabi y lima",
+                  de: "Zarte Calamari im leichten Tempurateig mit feinem Wasabi-Dip"
+                },
+                price: 85,
+                dietary: ["halal"]
+              },
+              {
+                id: "jade-tacos-crabe",
+                name: "Crispy Asian Tacos au Crabe & Avocat",
+                localName: "تاكوس آسيوي مقرمش بلحم السلطعون والأفوكادو الحار",
+                translations: {
+                  ar: "تاكوس آسيوي مقرمش بلحم السلطعون والأفوكادو الحار",
+                  en: "Mini crispy taco shells filled with seasoned crab meat, creamy avocado, and spicy mayo",
+                  es: "Mini tacos crujientes rellenos de carne de cangrejo, aguacate y mayonesa especiada",
+                  de: "Knusprige Mini-Tacos gefüllt mit Krabbenfleisch, Avocado und scharfer Mayonnaise"
+                },
+                price: 85,
+                isSignature: true,
+                dietary: ["halal"]
+              }
+            ]
+          },
+          {
+            id: "sushis-rolls",
+            title: "Sushis, Makis & Rolls Signatures (Sushi Bar)",
+            description: "Préparés à la commande à partir de poissons frais de l'Atlantique",
+            items: [
+              {
+                id: "jade-dragon-roll",
+                name: "Dragon Roll Signature (8 pièces)",
+                localName: "دراجون رول بالجمبري تمبورا وشرائح الأفوكادو وصلصة الترياكي",
+                translations: {
+                  ar: "دراجون رول بالجمبري تمبورا وشرائح الأفوكادو وصلصة الترياكي",
+                  en: "Signature roll with tempura prawn, avocado drape, unagi glaze, and tobiko",
+                  es: "Rollo dragón relleno de langostino tempura, cubierto de aguacate y salsa unagi",
+                  de: "Dragon Roll mit Tempura-Garnele, feinen Avocadoscheiben und Teriyaki-Glasur"
+                },
+                price: 110,
+                isSignature: true,
+                dietary: ["halal"]
+              },
+              {
+                id: "jade-california-salmon",
+                name: "California Salmon & Cheese Roll (8 pièces)",
+                localName: "كاليفورنيا رول بالسلمون الطازج والجبن الكريمي والأفوكادو",
+                translations: {
+                  ar: "كاليفورنيا رول بالسلمون الطازج والجبن الكريمي والأفوكادو",
+                  en: "Fresh Atlantic salmon, cream cheese, and avocado roll coated in roasted sesame seeds",
+                  es: "California roll de salmón fresco, queso crema y aguacate con sésamo tostado",
+                  de: "California Roll mit frischem Lachs, Frischkäse, Avocado und geröstetem Sesam"
+                },
+                price: 85,
+                dietary: ["halal"]
+              },
+              {
+                id: "jade-sashimi-duo",
+                name: "Sashimi Duo Saumon & Thon Rouge",
+                localName: "قطع ساشيمي طازجة من السلمون والتونة الحمراء",
+                translations: {
+                  ar: "قطع ساشيمي طازجة من السلمون والتونة الحمراء",
+                  en: "Delicate slices of fresh Atlantic salmon and red tuna with pickled ginger and wasabi",
+                  es: "Sashimi selecto de salmón atlántico y atún rojo con jengibre encurtido",
+                  de: "Feine Sashimi-Scheiben von frischem Atlantiklachs und rotem Thunfisch"
+                },
+                price: 120,
+                isSignature: true,
+                dietary: ["halal"]
+              },
+              {
+                id: "jade-vegan-maki",
+                name: "Maki Végétal Avocat & Concombre",
+                localName: "ماكي نباتي بالأفوكادو والخيار الطازج والسمسم",
+                translations: {
+                  ar: "ماكي نباتي بالأفوكادو والخيار الطازج والسمسم",
+                  en: "Refreshing plant-based maki roll with creamy avocado and crisp cucumber",
+                  es: "Maki vegano refrescante con aguacate cremoso y pepino fresco",
+                  de: "Erfrischende vegane Maki-Rolle mit cremiger Avocado und Gurke"
+                },
+                price: 60,
+                dietary: ["vegetarian", "vegan", "halal"]
+              }
+            ]
+          },
+          {
+            id: "wok-currys",
+            title: "Wok, Currys & Plats Chauds (Hot Dishes & Noodles)",
+            description: "Plats emblématiques sautés à feu vif et mijotés aux herbes thaïes",
+            items: [
+              {
+                id: "jade-pad-thai",
+                name: "Pad Thaï Royal aux Crevettes & Cacahuètes",
+                localName: "باد تاي ملكي بالنودلز التايلاندية والروبيان وصلصة التمر الهندي والمكسرات",
+                translations: {
+                  ar: "باد تاي ملكي بالنودلز التايلاندية والروبيان وصلصة التمر الهندي والمكسرات",
+                  en: "Stir-fried Thai rice noodles with prawns, egg, bean sprouts, tamarind, and crushed peanuts",
+                  es: "Fideos de arroz tailandeses salteados con gambas, tamarindo, brotes y cacahuetes",
+                  de: "Gebratene thailändische Reisnudeln mit Garnelen, Tamarindensauce und Erdnüssen"
+                },
+                price: 125,
+                isSignature: true,
+                dietary: ["halal"]
+              },
+              {
+                id: "jade-general-tso",
+                name: "Poulet Général Tso Caramélisé",
+                localName: "دجاج الجنرال تسو المقرمش بصلصة السمسم الحلوة والحارة مع الأرز",
+                translations: {
+                  ar: "دجاج الجنرال تسو المقرمش بصلصة السمسم الحلوة والحارة مع الأرز",
+                  en: "Crispy chicken chunks glazed in sweet-tangy General Tso sauce, sesame seeds & jasmine rice",
+                  es: "Pollo crujiente glaseado con salsa agridulce picante General Tso y arroz jazmín",
+                  de: "Knuspriges Hähnchen in süß-scharfer General-Tso-Glasur mit Duftreis"
+                },
+                price: 110,
+                isSignature: true,
+                dietary: ["halal"]
+              },
+              {
+                id: "jade-sizzling-beef",
+                name: "Bœuf Sizzling aux Cinq Épices",
+                localName: "لحم بقري سوتيه بالبهارات الخمس والخضار المقرمشة يقدم على صفيح ساخن",
+                translations: {
+                  ar: "لحم بقري سوتيه بالبهارات الخمس والخضار المقرمشة يقدم على صفيح ساخن",
+                  en: "Sizzling cast-iron skillet of tender marinated beef, bell peppers, onions, and five-spice gravy",
+                  es: "Tiras de ternera marinada salteadas con cinco especias servidas en plancha caliente",
+                  de: "Brutzelnde Rindfleischstreifen in Fünf-Gewürze-Sauce mit knackigem Gemüse"
+                },
+                price: 135,
+                isSignature: true,
+                dietary: ["halal"]
+              },
+              {
+                id: "jade-panang-curry",
+                name: "Panang Curry Végétalien au Lait de Coco",
+                localName: "كاري بانانج نباتي تايلاندي بحليب جوز الهند والخضار الطازجة والتوفو",
+                translations: {
+                  ar: "كاري بانانج نباتي تايلاندي بحليب جوز الهند والخضار الطازجة والتوفو",
+                  en: "Rich Thai red Panang curry with coconut milk, crispy tofu, seasonal vegetables, and lime leaves",
+                  es: "Curry rojo tailandés Panang con leche de coco, tofu crujiente y hojas de lima kaffir",
+                  de: "Thailändisches Panang-Curry mit Kokosmilch, Tofu und frischem Gemüse"
+                },
+                price: 95,
+                dietary: ["vegetarian", "vegan", "halal"]
+              }
+            ]
+          },
+          {
+            id: "desserts-fusion",
+            title: "Desserts Asiatiques & Créations Sucrées (Desserts)",
+            description: "Douceurs créatives au thé vert matcha et fruits exotiques",
+            items: [
+              {
+                id: "jade-matcha-lava",
+                name: "Matcha Lava Cake & Glace Framboise",
+                localName: "كعكة فوندان الشاي الأخضر ماتشا بقلب ذائب يقدم مع آيس كريم التوت",
+                translations: {
+                  ar: "كعكة فوندان الشاي الأخضر ماتشا بقلب ذائب يقدم مع آيس كريم التوت",
+                  en: "Warm molten green tea matcha lava cake served with tart raspberry ice cream",
+                  es: "Volcán caliente de té verde matcha con corazón fundente y helado de frambuesa",
+                  de: "Warmer Matcha-Grüntee-Lavakuchen mit flüssigem Kern und Himbeereis"
+                },
+                price: 65,
+                isSignature: true,
+                dietary: ["vegetarian", "halal"]
+              },
+              {
+                id: "jade-banana-tempura",
+                name: "Beignets de Banane Tempura au Caramel & Sésame",
+                localName: "موز تمبورا مقلي مقرمش بصلصة الكراميل والسمسم المحمص",
+                translations: {
+                  ar: "موز تمبورا مقلي مقرمش بصلصة الكراميل والسمسم المحمص",
+                  en: "Crispy banana tempura fritters drizzled with warm caramel and roasted sesame seeds",
+                  es: "Plátano frito en tempura crujiente con caramelo caliente y sésamo",
+                  de: "Bananen-Tempura im Backteig mit flüssigem Karamell und Sesam"
+                },
+                price: 50,
+                dietary: ["vegetarian", "halal"]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
+  },
+
+  // =========================================================================
+  // 2. RESTAURANT LA PLAGE | SOFITEL THALASSA SEA & SPA
+  // =========================================================================
+  {
+    id: "e-agadir-la-plage-sofitel",
+    city: "agadir",
+    openTime: "10:00",
+    closeTime: "01:00",
+    weeklySchedule: [
+      { day: "Monday", open: "10:00", close: "01:00", isClosed: false },
+      { day: "Tuesday", open: "10:00", close: "01:00", isClosed: false },
+      { day: "Wednesday", open: "10:00", close: "01:00", isClosed: false },
+      { day: "Thursday", open: "10:00", close: "01:00", isClosed: false },
+      { day: "Friday", open: "10:00", close: "01:00", isClosed: false },
+      { day: "Saturday", open: "10:00", close: "01:00", isClosed: false, note: "Saturday Beachfront Seafood Brunch (12:30–16:30)" },
+      { day: "Sunday", open: "10:00", close: "01:00", isClosed: false }
+    ],
+
+    // ── 1. QUIZ (personalization & recommendation matching) ──
+    quiz: {
+      lifestyle: "premium",
+      groupTypes: ["couple", "friends", "family", "business-friendly", "seniors"],
+      mealTypes: ["lunch", "dinner", "brunch", "drinks"],
+      experienceTypes: ["fine-dining", "casual"],
+      foodStyles: ["Mediterranean", "Seafood", "French-Moroccan"],
+      cuisineTags: ["seafood", "international"],
+      archetypeAffinity: ["luxury", "first-timer"],
+      vibeTags: ["chic", "coastal", "scenic", "romantic", "refined"],
+      crowdLevel: "balanced"
+    },
+
+    // ── 2. FILTER (search criteria, dietary rules & flags) ──
+    filter: {
+      pricePerPerson: 38,
+      isHalal: true,
+      halalStatus: "likely-halal-food",
+      isVegetarianFriendly: true,
+      servesAlcohol: true,
+      alcoholPolicy: "serves-alcohol",
+      hasDelivery: false,
+      hasParking: true,
+      nearMedina: false,
+      nearBeach: true,
+      nearCenter: false,
+      hasEnglishStaff: true,
+      hasFrenchStaff: true,
+      ramadanFriendly: "serves-lunch",
+      closedDays: [],
+      seatingTypes: ["indoor", "terrace", "outdoor"],
+      paymentMethods: ["credit_card", "cash", "visa", "mastercard"],
+      tags: ["fine", "sunset", "terrace", "alcohol", "dinner", "seafood", "brunch"],
+      isHiddenGem: false,
+      isTemporarilyHidden: false,
+      verificationStatus: "verified"
+    },
+
+    // ── 3. UI (presentation, reviews, dishes & contacts) ──
+    ui: {
+      name: "La Plage (Sofitel Thalassa Sea & Spa)",
+      neighborhood: "Baie des Palmiers (Founty)",
+      description: "An upscale oceanfront beach club and restaurant set directly on the private sand dunes of the 5-star Sofitel Agadir Thalassa Sea & Spa. Reviewed by Gault & Millau for its refined Mediterranean cuisine, whole wild sea bass carved tableside in a sea-salt crust, fresh Atlantic lobster, chilled champagne, and celebrated Saturday beach brunches.",
+      tip: "Book the Saturday Seafood Brunch (12:30–16:30) for an unforgettable beachfront buffet with live acoustic music, or reserve an ocean-facing cabana table for a romantic sunset dinner.",
+      badge: "splurge",
+      bestDishes: [
+        "Bar de Ligne en Croûte de Sel",
+        "Homard Bleu Grillé aux Herbes",
+        "Carpaccio de Saint-Jacques & Yuzu",
+        "Gambas Royales à la Plancha",
+        "Saturday Beachfront Seafood Brunch",
+        "Tarte Fine aux Figues Rôties"
+      ],
+      pros: [
+        "Unrivaled barefoot luxury location directly on the private sand dunes of the Sofitel palace",
+        "Signature salt-crusted wild line-caught sea bass carved right before you at table",
+        "Lavish Saturday seafood buffet brunch with live jazz and acoustic performers",
+        "Top-shelf French wines, champagnes, and handcrafted mixology cocktails"
+      ],
+      cons: [
+        "Palace resort pricing aligned with 5-star luxury standards",
+        "Advance reservations are essential for frontline sunset tables and Saturday brunch"
+      ],
+      googleRating: 4.4,
+      googleReviewCount: 530,
+      tripadvisorRating: 4.5,
+      tripadvisorReviewCount: 290,
+      theforkRating: 4.5,
+      theforkReviewCount: 110,
+      restaurantguruRating: 4.8,
+      restaurantguruReviewCount: 530,
+      openTime: "10:00",
+      closeTime: "01:00",
+      weeklySchedule: [
+        { day: "Monday", openTime: "10:00", closeTime: "01:00", isClosed: false },
+        { day: "Tuesday", openTime: "10:00", closeTime: "01:00", isClosed: false },
+        { day: "Wednesday", openTime: "10:00", closeTime: "01:00", isClosed: false },
+        { day: "Thursday", openTime: "10:00", closeTime: "01:00", isClosed: false },
+        { day: "Friday", openTime: "10:00", closeTime: "01:00", isClosed: false },
+        { day: "Saturday", openTime: "10:00", closeTime: "01:00", isClosed: false, note: "Saturday Beachfront Seafood Brunch (12:30–16:30)" },
+        { day: "Sunday", openTime: "10:00", closeTime: "01:00", isClosed: false }
+      ],
+      exactAddressAndCoordinates: {
+        address: "Hôtel Sofitel Agadir Thalassa Sea & Spa, Baie des Palmiers, Cité Founty P5, Secteur Touristique, Agadir 80010, Morocco",
+        lat: 30.3986,
+        lng: -9.5965
+      },
+      address: "Hôtel Sofitel Agadir Thalassa Sea & Spa, Baie des Palmiers, Cité Founty P5, Secteur Touristique, Agadir 80010, Morocco",
+      coordinates: {
+        lat: 30.3986,
+        lng: -9.5965
+      },
+      googleMapsUrl: "https://maps.google.com/?q=La+Plage+Sofitel+Agadir+Thalassa+Sea+and+Spa",
+      reservationMethod: ["phone", "website", "email"],
+      reservationContact: "+212528820000",
+      whatsappNumber: "",
+      bookingUrl: "https://all.accor.com/hotel/5234/index.fr.shtml",
+      website: "https://all.accor.com",
+      instagram: "not-available",
+      customStory: "La Plage at the Sofitel Thalassa embodies the spirit of relaxed Atlantic refinement. Designed with natural teak wood, white linen, and open-air decking right on the sand, it merges French seaside gastronomy with pristine seafood brought directly from the morning catch.",
+      languagesSpoken: ["French", "English", "Arabic/Darija"],
+      menu: {
+        currency: "MAD",
+        lastUpdated: "November 2026",
+        serviceChargeIncluded: true,
+        sections: [
+          {
+            id: "tapas-entrees-marines",
+            title: "Tapas Marines & Entrées Fraîches (Seafood Starters & Crudo)",
+            description: "Coquillages, carpaccios et fraîcheurs iodées les pieds dans le sable",
+            items: [
+              {
+                id: "lp-carpaccio-saint-jacques",
+                name: "Carpaccio de Saint-Jacques aux Perles de Yuzu",
+                localName: "كارباتشيو قواقع السان جاك الطازجة مع لؤلؤ اليوزو وزيت الزيتون البكر",
+                translations: {
+                  ar: "كارباتشيو قواقع السان جاك الطازجة مع لؤلؤ اليوزو وزيت الزيتون البكر",
+                  en: "Atlantic scallop carpaccio finished with yuzu pearls, fleur de sel, and pink peppercorns",
+                  es: "Carpaccio de vieiras del Atlántico con perlas de yuzu, flor de sal y aceite virgen",
+                  de: "Jakobsmuschel-Carpaccio mit Yuzu-Perlen, Meersalz und feinem Olivenöl"
+                },
+                price: 140,
+                isSignature: true,
+                dietary: ["halal"]
+              },
+              {
+                id: "lp-gambas-plancha",
+                name: "Gambas Royales Saisies à la Plancha",
+                localName: "جمبري ملكي كبير مشوي على البلانشا بالثوم والليمون والأعشاب",
+                translations: {
+                  ar: "جمبري ملكي كبير مشوي على البلانشا بالثوم والليمون والأعشاب",
+                  en: "Seared Atlantic king prawns with virgin olive oil, garlic slivers, and citrus zest",
+                  es: "Langostinos reales a la plancha con aceite de oliva virgen, ajo y limón",
+                  de: "Königsgarnelen von der Plancha mit nativem Olivenöl, Knoblauch und Zitrone"
+                },
+                price: 130,
+                isSignature: true,
+                dietary: ["halal"]
+              },
+              {
+                id: "lp-calamars-safran",
+                name: "Friture de Petits Calamars & Aïoli au Safran de Taliouine",
+                localName: "حبار صغير مقلي ومقرمش يقدم مع صلصة الأليولي بزعفران تاليوين",
+                translations: {
+                  ar: "حبار صغير مقلي ومقرمش يقدم مع صلصة الأليولي بزعفران تاليوين",
+                  en: "Golden baby calamari fritto misto served with homemade Taliouine saffron aïoli",
+                  es: "Calamares fritos crujientes servidos con alioli suave de azafrán de Taliouine",
+                  de: "Knusprig frittierte Baby-Calamari mit Safran-Aioli aus Taliouine"
+                },
+                price: 95,
+                dietary: ["halal"]
+              },
+              {
+                id: "lp-salade-riviera",
+                name: "Salade Riviera aux Agrumes & Avocat du Souss",
+                localName: "سلطة الريفييرا المنعشة بالحمضيات وأفوكادو سوس الطازج والرمان",
+                translations: {
+                  ar: "سلطة الريفييرا المنعشة بالحمضيات وأفوكادو سوس الطازج والرمان",
+                  en: "Riviera green salad with local Souss avocado, citrus segments, and pomegranate vinaigrette",
+                  es: "Ensalada Riviera con aguacate del Souss, cítricos frescos y vinagreta de granada",
+                  de: "Riviera-Salat mit Souss-Avocado, Zitrusfilets und Granatapfel-Vinaigrette"
+                },
+                price: 85,
+                dietary: ["vegetarian", "vegan", "halal"]
+              }
+            ]
+          },
+          {
+            id: "poissons-nobles-vivier",
+            title: "Poissons Nobles & Vivier de l'Atlantique (Wild Fish & Lobster)",
+            description: "Pêche du jour débarquée au port et cuissons haute précision",
+            items: [
+              {
+                id: "lp-bar-croute-sel",
+                name: "Bar de Ligne Cuit en Croûte de Sel Marin",
+                localName: "سمك الدرعي البري المطهو في قشرة الملح البحري ويقدم على المائدة",
+                translations: {
+                  ar: "سمك الدرعي البري المطهو في قشرة الملح البحري ويقدم على المائدة",
+                  en: "Wild line-caught sea bass baked in an aromatic sea-salt crust, carved tableside",
+                  es: "Lubina salvaje al horno en costra de sal marina, desespinada en mesa",
+                  de: "Wolfsbarsch in Meersalzkruste am Tisch filetiert mit marktfrischem Gemüse"
+                },
+                price: 240,
+                isSignature: true,
+                dietary: ["halal"],
+                portionNotes: "Plat signature distingué par Gault & Millau"
+              },
+              {
+                id: "lp-sole-meuniere",
+                name: "Belle Sole de Ligne Façon Meunière",
+                localName: "سمك الصول الكبير محمر بالزبدة والليمون والبقدونس الطازج",
+                translations: {
+                  ar: "سمك الصول الكبير محمر بالزبدة والليمون والبقدونس الطازج",
+                  en: "Classic pan-seared whole Atlantic Dover sole in brown lemon butter and parsley",
+                  es: "Lenguado entero del Atlántico a la meunière con mantequilla noisette y limón",
+                  de: "Ganze Atlantik-Seezunge 'Meunière' in nussiger Zitronenbutter gebraten"
+                },
+                price: 230,
+                isSignature: true,
+                dietary: ["halal"]
+              },
+              {
+                id: "lp-homard-grille",
+                name: "Homard Bleu de l'Atlantique Grillé aux Herbes",
+                localName: "كركند أطلسي أزرق مشوي بالأعشاب البحرية والزبدة المذابة",
+                translations: {
+                  ar: "كركند أطلسي أزرق مشوي بالأعشاب البحرية والزبدة المذابة",
+                  en: "Charcoal-grilled whole blue Atlantic lobster with clarified herb butter and roasted vegetables",
+                  es: "Bogavante azul del Atlántico a la brasa con mantequilla de finas hierbas",
+                  de: "Gegrillter blauer Atlantik-Hummer mit feiner Kräuterbutter und Beilagen"
+                },
+                price: 390,
+                isSignature: true,
+                dietary: ["halal"]
+              },
+              {
+                id: "lp-paella-royale",
+                name: "Paella Royale aux Fruits de Mer La Plage",
+                localName: "بايلا فاخرة بفواكه البحر والأرز الإسباني الممتاز والزعفران",
+                translations: {
+                  ar: "بايلا فاخرة بفواكه البحر والأرز الإسباني الممتاز والزعفران",
+                  en: "Luxury saffron seafood paella with king prawns, scallops, mussels, and calamari",
+                  es: "Paella marinera de lujo con gambas reales, vieiras, mejillones y calamares",
+                  de: "Edle Meeresfrüchte-Paella mit Riesen-Garnelen, Jakobsmuscheln und Safranreis"
+                },
+                price: 220,
+                dietary: ["halal"]
+              }
+            ]
+          },
+          {
+            id: "viandes-grills",
+            title: "Viandes Grillées & Plats du Chef (Prime Meats)",
+            description: "Cuts d'exception saisis à la flamme et accompagnements gourmets",
+            items: [
+              {
+                id: "lp-filet-boeuf-truffe",
+                name: "Filet de Bœuf Grillé & Émulsion à la Truffe",
+                localName: "فيليه لحم بقري فاخر مشوي مع هريس البطاطس بصلصة الكمأة",
+                translations: {
+                  ar: "فيليه لحم بقري فاخر مشوي مع هريس البطاطس بصلصة الكمأة",
+                  en: "Char-grilled prime beef fillet with creamy truffle mousseline and red wine jus",
+                  es: "Solomillo de ternera a la parrilla con puré trufado y reducción de vino tinto",
+                  de: "Gegrilltes Rinderfilet mit cremigem Trüffelpüree und Rotweinjus"
+                },
+                price: 210,
+                dietary: ["halal"]
+              },
+              {
+                id: "lp-supreme-volaille",
+                name: "Suprême de Volaille Fermière Rôti au Romarin",
+                localName: "صدر دجاج بلدي محمر بإكليل الجبل مع الخضار المطهوة ببطء",
+                translations: {
+                  ar: "صدر دجاج بلدي محمر بإكليل الجبل مع الخضار المطهوة ببطء",
+                  en: "Pan-roasted free-range chicken breast infused with fresh rosemary and glazed baby vegetables",
+                  es: "Pechuga de pollo de corral asada con romero fresco y verduritas glaseadas",
+                  de: "Gebratene Freiland-Hähnchenbrust mit frischem Rosmarin und Babygemüse"
+                },
+                price: 160,
+                dietary: ["halal"]
+              }
+            ]
+          },
+          {
+            id: "brunch-douceurs",
+            title: "Saturday Beach Brunch & Douceurs (Brunch & Pastries)",
+            description: "Buffet gastronomique du samedi et pâtisseries fines de palace",
+            items: [
+              {
+                id: "lp-saturday-brunch",
+                name: "Grand Brunch Seafood du Samedi Face à la Mer",
+                localName: "بوفيه البرانش الفاخر ليوم السبت على الشاطئ مع فواكه البحر والموسيقى الحية",
+                translations: {
+                  ar: "بوفيه البرانش الفاخر ليوم السبت على الشاطئ مع فواكه البحر والموسيقى الحية",
+                  en: "Saturday beachfront luxury seafood buffet with live music, oyster bar, carvings, and desserts",
+                  es: "Gran brunch buffet marinero de los sábados frente al mar con música en vivo",
+                  de: "Exklusiver Samstags-Meeresfrüchtebrunch am Strand mit Live-Musik"
+                },
+                price: 380,
+                isSignature: true,
+                dietary: ["halal"],
+                portionNotes: "Servi tous les samedis de 12:30 à 16:30 face aux vagues"
+              },
+              {
+                id: "lp-tarte-figues",
+                name: "Tarte Fine aux Figues Rôties & Glace Vanille Bourbon",
+                localName: "تارت مقرمش بالتين المشوي وعسل السوس وآيس كريم الفانيليا الطبيعية",
+                translations: {
+                  ar: "تارت مقرمش بالتين المشوي وعسل السوس وآيس كريم الفانيليا الطبيعية",
+                  en: "Crisp puff pastry tart with warm roasted figs, local Souss honey, and Bourbon vanilla ice cream",
+                  es: "Tarta fina crujiente de higos asados con miel del Souss y helado de vainilla Bourbon",
+                  de: "Knusprige Tarte mit ofengerösteten Feigen, Honig und Bourbon-Vanilleeis"
+                },
+                price: 80,
+                isSignature: true,
+                dietary: ["vegetarian", "halal"]
+              },
+              {
+                id: "lp-moelleux-chocolat",
+                name: "Moelleux au Chocolat Grand Cru & Cœur Praliné",
+                localName: "كعكة الشوكولاتة الفاخرة بقلب الشوكولاتة الذائبة والكراميل المقرمش",
+                translations: {
+                  ar: "كعكة الشوكولاتة الفاخرة بقلب الشوكولاتة الذائبة والكراميل المقرمش",
+                  en: "Warm molten grand cru dark chocolate cake with a molten praline center",
+                  es: "Volcán tibio de chocolate negro grand cru con corazón cremoso de praliné",
+                  de: "Warmes Schokoladensoufflé aus Grand-Cru-Schokolade mit flüssigem Praliné-Kern"
+                },
+                price: 85,
+                dietary: ["vegetarian", "halal"]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ,
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

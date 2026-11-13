@@ -365,7 +365,9 @@ export const imlil_toubkalSleep: SleepListing[] = [
       lat: 31.132571,
       lng: -7.919032
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "it-sleep-2",
@@ -482,7 +484,9 @@ export const imlil_toubkalSleep: SleepListing[] = [
       lat: 31.134526,
       lng: -7.916634
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "it-sleep-3",
@@ -599,7 +603,9 @@ export const imlil_toubkalSleep: SleepListing[] = [
       lat: 31.132571,
       lng: -7.919032
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "it-sleep-4",
@@ -722,7 +728,9 @@ export const imlil_toubkalSleep: SleepListing[] = [
       lat: 31.141686,
       lng: -7.903982
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "it-sleep-5",
@@ -839,7 +847,9 @@ export const imlil_toubkalSleep: SleepListing[] = [
       lat: 31.135757,
       lng: -7.918625
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "it-sleep-6",
@@ -956,7 +966,9 @@ export const imlil_toubkalSleep: SleepListing[] = [
       lat: 31.135401,
       lng: -7.917902
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "it-sleep-7",
@@ -1073,7 +1085,9 @@ export const imlil_toubkalSleep: SleepListing[] = [
       lat: 31.135295,
       lng: -7.975657
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "it-sleep-8",
@@ -1190,7 +1204,9 @@ export const imlil_toubkalSleep: SleepListing[] = [
       lat: 31.135401,
       lng: -7.917902
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "it-sleep-9",
@@ -1307,7 +1323,9 @@ export const imlil_toubkalSleep: SleepListing[] = [
       lat: 31.142184,
       lng: -7.906118
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "it-sleep-10",
@@ -1424,7 +1442,9 @@ export const imlil_toubkalSleep: SleepListing[] = [
       lat: 31.136578,
       lng: -7.917027
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "it-sleep-11",
@@ -1541,7 +1561,9 @@ export const imlil_toubkalSleep: SleepListing[] = [
       lat: 31.622001,
       lng: -7.986312
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "it-sleep-12",
@@ -1658,7 +1680,9 @@ export const imlil_toubkalSleep: SleepListing[] = [
       lat: 31.140348,
       lng: -7.922514
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "it-sleep-13",
@@ -1775,7 +1799,9 @@ export const imlil_toubkalSleep: SleepListing[] = [
       lat: 31.133413,
       lng: -7.920283
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "it-sleep-14",
@@ -1892,7 +1918,9 @@ export const imlil_toubkalSleep: SleepListing[] = [
       lat: 31.107218,
       lng: -7.91912
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "it-sleep-15",
@@ -2009,7 +2037,9 @@ export const imlil_toubkalSleep: SleepListing[] = [
       lat: 31.135401,
       lng: -7.917902
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "it-sleep-16",
@@ -2126,7 +2156,9 @@ export const imlil_toubkalSleep: SleepListing[] = [
       lat: 31.137989,
       lng: -7.9102
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "it-sleep-17",
@@ -2243,7 +2275,9 @@ export const imlil_toubkalSleep: SleepListing[] = [
       lat: 31.135401,
       lng: -7.917902
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "it-sleep-18",
@@ -2360,7 +2394,9 @@ export const imlil_toubkalSleep: SleepListing[] = [
       lat: 31.132571,
       lng: -7.919032
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "it-sleep-19",
@@ -2477,7 +2513,9 @@ export const imlil_toubkalSleep: SleepListing[] = [
       lat: 31.143889,
       lng: -7.921819
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "it-sleep-20",
@@ -2594,6 +2632,8 @@ export const imlil_toubkalSleep: SleepListing[] = [
       lat: 31.133837,
       lng: -7.927777
     },
-    tags: ["dorm", "family-favorite", "heritage"]
+    tags: ["dorm", "family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ]

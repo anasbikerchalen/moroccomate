@@ -353,7 +353,9 @@ export const dakhlaSleep: SleepListing[] = [
       lat: 23.694045,
       lng: -15.933445
     },
-    tags: ["5-star", "luxury", "spa", "lagoon-view", "pool", "on-the-beach", "private-beach", "airport-shuttle", "heritage"]
+    tags: ["5-star", "luxury", "spa", "lagoon-view", "pool", "on-the-beach", "private-beach", "airport-shuttle", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "da-sleep-2",
@@ -470,7 +472,9 @@ export const dakhlaSleep: SleepListing[] = [
       lat: 23.914589,
       lng: -15.763504
     },
-    tags: ["on-the-beach", "lagoon-view", "kitesurf-hotels", "desert-camps", "all-inclusive"]
+    tags: ["on-the-beach", "lagoon-view", "kitesurf-hotels", "desert-camps", "all-inclusive"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "da-sleep-3",
@@ -585,7 +589,9 @@ export const dakhlaSleep: SleepListing[] = [
       lat: 23.73745,
       lng: -15.783587
     },
-    tags: ["5-star", "pool", "spa", "lagoon-view", "kitesurf-hotels", "private-beach", "airport-shuttle", "all-inclusive", "family-favorite"]
+    tags: ["5-star", "pool", "spa", "lagoon-view", "kitesurf-hotels", "private-beach", "airport-shuttle", "all-inclusive", "family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "da-sleep-4",
@@ -702,7 +708,9 @@ export const dakhlaSleep: SleepListing[] = [
       lat: 23.893369,
       lng: -15.771072
     },
-    tags: ["kitesurf-hotels", "all-inclusive", "lagoon-view", "on-the-beach", "airport-shuttle", "family-favorite"]
+    tags: ["kitesurf-hotels", "all-inclusive", "lagoon-view", "on-the-beach", "airport-shuttle", "family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "da-sleep-5",
@@ -819,7 +827,9 @@ export const dakhlaSleep: SleepListing[] = [
       lat: 23.91391,
       lng: -15.781348
     },
-    tags: ["5-star", "pool", "spa", "lagoon-view", "kitesurf-hotels", "desert-camps", "private-beach", "airport-shuttle"]
+    tags: ["5-star", "pool", "spa", "lagoon-view", "kitesurf-hotels", "desert-camps", "private-beach", "airport-shuttle"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "da-sleep-6",
@@ -932,7 +942,9 @@ export const dakhlaSleep: SleepListing[] = [
       business: "Good WiFi and inspiring ocean views for creative work.",
       nomad: "A beautiful spot to work while overlooking the Atlantic surf.",
     },
-    tags: ["5-star", "pool", "spa", "private-beach", "desert-camps", "airport-shuttle", "lagoon-view", "family-favorite"]
+    tags: ["5-star", "pool", "spa", "private-beach", "desert-camps", "airport-shuttle", "lagoon-view", "family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "da-sleep-7",
@@ -1049,7 +1061,9 @@ export const dakhlaSleep: SleepListing[] = [
       lat: 23.901666,
       lng: -15.785099
     },
-    tags: ["lagoon-view", "kitesurf-hotels", "on-the-beach", "all-inclusive", "airport-shuttle"]
+    tags: ["lagoon-view", "kitesurf-hotels", "on-the-beach", "all-inclusive", "airport-shuttle"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "da-sleep-8",
@@ -1166,7 +1180,9 @@ export const dakhlaSleep: SleepListing[] = [
       lat: 23.694045,
       lng: -15.933445
     },
-    tags: ["pool", "spa", "lagoon-view", "kitesurf-hotels", "all-inclusive", "private-beach", "airport-shuttle", "family-favorite"]
+    tags: ["pool", "spa", "lagoon-view", "kitesurf-hotels", "all-inclusive", "private-beach", "airport-shuttle", "family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "da-sleep-9",
@@ -1283,7 +1299,9 @@ export const dakhlaSleep: SleepListing[] = [
       lat: 23.807154,
       lng: -15.734392
     },
-    tags: ["pool", "desert-camps", "lagoon-view", "kitesurf-hotels", "all-inclusive", "airport-shuttle"]
+    tags: ["pool", "desert-camps", "lagoon-view", "kitesurf-hotels", "all-inclusive", "airport-shuttle"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "da-sleep-10",
@@ -1400,7 +1418,9 @@ export const dakhlaSleep: SleepListing[] = [
       lat: 23.90384,
       lng: -15.785464
     },
-    tags: ["lagoon-view", "kitesurf-hotels", "all-inclusive", "airport-shuttle", "dorm"]
+    tags: ["lagoon-view", "kitesurf-hotels", "all-inclusive", "airport-shuttle", "dorm"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "da-sleep-11",
@@ -1517,7 +1537,9 @@ export const dakhlaSleep: SleepListing[] = [
       lat: 23.6306,
       lng: -15.8605
     },
-    tags: ["pool", "spa", "lagoon-view", "rooftop-terrace", "private-beach", "airport-shuttle", "family-favorite"]
+    tags: ["pool", "spa", "lagoon-view", "rooftop-terrace", "private-beach", "airport-shuttle", "family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "da-sleep-12",
@@ -1634,7 +1656,9 @@ export const dakhlaSleep: SleepListing[] = [
       lat: 23.778893,
       lng: -15.900659
     },
-    tags: ["lagoon-view", "kitesurf-hotels", "all-inclusive", "spa", "airport-shuttle", "on-the-beach", "family-favorite"]
+    tags: ["lagoon-view", "kitesurf-hotels", "all-inclusive", "spa", "airport-shuttle", "on-the-beach", "family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "da-sleep-13",
@@ -1751,7 +1775,9 @@ export const dakhlaSleep: SleepListing[] = [
       lat: 23.768461,
       lng: -15.924448
     },
-    tags: ["pool", "private-beach", "surf-hotels", "kitesurf-hotels", "on-the-beach", "airport-shuttle"]
+    tags: ["pool", "private-beach", "surf-hotels", "kitesurf-hotels", "on-the-beach", "airport-shuttle"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "da-sleep-14",
@@ -1868,7 +1894,9 @@ export const dakhlaSleep: SleepListing[] = [
       lat: 23.90384,
       lng: -15.785464
     },
-    tags: ["lagoon-view", "kitesurf-hotels", "desert-camps", "all-inclusive", "rooftop-terrace", "airport-shuttle"]
+    tags: ["lagoon-view", "kitesurf-hotels", "desert-camps", "all-inclusive", "rooftop-terrace", "airport-shuttle"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "da-sleep-15",
@@ -1985,7 +2013,9 @@ export const dakhlaSleep: SleepListing[] = [
       lat: 23.735002,
       lng: -15.915758
     },
-    tags: ["kitesurf-hotels", "lagoon-view", "airport-shuttle", "rooftop-terrace"]
+    tags: ["kitesurf-hotels", "lagoon-view", "airport-shuttle", "rooftop-terrace"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "da-sleep-16",
@@ -2102,7 +2132,9 @@ export const dakhlaSleep: SleepListing[] = [
       lat: 23.634622,
       lng: -15.99804
     },
-    tags: ["on-the-beach", "private-beach", "kitesurf-hotels", "surf-hotels", "all-inclusive", "airport-shuttle"]
+    tags: ["on-the-beach", "private-beach", "kitesurf-hotels", "surf-hotels", "all-inclusive", "airport-shuttle"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "da-sleep-17",
@@ -2219,7 +2251,9 @@ export const dakhlaSleep: SleepListing[] = [
       lat: 23.703255,
       lng: -15.925559
     },
-    tags: ["lagoon-view", "rooftop-terrace", "airport-shuttle", "family-favorite"]
+    tags: ["lagoon-view", "rooftop-terrace", "airport-shuttle", "family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "da-sleep-18",
@@ -2336,7 +2370,9 @@ export const dakhlaSleep: SleepListing[] = [
       lat: 23.702199,
       lng: -15.926604
     },
-    tags: ["airport-shuttle", "rooftop-terrace", "family-favorite"]
+    tags: ["airport-shuttle", "rooftop-terrace", "family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "da-sleep-19",
@@ -2453,7 +2489,9 @@ export const dakhlaSleep: SleepListing[] = [
       lat: 23.766536,
       lng: -15.906809
     },
-    tags: ["pool", "on-the-beach", "private-beach", "ocean-view", "airport-shuttle", "family-favorite"]
+    tags: ["pool", "on-the-beach", "private-beach", "ocean-view", "airport-shuttle", "family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "da-sleep-20",
@@ -2570,6 +2608,8 @@ export const dakhlaSleep: SleepListing[] = [
       lat: 23.771302,
       lng: -15.923677
     },
-    tags: ["5-star", "pool", "spa", "on-the-beach", "private-beach", "airport-shuttle", "family-favorite"]
+    tags: ["5-star", "pool", "spa", "on-the-beach", "private-beach", "airport-shuttle", "family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ]

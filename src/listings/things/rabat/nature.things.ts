@@ -279,6 +279,8 @@ export const rabatNatureThings: ThingToDoListing[] = [
       { id: "activity-difficulty", title: "Difficulty", icon: "mountain", tag: "not available", description: "not available", state: "pending" },
     ],
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Andalusian+Gardens%2C+rabat%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -348,6 +350,8 @@ export const rabatNatureThings: ThingToDoListing[] = [
       { id: "activity-difficulty", title: "Difficulty", icon: "mountain", tag: "not available", description: "not available", state: "pending" },
     ],
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Rabat+Beach%2C+rabat%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -417,6 +421,8 @@ export const rabatNatureThings: ThingToDoListing[] = [
       { id: "activity-difficulty", title: "Difficulty", icon: "mountain", tag: "not available", description: "not available", state: "pending" },
     ],
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Bouregreg+Marina+Walk%2C+rabat%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -486,6 +492,8 @@ export const rabatNatureThings: ThingToDoListing[] = [
       { id: "activity-difficulty", title: "Difficulty", icon: "mountain", tag: "not available", description: "not available", state: "pending" },
     ],
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Jardin+d%E2%80%99Essais+Botaniques%2C+rabat%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -555,6 +563,8 @@ export const rabatNatureThings: ThingToDoListing[] = [
       { id: "activity-difficulty", title: "Difficulty", icon: "mountain", tag: "not available", description: "not available", state: "pending" },
     ],
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Rabat+Zoo%2C+rabat%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -624,5 +634,7 @@ export const rabatNatureThings: ThingToDoListing[] = [
       { id: "activity-difficulty", title: "Difficulty", icon: "mountain", tag: "not available", description: "not available", state: "pending" },
     ],
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Bouregreg+Boat+Crossing%2C+rabat%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

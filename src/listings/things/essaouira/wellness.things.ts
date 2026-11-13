@@ -311,6 +311,8 @@ export const essaouiraWellnessThings: ThingToDoListing[] = [
       }
     ],
     googleMapsUrl: "https://maps.google.com/?cid=11190467520194830172",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -412,6 +414,8 @@ export const essaouiraWellnessThings: ThingToDoListing[] = [
       }
     ],
     googleMapsUrl: "https://maps.google.com/?cid=11190467520194830173",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -482,5 +486,7 @@ export const essaouiraWellnessThings: ThingToDoListing[] = [
       { id: "activity-difficulty", title: "Difficulty", icon: "mountain", tag: "not available", description: "not available", state: "pending" },
     ],
     googleMapsUrl: "https://maps.google.com/?cid=11190467520194830176",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

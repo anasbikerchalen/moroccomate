@@ -11,7 +11,6 @@ import EatDetailView from './EatDetailView';
 import StayDetailView from './StayDetailView';
 import ShopDetailView from './ShopDetailView';
 import ActivityDetailView from './ActivityDetailView';
-import SavvyBadge from '../savvy/SavvyBadge';
 
 interface DetailViewProps {
   item: any;
@@ -245,11 +244,6 @@ export default function DetailView({ item, onBack, category }: DetailViewProps) 
                   <Clock className="w-3.5 h-3.5" />
                   ~{durationMinutes >= 60 ? `${Math.round(durationMinutes / 60)}h` : `${durationMinutes}min`}
                 </span>
-              )}
-              {item.id && (
-                <div className="flex items-center">
-                  <SavvyBadge placeId={item.id} size="sm" />
-                </div>
               )}
             </div>
           </div>

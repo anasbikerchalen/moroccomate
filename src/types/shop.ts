@@ -3,6 +3,8 @@
  * Completely data-driven relational architecture matching SQL schema specifications.
  */
 
+import type { PlaceReviewsData } from './reviews';
+
 // 1. Shop Type Definition
 export interface ShopType {
   id: string;
@@ -119,6 +121,7 @@ export interface ShopSectionVisibility {
   show_opening_hours?: boolean;
   show_languages?: boolean;
   show_shipping?: boolean;
+  show_reviews?: boolean;
 }
 
 // 12. Main Complete Shop Model
@@ -149,6 +152,10 @@ export interface ShopListing {
   opening_hours: ShopOpeningHours;
   languages: Language[];
   shipping: ShopShipping;
+
+  // Reviews & Intelligence
+  /** Multi-platform reviews section data (Tripadvisor, Google Maps, Trustpilot, Lonely Planet, Reddit) */
+  reviewsData?: PlaceReviewsData;
 
   // Publishing & CMS
   is_published: boolean;

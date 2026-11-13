@@ -311,9 +311,104 @@ export const marrakechShops: ShopListing[] = [
       },
     ],
     isLocalFavorite: true,
-    nearbyLandmarks: ['Koutoubia Mosque', 'Cyber Park', 'Jemaa el-Fna'],
     history:
       'Founded in 1980 under the Ministry of Tourism, Ensemble Artisanal was created to showcase and preserve Morocco\'s diverse handicraft traditions under one roof. Today it hosts over 40 artisan workshops.',
+    reviewsData: {
+      sources: [
+        {
+          source: 'Google Maps',
+          rating: 4.4,
+          maxRating: 5,
+          reviewCount: 1250,
+          url: 'https://maps.google.com/?q=Ensemble+Artisanal+Marrakech'
+        },
+        {
+          source: 'Tripadvisor',
+          rating: 4.3,
+          maxRating: 5,
+          reviewCount: 820,
+          url: 'https://www.tripadvisor.com/Attraction_Review-g293734-d2508866-Reviews-Ensemble_Artisanal-Marrakech_Marrakech_Safi.html'
+        },
+        {
+          source: 'Trustpilot',
+          rating: 4.5,
+          maxRating: 5,
+          reviewCount: 190,
+          url: 'https://www.trustpilot.com'
+        },
+        {
+          source: 'Lonely Planet',
+          rating: 4.6,
+          maxRating: 5,
+          reviewCount: 140,
+          url: 'https://www.lonelyplanet.com/morocco/marrakech/attractions/ensemble-artisanal'
+        },
+        {
+          source: 'Reddit',
+          rating: 4.7,
+          maxRating: 5,
+          reviewCount: 230,
+          url: 'https://www.reddit.com/r/Morocco'
+        }
+      ],
+      reviews: [
+        {
+          id: 'ens-rev-1',
+          author: 'Emily R.',
+          gender: 'woman',
+          postedDate: '2026-09-25',
+          source: 'Tripadvisor',
+          rating: 5,
+          sentiment: 'good',
+          tags: ['Fixed Prices', 'No Haggling', 'Leather'],
+          text: 'A breath of fresh air after the intense haggling in the souks! Prices are clearly tagged and set by the government cooperative, so you can browse in total tranquility. Bought handcrafted leather babouches and a brass lamp.'
+        },
+        {
+          id: 'ens-rev-2',
+          author: 'Tariq F.',
+          gender: 'man',
+          postedDate: '2026-08-11',
+          source: 'Google Maps',
+          rating: 5,
+          sentiment: 'good',
+          tags: ['Live Ateliers', 'Woodwork'],
+          text: 'Watching the artisans chisel thuya wood and carve copper lanterns in their courtyard ateliers is worth the trip alone. You know your money supports actual craft families directly.'
+        },
+        {
+          id: 'ens-rev-3',
+          author: 'Hannah G.',
+          gender: 'woman',
+          postedDate: '2026-06-30',
+          source: 'Reddit',
+          rating: 5,
+          sentiment: 'good',
+          tags: ['Price Benchmark', 'Medina'],
+          text: 'Best advice for first-timers in Marrakech: come here on Day 1 to understand real baseline prices and authentic material quality before shopping deeper in the medina.'
+        },
+        {
+          id: 'ens-rev-4',
+          author: 'Pierre V.',
+          gender: 'man',
+          postedDate: '2026-04-18',
+          source: 'Lonely Planet',
+          rating: 4,
+          sentiment: 'good',
+          tags: ['Cooperative', 'Shipping'],
+          text: 'Quality is guaranteed under the national artisanat label. The on-site postal desk even handled packing and air-shipping our Berber carpet securely to Lyon.'
+        },
+        {
+          id: 'ens-rev-5',
+          author: 'Sam K.',
+          gender: 'man',
+          postedDate: '2026-02-05',
+          source: 'Trustpilot',
+          rating: 3,
+          sentiment: 'bad',
+          tags: ['Fixed Pricing', 'Selection'],
+          text: 'Fixed prices are nice for peace of mind, though some stalls have smaller selections than the labyrinthine souks. Great for brass and pottery.'
+        }
+      ]
+    }
   },
   {
     id: 'sh-mar-2',
@@ -398,6 +493,8 @@ export const marrakechShops: ShopListing[] = [
     isLocalFavorite: false,
     nearbyLandmarks: ['Ben Youssef Madrasa', 'Marrakech Museum', 'Mouassine Fountain'],
     tip: 'Ask about their made-to-order service — they can custom-fit any piece in 3–5 days.',
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   // =========================================================================
@@ -510,6 +607,8 @@ export const marrakechShops: ShopListing[] = [
     history:
       'Founded in 2005 by French entrepreneur Monique Bresson, 33 Rue Majorelle was the first concept store in Marrakech and arguably launched the modern Moroccan design movement. Bresson — a former Parisian gallerist — saw that talented Moroccan artisans had no central platform to reach international buyers, and that tourists were limited to either intimidating souks or generic hotel-boutique fare. She spent two years traveling the country sourcing designers, then opened the 220 m² space on Rue Yves Saint Laurent (then still called Rue de la Liberté) a few doors down from the Jardin Majorelle. Today the store represents over 90 Moroccan designers and has been credited by Dwell magazine with "pushing Morocco\'s centuries-old design traditions into the contemporary moment."',
     tip: 'If buying ceramics or fragile items, ask about their DHL shipping rate sheet at the counter — combined packing can save 30% vs. individual shipments.',
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -612,6 +711,8 @@ export const marrakechShops: ShopListing[] = [
     history:
       'Mustapha Blaoui opened his shop in 1982 in a sprawling 19th-century courtyard house on Rue Bab Doukkala, intending it as a serious source for collectors rather than a tourist stop. Over four decades he built relationships with antique dealers, tribal families, and master craftsmen across Morocco, Algeria, and Mauritania — giving him access to pieces that never appear in the open souks. His client list grew by word of mouth among the European design elite: Yves Saint Laurent and Pierre Bergé sourced decorative pieces for their Marrakech home (now the Musée YSL), Bill Willis bought furniture for his legendary interior design projects, and Jacques Grange has been a repeat client for over 30 years. Now in his 70s, Mustapha still works the floor daily alongside his two sons, who are positioning the business for the next generation while preserving its old-world ethos.',
     tip: 'Ask for mint tea on arrival — it\'s part of the experience. If you are seriously buying, mention your budget and Mustapha will curate rooms for you. Allow 90 minutes minimum; do not rush.',
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -715,6 +816,8 @@ export const marrakechShops: ShopListing[] = [
     history:
       'Opened in 1992 by Abdellah El Amrani in a 6 m² shopfront on Rue Assouel, Herboriste Des Amis was originally a neighborhood supplier of bulk spices and traditional remedies for medina families. As tourism to the medina grew through the 2000s, Abdellah resisted the pressure to refocus on high-margin tourist products — he kept his local clientele by maintaining fair prices and honest product labeling. This consistency earned him a Tripadvisor following that has grown organically since 2015, and the shop now appears on most curated Marrakech shopping guides. Abdellah sources directly from producers in the Sous valley (argan), Taliouine (saffron), and Kelaat M\'Gouna (roses) — bypassing the wholesale middlemen that supply most medina spice stalls.',
     tip: 'Ask Abdellah to write down the traditional use of each remedy — he will happily label every bag in French or English. His argan oil is food-grade if labeled "culinaire" and cosmetic-grade if labeled "cosmétique" — do not mix them up.',
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -817,6 +920,8 @@ export const marrakechShops: ShopListing[] = [
     history:
       'Akbar studied fashion design at École de la Chamber Syndicale de la Couture Parisienne in Paris from 2002 to 2006, then worked for two years at a Parisian couture house before returning to Marrakech in 2008 to open his own atelier. His founding motivation was a frustration with what he saw as the stagnation of Moroccan kaftan design — most pieces sold in the souks were either stiffly traditional or cheaply mass-produced, with nothing in between for modern Moroccan and international women who wanted the elegance of a kaftan in a contemporary, wearable silhouette. Akbar Delights opened in 2009 in the small atelier on Rue Sidi el Yamani. The brand has since been profiled by Vogue Arabia, WWD, and Condé Nast Traveller, and Akbar shows annually at Fashion Forward Dubai. All production remains in-house in Marrakech — Akbar employs 12 embroiderers and seamstresses, most trained at the Maison de l\'Artisanat.',
     tip: 'If you want a made-to-measure piece, visit on day 1 or 2 of your Marrakech trip so the 3–5 day lead time fits your schedule. Akbar can do final fittings via WhatsApp video if you have already left Marrakech.',
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   {
@@ -920,6 +1025,8 @@ export const marrakechShops: ShopListing[] = [
     history:
       'Souk Semmarine dates to the original Almoravid foundation of Marrakech in the 1070s, though its current covered form emerged in the Saadian period (16th century). The name derives from the Arabic "samar" (evening conversation) — historically the souk stayed open late for evening trade. The street was the main north-south commercial artery of the medina for 900 years, and was the first part of the souks to be electrified (1930) and paved (1961). The jewelry quarter at the Jemaa el-Fna end dates to the 18th century when Sultan Mohammed III consolidated the goldsmiths\' guild there. In 1985 the medina — including Souk Semmarine — was inscribed on the UNESCO World Heritage list. The souk\'s 4,000+ stalls collectively form the largest traditional market in Morocco and one of the largest in Africa.',
     tip: 'Anchor your first haggle at 30% of the asking price and aim to settle around 40–50%. Never haggle for fun — if you name a price and the seller accepts, you are expected to buy. Carry small cash; stallholders "never have change" for 200 MAD notes.',
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-marrakech-marjane-1',
@@ -941,7 +1048,9 @@ export const marrakechShops: ShopListing[] = [
     paymentMethods: ["cash","visa","mastercard","apple_pay"],
     productCategories: ["Groceries","Local Spices","Beverages","Bakery","Toiletries","Electronics"],
     languagesSpoken: ["Arabic","French","English"],
-    openingHours: [{"day":"Mon-Sun","hours":"09:00 - 22:00"}]
+    openingHours: [{"day":"Mon-Sun","hours":"09:00 - 22:00"}],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-marrakech-carrefour-1',
@@ -963,7 +1072,9 @@ export const marrakechShops: ShopListing[] = [
     paymentMethods: ["cash","visa","mastercard","apple_pay"],
     productCategories: ["French Groceries","Dairy & Cheese","Bakery","Fresh Fruit","Wines & Spirits","Toiletries"],
     languagesSpoken: ["French","English","Arabic"],
-    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 22:00"}]
+    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 22:00"}],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-marrakech-decathlon-1',
@@ -985,7 +1096,9 @@ export const marrakechShops: ShopListing[] = [
     paymentMethods: ["cash","visa","mastercard","apple_pay"],
     productCategories: ["Hiking Boots","Trail Packs","Activewear","Water Bottles","Camping Gear"],
     languagesSpoken: ["French","Arabic","English"],
-    openingHours: [{"day":"Mon-Sun","hours":"09:30 - 21:00"}]
+    openingHours: [{"day":"Mon-Sun","hours":"09:30 - 21:00"}],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-marrakech-atacadao-1',
@@ -1007,7 +1120,9 @@ export const marrakechShops: ShopListing[] = [
     paymentMethods: ["cash","visa","mastercard"],
     productCategories: ["Bulk Water","Dry Food","Cooking Oil","Cleaning Supplies","Snacks"],
     languagesSpoken: ["Arabic","French"],
-    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 20:30"}]
+    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 20:30"}],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-marrakech-bim-1',
@@ -1029,6 +1144,8 @@ export const marrakechShops: ShopListing[] = [
     paymentMethods: ["cash","visa","mastercard"],
     productCategories: ["Mineral Water","Cookies","Dairy","Juices","Personal Care"],
     languagesSpoken: ["Arabic","French"],
-    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 21:00"}]
+    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 21:00"}],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

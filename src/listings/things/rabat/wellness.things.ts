@@ -279,5 +279,7 @@ export const rabatWellnessThings: ThingToDoListing[] = [
       { id: "activity-difficulty", title: "Difficulty", icon: "mountain", tag: "not available", description: "not available", state: "pending" },
     ],
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Les+Jardins+Exotiques+de+Bouknadel%2C+rabat%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

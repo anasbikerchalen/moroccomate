@@ -100,7 +100,9 @@ export const merzougaShops: ShopListing[] = [
     openingHours: [{ day: 'Mon-Sun', hours: '08:00 - 21:00' }],
     shipping: { available: true, partner: 'dhl', details: 'International rug shipping with tracking' },
     workshopVisitable: true,
-    isLocalFavorite: true
+    isLocalFavorite: true,
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-mer-2',
@@ -133,7 +135,9 @@ export const merzougaShops: ShopListing[] = [
     languagesSpoken: ['Arabic', 'French', 'English', 'Berber'],
     openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 20:30' }],
     shipping: { available: true, partner: 'fedex' },
-    workshopVisitable: true
+    workshopVisitable: true,
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-mer-3',
@@ -159,7 +163,9 @@ export const merzougaShops: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard'],
     productCategories: ['Handwoven Cushions', 'Indigo Wraps', 'Carved Wood', 'Clay Tagines'],
     languagesSpoken: ['Arabic', 'Berber', 'English', 'French'],
-    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 20:00' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 20:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-mer-4',
@@ -184,7 +190,9 @@ export const merzougaShops: ShopListing[] = [
     paymentMethods: ['cash'],
     productCategories: ['Blue Saharan Turbans', 'Gandoura Robes', 'Leather Sandals', 'Camel Bells'],
     languagesSpoken: ['Arabic', 'Berber', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '08:00 - 21:00' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '08:00 - 21:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-mer-5',
@@ -209,7 +217,9 @@ export const merzougaShops: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Silver Pendants', 'Sand Bottles', 'Brass Teapots', 'Camel Leather Bags'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 21:00' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 21:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-mer-6',
@@ -236,7 +246,9 @@ export const merzougaShops: ShopListing[] = [
     languagesSpoken: ['Arabic', 'French', 'English', 'Berber', 'Spanish'],
     openingHours: [{ day: 'Mon-Sun', hours: '08:00 - 19:30' }],
     shipping: { available: true, partner: 'dhl', details: 'Freight shipping for heavy fossil tables' },
-    workshopVisitable: true
+    workshopVisitable: true,
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-mer-7',
@@ -261,7 +273,9 @@ export const merzougaShops: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Brass Lamps', 'Tea Sets', 'Nomad Daggers', 'Leather Poufs'],
     languagesSpoken: ['Arabic', 'French', 'English', 'Italian'],
-    openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 21:00' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 21:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-mer-8',
@@ -286,7 +300,9 @@ export const merzougaShops: ShopListing[] = [
     paymentMethods: ['cash'],
     productCategories: ['Rissani Dates', 'Spring Water', 'Green Tea', 'Sun Protection'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '07:30 - 22:00' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '07:30 - 22:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-mer-9',
@@ -312,7 +328,9 @@ export const merzougaShops: ShopListing[] = [
     productCategories: ['Fresh Spices', 'Dates', 'Oasis Herbs', 'Traditional Sandals'],
     languagesSpoken: ['Arabic', 'Berber'],
     openingHours: [{ day: 'Sun', hours: '07:00 - 15:00' }, { day: 'Thu', hours: '07:00 - 14:00' }],
-    isLocalFavorite: true
+    isLocalFavorite: true,
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-mer-10',
@@ -340,6 +358,8 @@ export const merzougaShops: ShopListing[] = [
     languagesSpoken: ['Arabic', 'Berber', 'French', 'English'],
     openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 18:00' }],
     shipping: { available: true, partner: 'la_poste' },
-    workshopVisitable: true
+    workshopVisitable: true,
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ]

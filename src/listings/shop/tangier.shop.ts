@@ -99,7 +99,9 @@ export const tangierShopListings: ShopListing[] = [
     productCategories: ['Vintage Tribal Carpets', 'Silver Daggers', 'Ethnic Jewelry', 'Antique Ceramics'],
     languagesSpoken: ['Arabic', 'English', 'French', 'Spanish'],
     openingHours: [{ day: 'Mon-Sun', hours: '10:00 - 20:00' }],
-    shipping: { available: true, partner: 'dhl' }
+    shipping: { available: true, partner: 'dhl' },
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-tan-2',
@@ -131,7 +133,9 @@ export const tangierShopListings: ShopListing[] = [
     productCategories: ['Striped Wool Blankets', 'Cotton Throws', 'Textile Scarves'],
     languagesSpoken: ['Arabic', 'French', 'English', 'Spanish'],
     openingHours: [{ day: 'Mon-Sat', hours: '08:30 - 18:30' }],
-    workshopVisitable: true
+    workshopVisitable: true,
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-tan-3',
@@ -159,7 +163,9 @@ export const tangierShopListings: ShopListing[] = [
     openingHours: [
       { day: 'Mon-Fri', hours: '11:00 - 18:30' },
       { day: 'Sat', hours: '11:00 - 19:00' }
-    ]
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-tan-4',
@@ -184,7 +190,9 @@ export const tangierShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard'],
     productCategories: ['Tangier History Books', 'Photography Prints', 'Art Catalogues'],
     languagesSpoken: ['French', 'English', 'Spanish', 'Arabic'],
-    openingHours: [{ day: 'Mon-Sat', hours: '10:00 - 20:00' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '10:00 - 20:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-tan-5',
@@ -210,7 +218,9 @@ export const tangierShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Rose Essential Oil', 'Argan Serum', 'Rif Mint Tea', 'Wildflower Honey'],
     languagesSpoken: ['Arabic', 'French', 'English', 'Spanish'],
-    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 19:00' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 19:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-tan-6',
@@ -235,7 +245,9 @@ export const tangierShopListings: ShopListing[] = [
     paymentMethods: ['cash'],
     productCategories: ['Jbala Straw Hats', 'Mountain Goat Cheese', 'Olives', 'Spices'],
     languagesSpoken: ['Arabic', 'French', 'Spanish'],
-    openingHours: [{ day: 'Mon-Sun', hours: '08:00 - 17:00' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '08:00 - 17:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-tan-7',
@@ -260,7 +272,9 @@ export const tangierShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Ceramic Dishes', 'Tea Glasses', 'Mirror Frames'],
     languagesSpoken: ['Arabic', 'Spanish', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '09:30 - 20:00' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '09:30 - 20:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-tan-8',
@@ -286,7 +300,9 @@ export const tangierShopListings: ShopListing[] = [
     productCategories: ['Palm Fiber Chairs', 'Brass Lamps', 'Custom Cushions'],
     languagesSpoken: ['French', 'English', 'Spanish', 'Arabic'],
     openingHours: [{ day: 'Tue-Sat', hours: '10:30 - 19:00' }],
-    shipping: { available: true, partner: 'dhl' }
+    shipping: { available: true, partner: 'dhl' },
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-tan-9',
@@ -312,7 +328,9 @@ export const tangierShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Leather Bags', 'Bone Boxes', 'Brass Lanterns'],
     languagesSpoken: ['Arabic', 'Spanish', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 19:30' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 19:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-tan-10',
@@ -337,7 +355,9 @@ export const tangierShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard', 'apple_pay'],
     productCategories: ['Modern Caftans', 'Leather Handbags', 'Certified Argan Oil'],
     languagesSpoken: ['Arabic', 'French', 'English', 'Spanish'],
-    openingHours: [{ day: 'Mon-Sun', hours: '10:00 - 21:00' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '10:00 - 21:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-tan-11',
@@ -362,7 +382,9 @@ export const tangierShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard'],
     productCategories: ['Rif Silver Cuffs', 'Amber Bead Strings', 'Antique Daggers'],
     languagesSpoken: ['Arabic', 'French', 'English', 'Spanish'],
-    openingHours: [{ day: 'Mon-Sun', hours: '09:30 - 19:30' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '09:30 - 19:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-tan-12',
@@ -387,7 +409,9 @@ export const tangierShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Saffron', 'Pure Argan Oil', 'Ghassoul Clay', 'Eucalyptus'],
     languagesSpoken: ['Arabic', 'Spanish', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 20:00' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 20:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-tan-13',
@@ -414,7 +438,9 @@ export const tangierShopListings: ShopListing[] = [
     productCategories: ['Beni Ourain Rugs', 'Kilim Runners', 'Wool Cushions'],
     languagesSpoken: ['Arabic', 'English', 'French', 'Spanish'],
     openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 19:30' }],
-    shipping: { available: true, partner: 'fedex' }
+    shipping: { available: true, partner: 'fedex' },
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-tan-14',
@@ -439,7 +465,9 @@ export const tangierShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Leather Backpacks', 'Babouche Slippers', 'Belts', 'Poufs'],
     languagesSpoken: ['Arabic', 'French', 'English', 'Spanish'],
-    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 19:00' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 19:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-tan-15',
@@ -464,7 +492,9 @@ export const tangierShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard'],
     productCategories: ['Amber Perfume Blocks', 'Jasmine Oil', 'Orange Blossom Water'],
     languagesSpoken: ['French', 'English', 'Spanish', 'Arabic'],
-    openingHours: [{ day: 'Mon-Sat', hours: '09:30 - 19:30' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '09:30 - 19:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-tan-16',
@@ -489,7 +519,9 @@ export const tangierShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Cedar Boxes', 'Chess Sets', 'Thuya Coasters'],
     languagesSpoken: ['Arabic', 'Spanish', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 19:30' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 19:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-tan-17',
@@ -514,7 +546,9 @@ export const tangierShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Ceramic Bowls', 'Decorative Tiles', 'Candle Holders'],
     languagesSpoken: ['French', 'English', 'Spanish', 'Arabic'],
-    openingHours: [{ day: 'Mon-Sat', hours: '10:00 - 19:00' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '10:00 - 19:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-tan-18',
@@ -539,7 +573,9 @@ export const tangierShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard'],
     productCategories: ['Silk Kaftans', 'Linen Tunics', 'Gandoras'],
     languagesSpoken: ['French', 'English', 'Arabic'],
-    openingHours: [{ day: 'Mon-Sat', hours: '10:00 - 18:30' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '10:00 - 18:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-tan-19',
@@ -564,7 +600,9 @@ export const tangierShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Hanging Brass Lamps', 'Standing Lanterns', 'Wall Sconces'],
     languagesSpoken: ['Arabic', 'Spanish', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 20:00' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 20:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-tan-20',
@@ -590,7 +628,9 @@ export const tangierShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Straw Hats', 'Mendil Woven Towels', 'Mountain Baskets'],
     languagesSpoken: ['Arabic', 'French', 'Spanish', 'English'],
-    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 19:00' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 19:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-tangier-marjane-1',
@@ -612,7 +652,9 @@ export const tangierShopListings: ShopListing[] = [
     paymentMethods: ["cash","visa","mastercard","apple_pay"],
     productCategories: ["Groceries","Spanish Imports","Bakery","Electronics","Toiletries"],
     languagesSpoken: ["Arabic","French","Spanish","English"],
-    openingHours: [{"day":"Mon-Sun","hours":"09:00 - 22:00"}]
+    openingHours: [{"day":"Mon-Sun","hours":"09:00 - 22:00"}],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-tangier-carrefour-1',
@@ -634,7 +676,9 @@ export const tangierShopListings: ShopListing[] = [
     paymentMethods: ["cash","visa","mastercard","apple_pay"],
     productCategories: ["European Foods","Fresh Bread","Dairy","Snacks","Beverages"],
     languagesSpoken: ["French","Spanish","Arabic","English"],
-    openingHours: [{"day":"Mon-Sun","hours":"09:00 - 22:00"}]
+    openingHours: [{"day":"Mon-Sun","hours":"09:00 - 22:00"}],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-tangier-decathlon-1',
@@ -656,7 +700,9 @@ export const tangierShopListings: ShopListing[] = [
     paymentMethods: ["cash","visa","mastercard","apple_pay"],
     productCategories: ["Jackets","Hiking Boots","Swimwear","Backpacks","Fitness Equipment"],
     languagesSpoken: ["French","Spanish","Arabic","English"],
-    openingHours: [{"day":"Mon-Sun","hours":"10:00 - 21:30"}]
+    openingHours: [{"day":"Mon-Sun","hours":"10:00 - 21:30"}],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-tangier-bim-1',
@@ -678,7 +724,9 @@ export const tangierShopListings: ShopListing[] = [
     paymentMethods: ["cash","visa","mastercard"],
     productCategories: ["Mineral Water","Snacks","Dairy","Biscuits","Basic Household"],
     languagesSpoken: ["Arabic","Spanish","French"],
-    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 21:00"}]
+    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 21:00"}],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-tangier-ensemble-1',
@@ -700,6 +748,8 @@ export const tangierShopListings: ShopListing[] = [
     paymentMethods: ["cash","visa","mastercard"],
     productCategories: ["Rif Woven Blankets","Leather Babouches","Ceramics","Wrought Iron Lamps"],
     languagesSpoken: ["Arabic","French","Spanish","English"],
-    openingHours: [{"day":"Mon-Sat","hours":"09:00 - 19:30"}]
+    openingHours: [{"day":"Mon-Sat","hours":"09:00 - 19:30"}],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

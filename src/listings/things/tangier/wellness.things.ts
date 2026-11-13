@@ -279,5 +279,7 @@ export const tangierWellnessThings: ThingToDoListing[] = [
       { id: "activity-difficulty", title: "Difficulty", icon: "mountain", tag: "not available", description: "not available", state: "pending" },
     ],
     googleMapsUrl: "https://www.google.com/maps/place/Cin%C3%A9math%C3%A8que+de+Tanger/@35.7852327,-5.8143924,17z",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

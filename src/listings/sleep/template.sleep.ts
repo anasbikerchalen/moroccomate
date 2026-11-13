@@ -182,7 +182,14 @@ export const EMPTY_SLEEP_TEMPLATE: SleepListing = {
   
   // Trust & Ratings
   googleRating: 4.7,
-  googleReviewCount: 250
+  googleReviewCount: 250,
+
+  // Multi-platform Reviews Section Holder (hidden on UI until populated)
+  // Sources for Sleep: Tripadvisor, Booking.com, Google Travel, Hotels.com, Expedia
+  reviewsData: {
+    sources: [],
+    reviews: []
+  }
 };
 
 /**

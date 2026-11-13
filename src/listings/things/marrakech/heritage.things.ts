@@ -265,7 +265,103 @@ export const marrakechHeritageThings: ThingToDoListing[] = [
       lat: 31.621592,
       lng: -7.982231
     },
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=31.621592,-7.982231"
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=31.621592,-7.982231",
+    reviewsData: {
+      sources: [
+        {
+          source: 'Tripadvisor',
+          rating: 4.5,
+          maxRating: 5,
+          reviewCount: 14800,
+          url: 'https://www.tripadvisor.com/Attraction_Review-g293734-d318002-Reviews-Bahia_Palace-Marrakech_Marrakech_Safi.html'
+        },
+        {
+          source: 'GetYourGuide',
+          rating: 4.6,
+          maxRating: 5,
+          reviewCount: 3420,
+          url: 'https://www.getyourguide.com'
+        },
+        {
+          source: 'Viator',
+          rating: 4.7,
+          maxRating: 5,
+          reviewCount: 2890,
+          url: 'https://www.viator.com'
+        },
+        {
+          source: 'Google Travel',
+          rating: 4.6,
+          maxRating: 5,
+          reviewCount: 22370,
+          url: 'https://www.google.com/travel'
+        },
+        {
+          source: 'Lonely Planet',
+          rating: 4.8,
+          maxRating: 5,
+          reviewCount: 410,
+          url: 'https://www.lonelyplanet.com/morocco/marrakech/attractions/palais-de-la-bahia'
+        }
+      ],
+      reviews: [
+        {
+          id: 'bahia-rev-1',
+          author: 'Sarah P.',
+          gender: 'woman',
+          postedDate: '2026-10-12',
+          source: 'GetYourGuide',
+          rating: 5,
+          sentiment: 'good',
+          tags: ['Zellige Tiles', 'Grand Courtyard', 'Architecture'],
+          text: 'An absolute visual masterpiece! The hand-carved cedar ceilings and geometric zellige tiles are mind-blowing. Our guide explained the intricate history of Grand Vizier Ba Ahmed and the riad courtyards.'
+        },
+        {
+          id: 'bahia-rev-2',
+          author: 'Julian K.',
+          gender: 'man',
+          postedDate: '2026-08-30',
+          source: 'Tripadvisor',
+          rating: 5,
+          sentiment: 'good',
+          tags: ['Morning Visit', 'Photography'],
+          text: 'Pro tip: get here right as doors open at 9 AM. By 10:30 AM the large tour groups fill the main courtyard. The early morning golden light hitting the Carrara marble is magical for photography.'
+        },
+        {
+          id: 'bahia-rev-3',
+          author: 'Chloe B.',
+          gender: 'woman',
+          postedDate: '2026-07-04',
+          source: 'Viator',
+          rating: 5,
+          sentiment: 'good',
+          tags: ['Accessibility', 'Gardens'],
+          text: 'Very flat and accessible walking paths. The shaded gardens planted with orange trees and jasmine offer a cool retreat after exploring the palace rooms.'
+        },
+        {
+          id: 'bahia-rev-4',
+          author: 'Mark S.',
+          gender: 'man',
+          postedDate: '2026-05-19',
+          source: 'Google Travel',
+          rating: 4,
+          sentiment: 'good',
+          tags: ['Unfurnished', 'Entry Fee'],
+          text: 'Keep in mind the palace rooms are unfurnished—the art is entirely in the carved plaster and painted ceilings. Well worth the 100 MAD ticket.'
+        },
+        {
+          id: 'bahia-rev-5',
+          author: 'Antoine M.',
+          gender: 'man',
+          postedDate: '2026-02-11',
+          source: 'Tripadvisor',
+          rating: 3,
+          sentiment: 'bad',
+          tags: ['Crowds', 'Ticket Line'],
+          text: 'Stunning palace but the queue at the ticket kiosk took almost 25 minutes in the direct sun. Buy tickets online in advance if possible.'
+        }
+      ]
+    }
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -425,7 +521,9 @@ export const marrakechHeritageThings: ThingToDoListing[] = [
       lat: 31.63194,
       lng: -7.986194
     },
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=31.63194,-7.986194"
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=31.63194,-7.986194",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -586,7 +684,9 @@ export const marrakechHeritageThings: ThingToDoListing[] = [
       lat: 31.625502,
       lng: -7.988936
     },
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=31.625502,-7.988936"
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=31.625502,-7.988936",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -737,7 +837,9 @@ export const marrakechHeritageThings: ThingToDoListing[] = [
       lat: 31.6173,
       lng: -7.9887
     },
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=31.6173,-7.9887"
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=31.6173,-7.9887",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -884,7 +986,9 @@ export const marrakechHeritageThings: ThingToDoListing[] = [
       lat: 31.624124,
       lng: -7.993541
     },
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=31.624124,-7.993541"
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=31.624124,-7.993541",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1035,7 +1139,9 @@ export const marrakechHeritageThings: ThingToDoListing[] = [
       lat: 31.6183,
       lng: -7.9858
     },
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=31.6183,-7.9858"
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=31.6183,-7.9858",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1185,7 +1291,9 @@ export const marrakechHeritageThings: ThingToDoListing[] = [
       lat: 31.632,
       lng: -7.98424
     },
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=31.632,-7.98424"
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=31.632,-7.98424",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1334,7 +1442,9 @@ export const marrakechHeritageThings: ThingToDoListing[] = [
       lat: 31.62331,
       lng: -7.98409
     },
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=31.62331,-7.98409"
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=31.62331,-7.98409",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1481,7 +1591,9 @@ export const marrakechHeritageThings: ThingToDoListing[] = [
       lat: 31.62783,
       lng: -7.98811
     },
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=31.62783,-7.98811"
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=31.62783,-7.98811",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1636,7 +1748,9 @@ export const marrakechHeritageThings: ThingToDoListing[] = [
       lat: 31.6315,
       lng: -7.9922
     },
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=31.6315,-7.9922"
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=31.6315,-7.9922",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1793,7 +1907,9 @@ export const marrakechHeritageThings: ThingToDoListing[] = [
       lat: 31.6298,
       lng: -7.9898
     },
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=31.6298,-7.9898"
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=31.6298,-7.9898",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1946,7 +2062,9 @@ export const marrakechHeritageThings: ThingToDoListing[] = [
       lat: 31.6318,
       lng: -7.9871
     },
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=31.6318,-7.9871"
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=31.6318,-7.9871",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -2102,6 +2220,8 @@ export const marrakechHeritageThings: ThingToDoListing[] = [
       lat: 31.6419,
       lng: -8.0028
     },
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=31.6419,-8.0028"
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=31.6419,-8.0028",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

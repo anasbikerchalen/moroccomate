@@ -383,6 +383,8 @@ export const casablancaNatureThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -560,6 +562,8 @@ export const casablancaNatureThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -733,5 +737,7 @@ export const casablancaNatureThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

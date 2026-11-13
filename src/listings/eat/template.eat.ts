@@ -102,6 +102,83 @@
  *     whatsappNumber: '',
  *     website: 'not-available',
  *     instagram: 'not-available'
+ *   },
+ *
+ *   // ── 4. WORRIES ("Things You're Worried About!") ──
+ *   // 5 universal dining worries. Keep tag/description "not available" or omit if unverified.
+ *   // The UI only displays this section if verified research is present in code.
+ *   worries: [
+ *     {
+ *       id: 'financial-trust',
+ *       title: 'Financial Trust',
+ *       icon: 'receipt',
+ *       tag: 'Clear Pricing',
+ *       tagColor: 'money',
+ *       tone: 'good',
+ *       description: 'All dishes and beverages are clearly priced on the printed menu with tax included; no hidden table covers.',
+ *       state: 'verified'
+ *     },
+ *     {
+ *       id: 'health-safety',
+ *       title: 'Health & Safety',
+ *       icon: 'droplets',
+ *       tag: 'Filtered Water',
+ *       tagColor: 'water',
+ *       tone: 'good',
+ *       description: 'Uses commercial filtered water for ice, juices, and salad washing; clean hygiene standards.',
+ *       state: 'verified'
+ *     },
+ *     {
+ *       id: 'culinary-authenticity',
+ *       title: 'Culinary Authenticity',
+ *       icon: 'chef',
+ *       tag: 'Authentic Prep',
+ *       tagColor: 'food',
+ *       tone: 'good',
+ *       description: 'Traditional slow-cooked recipes prepared fresh daily without microwave shortcuts.',
+ *       state: 'verified'
+ *     },
+ *     {
+ *       id: 'comfort-environment',
+ *       title: 'Comfort & Atmosphere',
+ *       icon: 'megaphone',
+ *       tag: 'Calm Dining',
+ *       tagColor: 'safety',
+ *       tone: 'good',
+ *       description: 'Peaceful dining environment free from street touts or pressure to enter.',
+ *       state: 'verified'
+ *     },
+ *     {
+ *       id: 'service-expectations',
+ *       title: 'Service Expectations',
+ *       icon: 'clock',
+ *       tag: 'Attentive Staff',
+ *       tagColor: 'safety',
+ *       tone: 'good',
+ *       description: 'Staff is warm and responsive; relaxed pace standard for Moroccan dining culture.',
+ *       state: 'verified'
+ *     }
+ *   ],
+ *   // ── 4. REVIEWS (multi-platform aggregated traveler reviews) ──
+ *   // Visible on UI only when populated; hidden when empty or undefined.
+ *   reviewsData: {
+ *     sources: [
+ *       { source: 'Google Maps', rating: 4.5, maxRating: 5, reviewCount: 500, url: 'https://maps.google.com/?q=...' },
+ *       { source: 'Tripadvisor', rating: 4.5, maxRating: 5, reviewCount: 300, url: 'https://www.tripadvisor.com/...' }
+ *     ],
+ *     reviews: [
+ *       {
+ *         id: 'rev-1',
+ *         author: 'Traveler Name',
+ *         gender: 'woman', // 'man' | 'woman'
+ *         postedDate: '2026-09-15', // ISO date compared to today for relative age
+ *         source: 'Google Maps',
+ *         rating: 5,
+ *         sentiment: 'good', // 'good' | 'bad' | 'neutral'
+ *         tags: ['Service', 'Tagine'],
+ *         text: 'Verbatim review excerpt...'
+ *       }
+ *     ]
  *   }
  * }
  * =========================================================================
@@ -289,7 +366,16 @@ export const EMPTY_EAT_TEMPLATE: EatListing = {
   cons: [], // 1-2 honest drawbacks
   tip: '', // Factual insider tip for travelers
   badge: 'local-favorite', // Options: 'local' | 'splurge' | 'hidden-gem' | 'local-favorite' | 'tourist-trap'
-  verificationStatus: 'verified' // Options: 'verified' | 'unverified' | 'possibly-closed' | 'wrong-city'
+  verificationStatus: 'verified', // Options: 'verified' | 'unverified' | 'possibly-closed' | 'wrong-city'
+  // ── 4. WORRIES ("Things You're Worried About!") ──
+  // Default unverified / pending state (kept hidden on UI until verified research)
+  worries: [
+    { id: 'financial-trust', title: 'Financial Trust', icon: 'receipt', tag: 'not available', description: 'not available', state: 'pending' },
+    { id: 'health-safety', title: 'Health & Safety', icon: 'droplets', tag: 'not available', description: 'not available', state: 'pending' },
+    { id: 'culinary-authenticity', title: 'Culinary Authenticity', icon: 'chef', tag: 'not available', description: 'not available', state: 'pending' },
+    { id: 'comfort-environment', title: 'Comfort & Atmosphere', icon: 'megaphone', tag: 'not available', description: 'not available', state: 'pending' },
+    { id: 'service-expectations', title: 'Service Expectations', icon: 'clock', tag: 'not available', description: 'not available', state: 'pending' }
+  ]
 };
 
 /**
@@ -358,5 +444,58 @@ export const SAMPLE_EAT_LISTING: EatListing = {
   ],
   tip: 'Reserve a courtyard table on the ground floor during hot midday hours to enjoy the coolest shade.',
   badge: 'local-favorite',
-  verificationStatus: 'verified'
+  verificationStatus: 'verified',
+  // ── 4. WORRIES ("Things You're Worried About!") ──
+  worries: [
+    {
+      id: 'financial-trust',
+      title: 'Financial Trust',
+      icon: 'receipt',
+      tag: 'Clear Pricing',
+      tagColor: 'money',
+      tone: 'good',
+      description: 'All dishes and drinks clearly priced on the printed menu with tax included; no hidden table covers.',
+      state: 'verified'
+    },
+    {
+      id: 'health-safety',
+      title: 'Health & Safety',
+      icon: 'droplets',
+      tag: 'Filtered Water',
+      tagColor: 'water',
+      tone: 'good',
+      description: 'Uses commercial filtered water for kitchen preparations, juices, and ice; produce thoroughly washed.',
+      state: 'verified'
+    },
+    {
+      id: 'culinary-authenticity',
+      title: 'Culinary Authenticity',
+      icon: 'chef',
+      tag: 'Real Tanjia',
+      tagColor: 'food',
+      tone: 'good',
+      description: 'Authentic 7-hour beef tanjia slow-cooked in traditional clay amphorae with preserved Beldi lemons.',
+      state: 'verified'
+    },
+    {
+      id: 'comfort-environment',
+      title: 'Comfort & Atmosphere',
+      icon: 'megaphone',
+      tag: 'Tucked In Medina',
+      tagColor: 'alert',
+      tone: 'caution',
+      description: 'Lush shaded riad courtyard away from street bustle; keep an eye out for faux guides in outer alleys.',
+      state: 'verified'
+    },
+    {
+      id: 'service-expectations',
+      title: 'Service Expectations',
+      icon: 'clock',
+      tag: 'Leisurely Pace',
+      tagColor: 'safety',
+      tone: 'good',
+      description: 'Service follows an unhurried, relaxed pace during peak dinner rush; reservation advised.',
+      state: 'verified'
+    }
+  ]
 };

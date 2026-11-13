@@ -413,7 +413,9 @@ export const agadirNatureThings: ThingToDoListing[] = [
         a: "Yes, cabins are designed with wide sliding doors to easily accommodate wheelchairs and baby strollers."
       }
     ],
-    contactPhone: "+212 528-282828"
+    contactPhone: "+212 528-282828",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -604,7 +606,9 @@ export const agadirNatureThings: ThingToDoListing[] = [
         a: "Feeding sessions are usually held mid-day around 2:00 PM when the crocodiles are most active in the sun."
       }
     ],
-    contactPhone: "+212 528-297070"
+    contactPhone: "+212 528-297070",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -794,7 +798,9 @@ export const agadirNatureThings: ThingToDoListing[] = [
         a: "Yes, the bay is sheltered and relatively calm, but always respect posted lifeguard flags."
       }
     ],
-    contactPhone: "+212 528-840040"
+    contactPhone: "+212 528-840040",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -984,7 +990,9 @@ export const agadirNatureThings: ThingToDoListing[] = [
         a: "Yes, several authorized operators run catamaran outings, dolphin-watching cruises, and fishing trips from the marina docks."
       }
     ],
-    contactPhone: "+212 528-844444"
+    contactPhone: "+212 528-844444",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1175,7 +1183,9 @@ export const agadirNatureThings: ThingToDoListing[] = [
         a: "The main visitor center and bird observatory trailheads can be accessed by regular taxi; remote coastal dune trails require an all-wheel-drive vehicle."
       }
     ],
-    contactPhone: "+212 528-820505"
+    contactPhone: "+212 528-820505",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1365,7 +1375,9 @@ export const agadirNatureThings: ThingToDoListing[] = [
         a: "Water levels fluctuate with rainfall; they are fullest from late autumn through spring. In late summer some lower pools may recede."
       }
     ],
-    contactPhone: "+212 528-840040"
+    contactPhone: "+212 528-840040",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1555,7 +1567,9 @@ export const agadirNatureThings: ThingToDoListing[] = [
         a: "They are located on the flat rocky slabs just north of Anza beach promenade. Look for three-toed impressions embedded in the stone."
       }
     ],
-    contactPhone: "+212 528-840040"
+    contactPhone: "+212 528-840040",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1745,7 +1759,9 @@ export const agadirNatureThings: ThingToDoListing[] = [
         a: "Boats unload beginning at 06:00 AM, and the grill stalls operate from 11:30 AM to 03:00 PM for lunch."
       }
     ],
-    contactPhone: "+212 528-842222"
+    contactPhone: "+212 528-842222",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1936,7 +1952,9 @@ export const agadirNatureThings: ThingToDoListing[] = [
         a: "Yes, full premium rental sets (TaylorMade / Titleist), pull trolleys, and electric buggies are readily available at the pro shop."
       }
     ],
-    contactPhone: "+212 528-833333"
+    contactPhone: "+212 528-833333",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -2126,7 +2144,9 @@ export const agadirNatureThings: ThingToDoListing[] = [
         a: "Yes, a clear dirt foot path leads to the top plateau, offering 360-degree views across the surf points."
       }
     ],
-    contactPhone: "+212 528-840040"
+    contactPhone: "+212 528-840040",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -2316,7 +2336,9 @@ export const agadirNatureThings: ThingToDoListing[] = [
         a: "Mobile data coverage is weak, and there are no commercial restaurants—only small rustic clifftop shacks grilling the day's catch."
       }
     ],
-    contactPhone: "+212 528-840040"
+    contactPhone: "+212 528-840040",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -2506,7 +2528,9 @@ export const agadirNatureThings: ThingToDoListing[] = [
         a: "Yes, children can ride comfortably in front of an adult on a double saddle, and handlers guide the camels on foot."
       }
     ],
-    contactPhone: "+212 661-556677"
+    contactPhone: "+212 661-556677",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -2708,6 +2732,8 @@ export const agadirNatureThings: ThingToDoListing[] = [
         a: "The site has been undergoing major multi-million dirham restructuring under the Agadir urban development plan; check current gate opening notices at the Avenue Hassan II entrance."
       }
     ],
-    contactPhone: "+212 528-840040"
+    contactPhone: "+212 528-840040",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

@@ -349,7 +349,9 @@ export const ouzoudSleep: SleepListing[] = [
       business: "Quiet enough for light work and writing.",
       nomad: "A peaceful rural base for nomads with a car.",
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "oz-sleep-2",
@@ -466,7 +468,9 @@ export const ouzoudSleep: SleepListing[] = [
       lat: 32.015355,
       lng: -6.71923
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "oz-sleep-3",
@@ -583,7 +587,9 @@ export const ouzoudSleep: SleepListing[] = [
       lat: 32.005429,
       lng: -6.721009
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "oz-sleep-4",
@@ -700,7 +706,9 @@ export const ouzoudSleep: SleepListing[] = [
       lat: 32.005075,
       lng: -6.720291
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "oz-sleep-5",
@@ -815,7 +823,9 @@ export const ouzoudSleep: SleepListing[] = [
       lat: 32.015355,
       lng: -6.71923
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "oz-sleep-6",
@@ -932,7 +942,9 @@ export const ouzoudSleep: SleepListing[] = [
       lat: 32.014074,
       lng: -6.722297
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "oz-sleep-7",
@@ -1047,7 +1059,9 @@ export const ouzoudSleep: SleepListing[] = [
       lat: 32.005429,
       lng: -6.721009
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "oz-sleep-8",
@@ -1160,7 +1174,9 @@ export const ouzoudSleep: SleepListing[] = [
       business: "Quiet enough for light laptop work.",
       nomad: "A friendly village base for nomads exploring the gorge.",
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "oz-sleep-9",
@@ -1277,7 +1293,9 @@ export const ouzoudSleep: SleepListing[] = [
       lat: 32.01657,
       lng: -6.714716
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "oz-sleep-10",
@@ -1390,7 +1408,9 @@ export const ouzoudSleep: SleepListing[] = [
       business: "Good WiFi and quiet lounge for planning.",
       nomad: "A practical base for nomads wanting parking and calm.",
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "oz-sleep-11",
@@ -1507,7 +1527,9 @@ export const ouzoudSleep: SleepListing[] = [
       lat: 32.01681,
       lng: -6.717346
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "oz-sleep-12",
@@ -1624,7 +1646,9 @@ export const ouzoudSleep: SleepListing[] = [
       lat: 32.013493,
       lng: -6.720077
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "oz-sleep-13",
@@ -1739,7 +1763,9 @@ export const ouzoudSleep: SleepListing[] = [
       lat: 32.014074,
       lng: -6.722297
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "oz-sleep-14",
@@ -1854,7 +1880,9 @@ export const ouzoudSleep: SleepListing[] = [
       lat: 32.016536,
       lng: -6.710946
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "oz-sleep-15",
@@ -1969,7 +1997,9 @@ export const ouzoudSleep: SleepListing[] = [
       lat: 32.013493,
       lng: -6.720077
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "oz-sleep-16",
@@ -2086,7 +2116,9 @@ export const ouzoudSleep: SleepListing[] = [
       lat: 32.017247,
       lng: -6.722456
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "oz-sleep-17",
@@ -2203,7 +2235,9 @@ export const ouzoudSleep: SleepListing[] = [
       lat: 32.01657,
       lng: -6.714716
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "oz-sleep-18",
@@ -2316,7 +2350,9 @@ export const ouzoudSleep: SleepListing[] = [
       business: "Basic but quiet for route planning.",
       nomad: "A low-cost base for nomads who value local guidance.",
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "oz-sleep-19",
@@ -2427,7 +2463,9 @@ export const ouzoudSleep: SleepListing[] = [
       business: "Not suitable for business travel.",
       nomad: "A true unplugged base for budget nomads and hikers.",
     },
-    tags: ["dorm", "family-favorite"]
+    tags: ["dorm", "family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "oz-sleep-20",
@@ -2544,6 +2582,8 @@ export const ouzoudSleep: SleepListing[] = [
       lat: 32.01657,
       lng: -6.714716
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ]

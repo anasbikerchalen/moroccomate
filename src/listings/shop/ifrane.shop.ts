@@ -99,7 +99,9 @@ export const ifraneShops: ShopListing[] = [
     phoneNumber: '+212 5355-66120',
     openingHours: [{ day: 'Mon-Sat', hours: '08:30 - 18:30' }],
     workshopVisitable: true,
-    isLocalFavorite: true
+    isLocalFavorite: true,
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-ifr-2',
@@ -125,7 +127,9 @@ export const ifraneShops: ShopListing[] = [
     productCategories: ['Lavender Honey', 'Wild Thyme Honey', 'Atlas Walnuts', 'Fresh Apples'],
     languagesSpoken: ['Arabic', 'French', 'English'],
     openingHours: [{ day: 'Mon-Sun', hours: '08:00 - 19:30' }],
-    isLocalFavorite: true
+    isLocalFavorite: true,
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-ifr-3',
@@ -150,7 +154,9 @@ export const ifraneShops: ShopListing[] = [
     paymentMethods: ['cash'],
     productCategories: ['Stone Lion Replicas', 'Cedar Trinkets', 'Ifrane Postcards'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 20:00' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 20:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-ifr-4',
@@ -177,7 +183,9 @@ export const ifraneShops: ShopListing[] = [
     productCategories: ['Beni Ourain Rugs', 'Middle Atlas Runners', 'Wool Shawls'],
     languagesSpoken: ['English', 'French', 'Arabic'],
     openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 18:00' }],
-    shipping: { available: true, partner: 'dhl' }
+    shipping: { available: true, partner: 'dhl' },
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-ifr-5',
@@ -202,7 +210,9 @@ export const ifraneShops: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard', 'apple_pay'],
     productCategories: ['Winter Jackets', 'Ski Gear', 'Hiking Boots', 'Thermal Gloves'],
     languagesSpoken: ['French', 'English', 'Arabic'],
-    openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 19:30' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 19:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-ifr-6',
@@ -227,7 +237,9 @@ export const ifraneShops: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard'],
     productCategories: ['Cedar Tree Honey', 'Wild Lavender Honey', 'Pollen & Royal Jelly', 'Propolis'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 20:00' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 20:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-ifr-7',
@@ -253,7 +265,9 @@ export const ifraneShops: ShopListing[] = [
     productCategories: ['Aromatic Cedar Jewelry Boxes', 'Hand-carved Chessboards', 'Cedar Serving Bowls'],
     languagesSpoken: ['Arabic', 'French', 'English'],
     openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 18:30' }],
-    workshopVisitable: true
+    workshopVisitable: true,
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-ifr-8',
@@ -279,7 +293,9 @@ export const ifraneShops: ShopListing[] = [
     productCategories: ['Handmade Chocolates', 'Moroccan Pastries', 'Macarons', 'Mountain Herbal Tea'],
     languagesSpoken: ['French', 'Arabic', 'English'],
     openingHours: [{ day: 'Mon-Sun', hours: '07:30 - 21:00' }],
-    isLocalFavorite: true
+    isLocalFavorite: true,
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-ifr-9',
@@ -305,7 +321,9 @@ export const ifraneShops: ShopListing[] = [
     productCategories: ['Garden Planters', 'Glazed Cooking Tagines', 'Terracotta Vases'],
     languagesSpoken: ['Arabic', 'French'],
     openingHours: [{ day: 'Mon-Sat', hours: '08:30 - 18:00' }],
-    workshopVisitable: true
+    workshopVisitable: true,
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-ifr-10',
@@ -330,7 +348,9 @@ export const ifraneShops: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Brass Lanterns', 'Wood Clocks', 'Wool Blankets', 'Mountain Souvenirs'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 19:30' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 19:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-ifrane-marjane-1',
@@ -352,7 +372,9 @@ export const ifraneShops: ShopListing[] = [
     paymentMethods: ["cash","visa","mastercard","apple_pay"],
     productCategories: ["Groceries","Local Mountain Honey","Bakery","Beverages","Toiletries"],
     languagesSpoken: ["Arabic","French","English"],
-    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 21:00"}]
+    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 21:00"}],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-ifrane-carrefour-1',
@@ -374,7 +396,9 @@ export const ifraneShops: ShopListing[] = [
     paymentMethods: ["cash","visa","mastercard","apple_pay"],
     productCategories: ["European Groceries","Dairy","Bakery","Snacks","Personal Care"],
     languagesSpoken: ["French","Arabic"],
-    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 21:00"}]
+    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 21:00"}],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-ifrane-bim-1',
@@ -396,7 +420,9 @@ export const ifraneShops: ShopListing[] = [
     paymentMethods: ["cash","visa","mastercard"],
     productCategories: ["Mineral Water","Biscuits","Dairy","Snacks","Basic Toiletries"],
     languagesSpoken: ["Arabic","French"],
-    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 21:00"}]
+    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 21:00"}],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-ifrane-ensemble-1',
@@ -418,6 +444,8 @@ export const ifraneShops: ShopListing[] = [
     paymentMethods: ["cash","visa","mastercard"],
     productCategories: ["Carved Cedar Wood","Beni M'gild Carpets","Wool Weavings","Ironcraft"],
     languagesSpoken: ["Arabic","French","English"],
-    openingHours: [{"day":"Mon-Sat","hours":"09:00 - 18:30"}]
+    openingHours: [{"day":"Mon-Sat","hours":"09:00 - 18:30"}],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

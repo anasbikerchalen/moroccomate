@@ -90,7 +90,9 @@ export const saidiaShops: ShopListing[] = [
     productCategories: ['Traditional Ceramics', 'Woven Accessories', 'Local Oriental Oils', 'Handmade Gifts'],
     languagesSpoken: ['Arabic', 'French', 'English'],
     phoneNumber: '+212 5366-25000',
-    openingHours: [{ day: 'Mon-Sun', hours: '10:00 - 23:00' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '10:00 - 23:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-saidia-2',
@@ -115,7 +117,9 @@ export const saidiaShops: ShopListing[] = [
     paymentMethods: ['cash'],
     productCategories: ['Fresh Spices & Herbs', 'Traditional Djellabas', 'Brass Lanterns', 'Local Olives'],
     languagesSpoken: ['Arabic', 'French'],
-    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 21:00' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 21:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-saidia-3',
@@ -140,7 +144,9 @@ export const saidiaShops: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard'],
     productCategories: ['Beachwear & Swimsuits', 'Leather Handbags', 'Nautical Accessories', 'Artisan Souvenirs'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '10:00 - 00:00' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '10:00 - 00:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-saidia-marjane-1',
@@ -162,7 +168,9 @@ export const saidiaShops: ShopListing[] = [
     paymentMethods: ["cash","visa","mastercard","apple_pay"],
     productCategories: ["Groceries","Beach Accessories","Cold Drinks","Bakery","Toiletries"],
     languagesSpoken: ["Arabic","French","English"],
-    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 22:00"}]
+    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 22:00"}],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-saidia-bim-1',
@@ -184,6 +192,8 @@ export const saidiaShops: ShopListing[] = [
     paymentMethods: ["cash","visa","mastercard"],
     productCategories: ["Mineral Water","Biscuits","Dairy","Snacks","Basic Hygiene"],
     languagesSpoken: ["Arabic","French"],
-    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 21:00"}]
+    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 21:00"}],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

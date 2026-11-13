@@ -389,6 +389,8 @@ export const asilahSportThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -568,6 +570,8 @@ export const asilahSportThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -747,6 +751,8 @@ export const asilahSportThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -930,6 +936,8 @@ export const asilahSportThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1113,6 +1121,8 @@ export const asilahSportThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1296,6 +1306,8 @@ export const asilahSportThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1475,6 +1487,8 @@ export const asilahSportThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1658,6 +1672,8 @@ export const asilahSportThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1841,6 +1857,8 @@ export const asilahSportThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -2024,6 +2042,8 @@ export const asilahSportThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -2207,6 +2227,8 @@ export const asilahSportThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -2390,6 +2412,8 @@ export const asilahSportThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -2569,6 +2593,8 @@ export const asilahSportThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -2744,6 +2770,8 @@ export const asilahSportThings: ThingToDoListing[] = [
         a: "Yes, day passes are available."
       }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -2915,6 +2943,8 @@ export const asilahSportThings: ThingToDoListing[] = [
         a: "Yes, day passes are available to the public."
       }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -3086,6 +3116,8 @@ export const asilahSportThings: ThingToDoListing[] = [
         a: "Yes, completely women-only."
       }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -3257,6 +3289,8 @@ export const asilahSportThings: ThingToDoListing[] = [
         a: "Yes, movements are scaled for all levels."
       }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -3428,6 +3462,8 @@ export const asilahSportThings: ThingToDoListing[] = [
         a: "Functional and well-used, but maintained."
       }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -3599,6 +3635,8 @@ export const asilahSportThings: ThingToDoListing[] = [
         a: "Yes, a nice functional area outside."
       }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -3770,6 +3808,8 @@ export const asilahSportThings: ThingToDoListing[] = [
         a: "No pool, but excellent gym and classes."
       }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -3945,6 +3985,8 @@ export const asilahSportThings: ThingToDoListing[] = [
         a: "Yes, all levels welcome with modifications."
       }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -4116,6 +4158,8 @@ export const asilahSportThings: ThingToDoListing[] = [
         a: "Better for intermediate to advanced lifters."
       }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -4287,6 +4331,8 @@ export const asilahSportThings: ThingToDoListing[] = [
         a: "Yes, year-round."
       }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -4458,6 +4504,8 @@ export const asilahSportThings: ThingToDoListing[] = [
         a: "Functional and well-used, but maintained."
       }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -4633,6 +4681,8 @@ export const asilahSportThings: ThingToDoListing[] = [
         a: "Yes, full access including pool and sauna."
       }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -4804,6 +4854,8 @@ export const asilahSportThings: ThingToDoListing[] = [
         a: "Yes, all levels welcome with scalable workouts."
       }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -4979,6 +5031,8 @@ export const asilahSportThings: ThingToDoListing[] = [
         a: "Yes, 100% women-only at all times."
       }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -5154,6 +5208,8 @@ export const asilahSportThings: ThingToDoListing[] = [
         a: "Peak hours are 6-8 PM."
       }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -5325,5 +5381,7 @@ export const asilahSportThings: ThingToDoListing[] = [
         a: "Yes, but more popular with intermediate lifters."
       }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

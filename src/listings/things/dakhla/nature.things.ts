@@ -322,6 +322,8 @@ export const dakhlaNatureThings: ThingToDoListing[] = [
     fitnessLevel: "Relaxed",
     safetyNotes: "Conditions can look gentle but remain windy and exposed; plan with sun and wind in mind.",
     languages: ["Arabic (Darija)", "French", "English", "Spanish"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -434,6 +436,8 @@ export const dakhlaNatureThings: ThingToDoListing[] = [
     fitnessLevel: "Easy to moderate",
     safetyNotes: "Wind and glare are strong; protect eyes, skin, and electronics.",
     languages: ["Arabic (Darija)", "French", "English", "Spanish"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -546,6 +550,8 @@ export const dakhlaNatureThings: ThingToDoListing[] = [
     fitnessLevel: "Easy to moderate",
     safetyNotes: "Confirm sea conditions and tide logistics before departure.",
     languages: ["Arabic (Darija)", "French", "English", "Spanish"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -658,6 +664,8 @@ export const dakhlaNatureThings: ThingToDoListing[] = [
     fitnessLevel: "Relaxed",
     safetyNotes: "Ocean conditions can be powerful; use caution near surf and edges.",
     languages: ["Arabic (Darija)", "French", "English"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -770,6 +778,8 @@ export const dakhlaNatureThings: ThingToDoListing[] = [
     fitnessLevel: "Relaxed",
     safetyNotes: "Remote-feeling routes require transport planning; do not rely on casual return transport.",
     languages: ["Arabic (Darija)", "French"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -882,6 +892,8 @@ export const dakhlaNatureThings: ThingToDoListing[] = [
     fitnessLevel: "Relaxed",
     safetyNotes: "Remote coastal conditions require good planning and respect for wind exposure.",
     languages: ["Arabic (Darija)", "French"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -991,6 +1003,8 @@ export const dakhlaNatureThings: ThingToDoListing[] = [
     fitnessLevel: "Relaxed",
     safetyNotes: "Confirm conditions and hygiene setup locally before bathing.",
     languages: ["Arabic (Darija)", "French"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1103,6 +1117,8 @@ export const dakhlaNatureThings: ThingToDoListing[] = [
     fitnessLevel: "Moderate",
     safetyNotes: "Remote conditions require good planning, supplies, and realistic timing.",
     languages: ["Arabic (Darija)", "French", "English"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1212,6 +1228,8 @@ export const dakhlaNatureThings: ThingToDoListing[] = [
     fitnessLevel: "Moderate to active",
     safetyNotes: "Follow instructor advice closely for all water sessions.",
     languages: ["Arabic (Darija)", "French", "English", "Spanish"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1324,6 +1342,8 @@ export const dakhlaNatureThings: ThingToDoListing[] = [
     fitnessLevel: "Relaxed",
     safetyNotes: "Confirm sea and wind conditions before departure.",
     languages: ["Arabic (Darija)", "French", "English", "Spanish"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1436,6 +1456,8 @@ export const dakhlaNatureThings: ThingToDoListing[] = [
     fitnessLevel: "Moderate",
     safetyNotes: "Choose a horse and route suitable to your experience level.",
     languages: ["Arabic (Darija)", "French", "English", "Spanish"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1545,6 +1567,8 @@ export const dakhlaNatureThings: ThingToDoListing[] = [
     fitnessLevel: "Relaxed",
     safetyNotes: "Outer-coast conditions can be rough; treat it as a scenic stop unless you are with experienced operators.",
     languages: ["Arabic (Darija)", "French", "English"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1722,6 +1746,8 @@ export const dakhlaNatureThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1900,5 +1926,7 @@ export const dakhlaNatureThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

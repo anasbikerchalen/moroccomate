@@ -404,7 +404,9 @@ export const asilahHeritageThings: ThingToDoListing[] = [
         a: "No, most murals are renewed annually during the summer cultural festival, while a few signature works remain longer."
       }
     ],
-    contactPhone: ""
+    contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -597,7 +599,9 @@ export const asilahHeritageThings: ThingToDoListing[] = [
         a: "No, the bastion is open to the public free of charge around the clock."
       }
     ],
-    contactPhone: ""
+    contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -788,7 +792,9 @@ export const asilahHeritageThings: ThingToDoListing[] = [
         a: "Yes, the main courtyard and galleries are open to visitors whenever public exhibitions or cultural forum events are taking place."
       }
     ],
-    contactPhone: "+212539417065"
+    contactPhone: "+212539417065",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -965,7 +971,9 @@ export const asilahHeritageThings: ThingToDoListing[] = [
         a: "Interior and rooftop access is only granted during specific cultural festivals or curated municipal exhibitions."
       }
     ],
-    contactPhone: ""
+    contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1142,7 +1150,9 @@ export const asilahHeritageThings: ThingToDoListing[] = [
         a: "Visitors are asked to view the cemetery respectfully from the elevated rampart walkway to preserve the sanctity of the tombs."
       }
     ],
-    contactPhone: ""
+    contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1319,7 +1329,9 @@ export const asilahHeritageThings: ThingToDoListing[] = [
         a: "Yes, during daylight hours. If the gate is closed, the resident guardian residing nearby will usually open it for visitors."
       }
     ],
-    contactPhone: ""
+    contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1496,7 +1508,9 @@ export const asilahHeritageThings: ThingToDoListing[] = [
         a: "Yes, small personal name pieces or verses are often completed within 15–30 minutes."
       }
     ],
-    contactPhone: ""
+    contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1681,6 +1695,8 @@ export const asilahHeritageThings: ThingToDoListing[] = [
         a: "No, the site remains an open, rural archaeological zone without an entry fee."
       }
     ],
-    contactPhone: ""
+    contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

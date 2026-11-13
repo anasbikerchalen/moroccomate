@@ -195,7 +195,9 @@ export const rabatHeritageThings: ThingToDoListing[] = [
     ],
     address: "Lotissement Al Kasbah, Rabat, Morocco",
     coordinates: { lat: 34.0328, lng: -6.8361 },
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Kasbah+des+Oudaias%2C+rabat%2C+Morocco"
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Kasbah+des+Oudaias%2C+rabat%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -284,7 +286,9 @@ export const rabatHeritageThings: ThingToDoListing[] = [
     ],
     address: "Boulevard Mohamed Lyazidi, Tour Hassan, Rabat, Morocco",
     coordinates: { lat: 34.0241, lng: -6.8227 },
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Hassan+Tower%2C+rabat%2C+Morocco"
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Hassan+Tower%2C+rabat%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -375,7 +379,9 @@ export const rabatHeritageThings: ThingToDoListing[] = [
     ],
     address: "Boulevard Mohamed Lyazidi, Tour Hassan, Rabat, Morocco",
     coordinates: { lat: 34.0229, lng: -6.8217 },
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Mausoleum+of+Mohammed+V%2C+rabat%2C+Morocco"
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Mausoleum+of+Mohammed+V%2C+rabat%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -470,7 +476,9 @@ export const rabatHeritageThings: ThingToDoListing[] = [
     ],
     address: "Boulevard Chellah, Quartier Hassan, Rabat, Morocco",
     coordinates: { lat: 34.0069, lng: -6.8216 },
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Chellah%2C+rabat%2C+Morocco"
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Chellah%2C+rabat%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -560,7 +568,9 @@ export const rabatHeritageThings: ThingToDoListing[] = [
     ],
     address: "Rue des Consuls, Médina Ancienne, Rabat, Morocco",
     coordinates: { lat: 34.0253, lng: -6.8375 },
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Rabat+Medina+%26+Rue+des+Consuls%2C+rabat%2C+Morocco"
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Rabat+Medina+%26+Rue+des+Consuls%2C+rabat%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -652,7 +662,9 @@ export const rabatHeritageThings: ThingToDoListing[] = [
     ],
     address: "2 Avenue Moulay Hassan, Tour Hassan, Rabat, Morocco",
     coordinates: { lat: 34.0158, lng: -6.8335 },
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Mohammed+VI+Museum+of+Modern+and+Contemporary+Art%2C+rabat%2C+Morocco"
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Mohammed+VI+Museum+of+Modern+and+Contemporary+Art%2C+rabat%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -744,7 +756,9 @@ export const rabatHeritageThings: ThingToDoListing[] = [
     ],
     address: "23 Rue El Brihi, Tour Hassan, Rabat, Morocco",
     coordinates: { lat: 34.0139, lng: -6.8315 },
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Museum+of+History+and+Civilisations%2C+rabat%2C+Morocco"
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Museum+of+History+and+Civilisations%2C+rabat%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -833,7 +847,9 @@ export const rabatHeritageThings: ThingToDoListing[] = [
     ],
     address: "Vallée du Bouregreg, Tour Hassan, Rabat, Morocco",
     coordinates: { lat: 34.027, lng: -6.8155 },
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Grand+Theatre+de+Rabat+Exterior+Walk%2C+rabat%2C+Morocco"
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Grand+Theatre+de+Rabat+Exterior+Walk%2C+rabat%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -922,7 +938,9 @@ export const rabatHeritageThings: ThingToDoListing[] = [
     ],
     address: "Commune de Touarga, Rabat, Morocco",
     coordinates: { lat: 34.0125, lng: -6.8358 },
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Royal+Palace+Esplanade%2C+rabat%2C+Morocco"
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Royal+Palace+Esplanade%2C+rabat%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1011,7 +1029,9 @@ export const rabatHeritageThings: ThingToDoListing[] = [
     ],
     address: "Place Al Joulane, Tour Hassan, Rabat, Morocco",
     coordinates: { lat: 34.0178, lng: -6.8314 },
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=St.+Peter%27s+Cathedral%2C+rabat%2C+Morocco"
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=St.+Peter%27s+Cathedral%2C+rabat%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1099,7 +1119,9 @@ export const rabatHeritageThings: ThingToDoListing[] = [
     ],
     address: "10 Rue Beni Mellal, Angle Av. Mohammed V, Centre-Ville, Rabat, Morocco",
     coordinates: { lat: 34.0108, lng: -6.8356 },
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Villa+des+Arts%2C+rabat%2C+Morocco"
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Villa+des+Arts%2C+rabat%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1188,7 +1210,9 @@ export const rabatHeritageThings: ThingToDoListing[] = [
     ],
     address: "Avenue Mohammed V, Centre-Ville, Rabat, Morocco",
     coordinates: { lat: 34.0205, lng: -6.8354 },
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Tramway+Rabat-Sal%C3%A9+Ride%2C+rabat%2C+Morocco"
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Tramway+Rabat-Sal%C3%A9+Ride%2C+rabat%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1281,7 +1305,9 @@ export const rabatHeritageThings: ThingToDoListing[] = [
     ],
     address: "Km 4.2 Route des Zaers, Avenue Mohammed VI, Souissi, Rabat, Morocco",
     coordinates: { lat: 33.9785, lng: -6.8291 },
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Mega+Mall+%26+Ice+Rink%2C+rabat%2C+Morocco"
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Mega+Mall+%26+Ice+Rink%2C+rabat%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   // ═════════════════════════════════════════════════════════
@@ -1377,7 +1403,9 @@ export const rabatHeritageThings: ThingToDoListing[] = [
     ],
     address: "Palais des Oudayas, Kasbah des Oudaïas, Rabat, Morocco",
     coordinates: { lat: 34.0321, lng: -6.8368 },
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Mus%C3%A9e+National+de+la+Parure+Rabat"
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Mus%C3%A9e+National+de+la+Parure+Rabat",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1464,7 +1492,9 @@ export const rabatHeritageThings: ThingToDoListing[] = [
     ],
     address: "Avenue An-Nasr (Avenue de la Victoire), Centre-Ville, Rabat, Morocco",
     coordinates: { lat: 34.0152, lng: -6.8407 },
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Bab+Rouah+Rabat"
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Bab+Rouah+Rabat",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1555,7 +1585,9 @@ export const rabatHeritageThings: ThingToDoListing[] = [
     ],
     address: "Angle Avenue Mohammed V et Rue Al-Qahira, Centre-Ville, Rabat, Morocco",
     coordinates: { lat: 34.0202, lng: -6.8361 },
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Musee+Bank+Al-Maghrib+Rabat"
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Musee+Bank+Al-Maghrib+Rabat",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1644,7 +1676,9 @@ export const rabatHeritageThings: ThingToDoListing[] = [
     ],
     address: "Avenue An-Nasr / Avenue de la Victoire, Agdal, Rabat, Morocco",
     coordinates: { lat: 34.0089, lng: -6.8488 },
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Jardin+d'Essais+Botaniques+Rabat"
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Jardin+d'Essais+Botaniques+Rabat",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1732,6 +1766,8 @@ export const rabatHeritageThings: ThingToDoListing[] = [
     ],
     address: "Avenue Ibn Khaldoun, Agdal, Rabat, Morocco",
     coordinates: { lat: 34.0075, lng: -6.8427 },
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Bibliotheque+Nationale+du+Royaume+du+Maroc+Rabat"
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Bibliotheque+Nationale+du+Royaume+du+Maroc+Rabat",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

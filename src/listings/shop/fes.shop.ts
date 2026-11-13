@@ -102,7 +102,9 @@ export const fesShopListings: ShopListing[] = [
     languagesSpoken: ['Arabic', 'Darija', 'French', 'English'],
     openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 19:30' }],
     workshopVisitable: true,
-    atmosphere: 'Bustling historic artisan terrace'
+    atmosphere: 'Bustling historic artisan terrace',
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-fes-2',
@@ -131,7 +133,9 @@ export const fesShopListings: ShopListing[] = [
     languagesSpoken: ['Arabic', 'French', 'English', 'Spanish'],
     openingHours: [{ day: 'Mon-Sun', hours: '08:00 - 19:00' }],
     shipping: { available: true, partner: 'dhl' },
-    workshopVisitable: true
+    workshopVisitable: true,
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-fes-3',
@@ -163,7 +167,9 @@ export const fesShopListings: ShopListing[] = [
     productCategories: ['Brass Teapots', 'Carved Trays', 'Hammered Buckets', 'Copper Vessels'],
     languagesSpoken: ['Arabic', 'French', 'English'],
     openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 19:00' }],
-    workshopVisitable: true
+    workshopVisitable: true,
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-fes-4',
@@ -188,7 +194,9 @@ export const fesShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Goatskin Slippers', 'Bridal Babouches', 'Silk Slippers'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 20:00' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 20:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-fes-5',
@@ -213,7 +221,9 @@ export const fesShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard'],
     productCategories: ['Pure Argan Oil', 'Saffron', 'Black Soap', 'Rose Water', 'Natural Clay'],
     languagesSpoken: ['Arabic', 'French', 'English', 'German'],
-    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 20:00' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 20:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-fes-6',
@@ -240,7 +250,9 @@ export const fesShopListings: ShopListing[] = [
     productCategories: ['Wool Carpets', 'Kilim Runners', 'Cushion Covers', 'Cactus Silk Blankets'],
     languagesSpoken: ['Arabic', 'French', 'English'],
     openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 19:30' }],
-    shipping: { available: true, partner: 'dhl' }
+    shipping: { available: true, partner: 'dhl' },
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-fes-7',
@@ -266,7 +278,9 @@ export const fesShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Cedar Boxes', 'Carved Mirrors', 'Wood Inlay Trays'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 18:30' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 18:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-fes-8',
@@ -292,7 +306,9 @@ export const fesShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard', 'apple_pay'],
     productCategories: ['Hand-Glazed Vases', 'Decorative Plates', 'Tajine Cookware'],
     languagesSpoken: ['Arabic', 'French', 'English', 'Italian'],
-    openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 19:00' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 19:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-fes-9',
@@ -317,7 +333,9 @@ export const fesShopListings: ShopListing[] = [
     paymentMethods: ['cash'],
     productCategories: ['Ras El Hanout', 'Cumin & Paprika', 'Orange Blossom Water', 'Frankincense'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 19:30' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 19:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-fes-10',
@@ -342,7 +360,9 @@ export const fesShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Berber Silver', 'Amber Necklaces', 'Filigree Rings'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Sun-Fri', hours: '09:30 - 18:30' }]
+    openingHours: [{ day: 'Sun-Fri', hours: '09:30 - 18:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-fes-11',
@@ -367,7 +387,9 @@ export const fesShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Cactus Silk Scarves', 'Kaftan Trims', 'Table Runners'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 19:30' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 19:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-fes-12',
@@ -393,7 +415,9 @@ export const fesShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard'],
     productCategories: ['Decorative Daggers', 'Inlaid Boxes', 'Collector Knives'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 18:00' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 18:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-fes-13',
@@ -419,7 +443,9 @@ export const fesShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard'],
     productCategories: ['Ceramics', 'Leatherware', 'Embroidery', 'Copperware'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 19:00' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 19:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-fes-14',
@@ -444,7 +470,9 @@ export const fesShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard'],
     productCategories: ['19th Century Pottery', 'Carved Wood', 'Antique Lamps'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '09:30 - 19:30' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '09:30 - 19:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-fes-15',
@@ -470,7 +498,9 @@ export const fesShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Leather Babouches', 'Suede Slippers', 'Belts'],
     languagesSpoken: ['Arabic', 'French'],
-    openingHours: [{ day: 'Mon-Sat', hours: '08:30 - 18:00' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '08:30 - 18:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-fes-16',
@@ -495,7 +525,9 @@ export const fesShopListings: ShopListing[] = [
     paymentMethods: ['cash'],
     productCategories: ['Clay Tagines', 'Terracotta Planters', 'Water Jugs'],
     languagesSpoken: ['Arabic', 'French'],
-    openingHours: [{ day: 'Mon-Sat', hours: '08:00 - 18:00' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '08:00 - 18:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-fes-17',
@@ -520,7 +552,9 @@ export const fesShopListings: ShopListing[] = [
     paymentMethods: ['cash'],
     productCategories: ['Handmade Candles', 'Frankincense', 'Myrrh', 'Brass Oil Lamps'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 19:30' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 19:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-fes-18',
@@ -545,7 +579,9 @@ export const fesShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Silk Fabrics', 'Wool Clotting', 'Blankets'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 19:00' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 19:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-fes-19',
@@ -571,7 +607,9 @@ export const fesShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard'],
     productCategories: ['Embroidery Napkins', 'Tablecloths', 'Bridal Linens'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sat', hours: '09:30 - 18:30' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '09:30 - 18:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-fes-20',
@@ -596,7 +634,9 @@ export const fesShopListings: ShopListing[] = [
     paymentMethods: ['cash'],
     productCategories: ['Pure Henna', 'Natural Kohl', 'Kessa Gloves', 'Ghassoul Clay'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 19:30' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 19:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-fes-marjane-1',
@@ -618,7 +658,9 @@ export const fesShopListings: ShopListing[] = [
     paymentMethods: ["cash","visa","mastercard","apple_pay"],
     productCategories: ["Groceries","Local Olive Oil","Bakery","Electronics","Toiletries"],
     languagesSpoken: ["Arabic","French","English"],
-    openingHours: [{"day":"Mon-Sun","hours":"09:00 - 22:00"}]
+    openingHours: [{"day":"Mon-Sun","hours":"09:00 - 22:00"}],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-fes-carrefour-1',
@@ -640,7 +682,9 @@ export const fesShopListings: ShopListing[] = [
     paymentMethods: ["cash","visa","mastercard","apple_pay"],
     productCategories: ["European Groceries","Dairy","Bakery","Fresh Fruit","Toiletries"],
     languagesSpoken: ["French","Arabic","English"],
-    openingHours: [{"day":"Mon-Sun","hours":"09:00 - 22:00"}]
+    openingHours: [{"day":"Mon-Sun","hours":"09:00 - 22:00"}],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-fes-decathlon-1',
@@ -662,7 +706,9 @@ export const fesShopListings: ShopListing[] = [
     paymentMethods: ["cash","visa","mastercard","apple_pay"],
     productCategories: ["Hiking Shoes","Backpacks","Trek Jackets","Sportswear","Camping Supplies"],
     languagesSpoken: ["French","Arabic","English"],
-    openingHours: [{"day":"Mon-Sun","hours":"10:00 - 21:30"}]
+    openingHours: [{"day":"Mon-Sun","hours":"10:00 - 21:30"}],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-fes-atacadao-1',
@@ -684,7 +730,9 @@ export const fesShopListings: ShopListing[] = [
     paymentMethods: ["cash","visa","mastercard"],
     productCategories: ["Bottled Water Cases","Bulk Tea & Sugar","Canned Goods","Cleaning Essentials"],
     languagesSpoken: ["Arabic","French"],
-    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 20:30"}]
+    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 20:30"}],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-fes-bim-1',
@@ -706,6 +754,8 @@ export const fesShopListings: ShopListing[] = [
     paymentMethods: ["cash","visa","mastercard"],
     productCategories: ["Mineral Water","Biscuits","Dairy","Snacks","Basic Hygiene"],
     languagesSpoken: ["Arabic","French"],
-    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 21:00"}]
+    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 21:00"}],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

@@ -27,7 +27,7 @@ import {
   Filter,
   Search
 } from 'lucide-react';
-import { getShopStatus } from '../../utils/timeEngine';
+import { getListingLiveStatus } from '../../utils/timeEngine';
 import FilterPanel from './modals/FilterPanel';
 import { ARCHETYPE_METADATA } from '../../data/explore/archetypes';
 import { getTagForOptionId, getQuizWeightForQuestionId, QUIZ_STOP_WORDS, getAllQuizQuestions, getQuizOptionLabel, type QuizQuestion } from '../../data/explore/questions';
@@ -40,10 +40,8 @@ import PeopleSearchForBar from './PeopleSearchForBar';
 import { TAG_REGISTRY } from '../../listings/things/tags';
 import { cityMap } from '../../data/cities';
 import LocationPicker from './LocationPicker';
-import { SavvyScoreEngine } from '../../engine/savvyScoreEngine';
-import SavvyBadge from '../savvy/SavvyBadge';
 import { getAreasByCityBase } from '../../data/tourismAreas';
-import { haversineM } from '../../engine/proximityEngine';
+import { haversineM, extractListingCoords } from '../../engine/proximityEngine';
 import foodHeroBg from '../../assets/images/botanical_food_flat_1791668271591.jpg';
 import shopHeroBg from '../../assets/images/finder/category_shop_matte_1786297097622.jpg';
 import stayHeroBg from '../../assets/images/finder/category_stays_matte_1786297074546.jpg';
@@ -81,15 +79,10 @@ const priceRank = (v: any): number => {
   return 2;
 };
 
-// Real "open right now" check using the existing opening-hours engine
+// Real "open right now" check using the unified opening-hours engine
 const isItemOpenNow = (item: any): boolean => {
   try {
-    let status: ReturnType<typeof getShopStatus> | null = null;
-    if (item.openingHours) {
-      status = getShopStatus(item.openingHours, item.fridayHours, item.ramadanHours);
-    } else if (item.openTime && item.closeTime) {
-      status = getShopStatus([{ day: 'Daily', hours: `${item.openTime} - ${item.closeTime}` }]);
-    }
+    const status = getListingLiveStatus(item);
     if (!status) return false;
     const s = status.status;
     return s === 'open' || s === 'closes_soon' || s === 'ramadan_day' || s === 'ramadan_night';
@@ -568,25 +561,9 @@ export default function ResultPage() {
         : 100;
       
       let openBoost = 0;
-      if (item.openingHours) {
-        const status = getShopStatus(item.openingHours, item.fridayHours, item.ramadanHours);
-        const statusVal = status.status;
-        if (statusVal === 'open' || statusVal === 'ramadan_day' || statusVal === 'ramadan_night') {
-          openBoost = 20;
-        } else if (statusVal === 'closes_soon') {
-          openBoost = 10;
-        } else if (statusVal === 'closed' || statusVal === 'friday_prayer' || statusVal === 'holiday') {
-          openBoost = -10;
-        } else {
-          openBoost = 0;
-        }
-      } else if (item.openTime && item.closeTime) {
-        const status = getShopStatus(
-          [{ day: 'Daily', hours: `${item.openTime} - ${item.closeTime}` }],
-          undefined,
-          undefined
-        );
-        const statusVal = status.status;
+      const boostStatus = getListingLiveStatus(item);
+      if (boostStatus) {
+        const statusVal = boostStatus.status;
         if (statusVal === 'open' || statusVal === 'ramadan_day' || statusVal === 'ramadan_night') {
           openBoost = 20;
         } else if (statusVal === 'closes_soon') {
@@ -606,17 +583,27 @@ export default function ResultPage() {
       return { ...item, matchPercentage, sortedScore, matchReasons: matchedTags.slice(0, 4), matchMisses: missedTags.slice(0, 2) };
     });
 
-    const userCoords = context?.userLocation?.coordinates || (city && cityMap[city] && typeof cityMap[city].lat === 'number' && typeof cityMap[city].lon === 'number' ? [cityMap[city].lat, cityMap[city].lon] : null);
+    const hasUserGps = Boolean(context?.userLocation?.coordinates);
+    const referenceCoords =
+      context?.userLocation?.coordinates ||
+      (city && cityMap[city] && typeof cityMap[city].lat === 'number' && typeof cityMap[city].lon === 'number'
+        ? [cityMap[city].lat, cityMap[city].lon]
+        : null);
 
     const scoredWithDistance = scored.map((item: any) => {
       let distanceM: number | null = null;
-      if (userCoords && item?.coordinates?.lat && item?.coordinates?.lng) {
+      const itemCoords = extractListingCoords(item);
+      if (referenceCoords && itemCoords) {
         distanceM = haversineM(
-          { lat: userCoords[0], lng: userCoords[1] },
-          { lat: item.coordinates.lat, lng: item.coordinates.lng }
+          { lat: referenceCoords[0], lng: referenceCoords[1] },
+          itemCoords
         );
       }
-      return { ...item, distanceM };
+      return {
+        ...item,
+        distanceM,
+        distanceOrigin: hasUserGps ? ('gps' as const) : ('center' as const),
+      };
     });
 
     if (sortBy === 'distance') {
@@ -1051,15 +1038,10 @@ export default function ResultPage() {
           {recommendations.slice(0, visibleCount).map((item, idx) => {
             const isTopPick = idx === 0;
 
-            // Real stored data for this card: live open status, safety level & Savvy intel
-            const placeIntel = SavvyScoreEngine.getPlaceIntel(item.id);
-            let liveStatus: ReturnType<typeof getShopStatus> | null = null;
+            // Real stored data for this card: live open status & safety level
+            let liveStatus: ReturnType<typeof getListingLiveStatus> = null;
             try {
-              if (item.openingHours) {
-                liveStatus = getShopStatus(item.openingHours, item.fridayHours, item.ramadanHours);
-              } else if (item.openTime && item.closeTime) {
-                liveStatus = getShopStatus([{ day: 'Daily', hours: `${item.openTime} - ${item.closeTime}` }]);
-              }
+              liveStatus = getListingLiveStatus(item);
             } catch {
               liveStatus = null;
             }
@@ -1206,11 +1188,24 @@ export default function ResultPage() {
                         <MapPin className="w-3.5 h-3.5 text-stone-400 shrink-0" />
                         <span>{(item.neighborhood || 'Medina').toUpperCase()}</span>
                         {(item as any).distanceM !== null && (item as any).distanceM !== undefined && (
-                          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold normal-case tracking-normal border bg-[#FAF3F0] text-[#C86D51] border-[#C86D51]/30">
+                          <span
+                            title={
+                              (item as any).distanceOrigin === 'gps'
+                                ? 'Straight-line distance from your location'
+                                : 'Straight-line distance from city center'
+                            }
+                            className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold normal-case tracking-normal border bg-[#FAF3F0] text-[#C86D51] border-[#C86D51]/30"
+                          >
                             <Navigation className="w-2.5 h-2.5 fill-current" />
-                            {(item as any).distanceM < 1000
-                              ? `${Math.round((item as any).distanceM)}m away`
-                              : `${((item as any).distanceM / 1000).toFixed(1)} km away`}
+                            {(item as any).distanceOrigin === 'gps'
+                              ? (item as any).distanceM < 1000
+                                ? `${Math.round((item as any).distanceM)}m away`
+                                : `${((item as any).distanceM / 1000).toFixed(1)} km away`
+                              : (item as any).distanceM < 200
+                                ? 'City center'
+                                : (item as any).distanceM < 1000
+                                  ? `${Math.round((item as any).distanceM)}m from center`
+                                  : `${((item as any).distanceM / 1000).toFixed(1)} km from center`}
                           </span>
                         )}
                         {liveStatus && liveStatus.status !== 'unknown' && (
@@ -1219,10 +1214,8 @@ export default function ResultPage() {
                             {liveStatus.label}
                           </span>
                         )}
-                        {/* Trust signal: one chip max - Savvy score when available, otherwise Safety level */}
-                        {placeIntel ? (
-                          <SavvyBadge placeId={item.id} size="sm" showLabel={false} />
-                        ) : item.safetyLevel ? (
+                        {/* Safety level badge when explicitly set */}
+                        {item.safetyLevel ? (
                           <span className={cn("inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold normal-case tracking-normal border", item.safetyLevel >= 4 ? "bg-emerald-50 text-emerald-700 border-emerald-200" : item.safetyLevel === 3 ? "bg-amber-50 text-amber-700 border-amber-200" : "bg-red-50 text-red-700 border-red-200")}>
                             <Shield className="w-3 h-3" />
                             Safety {item.safetyLevel}/5

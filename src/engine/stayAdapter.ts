@@ -375,6 +375,7 @@ export function adaptToStayListing(listing: any): StayListing {
     amenities,
     policies,
     visibility,
+    reviewsData: listing?.reviewsData || listing?.ui?.reviewsData || undefined,
     contact_whatsapp: listing?.contactWhatsApp || listing?.whatsappNumber || undefined,
     booking_url: listing?.bookingUrl || listing?.officialWebsite || undefined,
     phone: listing?.logistics?.contact || undefined

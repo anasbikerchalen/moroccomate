@@ -352,6 +352,8 @@ export const ifraneAzrouHeritageThings: ThingToDoListing[] = [
     address: "Place de la Couronne, Centre-Ville (Chalet), 53000 Ifrane, Morocco",
     coordinates: { lat: 33.528564, lng: -5.106256 },
     googleMapsUrl: "https://maps.google.com/?q=Lion+de+Pierre+Ifrane",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -491,6 +493,8 @@ export const ifraneAzrouHeritageThings: ThingToDoListing[] = [
     address: "Place Hassan II, Médina Ancienne, 53100 Azrou, Morocco",
     coordinates: { lat: 33.43476, lng: -5.22288 },
     googleMapsUrl: "https://maps.google.com/?q=Centre+Culturel+Azrou",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -632,6 +636,8 @@ export const ifraneAzrouHeritageThings: ThingToDoListing[] = [
     address: "Boulevard Hassan II, Médina Ancienne, 53100 Azrou, Morocco",
     coordinates: { lat: 33.434409, lng: -5.222663 },
     googleMapsUrl: "https://maps.google.com/?q=Ensemble+Artisanal+Azrou",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -773,6 +779,8 @@ export const ifraneAzrouHeritageThings: ThingToDoListing[] = [
     address: "Derb Akchmir, Médina Ancienne, 53100 Azrou, Morocco",
     coordinates: { lat: 33.436591, lng: -5.225503 },
     googleMapsUrl: "https://maps.google.com/?q=Rocher+Azrou+Akchmir",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -917,6 +925,8 @@ export const ifraneAzrouHeritageThings: ThingToDoListing[] = [
     address: "Avenue Hassan II / Place Mohammed V, Médina Ancienne, 53100 Azrou, Morocco",
     coordinates: { lat: 33.43648, lng: -5.22182 },
     googleMapsUrl: "https://maps.google.com/?q=Grande+Mosquee+Ennour+Azrou",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1058,5 +1068,7 @@ export const ifraneAzrouHeritageThings: ThingToDoListing[] = [
     address: "Avenue de la Poste, Centre-Ville (Chalet), 53000 Ifrane, Morocco",
     coordinates: { lat: 33.52963, lng: -5.11018 },
     googleMapsUrl: "https://maps.google.com/?q=Eglise+Notre+Dame+des+Cedres+Ifrane",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

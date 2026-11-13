@@ -353,7 +353,9 @@ export const fesSleep: SleepListing[] = [
       lat: 34.043636,
       lng: -4.992217
     },
-    tags: ["heritage", "5-star", "pool", "rooftop-terrace", "spa", "airport-shuttle"]
+    tags: ["heritage", "5-star", "pool", "rooftop-terrace", "spa", "airport-shuttle"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "f-sleep-2",
@@ -470,7 +472,9 @@ export const fesSleep: SleepListing[] = [
       lat: 34.057496,
       lng: -4.97609
     },
-    tags: ["family-favorite", "heritage", "5-star", "pool", "rooftop-terrace", "spa", "in-medina", "airport-shuttle"]
+    tags: ["family-favorite", "heritage", "5-star", "pool", "rooftop-terrace", "spa", "in-medina", "airport-shuttle"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "f-sleep-3",
@@ -588,7 +592,9 @@ export const fesSleep: SleepListing[] = [
       lat: 34.061751,
       lng: -4.980459
     },
-    tags: ["heritage", "5-star", "pool", "rooftop-terrace", "spa", "in-medina", "airport-shuttle"]
+    tags: ["heritage", "5-star", "pool", "rooftop-terrace", "spa", "in-medina", "airport-shuttle"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "f-sleep-4",
@@ -707,7 +713,9 @@ export const fesSleep: SleepListing[] = [
       lat: 34.063406,
       lng: -4.979261
     },
-    tags: ["family-favorite", "heritage", "pool", "rooftop-terrace", "spa", "in-medina", "airport-shuttle"]
+    tags: ["family-favorite", "heritage", "pool", "rooftop-terrace", "spa", "in-medina", "airport-shuttle"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "f-sleep-5",
@@ -826,7 +834,9 @@ export const fesSleep: SleepListing[] = [
       lat: 34.06069,
       lng: -4.980112
     },
-    tags: ["heritage", "rooftop-terrace", "spa", "in-medina", "airport-shuttle"]
+    tags: ["heritage", "rooftop-terrace", "spa", "in-medina", "airport-shuttle"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "f-sleep-6",
@@ -943,7 +953,9 @@ export const fesSleep: SleepListing[] = [
       lat: 34.067471,
       lng: -4.972058
     },
-    tags: ["family-favorite", "heritage", "rooftop-terrace", "spa", "in-medina", "airport-shuttle"]
+    tags: ["family-favorite", "heritage", "rooftop-terrace", "spa", "in-medina", "airport-shuttle"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "f-sleep-7",
@@ -1060,7 +1072,9 @@ export const fesSleep: SleepListing[] = [
       lat: 34.066899,
       lng: -4.978191
     },
-    tags: []
+    tags: [],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "f-sleep-8",
@@ -1177,7 +1191,9 @@ export const fesSleep: SleepListing[] = [
       lat: 34.058206,
       lng: -4.973033
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "f-sleep-9",
@@ -1294,7 +1310,9 @@ export const fesSleep: SleepListing[] = [
       lat: 34.06069,
       lng: -4.980112
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "f-sleep-10",
@@ -1411,7 +1429,9 @@ export const fesSleep: SleepListing[] = [
       lat: 34.031328,
       lng: -4.99885
     },
-    tags: ["family-favorite", "heritage", "pool", "rooftop-terrace", "in-medina", "airport-shuttle"]
+    tags: ["family-favorite", "heritage", "pool", "rooftop-terrace", "in-medina", "airport-shuttle"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "f-sleep-11",
@@ -1528,7 +1548,9 @@ export const fesSleep: SleepListing[] = [
       lat: 34.058028,
       lng: -4.974378
     },
-    tags: ["dorm", "heritage"]
+    tags: ["dorm", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "f-sleep-12",
@@ -1645,7 +1667,9 @@ export const fesSleep: SleepListing[] = [
       lat: 34.063587,
       lng: -4.978688
     },
-    tags: ["dorm", "heritage"]
+    tags: ["dorm", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "f-sleep-13",
@@ -1762,7 +1786,9 @@ export const fesSleep: SleepListing[] = [
       lat: 34.058624,
       lng: -4.978311
     },
-    tags: ["family-favorite", "heritage", "pool", "rooftop-terrace", "spa", "in-medina", "airport-shuttle"]
+    tags: ["family-favorite", "heritage", "pool", "rooftop-terrace", "spa", "in-medina", "airport-shuttle"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "f-sleep-14",
@@ -1879,7 +1905,9 @@ export const fesSleep: SleepListing[] = [
       lat: 34.060908,
       lng: -4.971909
     },
-    tags: ["family-favorite", "heritage", "rooftop-terrace", "spa", "in-medina", "airport-shuttle"]
+    tags: ["family-favorite", "heritage", "rooftop-terrace", "spa", "in-medina", "airport-shuttle"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "f-sleep-15",
@@ -1996,7 +2024,9 @@ export const fesSleep: SleepListing[] = [
       lat: 34.059689,
       lng: -4.978088
     },
-    tags: ["family-favorite", "heritage", "pool", "rooftop-terrace", "spa", "in-medina", "airport-shuttle"]
+    tags: ["family-favorite", "heritage", "pool", "rooftop-terrace", "spa", "in-medina", "airport-shuttle"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "f-sleep-16",
@@ -2113,7 +2143,9 @@ export const fesSleep: SleepListing[] = [
       lat: 34.031854,
       lng: -5.002759
     },
-    tags: ["family-favorite", "heritage", "5-star", "pool", "heated-pools", "spa", "rooftop-terrace", "airport-shuttle"]
+    tags: ["family-favorite", "heritage", "5-star", "pool", "heated-pools", "spa", "rooftop-terrace", "airport-shuttle"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "f-sleep-17",
@@ -2224,7 +2256,9 @@ export const fesSleep: SleepListing[] = [
       lat: 34.06069,
       lng: -4.980112
     },
-    tags: ["heritage"]
+    tags: ["heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "f-sleep-18",
@@ -2341,7 +2375,9 @@ export const fesSleep: SleepListing[] = [
       lat: 34.069815,
       lng: -4.982371
     },
-    tags: ["heritage", "5-star", "pool", "rooftop-terrace", "airport-shuttle"]
+    tags: ["heritage", "5-star", "pool", "rooftop-terrace", "airport-shuttle"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "f-sleep-19",
@@ -2452,7 +2488,9 @@ export const fesSleep: SleepListing[] = [
       lat: 34.063353,
       lng: -4.983441
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "f-sleep-20",
@@ -2569,6 +2607,8 @@ export const fesSleep: SleepListing[] = [
       lat: 34.058988,
       lng: -4.978783
     },
-    tags: ["family-favorite", "heritage", "5-star", "pool", "rooftop-terrace", "spa", "in-medina", "airport-shuttle"]
+    tags: ["family-favorite", "heritage", "5-star", "pool", "rooftop-terrace", "spa", "in-medina", "airport-shuttle"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ]

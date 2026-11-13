@@ -310,6 +310,8 @@ export const fesWellnessThings: ThingToDoListing[] = [
       }
     ],
     googleMapsUrl: "https://maps.google.com/?q=Art+Naji,+Fes,+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -410,6 +412,8 @@ export const fesWellnessThings: ThingToDoListing[] = [
       }
     ],
     googleMapsUrl: "https://maps.google.com/?q=Hammam+Mernissi+and+Spa,+Fes,+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -510,5 +514,7 @@ export const fesWellnessThings: ThingToDoListing[] = [
       }
     ],
     googleMapsUrl: "https://maps.google.com/?q=The+Ruined+Garden,+Fes,+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

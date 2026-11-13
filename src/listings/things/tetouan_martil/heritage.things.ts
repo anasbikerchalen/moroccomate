@@ -316,7 +316,9 @@ export const tetouanMartilHeritageThings: ThingToDoListing[] = [
     ],
     address: "Médina Ancienne, 93000 Tétouan",
     coordinates: { lat: 35.5708, lng: -5.3688 },
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Tetouan+Medina%2C+Tetouan%2C+Morocco"
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Tetouan+Medina%2C+Tetouan%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -413,7 +415,9 @@ export const tetouanMartilHeritageThings: ThingToDoListing[] = [
     ],
     address: "Place Hassan II, Médina Ancienne, 93000 Tétouan",
     coordinates: { lat: 35.5707, lng: -5.3670 },
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Royal+Palace+Tetouan%2C+Morocco"
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Royal+Palace+Tetouan%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -510,7 +514,9 @@ export const tetouanMartilHeritageThings: ThingToDoListing[] = [
     ],
     address: "2 Rue Ben Hussain, Ensanche, 93000 Tétouan",
     coordinates: { lat: 35.5714, lng: -5.3681 },
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Archaeological+Museum+Tetouan%2C+Morocco"
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Archaeological+Museum+Tetouan%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -608,7 +614,9 @@ export const tetouanMartilHeritageThings: ThingToDoListing[] = [
     ],
     address: "68 Rue Skala, Bab el-Okla, Médina Ancienne, 93040 Tétouan",
     coordinates: { lat: 35.5703, lng: -5.3636 },
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Bab+El+Okla+Museum+Tetouan%2C+Morocco"
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Bab+El+Okla+Museum+Tetouan%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -706,7 +714,9 @@ export const tetouanMartilHeritageThings: ThingToDoListing[] = [
     ],
     address: "Avenue Mohamed V, face à Bab el-Okla, Médina Ancienne, 93000 Tétouan",
     coordinates: { lat: 35.5700, lng: -5.3622 },
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Dar+Sanaa+Tetouan%2C+Morocco"
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Dar+Sanaa+Tetouan%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -803,7 +813,9 @@ export const tetouanMartilHeritageThings: ThingToDoListing[] = [
     ],
     address: "Place Moulay El Mehdi & Av. Mohamed V, Ensanche, 93000 Tétouan",
     coordinates: { lat: 35.5725, lng: -5.3715 },
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Place+Moulay+El+Mehdi+Tetouan%2C+Morocco"
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Place+Moulay+El+Mehdi+Tetouan%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -900,7 +912,9 @@ export const tetouanMartilHeritageThings: ThingToDoListing[] = [
     ],
     address: "9 Avenue Alger, Ensanche, 93000 Tétouan",
     coordinates: { lat: 35.5717, lng: -5.3664 },
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Parc+Feddan+Tetouan%2C+Morocco"
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Parc+Feddan+Tetouan%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -997,7 +1011,9 @@ export const tetouanMartilHeritageThings: ThingToDoListing[] = [
     ],
     address: "Avenue Lamfadal Afailal, Bab el-Okla, Médina Ancienne, 93000 Tétouan",
     coordinates: { lat: 35.5704, lng: -5.3632 },
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Bab+el-Okla+Tetouan%2C+Morocco"
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Bab+el-Okla+Tetouan%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1095,7 +1111,9 @@ export const tetouanMartilHeritageThings: ThingToDoListing[] = [
     ],
     address: "Route de Chefchaouen (N2), Kitane, 93000 Tétouan",
     coordinates: { lat: 35.5594, lng: -5.4108 },
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Tamuda+Archaeological+Site+Tetouan%2C+Morocco"
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Tamuda+Archaeological+Site+Tetouan%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1191,7 +1209,9 @@ export const tetouanMartilHeritageThings: ThingToDoListing[] = [
     ],
     address: "Avenue Al Massira Al Khadra, Ensanche, 93000 Tétouan",
     coordinates: { lat: 35.5664, lng: -5.3670 },
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Centre+d'Art+Moderne+de+Tetouan%2C+Morocco"
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Centre+d'Art+Moderne+de+Tetouan%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1288,7 +1308,9 @@ export const tetouanMartilHeritageThings: ThingToDoListing[] = [
     ],
     address: "Rue Kasbah, Haut de la Médina, Médina Ancienne, 93000 Tétouan",
     coordinates: { lat: 35.5746, lng: -5.3708 },
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Kasbah+of+Tetouan%2C+Morocco"
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Kasbah+of+Tetouan%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1384,7 +1406,9 @@ export const tetouanMartilHeritageThings: ThingToDoListing[] = [
     ],
     address: "Rue de la Synagogue, Mellah, Médina Ancienne, 93000 Tétouan",
     coordinates: { lat: 35.5700, lng: -5.3672 },
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Isaac+Ben+Walid+Synagogue+Tetouan%2C+Morocco"
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Isaac+Ben+Walid+Synagogue+Tetouan%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1480,7 +1504,9 @@ export const tetouanMartilHeritageThings: ThingToDoListing[] = [
     ],
     address: "Place El Gherssa El Kebira, Médina Ancienne, 93000 Tétouan",
     coordinates: { lat: 35.5714, lng: -5.3678 },
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Medersa+Loukach+Tetouan%2C+Morocco"
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Medersa+Loukach+Tetouan%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1577,7 +1603,9 @@ export const tetouanMartilHeritageThings: ThingToDoListing[] = [
     ],
     address: "Rue Jamaa El Kebir, Médina Ancienne, 93000 Tétouan",
     coordinates: { lat: 35.5709, lng: -5.3667 },
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Great+Mosque+of+Tetouan%2C+Morocco"
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Great+Mosque+of+Tetouan%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1674,7 +1702,9 @@ export const tetouanMartilHeritageThings: ThingToDoListing[] = [
     ],
     address: "5 Derb Oddi, Médina Ancienne, 93000 Tétouan",
     coordinates: { lat: 35.5721, lng: -5.3693 },
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Dar+El+Oddi+Tetouan%2C+Morocco"
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Dar+El+Oddi+Tetouan%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1771,7 +1801,9 @@ export const tetouanMartilHeritageThings: ThingToDoListing[] = [
     ],
     address: "Place Moulay El Mehdi, Ensanche, 93000 Tétouan",
     coordinates: { lat: 35.5726, lng: -5.3718 },
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Iglesia+de+Nuestra+Señora+de+las+Victorias+Tetouan%2C+Morocco"
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Iglesia+de+Nuestra+Señora+de+las+Victorias+Tetouan%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1869,7 +1901,9 @@ export const tetouanMartilHeritageThings: ThingToDoListing[] = [
     ],
     address: "Avenue Mohamed Ben Larbi Torres, Ensanche, 93000 Tétouan",
     coordinates: { lat: 35.5710, lng: -5.3698 },
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Teatro+Cine+Espanol+Tetouan%2C+Morocco"
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Teatro+Cine+Espanol+Tetouan%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1964,7 +1998,9 @@ export const tetouanMartilHeritageThings: ThingToDoListing[] = [
     ],
     address: "32 Avenue Mohammed V, Ensanche, 93000 Tétouan",
     coordinates: { lat: 35.5720, lng: -5.3731 },
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Bibliotheque+Generale+et+Archives+Tetouan%2C+Morocco"
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Bibliotheque+Generale+et+Archives+Tetouan%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -2059,7 +2095,9 @@ export const tetouanMartilHeritageThings: ThingToDoListing[] = [
     ],
     address: "Avenue Mohammed V, Quartier Scolaire, Ensanche, 93000 Tétouan",
     coordinates: { lat: 35.5732, lng: -5.3775 },
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Institut+National+des+Beaux-Arts+Tetouan%2C+Morocco"
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Institut+National+des+Beaux-Arts+Tetouan%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -2155,7 +2193,9 @@ export const tetouanMartilHeritageThings: ThingToDoListing[] = [
     ],
     address: "94 Avenue Le Caire, N° 6, Wilaya Center, Wilaya, 93000 Tétouan",
     coordinates: { lat: 35.5755, lng: -5.3524 },
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Galerie+d'Art+El+Fenn+Tetouan%2C+Morocco"
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Galerie+d'Art+El+Fenn+Tetouan%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];
 

@@ -358,7 +358,9 @@ export const saidiaSleep: SleepListing[] = [
       lat: 35.11063,
       lng: -2.303755
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "sa-sleep-2",
@@ -478,7 +480,9 @@ export const saidiaSleep: SleepListing[] = [
       lat: 35.102198,
       lng: -2.281369
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "sa-sleep-3",
@@ -598,7 +602,9 @@ export const saidiaSleep: SleepListing[] = [
       lat: 35.099592,
       lng: -2.274054
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "sa-sleep-4",
@@ -718,7 +724,9 @@ export const saidiaSleep: SleepListing[] = [
       lat: 35.11063,
       lng: -2.303755
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "sa-sleep-5",
@@ -838,7 +846,9 @@ export const saidiaSleep: SleepListing[] = [
       lat: 35.11063,
       lng: -2.303755
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "sa-sleep-6",
@@ -958,7 +968,9 @@ export const saidiaSleep: SleepListing[] = [
       lat: 35.084591,
       lng: -2.231178
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "sa-sleep-7",
@@ -1078,7 +1090,9 @@ export const saidiaSleep: SleepListing[] = [
       lat: 35.082221,
       lng: -2.224576
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "sa-sleep-8",
@@ -1194,7 +1208,9 @@ export const saidiaSleep: SleepListing[] = [
       business: "High-speed WiFi works well for remote work.",
       nomad: "A strong budget workation option in town.",
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "sa-sleep-9",
@@ -1310,7 +1326,9 @@ export const saidiaSleep: SleepListing[] = [
       business: "Soundproof rooms help with work and rest.",
       nomad: "A practical low-cost base for nomads near town and beach.",
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "sa-sleep-10",
@@ -1428,7 +1446,9 @@ export const saidiaSleep: SleepListing[] = [
       lat: 35.077638,
       lng: -2.225179
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "sa-sleep-11",
@@ -1548,7 +1568,9 @@ export const saidiaSleep: SleepListing[] = [
       lat: 35.077754,
       lng: -2.225717
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "sa-sleep-12",
@@ -1668,7 +1690,9 @@ export const saidiaSleep: SleepListing[] = [
       lat: 35.084591,
       lng: -2.231178
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "sa-sleep-13",
@@ -1788,7 +1812,9 @@ export const saidiaSleep: SleepListing[] = [
       lat: 35.108226,
       lng: -2.298912
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "sa-sleep-14",
@@ -1901,7 +1927,9 @@ export const saidiaSleep: SleepListing[] = [
       lat: 35.108226,
       lng: -2.298912
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "sa-sleep-15",
@@ -2014,7 +2042,9 @@ export const saidiaSleep: SleepListing[] = [
       lat: 35.084591,
       lng: -2.231178
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "sa-sleep-16",
@@ -2130,7 +2160,9 @@ export const saidiaSleep: SleepListing[] = [
       business: "Not business-focused, but calm for remote tasks.",
       nomad: "A low-cost nature base for nomads with transport.",
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "sa-sleep-17",
@@ -2250,7 +2282,9 @@ export const saidiaSleep: SleepListing[] = [
       lat: 35.084591,
       lng: -2.231178
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "sa-sleep-18",
@@ -2366,7 +2400,9 @@ export const saidiaSleep: SleepListing[] = [
       business: "Quiet enough for planning and light work.",
       nomad: "A low-cost pet-friendly base for nomads with transport.",
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "sa-sleep-19",
@@ -2486,7 +2522,9 @@ export const saidiaSleep: SleepListing[] = [
       lat: 35.082221,
       lng: -2.224576
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: "sa-sleep-20",
@@ -2606,6 +2644,8 @@ export const saidiaSleep: SleepListing[] = [
       lat: 35.104166,
       lng: -2.296155
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ]

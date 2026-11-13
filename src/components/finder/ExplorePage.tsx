@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'motion/react';
-import { X, Search, Sparkles } from 'lucide-react';
+import { X, Search, Sparkles, Compass } from 'lucide-react';
 import { useExploreStore } from '../../state/exploreStore';
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { useEffect, useMemo, useRef } from 'react';
@@ -432,6 +432,23 @@ export default function ExplorePage({ onClose }: ExplorePageProps) {
         </div>
         
         <div className="flex items-center gap-2">
+          {/* Near Me shortcut button */}
+          <button
+            onClick={() => {
+              const catKey = String(activeCategory || '');
+              const currentCat = (catKey === 'food' || catKey === 'eat') ? 'eat' :
+                catKey === 'sleep' ? 'sleep' :
+                (catKey === 'shopping' || catKey === 'shop') ? 'shop' : 'things';
+              const currentCity = (cityId || 'marrakech').toLowerCase();
+              navigate(`/${currentCat}/${currentCity}/near-me`);
+            }}
+            className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white hover:bg-stone-50 text-stone-700 hover:text-stone-900 border border-stone-200 text-xs font-semibold transition-all cursor-pointer shadow-2xs group"
+            title="Browse places near me"
+          >
+            <Compass className="w-3.5 h-3.5 text-[#C2613C] transition-transform group-hover:rotate-45" />
+            <span>Near Me</span>
+          </button>
+
           {/* Hidden while any popup is open — only ONE close icon visible at a time */}
           {!modalOpen && (
             <button 

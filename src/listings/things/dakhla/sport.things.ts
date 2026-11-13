@@ -322,6 +322,8 @@ export const dakhlaSportThings: ThingToDoListing[] = [
     fitnessLevel: "Moderate if observing, active if riding",
     safetyNotes: "Only experienced riders should self-manage; beginners should use instruction.",
     languages: ["Arabic (Darija)", "French", "English", "Spanish"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -434,6 +436,8 @@ export const dakhlaSportThings: ThingToDoListing[] = [
     fitnessLevel: "Moderate to active",
     safetyNotes: "Use instruction or supervision if you are new to wind sports.",
     languages: ["Arabic (Darija)", "French", "English", "Spanish"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -546,6 +550,8 @@ export const dakhlaSportThings: ThingToDoListing[] = [
     fitnessLevel: "Active",
     safetyNotes: "Use school guidance rather than trying to self-launch if inexperienced.",
     languages: ["Arabic (Darija)", "French", "English", "Spanish"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -658,6 +664,8 @@ export const dakhlaSportThings: ThingToDoListing[] = [
     fitnessLevel: "Active",
     safetyNotes: "Follow guide spacing instructions and avoid overconfidence on unfamiliar terrain.",
     languages: ["Arabic (Darija)", "French", "English"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -777,6 +785,8 @@ export const dakhlaSportThings: ThingToDoListing[] = [
     fitnessLevel: "Active",
     safetyNotes: "Daily entry fee is paid in cash at the reception desk.",
     languages: ["Arabic (Darija)", "French"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -962,6 +972,8 @@ export const dakhlaSportThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "+212 767-372413",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1147,6 +1159,8 @@ export const dakhlaSportThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "+212 6 61 49 60 76",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1327,6 +1341,8 @@ export const dakhlaSportThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "+212 671 010 301",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1519,6 +1535,8 @@ export const dakhlaSportThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "+212 661-118174",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1700,6 +1718,8 @@ export const dakhlaSportThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "+212 6 61 80 72 93",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1887,5 +1907,7 @@ export const dakhlaSportThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "+212 662 336 571",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

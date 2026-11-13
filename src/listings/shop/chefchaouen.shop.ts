@@ -101,7 +101,9 @@ export const chefchaouenShopListings: ShopListing[] = [
     productCategories: ['Rif Wool Blankets', 'Striped Mendil Fabrics', 'Wool Ponchos', 'Handwoven Rugs'],
     languagesSpoken: ['Arabic', 'French', 'English', 'Spanish'],
     openingHours: [{ day: 'Mon-Sat', hours: '08:00 - 18:00' }],
-    workshopVisitable: true
+    workshopVisitable: true,
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-che-2',
@@ -127,7 +129,9 @@ export const chefchaouenShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Indigo Pigment Soap', 'Goat Milk Soap', 'Lavender Oil', 'Thyme Honey'],
     languagesSpoken: ['Arabic', 'Spanish', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 19:30' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 19:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-che-3',
@@ -152,7 +156,9 @@ export const chefchaouenShopListings: ShopListing[] = [
     paymentMethods: ['cash'],
     productCategories: ['Jbala Straw Hats', 'Pom-Pom Bags', 'Striped Aprons'],
     languagesSpoken: ['Arabic', 'Spanish', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '08:00 - 20:00' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '08:00 - 20:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-che-4',
@@ -177,7 +183,9 @@ export const chefchaouenShopListings: ShopListing[] = [
     paymentMethods: ['cash'],
     productCategories: ['Natural Indigo Powder', 'Cobalt Blue Pigment', 'Henna Powder', 'Aromatic Minerals'],
     languagesSpoken: ['Arabic', 'Spanish', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 19:30' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 19:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-che-5',
@@ -203,7 +211,9 @@ export const chefchaouenShopListings: ShopListing[] = [
     productCategories: ['Flat-Woven Kilims', 'Wool Wall Hangings', 'Cactus Silk Throws'],
     languagesSpoken: ['Arabic', 'Spanish', 'French', 'English'],
     openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 20:00' }],
-    shipping: { available: true, partner: 'dhl' }
+    shipping: { available: true, partner: 'dhl' },
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-che-6',
@@ -228,7 +238,9 @@ export const chefchaouenShopListings: ShopListing[] = [
     paymentMethods: ['cash'],
     productCategories: ['Leather Mountain Boots', 'Shoulder Bags', 'Leather Poufs'],
     languagesSpoken: ['Arabic', 'Spanish', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 19:30' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 19:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-che-7',
@@ -253,7 +265,9 @@ export const chefchaouenShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Silver Cuffs', 'Enamel Pendants', 'Amber Beads'],
     languagesSpoken: ['Arabic', 'Spanish', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '09:30 - 20:00' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '09:30 - 20:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-che-8',
@@ -278,7 +292,9 @@ export const chefchaouenShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Wild Thyme Honey', 'Oregano Honey', 'Eucalyptus Crystals', 'Rose Water'],
     languagesSpoken: ['Arabic', 'Spanish', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 19:30' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 19:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-che-9',
@@ -303,7 +319,9 @@ export const chefchaouenShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Blue Ceramic Bowls', 'House Tile Numbers', 'Ceramic Plaque Gifts'],
     languagesSpoken: ['Arabic', 'Spanish', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 19:00' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 19:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-che-10',
@@ -329,7 +347,9 @@ export const chefchaouenShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Rif Hooded Djellabas', 'Wool Vests', 'Handmade Ponchos'],
     languagesSpoken: ['Arabic', 'Spanish', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 19:30' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 19:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-che-11',
@@ -354,7 +374,9 @@ export const chefchaouenShopListings: ShopListing[] = [
     paymentMethods: ['cash'],
     productCategories: ['Painted Tile Magnets', 'Wooden Spoons', 'Small Brass Lanterns'],
     languagesSpoken: ['Arabic', 'Spanish', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '08:00 - 20:30' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '08:00 - 20:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-che-12',
@@ -380,7 +402,9 @@ export const chefchaouenShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Cactus Silk Blankets', 'Sabra Cushion Covers', 'Scarves'],
     languagesSpoken: ['Arabic', 'Spanish', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 19:00' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 19:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-che-13',
@@ -405,7 +429,9 @@ export const chefchaouenShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Olive Oil Soap Bars', 'Verbena Soaps', 'Argan Body Oil'],
     languagesSpoken: ['Arabic', 'French', 'English', 'Spanish'],
-    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 20:00' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 20:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-che-14',
@@ -430,7 +456,9 @@ export const chefchaouenShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Blue Brass Lamps', 'Hanging Lanterns', 'Wall Lights'],
     languagesSpoken: ['Arabic', 'Spanish', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 19:30' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 19:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-che-15',
@@ -455,7 +483,9 @@ export const chefchaouenShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Mini Wood Paintings', 'Canvas Art Prints', 'Postcard Sets'],
     languagesSpoken: ['Arabic', 'Spanish', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sat', hours: '09:30 - 19:00' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '09:30 - 19:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-che-16',
@@ -480,7 +510,9 @@ export const chefchaouenShopListings: ShopListing[] = [
     paymentMethods: ['cash'],
     productCategories: ['Leather Backpacks', 'Suede Slippers', 'Belts'],
     languagesSpoken: ['Arabic', 'Spanish', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 20:00' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 20:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-che-17',
@@ -506,7 +538,9 @@ export const chefchaouenShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Vegetable-Dyed Rugs', 'Natural Wool Carpets', 'Runners'],
     languagesSpoken: ['Arabic', 'Spanish', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 18:30' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 18:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-che-18',
@@ -531,7 +565,9 @@ export const chefchaouenShopListings: ShopListing[] = [
     paymentMethods: ['cash'],
     productCategories: ['Cedar Boxes', 'Wooden Keyholders', 'Incense Burners'],
     languagesSpoken: ['Arabic', 'Spanish', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 19:30' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '09:00 - 19:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-che-19',
@@ -556,7 +592,9 @@ export const chefchaouenShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Prickly Pear Oil', 'Pure Argan Oil', 'Black Soap', 'Kessa Glove'],
     languagesSpoken: ['Arabic', 'Spanish', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 20:00' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 20:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-che-20',
@@ -581,7 +619,9 @@ export const chefchaouenShopListings: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard'],
     productCategories: ['Blue Dyed Shirts', 'Straw Baskets', 'Ceramic Mugs'],
     languagesSpoken: ['Arabic', 'Spanish', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '09:30 - 19:30' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '09:30 - 19:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-chefchaouen-bim-1',
@@ -603,6 +643,8 @@ export const chefchaouenShopListings: ShopListing[] = [
     paymentMethods: ["cash","visa","mastercard"],
     productCategories: ["Mineral Water","Trekking Snacks","Dairy","Biscuits","Basic Toiletries"],
     languagesSpoken: ["Arabic","Spanish","French"],
-    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 21:00"}]
+    openingHours: [{"day":"Mon-Sun","hours":"08:30 - 21:00"}],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

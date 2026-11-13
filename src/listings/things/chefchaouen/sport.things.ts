@@ -419,6 +419,8 @@ export const chefchaouenSportThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "+212 661-223344",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -622,6 +624,8 @@ export const chefchaouenSportThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "+212 661-556677",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -828,6 +832,8 @@ export const chefchaouenSportThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "+212 661-778899",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1032,6 +1038,8 @@ export const chefchaouenSportThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "+212 661-334455",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1233,6 +1241,8 @@ export const chefchaouenSportThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "+212 661-998877",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1438,6 +1448,8 @@ export const chefchaouenSportThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "+212 661-445566",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1635,6 +1647,8 @@ export const chefchaouenSportThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "+212 661-112233",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1843,6 +1857,8 @@ export const chefchaouenSportThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "+212 661-667788",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -2039,6 +2055,8 @@ export const chefchaouenSportThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "+212 661-224466",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -2235,6 +2253,8 @@ export const chefchaouenSportThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "+212 661-889900",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -2432,6 +2452,8 @@ export const chefchaouenSportThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "+212 661-557799",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -2632,6 +2654,8 @@ export const chefchaouenSportThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "+212 661-776655",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -2806,6 +2830,8 @@ export const chefchaouenSportThings: ThingToDoListing[] = [
         a: "Yes, dedicated women-only hours from 10:00 AM to 12:30 PM daily, with a private training environment."
       }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -2998,6 +3024,8 @@ export const chefchaouenSportThings: ThingToDoListing[] = [
         a: "Yes, all classes are suitable for beginners with modifications offered for advanced practitioners."
       }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -3175,6 +3203,8 @@ export const chefchaouenSportThings: ThingToDoListing[] = [
         a: "Yes, women-only hours from 10:00 AM to 12:00 PM daily."
       }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -3352,6 +3382,8 @@ export const chefchaouenSportThings: ThingToDoListing[] = [
         a: "Most daytime classes are women-only or mixed with many women attending."
       }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -3529,6 +3561,8 @@ export const chefchaouenSportThings: ThingToDoListing[] = [
         a: "Yes, single class drop-ins are available for 70 MAD."
       }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -3707,6 +3741,8 @@ export const chefchaouenSportThings: ThingToDoListing[] = [
         a: "Yes, dedicated women-only hours from 10:00 AM to 12:00 PM daily."
       }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -3898,6 +3934,8 @@ export const chefchaouenSportThings: ThingToDoListing[] = [
         a: "Yes, all classes are beginner-friendly with modifications offered. The small class size allows for personal attention."
       }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -4075,6 +4113,8 @@ export const chefchaouenSportThings: ThingToDoListing[] = [
         a: "Yes, full women-only section available all day."
       }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -4253,6 +4293,8 @@ export const chefchaouenSportThings: ThingToDoListing[] = [
         a: "No, sparring is optional and only for those who want it. Most sessions focus on bag work, conditioning, and technique."
       }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -4441,6 +4483,8 @@ export const chefchaouenSportThings: ThingToDoListing[] = [
         a: "Recommended, especially for evenings and weekends. Walk-ins accommodated subject to availability."
       }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -4634,6 +4678,8 @@ export const chefchaouenSportThings: ThingToDoListing[] = [
         a: "The shortest group runs (5 km) are suitable for runners who can complete 5 km continuously. Absolute beginners should book a private guided run."
       }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -4812,5 +4858,7 @@ export const chefchaouenSportThings: ThingToDoListing[] = [
         a: "Yes, routes are available for ages 6 and up with harnesses and staff supervision."
       }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

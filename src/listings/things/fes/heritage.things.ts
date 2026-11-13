@@ -358,6 +358,8 @@ export const fesHeritageThings: ThingToDoListing[] = [
       lng: -4.971014
     },
     googleMapsUrl: "https://maps.google.com/?q=34.066127,-4.971014",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -505,6 +507,8 @@ export const fesHeritageThings: ThingToDoListing[] = [
       lng: -4.973694
     },
     googleMapsUrl: "https://maps.google.com/?q=34.065083,-4.973694",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -653,6 +657,8 @@ export const fesHeritageThings: ThingToDoListing[] = [
       lng: -4.98272
     },
     googleMapsUrl: "https://maps.google.com/?q=34.06218,-4.98272",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -798,6 +804,8 @@ export const fesHeritageThings: ThingToDoListing[] = [
       lng: -4.98389
     },
     googleMapsUrl: "https://maps.google.com/?q=34.06167,-4.98389",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -943,6 +951,8 @@ export const fesHeritageThings: ThingToDoListing[] = [
       lng: -4.99225
     },
     googleMapsUrl: "https://maps.google.com/?q=34.05318,-4.99225",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1089,6 +1099,8 @@ export const fesHeritageThings: ThingToDoListing[] = [
       lng: -4.979703
     },
     googleMapsUrl: "https://maps.google.com/?q=34.069815,-4.979703",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1233,6 +1245,8 @@ export const fesHeritageThings: ThingToDoListing[] = [
       lng: -4.99252
     },
     googleMapsUrl: "https://maps.google.com/?q=34.05263,-4.99252",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1379,6 +1393,8 @@ export const fesHeritageThings: ThingToDoListing[] = [
       lng: -4.97595
     },
     googleMapsUrl: "https://maps.google.com/?q=34.06476,-4.97595",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1523,6 +1539,8 @@ export const fesHeritageThings: ThingToDoListing[] = [
       lng: -4.97511
     },
     googleMapsUrl: "https://maps.google.com/?q=34.06455,-4.97511",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1669,6 +1687,8 @@ export const fesHeritageThings: ThingToDoListing[] = [
       lng: -4.97333
     },
     googleMapsUrl: "https://maps.google.com/?q=34.06444,-4.97333",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1814,6 +1834,8 @@ export const fesHeritageThings: ThingToDoListing[] = [
       lng: -4.98254
     },
     googleMapsUrl: "https://maps.google.com/?q=34.06201,-4.98254",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1958,6 +1980,8 @@ export const fesHeritageThings: ThingToDoListing[] = [
       lng: -4.97257
     },
     googleMapsUrl: "https://maps.google.com/?q=34.06415,-4.97257",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -2103,6 +2127,8 @@ export const fesHeritageThings: ThingToDoListing[] = [
       lng: -4.97984
     },
     googleMapsUrl: "https://maps.google.com/?q=34.06282,-4.97984",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -2248,6 +2274,8 @@ export const fesHeritageThings: ThingToDoListing[] = [
       lng: -4.98514
     },
     googleMapsUrl: "https://maps.google.com/?q=34.06725,-4.98514",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -2392,6 +2420,8 @@ export const fesHeritageThings: ThingToDoListing[] = [
       lng: -4.99172
     },
     googleMapsUrl: "https://maps.google.com/?q=34.05191,-4.99172",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -2537,6 +2567,8 @@ export const fesHeritageThings: ThingToDoListing[] = [
       lng: -4.98042
     },
     googleMapsUrl: "https://maps.google.com/?q=34.05775,-4.98042",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   // ════════════════════════════════════════════════════════════
@@ -2689,6 +2721,8 @@ export const fesHeritageThings: ThingToDoListing[] = [
       lng: -4.98352
     },
     googleMapsUrl: "https://maps.google.com/?q=34.06015,-4.98352",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -2835,6 +2869,8 @@ export const fesHeritageThings: ThingToDoListing[] = [
       lng: -4.96971
     },
     googleMapsUrl: "https://maps.google.com/?q=34.06282,-4.96971",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -2983,6 +3019,8 @@ export const fesHeritageThings: ThingToDoListing[] = [
       lng: -4.98826
     },
     googleMapsUrl: "https://maps.google.com/?q=34.05964,-4.98826",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -3129,6 +3167,8 @@ export const fesHeritageThings: ThingToDoListing[] = [
       lng: -4.97291
     },
     googleMapsUrl: "https://maps.google.com/?q=34.06482,-4.97291",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -3277,6 +3317,8 @@ export const fesHeritageThings: ThingToDoListing[] = [
       lng: -4.97025
     },
     googleMapsUrl: "https://maps.google.com/?q=34.05397,-4.97025",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -3422,5 +3464,7 @@ export const fesHeritageThings: ThingToDoListing[] = [
       lng: -4.95422
     },
     googleMapsUrl: "https://maps.google.com/?q=34.05381,-4.95422",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

@@ -331,7 +331,9 @@ export const casablancaSleep: SleepListing[] = [
       lat: 33.58683,
       lng: -7.621331
     },
-    tags: ["5-star", "pool", "spa", "airport-shuttle", "luxury"]
+    tags: ["5-star", "pool", "spa", "airport-shuttle", "luxury"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'c-sleep-2',
@@ -426,7 +428,9 @@ export const casablancaSleep: SleepListing[] = [
       lat: 33.587944,
       lng: -7.627771
     },
-    tags: ["heritage"]
+    tags: ["heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'c-sleep-3',
@@ -521,7 +525,9 @@ export const casablancaSleep: SleepListing[] = [
       lat: 33.599545,
       lng: -7.663758
     },
-    tags: ["family-favorite", "5-star", "ocean-view", "beachfront", "pool", "spa", "airport-shuttle"]
+    tags: ["family-favorite", "5-star", "ocean-view", "beachfront", "pool", "spa", "airport-shuttle"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'c-sleep-4',
@@ -616,7 +622,9 @@ export const casablancaSleep: SleepListing[] = [
       lat: 33.600342,
       lng: -7.617355
     },
-    tags: ["dorm", "heritage"]
+    tags: ["dorm", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'c-sleep-5',
@@ -711,7 +719,9 @@ export const casablancaSleep: SleepListing[] = [
       lat: 33.587944,
       lng: -7.627771
     },
-    tags: ["family-favorite", "heritage", "5-star", "pool", "rooftop-bar", "spa", "airport-shuttle"]
+    tags: ["family-favorite", "heritage", "5-star", "pool", "rooftop-bar", "spa", "airport-shuttle"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'c-sleep-6',
@@ -806,7 +816,9 @@ export const casablancaSleep: SleepListing[] = [
       lat: 33.596087,
       lng: -7.618828
     },
-    tags: ["family-favorite", "heritage", "5-star", "pool", "spa", "airport-shuttle"]
+    tags: ["family-favorite", "heritage", "5-star", "pool", "spa", "airport-shuttle"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'c-sleep-7',
@@ -901,7 +913,9 @@ export const casablancaSleep: SleepListing[] = [
       lat: 33.598617,
       lng: -7.613284
     },
-    tags: ["family-favorite", "5-star", "ocean-view", "pool", "spa", "rooftop-bar", "airport-shuttle"]
+    tags: ["family-favorite", "5-star", "ocean-view", "pool", "spa", "rooftop-bar", "airport-shuttle"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'c-sleep-8',
@@ -996,7 +1010,9 @@ export const casablancaSleep: SleepListing[] = [
       lat: 33.586587,
       lng: -7.632085
     },
-    tags: ["family-favorite", "5-star", "rooftop-bar", "pool", "spa", "ocean-view", "airport-shuttle"]
+    tags: ["family-favorite", "5-star", "rooftop-bar", "pool", "spa", "ocean-view", "airport-shuttle"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'c-sleep-9',
@@ -1091,7 +1107,9 @@ export const casablancaSleep: SleepListing[] = [
       lat: 33.591096,
       lng: -7.635382
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'c-sleep-10',
@@ -1186,7 +1204,9 @@ export const casablancaSleep: SleepListing[] = [
       lat: 33.604304,
       lng: -7.632784
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'c-sleep-11',
@@ -1281,7 +1301,9 @@ export const casablancaSleep: SleepListing[] = [
       lat: 33.598617,
       lng: -7.613284
     },
-    tags: ["family-favorite", "airport-shuttle"]
+    tags: ["family-favorite", "airport-shuttle"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'c-sleep-12',
@@ -1376,7 +1398,9 @@ export const casablancaSleep: SleepListing[] = [
       lat: 33.698302,
       lng: -7.388962
     },
-    tags: ["heritage"]
+    tags: ["heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'c-sleep-13',
@@ -1471,7 +1495,9 @@ export const casablancaSleep: SleepListing[] = [
       lat: 33.551677,
       lng: -7.610422
     },
-    tags: []
+    tags: [],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'c-sleep-14',
@@ -1566,7 +1592,9 @@ export const casablancaSleep: SleepListing[] = [
       lat: 33.597788,
       lng: -7.666643
     },
-    tags: ["family-favorite", "ocean-view", "beachfront", "pool"]
+    tags: ["family-favorite", "ocean-view", "beachfront", "pool"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'c-sleep-15',
@@ -1661,7 +1689,9 @@ export const casablancaSleep: SleepListing[] = [
       lat: 33.592352,
       lng: -7.625553
     },
-    tags: ["rooftop-bar", "spa", "airport-shuttle"]
+    tags: ["rooftop-bar", "spa", "airport-shuttle"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'c-sleep-16',
@@ -1756,7 +1786,9 @@ export const casablancaSleep: SleepListing[] = [
       lat: 33.593196,
       lng: -7.640998
     },
-    tags: []
+    tags: [],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'c-sleep-17',
@@ -1851,7 +1883,9 @@ export const casablancaSleep: SleepListing[] = [
       lat: 33.596253,
       lng: -7.614328
     },
-    tags: ["family-favorite", "heritage", "spa", "airport-shuttle"]
+    tags: ["family-favorite", "heritage", "spa", "airport-shuttle"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'c-sleep-18',
@@ -1946,7 +1980,9 @@ export const casablancaSleep: SleepListing[] = [
       lat: 33.585698,
       lng: -7.622651
     },
-    tags: ["family-favorite", "5-star", "airport-shuttle"]
+    tags: ["family-favorite", "5-star", "airport-shuttle"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'c-sleep-19',
@@ -2041,7 +2077,9 @@ export const casablancaSleep: SleepListing[] = [
       lat: 33.586168,
       lng: -7.636068
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'c-sleep-20',
@@ -2136,6 +2174,8 @@ export const casablancaSleep: SleepListing[] = [
       lat: 33.582028,
       lng: -7.619518
     },
-    tags: ["dorm"]
+    tags: ["dorm"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ]

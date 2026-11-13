@@ -231,6 +231,8 @@ export const dakhlaHeritageThings: ThingToDoListing[] = [
       { q: "Can I visit without eating oysters?", a: "Yes, restaurants serve grilled fish, calamari, salads, and tea." },
       { q: "Is pre-booking required?", a: "No, walk-ins are standard, though large groups should call ahead during peak holidays." }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -405,6 +407,8 @@ export const dakhlaHeritageThings: ThingToDoListing[] = [
       { q: "Is the corniche wheelchair accessible?", a: "Yes, the promenade is flat with step-free dropped curbs throughout." },
       { q: "Are there restrooms available?", a: "Public restrooms are scarce; most visitors use adjacent beachfront cafés." }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -579,6 +583,8 @@ export const dakhlaHeritageThings: ThingToDoListing[] = [
       { q: "Is the market open in the afternoon?", a: "Most stalls wind down by 2:00 PM; morning is the best time to visit." },
       { q: "Can I pay with credit card?", a: "No, the market operates strictly on cash in Moroccan Dirhams." }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -753,6 +759,8 @@ export const dakhlaHeritageThings: ThingToDoListing[] = [
       { q: "Can tourists enter the port?", a: "Public observation of the artisanal fishing basin is permitted; commercial container docks require security clearance." },
       { q: "Can I buy fish directly from fishermen?", a: "Wholesale transactions happen at the fish auction hall, but small retail purchases can sometimes be made directly from dockside fishermen." }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -929,6 +937,8 @@ export const dakhlaHeritageThings: ThingToDoListing[] = [
       { q: "Is the church open to non-Catholics?", a: "Yes, visitors are welcomed respectfully during open hours and Sunday mass." },
       { q: "Does Dakhla have a traditional medieval medina?", a: "No, Dakhla was founded in 1884 as a colonial settlement, so its oldest core consists of early 20th-century Spanish-era blocks." }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1102,6 +1112,8 @@ export const dakhlaHeritageThings: ThingToDoListing[] = [
       { q: "Can I buy directly from the artisans?", a: "Yes, you purchase directly from the craftsmen in their individual workshops." },
       { q: "Are credit cards accepted?", a: "Some individual artisans accept cards, but cash in MAD is strongly recommended." }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1274,6 +1286,8 @@ export const dakhlaHeritageThings: ThingToDoListing[] = [
       { q: "Is admission really free?", a: "Yes, access to the museum and the Médiathèque is completely free of charge." },
       { q: "Is flash photography permitted?", a: "No, photography is allowed but flashes must be disabled to protect antique textiles." }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1448,5 +1462,7 @@ export const dakhlaHeritageThings: ThingToDoListing[] = [
       { q: "Are there cafés surrounding the square?", a: "Yes, numerous cafés, ice cream shops, and bakeries line the boulevard facing the plaza." },
       { q: "Is the plaza stroller and wheelchair friendly?", a: "Yes, it features wide, step-free paved surfaces with ramped curb cuts." }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

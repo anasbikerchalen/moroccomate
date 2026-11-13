@@ -507,6 +507,8 @@ export const agadirHeritageThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "+212 608-505088",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -765,6 +767,8 @@ export const agadirHeritageThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "+212 528-223456",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1021,6 +1025,8 @@ export const agadirHeritageThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "+212 666-338859",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1253,6 +1259,8 @@ export const agadirHeritageThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1496,6 +1504,8 @@ export const agadirHeritageThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1743,5 +1753,7 @@ export const agadirHeritageThings: ThingToDoListing[] = [
       }
     ],
     contactPhone: "+212 528-841122",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

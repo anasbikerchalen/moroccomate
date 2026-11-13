@@ -154,6 +154,8 @@ export const ouarzazateHeritageThings: ThingToDoListing[] = [
     address: "Ksar Aït Ben Haddou, Route P1506, Amerzgane 45100, Morocco",
     coordinates: { lat: 31.0470, lng: -7.1318 },
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=A%C3%AFt+Ben+Haddou%2C+ouarzazate%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -299,6 +301,8 @@ export const ouarzazateHeritageThings: ThingToDoListing[] = [
     address: "Km 5, Route de Marrakech (N9), Tamassinte, Ouarzazate 45000, Morocco",
     coordinates: { lat: 30.9418, lng: -6.9669 },
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Atlas+Studios%2C+ouarzazate%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -443,6 +447,8 @@ export const ouarzazateHeritageThings: ThingToDoListing[] = [
     address: "Avenue Mohammed V, Kasbah Taourirt, Ouarzazate 45000, Morocco",
     coordinates: { lat: 30.9201, lng: -6.8994 },
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Taourirt+Kasbah%2C+ouarzazate%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -587,6 +593,8 @@ export const ouarzazateHeritageThings: ThingToDoListing[] = [
     address: "Avenue Mohammed V (opposite Taourirt Kasbah), Ouarzazate 45000, Morocco",
     coordinates: { lat: 30.9208, lng: -6.9015 },
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Cinema+Museum%2C+ouarzazate%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -709,6 +717,8 @@ export const ouarzazateHeritageThings: ThingToDoListing[] = [
     address: "Route de Marrakech (N9), Secteur Isfoutalil, Ouarzazate 45000, Morocco",
     coordinates: { lat: 30.9417, lng: -6.9863 },
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=CLA+Studios+Ouarzazate%2C+ouarzazate%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -853,6 +863,8 @@ export const ouarzazateHeritageThings: ThingToDoListing[] = [
     address: "Mellah de Taourirt, behind Taourirt Kasbah, Ouarzazate 45000, Morocco",
     coordinates: { lat: 30.9198, lng: -6.8980 },
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Old+Synagogue+%26+Mellah+Walk%2C+ouarzazate%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -996,6 +1008,8 @@ export const ouarzazateHeritageThings: ThingToDoListing[] = [
     address: "Route Nationale N10, Hay Al Mansour / Skoura Axis, Ouarzazate 45000, Morocco",
     coordinates: { lat: 30.9230, lng: -6.8950 },
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Museum-Theatre+Memory+of+Ouarzazate%2C+ouarzazate%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1139,6 +1153,8 @@ export const ouarzazateHeritageThings: ThingToDoListing[] = [
     address: "Overlooking Ksar Taourirt, Avenue Mohammed V, Ouarzazate 45000, Morocco",
     coordinates: { lat: 30.9203, lng: -6.8990 },
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Taourirt+Kasbah+Rooftop+Tea+Stop%2C+ouarzazate%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   // ── NEW LISTING 1: ENSEMBLE ARTISANAL DE OUARZAZATE ──────
   {
@@ -1283,6 +1299,8 @@ export const ouarzazateHeritageThings: ThingToDoListing[] = [
     address: "Avenue Mohammed V (opposite Kasbah Taourirt), Ouarzazate 45000, Morocco",
     coordinates: { lat: 30.9212, lng: -6.9010 },
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Ensemble+Artisanal+Ouarzazate%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   // ── NEW LISTING 2: PLACE AL MOUAHIDINE & SOUK ─────────────
   {
@@ -1427,6 +1445,8 @@ export const ouarzazateHeritageThings: ThingToDoListing[] = [
     address: "Place Al-Mouahidine, Rue Al-Mouahidine, Ouarzazate 45000, Morocco",
     coordinates: { lat: 30.9195, lng: -6.9142 },
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Place+Al+Mouahidine%2C+ouarzazate%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   // ── NEW LISTING 3: KSAR TABOUNT HERITAGE WALK ─────────────
   {
@@ -1571,6 +1591,8 @@ export const ouarzazateHeritageThings: ThingToDoListing[] = [
     address: "Ksar Tabount, across Pont Oued Ouarzazate, Tabount 45000, Morocco",
     coordinates: { lat: 30.9080, lng: -6.8970 },
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Ksar+Tabount%2C+ouarzazate%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   // ── NEW LISTING 4: PALAIS DE LA CULTURE MOHAMMED VI ───────
   {
@@ -1715,6 +1737,8 @@ export const ouarzazateHeritageThings: ThingToDoListing[] = [
     address: "Hay Al Wahda (near Mosquée Al Wahda), Ouarzazate 45000, Morocco",
     coordinates: { lat: 30.9290, lng: -6.9030 },
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Palais+de+la+Culture+Ouarzazate%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   // ── NEW LISTING 5: KASBAH TIFOULTOUTE ─────────────────────
   {
@@ -1860,5 +1884,7 @@ export const ouarzazateHeritageThings: ThingToDoListing[] = [
     address: "Route P1516, Tajda / Tifoultoute, Ouarzazate 45000, Morocco",
     coordinates: { lat: 30.9333, lng: -6.9833 },
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Kasbah+Tifoultoute%2C+ouarzazate%2C+Morocco",
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

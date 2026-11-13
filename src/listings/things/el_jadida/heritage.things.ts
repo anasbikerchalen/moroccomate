@@ -233,6 +233,8 @@ export const elJadidaHeritageThings: ThingToDoListing[] = [
       { q: "Is the Cité Portugaise safe to walk at night?", a: "Yes, the main residential lanes are quiet, well-lit, and inhabited by local families." },
       { q: "Are there cars inside the Cité?", a: "No, the narrow historic gates and lanes are strictly pedestrian-only." }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -413,6 +415,8 @@ export const elJadidaHeritageThings: ThingToDoListing[] = [
       { q: "Is the cistern currently open?", a: "The site has undergone periodic closures for conservation works; check with the local heritage bureau on Rue Hachmi Bahbah upon arrival." },
       { q: "Is photography allowed?", a: "Yes, photography is permitted; tripods may require formal authorization." }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -590,6 +594,8 @@ export const elJadidaHeritageThings: ThingToDoListing[] = [
       { q: "Is the rampart walk lit after dark?", a: "Key bastions are lit, but walking during daylight or dusk is recommended for the best footing and views." },
       { q: "Can strollers access the ramparts?", a: "There are stairs at most access points, so carrying strollers is necessary." }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -767,6 +773,8 @@ export const elJadidaHeritageThings: ThingToDoListing[] = [
       { q: "Is the church active for religious services?", a: "No, it is a disconsecrated historical monument and cultural exhibition space." },
       { q: "Can I enter the bell tower?", a: "The bell tower is closed to the public for safety and preservation reasons." }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -945,6 +953,8 @@ export const elJadidaHeritageThings: ThingToDoListing[] = [
       { q: "Can tourists go inside without a ticket?", a: "During the day, the reception lobby and box office can be entered freely; the main auditorium is open only during performances." },
       { q: "Is the plaza wheelchair accessible?", a: "Yes, the surrounding esplanade is completely flat with ramped curb cuts." }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1122,6 +1132,8 @@ export const elJadidaHeritageThings: ThingToDoListing[] = [
       { q: "Is the park lit at night?", a: "Yes, path lamps remain on until park closing at 8:30 PM." },
       { q: "Are dogs allowed?", a: "Dogs on leashes are permitted on paved avenues." }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1301,6 +1313,8 @@ export const elJadidaHeritageThings: ThingToDoListing[] = [
       { q: "Can non-Muslims enter the mosque?", a: "No, interior entry is restricted to Muslim worshippers, but the exterior and minaret are in full public view from the plaza." },
       { q: "Why is the minaret five-sided?", a: "Because it was built directly upon the irregular polygonal foundations of the 16th-century Portuguese artillery and lookout tower." }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1476,6 +1490,8 @@ export const elJadidaHeritageThings: ThingToDoListing[] = [
       { q: "Is admission really free?", a: "Yes, all spaces of memory run by the High Commission across Morocco offer free admission to the public." },
       { q: "Is it open on Saturdays?", a: "No, the facility operates during standard civil service hours, Monday through Friday." }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1654,6 +1670,8 @@ export const elJadidaHeritageThings: ThingToDoListing[] = [
       { q: "How far is Azemmour from El Jadida?", a: "It is approximately 15 kilometers, taking 15 to 20 minutes by car or grand taxi." },
       { q: "Is a guided tour required?", a: "No, the medina is compact and very safe to explore independently on foot." }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -1834,6 +1852,8 @@ export const elJadidaHeritageThings: ThingToDoListing[] = [
       { q: "Can anyone climb to the top of the lighthouse?", a: "Access up the spiral stairs is granted at the discretion of the maritime lighthouse keeper on duty." },
       { q: "Is it worth visiting from the outside?", a: "Yes, the impressive granite tower architecture and surrounding elevated plateau views are well worth the detour." }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -2010,6 +2030,8 @@ export const elJadidaHeritageThings: ThingToDoListing[] = [
       { q: "Is admission free?", a: "Yes, entrance to Galerie Chaïbia Talal is free for all visitors." },
       { q: "Can I buy the paintings on display?", a: "Most rotating exhibitions are organized with the artists, who can be contacted for acquisitions." }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     // ── CORE IDENTITY ───────────────────────────────────────
@@ -2187,5 +2209,7 @@ export const elJadidaHeritageThings: ThingToDoListing[] = [
       { q: "Is the site open outside festival periods?", a: "Yes, the historic village, towers, and oceanfront ramparts can be visited peacefully all year." },
       { q: "How far is it from El Jadida?", a: "It is approximately 11 km south along the scenic coastal route R301 past Sidi Bouzid." }
     ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

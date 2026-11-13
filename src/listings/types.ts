@@ -1,4 +1,5 @@
 import { SportFacilityType, SportExperienceType, SportIntent } from '../types'
+import type { PlaceReviewsData } from '../types/reviews'
 
 export type FocusType = 'sleep' | 'eat' | 'things-to-do' | 'transport' | 'visit' | 'activities' | 'shopping'
 
@@ -173,6 +174,8 @@ export interface SleepListing {
     business?: string
     nomad?: string
   }
+  /** Multi-platform reviews section data (Tripadvisor, Booking.com, Google Travel, Hotels.com, Expedia) */
+  reviewsData?: PlaceReviewsData
 }
 
 export interface MenuItem {
@@ -307,6 +310,8 @@ export interface EatListingUI {
   languagesSpoken?: string[]
   googlePlaceId?: string
   nonCopyrightImage?: string
+  /** Multi-platform reviews section data (Tripadvisor, Google Maps, TheFork, Wanderlog, Reddit) */
+  reviewsData?: PlaceReviewsData
 }
 
 export interface EatListing {
@@ -411,6 +416,9 @@ export interface EatListing {
     lng: number
   }
   menuUrl?: string
+  worries?: EatWorryEntry[] | string[] | any;
+  /** Multi-platform reviews section data (Tripadvisor, Google Maps, TheFork, Wanderlog, Reddit) */
+  reviewsData?: PlaceReviewsData;
 }
 
 export type ActivityListing = ThingToDoListing
@@ -544,6 +552,8 @@ export interface ThingToDoListing {
   // Each entry keeps tag/description "not available" until verified by real
   // web research — never guessed. Shape: ThingWorryEntry (bottom of this file).
   worries?: ThingWorryEntry[] | string[];
+  /** Multi-platform reviews section data (Tripadvisor, GetYourGuide, Viator, Google Travel, Lonely Planet) */
+  reviewsData?: PlaceReviewsData;
 }
 
 /**
@@ -568,6 +578,19 @@ export interface ThingWorryEntry {
   state?: 'verified' | 'pending';
   image?: string;        // optional 1:1 image fitting the research result
   source?: string;       // where the answer was verified
+}
+
+export interface EatWorryEntry {
+  id: string;            // canonical worry id, e.g. 'financial-trust'
+  title?: string;        // display title, e.g. 'Financial Trust'
+  icon?: string;         // icon key mapped in components/worries/WorriesSection.tsx
+  tag: string;           // 1-2 words max naming the worry's state
+  description: string;   // max 2 lines describing the verdict at the place
+  tone?: 'good' | 'caution';
+  tagColor?: 'water' | 'money' | 'hygiene' | 'safety' | 'noise' | 'food' | 'craft' | 'alert';
+  state?: 'verified' | 'pending';
+  image?: string;
+  source?: string;
 }
 
 export type PricingModel = 'fixed' | 'negotiable' | 'mixed' | 'market_price'
@@ -661,6 +684,8 @@ export interface ShopListing {
   reviewSummary?: string
   recentReviews?: { author: string; text: string; rating: number; type: 'tourist' | 'local' }[]
   isLocalFavorite?: boolean
+  /** Multi-platform reviews section data (Tripadvisor, Google Maps, Trustpilot, Lonely Planet, Reddit) */
+  reviewsData?: PlaceReviewsData
   
   // Local Context
   nearbyLandmarks?: string[]

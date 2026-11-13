@@ -142,6 +142,17 @@ export const taroudant_tafraouteEat: EatListing[] = [
     tags: ["budget", "dinner", "dry", "medina", "pastilla", "quiet", "riad", "tagine", "terrace", "wifi"],
     fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
     menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
+  
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   // ── 2. DAR ZITOUNE (TAROUDANT COUNTRYSIDE) ──
@@ -222,6 +233,17 @@ export const taroudant_tafraouteEat: EatListing[] = [
     tags: ["alcohol", "budget", "dinner", "fine", "live-music", "quiet", "terrace", "wifi"],
     fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
     menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
+  
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   // ── 3. JNANE SOUSSIA (TAROUDANT OUTSKIRTS) ──
@@ -302,6 +324,17 @@ export const taroudant_tafraouteEat: EatListing[] = [
     tags: ["budget", "couscous", "dinner", "dry", "live-music", "terrace"],
     fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
     menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
+  
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   // ── 4. RESTAURANT CHEZ NADIA (TAROUDANT MEDINA) ──
@@ -382,6 +415,17 @@ export const taroudant_tafraouteEat: EatListing[] = [
     tags: ["budget", "dinner", "dry", "medina", "pastilla", "tagine", "wifi"],
     fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
     menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
+  
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   // ── 5. RESTAURANT ATLAS (PLACE ASSARAG, TAROUDANT) ──
@@ -462,6 +506,17 @@ export const taroudant_tafraouteEat: EatListing[] = [
     tags: ["breakfast", "budget", "cafe-pastry", "dinner", "dry", "medina", "tagine", "terrace", "wifi"],
     fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
     menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
+  
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   // ── 6. CAFE RESTAURANT LES ARCADES (PLACE TALMOKLATE, TAROUDANT) ──
@@ -542,6 +597,17 @@ export const taroudant_tafraouteEat: EatListing[] = [
     tags: ["breakfast", "budget", "cafe-pastry", "dry", "juice", "medina", "tagine", "terrace", "wifi"],
     fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
     menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
+  
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   // ── 7. RESTAURANT LE PALAIS SALAM (TAROUDANT KASBAH) ──
@@ -622,6 +688,17 @@ export const taroudant_tafraouteEat: EatListing[] = [
     tags: ["alcohol", "budget", "dinner", "fine", "medina", "palace", "pastilla", "quiet", "tagine", "terrace", "wifi"],
     fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
     menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
+  
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   // ── 8. RESTAURANT AL HASSAN (TAROUDANT BAB KASBAH) ──
@@ -702,6 +779,17 @@ export const taroudant_tafraouteEat: EatListing[] = [
     tags: ["budget", "dinner", "dry", "medina", "tagine", "terrace", "wifi"],
     fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
     menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
+  
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   // ── 9. L'ETOILE DU SUD (TAFRAOUTE TOWN CENTER) ──
@@ -782,6 +870,17 @@ export const taroudant_tafraouteEat: EatListing[] = [
     tags: ["alcohol", "budget", "couscous", "dinner", "mountain", "sunset", "tagine", "terrace", "wifi"],
     fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
     menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
+  
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   // ── 10. CHEZ SABIR (TAFRAOUTE CENTER) ──
@@ -862,6 +961,17 @@ export const taroudant_tafraouteEat: EatListing[] = [
     tags: ["budget", "dinner", "dry", "mountain", "quiet", "tagine", "wifi"],
     fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
     menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
+  
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   // ── 11. RESTAURANT LA KASBAH (TAFRAOUTE) ──
@@ -942,6 +1052,17 @@ export const taroudant_tafraouteEat: EatListing[] = [
     tags: ["budget", "couscous", "dinner", "dry", "mountain", "sunset", "tagine", "terrace", "wifi"],
     fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
     menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
+  
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
 
   // ── 12. RESTAURANT MAISON TISSALINE (TAFRAOUTE / AMELN VALLEY) ──
@@ -1022,5 +1143,16 @@ export const taroudant_tafraouteEat: EatListing[] = [
     tags: ["budget", "dinner", "dry", "mountain", "quiet", "terrace", "wifi"],
     fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
     menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
+  
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+    ],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ];

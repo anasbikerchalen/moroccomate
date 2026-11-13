@@ -99,7 +99,9 @@ export const zagoraShops: ShopListing[] = [
     phoneNumber: '+212 5248-47120',
     openingHours: [{ day: 'Mon-Sun', hours: '08:00 - 18:30' }],
     workshopVisitable: true,
-    isLocalFavorite: true
+    isLocalFavorite: true,
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-zag-2',
@@ -125,7 +127,9 @@ export const zagoraShops: ShopListing[] = [
     productCategories: ['Majhoul Dates', 'Bouskri Dates', 'Jihel Dates', 'Date Paste'],
     languagesSpoken: ['Arabic', 'Berber', 'French'],
     openingHours: [{ day: 'Mon-Sun', hours: '08:00 - 19:30' }],
-    isLocalFavorite: true
+    isLocalFavorite: true,
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-zag-3',
@@ -150,7 +154,9 @@ export const zagoraShops: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard'],
     productCategories: ['Tuareg Silver Crosses', 'Engraved Daggers', 'Leather Camel Saddles', 'Carved Masks'],
     languagesSpoken: ['Arabic', 'French', 'English', 'Berber', 'Spanish'],
-    openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 20:30' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '08:30 - 20:30' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-zag-4',
@@ -177,7 +183,9 @@ export const zagoraShops: ShopListing[] = [
     productCategories: ['Cast Silver Bangles', 'Geometric Draa Pendants', 'Filigree Rings'],
     languagesSpoken: ['Arabic', 'Berber', 'French', 'English'],
     openingHours: [{ day: 'Mon-Sat', hours: '08:30 - 18:30' }],
-    workshopVisitable: true
+    workshopVisitable: true,
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-zag-5',
@@ -202,7 +210,9 @@ export const zagoraShops: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Blue Indigo Cheich Turbans', 'Gandoura Robes', 'Leather Desert Boots', 'Wind Goggles'],
     languagesSpoken: ['Arabic', 'French', 'English', 'Berber'],
-    openingHours: [{ day: 'Mon-Sun', hours: '08:00 - 21:00' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '08:00 - 21:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-zag-6',
@@ -227,7 +237,9 @@ export const zagoraShops: ShopListing[] = [
     paymentMethods: ['cash', 'visa'],
     productCategories: ['Draa Cumin', 'Henna Leaf Powder', 'Black Soap', 'Oasis Mint Tea'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sat', hours: '08:30 - 20:00' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '08:30 - 20:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-zag-7',
@@ -252,7 +264,9 @@ export const zagoraShops: ShopListing[] = [
     paymentMethods: ['cash', 'visa', 'mastercard'],
     productCategories: ['Draa Reed Mats', 'Camel Hair Blankets', 'Woven Kilims'],
     languagesSpoken: ['Arabic', 'French', 'Berber'],
-    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 18:00' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 18:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-zag-8',
@@ -277,7 +291,9 @@ export const zagoraShops: ShopListing[] = [
     paymentMethods: ['cash'],
     productCategories: ['Desert Rose Formations', 'Quartz Crystals', 'Fossil Slabs'],
     languagesSpoken: ['Arabic', 'French', 'English'],
-    openingHours: [{ day: 'Mon-Sun', hours: '08:00 - 19:00' }]
+    openingHours: [{ day: 'Mon-Sun', hours: '08:00 - 19:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-zag-9',
@@ -302,7 +318,9 @@ export const zagoraShops: ShopListing[] = [
     paymentMethods: ['cash'],
     productCategories: ['Palm Leaf Hats', 'Woven Date Baskets', 'Palm Fiber Mats'],
     languagesSpoken: ['Arabic', 'Berber', 'French'],
-    openingHours: [{ day: 'Mon-Sat', hours: '08:30 - 18:00' }]
+    openingHours: [{ day: 'Mon-Sat', hours: '08:30 - 18:00' }],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'sh-zag-10',
@@ -328,6 +346,8 @@ export const zagoraShops: ShopListing[] = [
     productCategories: ['Camel Leather Duffels', 'Heavy Sandals', 'Leather Notebook Covers'],
     languagesSpoken: ['Arabic', 'French', 'English'],
     openingHours: [{ day: 'Mon-Sat', hours: '09:00 - 19:00' }],
-    workshopVisitable: true
+    workshopVisitable: true,
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ]

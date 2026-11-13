@@ -294,7 +294,9 @@ export const alHoceimaSleep: SleepListing[] = [
       lat: 35.20261,
       lng: -3.885594
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'ah-sleep-2',
@@ -389,7 +391,9 @@ export const alHoceimaSleep: SleepListing[] = [
       lat: 35.20261,
       lng: -3.885594
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'ah-sleep-3',
@@ -483,7 +487,9 @@ export const alHoceimaSleep: SleepListing[] = [
       lat: 35.20261,
       lng: -3.885594
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'ah-sleep-4',
@@ -577,7 +583,9 @@ export const alHoceimaSleep: SleepListing[] = [
       lat: 35.148365,
       lng: -3.849259
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'ah-sleep-5',
@@ -671,7 +679,9 @@ export const alHoceimaSleep: SleepListing[] = [
       lat: 35.210704,
       lng: -3.905826
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'ah-sleep-6',
@@ -765,7 +775,9 @@ export const alHoceimaSleep: SleepListing[] = [
       lat: 35.207609,
       lng: -3.900073
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'ah-sleep-7',
@@ -859,7 +871,9 @@ export const alHoceimaSleep: SleepListing[] = [
       lat: 35.207609,
       lng: -3.900073
     },
-    tags: ["family-favorite", "heritage"]
+    tags: ["family-favorite", "heritage"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'ah-sleep-8',
@@ -953,7 +967,9 @@ export const alHoceimaSleep: SleepListing[] = [
       lat: 35.175245,
       lng: -3.839884
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'ah-sleep-9',
@@ -1042,7 +1058,9 @@ export const alHoceimaSleep: SleepListing[] = [
       business: 'Peaceful.',
       nomad: 'Quiet apartment workspace.'
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'ah-sleep-10',
@@ -1136,7 +1154,9 @@ export const alHoceimaSleep: SleepListing[] = [
       lat: 35.208585,
       lng: -3.89351
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'ah-sleep-11',
@@ -1225,7 +1245,9 @@ export const alHoceimaSleep: SleepListing[] = [
       business: 'Reliable.',
       nomad: 'Modern apartment workspace.'
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'ah-sleep-12',
@@ -1319,7 +1341,9 @@ export const alHoceimaSleep: SleepListing[] = [
       lat: 35.247223,
       lng: -3.93195
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'ah-sleep-13',
@@ -1413,7 +1437,9 @@ export const alHoceimaSleep: SleepListing[] = [
       lat: 35.233606,
       lng: -3.927406
     },
-    tags: []
+    tags: [],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'ah-sleep-14',
@@ -1506,7 +1532,9 @@ export const alHoceimaSleep: SleepListing[] = [
       lat: 35.233769,
       lng: -3.925483
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'ah-sleep-15',
@@ -1599,7 +1627,9 @@ export const alHoceimaSleep: SleepListing[] = [
       lat: 35.249031,
       lng: -3.947656
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'ah-sleep-16',
@@ -1694,7 +1724,9 @@ export const alHoceimaSleep: SleepListing[] = [
       lat: 35.233534,
       lng: -3.927865
     },
-    tags: []
+    tags: [],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'ah-sleep-17',
@@ -1787,7 +1819,9 @@ export const alHoceimaSleep: SleepListing[] = [
       lat: 35.207609,
       lng: -3.900073
     },
-    tags: []
+    tags: [],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'ah-sleep-18',
@@ -1880,7 +1914,9 @@ export const alHoceimaSleep: SleepListing[] = [
       lat: 35.245354,
       lng: -3.963093
     },
-    tags: ["family-favorite"]
+    tags: ["family-favorite"],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'ah-sleep-19',
@@ -1973,7 +2009,9 @@ export const alHoceimaSleep: SleepListing[] = [
       lat: 35.18152,
       lng: -4.145952
     },
-    tags: []
+    tags: [],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   },
   {
     id: 'ah-sleep-20',
@@ -2066,6 +2104,8 @@ export const alHoceimaSleep: SleepListing[] = [
       lat: 35.251517,
       lng: -3.940621
     },
-    tags: []
+    tags: [],
+    // Multi-platform reviews holder (hidden on UI until populated)
+    reviewsData: { sources: [], reviews: [] },
   }
 ]

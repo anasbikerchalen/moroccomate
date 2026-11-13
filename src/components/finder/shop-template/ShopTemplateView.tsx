@@ -1,6 +1,6 @@
 import React from 'react';
 import { ShopListing } from '../../../types/shop';
-import { ShopHeader } from './ShopHeader';
+import type { ReviewSource } from '../../../types/reviews';
 import { ShopProductsSection } from './ShopProductsSection';
 import { ShopHighlightsSection } from './ShopHighlightsSection';
 import { ShopNearbySection } from './ShopNearbySection';
@@ -9,12 +9,19 @@ import { ShopPaymentCard } from './ShopPaymentCard';
 import { ShopOpeningHoursCard } from './ShopOpeningHoursCard';
 import { ShopLanguagesCard } from './ShopLanguagesCard';
 import { ShopShippingBanner } from './ShopShippingBanner';
+import PlaceReviewsSection from '../../reviews/PlaceReviewsSection';
 
 interface ShopTemplateViewProps {
   shop: ShopListing;
+  externalSelectedSource?: ReviewSource | null;
+  onSelectedSourceChange?: (source: ReviewSource | null) => void;
 }
 
-export const ShopTemplateView: React.FC<ShopTemplateViewProps> = ({ shop }) => {
+export const ShopTemplateView: React.FC<ShopTemplateViewProps> = ({
+  shop,
+  externalSelectedSource,
+  onSelectedSourceChange,
+}) => {
   const v = shop.visibility || {};
 
   return (
@@ -66,6 +73,17 @@ export const ShopTemplateView: React.FC<ShopTemplateViewProps> = ({ shop }) => {
       {/* 5. Row 4: "Shipping" (Full width) */}
       {v.show_shipping !== false && shop.shipping && shop.shipping.available && (
         <ShopShippingBanner shipping={shop.shipping} />
+      )}
+
+      {/* 6. Multi-platform Traveler Reviews & Community Intelligence */}
+      {v.show_reviews !== false && (
+        <PlaceReviewsSection
+          reviewsData={shop.reviewsData || (shop as any).reviews}
+          placeName={shop.name}
+          category="shopping"
+          externalSelectedSource={externalSelectedSource}
+          onSelectedSourceChange={onSelectedSourceChange}
+        />
       )}
     </div>
   );
