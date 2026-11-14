@@ -47,6 +47,9 @@ import shopHeroBg from '../../assets/images/finder/category_shop_matte_178629709
 import stayHeroBg from '../../assets/images/finder/category_stays_matte_1786297074546.jpg';
 import thingsHeroBg from '../../assets/images/finder/category_things_matte_1786297086778.jpg';
 import defaultHeroBg from '../../assets/images/finder/finder_hero_matte_1786297047661.jpg';
+import { useTranslation } from 'react-i18next';
+import { useLangPath } from '../../utils/localeRouting';
+import { translateQuizQuestion } from '../../data/explore/quizTranslations';
 
 const getHeroImage = (cat: string | null) => {
   if (cat === 'food' || cat === 'eat') return foodHeroBg;
@@ -97,6 +100,8 @@ export default function ResultPage() {
   
   const { param1, param2, param3 } = useParams<{ param1?: string; param2?: string; param3?: string }>();
   const location = useLocation();
+  const { t } = useTranslation();
+  const { lang, lp, navigateLang } = useLangPath();
 
   const activeFeatureSlug = useMemo(() => {
     const params = new URLSearchParams(location.search);
@@ -105,21 +110,21 @@ export default function ResultPage() {
 
   const activeSearchIntent = useMemo(() => {
     if (!activeFeatureSlug) return null;
-    return getSearchIntent(activeCategory || 'sleep', activeFeatureSlug);
-  }, [activeFeatureSlug, activeCategory]);
+    return getSearchIntent(activeCategory || 'sleep', activeFeatureSlug, lang);
+  }, [activeFeatureSlug, activeCategory, lang]);
 
   const popularIntents = useMemo(() => {
-    return getCityPopularIntents(city || 'agadir', activeCategory || 'sleep');
-  }, [city, activeCategory]);
+    return getCityPopularIntents(city || 'agadir', activeCategory || 'sleep', lang);
+  }, [city, activeCategory, lang]);
 
   const handleSelectIntent = (intentSlug: string | null) => {
     const currentCity = (city || 'agadir').toLowerCase();
     const currentCat = activeCategory || 'sleep';
 
     if (!intentSlug || intentSlug === activeFeatureSlug) {
-      navigate(`/finder/${currentCity}/${currentCat}`);
+      navigateLang(`/finder/${currentCity}/${currentCat}`);
     } else {
-      navigate(`/finder/${currentCity}/${currentCat}/${intentSlug}`);
+      navigateLang(`/finder/${currentCity}/${currentCat}/${intentSlug}`);
     }
   };
 
@@ -244,7 +249,7 @@ export default function ResultPage() {
     }
 
     return listings;
-  }, [city, neighborhood, focusKey, activeCategory, activeSubCategory, sportIntent, nonTouristicAreas]);
+  }, [city, neighborhood, focusKey, activeCategory, activeSubCategory, sportIntent, nonTouristicAreas, activeSearchIntent]);
 
   const recommendations = useMemo(() => {
     // Minimum Rating (hard filter) — hides places below the chosen rating,
@@ -369,10 +374,10 @@ export default function ResultPage() {
               const treeResult = evaluateThingsQuizAnswer(item, String(answerId));
               if (treeResult === 'match') {
                 matchScore += weightGain;
-                matchedTags.push(getQuizOptionLabel(questionId, answerId));
+                matchedTags.push(getQuizOptionLabel(questionId, answerId, lang));
               } else if (treeResult === 'miss') {
                 matchScore += missPenalty;
-                missedTags.push(getQuizOptionLabel(questionId, answerId));
+                missedTags.push(getQuizOptionLabel(questionId, answerId, lang));
               } else {
                 // Neutral: the listing data cannot confirm or deny - not counted
                 totalCriteria -= weightGain;
@@ -392,19 +397,19 @@ export default function ResultPage() {
                  const spendMatch = priceMap[tag]?.includes((item as any).priceLevel);
                  if (spendMatch) {
                    matchScore += weightGain;
-                   matchedTags.push(getQuizOptionLabel(questionId, answerId));
+                   matchedTags.push(getQuizOptionLabel(questionId, answerId, lang));
                  } else {
                    matchScore += missPenalty;
-                   missedTags.push(getQuizOptionLabel(questionId, answerId));
+                   missedTags.push(getQuizOptionLabel(questionId, answerId, lang));
                  }
                } else if (item.lifestyle) {
                  const lifeMatch = (item.lifestyle as any).includes(tag);
                  if (lifeMatch) {
                    matchScore += weightGain;
-                   matchedTags.push(getQuizOptionLabel(questionId, answerId));
+                   matchedTags.push(getQuizOptionLabel(questionId, answerId, lang));
                  } else {
                    matchScore += missPenalty;
-                   missedTags.push(getQuizOptionLabel(questionId, answerId));
+                   missedTags.push(getQuizOptionLabel(questionId, answerId, lang));
                  }
                }
                return;
@@ -413,7 +418,7 @@ export default function ResultPage() {
                const tag = getTagForOptionId(answerId);
                if (item.groupTypes?.includes(tag as any)) {
                  matchScore += weightGain;
-                 matchedTags.push(getQuizOptionLabel(questionId, answerId));
+                 matchedTags.push(getQuizOptionLabel(questionId, answerId, lang));
                }
                return;
             }
@@ -428,10 +433,10 @@ export default function ResultPage() {
                  || (Array.isArray(item.vibeTags) && item.vibeTags.some((v: string) => v.toLowerCase().includes(dietId)));
                if (dietMatch) {
                  matchScore += weightGain;
-                 matchedTags.push(getQuizOptionLabel(questionId, answerId));
+                 matchedTags.push(getQuizOptionLabel(questionId, answerId, lang));
                } else if (dietValue === false) {
                  matchScore += missPenalty;
-                 missedTags.push(getQuizOptionLabel(questionId, answerId));
+                 missedTags.push(getQuizOptionLabel(questionId, answerId, lang));
                }
                return;
             }
@@ -444,7 +449,7 @@ export default function ResultPage() {
                if (structuredCuisine) {
                  if (structuredCuisine.includes(cuisineId)) {
                    matchScore += weightGain;
-                   matchedTags.push(getQuizOptionLabel(questionId, answerId));
+                   matchedTags.push(getQuizOptionLabel(questionId, answerId, lang));
                  }
                  return;
                }
@@ -461,7 +466,7 @@ export default function ResultPage() {
                }
                if (cuisineMatch) {
                  matchScore += weightGain;
-                 matchedTags.push(getQuizOptionLabel(questionId, answerId));
+                 matchedTags.push(getQuizOptionLabel(questionId, answerId, lang));
                }
                return;
             }
@@ -485,7 +490,7 @@ export default function ResultPage() {
                }
                if (locMatch) {
                  matchScore += weightGain;
-                 matchedTags.push(getQuizOptionLabel(questionId, answerId));
+                 matchedTags.push(getQuizOptionLabel(questionId, answerId, lang));
                }
                return;
             }
@@ -511,7 +516,7 @@ export default function ResultPage() {
 
                if (matchesKeyword || exactMatch) {
                  matchScore += weightGain * 2;
-                 matchedTags.push(`Specialty: ${answerId}`);
+                 matchedTags.push(`${answerId}`);
                }
                return;
              }
@@ -527,7 +532,7 @@ export default function ResultPage() {
             
             if (item.tags?.includes(targetTag) || item.archetypeAffinity?.includes(targetTag)) {
               matchScore += weightGain;
-              matchedTags.push(getQuizOptionLabel(questionId, answerId));
+              matchedTags.push(getQuizOptionLabel(questionId, answerId, lang));
             } else {
               const vibeTags = Array.isArray(item.vibeTags) ? item.vibeTags : [];
               const foodStyles = Array.isArray((item as any).foodStyles) ? (item as any).foodStyles : [];
@@ -549,7 +554,7 @@ export default function ResultPage() {
                 : searchableText.some((text: string) => text.includes(answerId.toString().toLowerCase()));
               if (hasMatch) {
                 matchScore += weightGain;
-                matchedTags.push(getQuizOptionLabel(questionId, answerId));
+                matchedTags.push(getQuizOptionLabel(questionId, answerId, lang));
               }
             }
         });
@@ -632,7 +637,7 @@ export default function ResultPage() {
     }
 
     return scoredWithDistance.sort((a, b) => b.sortedScore - a.sortedScore);
-  }, [realListings, filters, quizAnswers, archetype, secondaryArchetype, sortBy, context, city]);
+  }, [realListings, filters, quizAnswers, archetype, secondaryArchetype, sortBy, context, city, lang]);
 
   // Per-answer quick edit: every quiz answer as an editable pill, so adjusting
   // one answer never requires retaking the whole quiz
@@ -641,10 +646,11 @@ export default function ResultPage() {
     const allQuestions = getAllQuizQuestions();
     Object.entries(quizAnswers).forEach(([questionId, answerValue]) => {
       if (!answerValue || (Array.isArray(answerValue) && answerValue.length === 0)) return;
-      const question = allQuestions.find(q => q.id === questionId);
-      if (!question) return;
+      const rawQuestion = allQuestions.find(q => q.id === questionId);
+      if (!rawQuestion) return;
+      const question = translateQuizQuestion(rawQuestion, lang);
       const ids = Array.isArray(answerValue) ? answerValue : [answerValue];
-      const labels = ids.map((id: any) => getQuizOptionLabel(questionId, String(id))).join(' + ');
+      const labels = ids.map((id: any) => getQuizOptionLabel(questionId, String(id), lang)).join(' + ');
       pills.push({
         questionId,
         label: labels,
@@ -664,7 +670,7 @@ export default function ResultPage() {
       });
     });
     return pills;
-  }, [quizAnswers, setQuizAnswer, setFilter]);
+  }, [quizAnswers, setQuizAnswer, setFilter, lang]);
 
   const handleViewDetails = (itemId: string, itemIdx?: number) => {
     setOmitGoogleImage((itemIdx !== undefined ? itemIdx : 0) >= 5);
@@ -672,7 +678,7 @@ export default function ResultPage() {
     // Things To Do opens the dedicated named page (/things/:city/:slug)
     if (activeCategory === 'things-to-do') {
       const activitySlug = getActivityById(itemId)?.slug || itemId;
-      navigate(`/things/${(city || 'marrakech').toLowerCase()}/${activitySlug}`);
+      navigateLang(`/things/${(city || 'marrakech').toLowerCase()}/${activitySlug}`);
       return;
     }
     // Eat / Sleep / Shopping open their own name-based place page
@@ -681,13 +687,13 @@ export default function ResultPage() {
     if (placeCategory) {
       const placeUrl = getPlaceUrlById(placeCategory, itemId);
       if (placeUrl) {
-        navigate(placeUrl);
+        navigateLang(placeUrl);
         return;
       }
     }
     // Fallback: legacy in-app detail view
     pushView('detail');
-    navigate(`/finder/${(city || 'marrakech').toLowerCase()}/${itemId}`);
+    navigateLang(`/finder/${(city || 'marrakech').toLowerCase()}/${itemId}`);
   };
 
   // Every active filter as a removable pill — powers the tile preview AND the pill row,
@@ -744,17 +750,17 @@ export default function ResultPage() {
       
       <div className="p-20 text-center text-stone-500 bg-white rounded-[40px] border border-stone-100 shadow-sm">
         <Sparkles className="w-12 h-12 mx-auto mb-4 opacity-20" />
-        <h3 className="text-xl font-bold text-stone-900 mb-2">Curating {(city || '').replace('_', ' ')}</h3>
-        <p className="mb-8">Data for this city is being curated by our local intelligence team. Please check back later or explore another destination.</p>
+        <h3 className="text-xl font-bold text-stone-900 mb-2">{t('results.curatingCity', { city: (city || '').replace('_', ' ') })}</h3>
+        <p className="mb-8">{t('results.curatingDesc')}</p>
         <button 
           onClick={() => {
             setCity('marrakech');
             const cat = activeCategory || 'sleep';
-            navigate(`/finder/marrakech/${cat}${location.search}`);
+            navigateLang(`/finder/marrakech/${cat}${location.search}`);
           }} 
           className="px-6 py-3 bg-[#C2613C] text-white rounded-xl font-bold uppercase tracking-widest text-[10px] hover:bg-[#C2613C]/90 cursor-pointer"
         >
-          Explore Marrakech
+          {t('results.exploreMarrakech')}
         </button>
       </div>
     </div>
@@ -768,10 +774,10 @@ export default function ResultPage() {
       
       <div className="p-20 text-center text-stone-500 bg-white rounded-[40px] border border-stone-100 shadow-sm">
         <Sparkles className="w-12 h-12 mx-auto mb-4 opacity-20" />
-        <h3 className="text-xl font-bold text-stone-900 mb-2">No matches found</h3>
-        <p className="mb-8">Try adjusting your area, vibe or filters to find more spots.</p>
+        <h3 className="text-xl font-bold text-stone-900 mb-2">{t('results.noMatchesTitle')}</h3>
+        <p className="mb-8">{t('results.noMatchesDesc')}</p>
         <button onClick={() => handleEditVibe()} className="px-6 py-3 bg-stone-900 text-white rounded-xl font-bold uppercase tracking-widest text-[10px]">
-          Edit Vibe Choices
+          {t('results.editVibeChoices')}
         </button>
       </div>
     </div>
@@ -780,8 +786,8 @@ export default function ResultPage() {
   return (
     <div className="bg-[#FAF7F2] min-h-screen pb-16 font-sans text-stone-800">
       <SEO
-        title={activeSearchIntent ? activeSearchIntent.seoTitle(currentCityName) : `Places we found for you in ${currentCityName}`}
-        description={activeSearchIntent ? activeSearchIntent.seoDescription(currentCityName) : `Handpicked places and local recommendations in ${currentCityName}.`}
+        title={activeSearchIntent ? activeSearchIntent.seoTitle(currentCityName) : `${t('results.placesFoundIn')} ${currentCityName}`}
+        description={activeSearchIntent ? activeSearchIntent.seoDescription(currentCityName) : `${t('results.handpickedFromQuiz')} — ${currentCityName}`}
       />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-8">
 
@@ -795,14 +801,14 @@ export default function ResultPage() {
               {activeSearchIntent ? (
                 <span>{activeSearchIntent.headerTitle(currentCityName)}</span>
               ) : (
-                <span>Places we found for you in <span className="text-[#C2613C]">{currentCityName}</span></span>
+                <span>{t('results.placesFoundIn')} <span className="text-[#C2613C]">{currentCityName}</span></span>
               )}
             </h1>
             <p className="text-stone-500 text-xs font-medium mt-0.5">
               {activeSearchIntent ? (
-                <span>Handpicked for <strong className="text-stone-700">{activeSearchIntent.label}</strong> · <span className="font-bold text-stone-700">{recommendations.length} places</span></span>
+                <span>{t('results.handpickedFor')} <strong className="text-stone-700">{activeSearchIntent.label}</strong> · <span className="font-bold text-stone-700">{t('results.placesCount', { count: recommendations.length })}</span></span>
               ) : (
-                <span>Handpicked from your quiz · <span className="font-bold text-stone-700">{recommendations.length} places</span></span>
+                <span>{t('results.handpickedFromQuiz')} · <span className="font-bold text-stone-700">{t('results.placesCount', { count: recommendations.length })}</span></span>
               )}
             </p>
           </div>
@@ -830,7 +836,7 @@ export default function ResultPage() {
                   <MapPin className="w-4 h-4" />
                 </div>
                 <div className="text-left min-w-0 flex-1">
-                  <div className="text-[10px] font-bold uppercase tracking-wider text-stone-400">CITY</div>
+                  <div className="text-[10px] font-bold uppercase tracking-wider text-stone-400">{t('results.cityLabel')}</div>
                   <div className="font-bold text-stone-900 text-sm flex items-center justify-between gap-1 truncate">
                     <span className="truncate">{currentCityName}</span>
                     <ChevronDown className={cn("w-3.5 h-3.5 text-stone-400 shrink-0 transition-transform", showLocationModal && "rotate-180")} />
@@ -862,16 +868,16 @@ export default function ResultPage() {
                 </div>
                 <div className="text-left min-w-0 flex-1">
                   <div className="flex items-center gap-1.5">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-amber-700">MORE FILTERS</span>
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-amber-700">{t('results.moreFilters')}</span>
                     <span className="text-[9px] font-extrabold uppercase px-1.5 py-0.2 text-amber-800 bg-amber-100/90 rounded-full">
-                      Customize
+                      {t('results.customize')}
                     </span>
                   </div>
                   <div className="font-bold text-stone-900 text-sm flex items-center gap-2">
-                    <span>Price, Ratings & Amenities</span>
+                    <span>{t('results.priceRatingsAmenities')}</span>
                     {(activeFilterPills.length + quizAnswerPills.length) > 0 && (
                       <span className="text-[10px] font-extrabold bg-[#C2613C] text-white px-2 py-0.5 rounded-full leading-none">
-                        {activeFilterPills.length + quizAnswerPills.length} active
+                        {t('results.activeCount', { count: activeFilterPills.length + quizAnswerPills.length })}
                       </span>
                     )}
                   </div>
@@ -882,18 +888,18 @@ export default function ResultPage() {
 
             {/* Sort (moved into the control row) */}
             <div className="w-full md:w-auto shrink-0 flex items-center gap-2 text-xs text-stone-600 bg-[#FAF7F2] border border-[#E5DDD0] rounded-xl px-4 py-2.5">
-              <span className="text-stone-400 font-medium">Sort:</span>
+              <span className="text-stone-400 font-medium">{t('results.sortLabel')}</span>
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as any)}
                 className="font-bold text-stone-900 bg-transparent outline-none cursor-pointer"
               >
-                <option value="smart">Smart Match</option>
-                <option value="distance">Closest to Me</option>
-                <option value="rating">Highest Rated</option>
-                <option value="verified">Verified First</option>
-                <option value="price_low">Price: Low to High</option>
-                <option value="price_high">Price: High to Low</option>
+                <option value="smart">{t('results.sortSmart')}</option>
+                <option value="distance">{t('results.sortDistance')}</option>
+                <option value="rating">{t('results.sortRating')}</option>
+                <option value="verified">{t('results.sortVerified')}</option>
+                <option value="price_low">{t('results.sortPriceLow')}</option>
+                <option value="price_high">{t('results.sortPriceHigh')}</option>
               </select>
             </div>
           </div>
@@ -905,7 +911,7 @@ export default function ResultPage() {
               <div className="flex items-center gap-2 flex-wrap">
                 <span className="inline-flex items-center gap-1.5 font-bold text-stone-800">
                   <Filter className="w-3.5 h-3.5 text-[#C2613C]" />
-                  <span>{activeFilterPills.length + quizAnswerPills.length} active criteria applied</span>
+                  <span>{t('results.activeCriteriaApplied', { count: activeFilterPills.length + quizAnswerPills.length })}</span>
                 </span>
                 <span className="text-stone-300 hidden sm:inline">·</span>
                 <button
@@ -913,7 +919,7 @@ export default function ResultPage() {
                   onClick={() => setShowActiveDetails(!showActiveDetails)}
                   className="font-bold text-[#C2613C] hover:text-[#A84926] flex items-center gap-1 cursor-pointer transition-colors"
                 >
-                  <span>{showActiveDetails ? 'Hide tags' : 'Show tags'}</span>
+                  <span>{showActiveDetails ? t('results.hideTags') : t('results.showTags')}</span>
                   <ChevronDown className={cn("w-3 h-3 transition-transform duration-200", showActiveDetails && "rotate-180")} />
                 </button>
               </div>
@@ -923,7 +929,7 @@ export default function ResultPage() {
                 onClick={clearAllFilters}
                 className="font-bold text-stone-400 hover:text-[#C2613C] transition-colors cursor-pointer text-[11px] shrink-0 ml-2"
               >
-                Clear all
+                {t('results.clearAll')}
               </button>
             </div>
 
@@ -944,7 +950,7 @@ export default function ResultPage() {
                         <span
                           onClick={() => setEditingQuestionId(editingQuestionId === pill.questionId ? null : pill.questionId)}
                           className="px-2.5 py-1 bg-[#FAF3EA] border border-[#D9CCA8] rounded-full text-xs font-bold text-stone-800 flex items-center gap-1.5 cursor-pointer hover:border-[#C2613C] transition-all"
-                          title="Click to change quiz answer"
+                          title={t('results.clickToEditAnswer')}
                         >
                           <span>{pill.label}</span>
                           <button
@@ -1050,13 +1056,13 @@ export default function ResultPage() {
             const matchPct = (item as any).matchPercentage as number | undefined;
             const matchBadge = typeof matchPct === 'number' && matchPct >= 50
               ? matchPct >= 95
-                ? { label: 'Perfect Match', emoji: '🟢', cls: 'bg-emerald-50 text-emerald-700 border-emerald-200' }
+                ? { label: t('results.perfectMatch'), emoji: '🟢', cls: 'bg-emerald-50 text-emerald-700 border-emerald-200' }
                 : matchPct >= 75
-                  ? { label: 'Great Match', emoji: '🟡', cls: 'bg-[#C9A84C]/10 text-[#8A6D1F] border-[#C9A84C]/30' }
-                  : { label: 'Good Match', emoji: '🟠', cls: 'bg-amber-50 text-amber-700 border-amber-200' }
+                  ? { label: t('results.greatMatch'), emoji: '🟡', cls: 'bg-[#C9A84C]/10 text-[#8A6D1F] border-[#C9A84C]/30' }
+                  : { label: t('results.goodMatch'), emoji: '🟠', cls: 'bg-amber-50 text-amber-700 border-amber-200' }
               : null;
 
-            const cardHref = (() => {
+            const rawCardHref = (() => {
               if (activeCategory === 'things-to-do') {
                 const activitySlug = getActivityById(item.id)?.slug || item.id;
                 return `/things/${(city || 'marrakech').toLowerCase()}/${activitySlug}`;
@@ -1068,6 +1074,7 @@ export default function ResultPage() {
               }
               return `/finder/${(city || 'marrakech').toLowerCase()}/${item.id}`;
             })();
+            const cardHref = lp(rawCardHref);
 
             return (
               <motion.div
@@ -1102,7 +1109,7 @@ export default function ResultPage() {
 
                     {/* Neighborhood label */}
                     <span className="relative z-10 text-[11px] font-bold text-[#8C7A6B] uppercase tracking-wider line-clamp-1">
-                      {item.neighborhood || (activeCategory === 'food' ? 'Dining Spot' : activeCategory === 'sleep' ? 'Stay' : activeCategory === 'shopping' ? 'Artisan Shop' : 'Attraction')}
+                      {item.neighborhood || (activeCategory === 'food' ? t('results.fallbackTypeFood') : activeCategory === 'sleep' ? t('results.fallbackTypeSleep') : activeCategory === 'shopping' ? t('results.fallbackTypeShopping') : t('results.fallbackTypeThings'))}
                     </span>
 
                     {/* See photos link */}
@@ -1114,7 +1121,7 @@ export default function ResultPage() {
                       className="relative z-10 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white text-[#29231F] text-[11px] font-bold border border-[#D9C8B0] hover:bg-stone-900 hover:text-white hover:border-stone-900 transition-all duration-200 cursor-pointer"
                     >
                       <MapPin className="w-3 h-3 text-[#C2613C]" />
-                      <span>See photos on Google Maps</span>
+                      <span>{t('results.seePhotosMaps')}</span>
                       <ExternalLink className="w-2.5 h-2.5 opacity-60" />
                     </a>
                   </div>
@@ -1128,6 +1135,7 @@ export default function ResultPage() {
                           <a
                             href={cardHref}
                             onClick={(e) => {
+                              e.preventDefault();
                               e.stopPropagation();
                               handleViewDetails(item.id, idx);
                             }}
@@ -1142,7 +1150,7 @@ export default function ResultPage() {
                           {isTopPick && (
                             <div className="px-2.5 py-1 bg-[#D99A30] text-white rounded-md text-[10px] font-black uppercase tracking-wider flex items-center gap-1 shadow-sm shrink-0">
                               <Star className="w-3 h-3 fill-current" />
-                              <span>TOP PICK</span>
+                              <span>{t('results.topPick')}</span>
                             </div>
                           )}
                           {/* Rating Badge — only when a real rating exists */}
@@ -1186,7 +1194,7 @@ export default function ResultPage() {
                           </span>
                         )}
                         <MapPin className="w-3.5 h-3.5 text-stone-400 shrink-0" />
-                        <span>{(item.neighborhood || 'Medina').toUpperCase()}</span>
+                        <span>{(item.neighborhood || t('results.defaultNeighborhood')).toUpperCase()}</span>
                         {(item as any).distanceM !== null && (item as any).distanceM !== undefined && (
                           <span
                             title={
@@ -1199,13 +1207,13 @@ export default function ResultPage() {
                             <Navigation className="w-2.5 h-2.5 fill-current" />
                             {(item as any).distanceOrigin === 'gps'
                               ? (item as any).distanceM < 1000
-                                ? `${Math.round((item as any).distanceM)}m away`
-                                : `${((item as any).distanceM / 1000).toFixed(1)} km away`
+                                ? t('results.metersAway', { meters: Math.round((item as any).distanceM) })
+                                : t('results.kmAway', { km: ((item as any).distanceM / 1000).toFixed(1) })
                               : (item as any).distanceM < 200
-                                ? 'City center'
+                                ? t('results.cityCenter')
                                 : (item as any).distanceM < 1000
-                                  ? `${Math.round((item as any).distanceM)}m from center`
-                                  : `${((item as any).distanceM / 1000).toFixed(1)} km from center`}
+                                  ? t('results.metersFromCenter', { meters: Math.round((item as any).distanceM) })
+                                  : t('results.kmFromCenter', { km: ((item as any).distanceM / 1000).toFixed(1) })}
                           </span>
                         )}
                         {liveStatus && liveStatus.status !== 'unknown' && (
@@ -1218,7 +1226,7 @@ export default function ResultPage() {
                         {item.safetyLevel ? (
                           <span className={cn("inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold normal-case tracking-normal border", item.safetyLevel >= 4 ? "bg-emerald-50 text-emerald-700 border-emerald-200" : item.safetyLevel === 3 ? "bg-amber-50 text-amber-700 border-amber-200" : "bg-red-50 text-red-700 border-red-200")}>
                             <Shield className="w-3 h-3" />
-                            Safety {item.safetyLevel}/5
+                            {t('results.safetyScore', { score: item.safetyLevel })}
                           </span>
                         ) : null}
                       </div>
@@ -1236,7 +1244,7 @@ export default function ResultPage() {
                             className="text-[11px] font-bold text-[#C2613C] hover:text-[#A34E2F] transition-colors flex items-center gap-1 cursor-pointer"
                           >
                             <Sparkles className="w-3 h-3" />
-                            Why this matched
+                            {t('results.whyMatched')}
                             <ChevronDown className={cn("w-3 h-3 transition-transform", expandedWhyId === item.id && "rotate-180")} />
                           </button>
                           <AnimatePresence>
@@ -1271,7 +1279,13 @@ export default function ResultPage() {
                       <div className="flex flex-wrap gap-1.5">
                         {/* Default Category Chip */}
                         <span className="px-3 py-1 bg-[#F1E8DB] text-stone-800 rounded-full text-xs font-medium border border-[#E3D8C6]">
-                          {activeCategory === 'food' ? 'Food & Dining' : activeCategory === 'sleep' ? 'Stays & Sleep' : activeCategory === 'shopping' ? 'Shopping' : 'Things to Do'}
+                          {activeCategory === 'food'
+                            ? t('home.categories.food.title')
+                            : activeCategory === 'sleep'
+                              ? t('home.categories.sleep.title')
+                              : activeCategory === 'shopping'
+                                ? t('home.categories.shopping.title')
+                                : t('home.categories.things-to-do.title')}
                         </span>
 
                         {/* Additional Tags */}
@@ -1299,7 +1313,7 @@ export default function ResultPage() {
                           className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white hover:bg-[#C2613C] text-stone-700 hover:text-white text-[11px] font-bold border border-[#E2D6C4] hover:border-[#C2613C] transition-all cursor-pointer"
                         >
                           <Navigation className="w-3.5 h-3.5" />
-                          <span>Directions</span>
+                          <span>{t('results.directions')}</span>
                         </a>
                         <div className="w-8 h-8 rounded-full bg-[#FAF3EA] group-hover:bg-[#C2613C] border border-[#E2D6C4] group-hover:border-[#C2613C] flex items-center justify-center transition-all">
                           <ChevronRight className="w-4 h-4 text-stone-500 group-hover:text-white transition-colors" />
@@ -1320,11 +1334,11 @@ export default function ResultPage() {
               onClick={() => setVisibleCount(prev => prev + 5)}
               className="px-8 py-3.5 bg-white border border-[#E0D5C3] hover:border-[#C2613C] text-stone-800 hover:text-[#C2613C] rounded-2xl font-bold text-sm uppercase tracking-wider transition-all shadow-sm hover:shadow-md flex items-center gap-2.5 cursor-pointer group"
             >
-              <span>Show 5 More Places</span>
+              <span>{t('results.showMorePlaces')}</span>
               <ChevronDown className="w-4 h-4 text-stone-500 group-hover:text-[#C2613C] transition-transform group-hover:translate-y-0.5" />
             </button>
             <p className="text-xs text-stone-500 font-medium">
-              Showing {Math.min(visibleCount, recommendations.length)} of {recommendations.length} curated places
+              {t('results.showingCountOf', { shown: Math.min(visibleCount, recommendations.length), total: recommendations.length })}
             </p>
           </div>
         )}
@@ -1336,7 +1350,7 @@ export default function ResultPage() {
             className="inline-flex items-center gap-2 text-sm font-semibold text-stone-500 hover:text-[#C2613C] transition-colors cursor-pointer"
           >
             <Sparkles className="w-4 h-4" />
-            <span>Not finding what you want? Retake the quiz</span>
+            <span>{t('results.retakeQuiz')}</span>
           </button>
         </div>
       </div>
@@ -1359,7 +1373,7 @@ export default function ResultPage() {
                 <div className="flex items-center justify-between mb-4 pb-3 border-b border-stone-100">
                   <div className="flex items-center gap-2 text-stone-900 font-bold font-serif text-lg">
                     <MapPin className="w-5 h-5 text-[#C2613C]" />
-                    <span>Choose Destination City</span>
+                    <span>{t('results.chooseDestinationCity')}</span>
                   </div>
                   <button 
                     onClick={() => setShowLocationModal(false)} 

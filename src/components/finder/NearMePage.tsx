@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import { useParams, useNavigate, Link, useLocation } from 'react-router-dom';
+import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import {
   MapPin,
@@ -26,6 +26,10 @@ import FavoritesDrawer from './FavoritesDrawer';
 import { SEO } from '../ui/SEO';
 import logoImg from '../../assets/images/logo.png';
 import { cn } from '../../utils/cn';
+import { useTranslation } from 'react-i18next';
+import { useLangPath } from '../../utils/localeRouting';
+import LocalizedLink from '../ui/LocalizedLink';
+import LanguageSwitcher from '../ui/LanguageSwitcher';
 
 const STATUS_CHIP_STYLES: Record<string, string> = {
   emerald: 'bg-emerald-50 text-emerald-700 border-emerald-200',
@@ -164,6 +168,8 @@ export default function NearMePage() {
   const { category: rawCategory, city: rawCity } = useParams<{ category?: string; city?: string }>();
   const location = useLocation();
   const navigate = useNavigate();
+  const { t } = useTranslation();
+  const { lp, navigateLang } = useLangPath();
 
   // Saved bookmarks store
   const { bookmarks, toggleBookmark, isBookmarked } = useSavedStore();
@@ -331,7 +337,7 @@ export default function NearMePage() {
   const handleCityChange = (newCityId: string) => {
     setSelectedCityId(newCityId);
     setSelectedNeighborhood('all');
-    navigate(`/${category}/${newCityId}/near-me`, { replace: true });
+    navigateLang(`/${category}/${newCityId}/near-me`, { replace: true });
   };
 
   const handleBack = (e?: React.MouseEvent) => {
@@ -342,7 +348,7 @@ export default function NearMePage() {
     try {
       const prevUrl = sessionStorage.getItem('mm_last_visited_page');
       if (prevUrl && !prevUrl.includes('/near-me') && prevUrl !== location.pathname) {
-        navigate(prevUrl);
+        navigateLang(prevUrl);
         return;
       }
     } catch {
@@ -358,7 +364,7 @@ export default function NearMePage() {
     }
 
     // 3. Fallback to homepage
-    navigate('/');
+    navigateLang('/');
   };
 
   return (
@@ -374,90 +380,92 @@ export default function NearMePage() {
       {/* ─────────────────────────────────────────────────────────────
           1. WEBSITE HEADER — Identical theme to HomePage & ExplorePage
           ───────────────────────────────────────────────────────────── */}
-      <header className="relative z-20 max-w-[1400px] mx-auto px-4 sm:px-6 md:px-10 pt-4 md:pt-5 pb-3 flex items-center justify-between border-b border-[#EADBCE]/60">
+      <header className="relative z-40 max-w-[1400px] mx-auto px-4 sm:px-6 md:px-10 pt-4 md:pt-5 pb-3 flex items-center justify-between border-b border-[#EADBCE]/60">
         {/* Left Side: Back Button + Moroccan Mate Logo */}
         <div className="flex items-center gap-2.5 sm:gap-3.5">
           <button
             type="button"
             onClick={handleBack}
             className="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-3.5 sm:py-1.5 rounded-full bg-white hover:bg-stone-50 border border-[#EADBCE] text-xs font-semibold text-[#29231F] transition-all shadow-2xs hover:shadow-xs cursor-pointer shrink-0 group"
-            title="Go back"
-            aria-label="Go back"
+            title={t('common.back')}
+            aria-label={t('common.back')}
           >
             <ArrowLeft className="w-3.5 h-3.5 text-[#C2613C] transition-transform group-hover:-translate-x-0.5" />
-            <span>Back</span>
+            <span>{t('common.back')}</span>
           </button>
 
-          <Link to="/" className="flex items-center gap-2.5 sm:gap-3 group">
+          <LocalizedLink to="/" className="flex items-center gap-2.5 sm:gap-3 group">
             <img
               src={logoImg}
               alt="Moroccan Mate logo"
               className="w-8 h-8 sm:w-9 sm:h-9 shrink-0 object-contain transition-transform group-hover:scale-105"
             />
             <div>
-              <p className="font-display text-base sm:text-lg md:text-xl font-semibold leading-none text-[#29231F]">Moroccan Mate</p>
-              <p className="font-sans text-[8px] sm:text-[9px] font-bold uppercase tracking-[0.22em] text-[#71685F] mt-1">Real places. Local vibes.</p>
+              <p className="font-display text-base sm:text-lg md:text-xl font-semibold leading-none text-[#29231F]">{t('appTitle')}</p>
+              <p className="font-sans text-[8px] sm:text-[9px] font-bold uppercase tracking-[0.22em] text-[#71685F] mt-1">{t('home.brandTagline')}</p>
             </div>
-          </Link>
+          </LocalizedLink>
         </div>
 
         {/* Center: Categories Navigation Bar */}
         <nav className="hidden lg:flex items-center gap-1.5 p-1 bg-white/70 backdrop-blur-xs border border-[#EADBCE] rounded-full">
-          <Link
+          <LocalizedLink
             to={`/eat/${selectedCityId}/near-me`}
             className={cn(
               "px-3.5 py-1 rounded-full text-xs font-semibold transition-all",
               category === 'eat' ? "bg-[#C2613C] text-white shadow-xs" : "text-[#71685F] hover:text-[#29231F]"
             )}
           >
-            Eat
-          </Link>
-          <Link
+            {t('home.categories.food.title')}
+          </LocalizedLink>
+          <LocalizedLink
             to={`/sleep/${selectedCityId}/near-me`}
             className={cn(
               "px-3.5 py-1 rounded-full text-xs font-semibold transition-all",
               category === 'sleep' ? "bg-[#C2613C] text-white shadow-xs" : "text-[#71685F] hover:text-[#29231F]"
             )}
           >
-            Sleep
-          </Link>
-          <Link
+            {t('home.categories.sleep.title')}
+          </LocalizedLink>
+          <LocalizedLink
             to={`/things/${selectedCityId}/near-me`}
             className={cn(
               "px-3.5 py-1 rounded-full text-xs font-semibold transition-all",
               category === 'things' ? "bg-[#C2613C] text-white shadow-xs" : "text-[#71685F] hover:text-[#29231F]"
             )}
           >
-            Things to Do
-          </Link>
-          <Link
+            {t('home.categories.things-to-do.title')}
+          </LocalizedLink>
+          <LocalizedLink
             to={`/shop/${selectedCityId}/near-me`}
             className={cn(
               "px-3.5 py-1 rounded-full text-xs font-semibold transition-all",
               category === 'shop' ? "bg-[#C2613C] text-white shadow-xs" : "text-[#71685F] hover:text-[#29231F]"
             )}
           >
-            Shopping
-          </Link>
+            {t('home.categories.shopping.title')}
+          </LocalizedLink>
         </nav>
 
-        {/* Right Side: Home Button & Saved Places */}
+        {/* Right Side: Language, Home Button & Saved Places */}
         <div className="flex items-center gap-2 sm:gap-3">
-          <Link
+          <LanguageSwitcher compact />
+
+          <LocalizedLink
             to="/"
             className="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-3.5 sm:py-1.5 rounded-full bg-white/90 hover:bg-white border border-[#EADBCE] text-xs font-semibold text-[#29231F] transition-all duration-200 shadow-2xs hover:shadow-xs"
-            title="Go to Homepage"
+            title={t('common.home')}
           >
             <Home className="w-3.5 h-3.5 text-[#C2613C]" />
-            <span className="hidden sm:inline">Home</span>
-          </Link>
+            <span className="hidden sm:inline">{t('common.home')}</span>
+          </LocalizedLink>
 
           {/* Saved Places button */}
           <button
             type="button"
             onClick={() => setFavoritesOpen(true)}
             className="group relative flex items-center gap-2 px-3 py-1.5 sm:px-3.5 sm:py-1.5 rounded-full bg-white/90 hover:bg-white border border-[#EADBCE] shadow-2xs hover:shadow-md hover:border-[#EADBCE] transition-all duration-200"
-            aria-label="View saved places"
+            aria-label={t('common.viewSaved')}
           >
             <Heart
               className={cn(
@@ -465,7 +473,7 @@ export default function NearMePage() {
                 bookmarks.length > 0 ? "text-[#C85A32] fill-[#C85A32]" : "text-[#71685F] group-hover:text-[#C85A32]"
               )}
             />
-            <span className="font-sans text-xs font-semibold text-[#29231F] hidden sm:inline">Saved</span>
+            <span className="font-sans text-xs font-semibold text-[#29231F] hidden sm:inline">{t('common.saved')}</span>
             {bookmarks.length > 0 && (
               <span className="bg-[#C9A84C] text-white text-[10px] font-bold px-1.5 py-0.2 rounded-full min-w-[18px] text-center leading-none">
                 {bookmarks.length}
@@ -484,24 +492,24 @@ export default function NearMePage() {
         {/* Editorial Breadcrumbs & Quick Back */}
         <div className="flex items-center justify-between mb-6">
           <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-xs text-[#71685F]">
-            <Link to="/" className="hover:text-[#C2613C] transition-colors flex items-center gap-1 font-medium">
+            <LocalizedLink to="/" className="hover:text-[#C2613C] transition-colors flex items-center gap-1 font-medium">
               <Home className="w-3.5 h-3.5 text-[#C2613C]" />
-              <span>Home</span>
-            </Link>
+              <span>{t('common.home')}</span>
+            </LocalizedLink>
             <span className="text-stone-300">/</span>
             <span className="capitalize font-medium text-stone-600">{currentCityObj.name}</span>
             <span className="text-stone-300">/</span>
-            <span className="font-bold text-[#29231F]">{currentPlaceType.singularTitle} Near Me</span>
+            <span className="font-bold text-[#29231F]">{currentPlaceType.singularTitle} · {t('common.nearMe')}</span>
           </nav>
 
           <button
             type="button"
             onClick={handleBack}
             className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#71685F] hover:text-[#29231F] px-2.5 py-1 rounded-full bg-white/80 hover:bg-white border border-[#EADBCE] transition-all cursor-pointer shadow-2xs group"
-            title="Go back"
+            title={t('common.back')}
           >
             <ArrowLeft className="w-3.5 h-3.5 text-[#C2613C] transition-transform group-hover:-translate-x-0.5" />
-            <span>Back</span>
+            <span>{t('common.back')}</span>
           </button>
         </div>
 
@@ -509,7 +517,7 @@ export default function NearMePage() {
           {/* Main 4 Categories Switcher Tabs */}
           <div className="mb-4 flex items-center justify-center">
             <div className="inline-flex items-center gap-1 p-1 bg-white/80 backdrop-blur-xs border border-[#EADBCE] rounded-full shadow-2xs">
-              <Link
+              <LocalizedLink
                 to={`/eat/${selectedCityId}/near-me`}
                 className={cn(
                   "px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all",
@@ -518,9 +526,9 @@ export default function NearMePage() {
                     : "text-[#71685F] hover:text-[#29231F]"
                 )}
               >
-                Eat
-              </Link>
-              <Link
+                {t('home.categories.food.title')}
+              </LocalizedLink>
+              <LocalizedLink
                 to={`/sleep/${selectedCityId}/near-me`}
                 className={cn(
                   "px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all",
@@ -529,9 +537,9 @@ export default function NearMePage() {
                     : "text-[#71685F] hover:text-[#29231F]"
                 )}
               >
-                Sleep
-              </Link>
-              <Link
+                {t('home.categories.sleep.title')}
+              </LocalizedLink>
+              <LocalizedLink
                 to={`/things/${selectedCityId}/near-me`}
                 className={cn(
                   "px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all",
@@ -540,9 +548,9 @@ export default function NearMePage() {
                     : "text-[#71685F] hover:text-[#29231F]"
                 )}
               >
-                Things to Do
-              </Link>
-              <Link
+                {t('home.categories.things-to-do.title')}
+              </LocalizedLink>
+              <LocalizedLink
                 to={`/shop/${selectedCityId}/near-me`}
                 className={cn(
                   "px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all",
@@ -551,8 +559,8 @@ export default function NearMePage() {
                     : "text-[#71685F] hover:text-[#29231F]"
                 )}
               >
-                Shopping
-              </Link>
+                {t('home.categories.shopping.title')}
+              </LocalizedLink>
             </div>
           </div>
 
@@ -753,7 +761,8 @@ export default function NearMePage() {
                 liveStatus = null;
               }
 
-              const cardHref = getListingUrl(item) || `/finder/${selectedCityId}/${item.id}`;
+              const rawCardHref = getListingUrl(item) || `/finder/${selectedCityId}/${item.id}`;
+              const cardHref = lp(rawCardHref);
               const distanceM = item._distMeters;
 
               return (
@@ -762,7 +771,7 @@ export default function NearMePage() {
                   initial={{ opacity: 0, y: 14 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: idx * 0.03, duration: 0.25 }}
-                  onClick={() => navigate(cardHref)}
+                  onClick={() => navigateLang(rawCardHref)}
                   className="group bg-[#FAF6EE] hover:bg-white border border-[#E9E1D4] hover:border-[#D9CCA8] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-md transition-all duration-300 cursor-pointer overflow-hidden"
                 >
                   {/* Title & Actions Row */}
@@ -771,8 +780,9 @@ export default function NearMePage() {
                       <a
                         href={cardHref}
                         onClick={(e) => {
+                          e.preventDefault();
                           e.stopPropagation();
-                          navigate(cardHref);
+                          navigateLang(rawCardHref);
                         }}
                         className="hover:underline focus:outline-hidden text-stone-900 group-hover:text-[#C2613C] transition-colors"
                       >

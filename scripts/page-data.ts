@@ -19,12 +19,17 @@ import { getListingRating } from '../src/listings/utils';
 import { cityMap } from '../src/data/cities';
 import { getStayOwnerAnswer } from '../src/engine/stayAdapter';
 import { CITY_SEARCH_INTENTS, getSearchIntent, doesListingMatchIntent } from '../src/data/seo/searchIntents';
+import { SUPPORTED_LANGS, localizePath, type AppLanguage } from '../src/utils/localeRouting';
+import { HOME_SEO_I18N, FINDER_SEO_I18N, getBrowseSeoI18n, type BrowseSegment } from '../src/data/seo/i18nSeo';
 
 export const BASE_URL = 'https://www.moroccanmate.com';
 export const DEFAULT_OG_IMAGE = `${BASE_URL}/assets/home/backgrounds/homepage_default_image.jpg`;
 
 export interface IndexablePage {
   path: string;          // URL path, no trailing slash
+  basePath: string;      // Canonical unprefixed base path (e.g. "/", "/finder/marrakech/food")
+  lang: AppLanguage;     // Language code for this page
+  hasLocalizedRoutes?: boolean; // Whether 5-lang localized versions exist in sitemap/prerender
   priority: number;
   title: string;         // page title WITHOUT the "| Moroccan Mate" suffix
   description: string;
@@ -173,6 +178,8 @@ export function collectPlacePages(): IndexablePage[] {
 
     pages.push({
       path,
+      basePath: path,
+      lang: 'en',
       priority: 0.7,
       title: `${name} — ${categoryLabel} in ${label}`,
       description,
@@ -205,6 +212,8 @@ export function collectPlacePages(): IndexablePage[] {
       const menuPath = `${path}/menu`;
       pages.push({
         path: menuPath,
+        basePath: menuPath,
+        lang: 'en',
         priority: 0.8,
         title: `${name} Menu & Prices (${label})`,
         description: `Verified menu and prices (MAD) for ${name} in ${listing.neighborhood || 'Morocco'}, ${label}.`,
@@ -279,6 +288,8 @@ export function collectThingsPages(): IndexablePage[] {
 
     pages.push({
       path,
+      basePath: path,
+      lang: 'en',
       priority: 0.7,
       title: `${name} — Things to Do in ${label}`,
       description,
@@ -304,48 +315,53 @@ export function collectThingsPages(): IndexablePage[] {
   return pages;
 }
 
-/** Homepage, finder hub and city/category browse pages */
+/** Homepage, finder hub and city/category browse pages across all 5 languages */
 export function collectStaticPages(): IndexablePage[] {
-  const segments: Array<'food' | 'sleep' | 'things-to-do' | 'shopping'> = ['food', 'sleep', 'things-to-do', 'shopping'];
-  const prettyLabel: Record<string, string> = {
-    'food': 'Food & Restaurants',
-    'sleep': 'Stays',
-    'things-to-do': 'Things To Do',
-    'shopping': 'Shopping',
-  };
+  const segments: BrowseSegment[] = ['food', 'sleep', 'things-to-do', 'shopping'];
+  const pages: IndexablePage[] = [];
 
-  const pages: IndexablePage[] = [
-    {
-      path: '/',
-      priority: 1.0,
-      title: 'Moroccan Mate | Eat, Sleep, Things & Shopping — Like a Local',
-      description: 'Pick your city, answer a short quiz, and get personalized local recommendations for food, stays, things to do, and shopping in Morocco.',
+  for (const lang of SUPPORTED_LANGS) {
+    const homeSeo = HOME_SEO_I18N[lang];
+    const homePath = localizePath('/', lang);
+    pages.push({
+      path: homePath,
+      basePath: '/',
+      lang,
+      hasLocalizedRoutes: true,
+      priority: lang === 'en' ? 1.0 : 0.9,
+      title: homeSeo.title.replace(/\s*\|\s*Moroccan Mate$/i, ''),
+      description: homeSeo.description,
       image: DEFAULT_OG_IMAGE,
       jsonLd: {
         '@context': 'https://schema.org',
         '@type': 'WebSite',
         name: 'Moroccan Mate',
         alternateName: ['MoroccanMate'],
-        url: BASE_URL,
-        description: 'Pick your city, answer a short quiz, and get personalized local recommendations for food, stays, things to do, and shopping in Morocco.',
+        url: `${BASE_URL}${homePath === '/' ? '' : homePath}`,
+        inLanguage: lang,
+        description: homeSeo.description,
       },
-      h1: 'Moroccan Mate',
-    },
-    {
-      path: '/finder',
-      priority: 0.9,
-      title: 'Finder — Personalized Recommendations',
-      description: 'Choose a city and category, answer a short quiz, and get personalized local recommendations for Morocco.',
+      h1: homeSeo.h1,
+    });
+
+    const finderSeo = FINDER_SEO_I18N[lang];
+    pages.push({
+      path: localizePath('/finder', lang),
+      basePath: '/finder',
+      lang,
+      hasLocalizedRoutes: true,
+      priority: lang === 'en' ? 0.9 : 0.85,
+      title: finderSeo.title,
+      description: finderSeo.description,
       image: DEFAULT_OG_IMAGE,
       jsonLd: null,
-      h1: 'Finder',
-    },
-  ];
+      h1: finderSeo.h1,
+    });
+  }
 
   for (const segment of segments) {
     for (const city of getBrowseCities(segment)) {
       const label = cityLabel(city);
-      const pretty = prettyLabel[segment];
       const cityKey = city.toLowerCase();
 
       const matchedPlaces: Array<{ name: string; url: string; rating?: number; price?: number; neighborhood?: string }> = [];
@@ -382,27 +398,37 @@ export function collectStaticPages(): IndexablePage[] {
       // Only index category browse pages that have at least 3 curated items
       // Small empty categories (< 3) are soft 404s for Google
       if (matchedPlaces.length >= 3) {
-        pages.push({
-          path: `/finder/${city}/${segment}`,
-          priority: 0.8,
-          title: `${pretty} in ${label}, Morocco`,
-          description: `Find the best ${pretty.toLowerCase()} in ${label}, Morocco with our personalized finder.`,
-          image: DEFAULT_OG_IMAGE,
-          jsonLd: null,
-          h1: `${pretty} in ${label}`,
-          meta: {
-            city: label,
-            category: pretty,
-            matchedPlaces,
-          },
-        });
+        const basePath = `/finder/${city}/${segment}`;
+        for (const lang of SUPPORTED_LANGS) {
+          const browseSeo = getBrowseSeoI18n(label, segment, lang);
+          pages.push({
+            path: localizePath(basePath, lang),
+            basePath,
+            lang,
+            hasLocalizedRoutes: true,
+            priority: lang === 'en' ? 0.8 : 0.75,
+            title: browseSeo.title,
+            description: browseSeo.description,
+            image: DEFAULT_OG_IMAGE,
+            jsonLd: null,
+            h1: browseSeo.h1,
+            meta: {
+              city: label,
+              category: browseSeo.h1,
+              matchedPlaces: matchedPlaces.map((p) => ({
+                ...p,
+                url: localizePath(p.url, lang),
+              })),
+            },
+          });
+        }
       }
     }
   }
   return pages;
 }
 
-/** Programmatic SEO / "People Also Search For" feature landing pages across all cities */
+/** Programmatic SEO / "People Also Search For" feature landing pages across all cities & 5 languages */
 export function collectSearchIntentPages(): IndexablePage[] {
   const pages: IndexablePage[] = [];
 
@@ -410,13 +436,8 @@ export function collectSearchIntentPages(): IndexablePage[] {
     const label = cityLabel(city);
     for (const [category, slugs] of Object.entries(categories)) {
       for (const slug of slugs) {
-        const intent = getSearchIntent(category, slug);
-        if (!intent) continue;
-
-        const path = `/finder/${city.toLowerCase()}/${category}/${slug}`;
-        const title = intent.seoTitle(label).replace(/\s*\|\s*Moroccan Mate$/i, '');
-        const description = intent.seoDescription(label);
-        const h1 = intent.headerTitle(label);
+        const enIntent = getSearchIntent(category, slug, 'en');
+        if (!enIntent) continue;
 
         // Find top matching places in this city for this search intent
         const matchedPlaces: Array<{ name: string; url: string; rating?: number; price?: number; neighborhood?: string }> = [];
@@ -424,7 +445,7 @@ export function collectSearchIntentPages(): IndexablePage[] {
           const normCat = category === 'sleep' || category === 'stay' ? 'sleep' : category === 'food' || category === 'eat' ? 'food' : 'shopping';
           const index = getPlaceIndex(city.toLowerCase(), normCat as any);
           for (const [s, l] of index.bySlug.entries()) {
-            if (doesListingMatchIntent(l, intent)) {
+            if (doesListingMatchIntent(l, enIntent)) {
               const r = getListingRating(l);
               matchedPlaces.push({
                 name: l.name || l.title || 'Place',
@@ -443,20 +464,31 @@ export function collectSearchIntentPages(): IndexablePage[] {
         // Only index search intent pages that have at least 3 matching places
         // Google flags intent pages with < 3 items as thin programmatic duplicates
         if (matchedPlaces.length >= 3) {
-          pages.push({
-            path,
-            priority: 0.85,
-            title,
-            description,
-            image: DEFAULT_OG_IMAGE,
-            jsonLd: null,
-            h1,
-            meta: {
-              city: label,
-              category: intent.category,
-              matchedPlaces,
-            },
-          });
+          const basePath = `/finder/${city.toLowerCase()}/${category}/${slug}`;
+          for (const lang of SUPPORTED_LANGS) {
+            const intent = getSearchIntent(category, slug, lang);
+            if (!intent) continue;
+            pages.push({
+              path: localizePath(basePath, lang),
+              basePath,
+              lang,
+              hasLocalizedRoutes: true,
+              priority: lang === 'en' ? 0.85 : 0.8,
+              title: intent.seoTitle(label).replace(/\s*\|\s*Moroccan Mate$/i, ''),
+              description: intent.seoDescription(label),
+              image: DEFAULT_OG_IMAGE,
+              jsonLd: null,
+              h1: intent.headerTitle(label),
+              meta: {
+                city: label,
+                category: intent.category,
+                matchedPlaces: matchedPlaces.map((p) => ({
+                  ...p,
+                  url: localizePath(p.url, lang),
+                })),
+              },
+            });
+          }
         }
       }
     }

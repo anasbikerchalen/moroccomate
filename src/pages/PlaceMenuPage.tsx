@@ -1,7 +1,10 @@
 import React, { useMemo, useEffect } from 'react';
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { ArrowLeft, MapPin, ExternalLink, Globe, Instagram, Clock } from 'lucide-react';
 import { SEO } from '../components/ui/SEO';
+import { LanguageSwitcher } from '../components/ui/LanguageSwitcher';
+import { LocalizedLink } from '../components/ui/LocalizedLink';
+import { useLangPath } from '../utils/localeRouting';
 import InteractiveRestaurantMenu from '../components/menu/InteractiveRestaurantMenu';
 import { getPlaceBySlug, getPlaceSlugById } from '../listings/placeRoutes';
 import { cityMap } from '../data/cities';
@@ -13,7 +16,7 @@ export default function PlaceMenuPage() {
     city: string;
     slug: string;
   }>();
-  const navigate = useNavigate();
+  const { navigateLang } = useLangPath();
   const cityKey = String(city || '').toLowerCase();
 
   // Scroll to top immediately on route change
@@ -44,10 +47,10 @@ export default function PlaceMenuPage() {
           </p>
           <button
             type="button"
-            onClick={() => navigate(`/finder/${cityKey}/food`)}
+            onClick={() => navigateLang(`/finder/${cityKey}/food`)}
             className="mt-6 inline-flex items-center gap-2 rounded-xl bg-[#DFAF4F] px-6 py-3 text-sm font-bold text-[#173042] shadow-xs hover:bg-[#d09c39] cursor-pointer"
           >
-            <ArrowLeft className="w-4 h-4" />
+            <ArrowLeft className="w-4 h-4 rtl:rotate-180" />
             Explore Dining in {cityKey}
           </button>
         </div>
@@ -136,18 +139,21 @@ export default function PlaceMenuPage() {
       {/* Slim, Minimal Top Bar */}
       <header className="sticky top-0 z-30 bg-[#FDFBF7]/95 backdrop-blur-md border-b border-stone-200/70 px-4 sm:px-6 py-2.5">
         <div className="max-w-4xl mx-auto flex items-center justify-between gap-4">
-          <Link
+          <LocalizedLink
             to={placeProfileUrl}
             className="inline-flex items-center gap-1.5 text-xs font-bold text-stone-600 hover:text-stone-900 transition-colors cursor-pointer group"
           >
-            <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-0.5 transition-transform" />
+            <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-0.5 transition-transform rtl:rotate-180" />
             <span>{name}</span>
-          </Link>
+          </LocalizedLink>
 
-          <Link to="/" className="flex items-center gap-1.5 text-stone-900 no-underline">
-            <img src={logoImg} alt="Moroccan Mate" className="w-5 h-5 object-contain" />
-            <span className="font-serif text-xs font-bold tracking-wide">Moroccan Mate</span>
-          </Link>
+          <div className="flex items-center gap-2.5">
+            <LanguageSwitcher compact />
+            <LocalizedLink to="/" className="flex items-center gap-1.5 text-stone-900 no-underline">
+              <img src={logoImg} alt="Moroccan Mate" className="w-5 h-5 object-contain" />
+              <span className="font-serif text-xs font-bold tracking-wide">Moroccan Mate</span>
+            </LocalizedLink>
+          </div>
         </div>
       </header>
 

@@ -12,9 +12,9 @@ import { useMemo } from 'react';
 import { motion } from 'motion/react';
 import { MapPin, Navigation, Star, ArrowRight, ShoppingBag } from 'lucide-react';
 import { getShopById, getShopsNearby } from '../../shop';
-import { useNavigate } from 'react-router-dom';
 import { useExploreStore } from '../../state/exploreStore';
 import { getListingUrl } from '../../listings/placeRoutes';
+import { useLangPath } from '../../utils/localeRouting';
 
 interface NearbyShopsProps {
   currentShopId: string;
@@ -27,7 +27,7 @@ export default function NearbyShops({
   city,
   nearbyLandmarks = [],
 }: NearbyShopsProps) {
-  const navigate = useNavigate();
+  const { navigateLang } = useLangPath();
   const { setActiveItem, setView } = useExploreStore();
 
   // Locate the current shop via the backend service
@@ -71,12 +71,12 @@ export default function NearbyShops({
               // Open the nearby shop on its own name-based page
               const url = getListingUrl(shop);
               if (url) {
-                navigate(url);
+                navigateLang(url);
                 return;
               }
               setActiveItem(shop.id);
               setView('detail');
-              navigate(`/finder/${shop.city || city}/${shop.id}`);
+              navigateLang(`/finder/${shop.city || city}/${shop.id}`);
             }}
             className="w-full text-left flex items-center gap-4 p-4 rounded-2xl bg-stone-50 border border-stone-100 hover:bg-stone-100 transition-colors group cursor-pointer hover:border-[#C9A84C]/30"
           >

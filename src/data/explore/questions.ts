@@ -1,5 +1,7 @@
 import { JourneyType, ExploreCategory, ThingsToDoSubCategory, SportIntent } from '../../types';
+import type { AppLanguage } from '../../utils/localeRouting';
 import { THINGS_TREE_ROOT_QUESTION, THINGS_TREE_ALL_QUESTIONS } from './thingsQuiz';
+import { translateQuizOptionLabel } from './quizTranslations';
 
 export interface QuizOption {
   id: string;
@@ -925,8 +927,13 @@ export const getAllQuizQuestions = (): QuizQuestion[] => [
 ];
 
 // Pretty label for a specific quiz answer (used on result cards and answer pills)
-export const getQuizOptionLabel = (questionId: string, answerId: string): string => {
+export const getQuizOptionLabel = (
+  questionId: string,
+  answerId: string,
+  lang: AppLanguage = 'en'
+): string => {
   const question = getAllQuizQuestions().find(q => q.id === questionId);
   const option = question?.options.find(o => o.id === answerId);
-  return option?.label || answerId;
+  const fallback = option?.label || answerId;
+  return translateQuizOptionLabel(questionId, answerId, fallback, lang);
 };

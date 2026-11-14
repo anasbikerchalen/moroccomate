@@ -23,6 +23,9 @@ import {
   Camera
 } from 'lucide-react';
 import type { CityCategoryPick } from '../../data/explore/cityCategoryPicks';
+import { useTranslation } from 'react-i18next';
+import { useAppLanguage } from '../../utils/localeRouting';
+import { translateCityPickLabel } from '../../data/explore/quizTranslations';
 
 interface PreQuizShortcutBarProps {
   picks: CityCategoryPick[];
@@ -63,6 +66,9 @@ export default function PreQuizShortcutBar({
   picks,
   onSelectCategory,
 }: PreQuizShortcutBarProps) {
+  const { t } = useTranslation();
+  const lang = useAppLanguage();
+
   if (!picks || picks.length === 0) return null;
 
   return (
@@ -71,7 +77,7 @@ export default function PreQuizShortcutBar({
       <div className="flex items-center gap-1.5 px-1">
         <Zap className="w-3.5 h-3.5 text-[#C9A84C]" />
         <span className="text-[10px] font-black uppercase tracking-widest text-stone-400">
-          In a hurry? Quick shortcuts
+          {t('quiz.quickShortcutsTitle')}
         </span>
       </div>
 
@@ -82,13 +88,13 @@ export default function PreQuizShortcutBar({
             key={pick.id}
             onClick={() => onSelectCategory(pick)}
             type="button"
-            className="group flex-1 min-w-[105px] sm:min-w-0 flex items-center justify-center sm:justify-start gap-1.5 sm:gap-2 px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-full border border-stone-200/80 bg-white hover:border-[#C86D51]/50 hover:shadow-xs hover:-translate-y-0.5 active:translate-y-0 transition-all cursor-pointer text-left shadow-2xs shrink-0 sm:shrink"
+            className="group flex-1 min-w-[105px] sm:min-w-0 flex items-center justify-center sm:justify-start gap-1.5 sm:gap-2 px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-full border border-stone-200/80 bg-white hover:border-[#C86D51]/50 hover:shadow-xs hover:-translate-y-0.5 active:translate-y-0 transition-all cursor-pointer text-start shadow-2xs shrink-0 sm:shrink"
           >
             <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-[#FAF3EA] flex items-center justify-center text-[#C86D51] shrink-0 group-hover:bg-[#C86D51] group-hover:text-white transition-colors">
               {renderPickIcon(pick)}
             </div>
             <span className="text-[11px] sm:text-xs font-bold text-stone-800 group-hover:text-[#C86D51] transition-colors truncate">
-              {pick.label}
+              {translateCityPickLabel(pick.label, lang)}
             </span>
           </button>
         ))}

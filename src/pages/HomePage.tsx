@@ -1,13 +1,18 @@
 import { useState, useMemo } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { MapPin, ChevronDown, ChevronUp, ArrowRight, Heart, Check, Search, X, Compass } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { SEO } from '../components/ui/SEO';
+import { LanguageSwitcher } from '../components/ui/LanguageSwitcher';
+import { LocalizedLink } from '../components/ui/LocalizedLink';
+import { useLangPath } from '../utils/localeRouting';
+import { HOME_SEO_I18N } from '../data/seo/i18nSeo';
+import { getSearchIntent } from '../data/seo/searchIntents';
 import { useParameterStore } from '../state/parameterStore';
 import { useExploreStore } from '../state/exploreStore';
 import { useSavedStore } from '../state/savedStore';
 import FavoritesDrawer from '../components/finder/FavoritesDrawer';
-import { cities } from '../data/cities';
+import { cities, cityMap } from '../data/cities';
 import { getCityTier } from '../data/touristicHierarchy';
 import heroIllustration from '../assets/images/finder/finder_hero_matte_1786297047661.jpg';
 import logoImg from '../assets/images/logo.png';
@@ -16,16 +21,6 @@ import catFoodImg from '../assets/images/home/home_category_food_circle.jpg';
 import catStaysImg from '../assets/images/home/home_category_sleep_circle.jpg';
 import catThingsImg from '../assets/images/home/home_category_things_circle.jpg';
 import catShoppingImg from '../assets/images/home/home_category_shopping_circle.jpg';
-
-/**
- * ─────────────────────────────────────────────────────────────
- *  HOMEPAGE — Morocco Finder
- *  Premium local travel guide. Editorial / storybook-inspired.
- *  Cream canvas #FAF7F2 · saffron gold #C9A84C (CTA only) ·
- *  serif headlines · minimal header · illustrated hero ·
- *  city selector pill · one gold CTA · 4 category cards.
- * ─────────────────────────────────────────────────────────────
- */
 
 const RECOMMENDED_CITY_NAMES = ['Marrakech', 'Fes', 'Chefchaouen', 'Essaouira', 'Agadir', 'Casablanca', 'Tanger'];
 
@@ -64,47 +59,39 @@ const CITY_DESTINATIONS_META: Record<string, { region: 'imperial' | 'coast' | 's
   tiznit: { region: 'atlas', vibeLabel: 'Silver Jewelry City', icon: '✨' },
 };
 
-const REGION_TABS = [
-  { id: 'all', label: 'All (31)', count: 31 },
-  { id: 'imperial', label: '🏰 Imperial & Heritage', count: 4 },
-  { id: 'coast', label: '🌊 Coast & Surfing', count: 12 },
-  { id: 'sahara', label: '🏜️ Sahara & Oases', count: 10 },
-  { id: 'atlas', label: '🏔️ Atlas & Mountain Gems', count: 5 },
+const REGION_TAB_DEFS = [
+  { id: 'all', key: 'home.regions.all', count: 31 },
+  { id: 'imperial', key: 'home.regions.imperial', count: 4 },
+  { id: 'coast', key: 'home.regions.coast', count: 12 },
+  { id: 'sahara', key: 'home.regions.sahara', count: 10 },
+  { id: 'atlas', key: 'home.regions.atlas', count: 5 },
 ] as const;
 
-const CATEGORIES = [
-  {
-    id: 'food',
-    smallLabel: 'Food & Dining',
-    title: 'Food & Dining',
-    description: 'Taste the real Morocco, from street food to traditional meals.',
-    image: catFoodImg,
-  },
-  {
-    id: 'sleep',
-    smallLabel: 'Stays & Sleep',
-    title: 'Stays & Sleep',
-    description: 'From riads to beachfront stays, find your perfect spot.',
-    image: catStaysImg,
-  },
-  {
-    id: 'things-to-do',
-    smallLabel: 'Things to Do',
-    title: 'Things to Do',
-    description: 'Explore, discover, experience the best of Morocco.',
-    image: catThingsImg,
-  },
-  {
-    id: 'shopping',
-    smallLabel: 'Shopping',
-    title: 'Shopping',
-    description: 'Unique finds, local crafts, beautiful souvenirs.',
-    image: catShoppingImg,
-  },
+const CATEGORY_DEFS = [
+  { id: 'food', image: catFoodImg },
+  { id: 'sleep', image: catStaysImg },
+  { id: 'things-to-do', image: catThingsImg },
+  { id: 'shopping', image: catShoppingImg },
+] as const;
+
+const POPULAR_GUIDE_LINKS = [
+  { cityId: 'agadir', slug: 'heated-pools', fallback: 'Hotels with Heated Pools in Agadir' },
+  { cityId: 'agadir', slug: '5-star', fallback: '5-Star Luxury Hotels in Agadir' },
+  { cityId: 'essaouira', slug: 'on-the-beach', fallback: 'Beachfront Hotels in Essaouira' },
+  { cityId: 'marrakech', slug: 'waterslides', fallback: 'Hotels with Waterslides in Marrakech' },
+  { cityId: 'marrakech', slug: '5-star', fallback: '5-Star Luxury Riads in Marrakech' },
+  { cityId: 'dakhla', slug: 'kitesurf-hotels', fallback: 'Kitesurf Hotels in Dakhla' },
+  { cityId: 'agadir', slug: 'all-inclusive', fallback: 'All-Inclusive Resorts in Agadir' },
+  { cityId: 'fes', slug: 'in-medina', fallback: 'Riads in Heart of Fes Medina' },
+  { cityId: 'taghazout', slug: 'private-beach', fallback: 'Stays with Private Beach in Taghazout' },
+  { cityId: 'marrakech', slug: 'swim-up-rooms', fallback: 'Hotels with Swim-Up Rooms in Marrakech' },
+  { cityId: 'chefchaouen', slug: 'mountain-view', fallback: 'Hotels with Mountain Views in Chefchaouen' },
+  { cityId: 'merzouga', slug: 'desert-camps', fallback: 'Desert Camps & Stays in Merzouga' },
 ];
 
 export default function HomePage() {
-  const navigate = useNavigate();
+  const { t } = useTranslation();
+  const { lang, lp, navigateLang } = useLangPath();
   const [selectedCity, setLocalCity] = useState<string>('');
   const [selectedCategory, setLocalCategory] = useState<string | null>(null);
   const [showAllCities, setShowAllCities] = useState(false);
@@ -116,6 +103,8 @@ export default function HomePage() {
   const setCityInStore = useParameterStore((state) => state.setCity);
   const setActiveCategory = useExploreStore((state) => state.setActiveCategory);
   const setExploreView = useExploreStore((state) => state.setView);
+
+  const homeSeo = HOME_SEO_I18N[lang];
 
   // 31 Master Touristic Destinations (Rule 7)
   const touristicCities = useMemo(() => {
@@ -129,7 +118,6 @@ export default function HomePage() {
     return [...ordered, ...rest];
   }, []);
 
-  // Top quick cities shown on the compact destination pill bar
   const quickBarCities = useMemo(() => {
     const top = touristicCities.slice(0, 7);
     if (selectedCity && !top.some((c: any) => c.id === selectedCity)) {
@@ -139,13 +127,13 @@ export default function HomePage() {
     return top;
   }, [touristicCities, selectedCity]);
 
-  // Filtered cities inside the modern expanded destination explorer
   const filteredExplorerCities = useMemo(() => {
     return touristicCities.filter((city: any) => {
       const meta = CITY_DESTINATIONS_META[city.id] || { region: 'coast', vibeLabel: 'Morocco Destination', icon: '📍' };
       const matchesRegion = selectedRegion === 'all' || meta.region === selectedRegion;
       const q = citySearchQuery.toLowerCase().trim();
-      const matchesSearch = !q ||
+      const matchesSearch =
+        !q ||
         city.name.toLowerCase().includes(q) ||
         meta.vibeLabel.toLowerCase().includes(q);
       return matchesRegion && matchesSearch;
@@ -159,7 +147,7 @@ export default function HomePage() {
     setActiveCategory(categoryId as any);
     setExploreView('quiz');
     const citySlug = cityId.toLowerCase();
-    navigate(`/finder/${citySlug}/${categoryId}?start=quiz`);
+    navigateLang(`/finder/${citySlug}/${categoryId}?start=quiz`);
   };
 
   const handleCitySelect = (cityId: string) => {
@@ -178,53 +166,66 @@ export default function HomePage() {
     }
   };
 
+  const popularGuideItems = useMemo(() => {
+    return POPULAR_GUIDE_LINKS.map((item) => {
+      const cityName = cityMap[item.cityId]?.name || item.cityId.charAt(0).toUpperCase() + item.cityId.slice(1);
+      const intent = getSearchIntent('sleep', item.slug, lang);
+      return {
+        url: `/finder/${item.cityId}/sleep/${item.slug}`,
+        title: intent ? intent.headerTitle(cityName) : item.fallback,
+      };
+    });
+  }, [lang]);
+
   return (
     <div className="min-h-screen bg-[#FAF7F2] text-[#29231F]">
-      <SEO
-        title="Moroccan Mate | Eat, Sleep, Things & Shopping — Like a Local"
-        description="Pick your city, answer a short quiz, and get personalized local recommendations for food, stays, things to do, and shopping in Morocco."
-      />
+      <SEO title={homeSeo.title} description={homeSeo.description} canonical="/" />
 
-      <header className="relative z-20 max-w-[1400px] mx-auto px-6 md:px-10 pt-4 md:pt-5 flex items-center justify-between">
-        <div className="flex items-center gap-3">
+      <header className="relative z-30 max-w-[1400px] mx-auto px-6 md:px-10 pt-4 md:pt-5 flex items-center justify-between gap-2">
+        <div className="flex items-center gap-3 min-w-0">
           <img
             src={logoImg}
             alt="Moroccan Mate logo"
             className="w-8 h-8 sm:w-9 sm:h-9 shrink-0 object-contain"
           />
-          <div>
-            <p className="font-display text-lg md:text-xl font-semibold leading-none text-[#29231F]">Moroccan Mate</p>
-            <p className="font-sans text-[9px] font-bold uppercase tracking-[0.22em] text-[#71685F] mt-1">Real places. Local vibes.</p>
+          <div className="min-w-0">
+            <p className="font-display text-lg md:text-xl font-semibold leading-none text-[#29231F] truncate">Moroccan Mate</p>
+            <p className="font-sans text-[9px] font-bold uppercase tracking-[0.22em] text-[#71685F] mt-1 truncate">
+              {t('home.brandTagline')}
+            </p>
           </div>
         </div>
-        <div className="flex items-center gap-2 sm:gap-3">
-          <div className="hidden md:flex items-center gap-2 mr-1">
-            <span className="font-sans text-xs text-[#71685F]">Your personal Moroccan guide</span>
+
+        <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
+          <div className="hidden lg:flex items-center gap-2 mr-1">
+            <span className="font-sans text-xs text-[#71685F]">{t('home.personalGuide')}</span>
           </div>
 
+          <LanguageSwitcher compact />
+
           {/* Near Me Navigation Link */}
-          <Link
+          <LocalizedLink
             to={`/${selectedCategory === 'sleep' ? 'sleep' : selectedCategory === 'things-to-do' ? 'things' : selectedCategory === 'shopping' ? 'shop' : 'eat'}/${(selectedCity || 'marrakech').toLowerCase()}/near-me`}
             className="group relative flex items-center gap-1.5 px-3 py-1.5 sm:px-3.5 sm:py-1.5 rounded-full bg-white/90 hover:bg-white border border-[#EADBCE] shadow-xs hover:shadow-md hover:border-[#EADBCE] transition-all duration-200"
-            title="Find places near me"
+            title={t('common.nearMeTitle')}
           >
             <Compass className="w-4 h-4 text-[#C2613C] transition-transform group-hover:rotate-45" />
-            <span className="font-sans text-xs font-semibold text-[#29231F]">Near Me</span>
-          </Link>
+            <span className="font-sans text-xs font-semibold text-[#29231F] hidden sm:inline">{t('common.nearMe')}</span>
+          </LocalizedLink>
 
           <button
             type="button"
             onClick={() => setFavoritesOpen(true)}
-            className="group relative flex items-center gap-2 px-3 py-1.5 sm:px-3.5 sm:py-1.5 rounded-full bg-white/90 hover:bg-white border border-[#EADBCE] shadow-xs hover:shadow-md hover:border-[#EADBCE] transition-all duration-200"
-            aria-label="View saved places"
-            title="View saved places"
+            className="group relative flex items-center gap-2 px-3 py-1.5 sm:px-3.5 sm:py-1.5 rounded-full bg-white/90 hover:bg-white border border-[#EADBCE] shadow-xs hover:shadow-md hover:border-[#EADBCE] transition-all duration-200 cursor-pointer"
+            aria-label={t('common.viewSaved')}
+            title={t('common.viewSaved')}
           >
             <Heart
               className={`w-4 h-4 transition-transform group-hover:scale-110 ${
                 bookmarks.length > 0 ? 'text-[#C85A32] fill-[#C85A32]' : 'text-[#71685F] group-hover:text-[#C85A32]'
               }`}
             />
-            <span className="font-sans text-xs font-semibold text-[#29231F] hidden sm:inline">Saved</span>
+            <span className="font-sans text-xs font-semibold text-[#29231F] hidden sm:inline">{t('common.saved')}</span>
             {bookmarks.length > 0 && (
               <span className="bg-[#C9A84C] text-white text-[10px] font-bold px-1.5 py-0.2 rounded-full min-w-[18px] text-center leading-none">
                 {bookmarks.length}
@@ -247,7 +248,8 @@ export default function HomePage() {
             transition={{ duration: 0.5, delay: 0.1, ease: 'easeOut' }}
             className="font-display font-medium text-[26px] leading-[1.08] sm:text-[34px] md:text-[40px] md:leading-[1.05] tracking-tight max-w-[680px] text-[#29231F]"
           >
-            What are you looking<br className="hidden sm:block" /> for in Morocco?
+            {t('home.heroTitleLine1')}
+            <br className="hidden sm:block" /> {t('home.heroTitleLine2')}
           </motion.h1>
 
           <motion.div
@@ -266,11 +268,11 @@ export default function HomePage() {
 
               {isAwaitingCity ? (
                 <span className="inline-flex items-center gap-1 bg-[#C9A84C] text-white text-[10px] font-sans font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full shadow-xs">
-                  Step 2: Pick your city
+                  {t('home.step2PickCity')}
                 </span>
               ) : (
                 <span className="font-sans text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.16em] text-[#71685F] mr-0.5 sm:mr-1">
-                  Destination:
+                  {t('home.destinationLabel')}
                 </span>
               )}
 
@@ -280,7 +282,7 @@ export default function HomePage() {
                 return (
                   <a
                     key={c.id}
-                    href={`/finder/${c.id.toLowerCase()}/${selectedCategory || 'food'}`}
+                    href={lp(`/finder/${c.id.toLowerCase()}/${selectedCategory || 'food'}`)}
                     onClick={(e) => {
                       e.preventDefault();
                       handleCitySelect(c.id);
@@ -307,9 +309,9 @@ export default function HomePage() {
                     ? 'bg-[#C9A84C] text-white shadow-xs'
                     : 'bg-[#F5EBE1] hover:bg-[#EADBCE] text-[#71685F] hover:text-[#29231F] border border-[#EADBCE]'
                 }`}
-                aria-label={showAllCities ? 'Close destination picker' : 'Show all 31 Moroccan cities'}
+                aria-label={showAllCities ? t('home.closeCities') : t('home.chooseDestinations')}
               >
-                <span>{showAllCities ? 'Close Cities' : '+24 More Cities'}</span>
+                <span>{showAllCities ? t('home.closeCities') : t('home.moreCities')}</span>
                 {showAllCities ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5 text-[#C9A84C]" />}
               </button>
             </div>
@@ -322,21 +324,21 @@ export default function HomePage() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: -8, scale: 0.98 }}
                   transition={{ duration: 0.22, ease: 'easeOut' }}
-                  className="mt-3.5 w-full bg-[#FFFDF9]/98 backdrop-blur-xl border border-[#EADBCE] rounded-[24px] sm:rounded-[28px] p-4 sm:p-5 md:p-6 shadow-[0_20px_50px_rgba(60,40,25,0.14)] text-left"
+                  className="mt-3.5 w-full bg-[#FFFDF9]/98 backdrop-blur-xl border border-[#EADBCE] rounded-[24px] sm:rounded-[28px] p-4 sm:p-5 md:p-6 shadow-[0_20px_50px_rgba(60,40,25,0.14)] text-left rtl:text-right"
                 >
                   {/* Top Bar: Title, Search & Close */}
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3.5 border-b border-[#EADBCE]/60">
                     <div>
                       <div className="flex items-center gap-2">
                         <span className="font-display text-base sm:text-lg font-semibold text-[#29231F]">
-                          Choose from 31 Moroccan Destinations
+                          {t('home.chooseDestinations')}
                         </span>
                         <span className="bg-[#FAF3E0] text-[#C9A84C] text-[10px] font-bold px-2 py-0.5 rounded-full border border-[#C9A84C]/30 hidden sm:inline-block">
-                          31 Curated Hubs
+                          {t('home.curatedHubs')}
                         </span>
                       </div>
                       <p className="font-sans text-[11px] text-[#71685F] mt-0.5">
-                        Handpicked imperial medinas, coastal surf bays & desert oases
+                        {t('home.explorerSubtitle')}
                       </p>
                     </div>
 
@@ -345,7 +347,7 @@ export default function HomePage() {
                         <Search className="w-3.5 h-3.5 absolute left-3 top-1/2 -translate-y-1/2 text-[#71685F]" />
                         <input
                           type="text"
-                          placeholder="Search city..."
+                          placeholder={t('home.searchCityPlaceholder')}
                           value={citySearchQuery}
                           onChange={(e) => setCitySearchQuery(e.target.value)}
                           className="pl-8 pr-7 py-1.5 text-xs bg-white border border-[#EADBCE] rounded-full focus:outline-none focus:border-[#C9A84C] w-[150px] sm:w-[190px] font-sans text-[#29231F] placeholder:text-[#A89F91]"
@@ -365,7 +367,7 @@ export default function HomePage() {
                         type="button"
                         onClick={() => setShowAllCities(false)}
                         className="w-8 h-8 rounded-full bg-white border border-[#EADBCE] hover:bg-[#F5EBE1] flex items-center justify-center text-[#71685F] hover:text-[#29231F] transition-all cursor-pointer shrink-0"
-                        title="Close destination picker"
+                        title={t('home.closeCities')}
                       >
                         <X className="w-3.5 h-3.5" />
                       </button>
@@ -374,7 +376,7 @@ export default function HomePage() {
 
                   {/* Region Filter Tabs */}
                   <div className="flex items-center gap-1.5 overflow-x-auto py-2.5 no-scrollbar">
-                    {REGION_TABS.map((tab) => {
+                    {REGION_TAB_DEFS.map((tab) => {
                       const isActive = selectedRegion === tab.id;
                       return (
                         <button
@@ -387,7 +389,7 @@ export default function HomePage() {
                               : 'bg-white/80 hover:bg-white text-[#71685F] hover:text-[#29231F] border border-[#EADBCE]/80'
                           }`}
                         >
-                          <span>{tab.label}</span>
+                          <span>{t(tab.key)}</span>
                           <span className={`text-[10px] px-1.5 py-0.2 rounded-full ${
                             isActive ? 'bg-white/25 text-white' : 'bg-[#F5EBE1] text-[#71685F]'
                           }`}>
@@ -406,7 +408,7 @@ export default function HomePage() {
                       return (
                         <a
                           key={c.id}
-                          href={`/finder/${c.id.toLowerCase()}/${selectedCategory || 'food'}`}
+                          href={lp(`/finder/${c.id.toLowerCase()}/${selectedCategory || 'food'}`)}
                           onClick={(e) => {
                             e.preventDefault();
                             handleCitySelect(c.id);
@@ -440,7 +442,7 @@ export default function HomePage() {
 
                   {filteredExplorerCities.length === 0 && (
                     <div className="text-center py-6 text-xs text-[#71685F]">
-                      No destinations found matching "{citySearchQuery}".
+                      {t('home.noCitiesMatch', { query: citySearchQuery })}
                     </div>
                   )}
                 </motion.div>
@@ -448,12 +450,16 @@ export default function HomePage() {
             </AnimatePresence>
           </motion.div>
 
-          {/* Category Cards (Lifted vertically & image scaled so text & CTA are fully visible at first load) */}
+          {/* Category Cards */}
           <div className="mt-4 sm:mt-5 md:mt-6 w-full max-w-[1200px]">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-4 md:gap-5">
-              {CATEGORIES.map((cat, i) => {
+              {CATEGORY_DEFS.map((cat, i) => {
                 const active = selectedCategory === cat.id;
-                const categoryHref = `/finder/${(selectedCity || 'marrakech').toLowerCase()}/${cat.id}`;
+                const categoryHref = lp(`/finder/${(selectedCity || 'marrakech').toLowerCase()}/${cat.id}`);
+                const catSmall = t(`home.categories.${cat.id}.smallLabel`);
+                const catTitle = t(`home.categories.${cat.id}.title`);
+                const catDesc = t(`home.categories.${cat.id}.description`);
+
                 return (
                   <motion.a
                     key={cat.id}
@@ -467,22 +473,22 @@ export default function HomePage() {
                       e.preventDefault();
                       handleCategoryClick(cat.id);
                     }}
-                    className={`relative group text-left rounded-[22px] sm:rounded-[24px] p-3.5 sm:p-4 md:p-4.5 flex sm:flex-col gap-3 sm:gap-3.5 border transition-all duration-300 cursor-pointer ${
+                    className={`relative group text-left rtl:text-right rounded-[22px] sm:rounded-[24px] p-3.5 sm:p-4 md:p-4.5 flex sm:flex-col gap-3 sm:gap-3.5 border transition-all duration-300 cursor-pointer ${
                       active
                         ? 'bg-white ring-2 ring-[#C9A84C] border-[#C9A84C] shadow-[0_14px_36px_rgba(201,168,76,0.22)] -translate-y-1'
                         : 'bg-[#FFFDF9] border-[#E9D8C8]/70 shadow-[0_6px_24px_rgba(80,55,35,0.06)] hover:border-[#C9A84C]/40 hover:shadow-[0_10px_30px_rgba(80,55,35,0.12)]'
                     }`}
                   >
                     {active && (
-                      <span className="absolute top-3 right-3 inline-flex items-center gap-1 bg-[#C9A84C] text-white text-[10px] font-sans font-bold uppercase tracking-wider px-2 py-0.5 rounded-full">
+                      <span className="absolute top-3 right-3 rtl:right-auto rtl:left-3 inline-flex items-center gap-1 bg-[#C9A84C] text-white text-[10px] font-sans font-bold uppercase tracking-wider px-2 py-0.5 rounded-full">
                         <Check className="w-3 h-3 stroke-[2.5]" />
-                        <span>Selected</span>
+                        <span>{t('common.selected')}</span>
                       </span>
                     )}
 
                     <img
                       src={cat.image}
-                      alt={cat.title}
+                      alt={catTitle}
                       loading="lazy"
                       decoding="async"
                       className={`w-[76px] h-[76px] sm:w-[120px] sm:h-[120px] md:w-[134px] md:h-[134px] lg:w-[144px] lg:h-[144px] sm:mx-auto object-cover rounded-full shrink-0 transition-transform duration-300 ${
@@ -490,17 +496,17 @@ export default function HomePage() {
                       }`}
                     />
                     <div className="flex-1 min-w-0 sm:text-center">
-                      <p className="font-sans text-[10px] font-bold uppercase tracking-[0.18em] text-[#C85A32]">{cat.smallLabel}</p>
-                      <h3 className="font-display text-base sm:text-lg md:text-[19px] font-semibold text-[#29231F] mt-0.5">{cat.title}</h3>
-                      <p className="font-sans text-xs leading-snug text-[#71685F] mt-1 line-clamp-2">{cat.description}</p>
+                      <p className="font-sans text-[10px] font-bold uppercase tracking-[0.18em] text-[#C85A32]">{catSmall}</p>
+                      <h3 className="font-display text-base sm:text-lg md:text-[19px] font-semibold text-[#29231F] mt-0.5">{catTitle}</h3>
+                      <p className="font-sans text-xs leading-snug text-[#71685F] mt-1 line-clamp-2">{catDesc}</p>
                       <div className="mt-2 flex items-center sm:justify-center text-xs font-semibold">
                         {active ? (
                           <span className="inline-flex items-center gap-1 text-[11px] font-bold text-[#C9A84C]">
-                            Pick a city above to start <ArrowRight className="w-3 h-3 -rotate-90 stroke-[2.5]" />
+                            {t('home.pickCityAbove')} <ArrowRight className="w-3 h-3 -rotate-90 stroke-[2.5]" />
                           </span>
                         ) : (
                           <span className="inline-flex items-center gap-1 text-[#71685F] group-hover:text-[#C9A84C] transition-colors">
-                            Explore <ArrowRight className="w-3.5 h-3.5" />
+                            {t('common.explore')} <ArrowRight className="w-3.5 h-3.5 rtl:rotate-180" />
                           </span>
                         )}
                       </div>
@@ -516,43 +522,43 @@ export default function HomePage() {
       <div className="max-w-[1200px] mx-auto px-6 md:px-10 pb-10">
         <div className="pt-8 border-t border-[#E9D8C8]/60">
           <h3 className="font-sans text-xs font-bold uppercase tracking-wider text-[#71685F] mb-4">
-            Featured Places to Eat, Stay & Shop in Morocco
+            {t('home.featuredHeading')}
           </h3>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
             <div className="space-y-2">
-              <span className="text-[11px] font-bold uppercase tracking-wider text-[#C2613C] block">Where to Eat</span>
+              <span className="text-[11px] font-bold uppercase tracking-wider text-[#C2613C] block">{t('home.whereToEat')}</span>
               <ul className="space-y-1.5 text-xs">
-                <li><Link to="/place/marrakech/food/al-fassia" className="text-[#29231F] hover:text-[#C85A32] transition-colors">Al Fassia (Marrakech)</Link></li>
-                <li><Link to="/place/marrakech/food/le-jardin" className="text-[#29231F] hover:text-[#C85A32] transition-colors">Le Jardin (Marrakech)</Link></li>
-                <li><Link to="/place/casablanca/food/ricks-cafe" className="text-[#29231F] hover:text-[#C85A32] transition-colors">Rick's Café (Casablanca)</Link></li>
-                <li><Link to="/place/fes/food/dar-roumana" className="text-[#29231F] hover:text-[#C85A32] transition-colors">Dar Roumana (Fès)</Link></li>
+                <li><LocalizedLink to="/place/marrakech/food/al-fassia" className="text-[#29231F] hover:text-[#C85A32] transition-colors">Al Fassia (Marrakech)</LocalizedLink></li>
+                <li><LocalizedLink to="/place/marrakech/food/le-jardin" className="text-[#29231F] hover:text-[#C85A32] transition-colors">Le Jardin (Marrakech)</LocalizedLink></li>
+                <li><LocalizedLink to="/place/casablanca/food/ricks-cafe" className="text-[#29231F] hover:text-[#C85A32] transition-colors">Rick's Café (Casablanca)</LocalizedLink></li>
+                <li><LocalizedLink to="/place/fes/food/dar-roumana" className="text-[#29231F] hover:text-[#C85A32] transition-colors">Dar Roumana (Fès)</LocalizedLink></li>
               </ul>
             </div>
             <div className="space-y-2">
-              <span className="text-[11px] font-bold uppercase tracking-wider text-[#D99A30] block">Where to Stay</span>
+              <span className="text-[11px] font-bold uppercase tracking-wider text-[#D99A30] block">{t('home.whereToStay')}</span>
               <ul className="space-y-1.5 text-xs">
-                <li><Link to="/place/marrakech/sleep/la-mamounia" className="text-[#29231F] hover:text-[#C85A32] transition-colors">La Mamounia (Marrakech)</Link></li>
-                <li><Link to="/place/fes/sleep/riad-fes-relais-chateaux" className="text-[#29231F] hover:text-[#C85A32] transition-colors">Riad Fès (Fès)</Link></li>
-                <li><Link to="/place/chefchaouen/sleep/lina-ryad-spa" className="text-[#29231F] hover:text-[#C85A32] transition-colors">Lina Ryad & Spa (Chefchaouen)</Link></li>
-                <li><Link to="/place/fes/sleep/hotel-sahrai" className="text-[#29231F] hover:text-[#C85A32] transition-colors">Hotel Sahrai (Fès)</Link></li>
+                <li><LocalizedLink to="/place/marrakech/sleep/la-mamounia" className="text-[#29231F] hover:text-[#C85A32] transition-colors">La Mamounia (Marrakech)</LocalizedLink></li>
+                <li><LocalizedLink to="/place/fes/sleep/riad-fes-relais-chateaux" className="text-[#29231F] hover:text-[#C85A32] transition-colors">Riad Fès (Fès)</LocalizedLink></li>
+                <li><LocalizedLink to="/place/chefchaouen/sleep/lina-ryad-spa" className="text-[#29231F] hover:text-[#C85A32] transition-colors">Lina Ryad & Spa (Chefchaouen)</LocalizedLink></li>
+                <li><LocalizedLink to="/place/fes/sleep/hotel-sahrai" className="text-[#29231F] hover:text-[#C85A32] transition-colors">Hotel Sahrai (Fès)</LocalizedLink></li>
               </ul>
             </div>
             <div className="space-y-2">
-              <span className="text-[11px] font-bold uppercase tracking-wider text-[#C9A84C] block">Local Shopping</span>
+              <span className="text-[11px] font-bold uppercase tracking-wider text-[#C9A84C] block">{t('home.localShopping')}</span>
               <ul className="space-y-1.5 text-xs">
-                <li><Link to="/place/marrakech/shopping/ensemble-artisanal" className="text-[#29231F] hover:text-[#C85A32] transition-colors">Ensemble Artisanal (Marrakech)</Link></li>
-                <li><Link to="/place/fes/shopping/art-naji-fes-zellige-ceramics" className="text-[#29231F] hover:text-[#C85A32] transition-colors">Art Naji Ceramics (Fès)</Link></li>
-                <li><Link to="/place/fes/shopping/terrasse-tannerie-chouara-leather-shops" className="text-[#29231F] hover:text-[#C85A32] transition-colors">Chouara Leather (Fès)</Link></li>
-                <li><Link to="/finder/marrakech/shopping" className="text-[#29231F] hover:text-[#C85A32] transition-colors">Explore All Marrakech Shops &rarr;</Link></li>
+                <li><LocalizedLink to="/place/marrakech/shopping/ensemble-artisanal" className="text-[#29231F] hover:text-[#C85A32] transition-colors">Ensemble Artisanal (Marrakech)</LocalizedLink></li>
+                <li><LocalizedLink to="/place/fes/shopping/art-naji-fes-zellige-ceramics" className="text-[#29231F] hover:text-[#C85A32] transition-colors">Art Naji Ceramics (Fès)</LocalizedLink></li>
+                <li><LocalizedLink to="/place/fes/shopping/terrasse-tannerie-chouara-leather-shops" className="text-[#29231F] hover:text-[#C85A32] transition-colors">Chouara Leather (Fès)</LocalizedLink></li>
+                <li><LocalizedLink to="/finder/marrakech/shopping" className="text-[#29231F] hover:text-[#C85A32] transition-colors">{t('home.exploreAllShops')}</LocalizedLink></li>
               </ul>
             </div>
             <div className="space-y-2">
-              <span className="text-[11px] font-bold uppercase tracking-wider text-[#8A6D1F] block">Things to Do</span>
+              <span className="text-[11px] font-bold uppercase tracking-wider text-[#8A6D1F] block">{t('home.thingsToDo')}</span>
               <ul className="space-y-1.5 text-xs">
-                <li><Link to="/things/marrakech/bahia-palace" className="text-[#29231F] hover:text-[#C85A32] transition-colors">Bahia Palace (Marrakech)</Link></li>
-                <li><Link to="/things/marrakech/jardin-majorelle" className="text-[#29231F] hover:text-[#C85A32] transition-colors">Jardin Majorelle (Marrakech)</Link></li>
-                <li><Link to="/things/casablanca/hassan-ii-mosque" className="text-[#29231F] hover:text-[#C85A32] transition-colors">Hassan II Mosque (Casablanca)</Link></li>
-                <li><Link to="/finder/marrakech/things-to-do" className="text-[#29231F] hover:text-[#C85A32] transition-colors">Explore All Activities &rarr;</Link></li>
+                <li><LocalizedLink to="/things/marrakech/bahia-palace" className="text-[#29231F] hover:text-[#C85A32] transition-colors">Bahia Palace (Marrakech)</LocalizedLink></li>
+                <li><LocalizedLink to="/things/marrakech/jardin-majorelle" className="text-[#29231F] hover:text-[#C85A32] transition-colors">Jardin Majorelle (Marrakech)</LocalizedLink></li>
+                <li><LocalizedLink to="/things/casablanca/hassan-ii-mosque" className="text-[#29231F] hover:text-[#C85A32] transition-colors">Hassan II Mosque (Casablanca)</LocalizedLink></li>
+                <li><LocalizedLink to="/finder/marrakech/things-to-do" className="text-[#29231F] hover:text-[#C85A32] transition-colors">{t('home.exploreAllActivities')}</LocalizedLink></li>
               </ul>
             </div>
           </div>
@@ -560,39 +566,26 @@ export default function HomePage() {
           <hr className="border-t border-[#E9D8C8] my-8" />
 
           <h3 className="font-sans text-xs font-bold uppercase tracking-wider text-[#71685F] mb-4">
-            Popular Search Highlights & Filter Guides
+            {t('home.popularGuidesHeading')}
           </h3>
           <div className="flex flex-wrap gap-2.5">
-            {[
-              { title: 'Hotels with Heated Pools in Agadir', url: '/finder/agadir/sleep/heated-pools' },
-              { title: '5-Star Luxury Hotels in Agadir', url: '/finder/agadir/sleep/5-star' },
-              { title: 'Beachfront Hotels in Essaouira', url: '/finder/essaouira/sleep/on-the-beach' },
-              { title: 'Hotels with Waterslides in Marrakech', url: '/finder/marrakech/sleep/waterslides' },
-              { title: '5-Star Luxury Riads in Marrakech', url: '/finder/marrakech/sleep/5-star' },
-              { title: 'Kitesurf Hotels in Dakhla', url: '/finder/dakhla/sleep/kitesurf-hotels' },
-              { title: 'All-Inclusive Resorts in Agadir', url: '/finder/agadir/sleep/all-inclusive' },
-              { title: 'Riads in Heart of Fes Medina', url: '/finder/fes/sleep/medina-heart' },
-              { title: 'Stays with Private Beach in Taghazout', url: '/finder/taghazout/sleep/private-beach' },
-              { title: 'Hotels with Swim-Up Rooms in Marrakech', url: '/finder/marrakech/sleep/swim-up-rooms' },
-              { title: 'Hotels with Mountain Views in Chefchaouen', url: '/finder/chefchaouen/sleep/mountain-view' },
-              { title: 'Desert Camps & Stays in Merzouga', url: '/finder/merzouga/sleep/desert-camps' },
-            ].map((linkItem) => (
-              <Link
+            {popularGuideItems.map((linkItem) => (
+              <LocalizedLink
                 key={linkItem.url}
                 to={linkItem.url}
                 className="px-3.5 py-1.5 rounded-full text-xs font-medium bg-[#FAF7F2] text-[#29231F] hover:bg-[#FAF3EA] hover:text-[#C85A32] border border-[#E9D8C8] transition-colors"
               >
                 {linkItem.title}
-              </Link>
+              </LocalizedLink>
             ))}
           </div>
         </div>
 
         <div className="mt-12 pt-6 border-t border-[#E9D8C8]/60 flex flex-col sm:flex-row items-center justify-between text-xs text-[#71685F] gap-3">
-          <p>© {new Date().getFullYear()} Moroccan Mate · Independent Morocco Guide</p>
+          <p>© {new Date().getFullYear()} Moroccan Mate · {t('common.independentGuide')}</p>
           <div className="flex items-center gap-4">
-            <Link to="/eat/marrakech/near-me" className="hover:text-[#C9A84C] transition-colors">Near Me</Link>
-            <a href="/sitemap.xml" className="hover:text-[#C9A84C] transition-colors">Sitemap</a>
+            <LocalizedLink to="/eat/marrakech/near-me" className="hover:text-[#C9A84C] transition-colors">{t('common.nearMe')}</LocalizedLink>
+            <a href="/sitemap.xml" className="hover:text-[#C9A84C] transition-colors">{t('common.sitemap')}</a>
           </div>
         </div>
       </div>

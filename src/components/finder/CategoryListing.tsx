@@ -6,7 +6,6 @@ import { cn } from '../../utils/cn';
 import { useParameterStore } from '../../state/parameterStore';
 import { getListings } from '../../listings';
 import { getListingUrl } from '../../listings/placeRoutes';
-import { useNavigate, Link } from 'react-router-dom';
 import FilterPanel from './modals/FilterPanel';
 import { getShopStatus } from '../../utils/timeEngine';
 import { stayHasPool, stayHasAC, getCityCenter } from '../../engine/stayAdapter';
@@ -14,16 +13,18 @@ import { haversineM, bearingDeg, extractListingCoords } from '../../engine/proxi
 import { WalkingDistanceMap } from './stay/WalkingDistanceMap';
 import type { NearbyPlace } from '../../types/stay';
 import { getAreasByCityBase } from '../../data/tourismAreas';
+import { useLangPath } from '../../utils/localeRouting';
+import LocalizedLink from '../ui/LocalizedLink';
 
 export default function CategoryListing() {
   const { filters, setFilters, activeCategory } = useExploreStore();
   const { city } = useParameterStore();
-  const navigate = useNavigate();
+  const { navigateLang } = useLangPath();
 
   // Open a listing on its own name-based page (/place/... or /things/...);
   // the legacy fallback keeps working if a URL cannot be resolved
   const openListing = (item: any) => {
-    navigate(getListingUrl(item) || `/finder/${item.city || city || 'marrakech'}/${item.id}`);
+    navigateLang(getListingUrl(item) || `/finder/${item.city || city || 'marrakech'}/${item.id}`);
   };
   const [showFilters, setShowFilters] = useState(false);
   const [visibleCount, setVisibleCount] = useState(5);
@@ -254,7 +255,7 @@ export default function CategoryListing() {
 
           if (isShopping) {
             return (
-              <Link
+              <LocalizedLink
                 key={item.id}
                 to={listingUrl}
                 className="bg-white rounded-2xl border border-[#E8DDD0] overflow-hidden hover:shadow-md hover:border-[#C4973A] transition-all flex flex-col cursor-pointer group"
@@ -315,12 +316,12 @@ export default function CategoryListing() {
                     </span>
                   </div>
                 </div>
-              </Link>
+              </LocalizedLink>
             );
           }
 
           return (
-            <Link
+            <LocalizedLink
               key={item.id}
               to={listingUrl}
               className="p-4 md:p-6 bg-white border border-stone-100 rounded-[32px] text-left flex flex-col sm:flex-row gap-5 hover:shadow-md transition-all cursor-pointer hover:border-[#C9A84C]/30 items-stretch sm:items-center group"
@@ -404,7 +405,7 @@ export default function CategoryListing() {
                   View Details →
                 </span>
               </div>
-            </Link>
+            </LocalizedLink>
           );
         })}
       </div>

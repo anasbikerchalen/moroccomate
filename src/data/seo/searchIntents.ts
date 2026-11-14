@@ -423,12 +423,25 @@ export const CITY_SEARCH_INTENTS: Record<string, Record<string, string[]>> = {
   }
 };
 
+import { getSearchIntentTranslation } from './i18nSeo';
+import type { AppLanguage } from '../../utils/localeRouting';
+
 /**
  * Resolves a search intent for a given category & slug
  */
-export function getSearchIntent(category: string, slug: string): SearchIntent | undefined {
+export function getSearchIntent(category: string, slug: string, lang: AppLanguage = 'en'): SearchIntent | undefined {
   if (category === 'sleep' || category === 'stay') {
-    return SLEEP_SEARCH_INTENTS[slug];
+    const base = SLEEP_SEARCH_INTENTS[slug];
+    if (!base) return undefined;
+    const tr = getSearchIntentTranslation(slug, lang);
+    if (!tr) return base;
+    return {
+      ...base,
+      label: tr.label,
+      seoTitle: tr.seoTitle,
+      seoDescription: tr.seoDescription,
+      headerTitle: tr.headerTitle,
+    };
   }
   return undefined;
 }
@@ -436,7 +449,7 @@ export function getSearchIntent(category: string, slug: string): SearchIntent | 
 /**
  * Retrieves the curated list of popular search intents for a city & category
  */
-export function getCityPopularIntents(cityId: string, category: string): SearchIntent[] {
+export function getCityPopularIntents(cityId: string, category: string, lang: AppLanguage = 'en'): SearchIntent[] {
   const normCity = cityId.toLowerCase();
   const normCat = category === 'sleep' || category === 'stay' ? 'sleep' : category;
   
@@ -445,7 +458,7 @@ export function getCityPopularIntents(cityId: string, category: string): SearchI
   );
 
   return slugs
-    .map(slug => getSearchIntent(normCat, slug))
+    .map(slug => getSearchIntent(normCat, slug, lang))
     .filter((intent): intent is SearchIntent => !!intent);
 }
 

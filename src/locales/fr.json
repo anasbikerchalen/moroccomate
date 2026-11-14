@@ -1,5 +1,5 @@
 {
-  "appTitle": "OS de voyage au Maroc",
+  "appTitle": "Moroccan Mate",
   "appSubtitle": "Votre compagnon de voyage personnalisé",
   "language": "Langue",
   "darkMode": "Mode sombre",
@@ -9,6 +9,8 @@
   "languageSelector": "Sélecteur de langue",
   "english": "Anglais",
   "french": "Français",
+  "spanish": "Espagnol",
+  "german": "Allemand",
   "arabic": "Arabe",
   "title": "Titre",
   "description": "Description",
@@ -43,8 +45,14 @@
     "inspireMe": "Inspirez-moi",
     "letMeEdit": "Laissez-moi éditer"
   },
+  "welcomeRouteArchitect": "Bienvenue dans l'Architecte de Route",
   "welcomeRoutePlanner": "Bienvenue sur Planificateur d'itinéraire",
   "aiCompanionSubtitle": "Votre compagnon de planification de voyage assisté par IA",
+  "homeTaglineLine1": "Votre guide honnête du Maroc",
+  "homeTaglineLine2": "se réveiller",
+  "homeSubtitle": "Votre guide honnête du Maroc — ville par ville. Ressentez l'ambiance d'abord, faites confiance aux données ensuite, décidez ensuite.",
+  "homePickCity": "Choisissez une ville sur la carte",
+  "homeHelpChoose": "Pas sûr où ? Aidez-moi à choisir",
   "onboarding": {
     "step1Title": "Choisissez votre voyage",
     "step1Desc": "Préparation, vient d'arriver, en voyage ou départ",
@@ -65,6 +73,10 @@
   "preparingStage": {
     "phaseTitle": "Phase 01 : Préparation",
     "architectYour": "Architecturer votre",
+    "masterRoute": "Itinéraire Principal",
+    "initializeModule": "Initialiser le module",
+    "systemPrerequisites": "Prérequis système",
+    "manualBuilder": "Constructeur manuel (Avancé)",
     "wizard": {
       "title": "Assistant de route urbaine",
       "desc": "Répondez à 5 questions pour trouver votre circuit marocain parfait.",
@@ -93,11 +105,6 @@
       "back": "Retour aux approches"
     }
   },
-  "quickBridges": {
-    "visaGuide": "Guide des visas",
-    "moneyAtm": "Argent & ATM",
-    "routeOptimizer": "Optimiseur d'itinéraire"
-  },
   "landedStage": {
     "tacticalResponse": "Réponse tactique",
     "welcomeTo": "Bienvenue à",
@@ -108,23 +115,6 @@
     "languageSurvivalDesc": "Accédez aux phrases essentielles en arabe et en français pour les arrivées à l'aéroport, les taxis et les enregistrements à l'hôtel.",
     "openLanguageHub": "Ouvrir le centre linguistique"
   },
-  "returnToPlanner": "Retour au Plan",
-  "returnToExplore": "Retour à l'Exploration",
-  "returnToTransport": "Retour au Transport",
-  "returnToLanguage": "Retour à la Langue",
-  "returnToJournal": "Retour au Journal",
-  "switchToLightMode": "Passer en mode clair",
-  "switchToDarkMode": "Passer en mode sombre",
-  "homeTaglineLine1": "Votre guide honnête du Maroc",
-  "homeTaglineLine2": "se réveiller",
-  "homeSubtitle": "Votre guide honnête du Maroc — ville par ville. Ressentez l'ambiance d'abord, faites confiance aux données ensuite, décidez ensuite.",
-  "homePickCity": "Choisissez une ville sur la carte",
-  "homeHelpChoose": "Pas sûr où ? Aidez-moi à choisir",
-  "backToApproaches": "Retour aux approches",
-  "addCity": "Ajouter une ville",
-  "addCustomTitle": "Ajouter un titre personnalisé",
-  "addFit": "Ajouter ce choix",
-  "orAddCustomTitle": "Ou ajoutez un titre personnalisé",
   "transportUi": {
     "within_city": "Dans la ville",
     "city_to_city": "De ville à ville",
@@ -135,5 +125,278 @@
     "scenic": "Pittoresque",
     "view_steps": "Voir les étapes",
     "hide_steps": "Masquer les étapes"
+  },
+  "common": {
+    "home": "Accueil",
+    "back": "Retour",
+    "close": "Fermer",
+    "saved": "Favoris",
+    "viewSaved": "Voir les lieux enregistrés",
+    "nearMe": "À proximité",
+    "nearMeTitle": "Trouver des lieux près de moi",
+    "explore": "Explorer",
+    "selected": "Sélectionné",
+    "sitemap": "Plan du site",
+    "independentGuide": "Guide indépendant du Maroc",
+    "chooseLanguage": "Langue"
+  },
+  "home": {
+    "brandTagline": "Lieux vrais. Ambiance locale.",
+    "personalGuide": "Votre guide personnel du Maroc",
+    "heroTitleLine1": "Que recherchez-vous",
+    "heroTitleLine2": "au Maroc ?",
+    "destinationLabel": "Destination :",
+    "step2PickCity": "Étape 2 : Choisissez votre ville",
+    "moreCities": "+24 autres villes",
+    "closeCities": "Fermer les villes",
+    "chooseDestinations": "Choisissez parmi 31 destinations marocaines",
+    "curatedHubs": "31 étapes sélectionnées",
+    "explorerSubtitle": "Médinas impériales, baies de surf sur l'océan & oasis du désert",
+    "searchCityPlaceholder": "Rechercher une ville...",
+    "noCitiesMatch": "Aucune destination trouvée pour « {{query}} ».",
+    "pickCityAbove": "Choisissez une ville ci-dessus pour commencer",
+    "regions": {
+      "all": "Tout (31)",
+      "imperial": "🏰 Impériales & Patrimoine",
+      "coast": "🌊 Côte & Surf",
+      "sahara": "🏜️ Sahara & Oasis",
+      "atlas": "🏔️ Atlas & Montagnes"
+    },
+    "categories": {
+      "food": {
+        "smallLabel": "Manger & Restaurants",
+        "title": "Restaurants & Gastronomie",
+        "description": "Goûtez au vrai Maroc, de la street food aux tables traditionnelles."
+      },
+      "sleep": {
+        "smallLabel": "Dormir & Riads",
+        "title": "Hébergements & Séjours",
+        "description": "Des riads de charme aux hôtels face à l'océan, trouvez votre refuge."
+      },
+      "things-to-do": {
+        "smallLabel": "Choses à faire",
+        "title": "Activités & Découvertes",
+        "description": "Explorez, découvrez et vivez le meilleur du Maroc."
+      },
+      "shopping": {
+        "smallLabel": "Shopping",
+        "title": "Shopping & Artisanat",
+        "description": "Pièces uniques, artisanat local et souvenirs authentiques."
+      }
+    },
+    "featuredHeading": "Lieux incontournables où manger, dormir & acheter au Maroc",
+    "whereToEat": "Où manger",
+    "whereToStay": "Où dormir",
+    "localShopping": "Shopping local",
+    "thingsToDo": "Choses à faire",
+    "exploreAllShops": "Toutes les boutiques à Marrakech →",
+    "exploreAllActivities": "Toutes les activités →",
+    "popularGuidesHeading": "Recherches populaires & Guides par filtre"
+  },
+  "finder": {
+    "title": "Explorateur",
+    "personalizedSelection": "Sélection personnalisée",
+    "categoryFinder": "Explorateur {{category}}",
+    "browseNearMe": "Voir les lieux près de moi",
+    "closeFinder": "Fermer l'explorateur",
+    "goBack": "Retour"
+  },
+  "results": {
+    "placesFoundIn": "Lieux trouvés pour vous à",
+    "handpickedFor": "Sélectionnés pour",
+    "handpickedFromQuiz": "Sélectionnés d'après votre quiz",
+    "placesCount": "{{count}} lieux",
+    "peopleAlsoSearchFor": "Recherches fréquentes :",
+    "oneActive": "1 actif",
+    "showAll": "Tout afficher",
+    "cityLabel": "VILLE",
+    "moreFilters": "PLUS DE FILTRES",
+    "customize": "Personnaliser",
+    "priceRatingsAmenities": "Prix, Notes & Équipements",
+    "activeCount": "{{count}} actifs",
+    "sortLabel": "Trier :",
+    "sortSmart": "Pertinence",
+    "sortDistance": "Plus proche",
+    "sortRating": "Mieux notés",
+    "sortVerified": "Vérifiés d'abord",
+    "sortPriceLow": "Prix croissant",
+    "sortPriceHigh": "Prix décroissant",
+    "activeCriteriaApplied": "{{count}} critères actifs appliqués",
+    "showTags": "Voir les critères",
+    "hideTags": "Masquer les critères",
+    "clearAll": "Tout effacer",
+    "noMatchesTitle": "Aucun résultat trouvé",
+    "noMatchesDesc": "Essayez d'ajuster le quartier, l'ambiance ou vos filtres.",
+    "editVibeChoices": "Modifier mes choix",
+    "curatingCity": "Sélection en cours pour {{city}}",
+    "curatingDesc": "Nos experts locaux finalisent les adresses pour cette destination. Explorez une autre ville en attendant.",
+    "exploreMarrakech": "Explorer Marrakech",
+    "perfectMatch": "Accord Parfait",
+    "greatMatch": "Excellent Choix",
+    "goodMatch": "Bon Choix",
+    "topPick": "COUP DE CŒUR",
+    "seePhotosMaps": "Voir les photos sur Google Maps",
+    "whyMatched": "Pourquoi ce résultat correspond",
+    "directions": "Itinéraire",
+    "showMorePlaces": "Afficher 5 lieux de plus",
+    "showingCountOf": "Affichage de {{shown}} sur {{total}} lieux sélectionnés",
+    "retakeQuiz": "Pas ce que vous cherchez ? Refaire le quiz",
+    "chooseDestinationCity": "Choisir la ville de destination",
+    "clickToEditAnswer": "Cliquer pour modifier cette réponse",
+    "safetyScore": "Sécurité {{score}}/5",
+    "cityCenter": "Centre-ville",
+    "metersAway": "à {{meters}} m",
+    "kmAway": "à {{km}} km",
+    "metersFromCenter": "à {{meters}} m du centre",
+    "kmFromCenter": "à {{km}} km du centre",
+    "defaultNeighborhood": "Médina",
+    "fallbackTypeFood": "Restaurant",
+    "fallbackTypeSleep": "Hébergement",
+    "fallbackTypeShopping": "Boutique artisanale",
+    "fallbackTypeThings": "Activité"
+  },
+  "quiz": {
+    "loadingSteps": "Chargement des questions...",
+    "quickShortcutsTitle": "Pressé ? Raccourcis rapides",
+    "stepOf": "Étape {{current}} sur {{total}}",
+    "percentComplete": "{{percent}}% terminé",
+    "stepLabelFallback": "Étape {{step}}",
+    "stepLabels": {
+      "preferences": "Vos préférences",
+      "travelStyle": "Style de voyage",
+      "vibeAtmosphere": "Ambiance & Cadre",
+      "logisticsDetails": "Logistique & Détails",
+      "finalPolish": "Dernière touche"
+    },
+    "multiSelectHint": "Sélectionnez une ou plusieurs options qui vous correspondent",
+    "singleSelectHint": "Choisissez l’option qui vous convient le mieux",
+    "back": "Retour",
+    "surpriseMe": "Indécis ? Surprenez-moi",
+    "nextQuestion": "Question suivante",
+    "seeMatches": "Voir les résultats ({{count}})",
+    "trust": {
+      "fastTitle": "Seulement 2 min",
+      "fastSub": "Simple et rapide",
+      "personalizedTitle": "100 % Personnalisé",
+      "personalizedSub": "Rien que pour vous",
+      "betterTitle": "Meilleures recommandations",
+      "betterSub": "Sélection sur mesure",
+      "privateTitle": "Privé & sécurisé",
+      "privateSub": "Vos données sont protégées"
+    }
+  },
+  "subcategory": {
+    "backToFinder": "Retour à l’explorateur",
+    "title": "Choses à faire à {{city}}",
+    "quote": "« Le Maroc est une mosaïque sensorielle. Choisissez un thème pour affiner votre recherche ou parcourez tout. »",
+    "browseEverything": "Tout parcourir",
+    "exploreFocus": "Explorer ce thème",
+    "items": {
+      "culture": {
+        "label": "Culture & Patrimoine",
+        "description": "Palais, musées, balades en médina et siècles d’histoire impériale vivante.",
+        "keywords": ["Palais", "Musées", "Médina", "Traditions"]
+      },
+      "sport": {
+        "label": "Sport & Activités",
+        "description": "Salles de sport à proximité, cours de surf, quad dans le désert et randonnées.",
+        "keywords": ["Fitness", "Surf", "Randonnée", "Quad"]
+      },
+      "wellness": {
+        "label": "Bien-être & Spa",
+        "description": "Hammams marocains traditionnels, studios de yoga et spas d’exception.",
+        "keywords": ["Hammams", "Yoga", "Massages", "Retraites"]
+      },
+      "desert-nature": {
+        "label": "Désert & Nature",
+        "description": "Méharées, observation des étoiles dans le Sahara et oasis de montagne.",
+        "keywords": ["Dromadaires", "Dunes", "Oasis", "Vallées"]
+      },
+      "photography": {
+        "label": "Spots Photo",
+        "description": "Vues panoramiques, portes sculptées, détails de zellige et couchers de soleil.",
+        "keywords": ["Heure dorée", "Rooftops", "Portes", "Artisanat"]
+      },
+      "social": {
+        "label": "Sorties & Convivialité",
+        "description": "Marchés animés, rooftops, musique live et soirées chaleureuses.",
+        "keywords": ["Rooftops", "Souks", "Musique live", "Dîners"]
+      }
+    }
+  },
+  "sportPath": {
+    "backToSubcategories": "Retour aux catégories",
+    "title": "Sport & Action à {{city}}",
+    "quote": "« Gardez votre rythme. Choisissez une séance rapide en salle locale ou réservez une grande aventure. »",
+    "trainTitle": "Trouver un lieu pour s’entraîner",
+    "trainDesc": "Trouvez salles de sport, parcours de course, terrains et piscines à proximité. Idéal pour garder votre routine sportive à {{city}}.",
+    "trainMeta": "Trié par distance · Tarifs à la séance",
+    "findNearbyBtn": "Voir les lieux à proximité →",
+    "expTitle": "Réserver une expérience sportive",
+    "expDesc": "Envie d’inoubliable ? Réservez un moniteur de surf, un trek guidé dans le Haut Atlas ou du sandboard dans les dunes.",
+    "expMeta": "Guides certifiés · Équipement inclus · Inoubliable",
+    "browseExpBtn": "Voir les expériences →",
+    "expItems": [
+      { "icon": "🏄", "label": "Surf, Windsurf & Kitesurf" },
+      { "icon": "🥾", "label": "Randonnée en montagne & Treks" },
+      { "icon": "🧗", "label": "Escalade & Via Ferrata" }
+    ],
+    "chips": {
+      "gym-fitness": "Salle & Fitness",
+      "running-outdoor": "Course & Plein air",
+      "swimming-pool": "Piscines",
+      "yoga-movement": "Yoga & Mobilité",
+      "combat-sports": "Sports de combat",
+      "team-sports": "Sports d’équipe"
+    }
+  },
+  "place": {
+    "backToListings": "Retour à la liste",
+    "notFoundTitle": "Lieu introuvable",
+    "notFoundDesc": "Ce lieu a peut-être été déplacé ou supprimé. Découvrez d'autres adresses au Maroc.",
+    "backToHome": "Retour à l'accueil",
+    "planYourTrip": "Planifiez votre voyage",
+    "completeJourney": "Complétez votre séjour à {{city}}",
+    "exploreAllDining": "Tous les restaurants à {{city}}",
+    "whereToStay": "Où dormir",
+    "whereToStayDesc": "Riads choisis avec soin, retraites désert et séjours paisibles à {{city}}.",
+    "exploreStays": "Voir les séjours",
+    "thingsToDo": "Choses à faire",
+    "thingsToDoDesc": "Visites guidées, hammams, excursions et expériences locales à {{city}}.",
+    "exploreActivities": "Voir les activités",
+    "artisanShopping": "Artisanat & Shopping",
+    "artisanShoppingDesc": "Souks authentiques, tapis, céramiques, cuir et épices à {{city}}.",
+    "exploreShopping": "Voir le shopping",
+    "discoverMore": "Découvrir plus",
+    "moreInCategory": "Plus de {{category}} à {{city}}",
+    "viewAllInCity": "Tout voir à {{city}}",
+    "exploreByCategory": "Explorer {{city}} par catégorie et envie",
+    "foodIn": "Manger à {{city}}",
+    "staysIn": "Dormir à {{city}}",
+    "thingsIn": "À faire à {{city}}",
+    "shoppingIn": "Shopping à {{city}}"
+  },
+  "things": {
+    "notFoundTitle": "Expérience introuvable",
+    "notFoundDesc": "Cette activité a peut-être été mise à jour. Découvrez d'autres expériences vérifiées à proximité.",
+    "backToNearMe": "Retour à À proximité",
+    "browseCityActivities": "Activités à {{city}}",
+    "thingsIn": "Choses à faire à {{city}}",
+    "moreIn": "Plus à {{city}}",
+    "allThingsIn": "Toutes les activités à {{city}}"
+  },
+  "favorites": {
+    "title": "Lieux enregistrés",
+    "none": "Aucun lieu enregistré",
+    "count_one": "{{count}} lieu enregistré",
+    "count_other": "{{count}} lieux enregistrés",
+    "emptyTitle": "Votre liste est vide",
+    "emptyDesc": "Appuyez sur le cœur sur un restaurant, riad, activité ou boutique pour créer votre sélection au Maroc."
+  },
+  "notFound": {
+    "title": "Page introuvable",
+    "heading": "Cette page a pris le mauvais chemin",
+    "description": "La page demandée n'existe pas — mais votre prochaine adresse coup de cœur au Maroc vous attend.",
+    "backToHome": "Retour à l'accueil"
   }
 }

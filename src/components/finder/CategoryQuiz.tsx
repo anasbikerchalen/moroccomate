@@ -32,6 +32,9 @@ import {
 } from 'lucide-react';
 import { cn } from '../../utils/cn';
 import { useExploreStore } from '../../state/exploreStore';
+import { useTranslation } from 'react-i18next';
+import { useLangPath } from '../../utils/localeRouting';
+import { translateQuizQuestion, translateQuizOption } from '../../data/explore/quizTranslations';
 // 🖼️ PENDING IMAGE: single placeholder (kept as a fallback pattern for future options)
 import quizPlaceholderPending from '../../assets/images/quizzes/shared/quiz_placeholder_pending.svg';
 // 🖼️ Quiz cuisine option images (Gemini-generated, prompts in IMAGE_TASKS.md)
@@ -569,6 +572,8 @@ export default function CategoryQuiz({ questions, onComplete, onBack, listings =
   const [answers, setAnswers] = useState<Record<string, any>>({});
   const applyQuizAutoFilters = useExploreStore((s) => s.applyQuizAutoFilters);
   const parameterCity = useParameterStore((s) => s.city);
+  const { t } = useTranslation();
+  const { lang, dir } = useLangPath();
 
   // City-specific category quick picks (5 curated filters per city & category)
   const categoryPicks = useMemo(() => {
@@ -683,10 +688,15 @@ export default function CategoryQuiz({ questions, onComplete, onBack, listings =
     return currentQuestion.options;
   }, [currentQuestion, answers]);
 
-  if (!currentQuestion) {
+  const localizedQuestion = useMemo(
+    () => (currentQuestion ? translateQuizQuestion(currentQuestion, lang) : null),
+    [currentQuestion, lang]
+  );
+
+  if (!currentQuestion || !localizedQuestion) {
     return (
       <div className="min-h-[400px] flex items-center justify-center text-stone-400 italic font-serif">
-        Loading quiz steps...
+        {t('quiz.loadingSteps')}
       </div>
     );
   }
@@ -778,13 +788,16 @@ export default function CategoryQuiz({ questions, onComplete, onBack, listings =
   const progressPercentage = Math.round(((stepIndex + 1) / effectiveQuestions.length) * 100);
 
   const stepLabels = [
-    'Your Preferences',
-    'Travel Style',
-    'Vibe & Atmosphere',
-    'Logistics & Details',
-    'Final Polish'
+    t('quiz.stepLabels.preferences'),
+    t('quiz.stepLabels.travelStyle'),
+    t('quiz.stepLabels.vibeAtmosphere'),
+    t('quiz.stepLabels.logisticsDetails'),
+    t('quiz.stepLabels.finalPolish')
   ];
-  const currentStepLabel = stepLabels[currentStep] || `Step ${currentStep + 1}`;
+  const currentStepLabel = stepLabels[currentStep] || t('quiz.stepLabelFallback', { step: currentStep + 1 });
+
+  const BackArrow = dir === 'rtl' ? ArrowRight : ArrowLeft;
+  const NextArrow = dir === 'rtl' ? ArrowLeft : ArrowRight;
 
   return (
     <div className="w-full max-w-6xl mx-auto space-y-3 py-1 px-1 sm:px-4 font-sans text-stone-900">
@@ -804,7 +817,7 @@ export default function CategoryQuiz({ questions, onComplete, onBack, listings =
         {/* Step indicator & label */}
         <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
           <span className="text-xs sm:text-sm font-bold text-stone-800 font-display whitespace-nowrap">
-            Step {currentStep + 1} of {effectiveQuestions.length}
+            {t('quiz.stepOf', { current: currentStep + 1, total: effectiveQuestions.length })}
           </span>
           <span className="hidden sm:inline text-xs text-stone-400 font-medium">·</span>
           <span className="hidden sm:inline text-xs text-stone-600 font-medium truncate max-w-[140px] md:max-w-[200px]">
@@ -830,9 +843,9 @@ export default function CategoryQuiz({ questions, onComplete, onBack, listings =
         </div>
 
         {/* Percentage Complete */}
-        <div className="text-right shrink-0">
+        <div className={cn("shrink-0", dir === 'rtl' ? 'text-left' : 'text-right')}>
           <span className="text-[11px] sm:text-xs font-bold text-[#C86D51] whitespace-nowrap">
-            {progressPercentage}% Complete
+            {t('quiz.percentComplete', { percent: progressPercentage })}
           </span>
         </div>
       </div>
@@ -843,10 +856,10 @@ export default function CategoryQuiz({ questions, onComplete, onBack, listings =
         {/* Question Title & Subtitle */}
         <div className="text-center space-y-1 max-w-2xl mx-auto">
           <h2 className="text-2xl sm:text-3xl font-display font-serif font-semibold text-stone-900 leading-snug">
-            {currentQuestion.question}
+            {localizedQuestion.question}
           </h2>
           <p className="text-stone-500 text-xs sm:text-sm">
-            {isMultiSelect ? "Select one or more options that fit you best" : "Choose the option that fits you best"}
+            {isMultiSelect ? t('quiz.multiSelectHint') : t('quiz.singleSelectHint')}
           </p>
         </div>
 
@@ -866,13 +879,14 @@ export default function CategoryQuiz({ questions, onComplete, onBack, listings =
                 : answers[currentQuestion.id] === option.id;
 
               const cardImg = getOptionImage(option, currentQuestion.id, currentStep, categoryId);
+              const translatedOption = translateQuizOption(currentQuestion.id, option, lang);
 
               return (
                 <button
                   key={option.id}
                   onClick={() => handleOptionSelect(currentQuestion.id, option.id)}
                   className={cn(
-                    "group relative flex flex-col rounded-[24px] border overflow-hidden transition-all duration-300 cursor-pointer text-left h-full",
+                    "group relative flex flex-col rounded-[24px] border overflow-hidden transition-all duration-300 cursor-pointer text-start h-full",
                     isSelected 
                       ? "bg-[#FAF3F0] border-2 border-[#C86D51] shadow-lg shadow-[#C86D51]/10 -translate-y-1 ring-2 ring-[#C86D51] ring-offset-2"
                       : "bg-white border-stone-200/80 hover:border-stone-300 hover:shadow-md hover:-translate-y-0.5"
@@ -882,7 +896,7 @@ export default function CategoryQuiz({ questions, onComplete, onBack, listings =
                   <div className="relative aspect-[4/3] sm:aspect-[16/9] w-full bg-stone-100 overflow-hidden">
                     <img 
                       src={cardImg} 
-                      alt={option.label}
+                      alt={translatedOption.label}
                       loading="lazy"
                       decoding="async" 
                       onError={(e) => {
@@ -914,12 +928,12 @@ export default function CategoryQuiz({ questions, onComplete, onBack, listings =
                       "font-display font-semibold text-base sm:text-lg transition-colors",
                       isSelected ? "text-[#C86D51]" : "text-stone-900 group-hover:text-[#C86D51]"
                     )}>
-                      {option.label}
+                      {translatedOption.label}
                     </h3>
 
-                    {option.sub && (
+                    {translatedOption.sub && (
                       <p className="text-xs text-stone-500 leading-relaxed line-clamp-3 font-sans">
-                        {option.sub}
+                        {translatedOption.sub}
                       </p>
                     )}
                   </div>
@@ -935,17 +949,17 @@ export default function CategoryQuiz({ questions, onComplete, onBack, listings =
             onClick={handlePreviousStep}
             className="w-full sm:w-auto px-5 sm:px-6 py-2.5 sm:py-3 rounded-full bg-stone-100 hover:bg-stone-200 text-stone-700 font-bold text-xs sm:text-sm transition-all cursor-pointer flex items-center justify-center gap-2"
           >
-            <ArrowLeft className="w-4 h-4" />
-            Back
+            <BackArrow className="w-4 h-4" />
+            {t('quiz.back')}
           </button>
 
           <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
             <button
               onClick={handleSurpriseMe}
-              className="text-xs sm:text-sm font-medium text-stone-500 hover:text-[#C86D51] transition-colors flex items-center gap-1.5"
+              className="text-xs sm:text-sm font-medium text-stone-500 hover:text-[#C86D51] transition-colors flex items-center gap-1.5 cursor-pointer"
             >
               <Wand2 className="w-4 h-4" />
-              Not sure? Surprise me
+              {t('quiz.surpriseMe')}
             </button>
 
             <button
@@ -960,12 +974,12 @@ export default function CategoryQuiz({ questions, onComplete, onBack, listings =
             >
               {stepIndex < effectiveQuestions.length - 1 ? (
                 <>
-                  Next Question
-                  <ArrowRight className="w-4 h-4" />
+                  {t('quiz.nextQuestion')}
+                  <NextArrow className="w-4 h-4" />
                 </>
               ) : (
                 <>
-                  See Matches ({matchCount})
+                  {t('quiz.seeMatches', { count: matchCount })}
                   <Sparkles className="w-4 h-4" />
                 </>
               )}
@@ -976,14 +990,14 @@ export default function CategoryQuiz({ questions, onComplete, onBack, listings =
       </div>
 
       {/* 4. Bottom Trust Strip Footer */}
-      <div className="bg-white rounded-[24px] p-6 border border-stone-200/80 shadow-xs grid grid-cols-2 md:grid-cols-4 gap-6 text-left">
+      <div className="bg-white rounded-[24px] p-6 border border-stone-200/80 shadow-xs grid grid-cols-2 md:grid-cols-4 gap-6 text-start">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-xl bg-[#FAF3F0] text-[#C86D51] flex items-center justify-center flex-shrink-0">
             <Clock className="w-5 h-5" />
           </div>
           <div>
-            <div className="font-bold text-xs sm:text-sm text-stone-900">Takes only 2 min</div>
-            <div className="text-[11px] text-stone-500">Quick & easy</div>
+            <div className="font-bold text-xs sm:text-sm text-stone-900">{t('quiz.trust.fastTitle')}</div>
+            <div className="text-[11px] text-stone-500">{t('quiz.trust.fastSub')}</div>
           </div>
         </div>
 
@@ -992,8 +1006,8 @@ export default function CategoryQuiz({ questions, onComplete, onBack, listings =
             <User className="w-5 h-5" />
           </div>
           <div>
-            <div className="font-bold text-xs sm:text-sm text-stone-900">100% Personalized</div>
-            <div className="text-[11px] text-stone-500">Just for you</div>
+            <div className="font-bold text-xs sm:text-sm text-stone-900">{t('quiz.trust.personalizedTitle')}</div>
+            <div className="text-[11px] text-stone-500">{t('quiz.trust.personalizedSub')}</div>
           </div>
         </div>
 
@@ -1002,8 +1016,8 @@ export default function CategoryQuiz({ questions, onComplete, onBack, listings =
             <Star className="w-5 h-5" />
           </div>
           <div>
-            <div className="font-bold text-xs sm:text-sm text-stone-900">Better recommendations</div>
-            <div className="text-[11px] text-stone-500">You'll love</div>
+            <div className="font-bold text-xs sm:text-sm text-stone-900">{t('quiz.trust.betterTitle')}</div>
+            <div className="text-[11px] text-stone-500">{t('quiz.trust.betterSub')}</div>
           </div>
         </div>
 
@@ -1012,8 +1026,8 @@ export default function CategoryQuiz({ questions, onComplete, onBack, listings =
             <ShieldCheck className="w-5 h-5" />
           </div>
           <div>
-            <div className="font-bold text-xs sm:text-sm text-stone-900">Private & secure</div>
-            <div className="text-[11px] text-stone-500">Your data is safe</div>
+            <div className="font-bold text-xs sm:text-sm text-stone-900">{t('quiz.trust.privateTitle')}</div>
+            <div className="text-[11px] text-stone-500">{t('quiz.trust.privateSub')}</div>
           </div>
         </div>
       </div>

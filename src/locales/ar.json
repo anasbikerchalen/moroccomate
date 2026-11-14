@@ -1,6 +1,6 @@
 {
-  "appTitle": "نظام سفر المغرب",
-  "appSubtitle": "رفيق سفرك الشخصي",
+  "appTitle": "Moroccan Mate",
+  "appSubtitle": "رفيق سفرك الشخصي في المغرب",
   "language": "اللغة",
   "darkMode": "الوضع الداكن",
   "socialSharing": "المشاركة الاجتماعية",
@@ -9,6 +9,8 @@
   "languageSelector": "اختيار اللغة",
   "english": "الإنجليزية",
   "french": "الفرنسية",
+  "spanish": "الإسبانية",
+  "german": "الألمانية",
   "arabic": "العربية",
   "title": "العنوان",
   "description": "الوصف",
@@ -32,19 +34,24 @@
   "advancedTravelOS": "نظام سفر متقدم",
   "openSearch": "فتح البحث",
   "openPreferences": "فتح التفضيلات",
-  "chooseJourney": "How would you like to start?",
+  "chooseJourney": "كيف تود أن تبدأ؟",
   "journeyChoice": {
-    "subtitle": "Tailor your planning experience based on your familiarity with Morocco.",
-    "footer": "You can change this setting later in Preferences.",
-    "firstTimer": "First Timer",
-    "beenBefore": "Been Before",
-    "iKnow": "I Know My Route",
-    "guideMe": "Guide me",
-    "inspireMe": "Inspire me",
-    "letMeEdit": "Let me edit"
+    "subtitle": "خصّص تجربة التخطيط حسب معرفتك بالمغرب.",
+    "footer": "يمكنك تغيير هذا الإعداد لاحقاً من التفضيلات.",
+    "firstTimer": "أول زيارة",
+    "beenBefore": "زرت المغرب سابقاً",
+    "iKnow": "أعرف مساري",
+    "guideMe": "وجّهني",
+    "inspireMe": "ألهمني",
+    "letMeEdit": "دعني أعدّل"
   },
   "welcomeRouteArchitect": "مرحباً بكم في مهندس المسار",
-  "aiCompanionSubtitle": "رفيقك في تخطيط السفر المدعوم بالذكاء الاصطناعي",
+  "aiCompanionSubtitle": "رفيقك الذكي لتخطيط السفر",
+  "homeTaglineLine1": "دليلك الصادق للمغرب",
+  "homeTaglineLine2": "استيقظ",
+  "homeSubtitle": "دليلك الصادق للمغرب — مدينة تلو الأخرى. اشعر بالأجواء أولاً، وثق بالبيانات ثانياً، ثم قرر.",
+  "homePickCity": "اختر مدينة على الخريطة",
+  "homeHelpChoose": "لست متأكدًا من أين؟ ساعدني في الاختيار",
   "onboarding": {
     "step1Title": "اختر رحلتك",
     "step1Desc": "التحضير، وصلت للتو، مسافر، أو مغادر",
@@ -65,6 +72,10 @@
   "preparingStage": {
     "phaseTitle": "المرحلة 01: التحضير",
     "architectYour": "هندسة",
+    "masterRoute": "المسار الرئيسي",
+    "initializeModule": "بدء الوحدة",
+    "systemPrerequisites": "المتطلبات الأساسية",
+    "manualBuilder": "المنشئ اليدوي",
     "wizard": {
       "title": "معالج مسار المدينة",
       "desc": "أجب على 5 أسئلة للعثور على دورتك المغربية المثالية.",
@@ -85,46 +96,24 @@
     },
     "generator": {
       "title": "مولد الأجواء",
-      "desc": "مسار يعتمد على الذكاء الاصطناعي بناءً على اهتماماتك المحددة.",
-      "mixVibe": "امزج حمضك النووي للأجواء المغربية",
+      "desc": "مسار يعتمد على اهتماماتك المحددة.",
+      "mixVibe": "امزج أجواءك المغربية",
       "mixDesc": "اختر الأجواء التي تريدها واضبط كثافتها لتجميع مسار منطقي تلقائياً.",
       "intensity": "الكثافة:",
-      "assemble": "تجميع مسار الحمض النووي للأجواء",
+      "assemble": "تجميع مسار الأجواء",
       "back": "العودة إلى الأساليب"
     }
-  },
-  "quickBridges": {
-    "visaGuide": "دليل التأشيرة",
-    "moneyAtm": "المال & الصراف الآلي",
-    "routeOptimizer": "محسّن المسار"
   },
   "landedStage": {
     "tacticalResponse": "الاستجابة التكتيكية",
     "welcomeTo": "مرحباً بكم في",
-    "survivalNote": "لقد أعطينا الأولوية لمهام البقاء الفورية على التخطيط طويل الأمد لأول 6 ساعات لك.",
+    "survivalNote": "لقد أعطينا الأولوية لمهام الوصول الفورية لأول 6 ساعات لك.",
     "launchModule": "بدء الوحدة",
     "viewGuideAgain": "عرض الدليل مرة أخرى",
     "languageSurvivalKit": "حقيبة البقاء اللغوية",
-    "languageSurvivalDesc": "احصل على عبارات أساسية باللغتين العربية والفرنسية للوصول إلى المطارات وسيارات الأجرة وتسجيل الوصول في الفنادق.",
+    "languageSurvivalDesc": "احصل على عبارات أساسية باللغتين العربية والفرنسية للمطار وسيارات الأجرة والفنادق.",
     "openLanguageHub": "فتح مركز اللغة"
   },
-  "returnToPlanner": "العودة إلى الخطة",
-  "returnToExplore": "العودة إلى الاستكشاف",
-  "returnToTransport": "العودة إلى النقل",
-  "returnToLanguage": "العودة إلى اللغة",
-  "returnToJournal": "العودة إلى اليومية",
-  "switchToLightMode": "التبديل إلى الوضع الفاتح",
-  "switchToDarkMode": "التبديل إلى الوضع الداكن",
-  "homeTaglineLine1": "دليلك الصادق للمغرب",
-  "homeTaglineLine2": "استيقظ",
-  "homeSubtitle": "دليلك الصادق للمغرب — مدينة تلو الأخرى. اشعر بالأجواء أولاً، وثق بالبيانات ثانياً، ثم قرر.",
-  "homePickCity": "اختر مدينة على الخريطة",
-  "homeHelpChoose": "لست متأكدًا من أين؟ ساعدني في الاختيار",
-  "backToApproaches": "العودة إلى الأساليب",
-  "addCity": "إضافة مدينة",
-  "addCustomTitle": "إضافة عنوان مخصص",
-  "addFit": "إضافة ملاءمة",
-  "orAddCustomTitle": "أو أضف عنوانًا مخصصًا",
   "transportUi": {
     "within_city": "داخل المدينة",
     "city_to_city": "بين المدن",
@@ -135,5 +124,278 @@
     "scenic": "بانورامي",
     "view_steps": "عرض الخطوات",
     "hide_steps": "إخفاء الخطوات"
+  },
+  "common": {
+    "home": "الرئيسية",
+    "back": "رجوع",
+    "close": "إغلاق",
+    "saved": "المحفوظات",
+    "viewSaved": "عرض الأماكن المحفوظة",
+    "nearMe": "بالقرب مني",
+    "nearMeTitle": "اكتشف أماكن بالقرب مني",
+    "explore": "استكشف",
+    "selected": "تم الاختيار",
+    "sitemap": "خريطة الموقع",
+    "independentGuide": "دليل المغرب المستقل",
+    "chooseLanguage": "اللغة"
+  },
+  "home": {
+    "brandTagline": "أماكن حقيقية. أجواء محلية.",
+    "personalGuide": "دليلك الشخصي في المغرب",
+    "heroTitleLine1": "عمَّ تبحث",
+    "heroTitleLine2": "في المغرب؟",
+    "destinationLabel": "الوجهة:",
+    "step2PickCity": "الخطوة 2: اختر مدينتك",
+    "moreCities": "+24 مدينة أخرى",
+    "closeCities": "إغلاق المدن",
+    "chooseDestinations": "اختر من بين 31 وجهة مغربية",
+    "curatedHubs": "31 وجهة مختارة",
+    "explorerSubtitle": "مدن عتيقة تاريخية، شواطئ ركوب الأمواج وواحات الصحراء",
+    "searchCityPlaceholder": "ابحث عن مدينة...",
+    "noCitiesMatch": "لم يتم العثور على وجهات مطابقة لـ \"{{query}}\".",
+    "pickCityAbove": "اختر مدينة من الأعلى للبدء",
+    "regions": {
+      "all": "الكل (31)",
+      "imperial": "🏰 مدن عتيقة وتراث",
+      "coast": "🌊 الساحل وركوب الأمواج",
+      "sahara": "🏜️ الصحراء والواحات",
+      "atlas": "🏔️ جبال الأطلس والطبيعة"
+    },
+    "categories": {
+      "food": {
+        "smallLabel": "المطاعم والأكل",
+        "title": "المطاعم والمأكولات",
+        "description": "تذوّق المغرب الحقيقي، من أكل الشارع إلى الأطباق التقليدية الأصيلة."
+      },
+      "sleep": {
+        "smallLabel": "الإقامة والرياضات",
+        "title": "أماكن الإقامة",
+        "description": "من الرياضات التقليدية إلى المنتجعات الشاطئية، اختر إقامتك المثالية."
+      },
+      "things-to-do": {
+        "smallLabel": "أنشطة وتجارب",
+        "title": "أنشطة وتجارب",
+        "description": "استكشف وجرّب أجمل الأنشطة والتجارب في المغرب."
+      },
+      "shopping": {
+        "smallLabel": "التسوق",
+        "title": "التسوق والحرف",
+        "description": "كنوز فريدة، حرف تقليدية وهدايا تذكارية أصيلة."
+      }
+    },
+    "featuredHeading": "أماكن مختارة للأكل والإقامة والتسوق في المغرب",
+    "whereToEat": "أين تأكل",
+    "whereToStay": "أين تقيم",
+    "localShopping": "التسوق المحلي",
+    "thingsToDo": "أنشطة للقيام بها",
+    "exploreAllShops": "استكشف كل متاجر مراكش ←",
+    "exploreAllActivities": "استكشف كل الأنشطة ←",
+    "popularGuidesHeading": "أبرز عمليات البحث وأدلة التصفية"
+  },
+  "finder": {
+    "title": "المستكشف",
+    "personalizedSelection": "اختيار مخصص",
+    "categoryFinder": "مستكشف {{category}}",
+    "browseNearMe": "تصفح أماكن بالقرب مني",
+    "closeFinder": "إغلاق المستكشف",
+    "goBack": "رجوع"
+  },
+  "results": {
+    "placesFoundIn": "أماكن وجدناها لك في",
+    "handpickedFor": "مختارة لـ",
+    "handpickedFromQuiz": "مختارة بناءً على إجاباتك",
+    "placesCount": "{{count}} مكان",
+    "peopleAlsoSearchFor": "يبحث الزوار أيضاً عن:",
+    "oneActive": "1 نشط",
+    "showAll": "عرض الكل",
+    "cityLabel": "المدينة",
+    "moreFilters": "فلاتر إضافية",
+    "customize": "تخصيص",
+    "priceRatingsAmenities": "السعر، التقييم والمرافق",
+    "activeCount": "{{count}} نشط",
+    "sortLabel": "ترتيب:",
+    "sortSmart": "الأكثر ملاءمة",
+    "sortDistance": "الأقرب إليّ",
+    "sortRating": "الأعلى تقييماً",
+    "sortVerified": "الموثقة أولاً",
+    "sortPriceLow": "السعر: من الأقل",
+    "sortPriceHigh": "السعر: من الأعلى",
+    "activeCriteriaApplied": "تم تطبيق {{count}} معايير",
+    "showTags": "عرض المعايير",
+    "hideTags": "إخفاء المعايير",
+    "clearAll": "مسح الكل",
+    "noMatchesTitle": "لا توجد نتائج مطابقة",
+    "noMatchesDesc": "جرّب تعديل الحي أو الأجواء أو الفلاتر للعثور على المزيد من الأماكن.",
+    "editVibeChoices": "تعديل الاختيارات",
+    "curatingCity": "جاري تجهيز {{city}}",
+    "curatingDesc": "يعمل فريقنا المحلي على تجميع بيانات هذه المدينة. يرجى المحاولة لاحقاً أو استكشاف وجهة أخرى.",
+    "exploreMarrakech": "استكشف مراكش",
+    "perfectMatch": "تطابق مثالي",
+    "greatMatch": "خيار ممتاز",
+    "goodMatch": "خيار جيد",
+    "topPick": "اختيارنا الأول",
+    "seePhotosMaps": "شاهد الصور على خرائط جوجل",
+    "whyMatched": "لماذا يناسبك هذا المكان",
+    "directions": "الاتجاهات",
+    "showMorePlaces": "عرض 5 أماكن إضافية",
+    "showingCountOf": "عرض {{shown}} من أصل {{total}} مكاناً مختاراً",
+    "retakeQuiz": "لم تجد ما يناسبك؟ أعد الاختبار",
+    "chooseDestinationCity": "اختر مدينة الوجهة",
+    "clickToEditAnswer": "اضغط لتعديل هذه الإجابة",
+    "safetyScore": "الأمان {{score}}/5",
+    "cityCenter": "وسط المدينة",
+    "metersAway": "على بُعد {{meters}} م",
+    "kmAway": "على بُعد {{km}} كم",
+    "metersFromCenter": "{{meters}} م من المركز",
+    "kmFromCenter": "{{km}} كم من المركز",
+    "defaultNeighborhood": "المدينة العتيقة",
+    "fallbackTypeFood": "مطعم",
+    "fallbackTypeSleep": "إقامة",
+    "fallbackTypeShopping": "متجر تقليدي",
+    "fallbackTypeThings": "معلم سياحي"
+  },
+  "quiz": {
+    "loadingSteps": "جاري تحميل خطوات الاختبار...",
+    "quickShortcutsTitle": "مستعجل؟ اختصارات سريعة",
+    "stepOf": "الخطوة {{current}} من {{total}}",
+    "percentComplete": "مكتمل {{percent}}%",
+    "stepLabelFallback": "الخطوة {{step}}",
+    "stepLabels": {
+      "preferences": "تفضيلاتك",
+      "travelStyle": "أسلوب السفر",
+      "vibeAtmosphere": "الأجواء والطابع",
+      "logisticsDetails": "التفاصيل واللوجستيات",
+      "finalPolish": "اللمسة الأخيرة"
+    },
+    "multiSelectHint": "اختر خياراً واحداً أو أكثر يناسبك",
+    "singleSelectHint": "اختر الخيار الأنسب لك",
+    "back": "رجوع",
+    "surpriseMe": "غير متأكد؟ فاجئني",
+    "nextQuestion": "السؤال التالي",
+    "seeMatches": "عرض النتائج ({{count}})",
+    "trust": {
+      "fastTitle": "يستغرق دقيقتين فقط",
+      "fastSub": "سريع وسهل",
+      "personalizedTitle": "مخصص 100%",
+      "personalizedSub": "مصمم لأجلك",
+      "betterTitle": "توصيات أدق",
+      "betterSub": "ستنال إعجابك",
+      "privateTitle": "خاص وآمن",
+      "privateSub": "بياناتك محفوظة"
+    }
+  },
+  "subcategory": {
+    "backToFinder": "العودة للمستكشف",
+    "title": "أنشطة وتجارب في {{city}}",
+    "quote": "«المغرب فسيفساء حية للحواس. اختر مساراً لتضييق نطاق البحث أو تصفح كل شيء.»",
+    "browseEverything": "تصفح الكل",
+    "exploreFocus": "استكشف المسار",
+    "items": {
+      "culture": {
+        "label": "الثقافة والتراث",
+        "description": "القصور والمتاحف وجولات المدينة العتيقة وقرون من التاريخ الإمبراطوري الحي.",
+        "keywords": ["قصور", "متاحف", "جولات المدينة", "تقاليد محلية"]
+      },
+      "sport": {
+        "label": "الرياضة والنشاط",
+        "description": "صالات رياضية قريبة، دروس ركوب الأمواج، دراجات الصحراء ومسارات الجبال.",
+        "keywords": ["لياقة", "ركوب الأمواج", "مشي جبلي", "دراجات رباعية"]
+      },
+      "wellness": {
+        "label": "الاستجمام والسبا",
+        "description": "الحمامات المغربية التقليدية، استوديوهات اليوغا والمنتجعات الفاخرة.",
+        "keywords": ["حمامات", "يوغا", "تدليك", "استرخاء"]
+      },
+      "desert-nature": {
+        "label": "الصحراء والطبيعة",
+        "description": "رحلات الجمال، مراقبة النجوم تحت سماء الصحراء الصافية والواحات الجبلية.",
+        "keywords": ["جمال", "كثبان رملية", "واحات", "وديان"]
+      },
+      "photography": {
+        "label": "أماكن التصوير",
+        "description": "إطلالات خلابة، أبواب مزخرفة، تفاصيل الزليج ولحظات الغروب الذهبية.",
+        "keywords": ["الساعة الذهبية", "أسطح", "أبواب تراثية", "حرف وفنون"]
+      },
+      "social": {
+        "label": "أجواء اجتماعية ومرح",
+        "description": "أسواق نابضة بالحياة، تراسات حيوية، موسيقى حية وأجواء مسائية مميزة.",
+        "keywords": ["تراسات", "أسواق", "موسيقى حية", "عشاء مشترك"]
+      }
+    }
+  },
+  "sportPath": {
+    "backToSubcategories": "العودة للتصنيفات",
+    "title": "الرياضة والنشاط في {{city}}",
+    "quote": "«حافظ على نشاطك. اختر تمريناً سريعاً في نادٍ محلي أو احجز مغامرة لا تُنسى.»",
+    "trainTitle": "ابحث عن مكان للتمرين",
+    "trainDesc": "ابحث عن قاعات الرياضة ومسارات الجري والملاعب والمسابح القريبة منك للحفاظ على روتينك في {{city}}.",
+    "trainMeta": "مرتب حسب المسافة · تذاكر يومية وخيارات مرنة",
+    "findNearbyBtn": "ابحث عن أماكن قريبة ←",
+    "expTitle": "احجز تجربة رياضية",
+    "expDesc": "جاهز لمغامرة مميزة؟ احجز مدرب ركوب أمواج، جولة جبلية في الأطلس الكبير أو تزلجاً على الكثبان.",
+    "expMeta": "مرشدون معتمدون · المعدات مشمولة · تجربة لا تُنسى",
+    "browseExpBtn": "تصفح التجارب ←",
+    "expItems": [
+      { "icon": "🏄", "label": "ركوب الأمواج والويندسورف والكيت سورف" },
+      { "icon": "🥾", "label": "المشي الجبلي والرحلات في المرتفعات" },
+      { "icon": "🧗", "label": "تسلق الصخور والمغامرات الجبلية" }
+    ],
+    "chips": {
+      "gym-fitness": "نادي ولياقة",
+      "running-outdoor": "جري وهواء طلق",
+      "swimming-pool": "مسابح",
+      "yoga-movement": "يوغا وحركة",
+      "combat-sports": "رياضات قتالية",
+      "team-sports": "رياضات جماعية"
+    }
+  },
+  "place": {
+    "backToListings": "العودة للقائمة",
+    "notFoundTitle": "المكان غير موجود",
+    "notFoundDesc": "ربما تم نقل هذا المكان أو إزالته. اكتشف أماكن أخرى في المغرب.",
+    "backToHome": "العودة للرئيسية",
+    "planYourTrip": "خطط لرحلتك",
+    "completeJourney": "أكمل رحلتك في {{city}}",
+    "exploreAllDining": "استكشف كل مطاعم {{city}}",
+    "whereToStay": "أين تقيم",
+    "whereToStayDesc": "رياضات مختارة بعناية وإقامات مريحة في {{city}}.",
+    "exploreStays": "استكشف الإقامات",
+    "thingsToDo": "أنشطة وتجارب",
+    "thingsToDoDesc": "جولات في المدينة العتيقة، حمامات تقليدية ومغامرات محلية في {{city}}.",
+    "exploreActivities": "استكشف الأنشطة",
+    "artisanShopping": "التسوق والحرف التقليدية",
+    "artisanShoppingDesc": "أسواق أصيلة، زرابي، خزف، جلديات وتوابل في {{city}}.",
+    "exploreShopping": "استكشف التسوق",
+    "discoverMore": "اكتشف المزيد",
+    "moreInCategory": "المزيد من {{category}} في {{city}}",
+    "viewAllInCity": "عرض الكل في {{city}}",
+    "exploreByCategory": "استكشف {{city}} حسب الفئة",
+    "foodIn": "مطاعم {{city}}",
+    "staysIn": "إقامات {{city}}",
+    "thingsIn": "أنشطة {{city}}",
+    "shoppingIn": "تسوق {{city}}"
+  },
+  "things": {
+    "notFoundTitle": "التجربة غير موجودة",
+    "notFoundDesc": "ربما تم تحديث هذا النشاط. اكتشف تجارب أخرى موثوقة بالقرب منك.",
+    "backToNearMe": "العودة إلى بالقرب مني",
+    "browseCityActivities": "تصفح أنشطة {{city}}",
+    "thingsIn": "أنشطة وتجارب في {{city}}",
+    "moreIn": "المزيد في {{city}}",
+    "allThingsIn": "جميع الأنشطة في {{city}}"
+  },
+  "favorites": {
+    "title": "الأماكن المحفوظة",
+    "none": "لا توجد أماكن محفوظة",
+    "count_one": "تم حفظ مكان واحد",
+    "count_other": "تم حفظ {{count}} أماكن",
+    "emptyTitle": "قائمتك فارغة",
+    "emptyDesc": "اضغط على أيقونة القلب في أي مطعم أو رياض أو نشاط أو متجر لبناء قائمتك المفضلة في المغرب."
+  },
+  "notFound": {
+    "title": "الصفحة غير موجودة",
+    "heading": "هذه الصفحة غير متوفرة",
+    "description": "الصفحة التي تبحث عنها غير موجودة — لكن وجهتك المفضلة القادمة في المغرب بانتظارك.",
+    "backToHome": "العودة للرئيسية"
   }
 }

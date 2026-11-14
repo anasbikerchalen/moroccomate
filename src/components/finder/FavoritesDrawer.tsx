@@ -1,10 +1,11 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, Heart, Trash2, ArrowRight, MapPin, Sparkles } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
 import { useSavedStore } from '../../state/savedStore';
 import { getListingUrl } from '../../listings/placeRoutes';
 import { cityMap } from '../../data/cities';
+import { useTranslation } from 'react-i18next';
+import { useLangPath } from '../../utils/localeRouting';
 
 interface FavoritesDrawerProps {
   isOpen: boolean;
@@ -13,7 +14,9 @@ interface FavoritesDrawerProps {
 
 export default function FavoritesDrawer({ isOpen, onClose }: FavoritesDrawerProps) {
   const { bookmarks, removeBookmark } = useSavedStore();
-  const navigate = useNavigate();
+  const { t } = useTranslation();
+  const { navigateLang, dir } = useLangPath();
+  const isRtl = dir === 'rtl';
 
   const handleCardClick = (bookmark: any) => {
     onClose();
@@ -27,11 +30,11 @@ export default function FavoritesDrawer({ isOpen, onClose }: FavoritesDrawerProp
     });
 
     if (url) {
-      navigate(url);
+      navigateLang(url);
     } else {
       const citySlug = String(bookmark.city || '').toLowerCase();
       const cat = String(bookmark.category || 'food').toLowerCase();
-      navigate(`/finder/${citySlug}/${cat}`);
+      navigateLang(`/finder/${citySlug}/${cat}`);
     }
   };
 
@@ -44,18 +47,18 @@ export default function FavoritesDrawer({ isOpen, onClose }: FavoritesDrawerProp
     switch (String(cat || '').toLowerCase()) {
       case 'food':
       case 'eat':
-        return 'Food & Dining';
+        return t('home.categories.food.title');
       case 'sleep':
       case 'stay':
-        return 'Stays & Riads';
+        return t('home.categories.sleep.title');
       case 'things-to-do':
       case 'things':
-        return 'Things to Do';
+        return t('home.categories.things-to-do.title');
       case 'shopping':
       case 'shop':
-        return 'Shopping';
+        return t('home.categories.shopping.title');
       default:
-        return 'Place';
+        return t('common.explore');
     }
   };
 
@@ -76,12 +79,14 @@ export default function FavoritesDrawer({ isOpen, onClose }: FavoritesDrawerProp
 
           {/* Slide-over panel */}
           <motion.aside
-            initial={{ x: '100%' }}
+            initial={{ x: isRtl ? '-100%' : '100%' }}
             animate={{ x: 0 }}
-            exit={{ x: '100%' }}
+            exit={{ x: isRtl ? '-100%' : '100%' }}
             transition={{ type: 'spring', damping: 28, stiffness: 280 }}
-            className="fixed top-0 right-0 z-50 h-full w-full max-w-md bg-[#FAF7F2] text-[#29231F] shadow-2xl flex flex-col border-l border-[#EADFCE]"
-            aria-label="Saved Places"
+            className={`fixed top-0 z-50 h-full w-full max-w-md bg-[#FAF7F2] text-[#29231F] shadow-2xl flex flex-col ${
+              isRtl ? 'left-0 border-r border-[#EADFCE]' : 'right-0 border-l border-[#EADFCE]'
+            }`}
+            aria-label={t('favorites.title')}
           >
             {/* Header */}
             <div className="px-6 py-5 border-b border-[#EADFCE] flex items-center justify-between bg-[#FFFDF9]/80 backdrop-blur-sm">
@@ -90,11 +95,11 @@ export default function FavoritesDrawer({ isOpen, onClose }: FavoritesDrawerProp
                   <Heart className="w-4 h-4 text-[#C85A32] fill-[#C85A32]" />
                 </div>
                 <div>
-                  <h2 className="font-display text-lg font-bold leading-none text-[#29231F]">Saved Places</h2>
+                  <h2 className="font-display text-lg font-bold leading-none text-[#29231F]">{t('favorites.title')}</h2>
                   <p className="text-[11px] text-[#71685F] font-sans mt-0.5">
                     {bookmarks.length === 0
-                      ? 'No items saved'
-                      : `${bookmarks.length} ${bookmarks.length === 1 ? 'place' : 'places'} saved`}
+                      ? t('favorites.none')
+                      : t('favorites.count', { count: bookmarks.length })}
                   </p>
                 </div>
               </div>
@@ -103,7 +108,7 @@ export default function FavoritesDrawer({ isOpen, onClose }: FavoritesDrawerProp
                 type="button"
                 onClick={onClose}
                 className="w-8 h-8 rounded-full bg-white hover:bg-[#FAF3EA] border border-[#EADFCE] flex items-center justify-center text-[#71685F] hover:text-[#29231F] transition-colors cursor-pointer"
-                aria-label="Close saved places"
+                aria-label={t('common.close')}
               >
                 <X className="w-4 h-4" />
               </button>
@@ -116,16 +121,16 @@ export default function FavoritesDrawer({ isOpen, onClose }: FavoritesDrawerProp
                   <div className="w-16 h-16 rounded-full bg-[#FAF3EA] border border-[#E8DAAA] flex items-center justify-center mb-4">
                     <Heart className="w-8 h-8 text-[#C85A32]/60" />
                   </div>
-                  <h3 className="font-display text-xl font-bold text-[#29231F]">Your list is empty</h3>
+                  <h3 className="font-display text-xl font-bold text-[#29231F]">{t('favorites.emptyTitle')}</h3>
                   <p className="text-xs text-[#71685F] max-w-xs mt-2 leading-relaxed">
-                    Whenever you find a food spot, riad, tour, or craft shop you love, tap the bookmark icon to save it here for quick access.
+                    {t('favorites.emptyDesc')}
                   </p>
                   <button
                     type="button"
                     onClick={onClose}
                     className="mt-6 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#C9A84C] hover:bg-[#b8953c] text-white text-xs font-bold shadow-xs transition-colors cursor-pointer"
                   >
-                    <span>Start Exploring</span>
+                    <span>{t('common.explore')}</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                 </div>

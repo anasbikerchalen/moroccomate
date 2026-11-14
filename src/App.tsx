@@ -2,12 +2,40 @@ import { Routes, Route, useNavigate, useLocation, Navigate } from 'react-router-
 import React, { lazy, Suspense, useEffect } from 'react';
 import HomePage from './pages/HomePage';
 import NotFoundPage from './pages/NotFoundPage';
+import i18next from './i18n';
+import { useProfileStore } from './state/profileStore';
+import { extractLangFromPath, LANG_META, localizePath, NON_DEFAULT_LANGS } from './utils/localeRouting';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   }, [pathname]);
+  return null;
+}
+
+/**
+ * Keeps i18next, document <html lang/dir>, and profileStore synchronized
+ * with the active URL language prefix (/fr, /es, /de, /ar, or default en).
+ */
+function LanguageRouteSync() {
+  const { pathname } = useLocation();
+  const setStoreLanguage = useProfileStore((s) => s.setLanguage);
+
+  useEffect(() => {
+    const { lang } = extractLangFromPath(pathname);
+    if (i18next.language !== lang) {
+      i18next.changeLanguage(lang);
+    }
+    if (useProfileStore.getState().language !== lang) {
+      setStoreLanguage(lang);
+    }
+    if (typeof document !== 'undefined') {
+      document.documentElement.lang = lang;
+      document.documentElement.dir = LANG_META[lang].dir;
+    }
+  }, [pathname, setStoreLanguage]);
+
   return null;
 }
 
@@ -46,19 +74,45 @@ const NearMePage = lazyWithRetry(() => import('./components/finder/NearMePage'))
 // section is implemented on the real listing pages (or if the prototype is rejected).
 const WorriesPrototypePage = lazyWithRetry(() => import('./pages/WorriesPrototypePage'));
 
+function AppRoutes() {
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
+  const { lang } = extractLangFromPath(pathname);
+
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route index element={<HomePage />} />
+      <Route
+        path="/finder/:param1/:param2?/:param3?"
+        element={<ExplorePage onClose={() => navigate(localizePath('/', lang))} />}
+      />
+      <Route path="/finder" element={<Navigate to={localizePath('/', lang)} replace />} />
+      {/* Near Me Discovery routes (must precede generic /things/:city/:slug? and /place/...) */}
+      <Route path="/things/:city/near-me" element={<NearMePage />} />
+      <Route path="/things/near-me" element={<NearMePage />} />
+      <Route path="/:category/:city/near-me" element={<NearMePage />} />
+      <Route path="/:category/near-me" element={<NearMePage />} />
+      <Route path="/near-me/:category/:city" element={<NearMePage />} />
+      <Route path="/near-me/:category" element={<NearMePage />} />
+      <Route path="/near-me" element={<NearMePage />} />
+      <Route path="/place/:city/food/:slug/menu" element={<PlaceMenuPage />} />
+      <Route path="/place/:city/eat/:slug/menu" element={<PlaceMenuPage />} />
+      <Route path="/place/:city/:category/:slug" element={<PlaceListingPage />} />
+      <Route path="/place/:city/:categoryOrSlug" element={<PlaceListingPage />} />
+      <Route path="/things/:city/:slug?" element={<ThingsListingPage />} />
+      {/* 🧪 PROTOTYPE — design review for the worries section. Remove after review. */}
+      <Route path="/prototype/worries" element={<WorriesPrototypePage />} />
+      <Route path="*" element={<NotFoundPage />} />
+    </Routes>
+  );
+}
+
 /**
- * Moroccan Mate — standalone Finder website.
- * Routes:
- *   /                          → Homepage (city + categories, user-editable)
- *   /finder                    → Redirects to homepage
- *   /finder/:city/:category    → Results
- *   /place/:city/:category/:slug → Individual place page (name-based URL)
- *   /things/:city/:slug        → Things To Do listing page
- *   /near-me/:category         → Near Me discovery page (GPS or City/Neighborhood)
- *   *                          → 404 "Page not found"
+ * Moroccan Mate — standalone multilingual Finder website.
+ * Supports default English routes (/) and localized routes (/fr/*, /es/*, /de/*, /ar/*).
  */
 export default function App() {
-  const navigate = useNavigate();
   const location = useLocation();
 
   useEffect(() => {
@@ -74,26 +128,12 @@ export default function App() {
   return (
     <Suspense fallback={<div className="min-h-screen bg-[#FAF7F2]" />}>
       <ScrollToTop />
+      <LanguageRouteSync />
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/finder/:param1/:param2?/:param3?" element={<ExplorePage onClose={() => navigate('/')} />} />
-        <Route path="/finder" element={<Navigate to="/" replace />} />
-        {/* Near Me Discovery routes (must precede generic /things/:city/:slug? and /place/...) */}
-        <Route path="/things/:city/near-me" element={<NearMePage />} />
-        <Route path="/things/near-me" element={<NearMePage />} />
-        <Route path="/:category/:city/near-me" element={<NearMePage />} />
-        <Route path="/:category/near-me" element={<NearMePage />} />
-        <Route path="/near-me/:category/:city" element={<NearMePage />} />
-        <Route path="/near-me/:category" element={<NearMePage />} />
-        <Route path="/near-me" element={<NearMePage />} />
-        <Route path="/place/:city/food/:slug/menu" element={<PlaceMenuPage />} />
-        <Route path="/place/:city/eat/:slug/menu" element={<PlaceMenuPage />} />
-        <Route path="/place/:city/:category/:slug" element={<PlaceListingPage />} />
-        <Route path="/place/:city/:categoryOrSlug" element={<PlaceListingPage />} />
-        <Route path="/things/:city/:slug?" element={<ThingsListingPage />} />
-        {/* 🧪 PROTOTYPE — design review for the worries section. Remove after review. */}
-        <Route path="/prototype/worries" element={<WorriesPrototypePage />} />
-        <Route path="*" element={<NotFoundPage />} />
+        {NON_DEFAULT_LANGS.map((code) => (
+          <Route key={code} path={`/${code}/*`} element={<AppRoutes />} />
+        ))}
+        <Route path="/*" element={<AppRoutes />} />
       </Routes>
     </Suspense>
   );

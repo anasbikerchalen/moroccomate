@@ -1,6 +1,9 @@
 import { motion } from 'motion/react';
-import { ArrowLeft, Dumbbell, Compass } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Dumbbell, Compass } from 'lucide-react';
 import { SportFacilityType } from '../../types';
+import { useTranslation } from 'react-i18next';
+import { useLangPath } from '../../utils/localeRouting';
+import { cityMap } from '../../data/cities';
 
 interface SportDualPathProps {
   city: string;
@@ -10,23 +13,21 @@ interface SportDualPathProps {
   onBack: () => void;
 }
 
-interface QuickChip {
-  id: SportFacilityType;
-  label: string;
-  icon: string;
-}
-
-const QUICK_CHIPS: QuickChip[] = [
-  { id: 'gym-fitness', label: 'Gym & Fitness', icon: '💪' },
-  { id: 'running-outdoor', label: 'Running & Outdoor', icon: '🏃' },
-  { id: 'swimming-pool', label: 'Swimming Pools', icon: '🏊' },
-  { id: 'yoga-movement', label: 'Yoga & Movement', icon: '🧘' },
-  { id: 'combat-sports', label: 'Combat Sports', icon: '🥊' },
-  { id: 'team-sports', label: 'Team Sports', icon: '👥' }
+const QUICK_CHIPS: { id: SportFacilityType; icon: string }[] = [
+  { id: 'gym-fitness', icon: '💪' },
+  { id: 'running-outdoor', icon: '🏃' },
+  { id: 'swimming-pool', icon: '🏊' },
+  { id: 'yoga-movement', icon: '🧘' },
+  { id: 'combat-sports', icon: '🥊' },
+  { id: 'team-sports', icon: '👥' }
 ];
 
 export default function SportDualPath({ city, onQuickFilter, onFindNearby, onBookExperience, onBack }: SportDualPathProps) {
-  const cityName = city.charAt(0).toUpperCase() + city.slice(1);
+  const { t } = useTranslation();
+  const { dir } = useLangPath();
+  const cityName = cityMap[city]?.name || (city.charAt(0).toUpperCase() + city.slice(1));
+  const BackArrow = dir === 'rtl' ? ArrowRight : ArrowLeft;
+  const expItems = t('sportPath.expItems', { returnObjects: true }) as { icon: string; label: string }[];
 
   return (
     <div className="space-y-10 py-6 max-w-4xl mx-auto">
@@ -35,16 +36,16 @@ export default function SportDualPath({ city, onQuickFilter, onFindNearby, onBoo
           onClick={onBack}
           className="flex items-center gap-2 text-stone-400 hover:text-stone-900 text-xs font-black uppercase tracking-widest mb-4 transition-colors cursor-pointer"
         >
-          <ArrowLeft className="w-3.5 h-3.5" /> Back to sub-categories
+          <BackArrow className="w-3.5 h-3.5" /> {t('sportPath.backToSubcategories')}
         </button>
         <div className="flex items-center gap-2.5 mb-1.5">
           <span className="text-3xl">⚽</span>
           <h1 className="font-display text-4xl md:text-5xl text-stone-900 uppercase tracking-tight">
-            Sport & Active in {cityName}
+            {t('sportPath.title', { city: cityName })}
           </h1>
         </div>
         <p className="text-stone-500 text-lg italic mt-1">
-          "Stay in your zone. Choose a quick workout at a local facility, or book an epic adventure."
+          {t('sportPath.quote')}
         </p>
       </div>
 
@@ -60,12 +61,12 @@ export default function SportDualPath({ city, onQuickFilter, onFindNearby, onBoo
             <div className="w-14 h-14 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center text-2xl mb-8 font-black shadow-sm">
               <Dumbbell className="w-6 h-6" />
             </div>
-            <h2 className="font-display text-2xl text-stone-900 mb-2">Find a Place to Train</h2>
+            <h2 className="font-display text-2xl text-stone-900 mb-2">{t('sportPath.trainTitle')}</h2>
             <p className="text-stone-500 text-sm leading-relaxed mb-6">
-              Search gyms, running loops, public courts, and swimming pools near you. Ideal for maintaining your daily workout routine while in {cityName}.
+              {t('sportPath.trainDesc', { city: cityName })}
             </p>
             <div className="text-[10px] font-black uppercase tracking-widest text-[#C9A84C] mb-4">
-              Sorted by distance · Daily rates & options
+              {t('sportPath.trainMeta')}
             </div>
 
             {/* Quick Chips Grid */}
@@ -74,10 +75,10 @@ export default function SportDualPath({ city, onQuickFilter, onFindNearby, onBoo
                 <button
                   key={chip.id}
                   onClick={() => onQuickFilter(chip.id)}
-                  className="px-3 py-2 bg-stone-50 hover:bg-[#C9A84C]/10 hover:text-[#C9A84C] border border-stone-100 rounded-xl text-[10px] font-black uppercase tracking-widest text-stone-600 transition-all text-left flex items-center gap-2 cursor-pointer"
+                  className="px-3 py-2 bg-stone-50 hover:bg-[#C9A84C]/10 hover:text-[#C9A84C] border border-stone-100 rounded-xl text-[10px] font-black uppercase tracking-widest text-stone-600 transition-all text-start flex items-center gap-2 cursor-pointer"
                 >
                   <span>{chip.icon}</span>
-                  <span className="truncate">{chip.label}</span>
+                  <span className="truncate">{t(`sportPath.chips.${chip.id}`)}</span>
                 </button>
               ))}
             </div>
@@ -87,7 +88,7 @@ export default function SportDualPath({ city, onQuickFilter, onFindNearby, onBoo
             onClick={onFindNearby}
             className="w-full py-4 bg-stone-900 group-hover:bg-[#C9A84C] text-white rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all shadow-lg shadow-stone-200 cursor-pointer"
           >
-            Find Nearby Places →
+            {t('sportPath.findNearbyBtn')}
           </button>
         </motion.div>
 
@@ -102,25 +103,21 @@ export default function SportDualPath({ city, onQuickFilter, onFindNearby, onBoo
             <div className="w-14 h-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center text-2xl mb-8 font-black shadow-sm">
               <Compass className="w-6 h-6" />
             </div>
-            <h2 className="font-display text-2xl text-stone-900 mb-2">Book a Sport Experience</h2>
+            <h2 className="font-display text-2xl text-stone-900 mb-2">{t('sportPath.expTitle')}</h2>
             <p className="text-stone-500 text-sm leading-relaxed mb-6">
-              Ready for something unforgettable? Book a certified surf instructor, map a guided High Atlas trek, or lock in a dune-boarding session.
+              {t('sportPath.expDesc')}
             </p>
             <div className="text-[10px] font-black uppercase tracking-widest text-[#C9A84C] mb-4">
-              Curated guides · Equipment included · Memorable
+              {t('sportPath.expMeta')}
             </div>
 
             {/* List of sport experiences */}
             <div className="space-y-3 mb-8">
-              <div className="flex items-center gap-3 text-xs font-bold text-stone-600 bg-stone-50 p-3 rounded-xl border border-stone-100/50">
-                <span>🏄</span> Surf, Windsurf & Kitesurf
-              </div>
-              <div className="flex items-center gap-3 text-xs font-bold text-stone-600 bg-stone-50 p-3 rounded-xl border border-stone-100/50">
-                <span>🥾</span> Mountain Hiking & High Treks
-              </div>
-              <div className="flex items-center gap-3 text-xs font-bold text-stone-600 bg-stone-50 p-3 rounded-xl border border-stone-100/50">
-                <span>🧗</span> Rock Climbing & Via Ferratas
-              </div>
+              {Array.isArray(expItems) && expItems.map((exp, idx) => (
+                <div key={idx} className="flex items-center gap-3 text-xs font-bold text-stone-600 bg-stone-50 p-3 rounded-xl border border-stone-100/50">
+                  <span>{exp.icon}</span> {exp.label}
+                </div>
+              ))}
             </div>
           </div>
 
@@ -128,7 +125,7 @@ export default function SportDualPath({ city, onQuickFilter, onFindNearby, onBoo
             onClick={onBookExperience}
             className="w-full py-4 bg-stone-900 group-hover:bg-[#C9A84C] text-white rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all shadow-lg shadow-stone-200 cursor-pointer"
           >
-            Browse Experiences →
+            {t('sportPath.browseExpBtn')}
           </button>
         </motion.div>
       </div>

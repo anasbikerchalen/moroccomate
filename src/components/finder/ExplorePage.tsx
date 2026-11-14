@@ -24,6 +24,10 @@ import ThingsCuratedView from './ThingsCuratedView';
 import ShoppingCategoryPage from './ShoppingCategoryPage';
 import FreeScrollView from './FreeScrollView';
 import type { ExploreView } from '../../state/exploreStore';
+import { useTranslation } from 'react-i18next';
+import { useLangPath } from '../../utils/localeRouting';
+import LanguageSwitcher from '../ui/LanguageSwitcher';
+import { CATEGORY_LABELS_I18N, FINDER_SEO_I18N, getBrowseSeoI18n, type BrowseSegment } from '../../data/seo/i18nSeo';
 
 // Screens that can appear in the URL as ?view=... (shareable, refresh-safe, Back-friendly)
 const VIEW_PARAM_VALUES: string[] = [
@@ -64,6 +68,8 @@ export default function ExplorePage({ onClose }: ExplorePageProps) {
   const { param1, param2, param3 } = useParams<{ param1?: string; param2?: string; param3?: string }>();
   const navigate = useNavigate();
   const location = useLocation();
+  const { t } = useTranslation();
+  const { lang, navigateLang } = useLangPath();
   
   // Keep the URL in sync with the current screen (quiz, results, ...) so
   // refreshing or sharing restores the same screen and browser Back works
@@ -145,7 +151,7 @@ export default function ExplorePage({ onClose }: ExplorePageProps) {
 
     if (param1) {
       if (param1.toLowerCase() === 'gems') {
-        navigate(`/finder/${cityId || 'marrakech'}/things-to-do`, { replace: true });
+        navigateLang(`/finder/${cityId || 'marrakech'}/things-to-do`, { replace: true });
         return;
       }
       
@@ -173,13 +179,13 @@ export default function ExplorePage({ onClose }: ExplorePageProps) {
             // links to the new pages so each place has exactly one URL
             if (categoryId === 'things-to-do') {
               const activitySlug = getActivityById(param2)?.slug || param2;
-              navigate(`/things/${param1.toLowerCase()}/${activitySlug}`, { replace: true });
+              navigateLang(`/things/${param1.toLowerCase()}/${activitySlug}`, { replace: true });
               return;
             }
             const placeCategory = normalizePlaceCategory(categoryId);
             const placeUrl = placeCategory ? getPlaceUrlById(placeCategory, param2) : null;
             if (placeUrl) {
-              navigate(placeUrl, { replace: true });
+              navigateLang(placeUrl, { replace: true });
               return;
             }
             setActiveItem(param2);
@@ -187,7 +193,7 @@ export default function ExplorePage({ onClose }: ExplorePageProps) {
           } else {
             const categoryId = param2.toLowerCase();
             if (categoryId === 'gems') {
-              navigate(`/finder/${param1.toLowerCase()}/things-to-do`, { replace: true });
+              navigateLang(`/finder/${param1.toLowerCase()}/things-to-do`, { replace: true });
               return;
             }
             
@@ -293,11 +299,11 @@ export default function ExplorePage({ onClose }: ExplorePageProps) {
           }
         }
       }
-    } else if (!mode && location.pathname.startsWith('/explore')) {
+    } else if (!mode && location.pathname.includes('/explore')) {
        const newPath = location.pathname.replace('/explore', '/finder');
        navigate(newPath + location.search, { replace: true });
     }
-  }, [param1, param2, setActiveCategory, setActiveSubCategory, setSportIntent, setSportFacilityType, setSportExperienceType, setView, setQuizAnswer, setActiveItem, location.pathname, location.search, navigate]);
+  }, [param1, param2, setActiveCategory, setActiveSubCategory, setSportIntent, setSportFacilityType, setSportExperienceType, setView, setQuizAnswer, setActiveItem, location.pathname, location.search, navigate, navigateLang]);
 
   // Keep URL in sync if cityId in store changes while browsing /finder/:param1/:param2
   useEffect(() => {
@@ -306,9 +312,9 @@ export default function ExplorePage({ onClose }: ExplorePageProps) {
     const storeCity = cityId.toLowerCase();
     if (storeCity !== currentParamCity && cityMap[storeCity] && cityMap[currentParamCity]) {
       const catSegment = param2 || activeCategory || 'sleep';
-      navigate(`/finder/${storeCity}/${catSegment}${location.search}`, { replace: false });
+      navigateLang(`/finder/${storeCity}/${catSegment}${location.search}`, { replace: false });
     }
-  }, [cityId, param1, param2, activeCategory, location.search, navigate]);
+  }, [cityId, param1, param2, activeCategory, location.search, navigateLang]);
 
   const handleBack = () => {
     if (history.length > 0) {
@@ -323,7 +329,7 @@ export default function ExplorePage({ onClose }: ExplorePageProps) {
     } else {
       // No in-app history: this standalone flow always starts at the homepage,
       // so never fall back to the old finder hub
-      navigate('/');
+      navigateLang('/');
     }
   };
 
@@ -358,14 +364,33 @@ export default function ExplorePage({ onClose }: ExplorePageProps) {
   useEffect(() => {
     if (view === 'detail' && activeCategory === 'things-to-do' && activeItemId) {
       const activitySlug = getActivityById(activeItemId)?.slug || activeItemId;
-      navigate(`/things/${cityId || 'marrakech'}/${activitySlug}`, { replace: true });
+      navigateLang(`/things/${cityId || 'marrakech'}/${activitySlug}`, { replace: true });
     }
-  }, [view, activeCategory, activeItemId, cityId, navigate]);
+  }, [view, activeCategory, activeItemId, cityId, navigateLang]);
 
   const displayCategory = (param1 || activeCategory || '').toString();
   // Include the city name in the page title so search results read
   // "Food in Marrakech" instead of a generic "Food"
   const cityLabel = cityId ? (cityMap[cityId]?.name || cityId) : '';
+  const normalizedSegment: BrowseSegment | null = useMemo(() => {
+    const c = (activeCategory || param2 || param1 || '').toString().toLowerCase();
+    if (c === 'food' || c === 'eat') return 'food';
+    if (c === 'sleep' || c === 'stay') return 'sleep';
+    if (c === 'shopping' || c === 'shop') return 'shopping';
+    if (c === 'things-to-do' || c === 'things') return 'things-to-do';
+    return null;
+  }, [activeCategory, param2, param1]);
+
+  const localizedCategoryName = normalizedSegment
+    ? CATEGORY_LABELS_I18N[lang][normalizedSegment]
+    : (displayCategory ? displayCategory.replace('-', ' ') : '');
+
+  const seoMeta = useMemo(() => {
+    if (normalizedSegment) {
+      return getBrowseSeoI18n(cityLabel || 'Morocco', normalizedSegment, lang);
+    }
+    return FINDER_SEO_I18N[lang];
+  }, [normalizedSegment, cityLabel, lang]);
 
   if (view === 'free-scroll') {
     return (
@@ -375,15 +400,15 @@ export default function ExplorePage({ onClose }: ExplorePageProps) {
         onSelectListing={(item) => {
           // Every listing opens on its own name-based page
           // (/place/:city/:category/:name or /things/:city/:name)
-          navigate(getListingUrl(item) || `/things/${item.city || cityId || 'marrakech'}/${item.id}`);
+          navigateLang(getListingUrl(item) || `/things/${item.city || cityId || 'marrakech'}/${item.id}`);
         }}
         onSwitchToQuiz={(cat) => {
           setActiveCategory(cat as any);
           setView('quiz');
-          navigate(`/finder/${cityId || 'marrakech'}/${cat}?start=quiz`);
+          navigateLang(`/finder/${cityId || 'marrakech'}/${cat}?start=quiz`);
         }}
         onClose={() => {
-          navigate(`/finder?city=${cityId || 'marrakech'}`);
+          navigateLang(`/finder?city=${cityId || 'marrakech'}`);
         }}
       />
     );
@@ -392,29 +417,21 @@ export default function ExplorePage({ onClose }: ExplorePageProps) {
   return (
     <div className="min-h-screen bg-[#FAF7F2] font-sans relative">
       <SEO 
-        title={
-          displayCategory
-            ? `${displayCategory.charAt(0).toUpperCase() + displayCategory.slice(1).replace('-', ' ')}${cityLabel ? ` in ${cityLabel}` : ' in Morocco'}`
-            : "Finder"
-        } 
-        description={
-          displayCategory
-            ? `Find the best ${displayCategory.replace('-', ' ')} in ${cityLabel || 'Morocco'} with our personalized finder.`
-            : "Pick your city, answer a short quiz, and get personalized local recommendations for food, stays, things to do, and shopping in Morocco."
-        }
+        title={seoMeta.title}
+        description={seoMeta.description}
       />
       
       {/* Background Texture */}
       <div className="fixed inset-0 opacity-[0.03] pointer-events-none bg-[url('/textures/paper-grain.svg')] bg-repeat" />
 
       {/* Header */}
-      <header className="px-6 md:px-12 py-4 bg-white/40 backdrop-blur-md flex items-center justify-between relative z-20 border-b border-stone-100">
+      <header className="px-6 md:px-12 py-4 bg-white/40 backdrop-blur-md flex items-center justify-between relative z-40 border-b border-stone-100">
         <div className="flex items-center gap-3">
           <button 
             onClick={handleBack}
             className="w-10 h-10 rounded-xl bg-stone-50 flex items-center justify-center text-stone-500 hover:text-stone-900 hover:bg-stone-100 transition-all cursor-pointer font-bold"
-            title="Go Back"
-            aria-label="Go Back"
+            title={t('finder.goBack')}
+            aria-label={t('finder.goBack')}
           >
             ←
           </button>
@@ -423,15 +440,19 @@ export default function ExplorePage({ onClose }: ExplorePageProps) {
               <Search className="w-5 h-5" />
             </div>
             <div>
-              <h2 className="font-display text-lg text-stone-900 tracking-tight">Finder</h2>
+              <h2 className="font-display text-lg text-stone-900 tracking-tight">{t('finder.title')}</h2>
               <p className="text-[9px] font-black uppercase tracking-[0.2em] text-[#C9A84C]">
-                {displayCategory ? `${displayCategory.replace('-', ' ')} Finder` : 'Personalized Selection'}
+                {localizedCategoryName
+                  ? t('finder.categoryFinder', { category: localizedCategoryName })
+                  : t('finder.personalizedSelection')}
               </p>
             </div>
           </div>
         </div>
         
         <div className="flex items-center gap-2">
+          <LanguageSwitcher compact />
+
           {/* Near Me shortcut button */}
           <button
             onClick={() => {
@@ -440,13 +461,13 @@ export default function ExplorePage({ onClose }: ExplorePageProps) {
                 catKey === 'sleep' ? 'sleep' :
                 (catKey === 'shopping' || catKey === 'shop') ? 'shop' : 'things';
               const currentCity = (cityId || 'marrakech').toLowerCase();
-              navigate(`/${currentCat}/${currentCity}/near-me`);
+              navigateLang(`/${currentCat}/${currentCity}/near-me`);
             }}
             className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white hover:bg-stone-50 text-stone-700 hover:text-stone-900 border border-stone-200 text-xs font-semibold transition-all cursor-pointer shadow-2xs group"
-            title="Browse places near me"
+            title={t('finder.browseNearMe')}
           >
             <Compass className="w-3.5 h-3.5 text-[#C2613C] transition-transform group-hover:rotate-45" />
-            <span>Near Me</span>
+            <span>{t('common.nearMe')}</span>
           </button>
 
           {/* Hidden while any popup is open — only ONE close icon visible at a time */}
@@ -454,8 +475,8 @@ export default function ExplorePage({ onClose }: ExplorePageProps) {
             <button 
               onClick={onClose}
               className="w-10 h-10 bg-stone-100 hover:bg-stone-200 text-stone-500 hover:text-stone-900 rounded-xl transition-all flex items-center justify-center cursor-pointer"
-              title="Close Finder"
-              aria-label="Close Finder"
+              title={t('finder.closeFinder')}
+              aria-label={t('finder.closeFinder')}
             >
               <X className="w-5 h-5" />
             </button>

@@ -1,5 +1,5 @@
 {
-  "appTitle": "MoroccoFriend",
+  "appTitle": "Moroccan Mate",
   "appSubtitle": "Your personalized travel companion",
   "language": "Language",
   "darkMode": "Dark Mode",
@@ -9,6 +9,8 @@
   "languageSelector": "Language Selector",
   "english": "English",
   "french": "French",
+  "spanish": "Spanish",
+  "german": "German",
   "arabic": "Arabic",
   "title": "Title",
   "description": "Description",
@@ -121,5 +123,278 @@
     "scenic": "Scenic",
     "view_steps": "View steps",
     "hide_steps": "Hide steps"
+  },
+  "common": {
+    "home": "Home",
+    "back": "Back",
+    "close": "Close",
+    "saved": "Saved",
+    "viewSaved": "View saved places",
+    "nearMe": "Near Me",
+    "nearMeTitle": "Find places near me",
+    "explore": "Explore",
+    "selected": "Selected",
+    "sitemap": "Sitemap",
+    "independentGuide": "Independent Morocco Guide",
+    "chooseLanguage": "Language"
+  },
+  "home": {
+    "brandTagline": "Real places. Local vibes.",
+    "personalGuide": "Your personal Moroccan guide",
+    "heroTitleLine1": "What are you looking",
+    "heroTitleLine2": "for in Morocco?",
+    "destinationLabel": "Destination:",
+    "step2PickCity": "Step 2: Pick your city",
+    "moreCities": "+24 More Cities",
+    "closeCities": "Close Cities",
+    "chooseDestinations": "Choose from 31 Moroccan Destinations",
+    "curatedHubs": "31 Curated Hubs",
+    "explorerSubtitle": "Handpicked imperial medinas, coastal surf bays & desert oases",
+    "searchCityPlaceholder": "Search city...",
+    "noCitiesMatch": "No destinations found matching \"{{query}}\".",
+    "pickCityAbove": "Pick a city above to start",
+    "regions": {
+      "all": "All (31)",
+      "imperial": "🏰 Imperial & Heritage",
+      "coast": "🌊 Coast & Surfing",
+      "sahara": "🏜️ Sahara & Oases",
+      "atlas": "🏔️ Atlas & Mountain Gems"
+    },
+    "categories": {
+      "food": {
+        "smallLabel": "Food & Dining",
+        "title": "Food & Dining",
+        "description": "Taste the real Morocco, from street food to traditional meals."
+      },
+      "sleep": {
+        "smallLabel": "Stays & Sleep",
+        "title": "Stays & Sleep",
+        "description": "From riads to beachfront stays, find your perfect spot."
+      },
+      "things-to-do": {
+        "smallLabel": "Things to Do",
+        "title": "Things to Do",
+        "description": "Explore, discover, experience the best of Morocco."
+      },
+      "shopping": {
+        "smallLabel": "Shopping",
+        "title": "Shopping",
+        "description": "Unique finds, local crafts, beautiful souvenirs."
+      }
+    },
+    "featuredHeading": "Featured Places to Eat, Stay & Shop in Morocco",
+    "whereToEat": "Where to Eat",
+    "whereToStay": "Where to Stay",
+    "localShopping": "Local Shopping",
+    "thingsToDo": "Things to Do",
+    "exploreAllShops": "Explore All Marrakech Shops →",
+    "exploreAllActivities": "Explore All Activities →",
+    "popularGuidesHeading": "Popular Search Highlights & Filter Guides"
+  },
+  "finder": {
+    "title": "Finder",
+    "personalizedSelection": "Personalized Selection",
+    "categoryFinder": "{{category}} Finder",
+    "browseNearMe": "Browse places near me",
+    "closeFinder": "Close Finder",
+    "goBack": "Go Back"
+  },
+  "results": {
+    "placesFoundIn": "Places we found for you in",
+    "handpickedFor": "Handpicked for",
+    "handpickedFromQuiz": "Handpicked from your quiz",
+    "placesCount": "{{count}} places",
+    "peopleAlsoSearchFor": "People Also Search For:",
+    "oneActive": "1 Active",
+    "showAll": "Show All",
+    "cityLabel": "CITY",
+    "moreFilters": "MORE FILTERS",
+    "customize": "Customize",
+    "priceRatingsAmenities": "Price, Ratings & Amenities",
+    "activeCount": "{{count}} active",
+    "sortLabel": "Sort:",
+    "sortSmart": "Smart Match",
+    "sortDistance": "Closest to Me",
+    "sortRating": "Highest Rated",
+    "sortVerified": "Verified First",
+    "sortPriceLow": "Price: Low to High",
+    "sortPriceHigh": "Price: High to Low",
+    "activeCriteriaApplied": "{{count}} active criteria applied",
+    "showTags": "Show tags",
+    "hideTags": "Hide tags",
+    "clearAll": "Clear all",
+    "noMatchesTitle": "No matches found",
+    "noMatchesDesc": "Try adjusting your area, vibe or filters to find more spots.",
+    "editVibeChoices": "Edit Vibe Choices",
+    "curatingCity": "Curating {{city}}",
+    "curatingDesc": "Data for this city is being curated by our local intelligence team. Please check back later or explore another destination.",
+    "exploreMarrakech": "Explore Marrakech",
+    "perfectMatch": "Perfect Match",
+    "greatMatch": "Great Match",
+    "goodMatch": "Good Match",
+    "topPick": "TOP PICK",
+    "seePhotosMaps": "See photos on Google Maps",
+    "whyMatched": "Why this matched",
+    "directions": "Directions",
+    "showMorePlaces": "Show 5 More Places",
+    "showingCountOf": "Showing {{shown}} of {{total}} curated places",
+    "retakeQuiz": "Not finding what you want? Retake the quiz",
+    "chooseDestinationCity": "Choose Destination City",
+    "clickToEditAnswer": "Click to change quiz answer",
+    "safetyScore": "Safety {{score}}/5",
+    "cityCenter": "City center",
+    "metersAway": "{{meters}}m away",
+    "kmAway": "{{km}} km away",
+    "metersFromCenter": "{{meters}}m from center",
+    "kmFromCenter": "{{km}} km from center",
+    "defaultNeighborhood": "Medina",
+    "fallbackTypeFood": "Dining Spot",
+    "fallbackTypeSleep": "Stay",
+    "fallbackTypeShopping": "Artisan Shop",
+    "fallbackTypeThings": "Attraction"
+  },
+  "quiz": {
+    "loadingSteps": "Loading quiz steps...",
+    "quickShortcutsTitle": "In a hurry? Quick shortcuts",
+    "stepOf": "Step {{current}} of {{total}}",
+    "percentComplete": "{{percent}}% Complete",
+    "stepLabelFallback": "Step {{step}}",
+    "stepLabels": {
+      "preferences": "Your Preferences",
+      "travelStyle": "Travel Style",
+      "vibeAtmosphere": "Vibe & Atmosphere",
+      "logisticsDetails": "Logistics & Details",
+      "finalPolish": "Final Polish"
+    },
+    "multiSelectHint": "Select one or more options that fit you best",
+    "singleSelectHint": "Choose the option that fits you best",
+    "back": "Back",
+    "surpriseMe": "Not sure? Surprise me",
+    "nextQuestion": "Next Question",
+    "seeMatches": "See Matches ({{count}})",
+    "trust": {
+      "fastTitle": "Takes only 2 min",
+      "fastSub": "Quick & easy",
+      "personalizedTitle": "100% Personalized",
+      "personalizedSub": "Just for you",
+      "betterTitle": "Better recommendations",
+      "betterSub": "You'll love",
+      "privateTitle": "Private & secure",
+      "privateSub": "Your data is safe"
+    }
+  },
+  "subcategory": {
+    "backToFinder": "Back to Finder",
+    "title": "Things to Do in {{city}}",
+    "quote": "\"Morocco is a sensory mosaic. Select a focus to narrow down your search, or browse everything.\"",
+    "browseEverything": "Browse Everything",
+    "exploreFocus": "Explore Focus",
+    "items": {
+      "culture": {
+        "label": "Culture & Heritage",
+        "description": "Palaces, museums, medina walks, and centuries of living imperial history.",
+        "keywords": ["Palaces", "Museums", "Medina walks", "Local traditions"]
+      },
+      "sport": {
+        "label": "Sport & Active",
+        "description": "Gyms near you, surf lessons, desert quad biking, and mountain treks.",
+        "keywords": ["Gyms", "Surf", "Hiking", "Quad adventures"]
+      },
+      "wellness": {
+        "label": "Wellness & Spa",
+        "description": "Traditional Moroccan hammams, tranquil yoga studios, and luxury spas.",
+        "keywords": ["Hammams", "Yoga", "Massage", "Retreats"]
+      },
+      "desert-nature": {
+        "label": "Desert & Nature",
+        "description": "Camel treks, stargazing under pure Sahara skies, and mountain oases.",
+        "keywords": ["Camel treks", "Sand dunes", "Oases", "Valleys"]
+      },
+      "photography": {
+        "label": "Photography Spots",
+        "description": "Insta-worthy vistas, hidden doorways, zellij details, and golden hour views.",
+        "keywords": ["Golden hour", "Rooftops", "Doorways", "Art & craft"]
+      },
+      "social": {
+        "label": "Social & Fun",
+        "description": "Atmospheric markets, lively rooftop lounges, live music, and evening scenes.",
+        "keywords": ["Rooftops", "Souks", "Live music", "Shared meals"]
+      }
+    }
+  },
+  "sportPath": {
+    "backToSubcategories": "Back to sub-categories",
+    "title": "Sport & Active in {{city}}",
+    "quote": "\"Stay in your zone. Choose a quick workout at a local facility, or book an epic adventure.\"",
+    "trainTitle": "Find a Place to Train",
+    "trainDesc": "Search gyms, running loops, public courts, and swimming pools near you. Ideal for maintaining your daily workout routine while in {{city}}.",
+    "trainMeta": "Sorted by distance · Daily rates & options",
+    "findNearbyBtn": "Find Nearby Places →",
+    "expTitle": "Book a Sport Experience",
+    "expDesc": "Ready for something unforgettable? Book a certified surf instructor, map a guided High Atlas trek, or lock in a dune-boarding session.",
+    "expMeta": "Curated guides · Equipment included · Memorable",
+    "browseExpBtn": "Browse Experiences →",
+    "expItems": [
+      { "icon": "🏄", "label": "Surf, Windsurf & Kitesurf" },
+      { "icon": "🥾", "label": "Mountain Hiking & High Treks" },
+      { "icon": "🧗", "label": "Rock Climbing & Via Ferratas" }
+    ],
+    "chips": {
+      "gym-fitness": "Gym & Fitness",
+      "running-outdoor": "Running & Outdoor",
+      "swimming-pool": "Swimming Pools",
+      "yoga-movement": "Yoga & Movement",
+      "combat-sports": "Combat Sports",
+      "team-sports": "Team Sports"
+    }
+  },
+  "place": {
+    "backToListings": "Back to listings",
+    "notFoundTitle": "Place not found",
+    "notFoundDesc": "This place may have been moved or removed. Discover other places in Morocco instead.",
+    "backToHome": "Back to Home",
+    "planYourTrip": "Plan Your Trip",
+    "completeJourney": "Complete Your {{city}} Journey",
+    "exploreAllDining": "Explore all {{city}} dining",
+    "whereToStay": "Where to Stay",
+    "whereToStayDesc": "Handpicked riads, boutique desert retreats, and peaceful stays in {{city}}.",
+    "exploreStays": "Explore stays",
+    "thingsToDo": "Things to Do",
+    "thingsToDoDesc": "Guided medina walks, hammams, day trips, and local adventures in {{city}}.",
+    "exploreActivities": "Explore activities",
+    "artisanShopping": "Artisan Shopping",
+    "artisanShoppingDesc": "Authentic souks, woven rugs, ceramics, leatherwork, and spices in {{city}}.",
+    "exploreShopping": "Explore shopping",
+    "discoverMore": "Discover More",
+    "moreInCategory": "More {{category}} in {{city}}",
+    "viewAllInCity": "View all {{city}} {{category}}",
+    "exploreByCategory": "Explore {{city}} by Category & Intent",
+    "foodIn": "Food in {{city}}",
+    "staysIn": "Stays in {{city}}",
+    "thingsIn": "Things to Do in {{city}}",
+    "shoppingIn": "Shopping in {{city}}"
+  },
+  "things": {
+    "notFoundTitle": "Experience Not Found",
+    "notFoundDesc": "This activity may have been updated or moved. Discover other verified activities nearby.",
+    "backToNearMe": "Back to Near Me",
+    "browseCityActivities": "Browse {{city}} Activities",
+    "thingsIn": "Things to Do in {{city}}",
+    "moreIn": "More in {{city}}",
+    "allThingsIn": "All Things to Do in {{city}}"
+  },
+  "favorites": {
+    "title": "Saved Places",
+    "none": "No items saved",
+    "count_one": "{{count}} place saved",
+    "count_other": "{{count}} places saved",
+    "emptyTitle": "Your list is empty",
+    "emptyDesc": "Tap the heart icon on any restaurant, riad, activity, or shop to build your personal Morocco shortlist."
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "heading": "This page took a wrong turn",
+    "description": "The page you're looking for doesn't exist — but your next favorite Moroccan spot is still waiting.",
+    "backToHome": "Back to Home"
   }
 }

@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { MapPin, ChevronDown, Search, X, Compass, Map, Sparkles } from 'lucide-react';
 import { useParameterStore } from '../../state/parameterStore';
@@ -11,6 +11,7 @@ import { useExploreStore } from '../../state/exploreStore';
 import { cn } from '../../utils/cn';
 
 import { getCityProfile, isCityTouristicOrMid, isNeighborhoodAllowed } from '../../data/touristicHierarchy';
+import { extractLangFromPath, useLangPath } from '../../utils/localeRouting';
 
 // Major Touristic hubs from touristic_organization.md
 const MAJOR_TOURISTIC_NAMES = ['Marrakech', 'Essaouira', 'Tangier', 'Tanger', 'Chefchaouen', 'Fes', 'Rabat', 'Casablanca', 'Agadir', 'Taghazout', 'Dakhla', 'Merzouga'];
@@ -21,7 +22,7 @@ interface LocationPickerProps {
 }
 
 export default function LocationPicker({ onCitySelect, onAreaSelect }: LocationPickerProps = {}) {
-  const navigate = useNavigate();
+  const { navigateLang } = useLangPath();
   const location = useLocation();
   const { city, neighborhood, setCity, setNeighborhood } = useParameterStore();
   const { activeCategory } = useExploreStore();
@@ -127,12 +128,13 @@ export default function LocationPicker({ onCitySelect, onAreaSelect }: LocationP
       onCitySelect(cityId);
     }
 
-    // If currently on a /finder/:city/:category route, update the URL
-    if (location.pathname.startsWith('/finder/')) {
-      const segments = location.pathname.split('/').filter(Boolean); // e.g. ['finder', 'marrakech', 'sleep']
+    // If currently on a /finder/:city/:category route (with or without language prefix), update the URL
+    const { basePath } = extractLangFromPath(location.pathname);
+    if (basePath.startsWith('/finder/')) {
+      const segments = basePath.split('/').filter(Boolean); // e.g. ['finder', 'marrakech', 'sleep']
       if (segments.length >= 2 && segments[0] === 'finder' && cityMap[segments[1].toLowerCase()]) {
         const categorySegment = segments[2] || activeCategory || 'sleep';
-        navigate(`/finder/${cityId.toLowerCase()}/${categorySegment}${location.search}`);
+        navigateLang(`/finder/${cityId.toLowerCase()}/${categorySegment}${location.search}`);
       }
     }
   };

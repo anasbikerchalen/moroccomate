@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { Search, X, Check, ChevronRight, ChevronLeft } from 'lucide-react';
 import { cn } from '../../utils/cn';
 import type { SearchIntent } from '../../data/seo/searchIntents';
+import { useTranslation } from 'react-i18next';
 
 interface PeopleSearchForBarProps {
   popularIntents: SearchIntent[];
@@ -16,6 +17,7 @@ export default function PeopleSearchForBar({
   onSelectIntent,
   className = ''
 }: PeopleSearchForBarProps) {
+  const { t } = useTranslation();
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [canScrollRight, setCanScrollRight] = useState(false);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
@@ -110,11 +112,11 @@ export default function PeopleSearchForBar({
         <div className="flex items-center gap-1.5">
           <Search className="w-3.5 h-3.5 text-[#C2613C]" />
           <span className="text-[10px] font-black uppercase tracking-wider text-stone-500 dark:text-stone-400">
-            People Also Search For:
+            {t('results.peopleAlsoSearchFor')}
           </span>
           {activeFeatureSlug && (
             <span className="text-[9px] font-black px-1.5 py-0.2 rounded-full bg-[#C2613C] text-white">
-              1 Active
+              {t('results.oneActive')}
             </span>
           )}
         </div>
@@ -124,7 +126,7 @@ export default function PeopleSearchForBar({
             onClick={() => onSelectIntent(null)}
             className="text-[10px] font-bold text-stone-400 hover:text-[#C2613C] transition-colors flex items-center gap-1 cursor-pointer"
           >
-            <span>Show All</span>
+            <span>{t('results.showAll')}</span>
             <X className="w-3 h-3" />
           </button>
         )}

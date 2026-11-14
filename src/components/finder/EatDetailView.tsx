@@ -21,7 +21,7 @@ import TagTooltip from './TagTooltip';
 import { getEatWeeklySchedule } from '../../utils/timeEngine';
 import { deriveEatProsCons } from '../../utils/eatProsConsEngine';
 import diningHeroEditorialImg from '../../assets/images/botanical_food_flat_1791668271591.jpg';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { WalkingDistanceMap } from './stay/WalkingDistanceMap';
 import { computePoiNearbyPlaces } from '../../engine/proximityEngine';
 import { getCityCenter } from '../../engine/stayAdapter';
@@ -32,6 +32,8 @@ import { resolveEatWorries } from '../../utils/eatWorriesResolver';
 import PlaceReviewsSection from '../reviews/PlaceReviewsSection';
 import ListingHeroHeader, { WhatsAppIcon, type HeroFeatureChip, type HeroMetadataItem } from './ListingHeroHeader';
 import type { ReviewSource } from '../../types/reviews';
+import { useLangPath } from '../../utils/localeRouting';
+import LocalizedLink from '../ui/LocalizedLink';
 
 interface EatDetailViewProps {
   item: any;
@@ -40,6 +42,7 @@ interface EatDetailViewProps {
 
 export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
   const navigate = useNavigate();
+  const { navigateLang } = useLangPath();
   const { toggleBookmark, isBookmarked } = useSavedStore();
   const { city } = useParameterStore();
   const [showMenuModal, setShowMenuModal] = useState(false);
@@ -215,7 +218,7 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
     } else if (window.history.state && typeof window.history.state.idx === 'number' && window.history.state.idx > 0) {
       navigate(-1);
     } else {
-      navigate(`/finder/${cityKey}/food?view=results`);
+      navigateLang(`/finder/${cityKey}/food?view=results`);
     }
   };
 
@@ -1098,7 +1101,7 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
                 const peerSlug = getPlaceSlugById(peerCity, 'food', peer.id) || (peerName ? peerName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') : peer.id);
                 const peerUrl = buildPlaceUrl(peerCity, 'food', peerSlug);
                 return (
-                  <Link
+                  <LocalizedLink
                     key={peer.id || idx}
                     to={peerUrl}
                     onClick={() => {
@@ -1132,7 +1135,7 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
                         <ChevronRight className="w-4 h-4" />
                       </span>
                     </div>
-                  </Link>
+                  </LocalizedLink>
                 );
               })}
             </div>
