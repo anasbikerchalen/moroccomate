@@ -121,7 +121,7 @@ export function collectPlacePages(): IndexablePage[] {
         ? `${listing.ui?.openTime || listing.openTime} – ${listing.ui?.closeTime || listing.closeTime}`
         : undefined;
 
-    for (const lang of SUPPORTED_LANGS) {
+    for (const lang of ['en'] as const) {
       const seo = buildPlaceSeo({
         listing,
         category,
@@ -138,8 +138,8 @@ export function collectPlacePages(): IndexablePage[] {
         path: localizePath(basePlacePath, lang),
         basePath: basePlacePath,
         lang,
-        hasLocalizedRoutes: true,
-        priority: lang === 'en' ? 0.7 : 0.65,
+        hasLocalizedRoutes: false,
+        priority: 0.7,
         title: seo.title,
         description: seo.description,
         image: seo.image,
@@ -196,8 +196,8 @@ export function collectPlacePages(): IndexablePage[] {
           path: localizePath(baseMenuPath, lang),
           basePath: baseMenuPath,
           lang,
-          hasLocalizedRoutes: true,
-          priority: lang === 'en' ? 0.8 : 0.75,
+          hasLocalizedRoutes: false,
+          priority: 0.8,
           title: menuSeo.title,
           description: menuSeo.description,
           image: menuSeo.image,
@@ -261,7 +261,7 @@ export function collectThingsPages(): IndexablePage[] {
       : [];
     const rawFullDesc = activity.description || activity.short_description || '';
 
-    for (const lang of SUPPORTED_LANGS) {
+    for (const lang of ['en'] as const) {
       const seo = buildThingsSeo({
         activity,
         cityKey,
@@ -273,8 +273,8 @@ export function collectThingsPages(): IndexablePage[] {
         path: localizePath(basePath, lang),
         basePath,
         lang,
-        hasLocalizedRoutes: true,
-        priority: lang === 'en' ? 0.7 : 0.65,
+        hasLocalizedRoutes: false,
+        priority: 0.7,
         title: seo.title,
         description: seo.description,
         image: seo.image,
