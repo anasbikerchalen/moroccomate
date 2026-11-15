@@ -5972,57 +5972,411 @@ export const agadirEat: EatListing[] = [
     ui: {
       name: "Nazka by Buddha-Bar",
       neighborhood: "Secteur Balnéaire",
-      description: "A luxurious Pan-Latin fine-dining beach lounge and private beach club at The View Hotel. Combines oceanfront cabanas, Nikkei ceviches, Wagyu skewers, craft mixology, and sunset DJ sessions.",
-      tip: "Book ahead for sunset drinks on the oceanfront deck, or reserve a private beach cabana for day-long food and bottle service.",
+      description: "A luxurious Pan-Latin and Nikkei beachfront lounge at The View Agadir hotel along Boulevard du 20 Août. Combines oceanfront cabanas, Peruvian-Japanese ceviches, anticucho skewers, signature botanical cocktails, and sunset DJ sessions.",
+      tip: "Reserve ahead for sunset drinks on the beachfront deck, and expect 5-star hotel pricing (205–265 MAD mains, 180 MAD signature cocktails) with a smart-casual evening dress code.",
       badge: "splurge",
       bestDishes: [
-        "Tiradito de Saint-Pierre",
-        "Nikkei Tuna Tartare",
-        "Wagyu Beef Anticuchos",
-        "Passion Fruit Vanilla Cocktail",
-        "Churros with Dulce de Leche"
+        "Peruvian Carretillero Ceviche",
+        "Taquito Nikkei",
+        "Empanada de Carne",
+        "Pulpo Anticuchero",
+        "Churros"
       ],
       pros: [
-        "Direct private-beach access with sun loungers, cabanas, and towel service.",
-        "Signature Buddha-Bar brand cocktail program and refined Pan-Latin cuisine.",
-        "Complimentary valet parking at The View Hotel."
+        "Chic open-air beachfront terrace and cabanas at The View Agadir with sunset DJ sets.",
+        "Creative Nikkei ceviches, Peruvian anticuchos, and botanical mixology program.",
+        "Valet parking and private hotel access completely free from beach touts."
       ],
       cons: [
-        "High price point aligned with 5-star palace beach lounges.",
-        "Smart casual dress code strictly enforced in the evening."
+        "High 5-star luxury hotel pricing relative to portion sizes (200+ MAD plates, 180 MAD cocktails).",
+        "Strict smart-casual dress code and occasional slow service during busy sunset hours."
       ],
-      googleRating: 4.6,
+      googleRating: 4.1,
       googleReviewCount: 280,
-      tripadvisorRating: 4.5,
+      tripadvisorRating: 4.2,
       tripadvisorReviewCount: 95,
-      theforkRating: 4.5,
+      theforkRating: 4.3,
       theforkReviewCount: 60,
-      restaurantguruRating: 4.6,
+      restaurantguruRating: 4.0,
       restaurantguruReviewCount: 280,
       openTime: "10:00",
       closeTime: "00:00",
       exactAddressAndCoordinates: {
         address: "The View Hotel, Boulevard du 20 Août, Secteur Balnéaire, Agadir 80000, Morocco",
-        lat: 30.4158,
-        lng: -9.6022
+        lat: 30.4101,
+        lng: -9.5976
       },
-      googleMapsUrl: "https://maps.google.com/?q=Nazka+by+Buddha-Bar+The+View+Agadir",
+      googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=The+View+Agadir+Boulevard+du+20+Aout",
       reservationMethod: ["phone", "website", "email"],
-      reservationContact: "+212528294040",
+      reservationContact: "+212 5282-94040",
       whatsappNumber: "",
       bookingUrl: "",
       website: "https://nazkaagadir.com",
       instagram: "https://instagram.com/nazkaagadir",
-      languagesSpoken: ["French", "English", "Spanish", "Arabic/Darija"]
+      languagesSpoken: ["French", "English", "Spanish", "Arabic/Darija"],
+      menu: {
+        currency: "MAD",
+        lastUpdated: "Verified 2026 (The View Agadir)",
+        serviceChargeIncluded: true,
+        sections: [
+          {
+            id: "cold-bites",
+            title: "Cold Bites & Ceviches (Entrées Froides)",
+            description: "Fresh Atlantic seafood ceviches, Nikkei bites, and guacamole",
+            items: [
+              {
+                id: "nazka-guacamole",
+                name: "Classic Guacamole",
+                localName: "غواكامولي كلاسيكي طازج مع رقائق التورتيلا",
+                translations: {
+                  ar: "غواكامولي الأفوكادو الكلاسيكي مع رقائق الذرة المقرمشة",
+                  en: "Freshly mashed avocado guacamole with lime, cilantro, and crispy tortilla chips",
+                  es: "Guacamole clásico recién hecho con lima, cilantro y totopos crujientes",
+                  de: "Klassische frische Guacamole mit Limette, Koriander und Tortilla-Chips"
+                },
+                price: 180,
+                dietary: ["vegetarian", "vegan", "halal", "gluten-free"]
+              },
+              {
+                id: "nazka-ceviche",
+                name: "Peruvian Carretillero Ceviche",
+                localName: "سيفيتشي بيروفي تقليدي بصلصة ليتشي دي تيغري",
+                translations: {
+                  ar: "سيفيتشي السمك البيروفي بصلصة الحمضيات والفلفل الحار",
+                  en: "Line-caught Atlantic white fish cured in leche de tigre with sweet potato and cancha",
+                  es: "Ceviche carretillero peruano en leche de tigre con camote y maíz cancha",
+                  de: "Peruanische Ceviche Carretillero in Leche de Tigre mit Süßkartoffel und Cancha-Mais"
+                },
+                price: 210,
+                isSignature: true,
+                isSpicy: true,
+                dietary: ["halal", "gluten-free"]
+              },
+              {
+                id: "nazka-taquito-nikkei",
+                name: "Taquito Nikkei",
+                localName: "تاكيتو نيكي مقرمش بالتونة وصلصة البونزو",
+                translations: {
+                  ar: "تاكيتو نيكي بالتونة الطازجة وصلصة البونزو اليابانية",
+                  en: "Crispy nori tacos filled with seasoned tuna tartare, avocado, and Nikkei ponzu glaze",
+                  es: "Taquitos crujientes estilo Nikkei con tartar de atún, aguacate y glaseado ponzu",
+                  de: "Knusprige Nikkei-Taquitos mit Thunfisch-Tatar, Avocado und Ponzu-Glasur"
+                },
+                price: 215,
+                isSignature: true,
+                dietary: ["halal"]
+              },
+              {
+                id: "nazka-ostras-chalaca",
+                name: "Ostras a la Chalaca",
+                localName: "محار أ لا تشالاكا بالبصل والطماطم والليمون",
+                translations: {
+                  ar: "محار طازج على الطريقة البيروفية بالبصل والطماطم والليمون",
+                  en: "Fresh Moroccan oysters topped with Peruvian chalaca salsa of red onion, tomato, and lime",
+                  es: "Ostras frescas a la chalaca con cebolla roja, tomate, maíz y lima",
+                  de: "Frische Austern a la Chalaca mit roter Zwiebel-Tomaten-Limetten-Salsa"
+                },
+                price: 225,
+                dietary: ["halal", "gluten-free"]
+              },
+              {
+                id: "nazka-quinoa-poke",
+                name: "Quinoa Poke",
+                localName: "بوكي بول بالكينوا والأفوكادو والخضار الطازجة",
+                translations: {
+                  ar: "طبق الكينوا الصحي بالأفوكادو وصلصة السمسم",
+                  en: "Andean quinoa bowl with avocado, edamame, crispy vegetables, and sesame dressing",
+                  es: "Bowl de quinoa andina con aguacate, edamame y aliño de sésamo",
+                  de: "Quinoa-Poke-Bowl mit Avocado, Edamame und Sesam-Dressing"
+                },
+                price: 230,
+                dietary: ["vegetarian", "vegan", "halal"]
+              }
+            ]
+          },
+          {
+            id: "hot-bites",
+            title: "Hot Bites (Entrées Chaudes)",
+            description: "Warm Pan-Latin street food bites to share by the beach",
+            items: [
+              {
+                id: "nazka-taco-pastor",
+                name: "Taco al Pastor",
+                localName: "تاكو أل باستور متبل مع الأناناس المشوي",
+                translations: {
+                  ar: "تاكو لحم متبل على الطريقة اللاتينية مع الأناناس والكزبرة",
+                  en: "Spiced marinated meat tacos topped with charred pineapple, cilantro, and salsa verde",
+                  es: "Tacos al pastor especiados con piña asada, cilantro y salsa verde",
+                  de: "Würzige Tacos al Pastor mit gegrillter Ananas, Koriander und Salsa Verde"
+                },
+                price: 205,
+                isSpicy: true,
+                dietary: ["halal"]
+              },
+              {
+                id: "nazka-banana-tostones",
+                name: "Banana Tostones",
+                localName: "توستونيس الموز المقرمش مع صلصة الأفوكادو",
+                translations: {
+                  ar: "رقائق الموز الأخضر المقلية والمقرمشة مع التوابل اللاتينية",
+                  en: "Twice-fried crispy green plantain medallions served with zesty Latin dips",
+                  es: "Tostones crujientes de plátano verde frito con salsas latinas",
+                  de: "Knusprige zweifach frittierte Kochbananen-Tostones mit Dips"
+                },
+                price: 215,
+                dietary: ["vegetarian", "vegan", "halal", "gluten-free"]
+              },
+              {
+                id: "nazka-empanada-carne",
+                name: "Empanada de Carne",
+                localName: "إمبانادا اللحم البقري المتبل والمخبوزة حتى القرمشة",
+                translations: {
+                  ar: "فطائر إمبانادا محشوة باللحم البقري المتبل والأعشاب",
+                  en: "Golden baked pastry turnovers filled with slow-braised spiced beef and olives",
+                  es: "Empanadas doradas rellenas de carne braseada con especias y aceitunas",
+                  de: "Goldbraun gebackene Empanadas gefüllt mit geschmortem gewürztem Rindfleisch"
+                },
+                price: 240,
+                isSignature: true,
+                dietary: ["halal"]
+              }
+            ]
+          },
+          {
+            id: "mains-grill",
+            title: "Mains & Anticuchos (Plats & Brochettes)",
+            description: "Charcoal-grilled Peruvian skewers and Pan-Latin mains",
+            items: [
+              {
+                id: "nazka-chicken-pollada",
+                name: "Chicken Pollada",
+                localName: "دجاج بويادا متبل ومشوي على الفحم بصلصة الفلفل البيروفي",
+                translations: {
+                  ar: "دجاج مشوي بتتبيلة البويادا البيروفية بالأعشاب والحمضيات",
+                  en: "Peruvian-style marinated charcoal chicken served with aji amarillo cream",
+                  es: "Pollo a la pollada peruana marinado a la brasa con crema de ají amarillo",
+                  de: "Peruanisches Pollada-Hähnchen vom Holzkohlegrill mit Ají-Amarillo-Creme"
+                },
+                price: 245,
+                dietary: ["halal", "gluten-free"]
+              },
+              {
+                id: "nazka-pulpo-anticuchero",
+                name: "Pulpo Anticuchero",
+                localName: "أخطبوط أنتيكوتشيرو مشوي بصلصة الفلفل البيروفي",
+                translations: {
+                  ar: "أخطبوط أطلسي مشوي بتتبيلة أنتيكوتشيرو البيروفية",
+                  en: "Char-grilled Atlantic octopus glazed in smoky Peruvian anticuchera chili marinade",
+                  es: "Pulpo a la brasa glaseado en salsa anticuchera peruana ahumada",
+                  de: "Gegrillter Atlantik-Oktopus in rauchiger peruanischer Anticuchero-Marinade"
+                },
+                price: 255,
+                isSignature: true,
+                isSpicy: true,
+                dietary: ["halal", "gluten-free"]
+              },
+              {
+                id: "nazka-mixed-anticuchos",
+                name: "Mixed Anticuchos",
+                localName: "تشكيلة أسياخ أنتيكوتشوس المشوية على الفحم",
+                translations: {
+                  ar: "تشكيلة أسياخ لحم ودجاج مشوية على الطريقة البيروفية",
+                  en: "Assorted charcoal-grilled Peruvian anticucho skewers with smoky chili dips",
+                  es: "Brochetas mixtas de anticuchos peruanos a la parrilla con salsas picantes",
+                  de: "Gemischte peruanische Anticucho-Grillspieße mit rauchigen Chili-Saucen"
+                },
+                price: 265,
+                dietary: ["halal", "gluten-free"]
+              }
+            ]
+          },
+          {
+            id: "sides-desserts",
+            title: "Sides & Desserts (Accompagnements & Douceurs)",
+            description: "Crisp sides and Latin American desserts",
+            items: [
+              {
+                id: "nazka-potatoes-chimichurri",
+                name: "Potatoes al Chimichurri",
+                localName: "بطاطس مشوية بصلصة الشيميشوري بالأعشاب",
+                translations: {
+                  ar: "بطاطس ذهبية بصلصة الشيميشوري الخضراء",
+                  en: "Crispy roasted baby potatoes tossed in herbaceous garlic chimichurri",
+                  es: "Patatas crujientes salteadas con chimichurri fresco de hierbas",
+                  de: "Knusprige Kartoffeln geschwenkt in frischem Kräuter-Chimichurri"
+                },
+                price: 60,
+                dietary: ["vegetarian", "vegan", "halal", "gluten-free"]
+              },
+              {
+                id: "nazka-truffle-fries",
+                name: "Truffle French Fries",
+                localName: "بطاطس مقلية بالكمأة السوداء وجبن البارميزان",
+                translations: {
+                  ar: "بطاطس مقلية فاخرة بنكهة الكمأة",
+                  en: "Crispy hand-cut fries finished with truffle oil and parmesan",
+                  es: "Patatas fritas crujientes con aceite de trufa y parmesano",
+                  de: "Knusprige Pommes Frites mit Trüffelöl und Parmesan"
+                },
+                price: 90,
+                dietary: ["vegetarian", "halal"]
+              },
+              {
+                id: "nazka-tiramisu",
+                name: "Tiramisù Classico",
+                localName: "تيراميسو كلاسيكي بجبن الماسكاربوني والقهوة",
+                translations: {
+                  ar: "تيراميسو إيطالي كلاسيكي",
+                  en: "Classic espresso-soaked mascarpone tiramisu",
+                  es: "Tiramisú clásico con mascarpone y café espresso",
+                  de: "Klassisches Tiramisu mit Espresso und Mascarpone"
+                },
+                price: 49,
+                dietary: ["vegetarian", "halal"]
+              },
+              {
+                id: "nazka-churros",
+                name: "Churros",
+                localName: "تشوروس مقرمش مع صلصة الشوكولاتة والدولسي دي ليتشي",
+                translations: {
+                  ar: "تشوروس لاتيني ساخن مع صلصة الكراميل والشوكولاتة",
+                  en: "Warm cinnamon-sugar churros served with dulce de leche and dark chocolate sauce",
+                  es: "Churros calientes con azúcar y canela, dulce de leche y chocolate",
+                  de: "Warme Zimt-Zucker-Churros mit Dulce de Leche und Schokoladensauce"
+                },
+                price: 80,
+                isSignature: true,
+                dietary: ["vegetarian", "halal"]
+              },
+              {
+                id: "nazka-tres-leches",
+                name: "Tres Leches",
+                localName: "كيك تريس ليتشيس اللاتيني بالحليب المكثف والفانيليا",
+                translations: {
+                  ar: "كعكة الحليب الثلاثية اللاتينية بالكريمة المخفوقة",
+                  en: "Latin American sponge cake soaked in three milks and topped with whipped cream",
+                  es: "Bizcocho tradicional de tres leches con crema batida de vainilla",
+                  de: "Lateinamerikanischer Tres-Leches-Kuchen mit Vanille-Schlagsahne"
+                },
+                price: 90,
+                dietary: ["vegetarian", "halal"]
+              }
+            ]
+          },
+          {
+            id: "cocktails-drinks",
+            title: "Signature Cocktails & Drinks (Bar & Lounge)",
+            description: "Buddha-Bar mixology, Agua Fresca mocktails, and soft drinks",
+            items: [
+              {
+                id: "nazka-signature-cocktails",
+                name: "Signature Cocktails (Smoked Negroni, The View Mai Tai, Strawberry Basil)",
+                localName: "كوكتيلات نازكا المبتكرة (مع الكحول)",
+                translations: {
+                  ar: "كوكتيلات نازكا المميزة المحضرة يدوياً (يحتوي على الكحول)",
+                  en: "Craft house cocktails — Smoked Negroni, The View Mai Tai, or Strawberry Basil Lemonade",
+                  es: "Cócteles de autor — Smoked Negroni, The View Mai Tai o Strawberry Basil Lemonade",
+                  de: "Signature-Cocktails — Smoked Negroni, The View Mai Tai oder Strawberry Basil Lemonade"
+                },
+                price: 180,
+                isSignature: true,
+                portionNotes: "Contains alcohol"
+              },
+              {
+                id: "nazka-agua-fresca",
+                name: "Agua Fresca Mocktails (Lima, Playa Caribe, Tulum)",
+                localName: "موكتيلات أغوا فريسكا المنعشة الخالية من الكحول",
+                translations: {
+                  ar: "موكتيلات الفواكه الطازجة والأعشاب (خالية من الكحول)",
+                  en: "Botanical alcohol-free Agua Fresca mocktails crafted with tropical fruits and citrus",
+                  es: "Mocktails botánicos Agua Fresca sin alcohol de frutas tropicales",
+                  de: "Alkoholfreie Agua-Fresca-Mocktails mit tropischen Früchten und Zitrus"
+                },
+                price: 120,
+                dietary: ["vegetarian", "vegan", "halal", "gluten-free"]
+              },
+              {
+                id: "nazka-soft-drinks",
+                name: "Soft Drinks & Mineral Water",
+                localName: "مشروبات غازية ومياه معدنية",
+                translations: {
+                  ar: "مشروبات غازية ومياه معدنية",
+                  en: "Chilled soft drinks (55 MAD) and still or sparkling mineral water (45–100 MAD)",
+                  es: "Refrescos (55 MAD) y agua mineral con o sin gas (45–100 MAD)",
+                  de: "Erfrischungsgetränke (55 MAD) und Mineralwasser (45–100 MAD)"
+                },
+                price: 55,
+                dietary: ["vegetarian", "vegan", "halal", "gluten-free"],
+                portionNotes: "Mineral water from 45 MAD"
+              }
+            ]
+          }
+        ]
+      }
     }
   ,
     // ── 4. WORRIES ("Things You're Worried About!") ──
     worries: [
-      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
-      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
-      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
-      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
-      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+      {
+        id: "financial-trust",
+        title: "Financial Trust",
+        icon: "receipt",
+        // ── WORRY SUMMARY: BILL — luxury 5-star hotel menu prices?
+        tag: "Luxury Hotel",
+        tagColor: "money",
+        tone: "caution",
+        description: "Prices are printed on the menu, but expect high 5-star resort rates (205–265 MAD mains, 180 MAD cocktails) for modest portions.",
+        state: "verified",
+        source: "The View Hotels / Restaurant Guru"
+      },
+      {
+        id: "health-safety",
+        title: "Health & Safety",
+        icon: "droplets",
+        // ── WORRY SUMMARY: HYGIENE — 5-star resort seafood & ice standards?
+        tag: "5-Star Standards",
+        tagColor: "hygiene",
+        tone: "good",
+        description: "Operated inside The View Agadir luxury hotel with strict international cold-chain standards for raw ceviches and cocktails.",
+        state: "verified",
+        source: "The View Agadir / Buddha-Bar standards"
+      },
+      {
+        id: "culinary-authenticity",
+        title: "Culinary Authenticity",
+        icon: "chef",
+        // ── WORRY SUMMARY: FOOD — authentic Nikkei/Peruvian vs Moroccan?
+        tag: "Nikkei Fusion",
+        tagColor: "food",
+        tone: "good",
+        description: "Serves genuine Peruvian-Japanese (Nikkei) ceviches, empanadas, and anticuchos rather than traditional Moroccan cuisine.",
+        state: "verified",
+        source: "Nazka Agadir / Sam.ma"
+      },
+      {
+        id: "comfort-environment",
+        title: "Comfort & Atmosphere",
+        icon: "megaphone",
+        // ── WORRY SUMMARY: ATMOSPHERE — private beachfront terrace?
+        tag: "Beachfront Deck",
+        tagColor: "safety",
+        tone: "good",
+        description: "Chic private beachfront lounge with sunset DJs and hotel valet parking, completely sheltered from boardwalk street touts.",
+        state: "verified",
+        source: "Nazka Agadir / Visitor reviews"
+      },
+      {
+        id: "service-expectations",
+        title: "Service Expectations",
+        icon: "clock",
+        // ── WORRY SUMMARY: SERVICE — dress code & peak-hour delays?
+        tag: "Formal & Busy",
+        tagColor: "alert",
+        tone: "caution",
+        description: "Enforces a smart-casual evening dress code; while many staff are warm, reviews note occasional slow or stiff service at sunset.",
+        state: "verified",
+        source: "Restaurant Guru / Visitor reviews"
+      }
     ],
     // Multi-platform reviews holder (hidden on UI until populated)
     reviewsData: { sources: [], reviews: [] },

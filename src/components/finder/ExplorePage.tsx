@@ -27,7 +27,8 @@ import type { ExploreView } from '../../state/exploreStore';
 import { useTranslation } from 'react-i18next';
 import { useLangPath } from '../../utils/localeRouting';
 import LanguageSwitcher from '../ui/LanguageSwitcher';
-import { CATEGORY_LABELS_I18N, FINDER_SEO_I18N, getBrowseSeoI18n, type BrowseSegment } from '../../data/seo/i18nSeo';
+import { CATEGORY_LABELS_I18N, type BrowseSegment } from '../../data/seo/i18nSeo';
+import { buildBrowseSeo, buildFinderHubSeo } from '../../data/seo/seoEngine';
 
 // Screens that can appear in the URL as ?view=... (shareable, refresh-safe, Back-friendly)
 const VIEW_PARAM_VALUES: string[] = [
@@ -385,12 +386,28 @@ export default function ExplorePage({ onClose }: ExplorePageProps) {
     ? CATEGORY_LABELS_I18N[lang][normalizedSegment]
     : (displayCategory ? displayCategory.replace('-', ' ') : '');
 
-  const seoMeta = useMemo(() => {
+  const seoBundle = useMemo(() => {
     if (normalizedSegment) {
-      return getBrowseSeoI18n(cityLabel || 'Morocco', normalizedSegment, lang);
+      return buildBrowseSeo({
+        cityLabel: cityLabel || 'Morocco',
+        cityKey: (cityId || 'marrakech').toLowerCase(),
+        segment: normalizedSegment,
+        lang,
+      });
     }
-    return FINDER_SEO_I18N[lang];
-  }, [normalizedSegment, cityLabel, lang]);
+    return buildFinderHubSeo(lang);
+  }, [normalizedSegment, cityLabel, cityId, lang]);
+
+  const isQuizOrParamView = useMemo(() => {
+    const sp = new URLSearchParams(location.search);
+    return (
+      view === 'quiz' ||
+      view === 'subcategory' ||
+      view === 'sport-path' ||
+      sp.get('start') === 'quiz' ||
+      sp.get('view') === 'quiz'
+    );
+  }, [view, location.search]);
 
   if (view === 'free-scroll') {
     return (
@@ -417,8 +434,12 @@ export default function ExplorePage({ onClose }: ExplorePageProps) {
   return (
     <div className="min-h-screen bg-[#FAF7F2] font-sans relative">
       <SEO 
-        title={seoMeta.title}
-        description={seoMeta.description}
+        title={seoBundle.title}
+        description={seoBundle.description}
+        canonical={seoBundle.canonical}
+        schemaType={seoBundle.schemaType}
+        schemaData={seoBundle.schemaData}
+        noIndex={isQuizOrParamView}
       />
       
       {/* Background Texture */}

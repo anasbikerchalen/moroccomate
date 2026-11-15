@@ -593,6 +593,19 @@ export interface EatWorryEntry {
   source?: string;
 }
 
+export interface ShopWorryEntry {
+  id: string;            // canonical worry id, e.g. 'shop-scams'
+  title?: string;        // display title, e.g. 'Scams'
+  icon?: string;         // icon key mapped in components/worries/WorriesSection.tsx
+  tag: string;           // 1-2 words max naming the worry's state
+  description: string;   // max 2 lines describing the verdict at the shop
+  tone?: 'good' | 'caution';
+  tagColor?: 'water' | 'money' | 'hygiene' | 'safety' | 'noise' | 'food' | 'craft' | 'alert';
+  state?: 'verified' | 'pending';
+  image?: string;
+  source?: string;
+}
+
 export type PricingModel = 'fixed' | 'negotiable' | 'mixed' | 'market_price'
 export type ShopType = 'souk_stall' | 'boutique' | 'cooperative' | 'mall_store' | 'pharmacy' | 'supermarket' | 'designer_atelier' | 'concept_store'
 export type AuthenticitySeal = 'label_artisanat' | 'wfto' | 'zellige_de_fes' | 'anou' | 'maalem_certified'
@@ -695,6 +708,9 @@ export interface ShopListing {
   ownerName?: string
   ownerBio?: string
   
+  // Worries ("Things You're Worried About!")
+  worries?: ShopWorryEntry[] | any;
+
   // Legacy / Shared
   tip?: string
   badge?: string

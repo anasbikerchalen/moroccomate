@@ -36,6 +36,8 @@ import { cn } from '../../utils/cn';
 import { useNavigate, useParams, useLocation } from 'react-router-dom';
 import { SEO } from '../ui/SEO';
 import { getSearchIntent, getCityPopularIntents, doesListingMatchIntent } from '../../data/seo/searchIntents';
+import { buildBrowseSeo, buildSearchIntentSeo } from '../../data/seo/seoEngine';
+import type { BrowseSegment } from '../../data/seo/i18nSeo';
 import PeopleSearchForBar from './PeopleSearchForBar';
 import { TAG_REGISTRY } from '../../listings/things/tags';
 import { cityMap } from '../../data/cities';
@@ -783,11 +785,57 @@ export default function ResultPage() {
     </div>
   );
 
+  const resultSeoBundle = useMemo(() => {
+    const cityKey = (city || 'marrakech').toLowerCase();
+    const c = (activeCategory || 'sleep').toLowerCase();
+    const segment: BrowseSegment =
+      c === 'food' || c === 'eat'
+        ? 'food'
+        : c === 'sleep' || c === 'stay'
+          ? 'sleep'
+          : c === 'shopping' || c === 'shop'
+            ? 'shopping'
+            : 'things-to-do';
+
+    if (activeSearchIntent) {
+      return buildSearchIntentSeo({
+        intent: activeSearchIntent,
+        cityLabel: currentCityName,
+        cityKey,
+        category: segment,
+        lang,
+      });
+    }
+    return buildBrowseSeo({
+      cityLabel: currentCityName,
+      cityKey,
+      segment,
+      lang,
+    });
+  }, [activeSearchIntent, currentCityName, city, activeCategory, lang]);
+
+  const hasQueryDuplicateParams = useMemo(() => {
+    const sp = new URLSearchParams(location.search);
+    return (
+      sp.has('start') ||
+      sp.has('view') ||
+      sp.has('dish') ||
+      sp.has('souvenir') ||
+      sp.has('feature') ||
+      sp.has('intent') ||
+      sp.has('tag')
+    );
+  }, [location.search]);
+
   return (
     <div className="bg-[#FAF7F2] min-h-screen pb-16 font-sans text-stone-800">
       <SEO
-        title={activeSearchIntent ? activeSearchIntent.seoTitle(currentCityName) : `${t('results.placesFoundIn')} ${currentCityName}`}
-        description={activeSearchIntent ? activeSearchIntent.seoDescription(currentCityName) : `${t('results.handpickedFromQuiz')} — ${currentCityName}`}
+        title={resultSeoBundle.title}
+        description={resultSeoBundle.description}
+        canonical={resultSeoBundle.canonical}
+        schemaType={resultSeoBundle.schemaType}
+        schemaData={resultSeoBundle.schemaData}
+        noIndex={hasQueryDuplicateParams}
       />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-8">
 

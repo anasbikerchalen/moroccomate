@@ -94,7 +94,7 @@ function WorryCard({ box }: { box: WorryBoxData }) {
 
   return (
     <article className="flex flex-col overflow-hidden rounded-2xl border border-[#ece4d5] bg-white shadow-xs transition-all hover:border-[#C9A84C]/70 hover:shadow-sm">
-      {/* 1:1 image area — fits the result (good/bad). Placeholder if absent or load error */}
+      {/* 1:1 image area — fits the result (good/bad), or clean icon badge for verified icon-only categories */}
       {box.image && !imageError ? (
         <img
           src={box.image}
@@ -103,6 +103,24 @@ function WorryCard({ box }: { box: WorryBoxData }) {
           loading="lazy"
           onError={() => setImageError(true)}
         />
+      ) : box.state === 'verified' && !imageError ? (
+        <div
+          className={`flex aspect-square w-full flex-col items-center justify-center gap-2 border-b ${
+            box.tone === 'caution'
+              ? 'border-amber-200/70 bg-gradient-to-br from-amber-50/80 via-[#FAF7F2] to-rose-50/60'
+              : 'border-[#e6dccb] bg-gradient-to-br from-emerald-50/70 via-[#FAF7F2] to-amber-50/40'
+          }`}
+        >
+          <div
+            className={`flex h-16 w-16 items-center justify-center rounded-2xl border bg-white shadow-xs ${
+              box.tone === 'caution'
+                ? 'border-amber-200 text-amber-700'
+                : 'border-emerald-200/80 text-[#1F5A3B]'
+            }`}
+          >
+            <Icon className="h-8 w-8" strokeWidth={1.65} />
+          </div>
+        </div>
       ) : (
         <div className="flex aspect-square w-full flex-col items-center justify-center gap-1.5 border-b border-dashed border-[#e0d6c3] bg-[#FAF7F2] text-[#b3a78f]">
           <Icon className="h-7 w-7" strokeWidth={1.5} />

@@ -8,9 +8,10 @@
  *   highlights, nearby_places (proximity engine minimap), pricing,
  *   payment, opening_hours schedule, languages, shipping, visibility.
  */
-import type { ShopListing, ShopType, ProductCategory, ShopHighlight, ShopNearbyPlace, ShopMedia, ShopPayment, ShopPricing, ShopOpeningHours, Language, ShopShipping, ShopSectionVisibility } from '../types/shop';
+import type { ShopListing, ShopType, ProductCategory, ShopHighlight, ShopNearbyPlace, ShopMedia, ShopPayment, ShopPricing, ShopOpeningHours, ShopOpeningHourDay, Language, ShopShipping, ShopSectionVisibility } from '../types/shop';
 import { computePoiNearbyPlaces } from './proximityEngine';
 import { cityMap } from '../data/cities';
+import { resolveShopWorries } from '../utils/shopWorriesResolver';
 
 // ---------------------------------------------------------------
 // Shop type mapping (old type string → template shop_type object)
@@ -195,7 +196,9 @@ function derivePayment(listing: any): ShopPayment {
 // ---------------------------------------------------------------
 // Opening hours, languages, shipping
 // ---------------------------------------------------------------
-const DAY_MAP: Record<string, { dow: any; label: string; short: string }> = {
+const DAY_ORDER = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'] as const;
+
+const DAY_MAP: Record<string, { dow: ShopOpeningHourDay['day_of_week']; label: string; short: string }> = {
   mon: { dow: 'monday', label: 'Monday', short: 'Mon' },
   tue: { dow: 'tuesday', label: 'Tuesday', short: 'Tue' },
   wed: { dow: 'wednesday', label: 'Wednesday', short: 'Wed' },
@@ -205,24 +208,107 @@ const DAY_MAP: Record<string, { dow: any; label: string; short: string }> = {
   sun: { dow: 'sunday', label: 'Sunday', short: 'Sun' }
 };
 
-function deriveOpeningHours(listing: any): ShopOpeningHours {
+function expandDayKeys(dayStr: string): string[] {
+  const lower = String(dayStr || '').toLowerCase().trim();
+  if (!lower) return [];
+  if (lower.includes('daily') || lower.includes('every day') || lower === 'all week') {
+    return [...DAY_ORDER];
+  }
+  const rangeMatch = lower.match(/^([a-z]{3})[a-z]*\s*(?:-|–|to)\s*([a-z]{3})[a-z]*$/);
+  if (rangeMatch) {
+    const startIdx = DAY_ORDER.indexOf(rangeMatch[1] as typeof DAY_ORDER[number]);
+    const endIdx = DAY_ORDER.indexOf(rangeMatch[2] as typeof DAY_ORDER[number]);
+    if (startIdx !== -1 && endIdx !== -1) {
+      const keys: string[] = [];
+      let idx = startIdx;
+      for (let count = 0; count < 7; count++) {
+        keys.push(DAY_ORDER[idx]);
+        if (idx === endIdx) break;
+        idx = (idx + 1) % 7;
+      }
+      return keys;
+    }
+  }
+  const singleKey = lower.slice(0, 3);
+  if (DAY_MAP[singleKey]) return [singleKey];
+  return [singleKey];
+}
+
+export function deriveOpeningHours(listing: any): ShopOpeningHours {
   const rows: { day: string; hours: string }[] = Array.isArray(listing?.openingHours) ? listing.openingHours : [];
-  const schedule = rows.map((row) => {
-    const key = String(row?.day || '').toLowerCase().slice(0, 3);
-    const dayInfo = DAY_MAP[key] || { dow: 'monday', label: String(row?.day || 'Day'), short: String(row?.day || 'Day').slice(0, 3) };
-    const times = String(row?.hours || '').match(/(\d{1,2}:\d{2})/g) || [];
-    return {
-      day_of_week: dayInfo.dow,
-      day_label: String(row?.day || dayInfo.label),
-      short_label: dayInfo.short,
-      is_closed: /closed/i.test(String(row?.hours || '')),
-      open_time: times[0] || '09:00',
-      close_time: times[1] || '19:00'
-    };
-  });
+  const byDow = new Map<string, ShopOpeningHourDay>();
+  let detectedSplitNote: string | undefined;
+
+  for (const row of rows) {
+    const rawHours = String(row?.hours || '');
+    const isClosed = /closed/i.test(rawHours);
+    const times = rawHours.match(/(\d{1,2}:\d{2})/g) || [];
+    const openTime = times[0] || '09:00';
+    const closeTime = times.length >= 2 ? times[times.length - 1] : '19:00';
+    if (times.length >= 4 && !detectedSplitNote) {
+      detectedSplitNote = `Midday closure ${times[1]}–${times[2]}`;
+    }
+
+    const keys = expandDayKeys(row?.day || '');
+    for (const key of keys) {
+      const dayInfo = DAY_MAP[key];
+      if (dayInfo) {
+        byDow.set(dayInfo.dow, {
+          day_of_week: dayInfo.dow,
+          day_label: dayInfo.label,
+          short_label: dayInfo.short,
+          is_closed: isClosed,
+          open_time: openTime,
+          close_time: closeTime,
+        });
+      } else {
+        byDow.set(String(row?.day || 'day'), {
+          day_of_week: 'monday',
+          day_label: String(row?.day || 'Day'),
+          short_label: String(row?.day || 'Day').slice(0, 3),
+          is_closed: isClosed,
+          open_time: openTime,
+          close_time: closeTime,
+        });
+      }
+    }
+  }
+
+  // If a shop provided range rows (e.g. Mon-Sat) covering multiple days cleanly, fill missing days as closed
+  const hasCanonicalDays = DAY_ORDER.some((k) => byDow.has(DAY_MAP[k].dow));
+  const schedule: ShopOpeningHourDay[] = hasCanonicalDays
+    ? DAY_ORDER.map((k) => {
+        const info = DAY_MAP[k];
+        return (
+          byDow.get(info.dow) || {
+            day_of_week: info.dow,
+            day_label: info.label,
+            short_label: info.short,
+            is_closed: true,
+            open_time: '09:00',
+            close_time: '19:00',
+          }
+        );
+      })
+    : Array.from(byDow.values());
+
+  const rawFriday = listing?.fridayHours ? String(listing.fridayHours).trim() : '';
+  const normalizeNote = (s: string) => s.toLowerCase().replace(/\s*[–—-]\s*/g, '-').replace(/\s+/g, ' ').trim();
+  const isDuplicateSplitNote = Boolean(
+    detectedSplitNote &&
+      rawFriday &&
+      (normalizeNote(rawFriday).includes(normalizeNote(detectedSplitNote)) ||
+        normalizeNote(detectedSplitNote) === normalizeNote(rawFriday))
+  );
+
+  const notes = [
+    detectedSplitNote,
+    rawFriday && !isDuplicateSplitNote ? `Friday prayer pause: ${rawFriday}` : undefined,
+  ].filter(Boolean);
+
   return {
     schedule,
-    note: listing?.fridayHours ? `Friday prayer pause: ${listing.fridayHours}` : undefined
+    note: notes.length > 0 ? notes.join(' · ') : undefined,
   };
 }
 
@@ -246,9 +332,11 @@ function deriveShipping(listing: any): ShopShipping {
 // ---------------------------------------------------------------
 // Visibility flags — sections with no data hide cleanly
 // ---------------------------------------------------------------
-function deriveVisibility(listing: any, nearby: ShopNearbyPlace[], highlights: ShopHighlight[], products: ProductCategory[], languages: Language[]): ShopSectionVisibility {
+function deriveVisibility(listing: any, nearby: ShopNearbyPlace[], highlights: ShopHighlight[], products: ProductCategory[], languages: Language[], hasWorries: boolean, hasPriceGuide: boolean): ShopSectionVisibility {
   return {
+    show_worries: hasWorries,
     show_products: Array.isArray(products) && products.length > 0,
+    show_price_guide: hasPriceGuide,
     show_highlights: Array.isArray(highlights) && highlights.length > 0,
     show_nearby: Array.isArray(nearby) && nearby.length > 0,
     show_pricing: true,
@@ -271,10 +359,12 @@ export function adaptToTemplateShop(listing: any): ShopListing {
     : center;
 
   const products = deriveProductCategories(listing);
+  const priceGuide = Array.isArray(listing?.whatTheySell) ? listing.whatTheySell : [];
   const highlights = deriveHighlights(listing);
   const nearby = deriveNearbyPlaces(listing);
   const languages = deriveLanguages(listing);
-  const visibility = deriveVisibility(listing, nearby, highlights, products, languages);
+  const worries = resolveShopWorries(listing?.worries || listing?.ui?.worries || listing?.data?.worries);
+  const visibility = deriveVisibility(listing, nearby, highlights, products, languages, Boolean(worries && worries.length > 0), priceGuide.length > 0);
 
   return {
     id: String(listing?.id || 'shop-unknown'),
@@ -290,6 +380,7 @@ export function adaptToTemplateShop(listing: any): ShopListing {
     directions_url: String(listing?.googleMapsUrl || `https://maps.google.com/?q=${encodeURIComponent(`${listing?.name || ''} ${cityName}`)}`),
     media: deriveMedia(listing),
     product_categories: products,
+    price_guide: priceGuide,
     highlights,
     nearby_places: nearby,
     pricing: derivePricing(listing),
@@ -297,6 +388,7 @@ export function adaptToTemplateShop(listing: any): ShopListing {
     opening_hours: deriveOpeningHours(listing),
     languages,
     shipping: deriveShipping(listing),
+    worries,
     reviewsData: listing?.reviewsData || listing?.ui?.reviewsData || undefined,
     is_published: true,
     created_at: new Date().toISOString(),

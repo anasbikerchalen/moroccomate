@@ -24,6 +24,7 @@ import { getListingLiveStatus } from '../../utils/timeEngine';
 import { useSavedStore } from '../../state/savedStore';
 import FavoritesDrawer from './FavoritesDrawer';
 import { SEO } from '../ui/SEO';
+import { buildNearMeSeo } from '../../data/seo/seoEngine';
 import logoImg from '../../assets/images/logo.png';
 import { cn } from '../../utils/cn';
 import { useTranslation } from 'react-i18next';
@@ -169,7 +170,7 @@ export default function NearMePage() {
   const location = useLocation();
   const navigate = useNavigate();
   const { t } = useTranslation();
-  const { lp, navigateLang } = useLangPath();
+  const { lang, lp, navigateLang } = useLangPath();
 
   // Saved bookmarks store
   const { bookmarks, toggleBookmark, isBookmarked } = useSavedStore();
@@ -367,11 +368,25 @@ export default function NearMePage() {
     navigateLang('/');
   };
 
+  const nearMeSeo = useMemo(
+    () =>
+      buildNearMeSeo({
+        categorySegment: category,
+        categoryTitle: currentPlaceType.singularTitle,
+        cityKey: selectedCityId,
+        cityLabel: currentCityObj.name,
+        spotCount: filteredListings.length,
+        lang,
+      }),
+    [category, currentPlaceType.singularTitle, selectedCityId, currentCityObj.name, filteredListings.length, lang]
+  );
+
   return (
     <div className="min-h-screen bg-[#FAF7F2] text-[#29231F] font-sans relative selection:bg-[#C9A84C]/20">
       <SEO
-        title={`${bigTagline} in ${currentCityObj.name} | Moroccan Mate`}
-        description={`Find top-rated ${currentPlaceType.singularTitle} near you in ${currentCityObj.name}, Morocco. Browse verified local spots, ratings, and directions.`}
+        title={nearMeSeo.title}
+        description={nearMeSeo.description}
+        canonical={nearMeSeo.canonical}
       />
 
       {/* Website Paper Texture Background */}

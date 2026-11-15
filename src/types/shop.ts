@@ -4,6 +4,13 @@
  */
 
 import type { PlaceReviewsData } from './reviews';
+import type { WorryBoxData } from '../data/prototype/worriesPrototype';
+
+export interface ShopPriceGuideItem {
+  item: string;
+  range?: string;
+  priceEstimate?: string;
+}
 
 // 1. Shop Type Definition
 export interface ShopType {
@@ -113,7 +120,9 @@ export interface ShopMedia {
 
 // 11. Conditional Section Visibility Flags (for CMS / Admin customization)
 export interface ShopSectionVisibility {
+  show_worries?: boolean;
   show_products?: boolean;
+  show_price_guide?: boolean;
   show_highlights?: boolean;
   show_nearby?: boolean;
   show_pricing?: boolean;
@@ -145,6 +154,7 @@ export interface ShopListing {
 
   // Dynamic Relations
   product_categories: ProductCategory[];
+  price_guide?: ShopPriceGuideItem[];
   highlights: ShopHighlight[];
   nearby_places: ShopNearbyPlace[];
   pricing: ShopPricing;
@@ -152,6 +162,7 @@ export interface ShopListing {
   opening_hours: ShopOpeningHours;
   languages: Language[];
   shipping: ShopShipping;
+  worries?: WorryBoxData[] | null;
 
   // Reviews & Intelligence
   /** Multi-platform reviews section data (Tripadvisor, Google Maps, Trustpilot, Lonely Planet, Reddit) */

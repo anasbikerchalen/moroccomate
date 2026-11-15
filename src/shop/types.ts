@@ -132,6 +132,9 @@ export interface ShopListing {
   ownerName?: string;
   ownerBio?: string;
   
+  // Worries ("Things You're Worried About!")
+  worries?: any;
+
   // Legacy / UI Badges
   tip?: string;
   badge?: string;

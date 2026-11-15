@@ -1404,57 +1404,337 @@ export const rabatEat: EatListing[] = [
     ui: {
       name: "Kasr Al Assil",
       neighborhood: "Hassan",
-      description: "An elegant, highly-rated traditional restaurant in the Hassan district. It focuses strictly on serving perfectly prepared, authentic Moroccan staples like slow-simmered lamb tagines and Friday couscous.",
-      tip: "Loved by locals for its small, focused menu which guarantees the utmost quality in every single tagine.",
+      description: "An authentic, highly-rated traditional Moroccan restaurant tucked along Rue Youssef Ibn Tachfine in Rabat’s quiet Quartier Administratif (Hassan). Loved by locals, families, and diplomats for unhurried home-style Rabat cooking — slow-simmered tagines, pastilla, rfissa, kefta au beurre, and Friday seven-vegetable couscous.",
+      tip: "Carry Moroccan Dirhams (cash) as diners frequently note cash payment is preferred. The entrance on Rue Youssef Ibn Tachfine (near Av. Moulay Hassan) is understated — use GPS or call +212 661-309952.",
       badge: "local",
       bestDishes: [
         "Chicken Tagine with Olives & Lemon",
-        "Friday Beef Couscous",
-        "Moroccan Mixed Skewers"
+        "Meat Tagine with Apricots & Almonds",
+        "Friday Couscous with Seven Vegetables & Tfaya",
+        "Chicken Pastilla",
+        "Kefta au Beurre"
       ],
       pros: [
-        "Authentic home-style flavors cooked without commercial shortcuts.",
-        "Clean, family-friendly traditional interior with attentive hospitality.",
-        "Excellent Friday couscous with seven vegetables and caramelized tfaya."
+        "Authentic home-style Moroccan flavors cooked to order without commercial shortcuts.",
+        "Calm, family-friendly dining room in Hassan completely free of street touts.",
+        "Strong quality-to-price ratio (typically 50–150 MAD per person)."
       ],
       cons: [
-        "Relatively discreet facade that is easy to miss without GPS.",
-        "Limited dessert selection beyond seasonal fruit and traditional pastries."
+        "Card terminals are not always available — recent guests note cash (MAD) is preferred.",
+        "Discreet street facade on Rue Youssef Ibn Tachfine and modest dessert selection."
       ],
-      googleRating: 4.4,
-      googleReviewCount: 490,
+      googleRating: 4.8,
+      googleReviewCount: 1250,
       tripadvisorRating: 4.5,
       tripadvisorReviewCount: 180,
       theforkRating: 4.3,
       theforkReviewCount: 95,
-      restaurantguruRating: 4.4,
-      restaurantguruReviewCount: 490,
-      openTime: "12:00",
-      closeTime: "23:00",
+      restaurantguruRating: 4.6,
+      restaurantguruReviewCount: 1250,
+      openTime: "12:30",
+      closeTime: "22:00",
       exactAddressAndCoordinates: {
-        address: "22 Avenue Moulay Hassan, Hassan, Rabat 10000, Morocco",
+        address: "39 Rue Youssef Ibn Tachfine (near Av. Moulay Hassan), Hassan, Rabat 10020, Morocco",
         lat: 34.01614,
         lng: -6.83108
       },
-      googleMapsUrl: "https://maps.google.com/?q=Kasr+Al+Assil+Rabat",
+      googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Kasr+Al+Assil+39+Rue+Youssef+Ibn+Tachfine+Rabat",
       reservationMethod: ["phone"],
-      reservationContact: "+212537721818",
-      website: "not-available",
-      instagram: "not-available",
-      customStory: "Located in the quiet administrative quarter of Hassan, Kasr Al Assil is revered for pure, unpretentious Moroccan culinary heritage. Specializing in time-honored slow-cooking, the restaurant draws local civil servants and diplomatic staff for Friday couscous and fork-tender lamb tagines.",
+      reservationContact: "+212 5377-21818",
+      website: "",
+      instagram: "",
+      customStory: "Located in the quiet administrative quarter of Hassan, Kasr Al Assil is revered for pure, unpretentious Moroccan culinary heritage. Specializing in time-honored slow-cooking, the restaurant draws local civil servants and diplomatic staff for Friday couscous and fork-tender tagines.",
       viewType: "none",
-      bestTimeToVisit: "Lunch around 13:00 for quiet",
-      averageWaitMinutes: 10,
-      languagesSpoken: ["French", "Arabic/Darija", "English"]
+      bestTimeToVisit: "Weekday lunches around 13:00 or Friday for traditional couscous",
+      averageWaitMinutes: 15,
+      languagesSpoken: ["French", "Arabic/Darija", "English"],
+      menu: {
+        currency: "MAD",
+        lastUpdated: "Typical 50–150 MAD menu guide (Verified 2026)",
+        serviceChargeIncluded: true,
+        sections: [
+          {
+            id: "entrees-salades",
+            title: "Entrées & Salades Marocaines (Starters & Salads)",
+            description: "Traditional cooked and fresh Moroccan sharing plates",
+            items: [
+              {
+                id: "ka-salade-marocaine",
+                name: "Assortiment de Salades Marocaines",
+                localName: "تشكيلة سلطات مغربية تقليدية (زعلوك، تكتوكة، خضار)",
+                translations: {
+                  ar: "تشكيلة سلطات مغربية تقليدية (زعلوك، تكتوكة، جزر متبل)",
+                  en: "Assorted Moroccan sharing salads (zaalouk, taktouka, spiced carrots)",
+                  es: "Surtido de ensaladas marroquíes (zaalouk, taktouka, zanahorias especiadas)",
+                  de: "Gemischte marokkanische Vorspeisensalate (Zaalouk, Taktouka, gewürzte Karotten)"
+                },
+                price: 45,
+                dietary: ["vegetarian", "vegan", "halal", "gluten-free"]
+              },
+              {
+                id: "ka-briouates-assorties",
+                name: "Briouates Assorties (Viande, Poulet ou Fromage)",
+                localName: "بريوات مقرمشة محشوة باللحم المفروم أو الدجاج أو الجبن",
+                translations: {
+                  ar: "بريوات مقرمشة محشوة باللحم المفروم أو الدجاج أو الجبن",
+                  en: "Crispy filo parcels filled with spiced minced beef, chicken, or cheese",
+                  es: "Briouates crujientes rellenos de carne especiada, pollo o queso",
+                  de: "Knusprige Teigtaschen gefüllt mit gewürztem Rindfleisch, Hähnchen oder Käse"
+                },
+                price: 55,
+                dietary: ["halal"]
+              },
+              {
+                id: "ka-harira-marocaine",
+                name: "Harira Traditionnelle",
+                localName: "حريرة مغربية تقليدية بالتمر والشباكية",
+                translations: {
+                  ar: "حريرة مغربية تقليدية",
+                  en: "Traditional tomato, lentil, and chickpea soup with fresh herbs",
+                  es: "Sopa tradicional marroquí de tomate, lentejas y garbanzos",
+                  de: "Traditionelle marokkanische Harira-Suppe mit Linsen und Kichererbsen"
+                },
+                price: 35,
+                dietary: ["vegetarian", "halal"]
+              }
+            ]
+          },
+          {
+            id: "tagines-couscous",
+            title: "Tagines & Couscous Traditionnels",
+            description: "Slow-simmered clay-pot classics and Friday couscous",
+            items: [
+              {
+                id: "ka-tagine-poulet-citron",
+                name: "Tagine de Poulet aux Olives & Citron Confit",
+                localName: "طاجين الدجاج بالزيتون والحامض المصير",
+                translations: {
+                  ar: "طاجين الدجاج بالزيتون والحامض المصير",
+                  en: "Slow-cooked free-range chicken tagine with preserved lemon and olives",
+                  es: "Tajín de pollo a fuego lento con limón encurtido y aceitunas",
+                  de: "Geschmortes Hähnchen-Tajine mit eingelegten Zitronen und Oliven"
+                },
+                price: 95,
+                isSignature: true,
+                dietary: ["halal", "gluten-free"]
+              },
+              {
+                id: "ka-tagine-viande-pruneaux",
+                name: "Tagine de Bœuf aux Abricots, Pruneaux & Amandes",
+                localName: "طاجين اللحم بالمشمش والبرقوق المعسل واللوز المحمص",
+                translations: {
+                  ar: "طاجين اللحم بالمشمش والبرقوق واللوز المحمص",
+                  en: "Tender beef or lamb tagine with caramelized apricots, prunes, and toasted almonds",
+                  es: "Tajín de ternera con albaricoques, ciruelas caramelizadas y almendras tostadas",
+                  de: "Zartes Rindfleisch-Tajine mit Aprikosen, Pflaumen und gerösteten Mandeln"
+                },
+                price: 115,
+                isSignature: true,
+                dietary: ["halal", "gluten-free"]
+              },
+              {
+                id: "ka-couscous-vendredi",
+                name: "Couscous Royal aux Sept Légumes & Tfaya (Vendredi)",
+                localName: "كسكس بالسبع خضار والتفاية (طبق يوم الجمعة)",
+                translations: {
+                  ar: "كسكس تقليدي بالسبع خضار والبصل المعسل بالزبيب (تفاية)",
+                  en: "Traditional seven-vegetable couscous with caramelized onions and raisins (tfaya)",
+                  es: "Cuscús tradicional de siete verduras con cebolla caramelizada y pasas (tfaya)",
+                  de: "Traditionelles Sieben-Gemüse-Couscous mit karamellisierten Zwiebeln und Rosinen"
+                },
+                price: 105,
+                isSignature: true,
+                dietary: ["halal"],
+                portionNotes: "Spécialité du vendredi (Vendredi midi)"
+              },
+              {
+                id: "ka-tagine-legumes",
+                name: "Tagine Végétarien aux Légumes de Saison",
+                localName: "طاجين الخضار الموسمية بالأعشاب المغربية",
+                translations: {
+                  ar: "طاجين الخضار الموسمية بالأعشاب المغربية",
+                  en: "Seasonal vegetable tagine simmered with saffron, ginger, and preserved lemon",
+                  es: "Tajín vegetariano de verduras de temporada con azafrán y jengibre",
+                  de: "Vegetarisches Tajine mit Saisongemüse, Safran und Ingwer"
+                },
+                price: 80,
+                dietary: ["vegetarian", "vegan", "halal", "gluten-free"]
+              }
+            ]
+          },
+          {
+            id: "specialites-grillades",
+            title: "Spécialités Maison & Grillades (House Specialties)",
+            description: "Signature Rabat family recipes prepared to order",
+            items: [
+              {
+                id: "ka-pastilla-poulet",
+                name: "Pastilla au Poulet & Amandes",
+                localName: "بسطيلة تقليدية بالدجاج واللوز والقرفة",
+                translations: {
+                  ar: "بسطيلة تقليدية بالدجاج واللوز والقرفة",
+                  en: "Flaky warqa pastry pie layered with saffron chicken, toasted almonds, and cinnamon",
+                  es: "Pastilla crujiente de pollo al azafrán, almendras tostadas y canela",
+                  de: "Blätterteig-Pastilla mit Safran-Hähnchen, gerösteten Mandeln und Zimt"
+                },
+                price: 110,
+                isSignature: true,
+                dietary: ["halal"]
+              },
+              {
+                id: "ka-rfissa-poulet",
+                name: "Rfissa Traditionnelle au Poulet",
+                localName: "رفيسة مغربية تقليدية بالدجاج البلدي والعدس والحلبة",
+                translations: {
+                  ar: "رفيسة مغربية تقليدية بالدجاج والعدس والملوي",
+                  en: "Shredded msemen pastry soaked in spiced chicken, lentil, and fenugreek broth",
+                  es: "Rfissa tradicional con pollo especiado, lentejas y caldo de alholva",
+                  de: "Traditionelle Rfissa mit gewürztem Hähnchen, Linsen und Bockshornklee-Brühe"
+                },
+                price: 110,
+                dietary: ["halal"]
+              },
+              {
+                id: "ka-kefta-beurre",
+                name: "Kefta au Beurre & Brochettes Mixtes",
+                localName: "كفتة بالزبدة وأسياخ مشوية على الفحم",
+                translations: {
+                  ar: "كفتة بالزبدة وأسياخ مشوية متبلة بالكمون والبابريكا",
+                  en: "Spiced grilled meatballs finished with butter and charcoal-grilled skewers",
+                  es: "Kefta a la mantequilla y brochetas mixtas a la parrilla",
+                  de: "Gewürzte Kefta-Bällchen in Butter mit gemischten Grillspießen"
+                },
+                price: 100,
+                isSignature: true,
+                dietary: ["halal", "gluten-free"]
+              },
+              {
+                id: "ka-seffa-medfouna",
+                name: "Seffa Medfouna",
+                localName: "سفة مدفونة بالشعرية والدجاج واللوز",
+                translations: {
+                  ar: "سفة مدفونة بالشعرية والدجاج واللوز والسكر",
+                  en: "Steamed sweet-and-savory vermicelli hiding spiced braised chicken and almonds",
+                  es: "Seffa Medfouna: fideos al vapor con pollo especiado, almendras y canela",
+                  de: "Seffa Medfouna: gedämpfte Fadennudeln mit geschmortem Hähnchen und Mandeln"
+                },
+                price: 95,
+                dietary: ["halal"]
+              }
+            ]
+          },
+          {
+            id: "desserts-boissons",
+            title: "Desserts & Thé à la Menthe (Desserts & Tea)",
+            description: "Classic Moroccan sweets, fruit, and dry beverages",
+            items: [
+              {
+                id: "ka-jawhara-pastries",
+                name: "Jawhara (Pastilla au Lait) & Pâtisseries Marocaines",
+                localName: "جوهرة (بسطيلة بالحليب) وحلويات مغربية باللوز",
+                translations: {
+                  ar: "جوهرة مقرمشة بكريمة ماء الزهر وحلويات اللوز",
+                  en: "Crisp fried warqa layered with orange-blossom milk cream and almond pastries",
+                  es: "Jawhara crujiente con crema de leche al azahar y dulces de almendra",
+                  de: "Knusprige Jawhara mit Orangenblüten-Milchcreme und Mandelgebäck"
+                },
+                price: 45,
+                dietary: ["vegetarian", "halal"]
+              },
+              {
+                id: "ka-the-menthe",
+                name: "Thé à la Menthe Marocain",
+                localName: "شاي مغربي بالنعناع الطازج",
+                translations: {
+                  ar: "أتاي مغربي بالنعناع الطازج",
+                  en: "Traditional Moroccan gunpowder green tea brewed with fresh spearmint",
+                  es: "Té verde marroquí tradicional con menta fresca",
+                  de: "Traditioneller marokkanischer Minztee"
+                },
+                price: 20,
+                dietary: ["vegetarian", "vegan", "halal", "gluten-free"]
+              },
+              {
+                id: "ka-jus-orange",
+                name: "Jus d’Orange Frais Pressé & Eau Minérale",
+                localName: "عصير برتقال طازج معصور",
+                translations: {
+                  ar: "عصير برتقال طازج معصور",
+                  en: "Freshly squeezed Moroccan orange juice",
+                  es: "Zumo de naranja marroquí recién exprimido",
+                  de: "Frisch gepresster marokkanischer Orangensaft"
+                },
+                price: 25,
+                dietary: ["vegetarian", "vegan", "halal", "gluten-free"]
+              }
+            ]
+          }
+        ]
+      }
     }
   ,
     // ── 4. WORRIES ("Things You're Worried About!") ──
     worries: [
-      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
-      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
-      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
-      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
-      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+      {
+        id: "financial-trust",
+        title: "Financial Trust",
+        icon: "receipt",
+        // ── WORRY SUMMARY: BILL — honest ~50-150 MAD pricing, cash-only caveat?
+        tag: "Bring Cash",
+        tagColor: "money",
+        tone: "caution",
+        description: "Honest ~50–150 MAD home-style pricing with zero tourist markups, though recent diners note cash (MAD) is often required.",
+        state: "verified",
+        source: "Restaurant Guru / Trip.com / Le Bon Trajet"
+      },
+      {
+        id: "health-safety",
+        title: "Health & Safety",
+        icon: "droplets",
+        // ── WORRY SUMMARY: HYGIENE — clean dry halal kitchen praised by locals?
+        tag: "Clean Kitchen",
+        tagColor: "hygiene",
+        tone: "good",
+        description: "Strictly dry, halal-certified home-style kitchen favored by Rabat civil servants and families for fresh preparation.",
+        state: "verified",
+        source: "Ousortir.ma / Sam.ma"
+      },
+      {
+        id: "culinary-authenticity",
+        title: "Culinary Authenticity",
+        icon: "chef",
+        // ── WORRY SUMMARY: FOOD — traditional Rabat home cooking?
+        tag: "Home Recipes",
+        tagColor: "food",
+        tone: "good",
+        description: "Authentic slow-cooked tagines, pastilla, rfissa, and Friday couscous prepared without commercial shortcuts.",
+        state: "verified",
+        source: "Ousortir.ma / Diner reviews"
+      },
+      {
+        id: "comfort-environment",
+        title: "Comfort & Atmosphere",
+        icon: "megaphone",
+        // ── WORRY SUMMARY: ATMOSPHERE — calm Hassan street vs medina touts?
+        tag: "Quiet Hassan",
+        tagColor: "safety",
+        tone: "good",
+        description: "Calm indoor dining room in the Quartier Administratif away from medina touts; understated entrance off Av. Moulay Hassan.",
+        state: "verified",
+        source: "Sam.ma / Diner reviews"
+      },
+      {
+        id: "service-expectations",
+        title: "Service Expectations",
+        icon: "clock",
+        // ── WORRY SUMMARY: SERVICE — attentive family hospitality?
+        tag: "Warm Service",
+        tagColor: "safety",
+        tone: "good",
+        description: "Warm, welcoming staff speaking Arabic, French, and English; dishes are cooked fresh with ~10–15 min waits.",
+        state: "verified",
+        source: "Ousortir.ma / Google reviews"
+      }
     ],
     // Multi-platform reviews holder (hidden on UI until populated)
     reviewsData: { sources: [], reviews: [] },

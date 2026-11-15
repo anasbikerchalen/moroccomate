@@ -53,7 +53,7 @@ const CATEGORY_BLOCKS = [
 export default function WorriesPrototypePage() {
   return (
     <div className="min-h-screen bg-[#FAF9F5]">
-      <SEO title="Prototype — Worries Section" />
+      <SEO title="Prototype — Worries Section" noIndex />
 
       {/* Prototype header */}
       <header className="sticky top-0 z-40 border-b border-[#ece4d5] bg-[#FAF9F5]/95 backdrop-blur-sm">

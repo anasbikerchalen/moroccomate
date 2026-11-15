@@ -6,6 +6,13 @@ import {
   extractLangFromPath,
   localizePath,
 } from '../../utils/localeRouting';
+import {
+  BASE_URL,
+  DEFAULT_OG_IMAGE_PATH,
+  SITE_NAME,
+  composeTitle,
+  smartDescription,
+} from '../../data/seo/seoEngine';
 
 interface BreadcrumbItem {
   name: string;
@@ -23,6 +30,7 @@ interface SEOProps {
   schemaData?: Record<string, any>;
   faq?: { question: string; answer: string }[];
   disableHreflang?: boolean;
+  noIndex?: boolean;
 }
 
 export const SEO: React.FC<SEOProps> = ({
@@ -30,23 +38,21 @@ export const SEO: React.FC<SEOProps> = ({
   description,
   canonical,
   type = 'website',
-  image = '/assets/home/backgrounds/homepage_default_image.jpg', // Default rich preview image (ships locally in public/)
+  image = DEFAULT_OG_IMAGE_PATH,
   breadcrumbs,
   schemaType,
   schemaData,
   faq,
   disableHreflang = false,
+  noIndex = false,
 }) => {
-  const BASE_URL = 'https://www.moroccanmate.com';
-  const siteName = 'Moroccan Mate';
+  const siteName = SITE_NAME;
   const fullTitle = title
-    ? title.toLowerCase().includes(siteName.toLowerCase())
-      ? title
-      : `${title} | ${siteName}`
-    : `${siteName} | Eat, Sleep, Things & Shopping in Morocco`;
+    ? composeTitle(title, siteName, 60)
+    : `${siteName} | Morocco Food, Stays & Things to Do`;
   const defaultDescription =
-    'Your honest guide to Morocco — city by city. Feel the vibe first, trust the data second, decide third.';
-  const metaDescription = description || defaultDescription;
+    'Pick your city in Morocco, take a quick quiz, and get curated local picks for restaurants, riads, activities, and authentic shopping.';
+  const metaDescription = smartDescription(description || defaultDescription, 155);
 
   const rawPathname = typeof window !== 'undefined' ? window.location.pathname : '/';
   const { lang, basePath } = extractLangFromPath(rawPathname);
@@ -72,7 +78,7 @@ export const SEO: React.FC<SEOProps> = ({
   const baseJsonLd = {
     '@context': 'https://schema.org',
     '@type': schemaType || 'WebSite',
-    name: schemaType ? fullTitle : siteName,
+    name: schemaData?.name || (schemaType ? fullTitle : siteName),
     ...(schemaType ? {} : { alternateName: ['MoroccanMate'] }),
     description: metaDescription,
     url: canonicalUrl,
@@ -105,10 +111,12 @@ export const SEO: React.FC<SEOProps> = ({
       {/* Basic Meta Tags */}
       <title>{fullTitle}</title>
       <meta name="description" content={metaDescription} />
+      {noIndex && <meta name="robots" content="noindex, follow" />}
       <link rel="canonical" href={canonicalUrl} />
 
       {/* Multilingual Alternate Links (hreflang) */}
       {!disableHreflang &&
+        !noIndex &&
         SUPPORTED_LANGS.map((code) => (
           <link
             key={code}
@@ -117,7 +125,7 @@ export const SEO: React.FC<SEOProps> = ({
             href={`${BASE_URL}${localizePath(resolvedBasePath, code)}`}
           />
         ))}
-      {!disableHreflang && (
+      {!disableHreflang && !noIndex && (
         <link
           rel="alternate"
           hrefLang="x-default"

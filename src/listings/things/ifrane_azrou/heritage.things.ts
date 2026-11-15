@@ -954,16 +954,16 @@ export const ifraneAzrouHeritageThings: ThingToDoListing[] = [
     safetyLevel: 5,
     walkInOkay: true,
     hasEnglishGuide: false,
-    hasFrenchGuide: true,
+    hasFrenchGuide: false,
     isKidFriendly: true,
     isFemaleFriendly: true,
-    isWheelchairAccessible: true,
-    accessibilityFeatures: ["ground_floor_access", "flat_ground", "step_free_access"],
+    isWheelchairAccessible: false,
+    accessibilityFeatures: ["flat_perimeter_road"],
     isPhotographyFriendly: true,
     hasPrivateOption: false,
     hasSunsetView: false,
     nearMedina: false,
-    goodForRain: true,
+    goodForRain: false,
     friction: {
       walkingFatigue: 1,
       heatExposure: 1,
@@ -973,101 +973,100 @@ export const ifraneAzrouHeritageThings: ThingToDoListing[] = [
       physicalIntensity: 1,
       kidSuitable: true,
     },
-    openingHours: "09:00 AM - 05:00 PM (Daily)",
-    openingHoursStructured: [
-      { dayOfWeek: 0, open: "09:00", close: "17:00" },
-      { dayOfWeek: 1, open: "09:00", close: "17:00" },
-      { dayOfWeek: 2, open: "09:00", close: "17:00" },
-      { dayOfWeek: 3, open: "09:00", close: "17:00" },
-      { dayOfWeek: 4, open: "09:00", close: "17:00" },
-      { dayOfWeek: 5, open: "09:00", close: "17:00" },
-      { dayOfWeek: 6, open: "09:00", close: "17:00" },
-    ],
-    paymentMethods: ["cash_mad"],
-    amenities: ["shaded_benches", "street_parking", "walking_paths"],
-    restrictions: ["Respectful silence is requested within the building and immediate gardens"],
+    openingHours: "Exterior viewing anytime (Interior generally closed)",
+    paymentMethods: [],
+    amenities: ["shaded_cedar_trees", "street_parking"],
+    restrictions: ["Interior is generally closed to the public; admire the architecture respectfully from the outside"],
     healthContraindications: ["None"],
     // ── 3. UI — presentation & social proof ─────────────────
-    description: "Designed in 1935 by renowned French architect Paul Tournon, this alpine stone and Atlas cedar chapel is a rare architectural treasure from the French protectorate era. Conceived with steep, snow-shedding roofs and regional cedar joinery, it illustrates Ifrane's 1930s European hill-station design.",
-    shortValueProp: "A 1930s alpine stone and cedar church designed by architect Paul Tournon, showcasing Ifrane's garden-city history.",
-    images: [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Zaouiat_Ben_Smim_1.jpg/960px-Zaouiat_Ben_Smim_1.jpg"
-    ],
-    googleRating: 4.4,
-    reviewCount: 160,
+    description: "Finalized in 1939 by French ecclesiastical architect Paul Tournon (following earlier 1935 sketches), this alpine stone and Atlas cedar church stands among old cedar trees in central Ifrane. Construction was never fully completed in its original scope, and the interior is generally closed — making it a peaceful exterior architectural stop along Ifrane’s garden-city walk.",
+    shortValueProp: "A 1939 alpine stone and cedar landmark by architect Paul Tournon, viewed from the exterior under tall Atlas cedars.",
+    images: [],
+    googleRating: 4.3,
+    reviewCount: 45,
     badge: "hidden-gem",
-    tip: "A quiet, contemplative stop surrounded by century-old cedars, just a 5-minute walk from the central park.",
+    tip: "Treat this as a brief 10–15 minute exterior architectural stop along Avenue de la Poste; the doors are typically locked with no regular public worship schedule.",
     tips: [
-      "A quiet, contemplative stop surrounded by century-old cedars, just a 5-minute walk from the central park.",
-      "Check out the exterior stone masonry and heavy timber trusses typical of 1930s alpine architecture."
+      "Treat this as a brief 10–15 minute exterior architectural stop along Avenue de la Poste; the doors are typically locked.",
+      "Notice the steep snow-shedding roofline, stone masonry, and cedar woodwork reflecting 1930s alpine design."
     ],
     highlights: [
-      "Rare alpine church architecture designed by celebrated ecclesiastical architect Paul Tournon",
-      "Serene wooded grounds nestled under mature Middle Atlas cedar canopies"
+      "1939 alpine stone-and-cedar church design by French architect Paul Tournon",
+      "Peaceful tree-lined setting in central Ifrane just minutes from the central park"
     ],
     emotionalBenefits: [
-      "Quiet cultural reflection away from mainstream tourist circuits",
-      "Fascinating architectural perspective on Ifrane's colonial founding"
+      "Quiet architectural insight into Ifrane’s 1930s European garden-city origins",
+      "Calm shaded stroll away from busy sightseeing spots"
     ],
-    ticketTypes: [{ name: "Free Heritage Visit", price: 0, currency: "MAD" }],
-    includedServices: ["Self-guided grounds visit"],
-    excludedServices: ["Audio guides"],
+    ticketTypes: [{ name: "Exterior Architectural Viewing (Free)", price: 0, currency: "MAD" }],
+    includedServices: ["Free exterior viewing from public perimeter"],
+    excludedServices: ["Interior entry", "Guided tours", "Audio guides"],
     // ── WORRIES ("Things You're Worried About!") ────────────
     worries: [
       {
         id: "activity-safety",
         title: "Safety",
         icon: "shield",
+        // ── WORRY SUMMARY: SAFETY — calm Avenue de la Poste area?
         tag: "Calm Grounds",
         tagColor: "safety",
         tone: "good",
-        description: "Quiet, secluded parish setting shaded by historic Atlas cedar trees; very safe and tranquil.",
-        state: "verified"
+        description: "Set on a quiet, tree-lined avenue in central Ifrane near civic buildings; safe and peaceful for daytime walks.",
+        state: "verified",
+        source: "Ifrane Centre-Ville / Mapcarta"
       },
       {
         id: "activity-scams",
         title: "Scams",
         icon: "warning",
+        // ── WORRY SUMMARY: SCAMS — open public street landmark?
         tag: "Touts Free",
         tagColor: "safety",
         tone: "good",
-        description: "Wholly non-commercial religious site free of touts, guides, or souvenir sellers.",
-        state: "verified"
+        description: "Open public architectural landmark along the street with zero ticket sellers, unofficial guides, or souvenir hawkers.",
+        state: "verified",
+        source: "Site heritage records"
       },
       {
         id: "activity-pricing",
         title: "Pricing",
         icon: "tag",
-        tag: "Free Entry",
+        // ── WORRY SUMMARY: PRICING — free public street view?
+        tag: "Free Exterior",
         tagColor: "money",
         tone: "good",
-        description: "Free admission for worship and quiet visiting during open hours; voluntary donations welcome.",
-        state: "verified"
+        description: "Completely free to view and photograph from the public perimeter road; no admission fee or ticket counter exists.",
+        state: "verified",
+        source: "Ifrane architectural records"
       },
       {
         id: "activity-authenticity",
         title: "Authenticity",
         icon: "gem",
-        tag: "Alpine Modernist",
+        // ── WORRY SUMMARY: AUTHENTICITY — genuine 1939 Tournon building?
+        tag: "Historic 1939",
         tagColor: "craft",
         tone: "good",
-        description: "Historic 1939 Catholic church designed by French architect Paul Tournon, blending regional cedar timberwork with alpine stone.",
-        state: "verified"
+        description: "Genuine 1939 Paul Tournon alpine stone-and-cedar design (revised from 1935 plans), though historically left unfinished.",
+        state: "verified",
+        source: "Cité de l'architecture et du patrimoine (Paul Tournon)"
       },
       {
         id: "activity-difficulty",
         title: "Difficulty",
         icon: "mountain",
-        tag: "Gently Sloped",
-        tagColor: "safety",
-        tone: "good",
-        description: "Approach involves flat walkways and slight lawn inclines with a few low stone entry steps.",
-        state: "verified"
+        // ── WORRY SUMMARY: DIFFICULTY — flat walk, but exterior-only access?
+        tag: "Exterior Only",
+        tagColor: "alert",
+        tone: "caution",
+        description: "Easy flat street-side walk, but interior doors are generally closed with no published visiting hours — view from outside.",
+        state: "verified",
+        source: "Traveler reports / historical status"
       }
     ],
     address: "Avenue de la Poste, Centre-Ville (Chalet), 53000 Ifrane, Morocco",
     coordinates: { lat: 33.52963, lng: -5.11018 },
-    googleMapsUrl: "https://maps.google.com/?q=Eglise+Notre+Dame+des+Cedres+Ifrane",
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=33.52963,-5.11018",
     // Multi-platform reviews holder (hidden on UI until populated)
     reviewsData: { sources: [], reviews: [] },
   }

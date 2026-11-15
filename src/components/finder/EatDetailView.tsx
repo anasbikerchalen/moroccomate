@@ -7,7 +7,7 @@ import {
   Info, Sparkles, Car, Languages, CreditCard,
   Accessibility, DollarSign, Moon, Sun, Armchair, Leaf, ShieldCheck,
   Compass, Award, Share2, Phone, PhoneCall, Check, Copy, Lightbulb,
-  CalendarCheck, Settings, Footprints
+  CalendarCheck, Settings, Footprints, MessageSquareText
 } from 'lucide-react';
 import { cn } from '../../utils/cn';
 import { useSavedStore } from '../../state/savedStore';
@@ -31,6 +31,8 @@ import WorriesSection from '../worries/WorriesSection';
 import { resolveEatWorries } from '../../utils/eatWorriesResolver';
 import PlaceReviewsSection from '../reviews/PlaceReviewsSection';
 import ListingHeroHeader, { WhatsAppIcon, type HeroFeatureChip, type HeroMetadataItem } from './ListingHeroHeader';
+import ListingSectionNavigator, { type ListingNavigatorItem } from './ListingSectionNavigator';
+import { hasVerifiedReviews, hasVerifiedWorries } from './listingNavUtils';
 import type { ReviewSource } from '../../types/reviews';
 import { useLangPath } from '../../utils/localeRouting';
 import LocalizedLink from '../ui/LocalizedLink';
@@ -245,13 +247,13 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
 
   // Clean social links
   const cleanInstagram = useMemo(() => {
-    if (!instagram) return null;
+    if (!instagram || instagram === 'not-available') return null;
     if (instagram.startsWith('http')) return instagram;
     return `https://instagram.com/${instagram.replace('@', '')}`;
   }, [instagram]);
 
   const cleanWebsite = useMemo(() => {
-    if (!website) return null;
+    if (!website || website === 'not-available') return null;
     if (website.startsWith('http')) return website;
     return `https://${website}`;
   }, [website]);
@@ -596,17 +598,60 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
         }}
       />
 
+      {/* Sticky Section Navigator */}
+      <ListingSectionNavigator
+        items={[
+          {
+            id: 'worries',
+            label: 'Worries',
+            targetId: 'eat-worries-section',
+            icon: <ShieldCheck className="w-4 h-4" />,
+            available: hasVerifiedWorries(resolvedWorries),
+          },
+          {
+            id: 'about',
+            label: 'About',
+            targetId: 'eat-soul-card',
+            icon: <Info className="w-4 h-4" />,
+            available: true,
+          },
+          {
+            id: 'menu',
+            label: 'Menu',
+            targetId: 'restaurant-menu-section',
+            icon: <UtensilsCrossed className="w-4 h-4" />,
+            available: Boolean((item?.menu?.sections?.length || item?.ui?.menu?.sections?.length || 0) > 0),
+          },
+          {
+            id: 'logistics',
+            label: 'Hours & Map',
+            targetId: 'eat-logistics-section',
+            icon: <Clock className="w-4 h-4" />,
+            available: true,
+          },
+          {
+            id: 'reviews',
+            label: 'Reviews',
+            targetId: 'eat-reviews-section',
+            icon: <MessageSquareText className="w-4 h-4" />,
+            available: hasVerifiedReviews(eatReviewsData),
+          },
+        ] satisfies ListingNavigatorItem[]}
+      />
+
       {/* ─────────────────────────────────────────────────────────────
           MAIN CONTENT CONTAINER (SPACIOUS, CENTERED CONTENT)
       ───────────────────────────────────────────────────────────── */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
         {/* "Things You're Worried About!" — strictly rendered only if verified data is available */}
-        {resolvedWorries && (
-          <WorriesSection
-            worries={resolvedWorries}
-            title="Things You're Worried About!"
-            subtitle="Honest answers to what usually worries diners — checked and verified, never guessed."
-          />
+        {hasVerifiedWorries(resolvedWorries) && resolvedWorries && (
+          <div id="eat-worries-section">
+            <WorriesSection
+              worries={resolvedWorries}
+              title="Things You're Worried About!"
+              subtitle="Honest answers to what usually worries diners — checked and verified, never guessed."
+            />
+          </div>
         )}
         
         {/* ───────────────────────────────────────────────────────────
@@ -815,7 +860,7 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
           reservationContact={reservationContact}
           whatsappNumber={whatsappNumber}
           bookingUrl={bookingUrl}
-          website={website}
+          website={cleanWebsite || ''}
           googleMapsUrl={googleMapsUrl}
           bestTimeToVisit={bestTimeToVisit}
           averageWaitMinutes={averageWaitMinutes}
@@ -826,7 +871,7 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
         {/* ───────────────────────────────────────────────────────────
             5. LOGISTICS & OPERATIONAL DETAILS (HIGH-CONTRAST LABELS)
         ─────────────────────────────────────────────────────────── */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div id="eat-logistics-section" className="grid grid-cols-1 md:grid-cols-2 gap-6">
           
           {/* Logistics Card */}
           <div className="bg-white border border-stone-200/80 rounded-3xl p-6 sm:p-7 shadow-xs space-y-4">
@@ -1065,14 +1110,18 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
         {/* ───────────────────────────────────────────────────────────
             5.5. TRAVELER REVIEWS & COMMUNITY RATINGS
         ─────────────────────────────────────────────────────────── */}
-        <PlaceReviewsSection
-          reviewsData={eatReviewsData}
-          placeName={name}
-          category="eat"
-          className="mt-12"
-          externalSelectedSource={selectedReviewSource}
-          onSelectedSourceChange={setSelectedReviewSource}
-        />
+        {hasVerifiedReviews(eatReviewsData) && (
+          <div id="eat-reviews-section">
+            <PlaceReviewsSection
+              reviewsData={eatReviewsData}
+              placeName={name}
+              category="eat"
+              className="mt-12"
+              externalSelectedSource={selectedReviewSource}
+              onSelectedSourceChange={setSelectedReviewSource}
+            />
+          </div>
+        )}
 
         {/* ───────────────────────────────────────────────────────────
             6. EXPLORE PEER RESTAURANTS (CLEAN HORIZONTAL TEXT CARDS, ZERO IMAGES)

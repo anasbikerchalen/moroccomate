@@ -7,6 +7,7 @@ import { LanguageSwitcher } from '../components/ui/LanguageSwitcher';
 import { LocalizedLink } from '../components/ui/LocalizedLink';
 import { useLangPath } from '../utils/localeRouting';
 import { CATEGORY_LABELS_I18N } from '../data/seo/i18nSeo';
+import { buildPlaceSeo } from '../data/seo/seoEngine';
 import DetailView from '../components/finder/DetailView';
 import { useSavedStore } from '../state/savedStore';
 import FavoritesDrawer from '../components/finder/FavoritesDrawer';
@@ -16,7 +17,6 @@ import {
   getPlaceIndex,
   normalizePlaceCategory,
   PLACE_CATEGORY_LABEL,
-  PLACE_SCHEMA_TYPE,
   type PlaceUrlCategory,
 } from '../listings/placeRoutes';
 import { getListingRating } from '../listings/utils';
@@ -178,7 +178,7 @@ export default function PlaceListingPage() {
   if (!listing) {
     return (
       <div className="min-h-screen bg-[#FAF9F5] flex flex-col">
-        <SEO title={t('place.notFoundTitle')} />
+        <SEO title={t('place.notFoundTitle')} noIndex />
         <div className="flex-1 flex flex-col items-center justify-center px-4 text-center">
           <h1 className="font-display text-3xl font-bold text-[#173042]">{t('place.notFoundTitle')}</h1>
           <p className="mt-2 text-sm text-[#66757D] max-w-sm">
@@ -201,67 +201,17 @@ export default function PlaceListingPage() {
   const placeName = listing.name || listing.title || 'Place';
   const categoryLabel = CATEGORY_LABELS_I18N[lang]?.[category!] || PLACE_CATEGORY_LABEL[category!];
   const isSleep = category === 'sleep';
-  const isEat = category === 'food';
-  const isShopping = category === 'shopping';
-  const price = isSleep
-    ? (listing.pricePerNight ?? 0)
-    : (listing.pricePerPerson ?? (listing.filter?.pricePerPerson ?? 0));
   const ownerAnswer = isSleep ? getStayOwnerAnswer(listing) : '';
-  const rawDescription = String(listing.description || listing.short_description || '');
-  const description = isSleep && price > 0
-    ? `Price from ${price} MAD/night. ${rawDescription.slice(0, 115)}`
-    : isEat && price > 0
-      ? `Avg ${price} MAD/person. ${rawDescription.slice(0, 120)}`
-      : rawDescription.slice(0, 155);
-  const rating = getListingRating(listing);
-  const image = listing.nonCopyrightImage || listing.images?.[0] || undefined;
-  const canonical = `/place/${cityKey}/${category}/${slug}`;
 
-  // Structured data for Google rich results
-  const schemaData: Record<string, any> = {
-    name: placeName,
-    description,
-    address: listing.address || `${listing.neighborhood || cityLabel}, Morocco`,
-    ...(listing.coordinates ? { geo: { latitude: listing.coordinates.lat, longitude: listing.coordinates.lng } } : {}),
-    ...(rating && rating.averageRating > 0 && rating.totalReviews > 0
-      ? { aggregateRating: { '@type': 'AggregateRating', ratingValue: rating.averageRating, reviewCount: rating.totalReviews } }
-      : {}),
-    ...(isSleep && price > 0
-      ? {
-          priceRange: `${price} MAD`,
-          offers: {
-            '@type': 'Offer',
-            price,
-            priceCurrency: 'MAD',
-            availability: 'https://schema.org/InStock',
-          },
-          ...(Array.isArray(listing.amenities) && listing.amenities.length > 0
-            ? {
-                amenityFeature: listing.amenities.slice(0, 10).map((a: string) => ({
-                  '@type': 'LocationFeatureSpecification',
-                  name: a,
-                  value: true,
-                })),
-              }
-            : {}),
-        }
-      : {}),
-    ...(isEat
-      ? {
-          ...(price > 0 ? { priceRange: `${price} MAD` } : {}),
-          ...((listing.foodStyles || listing.quiz?.foodStyles)
-            ? { servesCuisine: listing.foodStyles || listing.quiz?.foodStyles }
-            : {}),
-          ...(listing.reservationMethod ? { acceptsReservations: true } : {}),
-        }
-      : {}),
-    ...(isShopping
-      ? {
-          currenciesAccepted: 'MAD, EUR, USD',
-          paymentAccepted: 'Cash, Credit Card',
-        }
-      : {}),
-  };
+  const seoBundle = buildPlaceSeo({
+    listing,
+    category: category!,
+    cityKey,
+    cityLabel,
+    slug: slug!,
+    lang,
+    ownerAnswer,
+  });
 
   const handleBack = (e?: React.MouseEvent) => {
     e?.preventDefault();
@@ -278,19 +228,15 @@ export default function PlaceListingPage() {
   return (
     <div className="min-h-screen bg-[#FAF9F5] flex flex-col">
       <SEO
-        title={`${placeName} — ${categoryLabel} in ${cityLabel}`}
-        description={description}
-        canonical={canonical}
+        title={seoBundle.title}
+        description={seoBundle.description}
+        canonical={seoBundle.canonical}
         type="article"
-        image={image}
-        schemaType={PLACE_SCHEMA_TYPE[category!]}
-        schemaData={schemaData}
-        faq={isSleep && ownerAnswer ? [{ question: `Who is the owner of ${placeName}?`, answer: ownerAnswer }] : undefined}
-        breadcrumbs={[
-          { name: 'Moroccan Mate', item: '/' },
-          { name: `${categoryLabel} in ${cityLabel}`, item: `/finder/${cityKey}/${category}` },
-          { name: placeName, item: canonical },
-        ]}
+        image={seoBundle.image}
+        schemaType={seoBundle.schemaType}
+        schemaData={seoBundle.schemaData}
+        faq={seoBundle.faq}
+        breadcrumbs={seoBundle.breadcrumbs}
       />
 
       {/* Minimal header: back navigation + wordmark */}

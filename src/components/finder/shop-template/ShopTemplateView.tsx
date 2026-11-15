@@ -2,6 +2,7 @@ import React from 'react';
 import { ShopListing } from '../../../types/shop';
 import type { ReviewSource } from '../../../types/reviews';
 import { ShopProductsSection } from './ShopProductsSection';
+import { ShopPriceGuideSection } from './ShopPriceGuideSection';
 import { ShopHighlightsSection } from './ShopHighlightsSection';
 import { ShopNearbySection } from './ShopNearbySection';
 import { ShopPricingCard } from './ShopPricingCard';
@@ -10,6 +11,8 @@ import { ShopOpeningHoursCard } from './ShopOpeningHoursCard';
 import { ShopLanguagesCard } from './ShopLanguagesCard';
 import { ShopShippingBanner } from './ShopShippingBanner';
 import PlaceReviewsSection from '../../reviews/PlaceReviewsSection';
+import WorriesSection from '../../worries/WorriesSection';
+import { hasVerifiedReviews, hasVerifiedWorries } from '../listingNavUtils';
 
 interface ShopTemplateViewProps {
   shop: ShopListing;
@@ -23,11 +26,23 @@ export const ShopTemplateView: React.FC<ShopTemplateViewProps> = ({
   onSelectedSourceChange,
 }) => {
   const v = shop.visibility || {};
+  const shopReviewsData = shop.reviewsData || (shop as any).reviews;
 
   return (
     <div className="space-y-7 pb-10">
+      {/* 1. "Things You're Worried About!" — strictly rendered when verified shop worries exist */}
+      {v.show_worries !== false && hasVerifiedWorries(shop.worries) && shop.worries && (
+        <div id="shop-worries-section">
+          <WorriesSection
+            worries={shop.worries}
+            title="Things You're Worried About!"
+            subtitle="Honest answers to what usually worries shoppers — checked and verified, never guessed."
+          />
+        </div>
+      )}
+
       {/* 2. Row 1: "What you'll find" (Left) + "Why visit?" (Right) */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-7 items-stretch">
+      <div id="shop-items-section" className="grid grid-cols-1 lg:grid-cols-12 gap-7 items-stretch">
         <div className="lg:col-span-7">
           {v.show_products !== false && (
             <ShopProductsSection categories={shop.product_categories} />
@@ -40,8 +55,15 @@ export const ShopTemplateView: React.FC<ShopTemplateViewProps> = ({
         </div>
       </div>
 
+      {/* 2b. Typical items & verified MAD price guide */}
+      {v.show_price_guide !== false && shop.price_guide && shop.price_guide.length > 0 && (
+        <div id="shop-price-guide-section">
+          <ShopPriceGuideSection items={shop.price_guide} />
+        </div>
+      )}
+
       {/* 3. Row 2: "Around the shop" (Left) + "Pricing & Payment" (Right) */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-7 items-start">
+      <div id="shop-nearby-pay-section" className="grid grid-cols-1 lg:grid-cols-12 gap-7 items-start">
         <div className="lg:col-span-7">
           {v.show_nearby !== false && (
             <ShopNearbySection
@@ -57,7 +79,7 @@ export const ShopTemplateView: React.FC<ShopTemplateViewProps> = ({
       </div>
 
       {/* 4. Row 3: "Opening hours" (Left) + "Languages" (Right) */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-7 items-stretch">
+      <div id="shop-hours-section" className="grid grid-cols-1 lg:grid-cols-12 gap-7 items-stretch">
         <div className="lg:col-span-7">
           {v.show_opening_hours !== false && (
             <ShopOpeningHoursCard openingHours={shop.opening_hours} />
@@ -76,14 +98,16 @@ export const ShopTemplateView: React.FC<ShopTemplateViewProps> = ({
       )}
 
       {/* 6. Multi-platform Traveler Reviews & Community Intelligence */}
-      {v.show_reviews !== false && (
-        <PlaceReviewsSection
-          reviewsData={shop.reviewsData || (shop as any).reviews}
-          placeName={shop.name}
-          category="shopping"
-          externalSelectedSource={externalSelectedSource}
-          onSelectedSourceChange={onSelectedSourceChange}
-        />
+      {v.show_reviews !== false && hasVerifiedReviews(shopReviewsData) && (
+        <div id="shop-reviews-section">
+          <PlaceReviewsSection
+            reviewsData={shopReviewsData}
+            placeName={shop.name}
+            category="shopping"
+            externalSelectedSource={externalSelectedSource}
+            onSelectedSourceChange={onSelectedSourceChange}
+          />
+        </div>
       )}
     </div>
   );

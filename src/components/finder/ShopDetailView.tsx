@@ -16,6 +16,8 @@ import {
   Hammer,
   Tag,
   Clock,
+  Map,
+  MessageSquareText,
 } from 'lucide-react';
 import { adaptToTemplateShop } from '../../engine/shopTemplateAdapter';
 import { getShopById } from '../../shop';
@@ -23,6 +25,8 @@ import { ShopListing as LegacyShopListing } from '../../listings/types';
 import { useSavedStore } from '../../state/savedStore';
 import { ShopTemplateView } from './shop-template/ShopTemplateView';
 import ListingHeroHeader, { type HeroFeatureChip, type HeroMetadataItem } from './ListingHeroHeader';
+import ListingSectionNavigator, { type ListingNavigatorItem } from './ListingSectionNavigator';
+import { hasVerifiedReviews, hasVerifiedWorries } from './listingNavUtils';
 import type { ReviewSource } from '../../types/reviews';
 
 interface ShopDetailViewProps {
@@ -93,14 +97,14 @@ export default function ShopDetailView({ item: passedItem }: ShopDetailViewProps
         : 'Negotiable';
 
   const cleanWebsite = useMemo(() => {
-    if (!legacyItem?.website) return undefined;
+    if (!legacyItem?.website || legacyItem.website === 'not-available') return undefined;
     return legacyItem.website.startsWith('http')
       ? legacyItem.website
       : `https://${legacyItem.website}`;
   }, [legacyItem?.website]);
 
   const cleanInstagram = useMemo(() => {
-    if (!legacyItem?.instagram) return undefined;
+    if (!legacyItem?.instagram || legacyItem.instagram === 'not-available') return undefined;
     return legacyItem.instagram.startsWith('http')
       ? legacyItem.instagram
       : `https://instagram.com/${legacyItem.instagram.replace('@', '')}`;
@@ -255,6 +259,59 @@ export default function ShopDetailView({ item: passedItem }: ShopDetailViewProps
           saveLabel: 'Save to Favorites',
           savedLabel: 'Saved in Favorites',
         }}
+      />
+
+      {/* Sticky Section Navigator */}
+      <ListingSectionNavigator
+        items={[
+          {
+            id: 'worries',
+            label: 'Worries',
+            targetId: 'shop-worries-section',
+            icon: <ShieldCheck className="w-4 h-4" />,
+            available: shop.visibility?.show_worries !== false && hasVerifiedWorries(shop.worries),
+          },
+          {
+            id: 'items',
+            label: 'What to Buy',
+            targetId: 'shop-items-section',
+            icon: <ShoppingBag className="w-4 h-4" />,
+            available:
+              (shop.visibility?.show_products !== false && Array.isArray(shop.product_categories) && shop.product_categories.length > 0) ||
+              (shop.visibility?.show_highlights !== false && Array.isArray(shop.highlights) && shop.highlights.length > 0),
+          },
+          {
+            id: 'price-guide',
+            label: 'Price Guide',
+            targetId: 'shop-price-guide-section',
+            icon: <Tag className="w-4 h-4" />,
+            available: shop.visibility?.show_price_guide !== false && Array.isArray(shop.price_guide) && shop.price_guide.length > 0,
+          },
+          {
+            id: 'nearby-pay',
+            label: 'Map & Pay',
+            targetId: 'shop-nearby-pay-section',
+            icon: <Map className="w-4 h-4" />,
+            available:
+              (shop.visibility?.show_nearby !== false && Array.isArray(shop.nearby_places) && shop.nearby_places.length > 0) ||
+              shop.visibility?.show_pricing !== false ||
+              shop.visibility?.show_payment !== false,
+          },
+          {
+            id: 'hours',
+            label: 'Hours',
+            targetId: 'shop-hours-section',
+            icon: <Clock className="w-4 h-4" />,
+            available: shop.visibility?.show_opening_hours !== false && Boolean(shop.opening_hours),
+          },
+          {
+            id: 'reviews',
+            label: 'Reviews',
+            targetId: 'shop-reviews-section',
+            icon: <MessageSquareText className="w-4 h-4" />,
+            available: shop.visibility?.show_reviews !== false && hasVerifiedReviews(shopReviewsData || (shop as any).reviews),
+          },
+        ] satisfies ListingNavigatorItem[]}
       />
 
       {/* ─────────────────────────────────────────────────────────────

@@ -8,6 +8,7 @@ import { useLangPath } from '../utils/localeRouting';
 import InteractiveRestaurantMenu from '../components/menu/InteractiveRestaurantMenu';
 import { getPlaceBySlug, getPlaceSlugById } from '../listings/placeRoutes';
 import { cityMap } from '../data/cities';
+import { buildMenuSeo } from '../data/seo/seoEngine';
 import logoImg from '../assets/images/logo.png';
 import type { EatListing } from '../listings/types';
 
@@ -16,7 +17,7 @@ export default function PlaceMenuPage() {
     city: string;
     slug: string;
   }>();
-  const { navigateLang } = useLangPath();
+  const { lang, navigateLang } = useLangPath();
   const cityKey = String(city || '').toLowerCase();
 
   // Scroll to top immediately on route change
@@ -39,7 +40,7 @@ export default function PlaceMenuPage() {
   if (!listing) {
     return (
       <div className="min-h-screen bg-[#FAF9F5] flex flex-col">
-        <SEO title="Menu Not Found" />
+        <SEO title="Menu Not Found" noIndex />
         <div className="flex-1 flex flex-col items-center justify-center px-4 text-center">
           <h1 className="font-display text-3xl font-bold text-[#173042]">Menu Not Found</h1>
           <p className="mt-2 text-sm text-[#66757D] max-w-sm">
@@ -64,76 +65,34 @@ export default function PlaceMenuPage() {
   const menu = listing.ui?.menu || listing.menu;
   const bestDishes = listing.ui?.bestDishes || listing.bestDishes || [];
   const primaryCuisine = listing.foodStyles?.[0] || listing.quiz?.foodStyles?.[0] || 'Mediterranean';
-  const price = listing.filter?.pricePerPerson ?? listing.pricePerPerson ?? 20;
-  const canonical = `/place/${cityKey}/food/${rawSlug}/menu`;
-  const placeProfileUrl = `/place/${cityKey}/food/${rawSlug}`;
+  const canonicalSlug = getPlaceSlugById(cityKey, 'food', listing.id) || rawSlug || '';
+  const placeProfileUrl = `/place/${cityKey}/food/${canonicalSlug}`;
 
   // External verified links
   const googleMapsUrl = listing.ui?.googleMapsUrl || listing.googleMapsUrl || `https://maps.google.com/?q=${encodeURIComponent(name + ' ' + cityLabel)}`;
   const website = listing.ui?.website && listing.ui.website !== 'not-available' ? listing.ui.website : '';
   const instagram = listing.ui?.instagram && listing.ui.instagram !== 'not-available' ? listing.ui.instagram : '';
 
-  const dishesSnippet = bestDishes.length > 0 ? ` Signature specialties: ${bestDishes.slice(0, 3).join(', ')}.` : '';
-  const seoDescription = `Verified menu and prices (MAD) for ${name} in ${neighborhood}, ${cityLabel}.${dishesSnippet}`;
-
-  const faqItems = [
-    {
-      question: `What are the average prices at ${name} in ${cityLabel}?`,
-      answer: `Dishes at ${name} range between ${Math.round(price * 6)} and ${Math.round(price * 14)} MAD depending on selections of starters, seafood, paellas, and mains.`
-    },
-    {
-      question: `Does ${name} serve alcohol?`,
-      answer: `${listing.filter?.servesAlcohol || listing.filter?.alcoholPolicy === 'serves-alcohol' || listing.alcoholPolicy === 'serves-alcohol' ? `${name} serves wine, beer, and drinks alongside its dining menu.` : `${name} is a strictly dry venue (no alcohol served).`}`
-    }
-  ];
-
-  const menuSectionsForSchema = menu?.sections?.map((sec) => ({
-    '@type': 'MenuSection',
-    name: sec.title,
-    hasMenuItem: sec.items.map((item) => ({
-      '@type': 'MenuItem',
-      name: item.name,
-      description: item.description,
-      offers: {
-        '@type': 'Offer',
-        price: item.price,
-        priceCurrency: 'MAD'
-      }
-    }))
-  })) || [];
-
-  const schemaData = {
-    name,
-    address: `${neighborhood}, ${cityLabel}, Morocco`,
-    servesCuisine: listing.foodStyles || [primaryCuisine],
-    priceRange: `${price * 6} - ${price * 14} MAD`,
-    hasMenu: {
-      '@type': 'Menu',
-      name: `${name} Menu`,
-      url: `https://www.moroccanmate.com${canonical}`,
-      inLanguage: 'en',
-      ...(menuSectionsForSchema.length > 0 ? { hasMenuSection: menuSectionsForSchema } : {})
-    }
-  };
-
-  const breadcrumbs = [
-    { name: 'Home', item: '/' },
-    { name: cityLabel, item: `/finder/${cityKey}` },
-    { name: 'Dining', item: `/finder/${cityKey}/food` },
-    { name, item: placeProfileUrl },
-    { name: 'Menu', item: canonical }
-  ];
+  const menuSeo = buildMenuSeo({
+    listing,
+    cityKey,
+    cityLabel,
+    slug: canonicalSlug,
+    lang,
+  });
 
   return (
     <div className="min-h-screen bg-[#FDFBF7] text-stone-900 flex flex-col font-sans">
       <SEO
-        title={`${name} Menu & Prices (${cityLabel}) | Moroccan Mate`}
-        description={seoDescription}
-        canonical={canonical}
-        schemaType="Restaurant"
-        schemaData={schemaData}
-        breadcrumbs={breadcrumbs}
-        faq={faqItems}
+        title={menuSeo.title}
+        description={menuSeo.description}
+        canonical={menuSeo.canonical}
+        type="article"
+        image={menuSeo.image}
+        schemaType={menuSeo.schemaType}
+        schemaData={menuSeo.schemaData}
+        breadcrumbs={menuSeo.breadcrumbs}
+        faq={menuSeo.faq}
       />
 
       {/* Slim, Minimal Top Bar */}

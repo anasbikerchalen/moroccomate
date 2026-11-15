@@ -3,15 +3,14 @@
  * SHARED SEO PAGE DATA — used by generate-sitemap.ts and prerender-places.ts
  * =========================================================================
  * Collects title / description / image / structured data for EVERY
- * indexable page, straight from the REAL collected listing data.
- * No content is generated here — real data only.
+ * indexable page across all 5 languages, using the unified seoEngine.
+ * No content is generated here — real listing data only.
  */
 import {
   getAllPlacePages,
   getBrowseCities,
   getPlaceIndex,
   PLACE_CATEGORY_LABEL,
-  PLACE_SCHEMA_TYPE,
   type PlaceUrlCategory,
 } from '../src/listings/placeRoutes';
 import { getAllActivities } from '../src/things-to-do';
@@ -20,10 +19,22 @@ import { cityMap } from '../src/data/cities';
 import { getStayOwnerAnswer } from '../src/engine/stayAdapter';
 import { CITY_SEARCH_INTENTS, getSearchIntent, doesListingMatchIntent } from '../src/data/seo/searchIntents';
 import { SUPPORTED_LANGS, localizePath, type AppLanguage } from '../src/utils/localeRouting';
-import { HOME_SEO_I18N, FINDER_SEO_I18N, getBrowseSeoI18n, type BrowseSegment } from '../src/data/seo/i18nSeo';
+import { CATEGORY_LABELS_I18N, type BrowseSegment } from '../src/data/seo/i18nSeo';
+import {
+  BASE_URL,
+  DEFAULT_OG_IMAGE,
+  buildBrowseSeo,
+  buildFinderHubSeo,
+  buildHomeSeo,
+  buildMenuSeo,
+  buildPlaceSeo,
+  buildSearchIntentSeo,
+  buildThingsSeo,
+  type BreadcrumbItem,
+  type FaqItem,
+} from '../src/data/seo/seoEngine';
 
-export const BASE_URL = 'https://www.moroccanmate.com';
-export const DEFAULT_OG_IMAGE = `${BASE_URL}/assets/home/backgrounds/homepage_default_image.jpg`;
+export { BASE_URL, DEFAULT_OG_IMAGE };
 
 export interface IndexablePage {
   path: string;          // URL path, no trailing slash
@@ -31,17 +42,19 @@ export interface IndexablePage {
   lang: AppLanguage;     // Language code for this page
   hasLocalizedRoutes?: boolean; // Whether 5-lang localized versions exist in sitemap/prerender
   priority: number;
-  title: string;         // page title WITHOUT the "| Moroccan Mate" suffix
-  description: string;
-  image: string;         // absolute image URL for social previews
+  title: string;         // Final <= 60 char title ready for <title>
+  description: string;   // Final <= 155 char description
+  image: string;         // Absolute image URL for social previews
   jsonLd: Record<string, any> | null;
-  faq?: { question: string; answer: string }[];
-  h1: string;            // main heading for the noscript fallback content
+  breadcrumbs?: BreadcrumbItem[];
+  faq?: FaqItem[];
+  h1: string;            // Main heading for the prerendered fallback content
   meta?: {
     city?: string;
     category?: string;
     neighborhood?: string;
     price?: number;
+    priceRangeText?: string;
     rating?: number;
     reviewCount?: number;
     address?: string;
@@ -61,6 +74,10 @@ export interface IndexablePage {
     excludedServices?: string[];
     requirements?: string[];
     citySlug?: string;
+    hasMenu?: boolean;
+    menuUrl?: string;
+    placeUrl?: string;
+    menuSections?: Array<{ title: string; items: Array<{ name: string; price: number }> }>;
     matchedPlaces?: Array<{ name: string; url: string; rating?: number; price?: number; neighborhood?: string }>;
   };
 }
@@ -72,7 +89,7 @@ function cityLabel(city: string): string {
   return key.charAt(0).toUpperCase() + key.slice(1).replace(/_/g, ' ');
 }
 
-/** Eat / Sleep / Shopping place pages (/place/:city/:category/:place-name) */
+/** Eat / Sleep / Shopping place pages + /menu pages across all 5 languages */
 export function collectPlacePages(): IndexablePage[] {
   const pages: IndexablePage[] = [];
   for (const { city, category, slug, listing } of getAllPlacePages()) {
@@ -89,157 +106,137 @@ export function collectPlacePages(): IndexablePage[] {
     if (isCommodityChain) continue;
 
     const label = cityLabel(city);
-    const name = listing.name || listing.title || 'Place';
-    const categoryLabel = PLACE_CATEGORY_LABEL[category];
     const isSleep = category === 'sleep';
     const isEat = category === 'food';
-    const isShopping = category === 'shopping';
-    const price = isSleep ? (listing.pricePerNight ?? 0) : (listing.pricePerPerson ?? (listing.filter?.pricePerPerson ?? 0));
-    const rawDescription = String(listing.description || '').slice(0, 155);
-    const description = isSleep && price > 0
-      ? `Price from ${price} MAD/night. ${rawDescription.slice(0, 115)}`
-      : isEat && price > 0
-        ? `Avg ${price} MAD/person. ${rawDescription.slice(0, 120)}`
-        : rawDescription;
+    const price = isSleep
+      ? Number(listing.pricePerNight ?? 0)
+      : Number(listing.pricePerPerson ?? listing.filter?.pricePerPerson ?? 0);
     const rating = getListingRating(listing);
-    const image = listing.nonCopyrightImage
-      || (Array.isArray(listing.images) && listing.images[0])
-      || DEFAULT_OG_IMAGE;
-    const path = `/place/${city}/${category}/${slug}`;
+    const ownerAnswer = isSleep ? getStayOwnerAnswer(listing) : undefined;
+    const basePlacePath = `/place/${city}/${category}/${slug}`;
+    const menuData = isEat ? (listing.ui?.menu || listing.menu) : undefined;
+    const hasMenu = Boolean(menuData && Array.isArray(menuData.sections) && menuData.sections.length > 0);
+    const openingHoursStr =
+      (listing.ui?.openTime || listing.openTime) && (listing.ui?.closeTime || listing.closeTime)
+        ? `${listing.ui?.openTime || listing.openTime} – ${listing.ui?.closeTime || listing.closeTime}`
+        : undefined;
 
-    const jsonLd: Record<string, any> = {
-      '@context': 'https://schema.org',
-      '@type': PLACE_SCHEMA_TYPE[category],
-      name,
-      description,
-      url: `${BASE_URL}${path}`,
-      image,
-      address: {
-        '@type': 'PostalAddress',
-        ...(listing.address ? { streetAddress: listing.address } : {}),
-        addressLocality: label,
-        addressCountry: 'MA',
-      },
-    };
-    if (listing.coordinates) {
-      jsonLd.geo = {
-        '@type': 'GeoCoordinates',
-        latitude: listing.coordinates.lat,
-        longitude: listing.coordinates.lng,
-      };
-    }
-    if (rating && rating.averageRating > 0 && rating.totalReviews > 0) {
-      jsonLd.aggregateRating = {
-        '@type': 'AggregateRating',
-        ratingValue: rating.averageRating,
-        reviewCount: rating.totalReviews,
-      };
-    }
-    if (isSleep && price > 0) {
-      jsonLd.priceRange = `${price} MAD`;
-      jsonLd.offers = {
-        '@type': 'Offer',
-        price,
-        priceCurrency: 'MAD',
-        availability: 'https://schema.org/InStock',
-      };
-      if (Array.isArray(listing.amenities) && listing.amenities.length > 0) {
-        jsonLd.amenityFeature = listing.amenities.slice(0, 10).map((a: string) => ({
-          '@type': 'LocationFeatureSpecification',
-          name: a,
-          value: true,
-        }));
-      }
-    }
-    if (isEat) {
-      if (price > 0) {
-        jsonLd.priceRange = `${price} MAD`;
-      }
-      const styles = listing.foodStyles || (listing.quiz && listing.quiz.foodStyles) || listing.cuisineTags || [];
-      if (Array.isArray(styles) && styles.length > 0) {
-        jsonLd.servesCuisine = styles;
-      }
-      if (listing.reservationMethod && listing.reservationMethod.length > 0) {
-        jsonLd.acceptsReservations = true;
-      }
-    }
-    if (isShopping) {
-      jsonLd.currenciesAccepted = 'MAD, EUR, USD';
-      jsonLd.paymentAccepted = 'Cash, Credit Card';
-    }
+    for (const lang of SUPPORTED_LANGS) {
+      const seo = buildPlaceSeo({
+        listing,
+        category,
+        cityKey: city,
+        cityLabel: label,
+        slug,
+        lang,
+        ownerAnswer,
+      });
 
-    const faq = isSleep
-      ? [{ question: `Who is the owner of ${name}?`, answer: getStayOwnerAnswer(listing) }]
-      : undefined;
+      const catLabel = CATEGORY_LABELS_I18N[lang]?.[category] || PLACE_CATEGORY_LABEL[category];
 
-    const openingHoursStr = listing.openTime && listing.closeTime
-      ? `${listing.openTime} – ${listing.closeTime}`
-      : undefined;
-
-    pages.push({
-      path,
-      basePath: path,
-      lang: 'en',
-      priority: 0.7,
-      title: `${name} — ${categoryLabel} in ${label}`,
-      description,
-      image,
-      jsonLd,
-      faq,
-      h1: name,
-      meta: {
-        city: label,
-        category: categoryLabel,
-        neighborhood: listing.neighborhood,
-        price: price > 0 ? price : undefined,
-        rating: rating?.averageRating,
-        reviewCount: rating?.totalReviews,
-        address: listing.address,
-        amenities: Array.isArray(listing.amenities) ? listing.amenities : undefined,
-        cuisines: Array.isArray(listing.foodStyles) ? listing.foodStyles : (Array.isArray(listing.quiz?.foodStyles) ? listing.quiz.foodStyles : undefined),
-        bestDishes: Array.isArray(listing.bestDishes) ? listing.bestDishes : (Array.isArray(listing.ui?.bestDishes) ? listing.ui.bestDishes : undefined),
-        pros: Array.isArray(listing.pros) ? listing.pros : (Array.isArray(listing.ui?.pros) ? listing.ui.pros : undefined),
-        cons: Array.isArray(listing.cons) ? listing.cons : (Array.isArray(listing.ui?.cons) ? listing.ui.cons : undefined),
-        tip: listing.tip || listing.ui?.tip,
-        openingHours: openingHoursStr,
-        specialties: Array.isArray(listing.specialties) ? listing.specialties : (Array.isArray(listing.products) ? listing.products : undefined),
-        lifestyle: typeof listing.lifestyle === 'string' ? listing.lifestyle : (Array.isArray(listing.lifestyle) ? listing.lifestyle.join(', ') : undefined),
-      },
-    });
-
-    // If restaurant has verified digital menu, index its dedicated /menu SEO page
-    if (isEat && (listing.menu || listing.ui?.menu)) {
-      const menuPath = `${path}/menu`;
       pages.push({
-        path: menuPath,
-        basePath: menuPath,
-        lang: 'en',
-        priority: 0.8,
-        title: `${name} Menu & Prices (${label})`,
-        description: `Verified menu and prices (MAD) for ${name} in ${listing.neighborhood || 'Morocco'}, ${label}.`,
-        image,
-        jsonLd: {
-          '@context': 'https://schema.org',
-          '@type': 'Menu',
-          name: `${name} Menu`,
-          url: `${BASE_URL}${menuPath}`,
-          inLanguage: 'en',
-        },
-        h1: `${name} Menu`,
+        path: localizePath(basePlacePath, lang),
+        basePath: basePlacePath,
+        lang,
+        hasLocalizedRoutes: true,
+        priority: lang === 'en' ? 0.7 : 0.65,
+        title: seo.title,
+        description: seo.description,
+        image: seo.image,
+        jsonLd: seo.jsonLd,
+        breadcrumbs: seo.breadcrumbs,
+        faq: seo.faq,
+        h1: seo.h1,
         meta: {
           city: label,
-          category: 'Restaurant Menu',
-          neighborhood: listing.neighborhood,
+          citySlug: city,
+          category: catLabel,
+          neighborhood: listing.ui?.neighborhood || listing.neighborhood,
           price: price > 0 ? price : undefined,
           rating: rating?.averageRating,
+          reviewCount: rating?.totalReviews,
+          address: listing.ui?.address || listing.address,
+          amenities: Array.isArray(listing.amenities) ? listing.amenities : undefined,
+          cuisines: Array.isArray(listing.foodStyles)
+            ? listing.foodStyles
+            : Array.isArray(listing.quiz?.foodStyles)
+              ? listing.quiz.foodStyles
+              : undefined,
+          bestDishes: Array.isArray(listing.bestDishes)
+            ? listing.bestDishes
+            : Array.isArray(listing.ui?.bestDishes)
+              ? listing.ui.bestDishes
+              : undefined,
+          tip: listing.tip || listing.ui?.tip,
+          openingHours: openingHoursStr,
+          hasMenu,
+          menuUrl: hasMenu ? localizePath(`${basePlacePath}/menu`, lang) : undefined,
         },
       });
+
+      if (hasMenu) {
+        const baseMenuPath = `${basePlacePath}/menu`;
+        const menuSeo = buildMenuSeo({
+          listing,
+          cityKey: city,
+          cityLabel: label,
+          slug,
+          lang,
+        });
+
+        const menuSectionsSummary = (menuData?.sections || []).slice(0, 6).map((sec: any) => ({
+          title: String(sec.title || ''),
+          items: (sec.items || []).slice(0, 8).map((it: any) => ({
+            name: String(it.name || ''),
+            price: Number(it.price || 0),
+          })),
+        }));
+
+        pages.push({
+          path: localizePath(baseMenuPath, lang),
+          basePath: baseMenuPath,
+          lang,
+          hasLocalizedRoutes: true,
+          priority: lang === 'en' ? 0.8 : 0.75,
+          title: menuSeo.title,
+          description: menuSeo.description,
+          image: menuSeo.image,
+          jsonLd: menuSeo.jsonLd,
+          breadcrumbs: menuSeo.breadcrumbs,
+          faq: menuSeo.faq,
+          h1: menuSeo.h1,
+          meta: {
+            city: label,
+            citySlug: city,
+            category: catLabel,
+            neighborhood: listing.ui?.neighborhood || listing.neighborhood,
+            price: price > 0 ? price : undefined,
+            priceRangeText: menuSeo.priceRangeText,
+            rating: rating?.averageRating,
+            reviewCount: rating?.totalReviews,
+            address: listing.ui?.address || listing.address,
+            cuisines: Array.isArray(listing.foodStyles)
+              ? listing.foodStyles
+              : Array.isArray(listing.quiz?.foodStyles)
+                ? listing.quiz.foodStyles
+                : undefined,
+            bestDishes: Array.isArray(listing.bestDishes)
+              ? listing.bestDishes
+              : Array.isArray(listing.ui?.bestDishes)
+                ? listing.ui.bestDishes
+                : undefined,
+            openingHours: openingHoursStr,
+            placeUrl: localizePath(basePlacePath, lang),
+            menuSections: menuSectionsSummary,
+          },
+        });
+      }
     }
   }
   return pages;
 }
 
-/** Things To Do pages (/things/:city/:name-slug) */
+/** Things To Do pages (/things/:city/:name-slug) across all 5 languages */
 export function collectThingsPages(): IndexablePage[] {
   const pages: IndexablePage[] = [];
   const seen = new Set<string>();
@@ -248,69 +245,58 @@ export function collectThingsPages(): IndexablePage[] {
     const key = `${activity.city}::${activity.slug}`;
     if (seen.has(key)) continue;
     seen.add(key);
-    const label = cityLabel(activity.city);
-    const name = activity.name || 'Experience';
-    const description = String(activity.short_description || activity.description || '').slice(0, 155);
-    const hero = activity.media?.find((m: any) => m.media_type === 'hero') || activity.media?.[0];
-    const image = (hero && (hero as any).url) || DEFAULT_OG_IMAGE;
-    const path = `/things/${activity.city}/${activity.slug}`;
 
-    const jsonLd: Record<string, any> = {
-      '@context': 'https://schema.org',
-      '@type': 'TouristAttraction',
-      name,
-      description,
-      url: `${BASE_URL}${path}`,
-      image,
-      address: { '@type': 'PostalAddress', addressLocality: label, addressCountry: 'MA' },
-    };
-    if (activity.coordinates) {
-      jsonLd.geo = {
-        '@type': 'GeoCoordinates',
-        latitude: activity.coordinates.lat,
-        longitude: activity.coordinates.lng,
-      };
-    }
+    const cityKey = String(activity.city).toLowerCase();
+    const label = cityLabel(cityKey);
+    const basePath = `/things/${cityKey}/${activity.slug}`;
 
     const hlStrings = Array.isArray(activity.highlights)
-      ? activity.highlights.map(h => (typeof h === 'string' ? h : h.name || '')).filter(Boolean)
+      ? activity.highlights.map((h: any) => (typeof h === 'string' ? h : h.name || '')).filter(Boolean)
       : [];
-
     const includedStrings = Array.isArray(activity.included_items)
-      ? activity.included_items.map(inc => (typeof inc === 'string' ? inc : inc.title || '')).filter(Boolean)
+      ? activity.included_items.map((inc: any) => (typeof inc === 'string' ? inc : inc.title || inc.name || '')).filter(Boolean)
       : [];
-
     const reqStrings = Array.isArray(activity.requirements)
-      ? activity.requirements.map(r => (typeof r === 'string' ? r : r.item || '')).filter(Boolean)
+      ? activity.requirements.map((r: any) => (typeof r === 'string' ? r : r.item || r.name || '')).filter(Boolean)
       : [];
-
     const rawFullDesc = activity.description || activity.short_description || '';
 
-    pages.push({
-      path,
-      basePath: path,
-      lang: 'en',
-      priority: 0.7,
-      title: `${name} — Things to Do in ${label}`,
-      description,
-      image,
-      jsonLd,
-      h1: name,
-      meta: {
-        city: label,
-        citySlug: activity.city,
-        category: 'Things to Do',
-        neighborhood: activity.neighborhood,
-        address: activity.address,
-        price: activity.pricing?.price,
-        durationMinutes: activity.duration_minutes,
-        openingHours: activity.schedule_text,
-        fullDescription: rawFullDesc,
-        highlights: hlStrings,
-        includedServices: includedStrings,
-        requirements: reqStrings,
-      },
-    });
+    for (const lang of SUPPORTED_LANGS) {
+      const seo = buildThingsSeo({
+        activity,
+        cityKey,
+        cityLabel: label,
+        lang,
+      });
+
+      pages.push({
+        path: localizePath(basePath, lang),
+        basePath,
+        lang,
+        hasLocalizedRoutes: true,
+        priority: lang === 'en' ? 0.7 : 0.65,
+        title: seo.title,
+        description: seo.description,
+        image: seo.image,
+        jsonLd: seo.jsonLd,
+        breadcrumbs: seo.breadcrumbs,
+        h1: seo.h1,
+        meta: {
+          city: label,
+          citySlug: cityKey,
+          category: CATEGORY_LABELS_I18N[lang]['things-to-do'],
+          neighborhood: activity.neighborhood,
+          address: activity.address,
+          price: activity.pricing?.price,
+          durationMinutes: activity.duration_minutes,
+          openingHours: activity.schedule_text,
+          fullDescription: rawFullDesc,
+          highlights: hlStrings,
+          includedServices: includedStrings,
+          requirements: reqStrings,
+        },
+      });
+    }
   }
   return pages;
 }
@@ -321,41 +307,32 @@ export function collectStaticPages(): IndexablePage[] {
   const pages: IndexablePage[] = [];
 
   for (const lang of SUPPORTED_LANGS) {
-    const homeSeo = HOME_SEO_I18N[lang];
-    const homePath = localizePath('/', lang);
+    const home = buildHomeSeo(lang);
     pages.push({
-      path: homePath,
+      path: localizePath('/', lang),
       basePath: '/',
       lang,
       hasLocalizedRoutes: true,
       priority: lang === 'en' ? 1.0 : 0.9,
-      title: homeSeo.title.replace(/\s*\|\s*Moroccan Mate$/i, ''),
-      description: homeSeo.description,
-      image: DEFAULT_OG_IMAGE,
-      jsonLd: {
-        '@context': 'https://schema.org',
-        '@type': 'WebSite',
-        name: 'Moroccan Mate',
-        alternateName: ['MoroccanMate'],
-        url: `${BASE_URL}${homePath === '/' ? '' : homePath}`,
-        inLanguage: lang,
-        description: homeSeo.description,
-      },
-      h1: homeSeo.h1,
+      title: home.title,
+      description: home.description,
+      image: home.image,
+      jsonLd: home.jsonLd,
+      h1: home.h1,
     });
 
-    const finderSeo = FINDER_SEO_I18N[lang];
+    const finder = buildFinderHubSeo(lang);
     pages.push({
       path: localizePath('/finder', lang),
       basePath: '/finder',
       lang,
       hasLocalizedRoutes: true,
       priority: lang === 'en' ? 0.9 : 0.85,
-      title: finderSeo.title,
-      description: finderSeo.description,
-      image: DEFAULT_OG_IMAGE,
-      jsonLd: null,
-      h1: finderSeo.h1,
+      title: finder.title,
+      description: finder.description,
+      image: finder.image,
+      jsonLd: finder.jsonLd,
+      h1: finder.h1,
     });
   }
 
@@ -377,7 +354,7 @@ export function collectStaticPages(): IndexablePage[] {
           }
         } else {
           const normCat = segment === 'food' ? 'food' : segment === 'sleep' ? 'sleep' : 'shopping';
-          const index = getPlaceIndex(cityKey, normCat as any);
+          const index = getPlaceIndex(cityKey, normCat as PlaceUrlCategory);
           for (const [s, l] of index.bySlug.entries()) {
             const r = getListingRating(l);
             const isSleep = normCat === 'sleep';
@@ -396,11 +373,20 @@ export function collectStaticPages(): IndexablePage[] {
       }
 
       // Only index category browse pages that have at least 3 curated items
-      // Small empty categories (< 3) are soft 404s for Google
       if (matchedPlaces.length >= 3) {
         const basePath = `/finder/${city}/${segment}`;
         for (const lang of SUPPORTED_LANGS) {
-          const browseSeo = getBrowseSeoI18n(label, segment, lang);
+          const localizedMatched = matchedPlaces.map((p) => ({
+            ...p,
+            url: localizePath(p.url, lang),
+          }));
+          const browseSeo = buildBrowseSeo({
+            cityLabel: label,
+            cityKey,
+            segment,
+            lang,
+            matchedPlaces: localizedMatched,
+          });
           pages.push({
             path: localizePath(basePath, lang),
             basePath,
@@ -409,16 +395,14 @@ export function collectStaticPages(): IndexablePage[] {
             priority: lang === 'en' ? 0.8 : 0.75,
             title: browseSeo.title,
             description: browseSeo.description,
-            image: DEFAULT_OG_IMAGE,
-            jsonLd: null,
+            image: browseSeo.image,
+            jsonLd: browseSeo.jsonLd,
             h1: browseSeo.h1,
             meta: {
               city: label,
+              citySlug: cityKey,
               category: browseSeo.h1,
-              matchedPlaces: matchedPlaces.map((p) => ({
-                ...p,
-                url: localizePath(p.url, lang),
-              })),
+              matchedPlaces: localizedMatched,
             },
           });
         }
@@ -434,22 +418,22 @@ export function collectSearchIntentPages(): IndexablePage[] {
 
   for (const [city, categories] of Object.entries(CITY_SEARCH_INTENTS)) {
     const label = cityLabel(city);
+    const cityKey = city.toLowerCase();
     for (const [category, slugs] of Object.entries(categories)) {
       for (const slug of slugs) {
         const enIntent = getSearchIntent(category, slug, 'en');
         if (!enIntent) continue;
 
-        // Find top matching places in this city for this search intent
         const matchedPlaces: Array<{ name: string; url: string; rating?: number; price?: number; neighborhood?: string }> = [];
         try {
           const normCat = category === 'sleep' || category === 'stay' ? 'sleep' : category === 'food' || category === 'eat' ? 'food' : 'shopping';
-          const index = getPlaceIndex(city.toLowerCase(), normCat as any);
+          const index = getPlaceIndex(cityKey, normCat as PlaceUrlCategory);
           for (const [s, l] of index.bySlug.entries()) {
             if (doesListingMatchIntent(l, enIntent)) {
               const r = getListingRating(l);
               matchedPlaces.push({
                 name: l.name || l.title || 'Place',
-                url: `/place/${city.toLowerCase()}/${normCat}/${s}`,
+                url: `/place/${cityKey}/${normCat}/${s}`,
                 rating: r?.averageRating,
                 price: l.pricePerNight,
                 neighborhood: l.neighborhood,
@@ -461,31 +445,39 @@ export function collectSearchIntentPages(): IndexablePage[] {
           // Graceful fallback
         }
 
-        // Only index search intent pages that have at least 3 matching places
-        // Google flags intent pages with < 3 items as thin programmatic duplicates
         if (matchedPlaces.length >= 3) {
-          const basePath = `/finder/${city.toLowerCase()}/${category}/${slug}`;
+          const basePath = `/finder/${cityKey}/${category}/${slug}`;
           for (const lang of SUPPORTED_LANGS) {
             const intent = getSearchIntent(category, slug, lang);
             if (!intent) continue;
+            const localizedMatched = matchedPlaces.map((p) => ({
+              ...p,
+              url: localizePath(p.url, lang),
+            }));
+            const intentSeo = buildSearchIntentSeo({
+              intent,
+              cityLabel: label,
+              cityKey,
+              category,
+              lang,
+              matchedPlaces: localizedMatched,
+            });
             pages.push({
               path: localizePath(basePath, lang),
               basePath,
               lang,
               hasLocalizedRoutes: true,
               priority: lang === 'en' ? 0.85 : 0.8,
-              title: intent.seoTitle(label).replace(/\s*\|\s*Moroccan Mate$/i, ''),
-              description: intent.seoDescription(label),
-              image: DEFAULT_OG_IMAGE,
-              jsonLd: null,
-              h1: intent.headerTitle(label),
+              title: intentSeo.title,
+              description: intentSeo.description,
+              image: intentSeo.image,
+              jsonLd: intentSeo.jsonLd,
+              h1: intentSeo.h1,
               meta: {
                 city: label,
+                citySlug: cityKey,
                 category: intent.category,
-                matchedPlaces: matchedPlaces.map((p) => ({
-                  ...p,
-                  url: localizePath(p.url, lang),
-                })),
+                matchedPlaces: localizedMatched,
               },
             });
           }
@@ -506,4 +498,3 @@ export function collectAllPages(): IndexablePage[] {
     ...collectThingsPages(),
   ];
 }
-

@@ -7,6 +7,7 @@ import { LanguageSwitcher } from '../components/ui/LanguageSwitcher';
 import { LocalizedLink } from '../components/ui/LocalizedLink';
 import { useLangPath } from '../utils/localeRouting';
 import { HOME_SEO_I18N } from '../data/seo/i18nSeo';
+import { buildHomeSeo } from '../data/seo/seoEngine';
 import { getSearchIntent } from '../data/seo/searchIntents';
 import { useParameterStore } from '../state/parameterStore';
 import { useExploreStore } from '../state/exploreStore';
@@ -166,6 +167,8 @@ export default function HomePage() {
     }
   };
 
+  const homeBundle = useMemo(() => buildHomeSeo(lang), [lang]);
+
   const popularGuideItems = useMemo(() => {
     return POPULAR_GUIDE_LINKS.map((item) => {
       const cityName = cityMap[item.cityId]?.name || item.cityId.charAt(0).toUpperCase() + item.cityId.slice(1);
@@ -179,7 +182,13 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-[#FAF7F2] text-[#29231F]">
-      <SEO title={homeSeo.title} description={homeSeo.description} canonical="/" />
+      <SEO
+        title={homeBundle.title}
+        description={homeBundle.description}
+        canonical={homeBundle.canonical}
+        schemaType={homeBundle.schemaType}
+        schemaData={homeBundle.schemaData}
+      />
 
       <header className="relative z-30 max-w-[1400px] mx-auto px-6 md:px-10 pt-4 md:pt-5 flex items-center justify-between gap-2">
         <div className="flex items-center gap-3 min-w-0">

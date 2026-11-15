@@ -1,7 +1,7 @@
 // src/components/finder/StayDetailView.tsx
 import React, { useMemo, useState } from 'react';
 import { motion } from 'motion/react';
-import { MapPin, Home, ExternalLink, Phone, Wifi, Wind, Coffee, Waves, ShieldCheck, Clock, Sun, Accessibility, Sparkles } from 'lucide-react';
+import { MapPin, Home, ExternalLink, Phone, Wifi, Wind, Coffee, Waves, ShieldCheck, Clock, Sun, Accessibility, Sparkles, Footprints, BedDouble, ScrollText, HelpCircle, MessageSquareText } from 'lucide-react';
 import { adaptToStayListing, getStayPrice, getStayLifestyle, getStayOwnerAnswer } from '../../engine/stayAdapter';
 import { useSavedStore } from '../../state/savedStore';
 import { WalkingDistanceSection } from './stay/WalkingDistanceSection';
@@ -13,6 +13,8 @@ import { StayFAQSection } from './stay/StayFAQSection';
 import { LocationBottomBar } from './stay/LocationBottomBar';
 import PlaceReviewsSection from '../reviews/PlaceReviewsSection';
 import ListingHeroHeader, { WhatsAppIcon, type HeroFeatureChip, type HeroMetadataItem } from './ListingHeroHeader';
+import ListingSectionNavigator, { type ListingNavigatorItem } from './ListingSectionNavigator';
+import { hasVerifiedReviews } from './listingNavUtils';
 import type { ReviewSource } from '../../types/reviews';
 
 interface StayDetailViewProps {
@@ -191,46 +193,117 @@ export default function StayDetailView({ item }: StayDetailViewProps) {
         }}
       />
 
+      {/* Sticky Section Navigator */}
+      <ListingSectionNavigator
+        items={[
+          {
+            id: 'nearby',
+            label: 'Nearby',
+            targetId: 'stay-nearby-section',
+            icon: <Footprints className="w-4 h-4" />,
+            available: stay.visibility.show_walking_distance !== false && Array.isArray(stay.walking_distance) && stay.walking_distance.length > 0,
+          },
+          {
+            id: 'spaces',
+            label: 'Spaces',
+            targetId: 'stay-spaces-section',
+            icon: <Home className="w-4 h-4" />,
+            available: stay.visibility.show_traditional_spaces !== false && Array.isArray(stay.traditional_spaces) && stay.traditional_spaces.length > 0,
+          },
+          {
+            id: 'rooms',
+            label: 'Rooms',
+            targetId: 'stay-rooms-section',
+            icon: <BedDouble className="w-4 h-4" />,
+            available: stay.visibility.show_room_details !== false && Boolean(stay.room_details),
+          },
+          {
+            id: 'amenities',
+            label: 'Amenities',
+            targetId: 'stay-amenities-section',
+            icon: <Sparkles className="w-4 h-4" />,
+            available: stay.visibility.show_comfort_amenities !== false && Boolean(stay.amenities),
+          },
+          {
+            id: 'policies',
+            label: 'Policies',
+            targetId: 'stay-policies-section',
+            icon: <ScrollText className="w-4 h-4" />,
+            available: stay.visibility.show_policies !== false && Boolean(stay.policies),
+          },
+          {
+            id: 'faq',
+            label: 'FAQ',
+            targetId: 'stay-faq-section',
+            icon: <HelpCircle className="w-4 h-4" />,
+            available: true,
+          },
+          {
+            id: 'reviews',
+            label: 'Reviews',
+            targetId: 'stay-reviews-section',
+            icon: <MessageSquareText className="w-4 h-4" />,
+            available: stay.visibility?.show_reviews !== false && hasVerifiedReviews(stayReviewsData),
+          },
+        ] satisfies ListingNavigatorItem[]}
+      />
+
       {/* ─────────────────────────────────────────────────────────────
           2. BODY CONTENT (WARM, WELL-SPACED SECTIONS)
       ───────────────────────────────────────────────────────────── */}
       <div className="mx-auto w-full max-w-6xl px-4 pt-8 sm:px-6 lg:px-8 space-y-10">
         
         {/* Walking distance radar map + what's nearby (the minimap) */}
-        {stay.visibility.show_walking_distance !== false && (
-          <WalkingDistanceSection propertyName={stay.name} nearbyPlaces={stay.walking_distance} />
+        {stay.visibility.show_walking_distance !== false && Array.isArray(stay.walking_distance) && stay.walking_distance.length > 0 && (
+          <div id="stay-nearby-section">
+            <WalkingDistanceSection propertyName={stay.name} nearbyPlaces={stay.walking_distance} />
+          </div>
         )}
 
         {/* Traditional spaces / property features */}
-        {stay.visibility.show_traditional_spaces !== false && (
-          <TraditionalSpacesSection spaces={stay.traditional_spaces} />
+        {stay.visibility.show_traditional_spaces !== false && Array.isArray(stay.traditional_spaces) && stay.traditional_spaces.length > 0 && (
+          <div id="stay-spaces-section">
+            <TraditionalSpacesSection spaces={stay.traditional_spaces} />
+          </div>
         )}
 
         {/* Room configuration */}
-        {stay.visibility.show_room_details !== false && (
-          <RoomDetailsSection room={stay.room_details} />
+        {stay.visibility.show_room_details !== false && Boolean(stay.room_details) && (
+          <div id="stay-rooms-section">
+            <RoomDetailsSection room={stay.room_details} />
+          </div>
         )}
 
         {/* Comfort & amenities */}
-        {stay.visibility.show_comfort_amenities !== false && (
-          <AmenitiesSection amenities={stay.amenities} visibility={stay.visibility} />
+        {stay.visibility.show_comfort_amenities !== false && Boolean(stay.amenities) && (
+          <div id="stay-amenities-section">
+            <AmenitiesSection amenities={stay.amenities} visibility={stay.visibility} />
+          </div>
         )}
 
         {/* Policies & payments */}
-        {stay.visibility.show_policies !== false && <PoliciesSection policies={stay.policies} />}
+        {stay.visibility.show_policies !== false && Boolean(stay.policies) && (
+          <div id="stay-policies-section">
+            <PoliciesSection policies={stay.policies} />
+          </div>
+        )}
 
         {/* Frequently Asked Questions (FAQ) */}
-        <StayFAQSection propertyName={stay.name} ownerAnswer={getStayOwnerAnswer(item)} />
+        <div id="stay-faq-section">
+          <StayFAQSection propertyName={stay.name} ownerAnswer={getStayOwnerAnswer(item)} />
+        </div>
 
         {/* Multi-platform Traveler Reviews */}
-        {stay.visibility?.show_reviews !== false && (
-          <PlaceReviewsSection
-            reviewsData={stayReviewsData}
-            placeName={stay.name}
-            category="sleep"
-            externalSelectedSource={selectedReviewSource}
-            onSelectedSourceChange={setSelectedReviewSource}
-          />
+        {stay.visibility?.show_reviews !== false && hasVerifiedReviews(stayReviewsData) && (
+          <div id="stay-reviews-section">
+            <PlaceReviewsSection
+              reviewsData={stayReviewsData}
+              placeName={stay.name}
+              category="sleep"
+              externalSelectedSource={selectedReviewSource}
+              onSelectedSourceChange={setSelectedReviewSource}
+            />
+          </div>
         )}
 
         {/* Exact location bottom bar */}

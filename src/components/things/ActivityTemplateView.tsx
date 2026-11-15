@@ -1,4 +1,12 @@
 import React, { useState } from 'react';
+import {
+  ShieldCheck,
+  Sparkles,
+  Map,
+  CheckSquare,
+  Clock,
+  MessageSquareText,
+} from 'lucide-react';
 import type { ActivityListing } from '../../things-to-do';
 import { getCityLabel } from '../../things-to-do';
 import { ActivityHeader } from './ActivityHeader';
@@ -20,7 +28,9 @@ import { ActivityMeetingPointBanner } from './ActivityMeetingPointBanner';
 import { ActivityReviewsSection } from './ActivityReviewsSection';
 import PlaceReviewsSection from '../reviews/PlaceReviewsSection';
 import WorriesSection from '../worries/WorriesSection';
-import { hasPopulatedReviewsData, type ReviewSource } from '../../types/reviews';
+import ListingSectionNavigator, { type ListingNavigatorItem } from '../finder/ListingSectionNavigator';
+import { hasVerifiedReviews, hasVerifiedWorries } from '../finder/listingNavUtils';
+import { type ReviewSource } from '../../types/reviews';
 interface ActivityTemplateViewProps {
   activity: ActivityListing;
 }
@@ -37,6 +47,96 @@ export const ActivityTemplateView: React.FC<ActivityTemplateViewProps> = ({ acti
   const v = activity.visibility || {};
   const cityLabel = getCityLabel(activity.city);
 
+  const hasWorries = v.show_worries !== false && hasVerifiedWorries(activity.worries);
+  const hasExperience =
+    (v.show_experiences !== false && Array.isArray(activity.experiences) && activity.experiences.length > 0) ||
+    (v.show_highlights !== false && Array.isArray(activity.highlights) && activity.highlights.length > 0);
+  const hasNearbyOrPrice =
+    (v.show_nearby !== false && Array.isArray(activity.nearby_places) && activity.nearby_places.length > 0) ||
+    (v.show_pricing !== false && Boolean(activity.pricing)) ||
+    (v.show_payment !== false && Array.isArray(activity.payment?.methods) && activity.payment.methods.length > 0);
+  const hasIncludedOrBring =
+    (v.show_included !== false && Array.isArray(activity.included_items) && activity.included_items.length > 0) ||
+    (v.show_excluded !== false && Array.isArray(activity.excluded_items) && activity.excluded_items.length > 0) ||
+    (v.show_requirements !== false && Array.isArray(activity.requirements) && activity.requirements.length > 0);
+  const hasSchedule =
+    v.show_schedule !== false &&
+    Boolean((activity.schedule?.slots && activity.schedule.slots.length > 0) || activity.schedule_text);
+  const hasBooking =
+    v.show_booking !== false &&
+    Boolean(
+      activity.booking &&
+        (activity.booking.booking_required ||
+          activity.booking.reservation_required ||
+          activity.booking.instant_booking ||
+          activity.booking.booking_url)
+    );
+  const hasCancellation =
+    v.show_cancellation !== false &&
+    Boolean(
+      activity.cancellation &&
+        (activity.cancellation.free_cancellation ||
+          activity.cancellation.non_refundable ||
+          activity.cancellation.deadline_hours ||
+          activity.cancellation.cancellation_type)
+    );
+  const hasCoords = Boolean(
+    activity.coordinates || (activity.latitude && activity.longitude)
+  );
+  const hasMeetingPoint =
+    v.show_meeting_point !== false &&
+    Boolean(activity.meeting_point || activity.address || activity.neighborhood || hasCoords);
+  const hasScheduleOrMeeting = hasSchedule || hasBooking || hasCancellation || hasMeetingPoint;
+  const hasReviews =
+    v.show_reviews !== false &&
+    (hasVerifiedReviews(activity.reviewsData) ||
+      (Array.isArray(activity.reviews) && activity.reviews.length > 0));
+
+  const navItems: ListingNavigatorItem[] = [
+    {
+      id: 'worries',
+      label: 'Worries',
+      targetId: 'activity-worries-section',
+      icon: <ShieldCheck className="w-4 h-4" />,
+      available: hasWorries,
+    },
+    {
+      id: 'experience',
+      label: 'Experience',
+      targetId: 'activity-experience-section',
+      icon: <Sparkles className="w-4 h-4" />,
+      available: hasExperience,
+    },
+    {
+      id: 'nearby-price',
+      label: 'Map & Price',
+      targetId: 'activity-nearby-price-section',
+      icon: <Map className="w-4 h-4" />,
+      available: hasNearbyOrPrice,
+    },
+    {
+      id: 'included',
+      label: 'Included',
+      targetId: 'activity-included-section',
+      icon: <CheckSquare className="w-4 h-4" />,
+      available: hasIncludedOrBring,
+    },
+    {
+      id: 'schedule',
+      label: 'Hours & Meeting',
+      targetId: hasSchedule || hasBooking || hasCancellation ? 'activity-schedule-section' : 'activity-meeting-section',
+      icon: <Clock className="w-4 h-4" />,
+      available: hasScheduleOrMeeting,
+    },
+    {
+      id: 'reviews',
+      label: 'Reviews',
+      targetId: 'activity-reviews-section',
+      icon: <MessageSquareText className="w-4 h-4" />,
+      available: hasReviews,
+    },
+  ];
+
   return (
     <div className="w-full pb-10">
       {/* 1. Header: Unified editorial hero with skyline watermark */}
@@ -46,16 +146,19 @@ export const ActivityTemplateView: React.FC<ActivityTemplateViewProps> = ({ acti
         onSelectReviewSource={setSelectedReviewSource}
       />
 
+      {/* Sticky Section Navigator */}
+      <ListingSectionNavigator items={navItems} />
+
       <div className="mx-auto w-full max-w-6xl px-4 pt-8 sm:px-6 lg:px-8 space-y-7">
         {/* 2. "Things You're Worried About!" — placed right under upper part of page */}
-        {v.show_worries !== false && activity.worries && activity.worries.length > 0 && (
-          <WorriesSection
-            worries={activity.worries}
-          />
+        {hasWorries && activity.worries && (
+          <div id="activity-worries-section">
+            <WorriesSection worries={activity.worries} />
+          </div>
         )}
 
         {/* 3. Row 1: "What you'll experience" (Left) + "Why visit?" (Right) */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-7 items-stretch">
+      <div id="activity-experience-section" className="grid grid-cols-1 lg:grid-cols-12 gap-7 items-stretch">
         <div className="lg:col-span-7">
           {v.show_experiences !== false && (
             <ActivityExperiencesSection experiences={activity.experiences} />
@@ -67,7 +170,7 @@ export const ActivityTemplateView: React.FC<ActivityTemplateViewProps> = ({ acti
       </div>
 
       {/* 3. Row 2: "Around the experience" (Left) + "Price & Payment" (Right) */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-7 items-start">
+      <div id="activity-nearby-price-section" className="grid grid-cols-1 lg:grid-cols-12 gap-7 items-start">
         <div className="lg:col-span-7">
           {v.show_nearby !== false && (
             <ActivityNearbySection
@@ -98,37 +201,47 @@ export const ActivityTemplateView: React.FC<ActivityTemplateViewProps> = ({ acti
       </div>
 
       {/* 5. Row 4: Included / Not included / What to bring */}
-      <div className="space-y-7">
-        {v.show_included !== false && <ActivityIncludedSection includedItems={activity.included_items} />}
-        {v.show_excluded !== false && <ActivityExcludedSection excludedItems={activity.excluded_items} />}
-        {v.show_requirements !== false && <ActivityWhatToBringSection requirements={activity.requirements} />}
-      </div>
+      {hasIncludedOrBring && (
+        <div id="activity-included-section" className="space-y-7">
+          {v.show_included !== false && <ActivityIncludedSection includedItems={activity.included_items} />}
+          {v.show_excluded !== false && <ActivityExcludedSection excludedItems={activity.excluded_items} />}
+          {v.show_requirements !== false && <ActivityWhatToBringSection requirements={activity.requirements} />}
+        </div>
+      )}
 
       {/* 6. Row 5: Schedule / Booking / Cancellation */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-7 items-start">
-        {v.show_schedule !== false && (
-          <ActivityScheduleCard schedule={activity.schedule} scheduleText={activity.schedule_text} />
-        )}
-        {v.show_booking !== false && <ActivityBookingCard booking={activity.booking} />}
-        {v.show_cancellation !== false && <ActivityCancellationCard cancellation={activity.cancellation} />}
-      </div>
+      {(hasSchedule || hasBooking || hasCancellation) && (
+        <div id="activity-schedule-section" className="grid grid-cols-1 lg:grid-cols-3 gap-7 items-start">
+          {v.show_schedule !== false && (
+            <ActivityScheduleCard schedule={activity.schedule} scheduleText={activity.schedule_text} />
+          )}
+          {v.show_booking !== false && <ActivityBookingCard booking={activity.booking} />}
+          {v.show_cancellation !== false && <ActivityCancellationCard cancellation={activity.cancellation} />}
+        </div>
+      )}
 
       {/* 7. Meeting point (Full width) */}
-      {v.show_meeting_point !== false && <ActivityMeetingPointBanner activity={activity} />}
+      {hasMeetingPoint && (
+        <div id="activity-meeting-section">
+          <ActivityMeetingPointBanner activity={activity} />
+        </div>
+      )}
 
       {/* 8. Multi-platform Traveler Reviews & Community Intelligence */}
-      {v.show_reviews !== false && (
-        hasPopulatedReviewsData(activity.reviewsData) ? (
-          <PlaceReviewsSection
-            reviewsData={activity.reviewsData}
-            placeName={activity.name}
-            category="things-to-do"
-            externalSelectedSource={selectedReviewSource}
-            onSelectedSourceChange={setSelectedReviewSource}
-          />
-        ) : (
-          <ActivityReviewsSection reviews={activity.reviews} />
-        )
+      {hasReviews && (
+        <div id="activity-reviews-section">
+          {hasVerifiedReviews(activity.reviewsData) ? (
+            <PlaceReviewsSection
+              reviewsData={activity.reviewsData}
+              placeName={activity.name}
+              category="things-to-do"
+              externalSelectedSource={selectedReviewSource}
+              onSelectedSourceChange={setSelectedReviewSource}
+            />
+          ) : (
+            <ActivityReviewsSection reviews={activity.reviews} />
+          )}
+        </div>
       )}
       </div>
     </div>

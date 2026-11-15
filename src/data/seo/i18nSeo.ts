@@ -40,41 +40,41 @@ export const HOME_SEO_I18N: Record<
   { title: string; description: string; h1: string; heroSubtitle: string }
 > = {
   en: {
-    title: 'Moroccan Mate | Eat, Sleep, Things & Shopping — Like a Local',
+    title: 'Moroccan Mate | Morocco Food, Stays & Things to Do',
     description:
-      'Pick your city, answer a short quiz, and get personalized local recommendations for food, stays, things to do, and shopping in Morocco.',
+      'Pick your city in Morocco, take a quick quiz, and get curated local picks for restaurants, riads, activities, and authentic shopping.',
     h1: 'Moroccan Mate — Eat, Sleep, Things & Shopping',
     heroSubtitle:
       'Discover personalized, authentic recommendations across Morocco. Pick your destination city, answer a short quiz, and explore handpicked places to eat, stays, activities, and local shops.',
   },
   fr: {
-    title: 'Moroccan Mate | Où Manger, Dormir, Sortir & Faire du Shopping au Maroc',
+    title: 'Moroccan Mate | Manger, Dormir & Activités au Maroc',
     description:
-      'Choisissez votre ville au Maroc, répondez à un court quiz et obtenez des recommandations locales personnalisées : restaurants, riads, activités et shopping.',
+      'Choisissez votre ville au Maroc, répondez au quiz et obtenez des recommandations locales vérifiées : restaurants, riads, activités et shopping.',
     h1: 'Moroccan Mate — Manger, Dormir, Activités & Shopping au Maroc',
     heroSubtitle:
       'Découvrez des recommandations locales authentiques partout au Maroc. Choisissez votre ville, répondez à un court quiz et explorez les meilleurs restaurants, riads, activités et boutiques.',
   },
   es: {
-    title: 'Moroccan Mate | Qué Hacer, Dónde Comer, Dormir y Comprar en Marruecos',
+    title: 'Moroccan Mate | Comer, Dormir y Qué Hacer en Marruecos',
     description:
-      'Elige tu ciudad en Marruecos, responde un breve cuestionario y descubre recomendaciones locales personalizadas de restaurantes, riads, actividades y compras.',
+      'Elige tu ciudad en Marruecos, responde un breve test y descubre recomendaciones locales verificadas de restaurantes, riads, actividades y compras.',
     h1: 'Moroccan Mate — Comer, Dormir, Qué Hacer y Comprar en Marruecos',
     heroSubtitle:
       'Descubre recomendaciones locales auténticas en todo Marruecos. Elige tu destino, responde un breve test y explora los mejores restaurantes, riads, actividades y tiendas.',
   },
   de: {
-    title: 'Moroccan Mate | Essen, Übernachten, Aktivitäten & Shopping in Marokko',
+    title: 'Moroccan Mate | Essen, Hotels & Tipps für Marokko',
     description:
-      'Wähle deine Stadt in Marokko, beantworte ein kurzes Quiz und erhalte persönliche Geheimtipps für Restaurants, Riads, Aktivitäten und Shopping.',
+      'Wähle deine Stadt in Marokko, mach das kurze Quiz und erhalte geprüfte Geheimtipps für Restaurants, Riads, Aktivitäten und Shopping.',
     h1: 'Moroccan Mate — Essen, Übernachten, Aktivitäten & Shopping in Marokko',
     heroSubtitle:
       'Entdecke authentische Geheimtipps in ganz Marokko. Wähle dein Reiseziel, beantworte ein kurzes Quiz und finde handverlesene Restaurants, Riads, Aktivitäten und Läden.',
   },
   ar: {
-    title: 'Moroccan Mate | دليلك للمطاعم والإقامة والأنشطة والتسوق في المغرب',
+    title: 'Moroccan Mate | دليلك للمطاعم والإقامة والأنشطة بالمغرب',
     description:
-      'اختر مدينتك في المغرب، أجب عن أسئلة قصيرة، واحصل على توصيات محلية مخصصة لأفضل المطاعم والرياضات والأنشطة والتسوق.',
+      'اختر مدينتك في المغرب وأجب عن اختبار قصير للحصول على توصيات محلية موثوقة لأفضل المطاعم والرياضات والأنشطة والتسوق.',
     h1: 'Moroccan Mate — المطاعم والإقامة والأنشطة والتسوق في المغرب',
     heroSubtitle:
       'اكتشف أفضل التوصيات المحلية الأصيلة في مدن المغرب. اختر وجهتك وأجب عن اختبار قصير لاستكشاف المطاعم والرياضات والأنشطة والمتاجر المختارة بعناية.',
@@ -83,33 +83,33 @@ export const HOME_SEO_I18N: Record<
 
 export const FINDER_SEO_I18N: Record<AppLanguage, { title: string; description: string; h1: string }> = {
   en: {
-    title: 'Finder — Personalized Morocco Recommendations',
+    title: 'Morocco Finder — Personalized Local Travel Guide',
     description:
-      'Choose a city and category, answer a short quiz, and get personalized local recommendations for Morocco.',
+      'Choose any city in Morocco and category, answer a short vibe quiz, and unlock curated local picks for food, riads, activities, and shops.',
     h1: 'Morocco Finder',
   },
   fr: {
-    title: 'Explorateur — Recommandations Personnalisées au Maroc',
+    title: 'Explorateur Maroc — Recommandations Locales sur Mesure',
     description:
-      'Choisissez une ville et une catégorie, répondez à un court quiz et obtenez des recommandations locales au Maroc.',
+      'Choisissez une ville et une catégorie au Maroc, répondez au quiz et découvrez nos meilleures adresses locales : restaurants, riads et activités.',
     h1: 'Explorateur Maroc',
   },
   es: {
-    title: 'Buscador — Recomendaciones Personalizadas en Marruecos',
+    title: 'Buscador Marruecos — Guía Local Personalizada',
     description:
-      'Elige una ciudad y categoría, responde un breve test y obtén recomendaciones locales personalizadas en Marruecos.',
+      'Elige ciudad y categoría en Marruecos, completa el test rápido y descubre los mejores restaurantes, riads, actividades y tiendas locales.',
     h1: 'Buscador de Marruecos',
   },
   de: {
-    title: 'Finder — Persönliche Marokko-Empfehlungen',
+    title: 'Marokko-Finder — Persönliche Geheimtipps vor Ort',
     description:
-      'Wähle Stadt und Kategorie, beantworte ein kurzes Quiz und erhalte maßgeschneiderte Tipps für Marokko.',
+      'Wähle Stadt und Kategorie in Marokko, mach das kurze Quiz und entdecke handverlesene Restaurants, Riads, Aktivitäten und Läden.',
     h1: 'Marokko-Finder',
   },
   ar: {
-    title: 'المستكشف — توصيات مخصصة في المغرب',
+    title: 'مستكشف المغرب — توصيات محلية مخصصة لرحلتك',
     description:
-      'اختر المدينة والفئة وأجب عن أسئلة قصيرة للحصول على توصيات محلية مخصصة في المغرب.',
+      'اختر المدينة والفئة في المغرب وأجب عن أسئلة قصيرة لاكتشاف أفضل المطاعم والرياضات والأنشطة ومتاجر الحرف المحلية.',
     h1: 'مستكشف المغرب',
   },
 };
@@ -120,35 +120,35 @@ export function getBrowseSeoI18n(cityLabel: string, segment: BrowseSegment, lang
     case 'fr':
       return {
         title: `${catLabel} à ${cityLabel}, Maroc`,
-        description: `Trouvez les meilleurs lieux (${catLabel.toLowerCase()}) à ${cityLabel}, Maroc grâce à notre guide local personnalisé.`,
+        description: `Découvrez les meilleurs lieux (${catLabel.toLowerCase()}) à ${cityLabel}, Maroc : adresses vérifiées, tarifs en MAD, avis et conseils d'initiés.`,
         h1: `${catLabel} à ${cityLabel}`,
         curatedHeading: `Recommandations sélectionnées à ${cityLabel}`,
       };
     case 'es':
       return {
         title: `${catLabel} en ${cityLabel}, Marruecos`,
-        description: `Encuentra los mejores lugares de ${catLabel.toLowerCase()} en ${cityLabel}, Marruecos con nuestra guía local personalizada.`,
+        description: `Descubre los mejores sitios de ${catLabel.toLowerCase()} en ${cityLabel}, Marruecos: reseñas verificadas, precios en MAD y consejos locales.`,
         h1: `${catLabel} en ${cityLabel}`,
         curatedHeading: `Recomendaciones seleccionadas en ${cityLabel}`,
       };
     case 'de':
       return {
         title: `${catLabel} in ${cityLabel}, Marokko`,
-        description: `Finde die besten Empfehlungen für ${catLabel} in ${cityLabel}, Marokko mit unserem persönlichen Reiseführer.`,
+        description: `Entdecke die besten Tipps für ${catLabel} in ${cityLabel}, Marokko: geprüfte Bewertungen, Preise in MAD und echte Insidertipps.`,
         h1: `${catLabel} in ${cityLabel}`,
         curatedHeading: `Handverlesene Empfehlungen in ${cityLabel}`,
       };
     case 'ar':
       return {
         title: `${catLabel} في ${cityLabel}، المغرب`,
-        description: `اكتشف أفضل خيارات ${catLabel} في ${cityLabel}، المغرب عبر دليلنا المحلي المخصص.`,
+        description: `اكتشف أفضل خيارات ${catLabel} في ${cityLabel} بالمغرب: أماكن موثوقة مع الأسعار بالدرهم، التقييمات ونصائح السكان المحليين.`,
         h1: `${catLabel} في ${cityLabel}`,
         curatedHeading: `توصيات مختارة في ${cityLabel}`,
       };
     default:
       return {
         title: `${catLabel} in ${cityLabel}, Morocco`,
-        description: `Find the best ${catLabel.toLowerCase()} in ${cityLabel}, Morocco with our personalized finder.`,
+        description: `Explore curated, verified ${catLabel.toLowerCase()} in ${cityLabel}, Morocco—compare real MAD prices, local ratings, photos, and neighborhood tips.`,
         h1: `${catLabel} in ${cityLabel}`,
         curatedHeading: `Curated Recommendations in ${cityLabel}`,
       };
@@ -869,6 +869,25 @@ export const PRERENDER_UI_I18N: Record<
     shopping: string;
     shoppingDesc: string;
     fromPrice: (p: number) => string;
+    avgPerson: (p: number) => string;
+    freeEntry: string;
+    reviewsWord: string;
+    addressLabel: string;
+    amenitiesHeading: string;
+    cuisinesHeading: string;
+    bestDishesHeading: string;
+    localTipHeading: string;
+    faqHeading: string;
+    highlightsHeading: string;
+    includedHeading: string;
+    whatToKnowHeading: string;
+    viewMenuBtn: string;
+    backToPlaceBtn: string;
+    menuHeading: string;
+    foodInCity: (c: string) => string;
+    staysInCity: (c: string) => string;
+    thingsInCity: (c: string) => string;
+    shoppingInCity: (c: string) => string;
   }
 > = {
   en: {
@@ -885,6 +904,25 @@ export const PRERENDER_UI_I18N: Record<
     shopping: 'Shopping',
     shoppingDesc: 'Artisan cooperatives, spices, carpets, ceramics, and souvenirs.',
     fromPrice: (p) => `From ${p} MAD/night`,
+    avgPerson: (p) => `Avg ${p} MAD/person`,
+    freeEntry: 'Free Entry',
+    reviewsWord: 'reviews',
+    addressLabel: 'Address',
+    amenitiesHeading: 'Amenities & Features',
+    cuisinesHeading: 'Cuisine & Vibe',
+    bestDishesHeading: 'Signature Dishes & Specialties',
+    localTipHeading: 'Local Insider Tip',
+    faqHeading: 'Frequently Asked Questions',
+    highlightsHeading: 'Highlights & Why Visit',
+    includedHeading: 'What is Included',
+    whatToKnowHeading: 'What to Know / Bring',
+    viewMenuBtn: 'View Verified Menu & Prices',
+    backToPlaceBtn: 'Back to Venue Overview',
+    menuHeading: 'Verified Menu & Prices (MAD)',
+    foodInCity: (c) => `Food in ${c}`,
+    staysInCity: (c) => `Stays in ${c}`,
+    thingsInCity: (c) => `Things to Do in ${c}`,
+    shoppingInCity: (c) => `Shopping in ${c}`,
   },
   fr: {
     home: 'Accueil',
@@ -900,6 +938,25 @@ export const PRERENDER_UI_I18N: Record<
     shopping: 'Shopping',
     shoppingDesc: 'Coopératives artisanales, épices, tapis, céramiques et souvenirs.',
     fromPrice: (p) => `Dès ${p} MAD/nuit`,
+    avgPerson: (p) => `Env. ${p} MAD/pers.`,
+    freeEntry: 'Entrée gratuite',
+    reviewsWord: 'avis',
+    addressLabel: 'Adresse',
+    amenitiesHeading: 'Équipements & Services',
+    cuisinesHeading: 'Cuisine & Ambiance',
+    bestDishesHeading: 'Plats signatures & Spécialités',
+    localTipHeading: 'Conseil local',
+    faqHeading: 'Questions fréquentes',
+    highlightsHeading: 'Points forts de la visite',
+    includedHeading: 'Ce qui est inclus',
+    whatToKnowHeading: 'À savoir / À prévoir',
+    viewMenuBtn: 'Voir le menu et les prix vérifiés',
+    backToPlaceBtn: 'Retour à la fiche du lieu',
+    menuHeading: 'Carte & Prix vérifiés (MAD)',
+    foodInCity: (c) => `Restaurants à ${c}`,
+    staysInCity: (c) => `Hébergements à ${c}`,
+    thingsInCity: (c) => `Activités à ${c}`,
+    shoppingInCity: (c) => `Shopping à ${c}`,
   },
   es: {
     home: 'Inicio',
@@ -915,6 +972,25 @@ export const PRERENDER_UI_I18N: Record<
     shopping: 'Compras',
     shoppingDesc: 'Cooperativas artesanales, especias, alfombras, cerámica y recuerdos.',
     fromPrice: (p) => `Desde ${p} MAD/noche`,
+    avgPerson: (p) => `Media ${p} MAD/pers.`,
+    freeEntry: 'Entrada gratuita',
+    reviewsWord: 'reseñas',
+    addressLabel: 'Dirección',
+    amenitiesHeading: 'Servicios y Comodidades',
+    cuisinesHeading: 'Cocina y Ambiente',
+    bestDishesHeading: 'Platos estrella y Especialidades',
+    localTipHeading: 'Consejo local',
+    faqHeading: 'Preguntas frecuentes',
+    highlightsHeading: 'Lo más destacado',
+    includedHeading: 'Qué incluye',
+    whatToKnowHeading: 'Qué llevar / Información útil',
+    viewMenuBtn: 'Ver carta y precios verificados',
+    backToPlaceBtn: 'Volver a la ficha del lugar',
+    menuHeading: 'Carta y Precios verificados (MAD)',
+    foodInCity: (c) => `Restaurantes en ${c}`,
+    staysInCity: (c) => `Alojamientos en ${c}`,
+    thingsInCity: (c) => `Qué hacer en ${c}`,
+    shoppingInCity: (c) => `Compras en ${c}`,
   },
   de: {
     home: 'Startseite',
@@ -930,6 +1006,25 @@ export const PRERENDER_UI_I18N: Record<
     shopping: 'Shopping',
     shoppingDesc: 'Kunsthandwerk-Kooperativen, Gewürze, Teppiche, Keramik und Souvenirs.',
     fromPrice: (p) => `Ab ${p} MAD/Nacht`,
+    avgPerson: (p) => `Ca. ${p} MAD/Person`,
+    freeEntry: 'Eintritt frei',
+    reviewsWord: 'Bewertungen',
+    addressLabel: 'Adresse',
+    amenitiesHeading: 'Ausstattung & Merkmale',
+    cuisinesHeading: 'Küche & Atmosphäre',
+    bestDishesHeading: 'Empfehlungen & Spezialitäten',
+    localTipHeading: 'Geheimtipp vor Ort',
+    faqHeading: 'Häufig gestellte Fragen',
+    highlightsHeading: 'Highlights & Besonderheiten',
+    includedHeading: 'Inklusive Leistungen',
+    whatToKnowHeading: 'Wichtige Hinweise',
+    viewMenuBtn: 'Verifizierte Speisekarte & Preise ansehen',
+    backToPlaceBtn: 'Zurück zur Übersicht',
+    menuHeading: 'Speisekarte & Preise (MAD)',
+    foodInCity: (c) => `Essen in ${c}`,
+    staysInCity: (c) => `Unterkünfte in ${c}`,
+    thingsInCity: (c) => `Aktivitäten in ${c}`,
+    shoppingInCity: (c) => `Shopping in ${c}`,
   },
   ar: {
     home: 'الرئيسية',
@@ -945,5 +1040,24 @@ export const PRERENDER_UI_I18N: Record<
     shopping: 'التسوق',
     shoppingDesc: 'تعاونيات تقليدية، توابل، زرابي، خزف وهدايا تذكارية.',
     fromPrice: (p) => `ابتداءً من ${p} درهم/ليلة`,
+    avgPerson: (p) => `متوسط ${p} درهم/شخص`,
+    freeEntry: 'دخول مجاني',
+    reviewsWord: 'تقييم',
+    addressLabel: 'العنوان',
+    amenitiesHeading: 'المرافق والمميزات',
+    cuisinesHeading: 'المطبخ والأجواء',
+    bestDishesHeading: 'أشهر الأطباق المختارة',
+    localTipHeading: 'نصيحة محلية',
+    faqHeading: 'الأسئلة الشائعة',
+    highlightsHeading: 'أبرز المميزات',
+    includedHeading: 'ما يشمله العرض',
+    whatToKnowHeading: 'معلومات مهمة للزيارة',
+    viewMenuBtn: 'عرض القائمة والأسعار الموثقة',
+    backToPlaceBtn: 'العودة إلى صفحة المكان',
+    menuHeading: 'قائمة الطعام والأسعار (درهم)',
+    foodInCity: (c) => `مطاعم ${c}`,
+    staysInCity: (c) => `إقامات ${c}`,
+    thingsInCity: (c) => `أنشطة في ${c}`,
+    shoppingInCity: (c) => `تسوق في ${c}`,
   },
 };

@@ -1,16 +1,12 @@
 /**
  * =========================================================================
- * PRERENDER — generates a real HTML file for every listing page
+ * PRERENDER — generates a real HTML file for every indexable page
  * =========================================================================
- * The site is a JavaScript app, and search engines read JavaScript slowly
- * and unreliably at scale. This script runs AFTER `vite build` and writes
- * one static HTML file per place page and things page, containing that
- * place's own title, description, canonical URL, social preview tags and
- * structured data — readable by Google instantly, without running JS.
- *
- * Human visitors still get the full interactive app (the same shell loads
- * and React Router shows the right page). Static files take precedence
- * over the SPA fallback on Vercel, so each URL serves its prerendered file.
+ * Runs AFTER `vite build` and writes one static HTML file per URL (across
+ * all 5 languages: EN, FR, ES, DE, AR), containing that page's own
+ * optimized title (<= 60 chars), meta description (<= 155 chars), canonical,
+ * hreflang alternates, social preview tags, JSON-LD structured data, and
+ * crawlable semantic HTML body inside #root.
  *
  * Manual run (after a build):  npm run prerender
  */
@@ -32,7 +28,11 @@ const stripped = template
   .replace(/<meta\s+name="twitter:[^>]*>/gi, '');
 
 const esc = (s: string) =>
-  String(s).replace(/&/g, '\u0026amp;').replace(/</g, '\u0026lt;').replace(/>/g, '\u0026gt;').replace(/"/g, '\u0026quot;');
+  String(s)
+    .replace(/&/g, '\u0026amp;')
+    .replace(/</g, '\u0026lt;')
+    .replace(/>/g, '\u0026gt;')
+    .replace(/"/g, '\u0026quot;');
 const jsonEsc = (s: string) => s.replace(/</g, '\\u003c').replace(/>/g, '\\u003e').replace(/&/g, '\\u0026');
 
 const pages = collectAllPages();
@@ -59,12 +59,26 @@ for (const page of pages) {
     (l) => `<meta property="og:locale:alternate" content="${LANG_META[l].ogLocale}" />`
   );
 
+  const breadcrumbJsonLd =
+    page.breadcrumbs && page.breadcrumbs.length > 0
+      ? {
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: page.breadcrumbs.map((b, i) => ({
+            '@type': 'ListItem',
+            position: i + 1,
+            name: b.name,
+            item: b.item.startsWith('http') ? b.item : `${BASE_URL}${localizePath(b.item, lang)}`,
+          })),
+        }
+      : null;
+
   const head = [
-    `<title>${esc(page.title)} | Moroccan Mate</title>`,
+    `<title>${esc(page.title)}</title>`,
     `<meta name="description" content="${esc(page.description)}" />`,
     `<link rel="canonical" href="${esc(url)}" />`,
     ...hreflangLinks,
-    `<meta property="og:type" content="article" />`,
+    `<meta property="og:type" content="${page.basePath === '/' ? 'website' : 'article'}" />`,
     `<meta property="og:site_name" content="Moroccan Mate" />`,
     `<meta property="og:locale" content="${LANG_META[lang].ogLocale}" />`,
     ...ogLocaleAlternates,
@@ -78,6 +92,9 @@ for (const page of pages) {
     `<meta name="twitter:image" content="${esc(page.image)}" />`,
     ...(page.jsonLd
       ? [`<script type="application/ld+json">${jsonEsc(JSON.stringify(page.jsonLd))}</script>`]
+      : []),
+    ...(breadcrumbJsonLd
+      ? [`<script type="application/ld+json">${jsonEsc(JSON.stringify(breadcrumbJsonLd))}</script>`]
       : []),
     ...(page.faq && page.faq.length > 0
       ? [
@@ -99,10 +116,9 @@ for (const page of pages) {
       : []),
   ].join('\n    ');
 
-  // Crawlable noscript fallback: real text + a real link into the app
   let rawBrowseUrl: string | null = null;
   if (page.basePath.startsWith('/place/')) {
-    const parts = page.basePath.split('/'); // ['', 'place', city, category, slug]
+    const parts = page.basePath.split('/'); // ['', 'place', city, category, slug, ...]
     rawBrowseUrl = `/finder/${parts[2]}/${parts[3]}`;
   } else if (page.basePath.startsWith('/things/')) {
     const parts = page.basePath.split('/'); // ['', 'things', city, slug]
@@ -112,142 +128,220 @@ for (const page of pages) {
     rawBrowseUrl = parts[4] ? `/finder/${parts[2]}/${parts[3]}` : `/finder`;
   }
   const browseUrl = rawBrowseUrl ? localizePath(rawBrowseUrl, lang) : null;
-  const faqHtml = page.faq && page.faq.length > 0
-    ? `<div style="margin-top:24px;border-top:1px solid #ddd;padding-top:16px;"><h2>Frequently Asked Questions</h2>${page.faq.map(f => `<h3>${esc(f.question)}</h3><p>${esc(f.answer)}</p>`).join('')}</div>`
-    : '';
+
+  const faqHtml =
+    page.faq && page.faq.length > 0
+      ? `<div style="margin-top:24px;border-top:1px solid #ddd;padding-top:16px;"><h2>${esc(ui.faqHeading)}</h2>${page.faq
+          .map((f) => `<h3>${esc(f.question)}</h3><p>${esc(f.answer)}</p>`)
+          .join('')}</div>`
+      : '';
+
+  const citySlug = esc((page.meta?.citySlug || page.meta?.city || 'marrakech').toLowerCase().replace(/\s+/g, '_'));
+  const cityLabel = page.meta?.city || 'Morocco';
+
+  const cityExploreLinks =
+    `<section style="margin-top:36px;padding-top:24px;border-top:1px solid #E9D8C8;">` +
+    `<h3 style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#71685F;margin-bottom:12px;">${esc(ui.exploreMoreIn)} ${esc(cityLabel)}</h3>` +
+    `<div style="display:flex;flex-wrap:wrap;gap:10px;">` +
+    `<a href="${esc(localizePath(`/finder/${citySlug}/food`, lang))}" style="padding:6px 14px;border-radius:20px;background:#FAF7F2;border:1px solid #E9D8C8;color:#29231F;font-size:12px;font-weight:600;text-decoration:none;">🍽️ ${esc(ui.foodInCity(cityLabel))}</a>` +
+    `<a href="${esc(localizePath(`/finder/${citySlug}/sleep`, lang))}" style="padding:6px 14px;border-radius:20px;background:#FAF7F2;border:1px solid #E9D8C8;color:#29231F;font-size:12px;font-weight:600;text-decoration:none;">🛏️ ${esc(ui.staysInCity(cityLabel))}</a>` +
+    `<a href="${esc(localizePath(`/finder/${citySlug}/things-to-do`, lang))}" style="padding:6px 14px;border-radius:20px;background:#FAF7F2;border:1px solid #E9D8C8;color:#29231F;font-size:12px;font-weight:600;text-decoration:none;">✨ ${esc(ui.thingsInCity(cityLabel))}</a>` +
+    `<a href="${esc(localizePath(`/finder/${citySlug}/shopping`, lang))}" style="padding:6px 14px;border-radius:20px;background:#FAF7F2;border:1px solid #E9D8C8;color:#29231F;font-size:12px;font-weight:600;text-decoration:none;">🛍️ ${esc(ui.shoppingInCity(cityLabel))}</a>` +
+    `</div>` +
+    `</section>`;
 
   let preContent = '';
   if (page.meta?.matchedPlaces && page.meta.matchedPlaces.length > 0) {
-    const itemsHtml = page.meta.matchedPlaces.map(p =>
-      `<li style="margin-bottom:16px;padding:14px;border:1px solid #e9e1d4;border-radius:12px;background:#fff;">` +
-      `<h3 style="margin:0 0 4px;font-size:18px;"><a href="${esc(p.url)}" style="color:#173042;text-decoration:none;">${esc(p.name)}</a></h3>` +
-      `<p style="margin:0;font-size:14px;color:#66757D;">${p.neighborhood ? esc(p.neighborhood) + ' · ' : ''}${p.rating ? '★ ' + p.rating : ''}${p.price ? ' · ' + esc(ui.fromPrice(p.price)) : ''}</p>` +
-      `<p style="margin:8px 0 0;"><a href="${esc(p.url)}" style="color:#C9A84C;font-weight:bold;font-size:13px;">${esc(ui.viewDetails)} &rarr;</a></p>` +
-      `</li>`
-    ).join('');
+    const itemsHtml = page.meta.matchedPlaces
+      .map(
+        (p) =>
+          `<li style="margin-bottom:16px;padding:14px;border:1px solid #e9e1d4;border-radius:12px;background:#fff;">` +
+          `<h3 style="margin:0 0 4px;font-size:18px;"><a href="${esc(p.url)}" style="color:#173042;text-decoration:none;">${esc(p.name)}</a></h3>` +
+          `<p style="margin:0;font-size:14px;color:#66757D;">${p.neighborhood ? esc(p.neighborhood) + ' · ' : ''}${p.rating ? '★ ' + p.rating : ''}${p.price ? ' · ' + esc(ui.fromPrice(p.price)) : ''}</p>` +
+          `<p style="margin:8px 0 0;"><a href="${esc(p.url)}" style="color:#C9A84C;font-weight:bold;font-size:13px;">${esc(ui.viewDetails)} &rarr;</a></p>` +
+          `</li>`
+      )
+      .join('');
 
     preContent =
       `<div dir="${dir}" style="max-width:840px;margin:32px auto;padding:0 20px;font-family:system-ui,-apple-system,sans-serif;color:#29231F;">` +
       `<nav style="font-size:12px;color:#71685F;margin-bottom:16px;">` +
-      `<a href="${esc(homeUrl)}" style="color:#71685F;">${esc(ui.home)}</a> / <a href="${esc(browseUrl || finderUrl)}" style="color:#71685F;">${esc(page.meta.city || 'Morocco')}</a> / <span>${esc(page.h1)}</span>` +
+      `<a href="${esc(homeUrl)}" style="color:#71685F;">${esc(ui.home)}</a> / <a href="${esc(browseUrl || finderUrl)}" style="color:#71685F;">${esc(cityLabel)}</a> / <span>${esc(page.h1)}</span>` +
       `</nav>` +
       `<h1 style="font-size:32px;color:#173042;margin:0 0 12px;line-height:1.2;">${esc(page.h1)}</h1>` +
       `<p style="font-size:16px;line-height:1.5;color:#555;margin:0 0 24px;">${esc(page.description)}</p>` +
       `<ul style="list-style:none;padding:0;margin:0;">${itemsHtml}</ul>` +
       `<div style="margin-top:32px;padding-top:20px;border-top:1px solid #e9e1d4;font-size:13px;">` +
-      `<a href="${esc(browseUrl || finderUrl)}" style="color:#C9A84C;font-weight:bold;margin-right:16px;">${esc(ui.exploreMoreIn)} ${esc(page.meta.city || 'Morocco')}</a>` +
+      `<a href="${esc(browseUrl || finderUrl)}" style="color:#C9A84C;font-weight:bold;margin-right:16px;">${esc(ui.exploreMoreIn)} ${esc(cityLabel)}</a>` +
       `<a href="${esc(homeUrl)}" style="color:#71685F;">Moroccan Mate</a>` +
       `</div>` +
       `</div>`;
-  } else if (page.path.startsWith('/place/')) {
+  } else if (page.basePath.startsWith('/place/') && page.basePath.endsWith('/menu')) {
     const m = page.meta || {};
-    const amenitiesHtml = m.amenities && m.amenities.length > 0
-      ? `<div style="margin:20px 0;"><h3 style="font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:#71685F;margin-bottom:8px;">Amenities & Features</h3><div style="display:flex;flex-wrap:wrap;gap:8px;">${m.amenities.map(a => `<span style="display:inline-block;padding:4px 10px;border-radius:20px;background:#FAF3EA;color:#8A6D1F;font-size:12px;border:1px solid #E8DAAA;">${esc(a)}</span>`).join('')}</div></div>`
-      : '';
-
-    const cuisinesHtml = m.cuisines && m.cuisines.length > 0
-      ? `<div style="margin:20px 0;"><h3 style="font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:#71685F;margin-bottom:8px;">Cuisine & Vibe</h3><div style="display:flex;flex-wrap:wrap;gap:8px;">${m.cuisines.map(c => `<span style="display:inline-block;padding:4px 10px;border-radius:20px;background:#FAF3EA;color:#8A6D1F;font-size:12px;border:1px solid #E8DAAA;">${esc(c)}</span>`).join('')}</div></div>`
-      : '';
-
-    const bestDishesHtml = m.bestDishes && m.bestDishes.length > 0
-      ? `<div style="margin:20px 0;"><h3 style="font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:#71685F;margin-bottom:8px;">Signature Dishes & Specialties</h3><div style="display:flex;flex-wrap:wrap;gap:8px;">${m.bestDishes.map(d => `<span style="display:inline-block;padding:4px 10px;border-radius:20px;background:#F5EDE4;color:#29231F;font-size:12px;border:1px solid #E2D4C2;">${esc(d)}</span>`).join('')}</div></div>`
-      : '';
-
-    const tipHtml = m.tip
-      ? `<div style="margin:20px 0;padding:14px 18px;border-radius:12px;background:#FFFDF9;border-left:4px solid #C9A84C;border-top:1px solid #E9D8C8;border-right:1px solid #E9D8C8;border-bottom:1px solid #E9D8C8;"><h4 style="margin:0 0 4px;font-size:13px;font-weight:700;color:#8A6D1F;text-transform:uppercase;">Local Insider Tip</h4><p style="margin:0;font-size:14px;color:#29231F;line-height:1.5;">${esc(m.tip)}</p></div>`
-      : '';
+    const sectionsHtml =
+      m.menuSections && m.menuSections.length > 0
+        ? m.menuSections
+            .map(
+              (sec) =>
+                `<section style="margin:24px 0;">` +
+                `<h2 style="font-size:18px;font-weight:700;color:#173042;margin:0 0 10px;">${esc(sec.title)}</h2>` +
+                `<ul style="list-style:none;padding:0;margin:0;border:1px solid #E9D8C8;border-radius:12px;background:#fff;">` +
+                sec.items
+                  .map(
+                    (it) =>
+                      `<li style="display:flex;justify-content:space-between;padding:10px 14px;border-bottom:1px solid #F3ECE1;font-size:14px;">` +
+                      `<span>${esc(it.name)}</span>` +
+                      `<strong style="color:#8A6D1F;">${it.price > 0 ? `${it.price} MAD` : ''}</strong>` +
+                      `</li>`
+                  )
+                  .join('') +
+                `</ul></section>`
+            )
+            .join('')
+        : '';
 
     preContent =
-      `<div style="max-width:880px;margin:32px auto;padding:0 24px;font-family:system-ui,-apple-system,sans-serif;color:#29231F;">` +
+      `<div dir="${dir}" style="max-width:880px;margin:32px auto;padding:0 24px;font-family:system-ui,-apple-system,sans-serif;color:#29231F;">` +
       `<nav style="font-size:12px;color:#71685F;margin-bottom:20px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;">` +
-      `<a href="/" style="color:#71685F;text-decoration:none;">Home</a> <span>/</span> ` +
-      `<a href="${esc(browseUrl || '/finder')}" style="color:#71685F;text-decoration:none;">${esc(m.category || 'Places')} in ${esc(m.city || 'Morocco')}</a> <span>/</span> ` +
+      `<a href="${esc(homeUrl)}" style="color:#71685F;text-decoration:none;">${esc(ui.home)}</a> <span>/</span> ` +
+      `<a href="${esc(browseUrl || finderUrl)}" style="color:#71685F;text-decoration:none;">${esc(m.category || 'Food')} · ${esc(cityLabel)}</a> <span>/</span> ` +
+      (m.placeUrl ? `<a href="${esc(m.placeUrl)}" style="color:#71685F;text-decoration:none;">${esc(ui.backToPlaceBtn)}</a> <span>/</span> ` : '') +
       `<span style="color:#29231F;font-weight:600;">${esc(page.h1)}</span>` +
       `</nav>` +
       `<header style="margin-bottom:20px;">` +
-      `<span style="display:inline-block;padding:3px 10px;border-radius:12px;background:#FAF3EA;color:#C85A32;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;">${esc(m.category || 'Spot')} · ${esc(m.city || 'Morocco')}</span>` +
+      `<span style="display:inline-block;padding:3px 10px;border-radius:12px;background:#FAF3EA;color:#C85A32;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;">${esc(ui.menuHeading)} · ${esc(cityLabel)}</span>` +
       `<h1 style="font-size:32px;font-weight:800;color:#173042;margin:4px 0 10px;line-height:1.2;">${esc(page.h1)}</h1>` +
       `<div style="font-size:14px;color:#71685F;display:flex;flex-wrap:wrap;gap:12px;align-items:center;">` +
-      (m.neighborhood ? `<span>📍 ${esc(m.neighborhood)}, ${esc(m.city || 'Morocco')}</span>` : '') +
-      (m.rating ? `<span style="font-weight:700;color:#B45309;">★ ${m.rating}${m.reviewCount ? ' (' + m.reviewCount + ' reviews)' : ''}</span>` : '') +
-      (m.price ? `<span style="font-weight:700;color:#29231F;">💰 ${esc(m.category === 'Where to Sleep' ? 'From ' + m.price + ' MAD/night' : 'Avg ' + m.price + ' MAD/person')}</span>` : '') +
+      (m.neighborhood ? `<span>📍 ${esc(m.neighborhood)}, ${esc(cityLabel)}</span>` : '') +
+      (m.rating ? `<span style="font-weight:700;color:#B45309;">★ ${m.rating}${m.reviewCount ? ` (${m.reviewCount} ${esc(ui.reviewsWord)})` : ''}</span>` : '') +
+      (m.priceRangeText ? `<span style="font-weight:700;color:#29231F;">💰 ${esc(m.priceRangeText)}</span>` : '') +
+      (m.openingHours ? `<span>🕒 ${esc(m.openingHours)}</span>` : '') +
+      `</div></header>` +
+      `<p style="font-size:16px;line-height:1.65;color:#374151;border-top:1px solid #E9D8C8;padding-top:16px;">${esc(page.description)}</p>` +
+      sectionsHtml +
+      faqHtml +
+      cityExploreLinks +
+      `</div>`;
+  } else if (page.basePath.startsWith('/place/')) {
+    const m = page.meta || {};
+    const amenitiesHtml =
+      m.amenities && m.amenities.length > 0
+        ? `<div style="margin:20px 0;"><h3 style="font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:#71685F;margin-bottom:8px;">${esc(ui.amenitiesHeading)}</h3><div style="display:flex;flex-wrap:wrap;gap:8px;">${m.amenities
+            .map((a) => `<span style="display:inline-block;padding:4px 10px;border-radius:20px;background:#FAF3EA;color:#8A6D1F;font-size:12px;border:1px solid #E8DAAA;">${esc(a)}</span>`)
+            .join('')}</div></div>`
+        : '';
+
+    const cuisinesHtml =
+      m.cuisines && m.cuisines.length > 0
+        ? `<div style="margin:20px 0;"><h3 style="font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:#71685F;margin-bottom:8px;">${esc(ui.cuisinesHeading)}</h3><div style="display:flex;flex-wrap:wrap;gap:8px;">${m.cuisines
+            .map((c) => `<span style="display:inline-block;padding:4px 10px;border-radius:20px;background:#FAF3EA;color:#8A6D1F;font-size:12px;border:1px solid #E8DAAA;">${esc(c)}</span>`)
+            .join('')}</div></div>`
+        : '';
+
+    const bestDishesHtml =
+      m.bestDishes && m.bestDishes.length > 0
+        ? `<div style="margin:20px 0;"><h3 style="font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:#71685F;margin-bottom:8px;">${esc(ui.bestDishesHeading)}</h3><div style="display:flex;flex-wrap:wrap;gap:8px;">${m.bestDishes
+            .map((d) => `<span style="display:inline-block;padding:4px 10px;border-radius:20px;background:#F5EDE4;color:#29231F;font-size:12px;border:1px solid #E2D4C2;">${esc(d)}</span>`)
+            .join('')}</div></div>`
+        : '';
+
+    const tipHtml = m.tip
+      ? `<div style="margin:20px 0;padding:14px 18px;border-radius:12px;background:#FFFDF9;border-left:4px solid #C9A84C;border-top:1px solid #E9D8C8;border-right:1px solid #E9D8C8;border-bottom:1px solid #E9D8C8;"><h4 style="margin:0 0 4px;font-size:13px;font-weight:700;color:#8A6D1F;text-transform:uppercase;">${esc(ui.localTipHeading)}</h4><p style="margin:0;font-size:14px;color:#29231F;line-height:1.5;">${esc(m.tip)}</p></div>`
+      : '';
+
+    const menuCtaHtml = m.menuUrl
+      ? `<p style="margin:16px 0;"><a href="${esc(m.menuUrl)}" style="display:inline-block;padding:10px 18px;border-radius:10px;background:#173042;color:#fff;font-size:13px;font-weight:700;text-decoration:none;">${esc(ui.viewMenuBtn)} &rarr;</a></p>`
+      : '';
+
+    const priceLabel = m.price
+      ? page.basePath.includes('/sleep/')
+        ? ui.fromPrice(m.price)
+        : ui.avgPerson(m.price)
+      : '';
+
+    preContent =
+      `<div dir="${dir}" style="max-width:880px;margin:32px auto;padding:0 24px;font-family:system-ui,-apple-system,sans-serif;color:#29231F;">` +
+      `<nav style="font-size:12px;color:#71685F;margin-bottom:20px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;">` +
+      `<a href="${esc(homeUrl)}" style="color:#71685F;text-decoration:none;">${esc(ui.home)}</a> <span>/</span> ` +
+      `<a href="${esc(browseUrl || finderUrl)}" style="color:#71685F;text-decoration:none;">${esc(m.category || 'Places')} · ${esc(cityLabel)}</a> <span>/</span> ` +
+      `<span style="color:#29231F;font-weight:600;">${esc(page.h1)}</span>` +
+      `</nav>` +
+      `<header style="margin-bottom:20px;">` +
+      `<span style="display:inline-block;padding:3px 10px;border-radius:12px;background:#FAF3EA;color:#C85A32;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;">${esc(m.category || 'Spot')} · ${esc(cityLabel)}</span>` +
+      `<h1 style="font-size:32px;font-weight:800;color:#173042;margin:4px 0 10px;line-height:1.2;">${esc(page.h1)}</h1>` +
+      `<div style="font-size:14px;color:#71685F;display:flex;flex-wrap:wrap;gap:12px;align-items:center;">` +
+      (m.neighborhood ? `<span>📍 ${esc(m.neighborhood)}, ${esc(cityLabel)}</span>` : '') +
+      (m.rating ? `<span style="font-weight:700;color:#B45309;">★ ${m.rating}${m.reviewCount ? ` (${m.reviewCount} ${esc(ui.reviewsWord)})` : ''}</span>` : '') +
+      (priceLabel ? `<span style="font-weight:700;color:#29231F;">💰 ${esc(priceLabel)}</span>` : '') +
       (m.openingHours ? `<span>🕒 ${esc(m.openingHours)}</span>` : '') +
       `</div>` +
       `</header>` +
       `<section style="margin:24px 0;font-size:16px;line-height:1.65;color:#374151;border-top:1px solid #E9D8C8;padding-top:20px;">` +
       `<p style="margin:0 0 16px;">${esc(page.description)}</p>` +
-      (m.address ? `<p style="font-size:14px;color:#66757D;margin:0 0 16px;"><strong>Address:</strong> ${esc(m.address)}</p>` : '') +
+      (m.address ? `<p style="font-size:14px;color:#66757D;margin:0 0 16px;"><strong>${esc(ui.addressLabel)}:</strong> ${esc(m.address)}</p>` : '') +
+      menuCtaHtml +
       `</section>` +
       cuisinesHtml +
       bestDishesHtml +
       amenitiesHtml +
       tipHtml +
       faqHtml +
-      `<section style="margin-top:36px;padding-top:24px;border-top:1px solid #E9D8C8;">` +
-      `<h3 style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#71685F;margin-bottom:12px;">Explore More in ${esc(m.city || 'Morocco')}</h3>` +
-      `<div style="display:flex;flex-wrap:wrap;gap:10px;">` +
-      `<a href="/finder/${esc((m.city || 'marrakech').toLowerCase().replace(/\s+/g, '_'))}/food" style="padding:6px 14px;border-radius:20px;background:#FAF7F2;border:1px solid #E9D8C8;color:#29231F;font-size:12px;font-weight:600;text-decoration:none;">🍽️ Food in ${esc(m.city || 'Morocco')}</a>` +
-      `<a href="/finder/${esc((m.city || 'marrakech').toLowerCase().replace(/\s+/g, '_'))}/sleep" style="padding:6px 14px;border-radius:20px;background:#FAF7F2;border:1px solid #E9D8C8;color:#29231F;font-size:12px;font-weight:600;text-decoration:none;">🛏️ Stays in ${esc(m.city || 'Morocco')}</a>` +
-      `<a href="/finder/${esc((m.city || 'marrakech').toLowerCase().replace(/\s+/g, '_'))}/things-to-do" style="padding:6px 14px;border-radius:20px;background:#FAF7F2;border:1px solid #E9D8C8;color:#29231F;font-size:12px;font-weight:600;text-decoration:none;">✨ Things to Do in ${esc(m.city || 'Morocco')}</a>` +
-      `<a href="/finder/${esc((m.city || 'marrakech').toLowerCase().replace(/\s+/g, '_'))}/shopping" style="padding:6px 14px;border-radius:20px;background:#FAF7F2;border:1px solid #E9D8C8;color:#29231F;font-size:12px;font-weight:600;text-decoration:none;">🛍️ Shopping in ${esc(m.city || 'Morocco')}</a>` +
-      `</div>` +
-      `</section>` +
+      cityExploreLinks +
       `<footer style="margin-top:36px;padding-top:20px;border-top:1px solid #E9D8C8;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:#71685F;">` +
-      `<a href="/" style="color:#C9A84C;font-weight:700;text-decoration:none;">Moroccan Mate Home</a>` +
-      `<span>© ${new Date().getFullYear()} Moroccan Mate Guide</span>` +
+      `<a href="${esc(homeUrl)}" style="color:#C9A84C;font-weight:700;text-decoration:none;">Moroccan Mate</a>` +
+      `<span>© ${new Date().getFullYear()} Moroccan Mate</span>` +
       `</footer>` +
       `</div>`;
-  } else if (page.path.startsWith('/things/')) {
+  } else if (page.basePath.startsWith('/things/')) {
     const m = page.meta || {};
-    const citySlug = esc((m.citySlug || m.city || 'morocco').toLowerCase().replace(/\s+/g, '_'));
-    const highlightsHtml = m.highlights && m.highlights.length > 0
-      ? `<div style="margin:24px 0;"><h3 style="font-size:16px;font-weight:700;color:#173042;margin-bottom:12px;">Highlights & Why Visit</h3><ul style="list-style:disc;padding-left:20px;color:#374151;line-height:1.6;">${m.highlights.map(h => `<li style="margin-bottom:6px;">${esc(h)}</li>`).join('')}</ul></div>`
-      : '';
+    const highlightsHtml =
+      m.highlights && m.highlights.length > 0
+        ? `<div style="margin:24px 0;"><h3 style="font-size:16px;font-weight:700;color:#173042;margin-bottom:12px;">${esc(ui.highlightsHeading)}</h3><ul style="list-style:disc;padding-left:20px;color:#374151;line-height:1.6;">${m.highlights
+            .map((h) => `<li style="margin-bottom:6px;">${esc(h)}</li>`)
+            .join('')}</ul></div>`
+        : '';
 
-    const includedHtml = m.includedServices && m.includedServices.length > 0
-      ? `<div style="margin:24px 0;"><h3 style="font-size:16px;font-weight:700;color:#173042;margin-bottom:12px;">What is Included</h3><ul style="list-style:none;padding-left:0;color:#374151;line-height:1.6;">${m.includedServices.map(inc => `<li style="margin-bottom:6px;">✓ ${esc(inc)}</li>`).join('')}</ul></div>`
-      : '';
+    const includedHtml =
+      m.includedServices && m.includedServices.length > 0
+        ? `<div style="margin:24px 0;"><h3 style="font-size:16px;font-weight:700;color:#173042;margin-bottom:12px;">${esc(ui.includedHeading)}</h3><ul style="list-style:none;padding-left:0;color:#374151;line-height:1.6;">${m.includedServices
+            .map((inc) => `<li style="margin-bottom:6px;">✓ ${esc(inc)}</li>`)
+            .join('')}</ul></div>`
+        : '';
 
-    const requirementsHtml = m.requirements && m.requirements.length > 0
-      ? `<div style="margin:20px 0;padding:14px 18px;border-radius:12px;background:#FFFDF9;border-left:4px solid #C9A84C;border:1px solid #E9D8C8;"><h4 style="margin:0 0 4px;font-size:13px;font-weight:700;color:#8A6D1F;text-transform:uppercase;">What to Know / Bring</h4><p style="margin:0;font-size:14px;color:#29231F;line-height:1.5;">${m.requirements.map(r => esc(r)).join(' • ')}</p></div>`
-      : '';
+    const requirementsHtml =
+      m.requirements && m.requirements.length > 0
+        ? `<div style="margin:20px 0;padding:14px 18px;border-radius:12px;background:#FFFDF9;border-left:4px solid #C9A84C;border:1px solid #E9D8C8;"><h4 style="margin:0 0 4px;font-size:13px;font-weight:700;color:#8A6D1F;text-transform:uppercase;">${esc(ui.whatToKnowHeading)}</h4><p style="margin:0;font-size:14px;color:#29231F;line-height:1.5;">${m.requirements.map((r) => esc(r)).join(' • ')}</p></div>`
+        : '';
 
     preContent =
-      `<div style="max-width:880px;margin:32px auto;padding:0 24px;font-family:system-ui,-apple-system,sans-serif;color:#29231F;">` +
+      `<div dir="${dir}" style="max-width:880px;margin:32px auto;padding:0 24px;font-family:system-ui,-apple-system,sans-serif;color:#29231F;">` +
       `<nav style="font-size:12px;color:#71685F;margin-bottom:20px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;">` +
-      `<a href="/" style="color:#71685F;text-decoration:none;">Home</a> <span>/</span> ` +
-      `<a href="${esc(browseUrl || '/finder')}" style="color:#71685F;text-decoration:none;">Things to Do in ${esc(m.city || 'Morocco')}</a> <span>/</span> ` +
+      `<a href="${esc(homeUrl)}" style="color:#71685F;text-decoration:none;">${esc(ui.home)}</a> <span>/</span> ` +
+      `<a href="${esc(browseUrl || finderUrl)}" style="color:#71685F;text-decoration:none;">${esc(ui.thingsInCity(cityLabel))}</a> <span>/</span> ` +
       `<span style="color:#29231F;font-weight:600;">${esc(page.h1)}</span>` +
       `</nav>` +
       `<header style="margin-bottom:20px;">` +
-      `<span style="display:inline-block;padding:3px 10px;border-radius:12px;background:#FAF3EA;color:#C85A32;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;">Experience · ${esc(m.city || 'Morocco')}</span>` +
+      `<span style="display:inline-block;padding:3px 10px;border-radius:12px;background:#FAF3EA;color:#C85A32;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;">${esc(m.category || ui.thingsToDo)} · ${esc(cityLabel)}</span>` +
       `<h1 style="font-size:32px;font-weight:800;color:#173042;margin:4px 0 10px;line-height:1.2;">${esc(page.h1)}</h1>` +
       `<div style="font-size:14px;color:#71685F;display:flex;flex-wrap:wrap;gap:12px;align-items:center;">` +
-      (m.neighborhood ? `<span>📍 ${esc(m.neighborhood)}, ${esc(m.city || 'Morocco')}</span>` : '') +
-      (m.price ? `<span style="font-weight:700;color:#29231F;">💰 ${m.price > 0 ? m.price + ' MAD / person' : 'Free Entry'}</span>` : '') +
+      (m.neighborhood ? `<span>📍 ${esc(m.neighborhood)}, ${esc(cityLabel)}</span>` : '') +
+      (m.price !== undefined ? `<span style="font-weight:700;color:#29231F;">💰 ${m.price > 0 ? `${m.price} MAD` : esc(ui.freeEntry)}</span>` : '') +
       (m.durationMinutes ? `<span>⏱️ ~${m.durationMinutes} min</span>` : '') +
       (m.openingHours ? `<span>🕒 ${esc(m.openingHours)}</span>` : '') +
       `</div>` +
       `</header>` +
       `<section style="margin:24px 0;font-size:16px;line-height:1.65;color:#374151;border-top:1px solid #E9D8C8;padding-top:20px;">` +
       `<p style="margin:0 0 16px;font-size:16px;line-height:1.6;">${esc(m.fullDescription || page.description)}</p>` +
-      (m.address ? `<p style="font-size:14px;color:#66757D;margin:0 0 16px;"><strong>Location:</strong> ${esc(m.address)}</p>` : '') +
+      (m.address ? `<p style="font-size:14px;color:#66757D;margin:0 0 16px;"><strong>${esc(ui.addressLabel)}:</strong> ${esc(m.address)}</p>` : '') +
       `</section>` +
       highlightsHtml +
       includedHtml +
       requirementsHtml +
       faqHtml +
-      `<section style="margin-top:36px;padding-top:24px;border-top:1px solid #E9D8C8;">` +
-      `<h3 style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#71685F;margin-bottom:12px;">Explore More in ${esc(m.city || 'Morocco')}</h3>` +
-      `<div style="display:flex;flex-wrap:wrap;gap:10px;">` +
-      `<a href="/finder/${citySlug}/things-to-do" style="padding:6px 14px;border-radius:20px;background:#FAF7F2;border:1px solid #E9D8C8;color:#29231F;font-size:12px;font-weight:600;text-decoration:none;">✨ Things to Do in ${esc(m.city || 'Morocco')}</a>` +
-      `<a href="/finder/${citySlug}/food" style="padding:6px 14px;border-radius:20px;background:#FAF7F2;border:1px solid #E9D8C8;color:#29231F;font-size:12px;font-weight:600;text-decoration:none;">🍽️ Food in ${esc(m.city || 'Morocco')}</a>` +
-      `<a href="/finder/${citySlug}/sleep" style="padding:6px 14px;border-radius:20px;background:#FAF7F2;border:1px solid #E9D8C8;color:#29231F;font-size:12px;font-weight:600;text-decoration:none;">🛏️ Stays in ${esc(m.city || 'Morocco')}</a>` +
-      `</div>` +
-      `</section>` +
+      cityExploreLinks +
       `<footer style="margin-top:36px;padding-top:20px;border-top:1px solid #E9D8C8;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:#71685F;">` +
-      `<a href="/" style="color:#C9A84C;font-weight:700;text-decoration:none;">Moroccan Mate Home</a>` +
-      `<span>© ${new Date().getFullYear()} Moroccan Mate Guide</span>` +
+      `<a href="${esc(homeUrl)}" style="color:#C9A84C;font-weight:700;text-decoration:none;">Moroccan Mate</a>` +
+      `<span>© ${new Date().getFullYear()} Moroccan Mate</span>` +
       `</footer>` +
       `</div>`;
   } else if (page.basePath === '/') {
@@ -281,7 +375,6 @@ for (const page of pages) {
       `</div>`;
   }
 
-  // Inject real content directly inside #root so Googlebot Chromium immediately parses it on first load
   let html = stripped.replace(/<html\s+lang="[^"]*"/i, `<html lang="${lang}" dir="${dir}"`);
   const rootMatch = /<div id="root"[^>]*>[\s\S]*?<\/div>/i;
   if (rootMatch.test(html)) {
@@ -296,7 +389,6 @@ for (const page of pages) {
   mkdirSync(dirname(file), { recursive: true });
   writeFileSync(file, html);
 
-  // Flat file for Vercel cleanUrls (e.g. /place/marrakech/food/al-fassia -> /place/marrakech/food/al-fassia.html)
   if (page.path !== '/') {
     const flatFile = join(dist, `${page.path.replace(/^\//, '')}.html`);
     mkdirSync(dirname(flatFile), { recursive: true });
@@ -307,7 +399,6 @@ for (const page of pages) {
 
 console.log(`[prerender] wrote ${count} pre-rendered pages into dist/`);
 
-// Ensure robots.txt and sitemap.xml are synced to dist
 try {
   copyFileSync(resolve(process.cwd(), 'public', 'robots.txt'), resolve(dist, 'robots.txt'));
   copyFileSync(resolve(process.cwd(), 'public', 'sitemap.xml'), resolve(dist, 'sitemap.xml'));

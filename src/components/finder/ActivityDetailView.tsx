@@ -4,7 +4,7 @@ import {
   MapPin, Clock, ThumbsUp, ThumbsDown,
   Navigation, CheckCircle2, ExternalLink,
   BookOpen, Star, Users, Languages, CalendarCheck,
-  Sparkles, Compass, Video, AlertCircle, ShieldAlert, Accessibility, Sun
+  Sparkles, Compass, Video, AlertCircle, ShieldAlert, Accessibility, Sun, ShieldCheck, HelpCircle, MessageSquareText
 } from 'lucide-react';
 import { cn } from '../../utils/cn';
 import { useSavedStore } from '../../state/savedStore';
@@ -13,6 +13,8 @@ import PlaceSavvyProfile from '../savvy/PlaceSavvyProfile';
 import WorriesSection from '../worries/WorriesSection';
 import { resolveThingsWorries } from '../../utils/worriesResolver';
 import ListingHeroHeader, { type HeroFeatureChip, type HeroMetadataItem } from './ListingHeroHeader';
+import ListingSectionNavigator, { type ListingNavigatorItem } from './ListingSectionNavigator';
+import { hasVerifiedReviews, hasVerifiedWorries } from './listingNavUtils';
 import PlaceReviewsSection from '../reviews/PlaceReviewsSection';
 import type { ReviewSource } from '../../types/reviews';
 
@@ -38,6 +40,7 @@ export default function ActivityDetailView({ item }: ActivityDetailViewProps) {
 
   // Active tab selection: 'experience', 'social', 'savvy'
   const [activeTab, setActiveTab] = useState<'experience' | 'social' | 'savvy'>('experience');
+  const [tabSyncId, setTabSyncId] = useState<string | undefined>(undefined);
   const [selectedReviewSource, setSelectedReviewSource] = useState<ReviewSource | null>(null);
   const [copiedLink, setCopiedLink] = useState(false);
 
@@ -108,6 +111,7 @@ export default function ActivityDetailView({ item }: ActivityDetailViewProps) {
     worries = ['not available'],
   } = item || {};
 
+  const resolvedThingsWorries = useMemo(() => resolveThingsWorries(worries), [worries]);
   const bookmarked = isBookmarked(id);
 
   const handleToggleBookmark = () => {
@@ -387,7 +391,6 @@ export default function ActivityDetailView({ item }: ActivityDetailViewProps) {
         activeReviewSource={selectedReviewSource}
         onSelectReviewSource={setSelectedReviewSource}
         features={heroFeatures}
-        className="mb-8"
         actions={{
           directionsUrl,
           directionsLabel: 'Get Directions',
@@ -403,12 +406,70 @@ export default function ActivityDetailView({ item }: ActivityDetailViewProps) {
         }}
       />
 
+      {/* Sticky Section Navigator */}
+      <ListingSectionNavigator
+        activeSectionOverride={tabSyncId}
+        items={[
+          {
+            id: 'worries',
+            label: 'Worries',
+            targetId: 'things-worries-section',
+            icon: <ShieldCheck className="w-4 h-4" />,
+            available: hasVerifiedWorries(resolvedThingsWorries),
+          },
+          {
+            id: 'experience',
+            label: 'Experience',
+            targetId: 'things-tab-experience',
+            fallbackTargetId: 'things-tabs-section',
+            icon: <Sparkles className="w-4 h-4" />,
+            onBeforeScroll: () => setActiveTab('experience'),
+            available: true,
+          },
+          {
+            id: 'social',
+            label: 'Tips & Q&A',
+            targetId: 'things-tab-social',
+            fallbackTargetId: 'things-tabs-section',
+            icon: <HelpCircle className="w-4 h-4" />,
+            onBeforeScroll: () => setActiveTab('social'),
+            available: true,
+          },
+          {
+            id: 'savvy',
+            label: 'Savvy Score',
+            targetId: 'things-tab-savvy',
+            fallbackTargetId: 'things-tabs-section',
+            icon: <ShieldAlert className="w-4 h-4" />,
+            onBeforeScroll: () => setActiveTab('savvy'),
+            available: true,
+          },
+          {
+            id: 'practical',
+            label: 'Prices & Hours',
+            targetId: 'things-practical-section',
+            icon: <Clock className="w-4 h-4" />,
+            isSideColumnDesktop: true,
+            available: true,
+          },
+          {
+            id: 'reviews',
+            label: 'Reviews',
+            targetId: 'things-reviews-section',
+            icon: <MessageSquareText className="w-4 h-4" />,
+            available: hasVerifiedReviews(item?.reviewsData),
+          },
+        ] satisfies ListingNavigatorItem[]}
+      />
+
       {/* Main Grid Layout: left detail column, right interactive booking panel */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 space-y-8">
         {/* "Things You're Worried About!" — placed right under upper part of page */}
-        <WorriesSection
-          worries={resolveThingsWorries(worries)}
-        />
+        {hasVerifiedWorries(resolvedThingsWorries) && (
+          <div id="things-worries-section">
+            <WorriesSection worries={resolvedThingsWorries} />
+          </div>
+        )}
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         
@@ -416,11 +477,14 @@ export default function ActivityDetailView({ item }: ActivityDetailViewProps) {
         <div className="lg:col-span-8 space-y-8">
           
           {/* Dynamic Interactive Navigation Tabs (Aesthetic Pairings) */}
-          <div className="flex border-b border-stone-200 overflow-x-auto whitespace-nowrap">
+          <div id="things-tabs-section" className="flex border-b border-stone-200 overflow-x-auto whitespace-nowrap">
             {(['experience', 'social', 'savvy'] as const).map((tab) => (
               <button
                 key={tab}
-                onClick={() => setActiveTab(tab)}
+                onClick={() => {
+                  setActiveTab(tab);
+                  setTabSyncId(tab);
+                }}
                 className={cn(
                   "py-4 px-6 text-sm font-bold tracking-wider uppercase border-b-2 transition-all cursor-pointer flex-shrink-0",
                   activeTab === tab
@@ -439,6 +503,7 @@ export default function ActivityDetailView({ item }: ActivityDetailViewProps) {
           <AnimatePresence mode="wait">
             {activeTab === 'experience' && (
               <motion.div
+                id="things-tab-experience"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0 }}
@@ -594,6 +659,7 @@ export default function ActivityDetailView({ item }: ActivityDetailViewProps) {
           <AnimatePresence mode="wait">
             {activeTab === 'social' && (
               <motion.div
+                id="things-tab-social"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0 }}
@@ -667,6 +733,7 @@ export default function ActivityDetailView({ item }: ActivityDetailViewProps) {
           <AnimatePresence mode="wait">
             {activeTab === 'savvy' && (
               <motion.div
+                id="things-tab-savvy"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0 }}
@@ -680,7 +747,7 @@ export default function ActivityDetailView({ item }: ActivityDetailViewProps) {
         </div>
 
         {/* Right Cost & Logistics Sidebar (Levels E, F, H, M) */}
-        <div className="lg:col-span-4 space-y-6">
+        <div id="things-practical-section" className="lg:col-span-4 space-y-6">
           
           {/* Level E - Cost Card */}
           <div className="bg-white border border-stone-200 rounded-[32px] p-6 shadow-sm">
@@ -901,13 +968,17 @@ export default function ActivityDetailView({ item }: ActivityDetailViewProps) {
       </div>
 
       {/* Multi-platform Traveler Reviews & Community Intelligence (strictly hidden until populated) */}
-      <PlaceReviewsSection
-        reviewsData={item?.reviewsData}
-        placeName={name}
-        category="things-to-do"
-        externalSelectedSource={selectedReviewSource}
-        onSelectedSourceChange={setSelectedReviewSource}
-      />
+      {hasVerifiedReviews(item?.reviewsData) && (
+        <div id="things-reviews-section">
+          <PlaceReviewsSection
+            reviewsData={item?.reviewsData}
+            placeName={name}
+            category="things-to-do"
+            externalSelectedSource={selectedReviewSource}
+            onSelectedSourceChange={setSelectedReviewSource}
+          />
+        </div>
+      )}
       </div>
     </motion.div>
   );

@@ -28,79 +28,6 @@
  * - crowdLevel:         'quiet' | 'balanced' | 'bustling'
  * - badge:              'local' | 'splurge' | 'hidden-gem' | 'local-favorite' | 'tourist-trap'
  * - archetypeAffinity:  'luxury' | 'first-timer' | 'culture' | 'nomad' | 'adventure' | 'budget'
- *
- * 3-SECTION COPY-PASTE TEMPLATE (QUIZ, FILTER, UI):
- * {
- *   id: 'e-marrakech-[id]',
- *   city: 'marrakech',
- *
- *   // ── 1. QUIZ (personalization, mood & matching) ──
- *   quiz: {
- *     lifestyle: 'balanced',
- *     groupTypes: ['solo', 'couple', 'family', 'friends'],
- *     mealTypes: ['lunch', 'dinner'],
- *     experienceTypes: ['casual', 'traditional'],
- *     foodStyles: ['Moroccan'],
- *     cuisineTags: ['moroccan-traditional'],
- *     archetypeAffinity: ['first-timer'],
- *     vibeTags: ['authentic'],
- *     crowdLevel: 'balanced'
- *   },
- *
- *   // ── 2. FILTER (search criteria, dietary rules, logistics & flags) ──
- *   filter: {
- *     pricePerPerson: 15,
- *     isHalal: true,
- *     halalStatus: 'likely-halal-food',
- *     isVegetarianFriendly: false,
- *     servesAlcohol: false,
- *     alcoholPolicy: 'dry',
- *     hasDelivery: false,
- *     hasParking: false,
- *     nearMedina: true,
- *     nearBeach: false,
- *     nearCenter: true,
- *     hasEnglishStaff: true,
- *     hasFrenchStaff: true,
- *     ramadanFriendly: 'serves-lunch',
- *     closedDays: [],
- *     seatingTypes: ['indoor'],
- *     paymentMethods: ['cash'],
- *     tags: ['moroccan', 'halal', 'lunch', 'dinner'],
- *     isHiddenGem: false,
- *     isTemporarilyHidden: false,
- *     verificationStatus: 'verified'
- *   },
- *
- *   // ── 3. UI (presentation, stories, ratings, contacts & plates) ──
- *   ui: {
- *     name: '',
- *     neighborhood: '',
- *     description: '',
- *     tip: '',
- *     badge: 'local-favorite',
- *     bestDishes: [],
- *     pros: [],
- *     cons: [],
- *     googleRating: 4.5,
- *     googleReviewCount: 100,
- *     tripadvisorRating: 4.5,
- *     tripadvisorReviewCount: 100,
- *     theforkRating: 4.5,
- *     theforkReviewCount: 50,
- *     restaurantguruRating: 4.5,
- *     restaurantguruReviewCount: 100,
- *     openTime: '11:00',
- *     closeTime: '23:00',
- *     googleMapsUrl: 'https://maps.google.com/?q=',
- *     reservationMethod: ['walk-in'],
- *     reservationContact: '',
- *     bookingUrl: '',
- *     whatsappNumber: '',
- *     website: 'not-available',
- *     instagram: 'not-available'
- *   }
- * }
  * =========================================================================
  */
 
@@ -108,29 +35,27 @@ import type { EatListing } from '../types';
 
 export const marrakechEat: EatListing[] = [
   {
-    id: "m-eat-1",
+    id: "e-marrakech-1",
     city: "marrakech",
 
-    // ── 1. QUIZ (personalization & recommendation matching) ──
+    // ── 1. QUIZ (personalization, mood & matching) ──
     quiz: {
       lifestyle: "balanced",
       groupTypes: ["couple", "family", "friends"],
       mealTypes: ["lunch", "dinner", "afternoon-tea"],
-      experienceTypes: [
-        "Casual Dining",
-        "Romantic Sunset",
-        "Garden restaurant with live music",
-        "Fountain courtyard"
-      ],
-      foodStyles: ["Moroccan", "Mediterranean", "European"],
+      experienceTypes: ["casual", "traditional"],
+      foodStyles: ["Moroccan", "Mediterranean", "Tagine & Couscous"],
       cuisineTags: ["moroccan-traditional", "international"],
+      archetypeAffinity: ["first-timer", "culture"],
+      vibeTags: ["botanical-courtyard", "riad", "shaded"],
       crowdLevel: "bustling"
     },
 
-    // ── 2. FILTER (search criteria, dietary rules & flags) ──
+    // ── 2. FILTER (search criteria, dietary rules, logistics & flags) ──
     filter: {
       pricePerPerson: 18,
       isHalal: true,
+      halalStatus: "likely-halal-food",
       isVegetarianFriendly: true,
       servesAlcohol: false,
       alcoholPolicy: "dry",
@@ -142,10 +67,10 @@ export const marrakechEat: EatListing[] = [
       hasEnglishStaff: true,
       hasFrenchStaff: true,
       ramadanFriendly: "special-ftour",
-      seatingTypes: ["indoor", "garden", "terrace"],
-      paymentMethods: ["cash", "card"],
+      closedDays: [],
+      seatingTypes: ["indoor", "courtyard", "terrace"],
+      paymentMethods: ["cash", "credit_card"],
       tags: [
-        "budget",
         "dinner",
         "dry",
         "live-music",
@@ -157,16 +82,19 @@ export const marrakechEat: EatListing[] = [
         "terrace",
         "wifi"
       ],
+      isHiddenGem: false,
+      isTemporarilyHidden: false,
+      verificationStatus: "verified",
       wiFi: true,
       airConditioning: false,
       wheelchairAccessible: false
     },
 
-    // ── 3. UI (presentation, reviews, dishes & contacts) ──
+    // ── 3. UI (presentation, stories, ratings, contacts & plates) ──
     ui: {
       name: "Le Jardin",
-      neighborhood: "Medina",
-      description: "A beautifully restored 16th-century riad transformed into a lush green garden oasis. Serves a lovely mix of classic Moroccan dishes and light international fare in a serene, plant-filled courtyard.",
+      neighborhood: "Mouassine",
+      description: "A beautifully restored 16th-century riad transformed into a lush green garden oasis in Mouassine. Serves a lovely mix of classic Moroccan dishes and light international fare in a serene, plant-filled courtyard.",
       tip: "Strictly dry (no alcohol served). Courtyard is completely shaded and cool, making it ideal to escape midday heat in the souks.",
       badge: "local-favorite",
       bestDishes: [
@@ -317,12 +245,12 @@ export const marrakechEat: EatListing[] = [
       openTime: "10:00",
       closeTime: "23:00",
       googleMapsUrl: "https://maps.google.com/?q=Le+Jardin+Marrakech",
-      reservationMethod: ["online", "phone"],
+      reservationMethod: ["website", "phone"],
       reservationContact: "+212524378295",
       whatsappNumber: "+212524378295",
       bookingUrl: "https://lejardinmarrakech.com",
       website: "https://lejardinmarrakech.com",
-      instagram: "lejardinmarrakech",
+      instagram: "https://instagram.com/lejardinmarrakech",
       viewType: "garden",
       bestTimeToVisit: "Lunch around 13:00 for quiet",
       googlePlaceId: "ChIJ_1XbVGjurw0RHNXyrVPvcwc",
@@ -474,24 +402,27 @@ export const marrakechEat: EatListing[] = [
   },
 
   {
-    id: "m-eat-2",
+    id: "e-marrakech-2",
     city: "marrakech",
 
-    // ── 1. QUIZ (personalization & recommendation matching) ──
+    // ── 1. QUIZ (personalization, mood & matching) ──
     quiz: {
       lifestyle: "balanced",
       groupTypes: ["solo", "couple", "friends"],
       mealTypes: ["lunch", "brunch"],
-      experienceTypes: ["Casual Dining", "Tranquil Dining", "Cafe"],
-      foodStyles: ["Mediterranean", "Healthy"],
+      experienceTypes: ["casual", "hidden-gem", "cafes-tea"],
+      foodStyles: ["Mediterranean", "Vegetarian/Vegan", "Italian"],
       cuisineTags: ["international"],
+      archetypeAffinity: ["culture", "nomad", "first-timer"],
+      vibeTags: ["lemon-trees", "organic", "vegetarian-oasis"],
       crowdLevel: "balanced"
     },
 
-    // ── 2. FILTER (search criteria, dietary rules & flags) ──
+    // ── 2. FILTER (search criteria, dietary rules, logistics & flags) ──
     filter: {
       pricePerPerson: 16,
       isHalal: true,
+      halalStatus: "likely-halal-food",
       isVegetarianFriendly: true,
       servesAlcohol: false,
       alcoholPolicy: "dry",
@@ -503,25 +434,37 @@ export const marrakechEat: EatListing[] = [
       hasEnglishStaff: true,
       hasFrenchStaff: true,
       ramadanFriendly: "serves-lunch",
-      seatingTypes: ["garden"],
+      closedDays: ["sunday"],
+      seatingTypes: ["courtyard", "outdoor"],
       paymentMethods: ["cash"],
-      tags: ["breakfast", "budget", "cafe-pastry", "dry", "medina"],
+      tags: ["lunch", "brunch", "vegetarian", "cafe-pastry", "dry", "medina"],
+      isHiddenGem: true,
+      isTemporarilyHidden: false,
+      verificationStatus: "verified",
       wiFi: false,
       airConditioning: false,
       wheelchairAccessible: false
     },
 
-    // ── 3. UI (presentation, reviews, dishes & contacts) ──
+    // ── 3. UI (presentation, stories, ratings, contacts & plates) ──
     ui: {
       name: "La Famille",
-      neighborhood: "Medina",
-      description: "An incredibly popular, chic vegetarian garden lunch spot. Hidden away in a quiet alley, it offers daily-changing Mediterranean menus with fresh, organic ingredients under lemon trees.",
+      neighborhood: "Mellah",
+      description: "An incredibly popular, chic vegetarian garden lunch spot at 42 Riad Zitoun Jdid near Bahia Palace and the Mellah border. Hidden away in a quiet alley, it offers daily-changing Mediterranean menus with fresh, organic ingredients under lemon trees.",
       tip: "Lunch service only, closed on Sundays, and 100% vegetarian. Book online several days in advance as seating is scarce.",
       badge: "hidden-gem",
       bestDishes: [
         "Fresh Fig and Goat Cheese Salad",
         "Daily Homemade Pasta",
         "Organic Orange Blossom Tart"
+      ],
+      pros: [
+        "100% vegetarian daily-changing organic menu made from scratch",
+        "Tranquil lemon-tree garden oasis away from busy alleys"
+      ],
+      cons: [
+        "Lunch only (12:00–16:00), closed Sundays, and cash only",
+        "Advance online reservation is essential"
       ],
       googleRating: 4.3,
       googleReviewCount: 1650,
@@ -534,7 +477,12 @@ export const marrakechEat: EatListing[] = [
       openTime: "12:00",
       closeTime: "16:00",
       googleMapsUrl: "https://maps.google.com/?q=La+Famille+Marrakech",
-      reservationMethod: ["online"],
+      reservationMethod: ["website"],
+      reservationContact: "",
+      bookingUrl: "https://lafamillemarrakech.com",
+      whatsappNumber: "",
+      website: "https://lafamillemarrakech.com",
+      instagram: "https://instagram.com/lafamillemarrakech",
       viewType: "garden",
       bestTimeToVisit: "Lunch around 13:00 for quiet",
       averageWaitMinutes: 0,
@@ -588,33 +536,31 @@ export const marrakechEat: EatListing[] = [
         state: "verified"
       }
     ],
-    // Multi-platform reviews holder (hidden on UI until populated)
-    reviewsData: { sources: [], reviews: [] },
+    reviewsData: { sources: [], reviews: [] }
   },
 
   {
-    id: "m-eat-3",
+    id: "e-marrakech-3",
     city: "marrakech",
 
-    // ── 1. QUIZ (personalization & recommendation matching) ──
+    // ── 1. QUIZ (personalization, mood & matching) ──
     quiz: {
       lifestyle: "balanced",
       groupTypes: ["solo", "couple", "family", "friends"],
       mealTypes: ["lunch", "dinner"],
-      experienceTypes: [
-        "Traditional Dining",
-        "Cozy casual family-run Moroccan eatery",
-        "Local Gathering Spot"
-      ],
-      foodStyles: ["Moroccan"],
+      experienceTypes: ["traditional", "casual", "street-food"],
+      foodStyles: ["Moroccan", "Grill & BBQ"],
       cuisineTags: ["moroccan-traditional"],
+      archetypeAffinity: ["culture", "adventure", "budget"],
+      vibeTags: ["mechoui-alley", "historic", "rustic"],
       crowdLevel: "bustling"
     },
 
-    // ── 2. FILTER (search criteria, dietary rules & flags) ──
+    // ── 2. FILTER (search criteria, dietary rules, logistics & flags) ──
     filter: {
       pricePerPerson: 10,
       isHalal: true,
+      halalStatus: "likely-halal-food",
       isVegetarianFriendly: false,
       servesAlcohol: false,
       alcoholPolicy: "dry",
@@ -626,15 +572,19 @@ export const marrakechEat: EatListing[] = [
       hasEnglishStaff: false,
       hasFrenchStaff: true,
       ramadanFriendly: "special-ftour",
+      closedDays: [],
       seatingTypes: ["indoor", "rooftop"],
       paymentMethods: ["cash"],
       tags: ["budget", "dinner", "dry", "medina", "rooftop", "tanjia"],
+      isHiddenGem: false,
+      isTemporarilyHidden: false,
+      verificationStatus: "verified",
       wiFi: false,
       airConditioning: false,
       wheelchairAccessible: false
     },
 
-    // ── 3. UI (presentation, reviews, dishes & contacts) ──
+    // ── 3. UI (presentation, stories, ratings, contacts & plates) ──
     ui: {
       name: "Chez Lamine Hadj Mustapha",
       neighborhood: "Jemaa el-Fna",
@@ -645,6 +595,14 @@ export const marrakechEat: EatListing[] = [
         "Mechoui (Pit-Roasted Lamb)",
         "Tanjia Marrakchia",
         "Traditional Khobz"
+      ],
+      pros: [
+        "Iconic Mechoui Alley institution for pit-roasted lamb and clay-pot tanjia",
+        "Rich, authentic Marrakchi flavors"
+      ],
+      cons: [
+        "Sold by weight—confirm price and portion size beforehand",
+        "Best lamb cuts sell out early; cash only and rustic setting"
       ],
       googleRating: 3.7,
       googleReviewCount: 3420,
@@ -657,8 +615,12 @@ export const marrakechEat: EatListing[] = [
       openTime: "11:30",
       closeTime: "21:30",
       googleMapsUrl: "https://maps.google.com/?q=Chez+Lamine+Hadj+Mustapha+Marrakech",
-      reservationMethod: ["none"],
+      reservationMethod: ["walk-in"],
       reservationContact: "+212662022080",
+      bookingUrl: "",
+      whatsappNumber: "",
+      website: "not-available",
+      instagram: "not-available",
       viewType: "none",
       bestTimeToVisit: "Lunch around 13:00 for quiet",
       averageWaitMinutes: 10,
@@ -712,29 +674,31 @@ export const marrakechEat: EatListing[] = [
         state: "verified"
       }
     ],
-    // Multi-platform reviews holder (hidden on UI until populated)
-    reviewsData: { sources: [], reviews: [] },
+    reviewsData: { sources: [], reviews: [] }
   },
 
   {
-    id: "m-eat-4",
+    id: "e-marrakech-4",
     city: "marrakech",
 
-    // ── 1. QUIZ (personalization & recommendation matching) ──
+    // ── 1. QUIZ (personalization, mood & matching) ──
     quiz: {
       lifestyle: "lean",
       groupTypes: ["solo", "couple", "family", "friends"],
-      mealTypes: ["breakfast", "lunch", "dinner", "flexible"],
-      experienceTypes: ["Cafe", "Sunset Views", "Casual Dining", "People Watching"],
-      foodStyles: ["Moroccan", "Mediterranean", "Cafe"],
+      mealTypes: ["breakfast", "lunch", "dinner", "afternoon-tea", "flexible"],
+      experienceTypes: ["cafes-tea", "rooftop", "casual"],
+      foodStyles: ["Moroccan", "Mediterranean", "Cafe & Pastry"],
       cuisineTags: ["moroccan-traditional", "international", "cafe-pastry"],
+      archetypeAffinity: ["first-timer", "budget", "nomad"],
+      vibeTags: ["spice-square", "sunset-terrace", "people-watching"],
       crowdLevel: "bustling"
     },
 
-    // ── 2. FILTER (search criteria, dietary rules & flags) ──
+    // ── 2. FILTER (search criteria, dietary rules, logistics & flags) ──
     filter: {
       pricePerPerson: 8,
       isHalal: true,
+      halalStatus: "likely-halal-food",
       isVegetarianFriendly: true,
       servesAlcohol: false,
       alcoholPolicy: "dry",
@@ -746,8 +710,9 @@ export const marrakechEat: EatListing[] = [
       hasEnglishStaff: true,
       hasFrenchStaff: true,
       ramadanFriendly: "special-ftour",
+      closedDays: [],
       seatingTypes: ["indoor", "rooftop", "terrace"],
-      paymentMethods: ["cash", "card"],
+      paymentMethods: ["cash", "credit_card"],
       tags: [
         "breakfast",
         "budget",
@@ -763,22 +728,33 @@ export const marrakechEat: EatListing[] = [
         "terrace",
         "wifi"
       ],
+      isHiddenGem: false,
+      isTemporarilyHidden: false,
+      verificationStatus: "verified",
       wiFi: true,
       airConditioning: false,
       wheelchairAccessible: false
     },
 
-    // ── 3. UI (presentation, reviews, dishes & contacts) ──
+    // ── 3. UI (presentation, stories, ratings, contacts & plates) ──
     ui: {
       name: "Café des Épices",
-      neighborhood: "Medina / Rahba Kedima",
-      description: "The iconic multi-story rooftop cafe in the Medina, located right on the bustling Rahba Kedima (Spice Square). Perfect for market views, spice stalls, and Atlas Mountains panoramas.",
+      neighborhood: "Mouassine",
+      description: "The iconic multi-story rooftop cafe in the Medina, located right on bustling Rahba Kedima (Spice Square) adjacent to Mouassine. Perfect for market views, spice stalls, and Atlas Mountains panoramas.",
       tip: "Walk-ins only. Head up to the second or top rooftop terrace just before sunset for sweeping views over Rahba Kedima.",
       badge: "local-favorite",
       bestDishes: [
         "Kefta Egg Tagine",
         "Spice Square Juice (Ginger & Orange)",
         "Saffron Spiced Coffee"
+      ],
+      pros: [
+        "Iconic sunset terrace overlooking Rahba Kedima (Spice Square)",
+        "Affordable drinks, spiced coffees, and light Moroccan cafe classics"
+      ],
+      cons: [
+        "Walk-in only; top terrace fills quickly at sunset",
+        "No air conditioning; stairs to upper decks"
       ],
       googleRating: 4.2,
       googleReviewCount: 7150,
@@ -791,8 +767,12 @@ export const marrakechEat: EatListing[] = [
       openTime: "09:00",
       closeTime: "23:00",
       googleMapsUrl: "https://maps.google.com/?q=Cafe+des+Epices+Marrakech",
-      reservationMethod: ["none"],
+      reservationMethod: ["walk-in"],
       reservationContact: "+212662564134",
+      bookingUrl: "",
+      whatsappNumber: "",
+      website: "https://cafedesepices.ma",
+      instagram: "https://instagram.com/cafedesepicesmarrakech",
       viewType: "city",
       bestTimeToVisit: "Early evening around 18:30 for sunset",
       averageWaitMinutes: 10,
@@ -846,29 +826,31 @@ export const marrakechEat: EatListing[] = [
         state: "verified"
       }
     ],
-    // Multi-platform reviews holder (hidden on UI until populated)
-    reviewsData: { sources: [], reviews: [] },
+    reviewsData: { sources: [], reviews: [] }
   },
 
   {
-    id: "m-eat-5",
+    id: "e-marrakech-5",
     city: "marrakech",
 
-    // ── 1. QUIZ (personalization & recommendation matching) ──
+    // ── 1. QUIZ (personalization, mood & matching) ──
     quiz: {
       lifestyle: "balanced",
       groupTypes: ["couple", "friends", "family"],
       mealTypes: ["lunch", "dinner"],
-      experienceTypes: ["Modern Fusion Dining", "Sunset Views", "Fine Dining"],
-      foodStyles: ["Moroccan", "Mediterranean"],
+      experienceTypes: ["rooftop", "fine-dining", "casual"],
+      foodStyles: ["Moroccan", "Mediterranean", "French-Moroccan"],
       cuisineTags: ["moroccan-traditional", "international"],
+      archetypeAffinity: ["first-timer", "culture", "nomad"],
+      vibeTags: ["modern-maghrebi", "dual-rooftop", "chic"],
       crowdLevel: "bustling"
     },
 
-    // ── 2. FILTER (search criteria, dietary rules & flags) ──
+    // ── 2. FILTER (search criteria, dietary rules, logistics & flags) ──
     filter: {
       pricePerPerson: 20,
       isHalal: true,
+      halalStatus: "likely-halal-food",
       isVegetarianFriendly: true,
       servesAlcohol: false,
       alcoholPolicy: "dry",
@@ -880,10 +862,10 @@ export const marrakechEat: EatListing[] = [
       hasEnglishStaff: true,
       hasFrenchStaff: true,
       ramadanFriendly: "special-ftour",
+      closedDays: [],
       seatingTypes: ["indoor", "rooftop", "terrace"],
-      paymentMethods: ["cash", "card"],
+      paymentMethods: ["cash", "credit_card"],
       tags: [
-        "budget",
         "dinner",
         "dry",
         "fine",
@@ -893,22 +875,33 @@ export const marrakechEat: EatListing[] = [
         "terrace",
         "wifi"
       ],
+      isHiddenGem: false,
+      isTemporarilyHidden: false,
+      verificationStatus: "verified",
       wiFi: true,
       airConditioning: true,
       wheelchairAccessible: false
     },
 
-    // ── 3. UI (presentation, reviews, dishes & contacts) ──
+    // ── 3. UI (presentation, stories, ratings, contacts & plates) ──
     ui: {
       name: "Nomad",
-      neighborhood: "Medina / Rahba Kedima",
-      description: "A trendy, internationally acclaimed multi-level restaurant with chic modern-Moroccan design. Offers dual rooftop terraces overlooking Spice Square serving inventive Maghrebi-fusion plates.",
+      neighborhood: "Mouassine",
+      description: "A trendy, internationally acclaimed multi-level restaurant with chic modern-Moroccan design overlooking Rahba Kedima beside Mouassine. Offers dual rooftop terraces serving inventive Maghrebi-fusion plates.",
       tip: "Book 1-2 weeks in advance for top terrace tables at sunset. Completely dry; serves signature infused mocktails.",
       badge: "local-favorite",
       bestDishes: [
         "Lamb Burger with Harissa Mayo",
         "Spiced Calamari",
         "Saffron Scented Orange Cake"
+      ],
+      pros: [
+        "Stylish modern-Moroccan fusion menu and dual rooftop terraces",
+        "Reliable service, AC indoor floors, and seamless card payment"
+      ],
+      cons: [
+        "Must book 1–2 weeks in advance for sunset rooftop seating",
+        "Strictly dry (no alcohol served)"
       ],
       googleRating: 4,
       googleReviewCount: 7530,
@@ -921,11 +914,12 @@ export const marrakechEat: EatListing[] = [
       openTime: "12:00",
       closeTime: "23:00",
       googleMapsUrl: "https://maps.google.com/?q=Nomad+Marrakech",
-      reservationMethod: ["online", "phone"],
+      reservationMethod: ["website", "phone"],
       reservationContact: "+212524381609",
       bookingUrl: "https://nomadmarrakech.com",
+      whatsappNumber: "",
       website: "https://nomadmarrakech.com",
-      instagram: "nomadmarrakech",
+      instagram: "https://instagram.com/nomadmarrakech",
       viewType: "city",
       bestTimeToVisit: "Early evening around 18:30 for sunset",
       averageWaitMinutes: 20,
@@ -979,29 +973,31 @@ export const marrakechEat: EatListing[] = [
         state: "verified"
       }
     ],
-    // Multi-platform reviews holder (hidden on UI until populated)
-    reviewsData: { sources: [], reviews: [] },
+    reviewsData: { sources: [], reviews: [] }
   },
 
   {
-    id: "m-eat-6",
+    id: "e-marrakech-6",
     city: "marrakech",
 
-    // ── 1. QUIZ (personalization & recommendation matching) ──
+    // ── 1. QUIZ (personalization, mood & matching) ──
     quiz: {
       lifestyle: "premium",
       groupTypes: ["couple", "family", "seniors", "business-friendly"],
       mealTypes: ["lunch", "dinner"],
-      experienceTypes: ["Fine Dining", "Traditional Dining", "Upscale Lounge"],
-      foodStyles: ["Moroccan", "Gourmet"],
-      cuisineTags: ["moroccan-traditional", "international"],
+      experienceTypes: ["fine-dining", "traditional"],
+      foodStyles: ["Moroccan", "Tagine & Couscous"],
+      cuisineTags: ["moroccan-traditional"],
+      archetypeAffinity: ["culture", "first-timer", "luxury"],
+      vibeTags: ["refined", "authentic", "warm", "hospitable"],
       crowdLevel: "balanced"
     },
 
-    // ── 2. FILTER (search criteria, dietary rules & flags) ──
+    // ── 2. FILTER (search criteria, dietary rules, logistics & flags) ──
     filter: {
       pricePerPerson: 28,
       isHalal: true,
+      halalStatus: "halal-certified",
       isVegetarianFriendly: true,
       servesAlcohol: true,
       alcoholPolicy: "serves-alcohol",
@@ -1012,54 +1008,260 @@ export const marrakechEat: EatListing[] = [
       nearCenter: true,
       hasEnglishStaff: true,
       hasFrenchStaff: true,
-      ramadanFriendly: "serves-lunch",
+      ramadanFriendly: "special-ftour",
+      closedDays: ["tuesday"],
       seatingTypes: ["indoor", "terrace"],
-      paymentMethods: ["cash", "card"],
-      tags: [
-        "alcohol",
-        "budget",
-        "dinner",
-        "fine",
-        "pastilla",
-        "tagine",
-        "terrace",
-        "wifi"
-      ],
+      paymentMethods: ["credit_card", "cash", "visa", "mastercard"],
+      tags: ["alcohol", "dinner", "fine", "pastilla", "tagine", "terrace", "couscous", "wifi"],
+      isHiddenGem: false,
+      isTemporarilyHidden: false,
+      verificationStatus: "verified",
       wiFi: true,
       airConditioning: true,
       wheelchairAccessible: true
     },
 
-    // ── 3. UI (presentation, reviews, dishes & contacts) ──
+    // ── 3. UI (presentation, stories, ratings, contacts & plates) ──
     ui: {
-      name: "Al Fassia",
+      name: "Al Fassia Guéliz",
       neighborhood: "Guéliz",
-      description: "One of Marrakech’s most respected dining institutions, operated entirely by women since 1987. Specializes in exquisite, slow-cooked tagines and stews preserving the authentic culinary heritage of Fes.",
-      tip: "Closed on Tuesdays. Features a full licensed Moroccan wine list. Dishes like the shoulder of lamb for two require calling 24h ahead.",
+      description: "Marrakech's premier gastronomic sanctuary for authentic Fassi cuisine, proudly operated exclusively by women since 1987. Famed for its legendary 12-salad mezze assortment, sweet-and-savory pigeon and seafood pastillas, slow-roasted shoulder of lamb, and rich slow-simmered beef tagines.",
+      tip: "Closed on Tuesdays. The signature slow-roasted shoulder of lamb for two (Épaule d'agneau M'Hammar) is a masterpiece; book a table 24–48 hours ahead as the restaurant fills quickly.",
       badge: "local-favorite",
       bestDishes: [
-        "Lamb Tagine with Caramelized Onions",
-        "Royal Pigeon Pastilla",
-        "Assortment of 12 Moroccan Salads"
+        "Sélection de 12 Salades Marocaines Fines",
+        "Pastilla au Pigeon ou au Poulet",
+        "Épaule d'Agneau Rôtie M'Hammar",
+        "Tagine d'Agneau aux Pruneaux & Amandes",
+        "Tagine Makfoul",
+        "Mhancha Al Fassia & Glace Vanille"
+      ],
+      pros: [
+        "Trailblazing cooperative run exclusively by women with exquisite culinary standards",
+        "Arguably the most refined authentic Moroccan and Fassi cuisine in the city",
+        "Licensed wine list featuring excellent Moroccan reds and crisp local gris",
+        "Comfortable, tranquil dining room away from the hustle of the Medina souks"
+      ],
+      cons: [
+        "Closed all day Tuesday",
+        "Advance reservation required for dinner and for specialty dishes like whole lamb shoulder"
       ],
       googleRating: 4.5,
-      googleReviewCount: 3410,
+      googleReviewCount: 3540,
       tripadvisorRating: 4.5,
-      tripadvisorReviewCount: 2400,
+      tripadvisorReviewCount: 2450,
       theforkRating: 4.5,
-      theforkReviewCount: 520,
+      theforkReviewCount: 530,
       restaurantguruRating: 4.8,
-      restaurantguruReviewCount: 3400,
-      openTime: "17:00",
+      restaurantguruReviewCount: 3540,
+      openTime: "12:30",
       closeTime: "23:00",
-      googleMapsUrl: "https://maps.google.com/?q=Al+Fassia+Gueliz",
-      reservationMethod: ["phone", "online"],
+      weeklySchedule: [
+        { day: "Monday", openTime: "12:30", closeTime: "23:00", isClosed: false },
+        { day: "Tuesday", openTime: "12:30", closeTime: "23:00", isClosed: true, note: "Fermé le mardi" },
+        { day: "Wednesday", openTime: "12:30", closeTime: "23:00", isClosed: false },
+        { day: "Thursday", openTime: "12:30", closeTime: "23:00", isClosed: false },
+        { day: "Friday", openTime: "12:30", closeTime: "23:00", isClosed: false },
+        { day: "Saturday", openTime: "12:30", closeTime: "23:00", isClosed: false },
+        { day: "Sunday", openTime: "12:30", closeTime: "23:00", isClosed: false }
+      ],
+      exactAddressAndCoordinates: {
+        address: "55 Boulevard Mohamed Zerktouni, Guéliz, Marrakech 40000, Morocco",
+        lat: 31.6342,
+        lng: -8.0128
+      },
+      address: "55 Boulevard Mohamed Zerktouni, Guéliz, Marrakech 40000, Morocco",
+      coordinates: {
+        lat: 31.6342,
+        lng: -8.0128
+      },
+      googleMapsUrl: "https://maps.google.com/?q=Al+Fassia+Gueliz+Marrakech",
+      reservationMethod: ["phone", "website"],
       reservationContact: "+212524434060",
+      whatsappNumber: "",
+      bookingUrl: "https://alfassia.com/gueliz/",
+      website: "https://alfassia.com",
+      instagram: "https://instagram.com/alfassiamarrakech",
       viewType: "none",
       bestTimeToVisit: "Late evening after 20:00 for lively crowd",
       averageWaitMinutes: 10,
       googlePlaceId: "ChIJlWv0_m3urw0R5D-k0eQZ1xA",
-      nonCopyrightImage: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80"
+      nonCopyrightImage: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80",
+      languagesSpoken: ["French", "Arabic/Darija", "English"],
+      menu: {
+        currency: "MAD",
+        lastUpdated: "November 2026",
+        serviceChargeIncluded: true,
+        sections: [
+          {
+            id: "entrees-salades-fassies",
+            title: "Salades Fines & Entrées Royales (Salads & Appetizers)",
+            description: "Assortiments de salades cuisinées de Fès et potages traditionnels",
+            items: [
+              {
+                id: "fassia-12-salades",
+                name: "Sélection de 12 Salades Marocaines Fines",
+                localName: "تشكيلة 12 سلطة مغربية تقليدية متبلة بالبهارات الفاسية",
+                translations: {
+                  ar: "تشكيلة 12 سلطة مغربية تقليدية متبلة بالبهارات الفاسية",
+                  en: "Legendary tasting assortment of 12 distinct cooked Moroccan salads and dips",
+                  es: "Gran surtido de degustación de 12 ensaladas marroquíes cocinadas tradicionales",
+                  de: "Legendäre Auswahl von 12 verschiedenen traditionellen marokkanischen Gemüsesalaten"
+                },
+                price: 120,
+                isSignature: true,
+                dietary: ["vegetarian", "vegan", "halal"],
+                portionNotes: "Idéal pour 2 personnes en entrée"
+              },
+              {
+                id: "fassia-cocktail-briouates",
+                name: "Cocktail de Briouates Al Fassia (4 pièces)",
+                localName: "تشكيلة بريوات مقرمشة باللحم المفروم والسمك والسبانخ والجبن",
+                translations: {
+                  ar: "تشكيلة بريوات مقرمشة باللحم المفروم والسمك والسبانخ والجبن",
+                  en: "Crispy filo pastry parcels filled with spiced minced beef, fish, and spinach-cheese",
+                  es: "Surtido de briouats crujientes de pasta filo rellenos de carne picada, pescado y espinacas",
+                  de: "Knusprige Briouats gefüllt mit Hackfleisch, Fisch und Spinat-Käse"
+                },
+                price: 120,
+                isSignature: true,
+                dietary: ["halal"]
+              }
+            ]
+          },
+          {
+            id: "pastillas-briouates",
+            title: "Pastillas Artisanales (Handcrafted Pastillas)",
+            description: "Feuilletage maison cuit à point et farces mijotées",
+            items: [
+              {
+                id: "fassia-pastilla-pigeon",
+                name: "Pastilla Traditionnelle au Pigeon",
+                localName: "بسطيلة فاسية أصيلة بالحمام واللوز المحمص والقرفة",
+                translations: {
+                  ar: "بسطيلة فاسية أصيلة بالحمام واللوز المحمص والقرفة",
+                  en: "Authentic Fassi pigeon pastilla with crushed roasted almonds, saffron, and cinnamon sugar",
+                  es: "Pastela tradicional de Fès con pichón, almendras tostadas crujientes y canela",
+                  de: "Authentische Fassi-Pastilla mit Taubenfleisch, gerösteten Mandeln und Zimt"
+                },
+                price: 165,
+                isSignature: true,
+                dietary: ["halal"]
+              },
+              {
+                id: "fassia-pastilla-poulet",
+                name: "Pastilla au Poulet & Amandes",
+                localName: "بسطيلة الدجاج الكلاسيكية باللوز والسكر الصقيل",
+                translations: {
+                  ar: "بسطيلة الدجاج الكلاسيكية باللوز والسكر الصقيل",
+                  en: "Classic sweet and savory chicken pastilla with roasted almonds and cinnamon",
+                  es: "Pastela clásica de pollo con almendras crujientes y azúcar glas",
+                  de: "Klassische Hähnchenpastilla mit gerösteten Mandeln und Puderzucker"
+                },
+                price: 150,
+                dietary: ["halal"]
+              },
+              {
+                id: "fassia-pastilla-fruits-mer",
+                name: "Pastilla aux Fruits de Mer & Vermicelles",
+                localName: "بسطيلة فواكه البحر والجمبري والشعرية الصينية الحارة",
+                translations: {
+                  ar: "بسطيلة فواكه البحر والجمبري والشعرية الصينية الحارة",
+                  en: "Savory Atlantic seafood pastilla with shrimp, calamari, mushrooms, and spiced glass noodles",
+                  es: "Pastela salada de mariscos del Atlántico con gambas, calamares y fideos especiados",
+                  de: "Pikante Meeresfrüchte-Pastilla mit Garnelen, Tintenfisch und Glasnudeln"
+                },
+                price: 165,
+                dietary: ["halal"]
+              }
+            ]
+          },
+          {
+            id: "tagines-specialites-maison",
+            title: "Tagines Mijotés & Spécialités d'Agneau (Tagines & Roasts)",
+            description: "Recettes traditionnelles fassies mijotées à feu doux",
+            items: [
+              {
+                id: "fassia-epaule-agneau",
+                name: "Épaule d'Agneau Rôtie M'Hammar (Pour 2 personnes)",
+                localName: "كتف خروف محمر بالفرن متبل بالأعشاب والزعفران (يكفي لشخصين)",
+                translations: {
+                  ar: "كتف خروف محمر بالفرن متبل بالأعشاب والزعفران (يكفي لشخصين)",
+                  en: "Slow-roasted whole shoulder of lamb infused with saffron and wild herbs (for 2 guests)",
+                  es: "Paletilla entera de cordero asada al horno con azafrán y hierbas (para 2 personas)",
+                  de: "Langsam im Ofen geschmorte ganze Lammschulter mit Safran und Kräutern (für 2 Personen)"
+                },
+                price: 450,
+                isSignature: true,
+                dietary: ["halal"],
+                portionNotes: "Pour 2 personnes • Commander à l'avance"
+              },
+              {
+                id: "fassia-tagine-agneau-pruneaux",
+                name: "Tagine d'Agneau aux Pruneaux & Amandes Dorées",
+                localName: "طاجين لحم الغنم بالبرقوق المعسل واللوز المقلي والسمسم",
+                translations: {
+                  ar: "طاجين لحم الغنم بالبرقوق المعسل واللوز المقلي والسمسم",
+                  en: "Tender lamb tagine simmered with caramelized prunes, toasted almonds, and sesame seeds",
+                  es: "Tajine de cordero estofado con ciruelas pasas caramelizadas y almendras doradas",
+                  de: "Geschmorter Lammtagine mit karamellisierten Pflaumen und gerösteten Mandeln"
+                },
+                price: 185,
+                isSignature: true,
+                dietary: ["halal"]
+              },
+              {
+                id: "fassia-tagine-makfoul",
+                name: "Tagine Makfoul à la Courge Caramélisée & Oignons",
+                localName: "طاجين المقفول باللحم والبصل المعسل والقرع الحلو",
+                translations: {
+                  ar: "طاجين المقفول باللحم والبصل المعسل والقرع الحلو",
+                  en: "Traditional Makfoul tagine with tender beef or lamb, caramelized onions, and sweet pumpkin",
+                  es: "Tajine tradicional Makfoul con ternera o cordero, cebollas caramelizadas y calabaza dulce",
+                  de: "Traditioneller Makfoul-Tagine mit Rind oder Lamm, karamellisierten Zwiebeln und Kürbis"
+                },
+                price: 185,
+                dietary: ["halal"]
+              }
+            ]
+          },
+          {
+            id: "couscous-patisseries",
+            title: "Couscous Royal & Douceurs Fassi (Couscous & Sweets)",
+            description: "Plats de fête et pâtisseries raffinées faites maison",
+            items: [
+              {
+                id: "fassia-couscous-royal",
+                name: "Couscous Royal Al Fassia",
+                localName: "كسكس ملكي متكامل باللحم البقري والغنم والدجاج والسبع خضار",
+                translations: {
+                  ar: "كسكس ملكي متكامل باللحم البقري والغنم والدجاج والسبع خضار",
+                  en: "Royal couscous with lamb, beef, chicken, merguez skewers, and caramelized onion tfaya",
+                  es: "Cuscús real con cordero, ternera, pollo, brochetas merguez y tfaya caramelizada",
+                  de: "Königlicher Couscous mit Lamm, Rind, Hähnchen, Merguez und karamellisierter Tfaya"
+                },
+                price: 240,
+                isSignature: true,
+                dietary: ["halal"]
+              },
+              {
+                id: "fassia-mhancha",
+                name: "Mhancha Al Fassia & Glace Vanille",
+                localName: "محنشة فاسية أصيلة باللوز المقلي وماء الزهر مع آيس كريم الفانيليا",
+                translations: {
+                  ar: "محنشة فاسية أصيلة باللوز المقلي وماء الزهر مع آيس كريم الفانيليا",
+                  en: "Coiled almond pastry scented with orange blossom water, served with artisanal vanilla ice cream",
+                  es: "Pastel en espiral mhancha relleno de pasta de almendras y azahar con helado de vainilla",
+                  de: "Traditionelles gewickeltes Mandelgebäck Mhancha mit Vanilleeis"
+                },
+                price: 120,
+                isSignature: true,
+                dietary: ["vegetarian", "halal"]
+              }
+            ]
+          }
+        ]
+      }
     },
     worries: [
       {
@@ -1108,34 +1310,31 @@ export const marrakechEat: EatListing[] = [
         state: "verified"
       }
     ],
-    // Multi-platform reviews holder (hidden on UI until populated)
-    reviewsData: { sources: [], reviews: [] },
+    reviewsData: { sources: [], reviews: [] }
   },
 
   {
-    id: "m-eat-7",
+    id: "e-marrakech-7",
     city: "marrakech",
 
-    // ── 1. QUIZ (personalization & recommendation matching) ──
+    // ── 1. QUIZ (personalization, mood & matching) ──
     quiz: {
       lifestyle: "premium",
       groupTypes: ["couple", "friends", "business-friendly", "seniors"],
-      mealTypes: ["breakfast", "lunch", "dinner", "brunch", "flexible"],
-      experienceTypes: [
-        "Fine Dining",
-        "24/7 Brasserie",
-        "Upscale Lounge",
-        "People Watching"
-      ],
-      foodStyles: ["French", "Mediterranean", "European"],
+      mealTypes: ["breakfast", "lunch", "dinner", "brunch", "drinks", "late-night", "flexible"],
+      experienceTypes: ["fine-dining", "cafes-tea", "casual"],
+      foodStyles: ["French-Moroccan", "Mediterranean", "Cafe & Pastry", "International"],
       cuisineTags: ["international", "cafe-pastry"],
+      archetypeAffinity: ["luxury", "nomad", "first-timer"],
+      vibeTags: ["1920s-brasserie", "jazz", "colonial-veranda"],
       crowdLevel: "balanced"
     },
 
-    // ── 2. FILTER (search criteria, dietary rules & flags) ──
+    // ── 2. FILTER (search criteria, dietary rules, logistics & flags) ──
     filter: {
       pricePerPerson: 26,
       isHalal: true,
+      halalStatus: "likely-halal-food",
       isVegetarianFriendly: true,
       servesAlcohol: true,
       alcoholPolicy: "serves-alcohol",
@@ -1147,12 +1346,12 @@ export const marrakechEat: EatListing[] = [
       hasEnglishStaff: true,
       hasFrenchStaff: true,
       ramadanFriendly: "serves-lunch",
+      closedDays: [],
       seatingTypes: ["indoor", "terrace"],
-      paymentMethods: ["cash", "card"],
+      paymentMethods: ["cash", "credit_card"],
       tags: [
         "alcohol",
         "breakfast",
-        "budget",
         "cafe-pastry",
         "dinner",
         "fine",
@@ -1160,12 +1359,15 @@ export const marrakechEat: EatListing[] = [
         "terrace",
         "wifi"
       ],
+      isHiddenGem: false,
+      isTemporarilyHidden: false,
+      verificationStatus: "verified",
       wiFi: true,
       airConditioning: true,
       wheelchairAccessible: true
     },
 
-    // ── 3. UI (presentation, reviews, dishes & contacts) ──
+    // ── 3. UI (presentation, stories, ratings, contacts & plates) ──
     ui: {
       name: "Le Grand Café de la Poste",
       neighborhood: "Guéliz",
@@ -1176,6 +1378,14 @@ export const marrakechEat: EatListing[] = [
         "Steak Frites",
         "Oysters from Oualidia",
         "Duck Confit Parmentier"
+      ],
+      pros: [
+        "Iconic 1920s colonial brasserie atmosphere with leafy veranda",
+        "All-day hours from breakfast until 01:00 with full cocktail and wine bar"
+      ],
+      cons: [
+        "Upscale pricing for Guéliz",
+        "Weekend evenings get busy—reservations advised"
       ],
       googleRating: 4.3,
       googleReviewCount: 4500,
@@ -1188,11 +1398,12 @@ export const marrakechEat: EatListing[] = [
       openTime: "08:00",
       closeTime: "01:00",
       googleMapsUrl: "https://maps.google.com/?q=Le+Grand+Cafe+de+la+Poste+Marrakech",
-      reservationMethod: ["phone", "online"],
+      reservationMethod: ["phone", "website"],
       reservationContact: "+212524433038",
       bookingUrl: "https://legrandcafedelaposte.restaurant",
+      whatsappNumber: "",
       website: "https://legrandcafedelaposte.restaurant",
-      instagram: "legrandcafedelaposte",
+      instagram: "https://instagram.com/legrandcafedelaposte",
       viewType: "none",
       bestTimeToVisit: "Early evening around 18:30 for sunset",
       averageWaitMinutes: 10,
@@ -1246,29 +1457,31 @@ export const marrakechEat: EatListing[] = [
         state: "verified"
       }
     ],
-    // Multi-platform reviews holder (hidden on UI until populated)
-    reviewsData: { sources: [], reviews: [] },
+    reviewsData: { sources: [], reviews: [] }
   },
 
   {
-    id: "m-eat-8",
+    id: "e-marrakech-8",
     city: "marrakech",
 
-    // ── 1. QUIZ (personalization & recommendation matching) ──
+    // ── 1. QUIZ (personalization, mood & matching) ──
     quiz: {
       lifestyle: "lean",
       groupTypes: ["solo", "couple", "friends", "family"],
-      mealTypes: ["breakfast", "lunch", "dinner", "brunch", "flexible"],
-      experienceTypes: ["Cafe", "Casual Dining", "Traditional Dining"],
-      foodStyles: ["Moroccan", "Mediterranean", "Cafe"],
+      mealTypes: ["breakfast", "lunch", "dinner", "brunch", "afternoon-tea", "flexible"],
+      experienceTypes: ["cafes-tea", "casual", "traditional", "rooftop"],
+      foodStyles: ["Moroccan", "Mediterranean", "Cafe & Pastry", "Vegetarian/Vegan"],
       cuisineTags: ["moroccan-traditional", "international", "cafe-pastry"],
+      archetypeAffinity: ["culture", "nomad", "budget", "adventure"],
+      vibeTags: ["storytelling", "gnawa-music", "cultural-hub"],
       crowdLevel: "balanced"
     },
 
-    // ── 2. FILTER (search criteria, dietary rules & flags) ──
+    // ── 2. FILTER (search criteria, dietary rules, logistics & flags) ──
     filter: {
       pricePerPerson: 9,
       isHalal: true,
+      halalStatus: "likely-halal-food",
       isVegetarianFriendly: true,
       servesAlcohol: false,
       alcoholPolicy: "dry",
@@ -1280,8 +1493,9 @@ export const marrakechEat: EatListing[] = [
       hasEnglishStaff: true,
       hasFrenchStaff: true,
       ramadanFriendly: "special-ftour",
+      closedDays: [],
       seatingTypes: ["indoor", "rooftop"],
-      paymentMethods: ["cash", "card"],
+      paymentMethods: ["cash", "credit_card"],
       tags: [
         "breakfast",
         "budget",
@@ -1292,12 +1506,15 @@ export const marrakechEat: EatListing[] = [
         "rooftop",
         "wifi"
       ],
+      isHiddenGem: false,
+      isTemporarilyHidden: false,
+      verificationStatus: "verified",
       wiFi: true,
       airConditioning: false,
       wheelchairAccessible: false
     },
 
-    // ── 3. UI (presentation, reviews, dishes & contacts) ──
+    // ── 3. UI (presentation, stories, ratings, contacts & plates) ──
     ui: {
       name: "Cafe Clock",
       neighborhood: "Kasbah",
@@ -1308,6 +1525,14 @@ export const marrakechEat: EatListing[] = [
         "Camel Burger with Spiced Wedges",
         "Spiced Date Shake",
         "Falafel & Hummus Bowl"
+      ],
+      pros: [
+        "Unique cultural programming including Hikayat storytelling and Gnawa jams",
+        "Great Kasbah rooftop and famous camel burger"
+      ],
+      cons: [
+        "No air conditioning; stairs to rooftop terrace",
+        "Strictly dry (no alcohol)"
       ],
       googleRating: 4.4,
       googleReviewCount: 2500,
@@ -1320,51 +1545,50 @@ export const marrakechEat: EatListing[] = [
       openTime: "09:00",
       closeTime: "22:00",
       googleMapsUrl: "https://maps.google.com/?q=Cafe+Clock+Marrakech",
-      reservationMethod: ["none"],
+      reservationMethod: ["walk-in"],
       reservationContact: "+212524378367",
+      bookingUrl: "",
+      whatsappNumber: "",
+      website: "https://cafeclock.com",
+      instagram: "https://instagram.com/cafeclock",
       viewType: "city",
       bestTimeToVisit: "Early evening around 18:30 for sunset",
       averageWaitMinutes: 10,
       googlePlaceId: "ChIJwSg88mzurw0RDh5G3N6s_10",
       nonCopyrightImage: "https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=800&q=80"
-    }
-  ,
-    // ── 4. WORRIES ("Things You're Worried About!") ──
+    },
     worries: [
       { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
       { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
       { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
       { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
-      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" }
     ],
-    // Multi-platform reviews holder (hidden on UI until populated)
-    reviewsData: { sources: [], reviews: [] },
+    reviewsData: { sources: [], reviews: [] }
   },
 
   {
-    id: "m-eat-9",
+    id: "e-marrakech-9",
     city: "marrakech",
 
-    // ── 1. QUIZ (personalization & recommendation matching) ──
+    // ── 1. QUIZ (personalization, mood & matching) ──
     quiz: {
       lifestyle: "balanced",
       groupTypes: ["solo", "couple", "family", "seniors"],
       mealTypes: ["lunch", "dinner", "afternoon-tea"],
-      experienceTypes: [
-        "Cafe",
-        "Traditional Dining",
-        "Tranquil Dining",
-        "Fountain courtyard"
-      ],
-      foodStyles: ["Moroccan", "Cafe"],
+      experienceTypes: ["cafes-tea", "traditional", "hidden-gem", "rooftop"],
+      foodStyles: ["Moroccan", "Cafe & Pastry", "Tagine & Couscous"],
       cuisineTags: ["moroccan-traditional", "cafe-pastry"],
+      archetypeAffinity: ["culture", "nomad", "first-timer"],
+      vibeTags: ["15th-century-riad", "literary-cafe", "quiet"],
       crowdLevel: "quiet"
     },
 
-    // ── 2. FILTER (search criteria, dietary rules & flags) ──
+    // ── 2. FILTER (search criteria, dietary rules, logistics & flags) ──
     filter: {
       pricePerPerson: 15,
       isHalal: true,
+      halalStatus: "likely-halal-food",
       isVegetarianFriendly: true,
       servesAlcohol: false,
       alcoholPolicy: "dry",
@@ -1376,10 +1600,10 @@ export const marrakechEat: EatListing[] = [
       hasEnglishStaff: true,
       hasFrenchStaff: true,
       ramadanFriendly: "special-ftour",
-      seatingTypes: ["indoor", "rooftop"],
-      paymentMethods: ["cash", "card"],
+      closedDays: [],
+      seatingTypes: ["indoor", "courtyard", "rooftop"],
+      paymentMethods: ["cash", "credit_card"],
       tags: [
-        "budget",
         "cafe-pastry",
         "dinner",
         "dry",
@@ -1390,22 +1614,33 @@ export const marrakechEat: EatListing[] = [
         "tagine",
         "wifi"
       ],
+      isHiddenGem: true,
+      isTemporarilyHidden: false,
+      verificationStatus: "verified",
       wiFi: true,
       airConditioning: false,
       wheelchairAccessible: false
     },
 
-    // ── 3. UI (presentation, reviews, dishes & contacts) ──
+    // ── 3. UI (presentation, stories, ratings, contacts & plates) ──
     ui: {
       name: "Dar Cherifa",
-      neighborhood: "Medina",
-      description: "One of the oldest, most beautifully preserved 15th-century riads in the Medina, operating as a quiet literary café and cultural space with museum-grade stucco and cedar woodwork.",
-      tip: "One of the most tranquil architectural sanctuaries in the souks. Closes at 19:00 on Wednesdays.",
+      neighborhood: "Mouassine",
+      description: "One of the oldest, most beautifully preserved 15th-century riads in Mouassine, operating as a quiet literary café and cultural space with museum-grade stucco and cedar woodwork.",
+      tip: "One of the most tranquil architectural sanctuaries in the souks. Closes early at 19:00 on Wednesdays.",
       badge: "hidden-gem",
       bestDishes: [
         "Saffron Lamb Tagine",
         "Msemen with Orange Blossom Honey",
         "Artisanal Mint Tea with Cornes de Gazelle"
+      ],
+      pros: [
+        "Museum-grade 15th-century Saadian architecture and quiet literary salon",
+        "Serene sanctuary for afternoon tea or slow-cooked tagines"
+      ],
+      cons: [
+        "Small side-alley location in Mouassine",
+        "Closes early at 19:00 on Wednesdays"
       ],
       googleRating: 4.5,
       googleReviewCount: 2630,
@@ -1420,44 +1655,48 @@ export const marrakechEat: EatListing[] = [
       googleMapsUrl: "https://maps.google.com/?q=Dar+Cherifa+Marrakech",
       reservationMethod: ["phone"],
       reservationContact: "+212524426550",
+      bookingUrl: "",
+      whatsappNumber: "",
+      website: "not-available",
+      instagram: "not-available",
       viewType: "none",
       bestTimeToVisit: "Lunch around 13:00 for quiet",
       averageWaitMinutes: 0,
       googlePlaceId: "ChIJs79A_m3urw0RwX1s6L7f3e8",
       nonCopyrightImage: "https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?auto=format&fit=crop&w=800&q=80"
-    }
-  ,
-    // ── 4. WORRIES ("Things You're Worried About!") ──
+    },
     worries: [
       { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
       { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
       { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
       { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
-      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" }
     ],
-    // Multi-platform reviews holder (hidden on UI until populated)
-    reviewsData: { sources: [], reviews: [] },
+    reviewsData: { sources: [], reviews: [] }
   },
 
   {
-    id: "m-eat-10",
+    id: "e-marrakech-10",
     city: "marrakech",
 
-    // ── 1. QUIZ (personalization & recommendation matching) ──
+    // ── 1. QUIZ (personalization, mood & matching) ──
     quiz: {
       lifestyle: "premium",
       groupTypes: ["solo", "couple", "friends", "family"],
       mealTypes: ["breakfast", "afternoon-tea", "brunch", "flexible"],
-      experienceTypes: ["Cafe", "Fine Dining", "Upscale Lounge"],
-      foodStyles: ["Cafe", "French", "Patisserie"],
+      experienceTypes: ["cafes-tea", "fine-dining"],
+      foodStyles: ["Cafe & Pastry", "French-Moroccan"],
       cuisineTags: ["cafe-pastry", "international"],
+      archetypeAffinity: ["luxury", "first-timer", "culture"],
+      vibeTags: ["palace-salon", "specialty-coffee", "opulent"],
       crowdLevel: "bustling"
     },
 
-    // ── 2. FILTER (search criteria, dietary rules & flags) ──
+    // ── 2. FILTER (search criteria, dietary rules, logistics & flags) ──
     filter: {
       pricePerPerson: 20,
       isHalal: true,
+      halalStatus: "likely-halal-food",
       isVegetarianFriendly: true,
       servesAlcohol: false,
       alcoholPolicy: "dry",
@@ -1469,11 +1708,11 @@ export const marrakechEat: EatListing[] = [
       hasEnglishStaff: true,
       hasFrenchStaff: true,
       ramadanFriendly: "serves-lunch",
-      seatingTypes: ["indoor", "garden"],
-      paymentMethods: ["cash", "card"],
+      closedDays: ["monday"],
+      seatingTypes: ["indoor", "courtyard"],
+      paymentMethods: ["cash", "credit_card"],
       tags: [
         "breakfast",
-        "budget",
         "cafe-pastry",
         "dry",
         "fine",
@@ -1481,22 +1720,33 @@ export const marrakechEat: EatListing[] = [
         "palace",
         "wifi"
       ],
+      isHiddenGem: false,
+      isTemporarilyHidden: false,
+      verificationStatus: "verified",
       wiFi: true,
       airConditioning: true,
       wheelchairAccessible: true
     },
 
-    // ── 3. UI (presentation, reviews, dishes & contacts) ──
+    // ── 3. UI (presentation, stories, ratings, contacts & plates) ──
     ui: {
       name: "Bacha Coffee",
-      neighborhood: "Medina / Dar El Bacha",
-      description: "An opulent coffee salon situated inside the grand Dar El Bacha Palace. Features zellige mosaic tiles, tailored liveried waiters, and an unmatched catalog of over 200 single-origin Arabica coffees.",
+      neighborhood: "Mouassine",
+      description: "An opulent coffee salon situated inside the grand Dar El Bacha Palace in Mouassine. Features zellige mosaic tiles, tailored liveried waiters, and an unmatched catalog of over 200 single-origin Arabica coffees.",
       tip: "Closed on Mondays. Requires paid entry to Dar El Bacha museum. No reservations taken—arrive at 10:00 AM sharp to put your name on the buzzer list.",
       badge: "local-favorite",
       bestDishes: [
         "100% Arabica Specialty Coffee Pot",
         "Fresh Chantilly Croissant",
         "Pistachio Lemon Brioche"
+      ],
+      pros: [
+        "Stunning 1910 Dar El Bacha palace setting and 200+ single-origin coffees",
+        "Wheelchair accessible with AC and immaculate service"
+      ],
+      cons: [
+        "Long walk-in queue (often 45–60+ minutes) and closed Mondays",
+        "Requires separate Dar El Bacha Museum admission ticket"
       ],
       googleRating: 4.4,
       googleReviewCount: 4250,
@@ -1509,8 +1759,12 @@ export const marrakechEat: EatListing[] = [
       openTime: "10:00",
       closeTime: "18:00",
       googleMapsUrl: "https://maps.google.com/?q=Bacha+Coffee+Marrakech",
-      reservationMethod: ["none"],
+      reservationMethod: ["walk-in"],
       reservationContact: "+212524381293",
+      bookingUrl: "",
+      whatsappNumber: "",
+      website: "https://bachacoffee.com",
+      instagram: "https://instagram.com/bachacoffee",
       viewType: "garden",
       bestTimeToVisit: "Early morning for fresh baked goods",
       averageWaitMinutes: 60,
@@ -1564,29 +1818,31 @@ export const marrakechEat: EatListing[] = [
         state: "verified"
       }
     ],
-    // Multi-platform reviews holder (hidden on UI until populated)
-    reviewsData: { sources: [], reviews: [] },
+    reviewsData: { sources: [], reviews: [] }
   },
 
   {
-    id: "m-eat-11",
+    id: "e-marrakech-11",
     city: "marrakech",
 
-    // ── 1. QUIZ (personalization & recommendation matching) ──
+    // ── 1. QUIZ (personalization, mood & matching) ──
     quiz: {
       lifestyle: "balanced",
       groupTypes: ["couple", "friends", "business-friendly"],
       mealTypes: ["lunch", "dinner", "brunch"],
-      experienceTypes: ["Modern Fusion Dining", "Casual Dining", "Upscale Lounge"],
-      foodStyles: ["Mediterranean", "French", "International"],
+      experienceTypes: ["casual", "fine-dining"],
+      foodStyles: ["Mediterranean", "French-Moroccan", "International"],
       cuisineTags: ["international"],
+      archetypeAffinity: ["nomad", "first-timer"],
+      vibeTags: ["open-kitchen", "contemporary-bistro", "brunch"],
       crowdLevel: "balanced"
     },
 
-    // ── 2. FILTER (search criteria, dietary rules & flags) ──
+    // ── 2. FILTER (search criteria, dietary rules, logistics & flags) ──
     filter: {
       pricePerPerson: 19,
       isHalal: true,
+      halalStatus: "likely-halal-food",
       isVegetarianFriendly: true,
       servesAlcohol: false,
       alcoholPolicy: "dry",
@@ -1598,23 +1854,26 @@ export const marrakechEat: EatListing[] = [
       hasEnglishStaff: true,
       hasFrenchStaff: true,
       ramadanFriendly: "special-ftour",
+      closedDays: [],
       seatingTypes: ["indoor", "terrace"],
-      paymentMethods: ["cash", "card"],
+      paymentMethods: ["cash", "credit_card"],
       tags: [
-        "breakfast",
-        "budget",
+        "brunch",
         "dinner",
         "dry",
         "fine",
         "terrace",
         "wifi"
       ],
+      isHiddenGem: false,
+      isTemporarilyHidden: false,
+      verificationStatus: "verified",
       wiFi: true,
       airConditioning: true,
       wheelchairAccessible: true
     },
 
-    // ── 3. UI (presentation, reviews, dishes & contacts) ──
+    // ── 3. UI (presentation, stories, ratings, contacts & plates) ──
     ui: {
       name: "Cantine Mouton Noir",
       neighborhood: "Guéliz",
@@ -1625,6 +1884,14 @@ export const marrakechEat: EatListing[] = [
         "Slow-Roasted Lamb Tacos with Harissa",
         "Prawn Ravioli",
         "Gourmet French Toast"
+      ],
+      pros: [
+        "Creative seasonal fusion dishes and standout weekend brunch",
+        "Modern open kitchen, AC, Wi-Fi, and wheelchair access in Guéliz"
+      ],
+      cons: [
+        "Strictly dry (no alcohol served)",
+        "Popular weekend brunch hours fill quickly"
       ],
       googleRating: 4.7,
       googleReviewCount: 420,
@@ -1637,46 +1904,50 @@ export const marrakechEat: EatListing[] = [
       openTime: "12:00",
       closeTime: "23:00",
       googleMapsUrl: "https://maps.google.com/?q=Cantine+Mouton+Noir+Marrakech",
-      reservationMethod: ["phone", "online"],
+      reservationMethod: ["phone", "website"],
       reservationContact: "+212669149054",
+      bookingUrl: "",
+      whatsappNumber: "",
+      website: "not-available",
+      instagram: "not-available",
       viewType: "none",
       bestTimeToVisit: "Late evening after 20:00 for lively crowd",
       averageWaitMinutes: 15,
       googlePlaceId: "ChIJ592LSmzurw0R8t5W4aB7L2k",
       nonCopyrightImage: "https://images.unsplash.com/photo-1537047902294-62a40c20a6ae?auto=format&fit=crop&w=800&q=80"
-    }
-  ,
-    // ── 4. WORRIES ("Things You're Worried About!") ──
+    },
     worries: [
       { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
       { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
       { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
       { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
-      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" }
     ],
-    // Multi-platform reviews holder (hidden on UI until populated)
-    reviewsData: { sources: [], reviews: [] },
+    reviewsData: { sources: [], reviews: [] }
   },
 
   {
-    id: "m-eat-12",
+    id: "e-marrakech-12",
     city: "marrakech",
 
-    // ── 1. QUIZ (personalization & recommendation matching) ──
+    // ── 1. QUIZ (personalization, mood & matching) ──
     quiz: {
       lifestyle: "premium",
       groupTypes: ["couple", "friends", "solo", "business-friendly"],
       mealTypes: ["lunch", "dinner"],
-      experienceTypes: ["Fine Dining", "Modern Fusion Dining", "Casual Dining"],
-      foodStyles: ["Mediterranean", "Seafood", "Healthy"],
+      experienceTypes: ["fine-dining", "casual"],
+      foodStyles: ["Mediterranean", "Seafood", "Middle Eastern", "International"],
       cuisineTags: ["international", "seafood"],
+      archetypeAffinity: ["luxury", "nomad", "culture"],
+      vibeTags: ["50-best-mena", "minimalist", "natural-wine"],
       crowdLevel: "balanced"
     },
 
-    // ── 2. FILTER (search criteria, dietary rules & flags) ──
+    // ── 2. FILTER (search criteria, dietary rules, logistics & flags) ──
     filter: {
       pricePerPerson: 25,
       isHalal: true,
+      halalStatus: "likely-halal-food",
       isVegetarianFriendly: true,
       servesAlcohol: true,
       alcoholPolicy: "serves-alcohol",
@@ -1688,15 +1959,19 @@ export const marrakechEat: EatListing[] = [
       hasEnglishStaff: true,
       hasFrenchStaff: true,
       ramadanFriendly: "serves-lunch",
+      closedDays: ["sunday"],
       seatingTypes: ["indoor"],
-      paymentMethods: ["cash", "card"],
-      tags: ["alcohol", "budget", "dinner", "fine", "wifi"],
+      paymentMethods: ["cash", "credit_card"],
+      tags: ["alcohol", "dinner", "fine", "wifi"],
+      isHiddenGem: false,
+      isTemporarilyHidden: false,
+      verificationStatus: "verified",
       wiFi: true,
       airConditioning: true,
       wheelchairAccessible: true
     },
 
-    // ── 3. UI (presentation, reviews, dishes & contacts) ──
+    // ── 3. UI (presentation, stories, ratings, contacts & plates) ──
     ui: {
       name: "Plus61",
       neighborhood: "Guéliz",
@@ -1707,6 +1982,14 @@ export const marrakechEat: EatListing[] = [
         "Slow-Cooked Lamb Shoulder with Flatbread",
         "Ricotta Gnocchi with Sage Butter",
         "Chargrilled Octopus with Chermoula"
+      ],
+      pros: [
+        "50 Best MENA recognized kitchen using organic local produce",
+        "Solo-friendly counter seating, natural wines, and craft cocktails"
+      ],
+      cons: [
+        "Closed on Sundays; reservations strongly advised",
+        "Indoor minimalist dining room (no outdoor terrace)"
       ],
       googleRating: 4.7,
       googleReviewCount: 940,
@@ -1719,46 +2002,50 @@ export const marrakechEat: EatListing[] = [
       openTime: "12:00",
       closeTime: "22:30",
       googleMapsUrl: "https://maps.google.com/?q=Plus61+Marrakech",
-      reservationMethod: ["online", "phone"],
+      reservationMethod: ["website", "phone"],
       reservationContact: "+212524207020",
+      bookingUrl: "https://plus61.com",
+      whatsappNumber: "",
+      website: "https://plus61.com",
+      instagram: "https://instagram.com/plus61marrakech",
       viewType: "none",
       bestTimeToVisit: "Lunch around 13:00 for quiet",
       averageWaitMinutes: 10,
       googlePlaceId: "ChIJgU_fN2zurw0R7J05XF3o8pM",
       nonCopyrightImage: "https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?auto=format&fit=crop&w=800&q=80"
-    }
-  ,
-    // ── 4. WORRIES ("Things You're Worried About!") ──
+    },
     worries: [
       { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
       { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
       { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
       { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
-      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" }
     ],
-    // Multi-platform reviews holder (hidden on UI until populated)
-    reviewsData: { sources: [], reviews: [] },
+    reviewsData: { sources: [], reviews: [] }
   },
 
   {
-    id: "m-eat-13",
+    id: "e-marrakech-13",
     city: "marrakech",
 
-    // ── 1. QUIZ (personalization & recommendation matching) ──
+    // ── 1. QUIZ (personalization, mood & matching) ──
     quiz: {
       lifestyle: "lean",
       groupTypes: ["solo", "friends", "family"],
       mealTypes: ["lunch", "dinner", "late-night"],
-      experienceTypes: ["Casual Dining", "Local Gathering Spot"],
-      foodStyles: ["Moroccan", "Fast Food", "Barbecue"],
+      experienceTypes: ["casual", "street-food"],
+      foodStyles: ["Moroccan", "Grill & BBQ"],
       cuisineTags: ["moroccan-traditional", "international"],
+      archetypeAffinity: ["budget", "adventure"],
+      vibeTags: ["charcoal-grill", "late-night", "local-institution"],
       crowdLevel: "bustling"
     },
 
-    // ── 2. FILTER (search criteria, dietary rules & flags) ──
+    // ── 2. FILTER (search criteria, dietary rules, logistics & flags) ──
     filter: {
       pricePerPerson: 5,
       isHalal: true,
+      halalStatus: "likely-halal-food",
       isVegetarianFriendly: false,
       servesAlcohol: false,
       alcoholPolicy: "dry",
@@ -1770,6 +2057,7 @@ export const marrakechEat: EatListing[] = [
       hasEnglishStaff: false,
       hasFrenchStaff: true,
       ramadanFriendly: "special-ftour",
+      closedDays: [],
       seatingTypes: ["indoor", "terrace"],
       paymentMethods: ["cash"],
       tags: [
@@ -1780,12 +2068,15 @@ export const marrakechEat: EatListing[] = [
         "street-food",
         "terrace"
       ],
+      isHiddenGem: false,
+      isTemporarilyHidden: false,
+      verificationStatus: "verified",
       wiFi: false,
       airConditioning: false,
       wheelchairAccessible: false
     },
 
-    // ── 3. UI (presentation, reviews, dishes & contacts) ──
+    // ── 3. UI (presentation, stories, ratings, contacts & plates) ──
     ui: {
       name: "Chez Bejgueni",
       neighborhood: "Guéliz",
@@ -1796,6 +2087,14 @@ export const marrakechEat: EatListing[] = [
         "Charcoal Kefta Brochettes",
         "Merguez Sausage Sandwich",
         "Fresh Moroccan Fries with Harissa"
+      ],
+      pros: [
+        "Budget-friendly charcoal grills open late until 02:00",
+        "Authentic local crowd in central Guéliz"
+      ],
+      cons: [
+        "Cash only; limited English spoken",
+        "Smoky grill atmosphere and very bustling at dinner"
       ],
       googleRating: 4.3,
       googleReviewCount: 2250,
@@ -1808,50 +2107,50 @@ export const marrakechEat: EatListing[] = [
       openTime: "11:00",
       closeTime: "02:00",
       googleMapsUrl: "https://maps.google.com/?q=Chez+Bejgueni+Marrakech",
-      reservationMethod: ["none"],
+      reservationMethod: ["walk-in"],
+      reservationContact: "",
+      bookingUrl: "",
+      whatsappNumber: "",
+      website: "not-available",
+      instagram: "not-available",
       viewType: "none",
       bestTimeToVisit: "Late evening after 20:00 for lively crowd",
       averageWaitMinutes: 5,
       googlePlaceId: "ChIJg_3qL2zurw0R4vO7R6v7D1U",
       nonCopyrightImage: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80"
-    }
-  ,
-    // ── 4. WORRIES ("Things You're Worried About!") ──
+    },
     worries: [
       { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
       { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
       { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
       { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
-      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" }
     ],
-    // Multi-platform reviews holder (hidden on UI until populated)
-    reviewsData: { sources: [], reviews: [] },
+    reviewsData: { sources: [], reviews: [] }
   },
 
   {
-    id: "m-eat-14",
+    id: "e-marrakech-14",
     city: "marrakech",
 
-    // ── 1. QUIZ (personalization & recommendation matching) ──
+    // ── 1. QUIZ (personalization, mood & matching) ──
     quiz: {
       lifestyle: "premium",
       groupTypes: ["couple", "family", "seniors", "large-groups"],
       mealTypes: ["lunch", "dinner"],
-      experienceTypes: [
-        "Fine Dining",
-        "Traditional Dining",
-        "Romantic Sunset",
-        "Fountain courtyard"
-      ],
-      foodStyles: ["Moroccan", "Gourmet"],
+      experienceTypes: ["fine-dining", "traditional"],
+      foodStyles: ["Moroccan", "Tagine & Couscous", "French-Moroccan"],
       cuisineTags: ["moroccan-traditional", "international"],
+      archetypeAffinity: ["luxury", "culture", "first-timer"],
+      vibeTags: ["poolside-palace", "nouvelle-marocaine", "live-lute"],
       crowdLevel: "balanced"
     },
 
-    // ── 2. FILTER (search criteria, dietary rules & flags) ──
+    // ── 2. FILTER (search criteria, dietary rules, logistics & flags) ──
     filter: {
       pricePerPerson: 52,
       isHalal: true,
+      halalStatus: "likely-halal-food",
       isVegetarianFriendly: true,
       servesAlcohol: true,
       alcoholPolicy: "serves-alcohol",
@@ -1863,8 +2162,9 @@ export const marrakechEat: EatListing[] = [
       hasEnglishStaff: true,
       hasFrenchStaff: true,
       ramadanFriendly: "special-ftour",
-      seatingTypes: ["indoor", "garden"],
-      paymentMethods: ["cash", "card"],
+      closedDays: [],
+      seatingTypes: ["indoor", "courtyard"],
+      paymentMethods: ["cash", "credit_card"],
       tags: [
         "alcohol",
         "dinner",
@@ -1875,22 +2175,33 @@ export const marrakechEat: EatListing[] = [
         "sunset",
         "wifi"
       ],
+      isHiddenGem: false,
+      isTemporarilyHidden: false,
+      verificationStatus: "verified",
       wiFi: true,
       airConditioning: true,
       wheelchairAccessible: false
     },
 
-    // ── 3. UI (presentation, reviews, dishes & contacts) ──
+    // ── 3. UI (presentation, stories, ratings, contacts & plates) ──
     ui: {
       name: "Dar Moha",
-      neighborhood: "Medina",
-      description: "An opulent dining room set around the mosaic pool of the former palace of Pierre Balmain and Pasha el Glaoui’s secretary. Helmed by Chef Moha Fedal, it is a pioneer in refined nouvelle cuisine marocaine.",
+      neighborhood: "Mouassine",
+      description: "An opulent dining room set around the mosaic pool of the former palace of Pierre Balmain on Rue Dar El Bacha in Mouassine. Helmed by Chef Moha Fedal, it is a pioneer in refined nouvelle cuisine marocaine.",
       tip: "Multi-course set menu (~530–650 MAD) accompanied by acoustic lute/Andalusian musicians. Request a poolside courtyard table.",
       badge: "splurge",
       bestDishes: [
         "14-Salad Tasting Assortment",
         "Seafood Pastilla with Bisque",
         "Slow-Braised Lamb Shank with Sweet Fruits"
+      ],
+      pros: [
+        "Iconic mosaic-pool riad setting with live Andalusian musicians",
+        "Pioneering tasting menu by celebrity Chef Moha Fedal"
+      ],
+      cons: [
+        "Fixed multi-course tasting menu pricing (~530–650 MAD)",
+        "Some diners report uneven pacing during large group seatings"
       ],
       googleRating: 4.4,
       googleReviewCount: 2500,
@@ -1903,46 +2214,50 @@ export const marrakechEat: EatListing[] = [
       openTime: "12:30",
       closeTime: "23:00",
       googleMapsUrl: "https://maps.google.com/?q=Dar+Moha+Marrakech",
-      reservationMethod: ["online", "phone"],
+      reservationMethod: ["website", "phone"],
       reservationContact: "+212524386400",
+      bookingUrl: "https://darmoha.ma",
+      whatsappNumber: "",
+      website: "https://darmoha.ma",
+      instagram: "https://instagram.com/darmohamarrakech",
       viewType: "garden",
       bestTimeToVisit: "Early evening around 18:30 for sunset",
       averageWaitMinutes: 5,
       googlePlaceId: "ChIJu_v52Gfurw0RTerhpHuxAp0",
       nonCopyrightImage: "https://images.unsplash.com/photo-1541518763669-27fef04b14e8?auto=format&fit=crop&w=800&q=80"
-    }
-  ,
-    // ── 4. WORRIES ("Things You're Worried About!") ──
+    },
     worries: [
       { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
       { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
       { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
       { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
-      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" }
     ],
-    // Multi-platform reviews holder (hidden on UI until populated)
-    reviewsData: { sources: [], reviews: [] },
+    reviewsData: { sources: [], reviews: [] }
   },
 
   {
-    id: "m-eat-15",
+    id: "e-marrakech-15",
     city: "marrakech",
 
-    // ── 1. QUIZ (personalization & recommendation matching) ──
+    // ── 1. QUIZ (personalization, mood & matching) ──
     quiz: {
       lifestyle: "lean",
       groupTypes: ["solo", "couple", "friends", "family"],
-      mealTypes: ["breakfast", "lunch", "dinner", "flexible"],
-      experienceTypes: ["Cafe", "Sunset Views", "Casual Dining"],
-      foodStyles: ["Moroccan", "Mediterranean", "Cafe"],
+      mealTypes: ["breakfast", "lunch", "dinner", "afternoon-tea", "flexible"],
+      experienceTypes: ["cafes-tea", "rooftop", "casual"],
+      foodStyles: ["Moroccan", "Mediterranean", "Cafe & Pastry", "Tagine & Couscous"],
       cuisineTags: ["moroccan-traditional", "international", "cafe-pastry"],
+      archetypeAffinity: ["budget", "first-timer"],
+      vibeTags: ["360-rooftop", "berber-rugs", "koutoubia-sunset"],
       crowdLevel: "balanced"
     },
 
-    // ── 2. FILTER (search criteria, dietary rules & flags) ──
+    // ── 2. FILTER (search criteria, dietary rules, logistics & flags) ──
     filter: {
       pricePerPerson: 8,
       isHalal: true,
+      halalStatus: "likely-halal-food",
       isVegetarianFriendly: true,
       servesAlcohol: false,
       alcoholPolicy: "dry",
@@ -1954,6 +2269,7 @@ export const marrakechEat: EatListing[] = [
       hasEnglishStaff: true,
       hasFrenchStaff: true,
       ramadanFriendly: "special-ftour",
+      closedDays: [],
       seatingTypes: ["indoor", "rooftop", "terrace"],
       paymentMethods: ["cash"],
       tags: [
@@ -1970,22 +2286,33 @@ export const marrakechEat: EatListing[] = [
         "terrace",
         "wifi"
       ],
+      isHiddenGem: false,
+      isTemporarilyHidden: false,
+      verificationStatus: "verified",
       wiFi: true,
       airConditioning: false,
       wheelchairAccessible: false
     },
 
-    // ── 3. UI (presentation, reviews, dishes & contacts) ──
+    // ── 3. UI (presentation, stories, ratings, contacts & plates) ──
     ui: {
       name: "Atay Cafe",
-      neighborhood: "Medina",
-      description: "A rustic multi-tiered rooftop cafe in Bab Doukkala. Decorated with colorful Berber rugs and wicker lamps, it offers panoramic 360-degree views of the old city and budget-friendly Moroccan tagines.",
+      neighborhood: "Kaat Benahid",
+      description: "A rustic multi-tiered rooftop cafe at 62 Rue Amsafah in Kaat Benahid. Decorated with colorful Berber rugs and wicker lamps, it offers panoramic 360-degree views of the old city and budget-friendly Moroccan tagines.",
       tip: "Climb all the way to the top deck for sunset photos facing the Koutoubia minaret. Cash only.",
       badge: "local-favorite",
       bestDishes: [
         "Lemon Chicken Tagine with Olives",
         "Vegetarian Couscous",
         "Mint Cucumber Lemonade"
+      ],
+      pros: [
+        "360-degree rooftop views of the Medina and Koutoubia minaret",
+        "Budget-friendly tagines and refreshing juices"
+      ],
+      cons: [
+        "Cash only; multiple steep flights of stairs to the top deck",
+        "No AC in summer"
       ],
       googleRating: 4.3,
       googleReviewCount: 2850,
@@ -1998,49 +2325,50 @@ export const marrakechEat: EatListing[] = [
       openTime: "10:00",
       closeTime: "23:00",
       googleMapsUrl: "https://maps.google.com/?q=Atay+Cafe+Marrakech",
-      reservationMethod: ["none"],
+      reservationMethod: ["walk-in"],
+      reservationContact: "",
+      bookingUrl: "",
+      whatsappNumber: "",
+      website: "not-available",
+      instagram: "not-available",
       viewType: "city",
       bestTimeToVisit: "Early evening around 18:30 for sunset",
       averageWaitMinutes: 5,
       googlePlaceId: "ChIJ7eXqP2furw0R6pG1vN3z0bQ",
       nonCopyrightImage: "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=800&q=80"
-    }
-  ,
-    // ── 4. WORRIES ("Things You're Worried About!") ──
+    },
     worries: [
       { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
       { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
       { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
       { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
-      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" }
     ],
-    // Multi-platform reviews holder (hidden on UI until populated)
-    reviewsData: { sources: [], reviews: [] },
+    reviewsData: { sources: [], reviews: [] }
   },
 
   {
-    id: "m-eat-16",
+    id: "e-marrakech-16",
     city: "marrakech",
 
-    // ── 1. QUIZ (personalization & recommendation matching) ──
+    // ── 1. QUIZ (personalization, mood & matching) ──
     quiz: {
       lifestyle: "balanced",
       groupTypes: ["solo", "couple", "seniors"],
-      mealTypes: ["breakfast", "afternoon-tea", "flexible"],
-      experienceTypes: [
-        "Cafe",
-        "Tranquil Dining",
-        "Garden restaurant with live music"
-      ],
-      foodStyles: ["Cafe", "Moroccan", "Bakery"],
+      mealTypes: ["breakfast", "afternoon-tea", "snack", "flexible"],
+      experienceTypes: ["cafes-tea", "casual"],
+      foodStyles: ["Cafe & Pastry", "Moroccan"],
       cuisineTags: ["cafe-pastry", "moroccan-traditional"],
+      archetypeAffinity: ["culture", "first-timer"],
+      vibeTags: ["botanical-palace", "quiet", "oasis"],
       crowdLevel: "quiet"
     },
 
-    // ── 2. FILTER (search criteria, dietary rules & flags) ──
+    // ── 2. FILTER (search criteria, dietary rules, logistics & flags) ──
     filter: {
       pricePerPerson: 6,
       isHalal: true,
+      halalStatus: "likely-halal-food",
       isVegetarianFriendly: true,
       servesAlcohol: false,
       alcoholPolicy: "dry",
@@ -2052,15 +2380,15 @@ export const marrakechEat: EatListing[] = [
       hasEnglishStaff: true,
       hasFrenchStaff: true,
       ramadanFriendly: "serves-lunch",
-      seatingTypes: ["garden", "terrace"],
-      paymentMethods: ["cash", "card"],
+      closedDays: [],
+      seatingTypes: ["courtyard", "terrace"],
+      paymentMethods: ["cash", "credit_card"],
       tags: [
         "breakfast",
         "budget",
         "cafe-pastry",
         "dry",
         "juice",
-        "live-music",
         "medina",
         "palace",
         "pastry",
@@ -2068,22 +2396,33 @@ export const marrakechEat: EatListing[] = [
         "terrace",
         "wifi"
       ],
+      isHiddenGem: false,
+      isTemporarilyHidden: false,
+      verificationStatus: "verified",
       wiFi: true,
       airConditioning: false,
       wheelchairAccessible: true
     },
 
-    // ── 3. UI (presentation, reviews, dishes & contacts) ──
+    // ── 3. UI (presentation, stories, ratings, contacts & plates) ──
     ui: {
       name: "Le Jardin Secret - Café",
-      neighborhood: "Medina",
-      description: "A serene garden café situated within the restored 19th-century palace grounds of Le Jardin Secret. Enjoy fresh juices, iced teas, and light pastries beside exotic botanical flora.",
+      neighborhood: "Mouassine",
+      description: "A serene garden café situated within the restored 19th-century palace grounds of Le Jardin Secret on Rue Mouassine. Enjoy fresh juices, iced teas, and light pastries beside exotic botanical flora.",
       tip: "Requires purchasing standard admission to Le Jardin Secret. Perfect midday reading and cooling-off spot.",
       badge: "local-favorite",
       bestDishes: [
         "Iced Mint Tea with Fresh Lemon",
         "Almond Briouates",
         "Fresh Citrus Fruit Juice"
+      ],
+      pros: [
+        "Peaceful botanical palace sanctuary right in Mouassine",
+        "Wheelchair accessible and clean facilities"
+      ],
+      cons: [
+        "Requires Le Jardin Secret garden admission ticket to access",
+        "Light café snacks and pastries only (not a full restaurant)"
       ],
       googleRating: 4.5,
       googleReviewCount: 1350,
@@ -2096,45 +2435,50 @@ export const marrakechEat: EatListing[] = [
       openTime: "09:30",
       closeTime: "18:30",
       googleMapsUrl: "https://maps.google.com/?q=Le+Jardin+Secret+Cafe+Marrakech",
-      reservationMethod: ["none"],
+      reservationMethod: ["walk-in"],
+      reservationContact: "",
+      bookingUrl: "",
+      whatsappNumber: "",
+      website: "https://lejardinsecretmarrakech.com",
+      instagram: "not-available",
       viewType: "garden",
       bestTimeToVisit: "Early morning for fresh baked goods",
       averageWaitMinutes: 5,
       googlePlaceId: "ChIJzWv6yGfurw0RQ4U4Q02T3oI",
       nonCopyrightImage: "https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?auto=format&fit=crop&w=800&q=80"
-    }
-  ,
-    // ── 4. WORRIES ("Things You're Worried About!") ──
+    },
     worries: [
       { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
       { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
       { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
       { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
-      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" }
     ],
-    // Multi-platform reviews holder (hidden on UI until populated)
-    reviewsData: { sources: [], reviews: [] },
+    reviewsData: { sources: [], reviews: [] }
   },
 
   {
-    id: "m-eat-17",
+    id: "e-marrakech-17",
     city: "marrakech",
 
-    // ── 1. QUIZ (personalization & recommendation matching) ──
+    // ── 1. QUIZ (personalization, mood & matching) ──
     quiz: {
       lifestyle: "lean",
       groupTypes: ["solo", "couple", "family", "friends"],
-      mealTypes: ["breakfast", "afternoon-tea", "flexible"],
-      experienceTypes: ["Cafe", "Bakery-Patisserie", "Local Gathering Spot"],
-      foodStyles: ["Patisserie", "Moroccan", "French", "Bakery"],
+      mealTypes: ["breakfast", "afternoon-tea", "snack", "flexible"],
+      experienceTypes: ["cafes-tea", "traditional", "casual"],
+      foodStyles: ["Cafe & Pastry", "Moroccan", "French-Moroccan"],
       cuisineTags: ["cafe-pastry"],
+      archetypeAffinity: ["budget", "culture", "first-timer"],
+      vibeTags: ["heritage-patisserie", "almond-sweets", "gelato"],
       crowdLevel: "bustling"
     },
 
-    // ── 2. FILTER (search criteria, dietary rules & flags) ──
+    // ── 2. FILTER (search criteria, dietary rules, logistics & flags) ──
     filter: {
       pricePerPerson: 4,
       isHalal: true,
+      halalStatus: "likely-halal-food",
       isVegetarianFriendly: true,
       servesAlcohol: false,
       alcoholPolicy: "dry",
@@ -2146,8 +2490,9 @@ export const marrakechEat: EatListing[] = [
       hasEnglishStaff: true,
       hasFrenchStaff: true,
       ramadanFriendly: "special-ftour",
+      closedDays: [],
       seatingTypes: ["indoor", "terrace"],
-      paymentMethods: ["cash", "card"],
+      paymentMethods: ["cash", "credit_card"],
       tags: [
         "breakfast",
         "budget",
@@ -2157,12 +2502,15 @@ export const marrakechEat: EatListing[] = [
         "pastry",
         "terrace"
       ],
+      isHiddenGem: false,
+      isTemporarilyHidden: false,
+      verificationStatus: "verified",
       wiFi: false,
       airConditioning: true,
       wheelchairAccessible: true
     },
 
-    // ── 3. UI (presentation, reviews, dishes & contacts) ──
+    // ── 3. UI (presentation, stories, ratings, contacts & plates) ──
     ui: {
       name: "Pâtisserie des Princes",
       neighborhood: "Jemaa el-Fna",
@@ -2173,6 +2521,14 @@ export const marrakechEat: EatListing[] = [
         "Cornes de Gazelle",
         "Mhancha (Almond Serpent Cake)",
         "House Pistachio Gelato"
+      ],
+      pros: [
+        "Historic 1989 pastry institution steps from Jemaa el-Fna",
+        "Air-conditioned upstairs salon and gift boxes available by weight"
+      ],
+      cons: [
+        "Ground-floor counter gets very busy",
+        "No Wi-Fi"
       ],
       googleRating: 4.2,
       googleReviewCount: 2520,
@@ -2185,51 +2541,50 @@ export const marrakechEat: EatListing[] = [
       openTime: "07:00",
       closeTime: "23:00",
       googleMapsUrl: "https://maps.google.com/?q=Patisserie+des+Princes+Marrakech",
-      reservationMethod: ["none"],
+      reservationMethod: ["walk-in"],
       reservationContact: "+212524443033",
+      bookingUrl: "",
+      whatsappNumber: "",
+      website: "not-available",
+      instagram: "not-available",
       viewType: "none",
       bestTimeToVisit: "Early morning for fresh baked goods",
       averageWaitMinutes: 5,
       googlePlaceId: "ChIJ22xOumuurw0RzQ0N9v6u8-0",
       nonCopyrightImage: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80"
-    }
-  ,
-    // ── 4. WORRIES ("Things You're Worried About!") ──
+    },
     worries: [
       { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
       { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
       { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
       { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
-      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" }
     ],
-    // Multi-platform reviews holder (hidden on UI until populated)
-    reviewsData: { sources: [], reviews: [] },
+    reviewsData: { sources: [], reviews: [] }
   },
 
   {
-    id: "m-eat-18",
+    id: "e-marrakech-18",
     city: "marrakech",
 
-    // ── 1. QUIZ (personalization & recommendation matching) ──
+    // ── 1. QUIZ (personalization, mood & matching) ──
     quiz: {
       lifestyle: "premium",
       groupTypes: ["couple", "friends", "solo"],
-      mealTypes: ["lunch", "dinner", "late-night"],
-      experienceTypes: [
-        "Fine Dining",
-        "Sunset Views",
-        "Modern Fusion Dining",
-        "Upscale Lounge"
-      ],
+      mealTypes: ["lunch", "dinner", "drinks", "late-night"],
+      experienceTypes: ["rooftop", "fine-dining", "casual"],
       foodStyles: ["Mediterranean", "Seafood", "International"],
       cuisineTags: ["international", "seafood"],
+      archetypeAffinity: ["luxury", "first-timer"],
+      vibeTags: ["cocktail-bar", "dj-sets", "koutoubia-view"],
       crowdLevel: "bustling"
     },
 
-    // ── 2. FILTER (search criteria, dietary rules & flags) ──
+    // ── 2. FILTER (search criteria, dietary rules, logistics & flags) ──
     filter: {
       pricePerPerson: 28,
       isHalal: true,
+      halalStatus: "likely-halal-food",
       isVegetarianFriendly: true,
       servesAlcohol: true,
       alcoholPolicy: "serves-alcohol",
@@ -2241,11 +2596,11 @@ export const marrakechEat: EatListing[] = [
       hasEnglishStaff: true,
       hasFrenchStaff: true,
       ramadanFriendly: "special-ftour",
+      closedDays: [],
       seatingTypes: ["indoor", "rooftop", "terrace"],
-      paymentMethods: ["cash", "card"],
+      paymentMethods: ["cash", "credit_card"],
       tags: [
         "alcohol",
-        "budget",
         "dinner",
         "fine",
         "late-night",
@@ -2255,22 +2610,33 @@ export const marrakechEat: EatListing[] = [
         "terrace",
         "wifi"
       ],
+      isHiddenGem: false,
+      isTemporarilyHidden: false,
+      verificationStatus: "verified",
       wiFi: true,
       airConditioning: true,
       wheelchairAccessible: false
     },
 
-    // ── 3. UI (presentation, reviews, dishes & contacts) ──
+    // ── 3. UI (presentation, stories, ratings, contacts & plates) ──
     ui: {
       name: "Kabana",
-      neighborhood: "Medina",
-      description: "A vibrant, botanical rooftop cocktail lounge and restaurant overlooking the Koutoubia minaret. Features an eclectic menu of Mediterranean tapas, sushi, and DJ sets after dark.",
+      neighborhood: "Jemaa el-Fna",
+      description: "A vibrant, botanical rooftop cocktail lounge and restaurant at Kissariat Ben Khalid R'mila overlooking the Koutoubia minaret and Jemaa el-Fna quarter. Features Mediterranean tapas, sushi, and DJ sets after dark.",
       tip: "One of the highest licensed rooftop bars in the Medina. Book a table at the railing for direct Koutoubia sunset views.",
       badge: "local-favorite",
       bestDishes: [
         "Kabana Signature Sushi Rolls",
         "Salmon Tartare with Avocado",
         "Craft Passion Fruit Cocktails"
+      ],
+      pros: [
+        "Licensed rooftop cocktail bar with direct Koutoubia views",
+        "Lively atmosphere with live DJ sets until 02:00"
+      ],
+      cons: [
+        "Loud music at night—not suited for quiet conversation",
+        "Upscale cocktail/tapas pricing; reservations needed for railing seats"
       ],
       googleRating: 4.4,
       googleReviewCount: 5650,
@@ -2283,50 +2649,50 @@ export const marrakechEat: EatListing[] = [
       openTime: "11:00",
       closeTime: "02:00",
       googleMapsUrl: "https://maps.google.com/?q=Kabana+Rooftop+Marrakech",
-      reservationMethod: ["online", "phone"],
+      reservationMethod: ["website", "phone"],
       reservationContact: "+212664464450",
+      bookingUrl: "https://kabanamarrakech.com",
+      whatsappNumber: "",
+      website: "https://kabanamarrakech.com",
+      instagram: "https://instagram.com/kabanamarrakech",
       viewType: "city",
       bestTimeToVisit: "Late evening after 20:00 for lively crowd",
       averageWaitMinutes: 15,
       googlePlaceId: "ChIJK0tXvWjurw0R1s72aP5zM7c",
       nonCopyrightImage: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80"
-    }
-  ,
-    // ── 4. WORRIES ("Things You're Worried About!") ──
+    },
     worries: [
       { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
       { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
       { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
       { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
-      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" }
     ],
-    // Multi-platform reviews holder (hidden on UI until populated)
-    reviewsData: { sources: [], reviews: [] },
+    reviewsData: { sources: [], reviews: [] }
   },
 
   {
-    id: "m-eat-19",
+    id: "e-marrakech-19",
     city: "marrakech",
 
-    // ── 1. QUIZ (personalization & recommendation matching) ──
+    // ── 1. QUIZ (personalization, mood & matching) ──
     quiz: {
       lifestyle: "balanced",
       groupTypes: ["couple", "family", "friends"],
       mealTypes: ["lunch", "dinner"],
-      experienceTypes: [
-        "Casual Italian Dining",
-        "Romantic Sunset",
-        "Fountain courtyard"
-      ],
-      foodStyles: ["Italian", "Moroccan", "Mediterranean", "Pizza"],
+      experienceTypes: ["casual", "hidden-gem"],
+      foodStyles: ["Italian", "Moroccan", "Mediterranean"],
       cuisineTags: ["international", "moroccan-traditional"],
+      archetypeAffinity: ["culture", "first-timer"],
+      vibeTags: ["lemon-trees", "trattoria", "courtyard-fountain"],
       crowdLevel: "balanced"
     },
 
-    // ── 2. FILTER (search criteria, dietary rules & flags) ──
+    // ── 2. FILTER (search criteria, dietary rules, logistics & flags) ──
     filter: {
       pricePerPerson: 18,
       isHalal: true,
+      halalStatus: "likely-halal-food",
       isVegetarianFriendly: true,
       servesAlcohol: true,
       alcoholPolicy: "serves-alcohol",
@@ -2338,33 +2704,44 @@ export const marrakechEat: EatListing[] = [
       hasEnglishStaff: true,
       hasFrenchStaff: true,
       ramadanFriendly: "serves-lunch",
-      seatingTypes: ["indoor", "garden", "terrace"],
-      paymentMethods: ["cash", "card"],
+      closedDays: [],
+      seatingTypes: ["indoor", "courtyard", "terrace"],
+      paymentMethods: ["cash", "credit_card"],
       tags: [
         "alcohol",
-        "budget",
         "dinner",
         "medina",
         "sunset",
         "terrace",
         "wifi"
       ],
+      isHiddenGem: false,
+      isTemporarilyHidden: false,
+      verificationStatus: "verified",
       wiFi: true,
       airConditioning: false,
       wheelchairAccessible: false
     },
 
-    // ── 3. UI (presentation, reviews, dishes & contacts) ──
+    // ── 3. UI (presentation, stories, ratings, contacts & plates) ──
     ui: {
       name: "Limoni",
-      neighborhood: "Medina",
-      description: "A charming Italian-Moroccan trattoria set in a quiet residential alley in Bab Taghzout. Guests dine on fresh handmade pasta and wood-fired pizza surrounded by lemon trees and zellige fountains.",
+      neighborhood: "Riad Laarous",
+      description: "A charming Italian-Moroccan trattoria set in a quiet residential alley in Bab Taghzout near Riad Laarous. Guests dine on fresh handmade pasta and wood-fired pizza surrounded by lemon trees and zellige fountains.",
       tip: "Licensed to serve wine and beer. Located deeper in the northern medina, so drop a pin on your map beforehand.",
       badge: "local-favorite",
       bestDishes: [
         "Camel Burger with Rosemary Fries",
         "Homemade Tagliatelle with Lemon & Truffle",
         "Traditional Wood-Fired Pizza"
+      ],
+      pros: [
+        "Romantic lemon-tree courtyard with zellige fountain",
+        "Serves fresh handmade pasta alongside licensed wine and beer"
+      ],
+      cons: [
+        "Tucked deeper into the northern Medina—watch out for unofficial alley guides",
+        "No air conditioning in summer"
       ],
       googleRating: 4.6,
       googleReviewCount: 3950,
@@ -2377,50 +2754,50 @@ export const marrakechEat: EatListing[] = [
       openTime: "12:00",
       closeTime: "23:00",
       googleMapsUrl: "https://maps.google.com/?q=Limoni+Marrakech",
-      reservationMethod: ["phone", "online"],
+      reservationMethod: ["phone", "website"],
       reservationContact: "+212524383030",
+      bookingUrl: "https://limonimarrakech.com",
+      whatsappNumber: "",
+      website: "https://limonimarrakech.com",
+      instagram: "https://instagram.com/limonimarrakech",
       viewType: "garden",
       bestTimeToVisit: "Lunch around 13:00 for quiet",
       averageWaitMinutes: 10,
       googlePlaceId: "ChIJj7k_wWfurw0R8U6Q5c1s8s0",
       nonCopyrightImage: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80"
-    }
-  ,
-    // ── 4. WORRIES ("Things You're Worried About!") ──
+    },
     worries: [
       { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
       { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
       { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
       { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
-      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" }
     ],
-    // Multi-platform reviews holder (hidden on UI until populated)
-    reviewsData: { sources: [], reviews: [] },
+    reviewsData: { sources: [], reviews: [] }
   },
 
   {
-    id: "m-eat-20",
+    id: "e-marrakech-20",
     city: "marrakech",
 
-    // ── 1. QUIZ (personalization & recommendation matching) ──
+    // ── 1. QUIZ (personalization, mood & matching) ──
     quiz: {
       lifestyle: "lean",
       groupTypes: ["solo", "friends"],
-      mealTypes: ["dinner", "late-night"],
-      experienceTypes: [
-        "Local Gathering Spot",
-        "Traditional Dining",
-        "People Watching"
-      ],
-      foodStyles: ["Moroccan", "Fast Food"],
-      cuisineTags: ["moroccan-traditional"],
+      mealTypes: ["dinner", "late-night", "snack"],
+      experienceTypes: ["market-stall", "street-food", "traditional"],
+      foodStyles: ["Moroccan", "Grill & BBQ", "Seafood"],
+      cuisineTags: ["moroccan-traditional", "seafood"],
+      archetypeAffinity: ["budget", "adventure", "culture", "first-timer"],
+      vibeTags: ["night-market", "open-air", "sensory"],
       crowdLevel: "bustling"
     },
 
-    // ── 2. FILTER (search criteria, dietary rules & flags) ──
+    // ── 2. FILTER (search criteria, dietary rules, logistics & flags) ──
     filter: {
       pricePerPerson: 4,
       isHalal: true,
+      halalStatus: "likely-halal-food",
       isVegetarianFriendly: true,
       servesAlcohol: false,
       alcoholPolicy: "dry",
@@ -2432,7 +2809,8 @@ export const marrakechEat: EatListing[] = [
       hasEnglishStaff: false,
       hasFrenchStaff: true,
       ramadanFriendly: "special-ftour",
-      seatingTypes: ["terrace"],
+      closedDays: [],
+      seatingTypes: ["street-side", "outdoor"],
       paymentMethods: ["cash"],
       tags: [
         "budget",
@@ -2440,15 +2818,17 @@ export const marrakechEat: EatListing[] = [
         "dry",
         "late-night",
         "medina",
-        "street-food",
-        "terrace"
+        "street-food"
       ],
+      isHiddenGem: false,
+      isTemporarilyHidden: false,
+      verificationStatus: "verified",
       wiFi: false,
       airConditioning: false,
       wheelchairAccessible: true
     },
 
-    // ── 3. UI (presentation, reviews, dishes & contacts) ──
+    // ── 3. UI (presentation, stories, ratings, contacts & plates) ──
     ui: {
       name: "Street Food Market (Jemaa el-Fna)",
       neighborhood: "Jemaa el-Fna",
@@ -2459,6 +2839,14 @@ export const marrakechEat: EatListing[] = [
         "Babbouche (Herbal Snail Broth)",
         "Grilled Merguez & Kefta Brochettes",
         "Fried Calamari & Whiting Plate"
+      ],
+      pros: [
+        "Unmatched sensory night-market energy and ultra-low street prices",
+        "Wide variety of grilled meats, fried seafood, and traditional broths"
+      ],
+      cons: [
+        "Aggressive stall touts and occasional surprise bread/olive extras",
+        "Cash only; pick busy high-turnover stalls for freshest food"
       ],
       googleRating: 4.4,
       googleReviewCount: 5200,
@@ -2471,46 +2859,52 @@ export const marrakechEat: EatListing[] = [
       openTime: "18:00",
       closeTime: "01:00",
       googleMapsUrl: "https://maps.google.com/?q=Jemaa+el-Fna+Stalls+Marrakech",
-      reservationMethod: ["none"],
+      reservationMethod: ["walk-in"],
+      reservationContact: "",
+      bookingUrl: "",
+      whatsappNumber: "",
+      website: "not-available",
+      instagram: "not-available",
       viewType: "city",
       bestTimeToVisit: "Late evening after 20:00 for lively crowd",
       averageWaitMinutes: 5,
       googlePlaceId: "ChIJj7m9pWuurw0R1s4_1vQe0u8",
       nonCopyrightImage: "https://images.unsplash.com/photo-1509315811355-57bd3b7771b6?auto=format&fit=crop&w=800&q=80"
-    }
-  ,
-    // ── 4. WORRIES ("Things You're Worried About!") ──
+    },
     worries: [
       { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
       { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
       { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
       { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
-      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" }
     ],
-    // Multi-platform reviews holder (hidden on UI until populated)
-    reviewsData: { sources: [], reviews: [] },
+    reviewsData: { sources: [], reviews: [] }
   },
 
   {
-    id: "m-eat-mcdonalds-gueliz",
+    id: "e-marrakech-mcdonalds-gueliz",
     city: "marrakech",
 
-    // ── 1. QUIZ (personalization & recommendation matching) ──
+    // ── 1. QUIZ (personalization, mood & matching) ──
     quiz: {
       lifestyle: "lean",
       groupTypes: ["family", "friends", "solo"],
       mealTypes: ["breakfast", "lunch", "dinner", "late-night"],
-      experienceTypes: ["Fast Food", "Casual Dining", "Terrace Seating"],
-      foodStyles: ["Burgers", "Fast Food", "American"],
+      experienceTypes: ["casual", "street-food"],
+      foodStyles: ["International", "Grill & BBQ"],
+      cuisineTags: ["international"],
+      archetypeAffinity: ["budget", "first-timer"],
+      vibeTags: ["fast-food", "terrace", "mccafe"],
       crowdLevel: "bustling"
     },
 
-    // ── 2. FILTER (search criteria, dietary rules & flags) ──
+    // ── 2. FILTER (search criteria, dietary rules, logistics & flags) ──
     filter: {
-      pricePerPerson: 65,
+      pricePerPerson: 6.5,
       isHalal: true,
       halalStatus: "halal-certified",
       isVegetarianFriendly: true,
+      servesAlcohol: false,
       alcoholPolicy: "dry",
       hasDelivery: true,
       hasParking: false,
@@ -2520,21 +2914,39 @@ export const marrakechEat: EatListing[] = [
       hasEnglishStaff: true,
       hasFrenchStaff: true,
       ramadanFriendly: "special-ftour",
-      paymentMethods: ["Cash", "Credit Card", "Contactless"],
-      tags: ["street-food", "late-night", "breakfast", "budget", "terrace"],
+      closedDays: [],
+      seatingTypes: ["indoor", "terrace"],
+      paymentMethods: ["cash", "credit_card", "visa", "mastercard"],
+      tags: ["street-food", "late-night", "breakfast", "budget", "terrace", "dry", "wifi"],
+      isHiddenGem: false,
+      isTemporarilyHidden: false,
       verificationStatus: "verified",
       wiFi: true,
       airConditioning: true,
       wheelchairAccessible: true
     },
 
-    // ── 3. UI (presentation, reviews, dishes & contacts) ──
+    // ── 3. UI (presentation, stories, ratings, contacts & plates) ──
     ui: {
       name: "McDonald's Gueliz",
       neighborhood: "Guéliz",
       district: "Centre Guéliz",
       description: "Iconic Guéliz branch on Avenue Mohammed V offering indoor air-conditioned seating, sidewalk café terrace, McCafé, and late-night burgers.",
+      tip: "Handy late-night stop on Avenue Mohammed V open until 02:00 with air conditioning and McCafé.",
       badge: "local-favorite",
+      bestDishes: [
+        "Big Mac Meal",
+        "McChicken",
+        "McCafé Espresso & Pastries"
+      ],
+      pros: [
+        "Central Avenue Mohammed V location open 07:00 to 02:00",
+        "Halal-certified, air-conditioned, and wheelchair accessible"
+      ],
+      cons: [
+        "Very busy during evenings and weekends",
+        "Limited street parking outside"
+      ],
       googleRating: 4,
       googleReviewCount: 7800,
       openTime: "07:00",
@@ -2545,39 +2957,44 @@ export const marrakechEat: EatListing[] = [
         lng: -8.0125
       },
       googleMapsUrl: "https://maps.google.com/?cid=1209384756192837465",
+      reservationMethod: ["walk-in"],
+      reservationContact: "not-available",
+      bookingUrl: "",
+      whatsappNumber: "",
+      website: "https://mcdonalds.ma",
+      instagram: "https://instagram.com/mcdonalds_maroc",
       languagesSpoken: ["Arabic", "French", "English"]
-    }
-  ,
-    // ── 4. WORRIES ("Things You're Worried About!") ──
+    },
     worries: [
       { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
       { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
       { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
       { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
-      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" }
     ],
-    // Multi-platform reviews holder (hidden on UI until populated)
-    reviewsData: { sources: [], reviews: [] },
+    reviewsData: { sources: [], reviews: [] }
   },
 
   {
-    id: "m-eat-kfc-gueliz",
+    id: "e-marrakech-kfc-gueliz",
     city: "marrakech",
 
-    // ── 1. QUIZ (personalization & recommendation matching) ──
+    // ── 1. QUIZ (personalization, mood & matching) ──
     quiz: {
       lifestyle: "lean",
       groupTypes: ["family", "friends", "solo"],
       mealTypes: ["lunch", "dinner", "late-night"],
-      experienceTypes: ["Fast Food", "Casual Dining"],
-      foodStyles: ["Fried Chicken", "Fast Food", "American"],
+      experienceTypes: ["casual", "street-food"],
+      foodStyles: ["International"],
       cuisineTags: ["international"],
+      archetypeAffinity: ["budget", "first-timer"],
+      vibeTags: ["fast-food", "fried-chicken", "quick-bite"],
       crowdLevel: "bustling"
     },
 
-    // ── 2. FILTER (search criteria, dietary rules & flags) ──
+    // ── 2. FILTER (search criteria, dietary rules, logistics & flags) ──
     filter: {
-      pricePerPerson: 60,
+      pricePerPerson: 6,
       isHalal: true,
       halalStatus: "halal-certified",
       isVegetarianFriendly: false,
@@ -2591,21 +3008,39 @@ export const marrakechEat: EatListing[] = [
       hasEnglishStaff: true,
       hasFrenchStaff: true,
       ramadanFriendly: "special-ftour",
-      paymentMethods: ["Cash", "Credit Card", "Contactless"],
-      tags: ["street-food", "late-night", "budget"],
+      closedDays: [],
+      seatingTypes: ["indoor", "terrace"],
+      paymentMethods: ["cash", "credit_card", "visa", "mastercard"],
+      tags: ["street-food", "late-night", "budget", "dry", "wifi"],
+      isHiddenGem: false,
+      isTemporarilyHidden: false,
       verificationStatus: "verified",
       wiFi: true,
       airConditioning: true,
       wheelchairAccessible: true
     },
 
-    // ── 3. UI (presentation, reviews, dishes & contacts) ──
+    // ── 3. UI (presentation, stories, ratings, contacts & plates) ──
     ui: {
       name: "KFC Gueliz",
       neighborhood: "Guéliz",
       district: "Guéliz",
       description: "Centrally located on Avenue Mohammed V in Guéliz, serving original recipe fried chicken, hot wings, and family buckets.",
+      tip: "Great for quick takeaway or late-night delivery via Glovo until 01:00.",
       badge: "local-favorite",
+      bestDishes: [
+        "Zinger Sandwich",
+        "Crispy Chicken Bucket",
+        "Spicy Hot Wings"
+      ],
+      pros: [
+        "Central Avenue Mohammed V spot open until 01:00",
+        "Halal-certified with delivery and AC"
+      ],
+      cons: [
+        "Limited vegetarian options",
+        "Can experience counter queues at dinner rush"
+      ],
       googleRating: 3.9,
       googleReviewCount: 2900,
       openTime: "11:00",
@@ -2616,39 +3051,44 @@ export const marrakechEat: EatListing[] = [
         lng: -8.0118
       },
       googleMapsUrl: "https://maps.google.com/?cid=8912304918273645123",
+      reservationMethod: ["walk-in"],
+      reservationContact: "not-available",
+      bookingUrl: "",
+      whatsappNumber: "",
+      website: "https://kfc.ma",
+      instagram: "https://instagram.com/kfc_maroc",
       languagesSpoken: ["Arabic", "French", "English"]
-    }
-  ,
-    // ── 4. WORRIES ("Things You're Worried About!") ──
+    },
     worries: [
       { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
       { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
       { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
       { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
-      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" }
     ],
-    // Multi-platform reviews holder (hidden on UI until populated)
-    reviewsData: { sources: [], reviews: [] },
+    reviewsData: { sources: [], reviews: [] }
   },
 
   {
-    id: "m-eat-burger-king-carre-eden",
+    id: "e-marrakech-burger-king-carre-eden",
     city: "marrakech",
 
-    // ── 1. QUIZ (personalization & recommendation matching) ──
+    // ── 1. QUIZ (personalization, mood & matching) ──
     quiz: {
       lifestyle: "lean",
       groupTypes: ["family", "friends", "solo"],
       mealTypes: ["lunch", "dinner"],
-      experienceTypes: ["Fast Food", "Mall Dining"],
-      foodStyles: ["Burgers", "Fast Food", "American"],
+      experienceTypes: ["casual", "street-food"],
+      foodStyles: ["International", "Grill & BBQ"],
       cuisineTags: ["international"],
+      archetypeAffinity: ["budget", "first-timer"],
+      vibeTags: ["mall-food-court", "flame-grilled", "quick-bite"],
       crowdLevel: "bustling"
     },
 
-    // ── 2. FILTER (search criteria, dietary rules & flags) ──
+    // ── 2. FILTER (search criteria, dietary rules, logistics & flags) ──
     filter: {
-      pricePerPerson: 65,
+      pricePerPerson: 6.5,
       isHalal: true,
       halalStatus: "halal-certified",
       isVegetarianFriendly: true,
@@ -2662,21 +3102,39 @@ export const marrakechEat: EatListing[] = [
       hasEnglishStaff: true,
       hasFrenchStaff: true,
       ramadanFriendly: "special-ftour",
-      paymentMethods: ["Cash", "Credit Card", "Contactless"],
-      tags: ["street-food", "budget"],
+      closedDays: [],
+      seatingTypes: ["indoor"],
+      paymentMethods: ["cash", "credit_card", "visa", "mastercard"],
+      tags: ["street-food", "budget", "dry", "wifi"],
+      isHiddenGem: false,
+      isTemporarilyHidden: false,
       verificationStatus: "verified",
       wiFi: true,
       airConditioning: true,
       wheelchairAccessible: true
     },
 
-    // ── 3. UI (presentation, reviews, dishes & contacts) ──
+    // ── 3. UI (presentation, stories, ratings, contacts & plates) ──
     ui: {
       name: "Burger King Carré Eden",
       neighborhood: "Guéliz",
       district: "Carré Eden Shopping Center",
       description: "Modern food court Burger King inside the Carré Eden shopping mall in Guéliz, serving Whoppers, crispy fries, and milkshakes.",
+      tip: "Convenient stop while shopping at Carré Eden, with underground mall parking and air conditioning.",
       badge: "local-favorite",
+      bestDishes: [
+        "Flame-Grilled Whopper",
+        "Chicken Royale",
+        "King Fries & Milkshake"
+      ],
+      pros: [
+        "Underground mall parking and cool AC inside Carré Eden",
+        "Halal-certified with delivery available"
+      ],
+      cons: [
+        "Food-court seating can feel busy at lunchtime",
+        "Standard fast-food fare"
+      ],
       googleRating: 4,
       googleReviewCount: 2450,
       openTime: "11:00",
@@ -2687,39 +3145,44 @@ export const marrakechEat: EatListing[] = [
         lng: -8.0142
       },
       googleMapsUrl: "https://maps.google.com/?cid=1029384756192837465",
+      reservationMethod: ["walk-in"],
+      reservationContact: "not-available",
+      bookingUrl: "",
+      whatsappNumber: "",
+      website: "https://burgerking.ma",
+      instagram: "https://instagram.com/burgerkingmaroc",
       languagesSpoken: ["Arabic", "French", "English"]
-    }
-  ,
-    // ── 4. WORRIES ("Things You're Worried About!") ──
+    },
     worries: [
       { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
       { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
       { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
       { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
-      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" }
     ],
-    // Multi-platform reviews holder (hidden on UI until populated)
-    reviewsData: { sources: [], reviews: [] },
+    reviewsData: { sources: [], reviews: [] }
   },
 
   {
-    id: "m-eat-pizza-hut-menara-mall",
+    id: "e-marrakech-pizza-hut-menara-mall",
     city: "marrakech",
 
-    // ── 1. QUIZ (personalization & recommendation matching) ──
+    // ── 1. QUIZ (personalization, mood & matching) ──
     quiz: {
       lifestyle: "lean",
       groupTypes: ["family", "friends"],
       mealTypes: ["lunch", "dinner"],
-      experienceTypes: ["Casual Dining", "Mall Dining", "Terrace Views"],
-      foodStyles: ["Pizza", "Italian-American", "Fast Food"],
+      experienceTypes: ["casual", "rooftop"],
+      foodStyles: ["Italian", "International"],
       cuisineTags: ["international"],
+      archetypeAffinity: ["budget", "first-timer"],
+      vibeTags: ["mall-terrace", "atlas-views", "family-friendly"],
       crowdLevel: "balanced"
     },
 
-    // ── 2. FILTER (search criteria, dietary rules & flags) ──
+    // ── 2. FILTER (search criteria, dietary rules, logistics & flags) ──
     filter: {
-      pricePerPerson: 70,
+      pricePerPerson: 7,
       isHalal: true,
       halalStatus: "halal-certified",
       isVegetarianFriendly: true,
@@ -2733,21 +3196,39 @@ export const marrakechEat: EatListing[] = [
       hasEnglishStaff: true,
       hasFrenchStaff: true,
       ramadanFriendly: "special-ftour",
-      paymentMethods: ["Cash", "Credit Card", "Contactless"],
-      tags: ["budget", "terrace"],
+      closedDays: [],
+      seatingTypes: ["indoor", "terrace"],
+      paymentMethods: ["cash", "credit_card", "visa", "mastercard"],
+      tags: ["budget", "terrace", "dry", "wifi"],
+      isHiddenGem: false,
+      isTemporarilyHidden: false,
       verificationStatus: "verified",
       wiFi: true,
       airConditioning: true,
       wheelchairAccessible: true
     },
 
-    // ── 3. UI (presentation, reviews, dishes & contacts) ──
+    // ── 3. UI (presentation, stories, ratings, contacts & plates) ──
     ui: {
       name: "Pizza Hut Menara Mall",
       neighborhood: "Hivernage",
       district: "Avenue Mohammed VI",
       description: "Family-friendly Pizza Hut on the top food court level of Menara Mall with views toward the Atlas Mountains and outdoor terrace seating.",
+      tip: "Grab a terrace seat on the upper mall level for open-air views toward the Atlas Mountains.",
       badge: "local-favorite",
+      bestDishes: [
+        "Super Supreme Pan Pizza",
+        "Cheesy Crust Margherita",
+        "Garlic Bread & Wings"
+      ],
+      pros: [
+        "Upper-level mall terrace with Atlas Mountain views",
+        "Easy underground parking, AC, and family-friendly layout"
+      ],
+      cons: [
+        "Standard chain pizza rather than wood-fired Neapolitan",
+        "Mall food court gets noisy on weekend evenings"
+      ],
       googleRating: 3.9,
       googleReviewCount: 1850,
       openTime: "11:30",
@@ -2758,108 +3239,126 @@ export const marrakechEat: EatListing[] = [
         lng: -8.0162
       },
       googleMapsUrl: "https://maps.google.com/?cid=7819230491827364512",
+      reservationMethod: ["walk-in"],
+      reservationContact: "not-available",
+      bookingUrl: "",
+      whatsappNumber: "",
+      website: "https://pizzahut.ma",
+      instagram: "https://instagram.com/pizzahut_maroc",
       languagesSpoken: ["Arabic", "French", "English"]
-    }
-  ,
-    // ── 4. WORRIES ("Things You're Worried About!") ──
+    },
     worries: [
       { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
       { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
       { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
       { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
-      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" }
     ],
-    // Multi-platform reviews holder (hidden on UI until populated)
-    reviewsData: { sources: [], reviews: [] },
+    reviewsData: { sources: [], reviews: [] }
   },
 
   {
-    id: "m-eat-dominos-gueliz",
+    id: "e-marrakech-dominos-gueliz",
     city: "marrakech",
 
-    // ── 1. QUIZ (personalization & recommendation matching) ──
+    // ── 1. QUIZ (personalization, mood & matching) ──
     quiz: {
       lifestyle: "lean",
       groupTypes: ["friends", "solo", "family"],
       mealTypes: ["lunch", "dinner", "late-night"],
-      experienceTypes: ["Takeaway", "Delivery", "Pizza"],
-      foodStyles: ["Pizza", "Fast Food", "American"],
+      experienceTypes: ["casual", "street-food"],
+      foodStyles: ["Italian", "International"],
+      cuisineTags: ["international"],
+      archetypeAffinity: ["budget", "nomad"],
+      vibeTags: ["delivery", "carryout", "quick-pizza"],
       crowdLevel: "balanced"
     },
 
-    // ── 2. FILTER (search criteria, dietary rules & flags) ──
+    // ── 2. FILTER (search criteria, dietary rules, logistics & flags) ──
     filter: {
-      pricePerPerson: 60,
+      pricePerPerson: 6,
       isHalal: true,
       halalStatus: "halal-certified",
       isVegetarianFriendly: true,
+      servesAlcohol: false,
       alcoholPolicy: "dry",
       hasDelivery: true,
-      hasParking: false,
+      hasParking: true,
       nearMedina: false,
       nearBeach: false,
       nearCenter: true,
       hasEnglishStaff: true,
       hasFrenchStaff: true,
       ramadanFriendly: "special-ftour",
-      paymentMethods: ["Cash", "Credit Card", "Contactless"],
-      tags: ["late-night", "budget"],
+      closedDays: [],
+      seatingTypes: ["indoor"],
+      paymentMethods: ["cash", "credit_card", "visa", "mastercard"],
+      tags: ["late-night", "budget", "dry", "wifi"],
+      isHiddenGem: false,
+      isTemporarilyHidden: false,
       verificationStatus: "verified",
       wiFi: true,
       airConditioning: true,
       wheelchairAccessible: true
     },
 
-    // ── 3. UI (presentation, reviews, dishes & contacts) ──
+    // ── 3. UI (presentation, stories, ratings, contacts & plates) ──
     ui: {
       name: "Domino's Pizza Gueliz",
       neighborhood: "Guéliz",
-      district: "Guéliz",
-      description: "Carry-out and express delivery branch serving freshly baked hand-tossed pizzas, stuffed cheesy bread, and lava cakes in central Marrakech.",
+      district: "Carré Eden",
+      description: "Carry-out and express delivery branch at Centre Commercial Carré Eden serving freshly baked hand-tossed pizzas, stuffed cheesy bread, and lava cakes in central Guéliz.",
+      tip: "Located at Carré Eden (Rue Tarik Bnou Ziad / Av. Mohammed V); great for quick takeaway or delivery to Guéliz hotels.",
       badge: "local-favorite",
-      googleRating: 3.8,
-      googleReviewCount: 1420,
-      openTime: "11:30",
-      closeTime: "01:00",
+      bestDishes: [
+        "Pepperoni Extravaganzza Pizza",
+        "Stuffed Cheesy Bread",
+        "Chocolate Lava Crunch Cake"
+      ],
+      pros: [
+        "Fast carryout and delivery right in Carré Eden, Guéliz",
+        "Halal-certified with mall parking and AC"
+      ],
+      cons: [
+        "Small seating footprint geared toward takeaway and delivery",
+        "Mixed reviews on delivery speed during peak hours"
+      ],
+      googleRating: 3.6,
+      googleReviewCount: 247,
+      openTime: "11:00",
+      closeTime: "23:30",
       exactAddressAndCoordinates: {
-        address: "Boulevard Allal El Fassi, Guéliz, Marrakech",
-        lat: 31.6482,
-        lng: -8.0094
+        address: "Centre Commercial Carré Eden, Rue Tarik Bnou Ziad / Avenue Mohammed V, Guéliz, Marrakech",
+        lat: 31.6362,
+        lng: -8.0142
       },
-      googleMapsUrl: "https://maps.google.com/?cid=4918273645102938475",
+      googleMapsUrl: "https://maps.google.com/?q=Domino's+Pizza+Carre+Eden+Gueliz+Marrakech",
+      reservationMethod: ["walk-in", "phone", "website"],
+      reservationContact: "+212524430555",
+      bookingUrl: "https://www.dominos.ma",
+      whatsappNumber: "",
+      website: "https://www.dominos.ma",
+      instagram: "https://instagram.com/dominosmaroc",
       languagesSpoken: ["Arabic", "French", "English"]
-    }
-  ,
-    // ── 4. WORRIES ("Things You're Worried About!") ──
+    },
     worries: [
       { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
       { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
       { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
       { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
-      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" }
     ],
-    // Multi-platform reviews holder (hidden on UI until populated)
-    reviewsData: { sources: [], reviews: [] },
+    reviewsData: { sources: [], reviews: [] }
   },
+
   // =========================================================================
-  // 1. DAR YACOUT MARRAKECH
+  // DAR YACOUT MARRAKECH
   // =========================================================================
   {
     id: "e-marrakech-dar-yacout",
     city: "marrakech",
-    openTime: "19:00",
-    closeTime: "23:00",
-    weeklySchedule: [
-      { day: "Monday", open: "19:00", close: "23:00", isClosed: true, note: "Fermeture hebdomadaire" },
-      { day: "Tuesday", open: "19:00", close: "23:00", isClosed: false },
-      { day: "Wednesday", open: "19:00", close: "23:00", isClosed: false },
-      { day: "Thursday", open: "19:00", close: "23:00", isClosed: false },
-      { day: "Friday", open: "19:00", close: "23:00", isClosed: false },
-      { day: "Saturday", open: "19:00", close: "23:00", isClosed: false },
-      { day: "Sunday", open: "19:00", close: "23:00", isClosed: false }
-    ],
 
-    // ── 1. QUIZ (personalization & recommendation matching) ──
+    // ── 1. QUIZ (personalization, mood & matching) ──
     quiz: {
       lifestyle: "premium",
       groupTypes: ["couple", "family", "friends", "business-friendly", "seniors"],
@@ -2872,7 +3371,7 @@ export const marrakechEat: EatListing[] = [
       crowdLevel: "balanced"
     },
 
-    // ── 2. FILTER (search criteria, dietary rules & flags) ──
+    // ── 2. FILTER (search criteria, dietary rules, logistics & flags) ──
     filter: {
       pricePerPerson: 70,
       isHalal: true,
@@ -2897,11 +3396,11 @@ export const marrakechEat: EatListing[] = [
       verificationStatus: "verified"
     },
 
-    // ── 3. UI (presentation, reviews, dishes & contacts) ──
+    // ── 3. UI (presentation, stories, ratings, contacts & plates) ──
     ui: {
       name: "Dar Yacout",
-      neighborhood: "Medina",
-      description: "An imperial culinary institution in the northern Medina designed by renowned architect Bill Willis for founder Mohamed Zkhiri. Guests begin the evening with aperitifs on the rooftop terrace overlooking the Koutoubia before descending to candlelit riad salons and poolside courtyards for a legendary multi-course Moroccan gastronomic banquet with live Andalusian and Gnawa music.",
+      neighborhood: "Bab Doukkala",
+      description: "An imperial culinary institution in Bab Doukkala designed by renowned architect Bill Willis for founder Mohamed Zkhiri. Guests begin the evening with aperitifs on the rooftop terrace overlooking the Koutoubia before descending to candlelit riad salons and poolside courtyards for a legendary multi-course Moroccan gastronomic banquet with live Andalusian and Gnawa music.",
       tip: "Closed on Mondays and open for dinner only. Arrive promptly at 19:00 to enjoy an aperitif on the rooftop terrace as the sun sets over the Medina before descending to dinner.",
       badge: "splurge",
       bestDishes: [
@@ -3106,39 +3605,25 @@ export const marrakechEat: EatListing[] = [
           }
         ]
       }
-    }
-  ,
-    // ── 4. WORRIES ("Things You're Worried About!") ──
+    },
     worries: [
       { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
       { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
       { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
       { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
-      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" }
     ],
-    // Multi-platform reviews holder (hidden on UI until populated)
-    reviewsData: { sources: [], reviews: [] },
+    reviewsData: { sources: [], reviews: [] }
   },
 
   // =========================================================================
-  // 2. NOBU RESTAURANT & ROOFTOP MARRAKECH
+  // NOBU RESTAURANT & ROOFTOP MARRAKECH
   // =========================================================================
   {
     id: "e-marrakech-nobu",
     city: "marrakech",
-    openTime: "12:00",
-    closeTime: "01:00",
-    weeklySchedule: [
-      { day: "Monday", open: "12:00", close: "01:00", isClosed: false },
-      { day: "Tuesday", open: "12:00", close: "01:00", isClosed: false },
-      { day: "Wednesday", open: "12:00", close: "01:00", isClosed: false },
-      { day: "Thursday", open: "12:00", close: "01:00", isClosed: false },
-      { day: "Friday", open: "12:00", close: "02:00", isClosed: false, note: "Rooftop DJ set & late night service" },
-      { day: "Saturday", open: "12:00", close: "02:00", isClosed: false, note: "Rooftop DJ set & late night service" },
-      { day: "Sunday", open: "12:00", close: "01:00", isClosed: false }
-    ],
 
-    // ── 1. QUIZ (personalization & recommendation matching) ──
+    // ── 1. QUIZ (personalization, mood & matching) ──
     quiz: {
       lifestyle: "premium",
       groupTypes: ["couple", "friends", "business-friendly", "large-groups"],
@@ -3151,7 +3636,7 @@ export const marrakechEat: EatListing[] = [
       crowdLevel: "bustling"
     },
 
-    // ── 2. FILTER (search criteria, dietary rules & flags) ──
+    // ── 2. FILTER (search criteria, dietary rules, logistics & flags) ──
     filter: {
       pricePerPerson: 85,
       isHalal: true,
@@ -3176,7 +3661,7 @@ export const marrakechEat: EatListing[] = [
       verificationStatus: "verified"
     },
 
-    // ── 3. UI (presentation, reviews, dishes & contacts) ──
+    // ── 3. UI (presentation, stories, ratings, contacts & plates) ──
     ui: {
       name: "Nobu Restaurant & Rooftop Marrakech",
       neighborhood: "Hivernage",
@@ -3434,345 +3919,25 @@ export const marrakechEat: EatListing[] = [
           }
         ]
       }
-    }
-  ,
-    // ── 4. WORRIES ("Things You're Worried About!") ──
+    },
     worries: [
       { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
       { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
       { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
       { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
-      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" }
     ],
-    // Multi-platform reviews holder (hidden on UI until populated)
-    reviewsData: { sources: [], reviews: [] },
+    reviewsData: { sources: [], reviews: [] }
   },
 
   // =========================================================================
-  // 3. AL FASSIA GUÉLIZ (Updated with Complete Structured Menu)
-  // =========================================================================
-  {
-    id: "m-eat-6",
-    city: "marrakech",
-    openTime: "12:30",
-    closeTime: "23:00",
-    weeklySchedule: [
-      { day: "Monday", open: "12:30", close: "23:00", isClosed: false },
-      { day: "Tuesday", open: "12:30", close: "23:00", isClosed: true, note: "Fermeture hebdomadaire le mardi" },
-      { day: "Wednesday", open: "12:30", close: "23:00", isClosed: false },
-      { day: "Thursday", open: "12:30", close: "23:00", isClosed: false },
-      { day: "Friday", open: "12:30", close: "23:00", isClosed: false },
-      { day: "Saturday", open: "12:30", close: "23:00", isClosed: false },
-      { day: "Sunday", open: "12:30", close: "23:00", isClosed: false }
-    ],
-
-    // ── 1. QUIZ (personalization & recommendation matching) ──
-    quiz: {
-      lifestyle: "premium",
-      groupTypes: ["couple", "family", "seniors", "business-friendly"],
-      mealTypes: ["lunch", "dinner"],
-      experienceTypes: ["fine-dining", "traditional"],
-      foodStyles: ["Moroccan", "Tagine & Couscous"],
-      cuisineTags: ["moroccan-traditional"],
-      archetypeAffinity: ["culture", "first-timer", "luxury"],
-      vibeTags: ["refined", "authentic", "warm", "hospitable"],
-      crowdLevel: "balanced"
-    },
-
-    // ── 2. FILTER (search criteria, dietary rules & flags) ──
-    filter: {
-      pricePerPerson: 28,
-      isHalal: true,
-      halalStatus: "halal-certified",
-      isVegetarianFriendly: true,
-      servesAlcohol: true,
-      alcoholPolicy: "serves-alcohol",
-      hasDelivery: false,
-      hasParking: true,
-      nearMedina: false,
-      nearBeach: false,
-      nearCenter: true,
-      hasEnglishStaff: true,
-      hasFrenchStaff: true,
-      ramadanFriendly: "special-ftour",
-      closedDays: ["tuesday"],
-      seatingTypes: ["indoor", "terrace"],
-      paymentMethods: ["credit_card", "cash", "visa", "mastercard"],
-      tags: ["alcohol", "dinner", "fine", "pastilla", "tagine", "terrace", "couscous"],
-      isHiddenGem: false,
-      isTemporarilyHidden: false,
-      verificationStatus: "verified"
-    },
-
-    // ── 3. UI (presentation, reviews, dishes & contacts) ──
-    ui: {
-      name: "Al Fassia Guéliz",
-      neighborhood: "Guéliz",
-      description: "Marrakech's premier gastronomic sanctuary for authentic Fassi cuisine, proudly operated exclusively by women since 1987. Famed for its legendary 12-salad mezze assortment, sweet-and-savory pigeon and seafood pastillas, slow-roasted shoulder of lamb, and rich slow-simmered beef tagines.",
-      tip: "Closed on Tuesdays. The signature slow-roasted shoulder of lamb for two (Épaule d'agneau M'Hammar) is a masterpiece; book a table 24–48 hours ahead as the restaurant fills quickly.",
-      badge: "local-favorite",
-      bestDishes: [
-        "Sélection de 12 Salades Marocaines Fines",
-        "Pastilla au Pigeon ou au Poulet",
-        "Épaule d'Agneau Rôtie M'Hammar",
-        "Tagine d'Agneau aux Pruneaux & Amandes",
-        "Tagine Makfoul",
-        "Mhancha Al Fassia & Glace Vanille"
-      ],
-      pros: [
-        "Trailblazing cooperative run exclusively by women with exquisite culinary standards",
-        "Arguably the most refined authentic Moroccan and Fassi cuisine in the city",
-        "Licensed wine list featuring excellent Moroccan reds and crisp local gris",
-        "Comfortable, tranquil dining room away from the hustle of the Medina souks"
-      ],
-      cons: [
-        "Closed all day Tuesday",
-        "Advance reservation required for dinner and for specialty dishes like whole lamb shoulder"
-      ],
-      googleRating: 4.5,
-      googleReviewCount: 3540,
-      tripadvisorRating: 4.5,
-      tripadvisorReviewCount: 2450,
-      theforkRating: 4.5,
-      theforkReviewCount: 530,
-      restaurantguruRating: 4.8,
-      restaurantguruReviewCount: 3540,
-      openTime: "12:30",
-      closeTime: "23:00",
-      weeklySchedule: [
-        { day: "Monday", openTime: "12:30", closeTime: "23:00", isClosed: false },
-        { day: "Tuesday", openTime: "12:30", closeTime: "23:00", isClosed: true, note: "Fermé le mardi" },
-        { day: "Wednesday", openTime: "12:30", closeTime: "23:00", isClosed: false },
-        { day: "Thursday", openTime: "12:30", closeTime: "23:00", isClosed: false },
-        { day: "Friday", openTime: "12:30", closeTime: "23:00", isClosed: false },
-        { day: "Saturday", openTime: "12:30", closeTime: "23:00", isClosed: false },
-        { day: "Sunday", openTime: "12:30", closeTime: "23:00", isClosed: false }
-      ],
-      exactAddressAndCoordinates: {
-        address: "55 Boulevard Mohamed Zerktouni, Guéliz, Marrakech 40000, Morocco",
-        lat: 31.6342,
-        lng: -8.0128
-      },
-      address: "55 Boulevard Mohamed Zerktouni, Guéliz, Marrakech 40000, Morocco",
-      coordinates: {
-        lat: 31.6342,
-        lng: -8.0128
-      },
-      googleMapsUrl: "https://maps.google.com/?q=Al+Fassia+Gueliz+Marrakech",
-      reservationMethod: ["phone", "website"],
-      reservationContact: "+212524434060",
-      whatsappNumber: "",
-      bookingUrl: "https://alfassia.com/gueliz/",
-      website: "https://alfassia.com",
-      instagram: "https://instagram.com/alfassiamarrakech",
-      languagesSpoken: ["French", "Arabic/Darija", "English"],
-      menu: {
-        currency: "MAD",
-        lastUpdated: "November 2026",
-        serviceChargeIncluded: true,
-        sections: [
-          {
-            id: "entrees-salades-fassies",
-            title: "Salades Fines & Entrées Royales (Salads & Appetizers)",
-            description: "Assortiments de salades cuisinées de Fès et potages traditionnels",
-            items: [
-              {
-                id: "fassia-12-salades",
-                name: "Sélection de 12 Salades Marocaines Fines",
-                localName: "تشكيلة 12 سلطة مغربية تقليدية متبلة بالبهارات الفاسية",
-                translations: {
-                  ar: "تشكيلة 12 سلطة مغربية تقليدية متبلة بالبهارات الفاسية",
-                  en: "Legendary tasting assortment of 12 distinct cooked Moroccan salads and dips",
-                  es: "Gran surtido de degustación de 12 ensaladas marroquíes cocinadas tradicionales",
-                  de: "Legendäre Auswahl von 12 verschiedenen traditionellen marokkanischen Gemüsesalaten"
-                },
-                price: 120,
-                isSignature: true,
-                dietary: ["vegetarian", "vegan", "halal"],
-                portionNotes: "Idéal pour 2 personnes en entrée"
-              },
-              {
-                id: "fassia-cocktail-briouates",
-                name: "Cocktail de Briouates Al Fassia (4 pièces)",
-                localName: "تشكيلة بريوات مقرمشة باللحم المفروم والسمك والسبانخ والجبن",
-                translations: {
-                  ar: "تشكيلة بريوات مقرمشة باللحم المفروم والسمك والسبانخ والجبن",
-                  en: "Crispy filo pastry parcels filled with spiced minced beef, fish, and spinach-cheese",
-                  es: "Surtido de briouats crujientes de pasta filo rellenos de carne picada, pescado y espinacas",
-                  de: "Knusprige Briouats gefüllt mit Hackfleisch, Fisch und Spinat-Käse"
-                },
-                price: 120,
-                isSignature: true,
-                dietary: ["halal"]
-              }
-            ]
-          },
-          {
-            id: "pastillas-briouates",
-            title: "Pastillas Artisanales (Handcrafted Pastillas)",
-            description: "Feuilletage maison cuit à point et farces mijotées",
-            items: [
-              {
-                id: "fassia-pastilla-pigeon",
-                name: "Pastilla Traditionnelle au Pigeon",
-                localName: "بسطيلة فاسية أصيلة بالحمام واللوز المحمص والقرفة",
-                translations: {
-                  ar: "بسطيلة فاسية أصيلة بالحمام واللوز المحمص والقرفة",
-                  en: "Authentic Fassi pigeon pastilla with crushed roasted almonds, saffron, and cinnamon sugar",
-                  es: "Pastela tradicional de Fès con pichón, almendras tostadas crujientes y canela",
-                  de: "Authentische Fassi-Pastilla mit Taubenfleisch, gerösteten Mandeln und Zimt"
-                },
-                price: 165,
-                isSignature: true,
-                dietary: ["halal"]
-              },
-              {
-                id: "fassia-pastilla-poulet",
-                name: "Pastilla au Poulet & Amandes",
-                localName: "بسطيلة الدجاج الكلاسيكية باللوز والسكر الصقيل",
-                translations: {
-                  ar: "بسطيلة الدجاج الكلاسيكية باللوز والسكر الصقيل",
-                  en: "Classic sweet and savory chicken pastilla with roasted almonds and cinnamon",
-                  es: "Pastela clásica de pollo con almendras crujientes y azúcar glas",
-                  de: "Klassische Hähnchenpastilla mit gerösteten Mandeln und Puderzucker"
-                },
-                price: 150,
-                dietary: ["halal"]
-              },
-              {
-                id: "fassia-pastilla-fruits-mer",
-                name: "Pastilla aux Fruits de Mer & Vermicelles",
-                localName: "بسطيلة فواكه البحر والجمبري والشعرية الصينية الحارة",
-                translations: {
-                  ar: "بسطيلة فواكه البحر والجمبري والشعرية الصينية الحارة",
-                  en: "Savory Atlantic seafood pastilla with shrimp, calamari, mushrooms, and spiced glass noodles",
-                  es: "Pastela salada de mariscos del Atlántico con gambas, calamares y fideos especiados",
-                  de: "Pikante Meeresfrüchte-Pastilla mit Garnelen, Tintenfisch und Glasnudeln"
-                },
-                price: 165,
-                dietary: ["halal"]
-              }
-            ]
-          },
-          {
-            id: "tagines-specialites-maison",
-            title: "Tagines Mijotés & Spécialités d'Agneau (Tagines & Roasts)",
-            description: "Recettes traditionnelles fassies mijotées à feu doux",
-            items: [
-              {
-                id: "fassia-epaule-agneau",
-                name: "Épaule d'Agneau Rôtie M'Hammar (Pour 2 personnes)",
-                localName: "كتف خروف محمر بالفرن متبل بالأعشاب والزعفران (يكفي لشخصين)",
-                translations: {
-                  ar: "كتف خروف محمر بالفرن متبل بالأعشاب والزعفران (يكفي لشخصين)",
-                  en: "Slow-roasted whole shoulder of lamb infused with saffron and wild herbs (for 2 guests)",
-                  es: "Paletilla entera de cordero asada al horno con azafrán y hierbas (para 2 personas)",
-                  de: "Langsam im Ofen geschmorte ganze Lammschulter mit Safran und Kräutern (für 2 Personen)"
-                },
-                price: 450,
-                isSignature: true,
-                dietary: ["halal"],
-                portionNotes: "Pour 2 personnes • Commander à l'avance"
-              },
-              {
-                id: "fassia-tagine-agneau-pruneaux",
-                name: "Tagine d'Agneau aux Pruneaux & Amandes Dorées",
-                localName: "طاجين لحم الغنم بالبرقوق المعسل واللوز المقلي والسمسم",
-                translations: {
-                  ar: "طاجين لحم الغنم بالبرقوق المعسل واللوز المقلي والسمسم",
-                  en: "Tender lamb tagine simmered with caramelized prunes, toasted almonds, and sesame seeds",
-                  es: "Tajine de cordero estofado con ciruelas pasas caramelizadas y almendras doradas",
-                  de: "Geschmorter Lammtagine mit karamellisierten Pflaumen und gerösteten Mandeln"
-                },
-                price: 185,
-                isSignature: true,
-                dietary: ["halal"]
-              },
-              {
-                id: "fassia-tagine-makfoul",
-                name: "Tagine Makfoul à la Courge Caramélisée & Oignons",
-                localName: "طاجين المقفول باللحم والبصل المعسل والقرع الحلو",
-                translations: {
-                  ar: "طاجين المقفول باللحم والبصل المعسل والقرع الحلو",
-                  en: "Traditional Makfoul tagine with tender beef or lamb, caramelized onions, and sweet pumpkin",
-                  es: "Tajine tradicional Makfoul con ternera o cordero, cebollas caramelizadas y calabaza dulce",
-                  de: "Traditioneller Makfoul-Tagine mit Rind oder Lamm, karamellisierten Zwiebeln und Kürbis"
-                },
-                price: 185,
-                dietary: ["halal"]
-              }
-            ]
-          },
-          {
-            id: "couscous-patisseries",
-            title: "Couscous Royal & Douceurs Fassi (Couscous & Sweets)",
-            description: "Plats de fête et pâtisseries raffinées faites maison",
-            items: [
-              {
-                id: "fassia-couscous-royal",
-                name: "Couscous Royal Al Fassia",
-                localName: "كسكس ملكي متكامل باللحم البقري والغنم والدجاج والسبع خضار",
-                translations: {
-                  ar: "كسكس ملكي متكامل باللحم البقري والغنم والدجاج والسبع خضار",
-                  en: "Royal couscous with lamb, beef, chicken, merguez skewers, and caramelized onion tfaya",
-                  es: "Cuscús real con cordero, ternera, pollo, brochetas merguez y tfaya caramelizada",
-                  de: "Königlicher Couscous mit Lamm, Rind, Hähnchen, Merguez und karamellisierter Tfaya"
-                },
-                price: 240,
-                isSignature: true,
-                dietary: ["halal"]
-              },
-              {
-                id: "fassia-mhancha",
-                name: "Mhancha Al Fassia & Glace Vanille",
-                localName: "محنشة فاسية أصيلة باللوز المقلي وماء الزهر مع آيس كريم الفانيليا",
-                translations: {
-                  ar: "محنشة فاسية أصيلة باللوز المقلي وماء الزهر مع آيس كريم الفانيليا",
-                  en: "Coiled almond pastry scented with orange blossom water, served with artisanal vanilla ice cream",
-                  es: "Pastel en espiral mhancha relleno de pasta de almendras y azahar con helado de vainilla",
-                  de: "Traditionelles gewickeltes Mandelgebäck Mhancha mit Vanilleeis"
-                },
-                price: 120,
-                isSignature: true,
-                dietary: ["vegetarian", "halal"]
-              }
-            ]
-          }
-        ]
-      }
-    }
-  ,
-    // ── 4. WORRIES ("Things You're Worried About!") ──
-    worries: [
-      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
-      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
-      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
-      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
-      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
-    ],
-    // Multi-platform reviews holder (hidden on UI until populated)
-    reviewsData: { sources: [], reviews: [] },
-  },
-
-  // =========================================================================
-  // 4. RESTAURANT DÉLICES FERKOUS MARRAKECH
+  // RESTAURANT DÉLICES FERKOUS MARRAKECH
   // =========================================================================
   {
     id: "e-marrakech-ferkous",
     city: "marrakech",
-    openTime: "11:00",
-    closeTime: "23:30",
-    weeklySchedule: [
-      { day: "Monday", open: "11:00", close: "23:30", isClosed: false },
-      { day: "Tuesday", open: "11:00", close: "23:30", isClosed: false },
-      { day: "Wednesday", open: "11:00", close: "23:30", isClosed: false },
-      { day: "Thursday", open: "11:00", close: "23:30", isClosed: false },
-      { day: "Friday", open: "11:00", close: "23:30", isClosed: false, note: "Couscous traditionnel servi à midi" },
-      { day: "Saturday", open: "11:00", close: "23:30", isClosed: false },
-      { day: "Sunday", open: "11:00", close: "23:30", isClosed: false }
-    ],
 
-    // ── 1. QUIZ (personalization & recommendation matching) ──
+    // ── 1. QUIZ (personalization, mood & matching) ──
     quiz: {
       lifestyle: "lean",
       groupTypes: ["solo", "friends", "family"],
@@ -3785,7 +3950,7 @@ export const marrakechEat: EatListing[] = [
       crowdLevel: "bustling"
     },
 
-    // ── 2. FILTER (search criteria, dietary rules & flags) ──
+    // ── 2. FILTER (search criteria, dietary rules, logistics & flags) ──
     filter: {
       pricePerPerson: 10,
       isHalal: true,
@@ -3810,7 +3975,7 @@ export const marrakechEat: EatListing[] = [
       verificationStatus: "verified"
     },
 
-    // ── 3. UI (presentation, reviews, dishes & contacts) ──
+    // ── 3. UI (presentation, stories, ratings, contacts & plates) ──
     ui: {
       name: "Restaurant Délices Ferkous",
       neighborhood: "Guéliz",
@@ -4019,38 +4184,25 @@ export const marrakechEat: EatListing[] = [
           }
         ]
       }
-    }
-  ,
-    // ── 4. WORRIES ("Things You're Worried About!") ──
+    },
     worries: [
       { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
       { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
       { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
       { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
-      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" }
     ],
-    // Multi-platform reviews holder (hidden on UI until populated)
-    reviewsData: { sources: [], reviews: [] },
+    reviewsData: { sources: [], reviews: [] }
   },
+
   // =========================================================================
-  // 1. LE MAROCAIN – LA MAMOUNIA MARRAKECH
+  // LE MAROCAIN – LA MAMOUNIA MARRAKECH
   // =========================================================================
   {
     id: "e-marrakech-la-mamounia",
     city: "marrakech",
-    openTime: "19:00",
-    closeTime: "23:30",
-    weeklySchedule: [
-      { day: "Monday", open: "19:00", close: "23:30", isClosed: false },
-      { day: "Tuesday", open: "19:00", close: "23:30", isClosed: false },
-      { day: "Wednesday", open: "19:00", close: "23:30", isClosed: false },
-      { day: "Thursday", open: "19:00", close: "23:30", isClosed: false },
-      { day: "Friday", open: "19:00", close: "23:30", isClosed: false, note: "Dîner aux chandelles avec musiciens arabo-andalous" },
-      { day: "Saturday", open: "19:00", close: "23:30", isClosed: false, note: "Dîner aux chandelles avec musiciens arabo-andalous" },
-      { day: "Sunday", open: "19:00", close: "23:30", isClosed: false }
-    ],
 
-    // ── 1. QUIZ (personalization & recommendation matching) ──
+    // ── 1. QUIZ (personalization, mood & matching) ──
     quiz: {
       lifestyle: "premium",
       groupTypes: ["couple", "family", "business-friendly", "seniors"],
@@ -4063,7 +4215,7 @@ export const marrakechEat: EatListing[] = [
       crowdLevel: "balanced"
     },
 
-    // ── 2. FILTER (search criteria, dietary rules & flags) ──
+    // ── 2. FILTER (search criteria, dietary rules, logistics & flags) ──
     filter: {
       pricePerPerson: 85,
       isHalal: true,
@@ -4088,11 +4240,11 @@ export const marrakechEat: EatListing[] = [
       verificationStatus: "verified"
     },
 
-    // ── 3. UI (presentation, reviews, dishes & contacts) ──
+    // ── 3. UI (presentation, stories, ratings, contacts & plates) ──
     ui: {
       name: "Le Marocain – La Mamounia",
-      neighborhood: "Medina",
-      description: "Nestled in a private three-story riad within the century-old royal gardens of Marrakech's legendary palace hotel, Le Marocain offers the pinnacle of contemporary Moroccan gastronomy. Diners enjoy candlelight dinners, classical lute music, and reinvented palace recipes.",
+      neighborhood: "Hivernage",
+      description: "Nestled in a private three-story riad within the century-old royal gardens of Marrakech's legendary palace hotel at Avenue Bab Jdid (bordering Hivernage and Koutoubia), Le Marocain offers the pinnacle of contemporary Moroccan gastronomy with candlelight dinners, classical lute music, and reinvented palace recipes.",
       tip: "Dress code is strictly elegant (jacket or collared shirt for gentlemen, no sneakers or sportswear). Arrive 30 minutes early to take a stroll through the illuminated Mamounia gardens.",
       badge: "splurge",
       bestDishes: [
@@ -4128,16 +4280,16 @@ export const marrakechEat: EatListing[] = [
         { day: "Tuesday", openTime: "19:00", closeTime: "23:30", isClosed: false },
         { day: "Wednesday", openTime: "19:00", closeTime: "23:30", isClosed: false },
         { day: "Thursday", openTime: "19:00", closeTime: "23:30", isClosed: false },
-        { day: "Friday", openTime: "19:00", closeTime: "23:30", isClosed: false },
-        { day: "Saturday", openTime: "19:00", closeTime: "23:30", isClosed: false },
+        { day: "Friday", openTime: "19:00", closeTime: "23:30", isClosed: false, note: "Dîner aux chandelles avec musiciens arabo-andalous" },
+        { day: "Saturday", openTime: "19:00", closeTime: "23:30", isClosed: false, note: "Dîner aux chandelles avec musiciens arabo-andalous" },
         { day: "Sunday", openTime: "19:00", closeTime: "23:30", isClosed: false }
       ],
       exactAddressAndCoordinates: {
-        address: "Hôtel La Mamounia, Avenue Bab Jdid, Médina, Marrakech 40040, Morocco",
+        address: "Hôtel La Mamounia, Avenue Bab Jdid, Marrakech 40040, Morocco",
         lat: 31.6218,
         lng: -7.9989
       },
-      address: "Hôtel La Mamounia, Avenue Bab Jdid, Médina, Marrakech 40040, Morocco",
+      address: "Hôtel La Mamounia, Avenue Bab Jdid, Marrakech 40040, Morocco",
       coordinates: {
         lat: 31.6218,
         lng: -7.9989
@@ -4310,39 +4462,25 @@ export const marrakechEat: EatListing[] = [
           }
         ]
       }
-    }
-  ,
-    // ── 4. WORRIES ("Things You're Worried About!") ──
+    },
     worries: [
       { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
       { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
       { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
       { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
-      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" }
     ],
-    // Multi-platform reviews holder (hidden on UI until populated)
-    reviewsData: { sources: [], reviews: [] },
+    reviewsData: { sources: [], reviews: [] }
   },
 
   // =========================================================================
-  // 2. PESTANA CR7 MARRAKECH (SPORTS BAR & ROOFTOP)
+  // PESTANA CR7 MARRAKECH (SPORTS BAR & ROOFTOP)
   // =========================================================================
   {
     id: "e-marrakech-pestana-cr7",
     city: "marrakech",
-    openTime: "07:30",
-    closeTime: "01:00",
-    weeklySchedule: [
-      { day: "Monday", open: "07:30", close: "01:00", isClosed: false },
-      { day: "Tuesday", open: "07:30", close: "01:00", isClosed: false },
-      { day: "Wednesday", open: "07:30", close: "01:00", isClosed: false },
-      { day: "Thursday", open: "07:30", close: "01:00", isClosed: false },
-      { day: "Friday", open: "07:30", close: "02:00", isClosed: false, note: "Rooftop DJ sunset session" },
-      { day: "Saturday", open: "07:30", close: "02:00", isClosed: false, note: "Rooftop DJ sunset session" },
-      { day: "Sunday", open: "07:30", close: "01:00", isClosed: false }
-    ],
 
-    // ── 1. QUIZ (personalization & recommendation matching) ──
+    // ── 1. QUIZ (personalization, mood & matching) ──
     quiz: {
       lifestyle: "balanced",
       groupTypes: ["friends", "couple", "solo", "family"],
@@ -4355,7 +4493,7 @@ export const marrakechEat: EatListing[] = [
       crowdLevel: "bustling"
     },
 
-    // ── 2. FILTER (search criteria, dietary rules & flags) ──
+    // ── 2. FILTER (search criteria, dietary rules, logistics & flags) ──
     filter: {
       pricePerPerson: 26,
       isHalal: true,
@@ -4380,7 +4518,7 @@ export const marrakechEat: EatListing[] = [
       verificationStatus: "verified"
     },
 
-    // ── 3. UI (presentation, reviews, dishes & contacts) ──
+    // ── 3. UI (presentation, stories, ratings, contacts & plates) ──
     ui: {
       name: "Pestana CR7 Marrakech – Sports Bar & Rooftop",
       neighborhood: "Hivernage",
@@ -4580,52 +4718,38 @@ export const marrakechEat: EatListing[] = [
           }
         ]
       }
-    }
-  ,
-    // ── 4. WORRIES ("Things You're Worried About!") ──
+    },
     worries: [
       { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
       { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
       { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
       { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
-      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" }
     ],
-    // Multi-platform reviews holder (hidden on UI until populated)
-    reviewsData: { sources: [], reviews: [] },
+    reviewsData: { sources: [], reviews: [] }
   },
 
   // =========================================================================
-  // 3. MANDARIN ORIENTAL MARRAKECH (SHIRVAN CAFÉ MÉTISSE)
+  // MANDARIN ORIENTAL MARRAKECH (AMENSI / EX-SHIRVAN CAFÉ MÉTISSE)
   // =========================================================================
   {
     id: "e-marrakech-mandarin-oriental",
     city: "marrakech",
-    openTime: "19:00",
-    closeTime: "00:00",
-    weeklySchedule: [
-      { day: "Monday", open: "19:00", close: "00:00", isClosed: false },
-      { day: "Tuesday", open: "19:00", close: "00:00", isClosed: false },
-      { day: "Wednesday", open: "19:00", close: "00:00", isClosed: false },
-      { day: "Thursday", open: "19:00", close: "00:00", isClosed: false },
-      { day: "Friday", open: "19:00", close: "00:00", isClosed: false },
-      { day: "Saturday", open: "19:00", close: "00:00", isClosed: false },
-      { day: "Sunday", open: "19:00", close: "00:00", isClosed: false }
-    ],
 
-    // ── 1. QUIZ (personalization & recommendation matching) ──
+    // ── 1. QUIZ (personalization, mood & matching) ──
     quiz: {
       lifestyle: "premium",
       groupTypes: ["couple", "friends", "business-friendly", "large-groups"],
       mealTypes: ["dinner", "drinks"],
       experienceTypes: ["fine-dining", "casual"],
-      foodStyles: ["International", "Middle Eastern", "Mediterranean"],
-      cuisineTags: ["international"],
+      foodStyles: ["International", "Middle Eastern", "Mediterranean", "Moroccan"],
+      cuisineTags: ["international", "moroccan-traditional"],
       archetypeAffinity: ["luxury", "first-timer", "culture"],
       vibeTags: ["glamorous", "chic", "romantic", "refined"],
       crowdLevel: "balanced"
     },
 
-    // ── 2. FILTER (search criteria, dietary rules & flags) ──
+    // ── 2. FILTER (search criteria, dietary rules, logistics & flags) ──
     filter: {
       pricePerPerson: 75,
       isHalal: true,
@@ -4637,7 +4761,7 @@ export const marrakechEat: EatListing[] = [
       hasParking: true,
       nearMedina: false,
       nearBeach: false,
-      nearCenter: true,
+      nearCenter: false,
       hasEnglishStaff: true,
       hasFrenchStaff: true,
       ramadanFriendly: "serves-lunch",
@@ -4650,12 +4774,12 @@ export const marrakechEat: EatListing[] = [
       verificationStatus: "verified"
     },
 
-    // ── 3. UI (presentation, reviews, dishes & contacts) ──
+    // ── 3. UI (presentation, stories, ratings, contacts & plates) ──
     ui: {
-      name: "Shirvan Café Métisse – Mandarin Oriental",
-      neighborhood: "Hivernage",
-      description: "Set within the olive groves and tranquil water pools of the 5-star Mandarin Oriental resort, Shirvan Café Métisse is the brainchild of two-Michelin-starred French chef Akrame Benallal. The concept reimagines culinary treasures along the ancient Silk Road, pairing charcoal-roasted meats, charcoal tandoor breads, and spiced mezze with open-air terrace dining.",
-      tip: "Request an outdoor terrace table directly beside the illuminated reflection pools for dinner. The 24-hour slow-cooked shoulder of lamb is the signature specialty.",
+      name: "Amensi (ex-Shirvan Café Métisse) – Mandarin Oriental",
+      neighborhood: "Sidi Youssef Ben Ali",
+      description: "Set within the olive groves and tranquil reflection pools of the 5-star Mandarin Oriental resort along Route du Golf Royal (east of the Medina near Sidi Youssef Ben Ali), the resort's signature evening dining venue has evolved from Chef Akrame Benallal's Silk Road concept (Shirvan Café Métisse) into Amensi—celebrating refined Amazigh and Moroccan-Mediterranean flavors with open-air terrace dining.",
+      tip: "Request an outdoor terrace table directly beside the illuminated reflection pools for dinner (19:00–23:00). Confirm the current seasonal Amensi menu when booking directly with the Mandarin Oriental concierge.",
       badge: "splurge",
       bestDishes: [
         "Épaule d'Agneau Confite 24h aux Épices Douces",
@@ -4666,14 +4790,13 @@ export const marrakechEat: EatListing[] = [
         "Tarte Fine au Chocolat Fumé & Fleur de Sel"
       ],
       pros: [
-        "Haute-cuisine Silk Road concept designed by two-Michelin-starred Chef Akrame Benallal",
         "Mesmerizing setting overlooking reflective water ponds and 20 hectares of olive groves",
-        "Warm, handcrafted tandoor breads baked live in view of diners",
+        "Elevated Moroccan-Amazigh and Silk Road gastronomy in a 5-star Mandarin Oriental setting",
         "Exceptional cocktail mixology and premium international wine pairings"
       ],
       cons: [
         "Luxury palace price point aligned with Mandarin Oriental resort standards",
-        "Located 10–15 minutes outside the central Medina (taxi or chauffeur recommended)"
+        "Located along Route du Golf Royal ~15 minutes southeast of the central Medina (taxi or chauffeur recommended)"
       ],
       googleRating: 4.7,
       googleReviewCount: 760,
@@ -4684,31 +4807,31 @@ export const marrakechEat: EatListing[] = [
       restaurantguruRating: 4.8,
       restaurantguruReviewCount: 760,
       openTime: "19:00",
-      closeTime: "00:00",
+      closeTime: "23:00",
       weeklySchedule: [
-        { day: "Monday", openTime: "19:00", closeTime: "00:00", isClosed: false },
-        { day: "Tuesday", openTime: "19:00", closeTime: "00:00", isClosed: false },
-        { day: "Wednesday", openTime: "19:00", closeTime: "00:00", isClosed: false },
-        { day: "Thursday", openTime: "19:00", closeTime: "00:00", isClosed: false },
-        { day: "Friday", openTime: "19:00", closeTime: "00:00", isClosed: false },
-        { day: "Saturday", openTime: "19:00", closeTime: "00:00", isClosed: false },
-        { day: "Sunday", openTime: "19:00", closeTime: "00:00", isClosed: false }
+        { day: "Monday", openTime: "19:00", closeTime: "23:00", isClosed: false },
+        { day: "Tuesday", openTime: "19:00", closeTime: "23:00", isClosed: false },
+        { day: "Wednesday", openTime: "19:00", closeTime: "23:00", isClosed: false },
+        { day: "Thursday", openTime: "19:00", closeTime: "23:00", isClosed: false },
+        { day: "Friday", openTime: "19:00", closeTime: "23:00", isClosed: false },
+        { day: "Saturday", openTime: "19:00", closeTime: "23:00", isClosed: false },
+        { day: "Sunday", openTime: "19:00", closeTime: "23:00", isClosed: false }
       ],
       exactAddressAndCoordinates: {
-        address: "Mandarin Oriental Marrakech, Route du Golf Royal, Hivernage, Marrakech 40000, Morocco",
+        address: "Mandarin Oriental Marrakech, Route du Golf Royal, Marrakech 40000, Morocco",
         lat: 31.5995,
         lng: -7.9452
       },
-      address: "Mandarin Oriental Marrakech, Route du Golf Royal, Hivernage, Marrakech 40000, Morocco",
+      address: "Mandarin Oriental Marrakech, Route du Golf Royal, Marrakech 40000, Morocco",
       coordinates: {
         lat: 31.5995,
         lng: -7.9452
       },
-      googleMapsUrl: "https://maps.google.com/?q=Shirvan+Cafe+Metisse+Mandarin+Oriental+Marrakech",
+      googleMapsUrl: "https://maps.google.com/?q=Mandarin+Oriental+Marrakech",
       reservationMethod: ["website", "phone", "email"],
       reservationContact: "+212524298888",
       whatsappNumber: "",
-      bookingUrl: "https://www.mandarinoriental.com/fr/marrakech/marrakech/dine/shirvan-cafe-metisse",
+      bookingUrl: "https://www.mandarinoriental.com/en/marrakech/marrakech/dine/amensi",
       website: "https://www.mandarinoriental.com",
       instagram: "https://instagram.com/mo_marrakech",
       languagesSpoken: ["French", "English", "Arabic/Darija"],
@@ -4767,7 +4890,7 @@ export const marrakechEat: EatListing[] = [
           },
           {
             id: "plats-route-de-la-soie",
-            title: "Plats Signatures du Chef Akrame (Mains)",
+            title: "Plats Signatures du Chef (Mains)",
             description: "Grandes pièces rôties et marinades lentes aux épices voyageuses",
             items: [
               {
@@ -4783,7 +4906,7 @@ export const marrakechEat: EatListing[] = [
                 price: 680,
                 isSignature: true,
                 dietary: ["halal"],
-                portionNotes: "Plat culte du Chef Akrame Benallal pour 2 convives"
+                portionNotes: "Plat phare pour 2 convives"
               },
               {
                 id: "shirvan-boeuf-mangue",
@@ -4817,7 +4940,7 @@ export const marrakechEat: EatListing[] = [
           },
           {
             id: "desserts-akrame",
-            title: "Desserts Créatifs du Chef Akrame (Desserts)",
+            title: "Desserts Créatifs (Desserts)",
             description: "Finitions sucrées délicates associant chocolat grand cru et parfums d'Orient",
             items: [
               {
@@ -4851,17 +4974,14 @@ export const marrakechEat: EatListing[] = [
           }
         ]
       }
-    }
-  ,
-    // ── 4. WORRIES ("Things You're Worried About!") ──
+    },
     worries: [
       { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
       { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
       { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
       { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
-      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" }
     ],
-    // Multi-platform reviews holder (hidden on UI until populated)
-    reviewsData: { sources: [], reviews: [] },
+    reviewsData: { sources: [], reviews: [] }
   }
 ];

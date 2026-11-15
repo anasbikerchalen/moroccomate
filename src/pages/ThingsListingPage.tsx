@@ -6,6 +6,7 @@ import { SEO } from '../components/ui/SEO';
 import { LanguageSwitcher } from '../components/ui/LanguageSwitcher';
 import { LocalizedLink } from '../components/ui/LocalizedLink';
 import { useLangPath } from '../utils/localeRouting';
+import { buildThingsSeo } from '../data/seo/seoEngine';
 import { ActivityTemplateView } from '../components/things/ActivityTemplateView';
 import { getActivityByCityAndSlug, getCityLabel, formatDuration } from '../things-to-do';
 import { useSavedStore } from '../state/savedStore';
@@ -20,7 +21,7 @@ import logoImg from '../assets/images/logo.png';
 export default function ThingsListingPage() {
   const { city, slug } = useParams<{ city: string; slug: string }>();
   const { t } = useTranslation();
-  const { lp, navigateLang } = useLangPath();
+  const { lang, lp, navigateLang } = useLangPath();
   const [favoritesOpen, setFavoritesOpen] = useState(false);
   const bookmarks = useSavedStore((state) => state.bookmarks);
 
@@ -36,7 +37,7 @@ export default function ThingsListingPage() {
     const cityLabel = city ? (city.charAt(0).toUpperCase() + city.slice(1).replace('_', ' ')) : 'Morocco';
     return (
       <div className="min-h-screen bg-[#FAF7F2] text-[#29231F] flex flex-col font-sans relative">
-        <SEO title={`${t('things.notFoundTitle')} | Moroccan Mate`} />
+        <SEO title={t('things.notFoundTitle')} noIndex />
         <div className="fixed inset-0 opacity-[0.03] pointer-events-none bg-[url('/textures/paper-grain.svg')] bg-repeat" />
         <div className="flex-1 flex flex-col items-center justify-center px-4 text-center relative z-10 py-12">
           <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white border border-[#EADBCE] text-[#C2613C] mb-4 shadow-2xs">
@@ -81,20 +82,24 @@ export default function ThingsListingPage() {
   }
 
   const cityLabel = getCityLabel(activity.city);
+  const seoBundle = buildThingsSeo({
+    activity,
+    cityKey: String(activity.city || city || '').toLowerCase(),
+    cityLabel,
+    lang,
+  });
 
   return (
     <div className="min-h-screen bg-[#FAF9F5] flex flex-col">
       <SEO
-        title={`${activity.name} — ${t('things.thingsIn', { city: cityLabel })}`}
-        description={activity.short_description || activity.description}
+        title={seoBundle.title}
+        description={seoBundle.description}
+        canonical={seoBundle.canonical}
         type="article"
-        schemaType="TouristAttraction"
-        schemaData={{
-          name: activity.name,
-          description: activity.short_description || activity.description,
-          address: activity.address || cityLabel,
-          ...(activity.coordinates ? { geo: { latitude: activity.coordinates.lat, longitude: activity.coordinates.lng } } : {}),
-        }}
+        image={seoBundle.image}
+        schemaType={seoBundle.schemaType}
+        schemaData={seoBundle.schemaData}
+        breadcrumbs={seoBundle.breadcrumbs}
       />
 
       {/* Minimal header: back navigation + wordmark */}
