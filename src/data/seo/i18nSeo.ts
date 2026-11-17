@@ -332,6 +332,42 @@ const INTENT_TRANSLATIONS: Record<Exclude<AppLanguage, 'en'>, Record<string, Int
       seoDescription: (c) => `Restez au frais à ${c} grâce aux tentes de luxe et chambres climatisées.`,
       headerTitle: (c) => `Hébergements climatisés à ${c}`,
     },
+    'halal-fine-dining': {
+      label: 'Gastronomie Halal',
+      seoTitle: (c) => `Meilleurs restaurants gastronomiques halal à ${c} | Moroccan Mate`,
+      seoDescription: (c) => `Découvrez les tables gastronomiques et dîners raffinés 100 % halal à ${c} avec menus vérifiés.`,
+      headerTitle: (c) => `Restaurants gastronomiques halal à ${c}`,
+    },
+    steakhouses: {
+      label: 'Steakhouses & Grill',
+      seoTitle: (c) => `Meilleurs steakhouses et grillades à ${c} | Moroccan Mate`,
+      seoDescription: (c) => `Savourez entrecôtes, wagyu et grillades au feu de bois dans les meilleurs steakhouses à ${c}.`,
+      headerTitle: (c) => `Steakhouses & Grillades à ${c}`,
+    },
+    'dinner-shows-romantic': {
+      label: 'Dîner spectacle & Romantique',
+      seoTitle: (c) => `Dîners romantiques et restaurants spectacle à ${c} | Moroccan Mate`,
+      seoDescription: (c) => `Soirées romantiques, musique live et dîners-spectacles d'exception à ${c}.`,
+      headerTitle: (c) => `Dîners spectacle & Tables romantiques à ${c}`,
+    },
+    'breakfast-brunch': {
+      label: 'Petit-déjeuner & Brunch',
+      seoTitle: (c) => `Meilleurs petits-déjeuners et brunchs à ${c} | Moroccan Mate`,
+      seoDescription: (c) => `Commencez la journée avec les meilleurs brunchs, cafés et petits-déjeuners marocains à ${c}.`,
+      headerTitle: (c) => `Petits-déjeuners & Brunchs à ${c}`,
+    },
+    seafood: {
+      label: 'Poissons & Fruits de mer',
+      seoTitle: (c) => `Meilleurs restaurants de poissons et fruits de mer à ${c} | Moroccan Mate`,
+      seoDescription: (c) => `Poissons grillés du jour, plateaux de fruits de mer et tables côtières vérifiées à ${c}.`,
+      headerTitle: (c) => `Restaurants de poissons & fruits de mer à ${c}`,
+    },
+    'rooftop-dining': {
+      label: 'Restaurants Rooftop',
+      seoTitle: (c) => `Meilleurs restaurants rooftop avec vue à ${c} | Moroccan Mate`,
+      seoDescription: (c) => `Dînez en terrasse panoramique ou rooftop au coucher du soleil à ${c}.`,
+      headerTitle: (c) => `Restaurants rooftop à ${c}`,
+    },
   },
   es: {
     'on-the-beach': {
@@ -501,6 +537,42 @@ const INTENT_TRANSLATIONS: Record<Exclude<AppLanguage, 'en'>, Record<string, Int
       seoTitle: (c) => `Hoteles y campamentos con aire acondicionado en ${c} | Moroccan Mate`,
       seoDescription: (c) => `Mantente fresco en ${c} en jaimas y habitaciones climatizadas.`,
       headerTitle: (c) => `Hoteles y campamentos con aire acondicionado en ${c}`,
+    },
+    'halal-fine-dining': {
+      label: 'Alta cocina Halal',
+      seoTitle: (c) => `Mejores restaurantes gourmet halal en ${c} | Moroccan Mate`,
+      seoDescription: (c) => `Explora restaurantes de alta cocina 100 % halal y mesas elegantes en ${c}.`,
+      headerTitle: (c) => `Restaurantes de alta cocina halal en ${c}`,
+    },
+    steakhouses: {
+      label: 'Asadores y Steakhouses',
+      seoTitle: (c) => `Mejores asadores y steakhouses en ${c} | Moroccan Mate`,
+      seoDescription: (c) => `Disfruta de cortes premium, wagyu y parrilla a la brasa en los mejores asadores de ${c}.`,
+      headerTitle: (c) => `Steakhouses y Asadores en ${c}`,
+    },
+    'dinner-shows-romantic': {
+      label: 'Cena espectáculo y Romántica',
+      seoTitle: (c) => `Restaurantes románticos y cenas espectáculo en ${c} | Moroccan Mate`,
+      seoDescription: (c) => `Veladas románticas con música en vivo y cenas con espectáculo en ${c}.`,
+      headerTitle: (c) => `Cenas espectáculo y Románticas en ${c}`,
+    },
+    'breakfast-brunch': {
+      label: 'Desayuno y Brunch',
+      seoTitle: (c) => `Mejores desayunos y brunch en ${c} | Moroccan Mate`,
+      seoDescription: (c) => `Empieza el día con los mejores brunch y desayunos marroquíes en ${c}.`,
+      headerTitle: (c) => `Desayunos y Brunch en ${c}`,
+    },
+    seafood: {
+      label: 'Pescado y Marisco',
+      seoTitle: (c) => `Mejores restaurantes de pescado y marisco en ${c} | Moroccan Mate`,
+      seoDescription: (c) => `Pescado fresco del día y marisquerías recomendadas en ${c}.`,
+      headerTitle: (c) => `Restaurantes de pescado y marisco en ${c}`,
+    },
+    'rooftop-dining': {
+      label: 'Restaurantes Rooftop',
+      seoTitle: (c) => `Mejores restaurantes en azotea y terraza en ${c} | Moroccan Mate`,
+      seoDescription: (c) => `Cena con vistas panorámicas al atardecer en los mejores rooftops de ${c}.`,
+      headerTitle: (c) => `Restaurantes rooftop en ${c}`,
     },
   },
   de: {
@@ -672,6 +744,42 @@ const INTENT_TRANSLATIONS: Record<Exclude<AppLanguage, 'en'>, Record<string, Int
       seoDescription: (c) => `Angenehme Temperaturen in klimatisierten Zelten und Kasbah-Zimmern in ${c}.`,
       headerTitle: (c) => `Unterkünfte mit Klimaanlage in ${c}`,
     },
+    'halal-fine-dining': {
+      label: 'Halal Fine Dining',
+      seoTitle: (c) => `Beste Halal-Fine-Dining-Restaurants in ${c} | Moroccan Mate`,
+      seoDescription: (c) => `Entdecke erstklassige 100 % Halal-Restaurants und gehobene Küche in ${c}.`,
+      headerTitle: (c) => `Halal Fine Dining Restaurants in ${c}`,
+    },
+    steakhouses: {
+      label: 'Steakhouses & Grill',
+      seoTitle: (c) => `Beste Steakhouses & Grillrestaurants in ${c} | Moroccan Mate`,
+      seoDescription: (c) => `Genieße Premium-Cuts, Wagyu und Holzkohle-Grills in den besten Steakhouses von ${c}.`,
+      headerTitle: (c) => `Steakhouses & Grillrestaurants in ${c}`,
+    },
+    'dinner-shows-romantic': {
+      label: 'Dinner-Show & Romantisch',
+      seoTitle: (c) => `Romantische Restaurants & Dinner-Shows in ${c} | Moroccan Mate`,
+      seoDescription: (c) => `Unvergessliche Abende mit Live-Musik, Dinner-Show und romantischem Ambiente in ${c}.`,
+      headerTitle: (c) => `Dinner-Shows & Romantische Restaurants in ${c}`,
+    },
+    'breakfast-brunch': {
+      label: 'Frühstück & Brunch',
+      seoTitle: (c) => `Beste Frühstücks- & Brunch-Spots in ${c} | Moroccan Mate`,
+      seoDescription: (c) => `Starte in den Tag mit den beliebtesten Cafés, Brunchs und Frühstücks-Spots in ${c}.`,
+      headerTitle: (c) => `Frühstück & Brunch in ${c}`,
+    },
+    seafood: {
+      label: 'Fisch & Meeresfrüchte',
+      seoTitle: (c) => `Beste Fisch- & Meeresfrüchte-Restaurants in ${c} | Moroccan Mate`,
+      seoDescription: (c) => `Tagesfrischer Fisch und Meeresfrüchte-Platten in den Top-Restaurants von ${c}.`,
+      headerTitle: (c) => `Fisch- & Meeresfrüchte-Restaurants in ${c}`,
+    },
+    'rooftop-dining': {
+      label: 'Rooftop-Restaurants',
+      seoTitle: (c) => `Beste Rooftop-Restaurants in ${c} | Moroccan Mate`,
+      seoDescription: (c) => `Abendessen über den Dächern von ${c} mit Panoramablick zum Sonnenuntergang.`,
+      headerTitle: (c) => `Rooftop-Restaurants in ${c}`,
+    },
   },
   ar: {
     'on-the-beach': {
@@ -842,6 +950,42 @@ const INTENT_TRANSLATIONS: Record<Exclude<AppLanguage, 'en'>, Record<string, Int
       seoDescription: (c) => `إقامة مريحة ومنعشة في خيام فاخرة وغرف مكيفة في ${c}.`,
       headerTitle: (c) => `فنادق ومخيمات مكيفة في ${c}`,
     },
+    'halal-fine-dining': {
+      label: 'مطاعم فاخرة حلال',
+      seoTitle: (c) => `أفضل المطاعم الفاخرة الحلال في ${c} | Moroccan Mate`,
+      seoDescription: (c) => `اكتشف أرقى المطاعم الفاخرة الحلال 100% في ${c} مع قوائم طعام وأسعار موثوقة.`,
+      headerTitle: (c) => `مطاعم فاخرة حلال في ${c}`,
+    },
+    steakhouses: {
+      label: 'مطاعم ستيك ومشويات',
+      seoTitle: (c) => `أفضل مطاعم الستيك والمشويات في ${c} | Moroccan Mate`,
+      seoDescription: (c) => `تذوق أفخر قطع اللحم والواغيو والمشويات في أفضل مطاعم الستيك في ${c}.`,
+      headerTitle: (c) => `مطاعم ستيك ومشويات في ${c}`,
+    },
+    'dinner-shows-romantic': {
+      label: 'عشاء رومانسي وعروض حية',
+      seoTitle: (c) => `أفضل المطاعم الرومانسية وعروض العشاء الحية في ${c} | Moroccan Mate`,
+      seoDescription: (c) => `سهرات عشاء مميزة مع موسيقى حية وأجواء رومانسية في ${c}.`,
+      headerTitle: (c) => `مطاعم عشاء رومانسي وعروض حية في ${c}`,
+    },
+    'breakfast-brunch': {
+      label: 'فطور وبرانش',
+      seoTitle: (c) => `أفضل أماكن الفطور والبرانش في ${c} | Moroccan Mate`,
+      seoDescription: (c) => `ابدأ يومك في أفضل مقاهي ومطاعم الفطور والبرانش في ${c}.`,
+      headerTitle: (c) => `أماكن الفطور والبرانش في ${c}`,
+    },
+    seafood: {
+      label: 'مأكولات بحرية',
+      seoTitle: (c) => `أفضل مطاعم السمك والمأكولات البحرية في ${c} | Moroccan Mate`,
+      seoDescription: (c) => `أطباق الأسماك الطازجة والمأكولات البحرية الموثوقة في ${c}.`,
+      headerTitle: (c) => `مطاعم السمك والمأكولات البحرية في ${c}`,
+    },
+    'rooftop-dining': {
+      label: 'مطاعم على السطح',
+      seoTitle: (c) => `أفضل مطاعم الروف توب والإطلالة في ${c} | Moroccan Mate`,
+      seoDescription: (c) => `استمتع بتناول الطعام على السطح مع إطلالات بانورامية رائعة في ${c}.`,
+      headerTitle: (c) => `مطاعم على السطح في ${c}`,
+    },
   },
 };
 
@@ -884,6 +1028,10 @@ export const PRERENDER_UI_I18N: Record<
     viewMenuBtn: string;
     backToPlaceBtn: string;
     menuHeading: string;
+    editorialHeading: string;
+    knowBeforeHeading: string;
+    nearbyHeading: string;
+    seasonalHoursLabel: string;
     foodInCity: (c: string) => string;
     staysInCity: (c: string) => string;
     thingsInCity: (c: string) => string;
@@ -918,7 +1066,11 @@ export const PRERENDER_UI_I18N: Record<
     whatToKnowHeading: 'What to Know / Bring',
     viewMenuBtn: 'View Verified Menu & Prices',
     backToPlaceBtn: 'Back to Venue Overview',
-    menuHeading: 'Verified Menu & Prices (MAD)',
+    menuHeading: 'Full Menu & Prices (MAD)',
+    editorialHeading: 'About the Experience',
+    knowBeforeHeading: 'Know Before You Go',
+    nearbyHeading: 'Nearby Landmarks & Access',
+    seasonalHoursLabel: 'Hours & Schedule',
     foodInCity: (c) => `Food in ${c}`,
     staysInCity: (c) => `Stays in ${c}`,
     thingsInCity: (c) => `Things to Do in ${c}`,
@@ -952,7 +1104,11 @@ export const PRERENDER_UI_I18N: Record<
     whatToKnowHeading: 'À savoir / À prévoir',
     viewMenuBtn: 'Voir le menu et les prix vérifiés',
     backToPlaceBtn: 'Retour à la fiche du lieu',
-    menuHeading: 'Carte & Prix vérifiés (MAD)',
+    menuHeading: 'Carte complète & Prix (MAD)',
+    editorialHeading: "À propos de l'expérience",
+    knowBeforeHeading: 'Bon à savoir avant de venir',
+    nearbyHeading: 'Lieux à proximité & Accès',
+    seasonalHoursLabel: 'Horaires',
     foodInCity: (c) => `Restaurants à ${c}`,
     staysInCity: (c) => `Hébergements à ${c}`,
     thingsInCity: (c) => `Activités à ${c}`,
@@ -986,7 +1142,11 @@ export const PRERENDER_UI_I18N: Record<
     whatToKnowHeading: 'Qué llevar / Información útil',
     viewMenuBtn: 'Ver carta y precios verificados',
     backToPlaceBtn: 'Volver a la ficha del lugar',
-    menuHeading: 'Carta y Precios verificados (MAD)',
+    menuHeading: 'Carta completa y Precios (MAD)',
+    editorialHeading: 'Sobre la experiencia',
+    knowBeforeHeading: 'Información útil antes de ir',
+    nearbyHeading: 'Lugares cercanos y Accesos',
+    seasonalHoursLabel: 'Horario',
     foodInCity: (c) => `Restaurantes en ${c}`,
     staysInCity: (c) => `Alojamientos en ${c}`,
     thingsInCity: (c) => `Qué hacer en ${c}`,
@@ -1021,6 +1181,10 @@ export const PRERENDER_UI_I18N: Record<
     viewMenuBtn: 'Verifizierte Speisekarte & Preise ansehen',
     backToPlaceBtn: 'Zurück zur Übersicht',
     menuHeading: 'Speisekarte & Preise (MAD)',
+    editorialHeading: 'Über das Erlebnis',
+    knowBeforeHeading: 'Wissenswertes vor dem Besuch',
+    nearbyHeading: 'Sehenswürdigkeiten & Anfahrt',
+    seasonalHoursLabel: 'Öffnungszeiten',
     foodInCity: (c) => `Essen in ${c}`,
     staysInCity: (c) => `Unterkünfte in ${c}`,
     thingsInCity: (c) => `Aktivitäten in ${c}`,
@@ -1055,6 +1219,10 @@ export const PRERENDER_UI_I18N: Record<
     viewMenuBtn: 'عرض القائمة والأسعار الموثقة',
     backToPlaceBtn: 'العودة إلى صفحة المكان',
     menuHeading: 'قائمة الطعام والأسعار (درهم)',
+    editorialHeading: 'نبذة عن التجربة',
+    knowBeforeHeading: 'نصائح مهمة قبل الزيارة',
+    nearbyHeading: 'المعالم القريبة والوصول',
+    seasonalHoursLabel: 'ساعات العمل',
     foodInCity: (c) => `مطاعم ${c}`,
     staysInCity: (c) => `إقامات ${c}`,
     thingsInCity: (c) => `أنشطة في ${c}`,

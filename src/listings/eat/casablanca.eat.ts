@@ -338,7 +338,7 @@ export const casablancaEat: EatListing[] = [
 
     // ── 2. FILTER (search criteria, dietary rules, logistics & flags) ──
     filter: {
-      pricePerPerson: 500,
+      pricePerPerson: 38,
       isHalal: true,
       halalStatus: "likely-halal-food",
       isVegetarianFriendly: true,
@@ -355,7 +355,7 @@ export const casablancaEat: EatListing[] = [
       closedDays: [],
       seatingTypes: ["indoor", "courtyard"],
       paymentMethods: ["cash", "credit_card", "visa", "mastercard"],
-      tags: ["live-jazz", "casablanca-movie", "cocktails", "medina-ramparts"],
+      tags: ["live-jazz", "casablanca-movie", "cocktails", "medina-ramparts", "fine", "dinner", "alcohol"],
       isHiddenGem: false,
       isTemporarilyHidden: false,
       verificationStatus: "verified"
@@ -365,16 +365,24 @@ export const casablancaEat: EatListing[] = [
     ui: {
       name: "Rick's Café",
       neighborhood: "Ancienne Médina",
-      description: "Iconic cinematic dining salon and cocktail bar set inside a 1930s riad, recreating the timeless elegance and live acoustic piano jazz of the 1942 classic.",
-      tip: "Book the second evening seating (21:00) to savor dinner while resident pianist Issam Chabaa performs 'As Time Goes By'.",
-      badge: "local-favorite",
+      description: "Iconic cinematic dining salon and cocktail bar set inside a 1930s riad against the old medina walls, recreating the timeless elegance and live acoustic piano jazz of the 1942 film classic.",
+      tip: "Book the second evening seating (21:00) to savor dinner while resident pianist Issam Chabaa performs 'As Time Goes By'. Strict smart-casual dress code is enforced at the door (no shorts, flip-flops, or sportswear).",
+      badge: "splurge",
       bestDishes: [
-        "Grilled Sea Bass with Saffron Cream",
+        "Grilled Sea Bass with Curry Sauce",
         "Rick's Char-Grilled Ribeye",
+        "Champagne Oysters",
         "Original Rick's Cheesecake"
       ],
-      pros: ["Atmospheric live acoustic jazz every evening", "Faithful 1940s colonial-style decor", "Complimentary valet parking at the door"],
-      cons: ["Strict smart-casual dress code strictly enforced", "Popular with tour groups during lunch"],
+      pros: [
+        "Atmospheric live acoustic piano jazz every evening in a restored 1930s riad",
+        "Faithful 1940s cinema-inspired decor with alcoves, brass lamps, and working fireplaces",
+        "Complimentary valet parking at the door right outside the Ancienne Médina ramparts"
+      ],
+      cons: [
+        "Strict smart-casual dress code strictly enforced (guests in shorts or flip-flops may be turned away)",
+        "Tourist-tier fine dining prices; heavily booked for dinner without advance reservation"
+      ],
       googleRating: 4.2,
       googleReviewCount: 6500,
       tripadvisorRating: 4.1,
@@ -385,22 +393,256 @@ export const casablancaEat: EatListing[] = [
       restaurantguruReviewCount: 6500,
       openTime: "12:00",
       closeTime: "00:30",
+      weeklySchedule: [
+        { day: "Monday", openTime: "12:00", closeTime: "00:30", isClosed: false, note: "Lunch 12:00–15:00 • Dinner 18:30–00:30" },
+        { day: "Tuesday", openTime: "12:00", closeTime: "00:30", isClosed: false, note: "Lunch 12:00–15:00 • Dinner 18:30–00:30" },
+        { day: "Wednesday", openTime: "12:00", closeTime: "00:30", isClosed: false, note: "Lunch 12:00–15:00 • Dinner 18:30–00:30" },
+        { day: "Thursday", openTime: "12:00", closeTime: "00:30", isClosed: false, note: "Lunch 12:00–15:00 • Dinner 18:30–00:30" },
+        { day: "Friday", openTime: "12:00", closeTime: "00:30", isClosed: false, note: "Lunch 12:00–15:00 • Dinner 18:30–00:30" },
+        { day: "Saturday", openTime: "12:00", closeTime: "00:30", isClosed: false, note: "Lunch 12:00–15:00 • Dinner 18:30–00:30" },
+        { day: "Sunday", openTime: "12:00", closeTime: "00:30", isClosed: false, note: "Lunch 12:00–15:00 • Dinner 18:30–00:30" }
+      ],
+      exactAddressAndCoordinates: {
+        address: "248 Boulevard Sour Jdid, Ancienne Médina, Casablanca 20110, Morocco",
+        lat: 33.60523,
+        lng: -7.62037
+      },
+      address: "248 Boulevard Sour Jdid, Ancienne Médina, Casablanca 20110, Morocco",
+      coordinates: {
+        lat: 33.60523,
+        lng: -7.62037
+      },
       googleMapsUrl: "https://maps.google.com/?q=Rick%27s+Cafe+Casablanca",
       reservationMethod: ["phone", "email", "website"],
       reservationContact: "+212522274207",
       bookingUrl: "https://www.rickscafe.ma",
       whatsappNumber: "",
       website: "https://www.rickscafe.ma",
-      instagram: "https://instagram.com/rickscafe_casablanca"
-    }
-  ,
+      instagram: "https://instagram.com/rickscafe_casablanca",
+      languagesSpoken: ["French", "English", "Arabic/Darija"],
+      menu: {
+        currency: "MAD",
+        lastUpdated: "November 2026",
+        serviceChargeIncluded: true,
+        sections: [
+          {
+            id: "starters-salads",
+            title: "Starters & Crisp Salads (Entrées)",
+            description: "Fresh Atlantic oysters and bistro-inspired salads prepared daily",
+            items: [
+              {
+                id: "ricks-oysters",
+                name: "Champagne Oysters (Gratinated)",
+                localName: "محار مغربي غراتان بصلصة السابايون والبارميزان",
+                translations: {
+                  ar: "محار مغربي غراتان بصلصة السابايون والبارميزان",
+                  en: "Dakhla oysters gratinated with creamy champagne sabayon and aged parmesan",
+                  es: "Ostras gratinadas con crema sabayón y queso parmesano",
+                  de: "Gratinierte Austern mit cremiger Sabayon und Parmesan"
+                },
+                price: 185,
+                isSignature: true,
+                dietary: ["gluten-free"]
+              },
+              {
+                id: "ricks-goat-cheese-figs",
+                name: "Goat Cheese with Figs & Arugula",
+                localName: "جبن الماعز الطازج مع التين والجرجير وصلصة البلسميك",
+                translations: {
+                  ar: "جبن الماعز الطازج مع التين والجرجير وصلصة البلسميك",
+                  en: "Warm goat cheese served over fresh figs, wild arugula, and aged balsamic vinaigrette",
+                  es: "Queso de cabra tibio con higos frescos, rúcula y vinagreta balsámica",
+                  de: "Ziegenkäse mit frischen Feigen, Rucola und Balsamico-Vinaigrette"
+                },
+                price: 130,
+                dietary: ["vegetarian", "gluten-free", "halal"]
+              },
+              {
+                id: "ricks-burrata",
+                name: "Creamy Burrata Salad",
+                localName: "سلطة جبنة بوراتا الإيطالية مع الطماطم الكرزية",
+                translations: {
+                  ar: "سلطة جبنة بوراتا الإيطالية مع الطماطم الكرزية",
+                  en: "Fresh Italian burrata paired with vine-ripened tomatoes, basil oil, and sea salt",
+                  es: "Burrata italiana cremosa con tomates maduros y aceite de albahaca",
+                  de: "Cremige Burrata mit reifen Tomaten und Basilikumöl"
+                },
+                price: 140,
+                dietary: ["vegetarian", "gluten-free", "halal"]
+              },
+              {
+                id: "ricks-prawn-tropicana",
+                name: "Prawn Salad Tropicana",
+                localName: "سلطة القريدس الاستوائية بالأفوكادو والبابايا وزيت الأركان",
+                translations: {
+                  ar: "سلطة القريدس الاستوائية بالأفوكادو والبابايا وزيت الأركان",
+                  en: "Atlantic prawns tossed with papaya, avocado, and culinary argan-curry dressing",
+                  es: "Ensalada de gambas con papaya, aguacate y aderezo de argán al curry",
+                  de: "Garnelensalat mit Papaya, Avocado und Arganöl-Curry-Dressing"
+                },
+                price: 145,
+                dietary: ["gluten-free", "halal"]
+              },
+              {
+                id: "ricks-smoked-salmon",
+                name: "Smoked Salmon Salad",
+                localName: "سلطة السلمون المدخن مع الأعشاب الطازجة",
+                translations: {
+                  ar: "سلطة السلمون المدخن مع الأعشاب الطازجة",
+                  en: "Delicate smoked salmon ribbons over crisp greens, capers, and lemon-dill emulsion",
+                  es: "Ensalada de salmón ahumado con alcaparras y emulsión de limón y eneldo",
+                  de: "Räucherlachssalat mit Kapern und Zitronen-Dill-Dressing"
+                },
+                price: 145,
+                dietary: ["gluten-free", "halal"]
+              }
+            ]
+          },
+          {
+            id: "mains-steaks-seafood",
+            title: "Atlantic Seafood & Prime Cuts (Plats)",
+            description: "Fresh daily port catches and signature char-grilled steaks",
+            items: [
+              {
+                id: "ricks-seabass-curry",
+                name: "Grilled Sea Bass with Curry Sauce",
+                localName: "سمك القاروص المشوي بصلصة الكاري والزعفران مع الأرز",
+                translations: {
+                  ar: "سمك القاروص المشوي بصلصة الكاري والزعفران مع الأرز",
+                  en: "Atlantic sea bass fillets grilled with basmati and black rice in creamy saffron-curry sauce",
+                  es: "Filetes de lubina atlántica a la parrilla con arroz y salsa cremosa de azafrán al curry",
+                  de: "Gegrilltes Wolfsbarschfilet mit Basmati- und schwarzem Reis in Safran-Currysauce"
+                },
+                price: 215,
+                isSignature: true,
+                dietary: ["gluten-free", "halal"]
+              },
+              {
+                id: "ricks-stroganoff",
+                name: "Crown of Stroganoff",
+                localName: "شرائح لحم ستروغانوف بالكريمة والفطر والطرخون",
+                translations: {
+                  ar: "شرائح لحم ستروغانوف بالكريمة والفطر والطرخون",
+                  en: "Tender beef fillet strips and wild mushrooms simmered in tarragon cream sauce",
+                  es: "Tiras de solomillo de ternera y champiñones en salsa cremosa al estragón",
+                  de: "Zarte Rinderfiletstreifen mit Waldpilzen in Estragon-Rahmsauce"
+                },
+                price: 190,
+                dietary: ["halal"]
+              },
+              {
+                id: "ricks-ny-strip",
+                name: "New York Strip Grilled Steak",
+                localName: "شريحة لحم نيويورك ستريب مشوية",
+                translations: {
+                  ar: "شريحة لحم نيويورك ستريب مشوية",
+                  en: "Prime char-grilled New York strip steak with roasted vegetables and herb butter",
+                  es: "Entrecot New York Strip a la parrilla con verduras asadas y mantequilla de hierbas",
+                  de: "Gegrilltes New-York-Strip-Steak mit Röstgemüse und Kräuterbutter"
+                },
+                price: 225,
+                dietary: ["gluten-free", "halal"]
+              },
+              {
+                id: "ricks-surf-turf",
+                name: "Beef Steak Surf & Turf",
+                localName: "ستيك اللحم البقري مع القريدس الكبير المشوي",
+                translations: {
+                  ar: "ستيك اللحم البقري مع القريدس الكبير المشوي",
+                  en: "Tender beef medallion paired with grilled Atlantic jumbo shrimp",
+                  es: "Medallón de ternera acompañado de langostinos a la parrilla",
+                  de: "Zartes Rindermedaillon serviert mit gegrillten Riesengarnelen"
+                },
+                price: 235,
+                dietary: ["gluten-free", "halal"]
+              },
+              {
+                id: "ricks-ribeye",
+                name: "Rick's Char-Grilled Ribeye (Chef's Special)",
+                localName: "ستيك ريب آي مشوي على الفحم مع زبدة الأعشاب",
+                translations: {
+                  ar: "ستيك ريب آي مشوي على الفحم مع زبدة الأعشاب",
+                  en: "Bone-in prime ribeye grilled over charcoal with herb compound butter and bistro sides",
+                  es: "Chuletón ribeye a la brasa con mantequilla de hierbas y guarnición",
+                  de: "Am Knochen gegrilltes Ribeye-Steak mit Kräuterbutter und Beilagen"
+                },
+                price: 490,
+                isSignature: true,
+                dietary: ["gluten-free", "halal"]
+              }
+            ]
+          },
+          {
+            id: "desserts-classic",
+            title: "Classic Bistro Desserts (Desserts)",
+            description: "Signature house-made sweets enjoyed alongside evening piano jazz",
+            items: [
+              {
+                id: "ricks-cheesecake",
+                name: "Original Rick's Cheesecake",
+                localName: "تشيز كيك ريكس كافيه الكلاسيكي الأصلي",
+                translations: {
+                  ar: "تشيز كيك ريكس كافيه الكلاسيكي الأصلي",
+                  en: "Rick's signature New York-style baked cheesecake served with seasonal berry coulis",
+                  es: "Tarta de queso horneada clásica de Rick's con coulis de frutos rojos",
+                  de: "Klassischer gebackener Rick's Cheesecake mit Beeren-Coulis"
+                },
+                price: 70,
+                isSignature: true,
+                dietary: ["vegetarian", "halal"]
+              }
+            ]
+          }
+        ]
+      }
+    },
     // ── 4. WORRIES ("Things You're Worried About!") ──
     worries: [
-      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
-      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
-      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
-      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
-      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+      {
+        id: "financial-trust",
+        title: "Financial Trust",
+        tag: "Tourist-Tier Pricing",
+        description: "Printed menu in MAD with transparent pricing; expect upscale international prices (215–490 MAD mains) and cocktail markups.",
+        tone: "caution",
+        tagColor: "alert",
+        state: "verified"
+      },
+      {
+        id: "health-safety",
+        title: "Health & Safety",
+        tag: "Spotless Riad Kitchen",
+        description: "Strict international hospitality hygiene standards; fresh Casablanca port fish, bottled water, and clean bar ice.",
+        tone: "good",
+        tagColor: "water",
+        state: "verified"
+      },
+      {
+        id: "culinary-authenticity",
+        title: "Culinary Authenticity",
+        tag: "Franco-Bistro & Seafood",
+        description: "Focuses on cosmopolitan bistro steaks, Atlantic seafood, and cocktails rather than traditional tagines or couscous.",
+        tone: "good",
+        tagColor: "food",
+        state: "verified"
+      },
+      {
+        id: "comfort-environment",
+        title: "Comfort & Atmosphere",
+        tag: "Strict Dress Code",
+        description: "Iconic 1940s jazz ambiance inside a restored riad with valet parking; smart-casual dress code strictly enforced at the door.",
+        tone: "caution",
+        tagColor: "alert",
+        state: "verified"
+      },
+      {
+        id: "service-expectations",
+        title: "Service Expectations",
+        tag: "Book Ahead",
+        description: "Polite, professional staff; advance reservations are strongly recommended for evening dinner seatings near the grand piano.",
+        tone: "good",
+        tagColor: "safety",
+        state: "verified"
+      }
     ],
     // Multi-platform reviews holder (hidden on UI until populated)
     reviewsData: { sources: [], reviews: [] },

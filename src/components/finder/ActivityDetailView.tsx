@@ -16,6 +16,9 @@ import ListingHeroHeader, { type HeroFeatureChip, type HeroMetadataItem } from '
 import ListingSectionNavigator, { type ListingNavigatorItem } from './ListingSectionNavigator';
 import { hasVerifiedReviews, hasVerifiedWorries } from './listingNavUtils';
 import PlaceReviewsSection from '../reviews/PlaceReviewsSection';
+import PlaceFAQSection from '../common/PlaceFAQSection';
+import { buildPlaceFaqs } from '../../data/seo/faqEngine';
+import { useAppLanguage } from '../../utils/localeRouting';
 import type { ReviewSource } from '../../types/reviews';
 
 const cityYoutubeMap: Record<string, string> = {
@@ -36,6 +39,7 @@ interface ActivityDetailViewProps {
 }
 
 export default function ActivityDetailView({ item }: ActivityDetailViewProps) {
+  const lang = useAppLanguage();
   const { toggleBookmark, isBookmarked } = useSavedStore();
 
   // Active tab selection: 'experience', 'social', 'savvy'
@@ -966,6 +970,26 @@ export default function ActivityDetailView({ item }: ActivityDetailViewProps) {
           )}
         </div>
       </div>
+
+      {/* Dynamic Multi-Question FAQ */}
+      {(() => {
+        const activityCityLabel = cityMap[String(city).toLowerCase()]?.name || String(city);
+        const activityFaqs = buildPlaceFaqs({
+          listing: item,
+          category: 'things-to-do',
+          cityLabel: activityCityLabel,
+          lang,
+        });
+        return activityFaqs.length > 0 ? (
+          <div id="things-faq-section" className="mb-8">
+            <PlaceFAQSection
+              faqs={activityFaqs}
+              placeName={name}
+              subtitle="Essential visitor logistics, ticket pricing, inclusions, and meeting point details"
+            />
+          </div>
+        ) : null;
+      })()}
 
       {/* Multi-platform Traveler Reviews & Community Intelligence (strictly hidden until populated) */}
       {hasVerifiedReviews(item?.reviewsData) && (

@@ -89,35 +89,58 @@ export function directionFromBearing(deg: number): string {
 }
 
 
+const WALK_THRESHOLD_M = 2500;
+const DRIVE_METERS_PER_MINUTE = 550; // ~33 km/h urban + airport road average
+
+/** Estimated driving time in minutes for a distance in meters. */
+export function driveMinutes(meters: number): number {
+  return Math.max(4, Math.round(meters / DRIVE_METERS_PER_MINUTE));
+}
+
+export function formatNearbyTravelLabel(place: Pick<NearbyPlace, 'walking_time_minutes' | 'travel_mode' | 'travel_time_minutes'>): string {
+  const mins = place.travel_time_minutes ?? place.walking_time_minutes;
+  const mode = place.travel_mode ?? (mins > 35 ? 'drive' : 'walk');
+  return mode === 'drive' ? `${mins} min drive` : `${mins} min walk`;
+}
+
 /**
- * Compute nearby spots for a stay using real coordinates + the city spot
- * database. Returns the closest `limit` tourist-relevant spots sorted by
- * walking time, each with bearing, direction label and radar position.
+ * Compute nearby spots for a stay/eat place using real coordinates + the city spot
+ * database. Spots within 2.5km are labeled as walking time; further spots & airports
+ * are labeled as realistic drive times.
  */
 export function computePoiNearbyPlaces(cityId: string, origin: LatLng, limit = 6): NearbyPlace[] {
   const pois = getCityPois(cityId);
   if (!pois.length) return [];
 
-  const measured = pois.map((poi, i) => {
+  const measuredWithDist = pois.map((poi) => {
     const distanceM = haversineM(origin, { lat: poi.lat, lng: poi.lng });
     const angle = ((bearingDeg(origin, { lat: poi.lat, lng: poi.lng }) % 360) + 360) % 360;
+    const isDrive = distanceM > WALK_THRESHOLD_M || poi.category === 'Airport';
+    const mins = isDrive ? driveMinutes(distanceM) : walkMinutes(distanceM);
     const maxRef = Math.max(1, ...pois.map((p) => haversineM(origin, { lat: p.lat, lng: p.lng })));
     return {
-      id: poi.id,
-      name: poi.name,
-      category: poi.category,
-      walking_time_minutes: walkMinutes(distanceM),
-      icon: poi.icon,
-      latitude: poi.lat,
-      longitude: poi.lng,
-      relative_angle: Math.round(angle),
-      relative_distance: Number(clamp(distanceM / maxRef, 0.3, 0.95).toFixed(2))
+      distanceM,
+      place: {
+        id: poi.id,
+        name: poi.name,
+        category: poi.category,
+        walking_time_minutes: mins,
+        travel_mode: (isDrive ? 'drive' : 'walk') as 'walk' | 'drive',
+        travel_time_minutes: mins,
+        distance_km: Number((distanceM / 1000).toFixed(1)),
+        icon: poi.icon,
+        latitude: poi.lat,
+        longitude: poi.lng,
+        relative_angle: Math.round(angle),
+        relative_distance: Number(clamp(distanceM / maxRef, 0.3, 0.95).toFixed(2)),
+      } satisfies NearbyPlace,
     };
   });
 
-  return measured
-    .sort((a, b) => a.walking_time_minutes - b.walking_time_minutes)
-    .slice(0, limit);
+  return measuredWithDist
+    .sort((a, b) => a.distanceM - b.distanceM)
+    .slice(0, limit)
+    .map((m) => m.place);
 }
 
 /** Parse a collected distance string ('500m', '7km', 'Direct') to meters. */
@@ -156,60 +179,117 @@ function clamp(value: number, min: number, max: number): number {
 
 /**
  * Convert the collected neighborhood distance data into radar-ready spots.
- * Angles are spread deterministically around the circle (sorted by walking
- * time) so the map stays stable and readable. No invented data.
+ * Angles are spread deterministically around the circle so the map stays
+ * stable and readable. Respects drive vs walk cues.
  */
 export function buildNearbyFromNeighborhoodDistances(
-  distances: { label: string; distance: string; time?: string; icon?: string }[]
+  distances: Array<{
+    id?: string;
+    label?: string;
+    name?: string;
+    category?: NearbyPlace['category'] | string;
+    distance?: string;
+    distance_km?: number;
+    time?: string;
+    travel_time_minutes?: number;
+    walking_time_minutes?: number;
+    icon?: string;
+    mode?: 'walk' | 'drive';
+    travel_mode?: 'walk' | 'drive';
+  }>
 ): NearbyPlace[] {
   if (!distances?.length) return [];
 
-  const parsed = distances.map((d, i) => {
-    const minutes =
-      parseTimeToMinutes(d.time) ??
-      (() => {
-        const meters = parseDistanceToMeters(d.distance);
-        return meters === null ? 5 : walkMinutes(meters);
-      })();
-    return { ...d, minutes, _order: i };
-  });
+  const parsed = distances
+    .map((d, i) => {
+      const displayName = String(d.name || d.label || '').trim();
+      if (!displayName) return null;
+      const meters =
+        typeof d.distance_km === 'number' && Number.isFinite(d.distance_km)
+          ? d.distance_km * 1000
+          : parseDistanceToMeters(d.distance);
+      const timeLower = String(d.time || '').toLowerCase();
+      const explicitMode = d.travel_mode || d.mode;
+      const isDrive =
+        explicitMode === 'drive' ||
+        (explicitMode !== 'walk' &&
+          (timeLower.includes('drive') ||
+            timeLower.includes('car') ||
+            timeLower.includes('taxi') ||
+            (meters !== null && meters > WALK_THRESHOLD_M)));
 
+      const explicitMins =
+        typeof d.travel_time_minutes === 'number' && Number.isFinite(d.travel_time_minutes)
+          ? d.travel_time_minutes
+          : typeof d.walking_time_minutes === 'number' && Number.isFinite(d.walking_time_minutes)
+            ? d.walking_time_minutes
+            : parseTimeToMinutes(d.time);
+
+      const minutes =
+        explicitMins ??
+        (() => {
+          if (meters === null) return 5;
+          return isDrive ? driveMinutes(meters) : walkMinutes(meters);
+        })();
+
+      return {
+        id: d.id || `nearby-collected-${i}`,
+        name: displayName,
+        category: (d.category || 'Other') as NearbyPlace['category'],
+        icon: d.icon,
+        minutes: Math.round(minutes),
+        mode: (isDrive ? 'drive' : 'walk') as 'walk' | 'drive',
+        distanceKm:
+          typeof d.distance_km === 'number' && Number.isFinite(d.distance_km)
+            ? Number(d.distance_km.toFixed(1))
+            : meters !== null
+              ? Number((meters / 1000).toFixed(1))
+              : undefined,
+      };
+    })
+    .filter((p): p is NonNullable<typeof p> => p !== null);
+
+  if (!parsed.length) return [];
   const maxMinutes = Math.max(1, ...parsed.map((p) => p.minutes));
 
   return parsed.map((p, i) => ({
-    id: `nearby-collected-${p._order}`,
-    name: p.label,
-    category: 'Other' as const,
-    walking_time_minutes: Math.round(p.minutes),
+    id: p.id,
+    name: p.name,
+    category: p.category,
+    walking_time_minutes: p.minutes,
+    travel_mode: p.mode,
+    travel_time_minutes: p.minutes,
+    distance_km: p.distanceKm,
     icon: p.icon,
-    // Even spread around the circle, rotated so the closest spot sits top-right
     relative_angle: Math.round((45 + (360 / parsed.length) * i) % 360),
-    relative_distance: Number(clamp(0.35 + (p.minutes / maxMinutes) * 0.6, 0.3, 0.95).toFixed(2))
+    relative_distance: Number(clamp(0.35 + (p.minutes / maxMinutes) * 0.6, 0.3, 0.95).toFixed(2)),
   }));
 }
 
 /**
- * MAIN ENTRY — walking-distance spots for a stay listing.
- *  1. Base layer: collected neighborhood distance data (all cities, all stays).
- *  2. Real GPS layer: when the stay has coordinates AND its city has verified
- *     spots, computed distance + direction entries are merged in (and override
- *     collected entries with the same name).
+ * MAIN ENTRY — walking & local access spots for a stay or eat listing.
+ *  1. Base layer: collected neighborhood/nearby distance data.
+ *  2. Real GPS layer: when the listing has coordinates AND its city has verified
+ *     spots, computed distance + direction entries are merged in.
  */
 export function getWalkingDistancePlaces(listing: any): NearbyPlace[] {
   if (!listing) return [];
 
-  const collected = buildNearbyFromNeighborhoodDistances(listing.neighborhoodDistances || []);
-  const hasCoords =
-    listing.coordinates &&
-    typeof listing.coordinates.lat === 'number' &&
-    typeof listing.coordinates.lng === 'number';
-  const citySpots = hasCoords ? computePoiNearbyPlaces(String(listing.city), listing.coordinates) : [];
+  const rawDistances =
+    listing.nearbyDistances ||
+    listing.ui?.nearbyDistances ||
+    listing.neighborhoodDistances ||
+    [];
+  const collected = buildNearbyFromNeighborhoodDistances(rawDistances);
+  const coords = extractListingCoords(listing);
+  const citySpots = coords ? computePoiNearbyPlaces(String(listing.city), coords) : [];
 
   if (!citySpots.length) return collected;
+  if (!collected.length) return citySpots;
 
-  // Merge: real computed spots first, then collected entries not duplicated
-  const computedNames = new Set(citySpots.map((p) => p.name.toLowerCase()));
-  const merged = [...citySpots, ...collected.filter((p) => !computedNames.has(p.name.toLowerCase()))];
-  return merged.slice(0, 8);
+  // Prefer curated entries first when explicit nearbyDistances exist, filling with unique GPS spots
+  const collectedNames = new Set(collected.map((p) => p.name.toLowerCase()));
+  const merged = [...collected, ...citySpots.filter((p) => !collectedNames.has(p.name.toLowerCase()))];
+  return merged.slice(0, 6);
 }
 

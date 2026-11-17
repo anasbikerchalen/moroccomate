@@ -63,7 +63,7 @@ export const useTastingStore = create<TastingState>()(
       city: null,
       selectedDishes: {},
       currency: 'MAD',
-      menuLanguage: 'ar',
+      menuLanguage: 'en',
 
       setCurrency: (currency) => set({ currency }),
       setMenuLanguage: (menuLanguage) => set({ menuLanguage }),
@@ -163,6 +163,13 @@ export const useTastingStore = create<TastingState>()(
     }),
     {
       name: 'morocco-tasting-order-storage',
+      version: 2,
+      migrate: (persistedState: any, version: number) => {
+        if (persistedState && version < 2 && persistedState.menuLanguage === 'ar') {
+          return { ...persistedState, menuLanguage: 'en' };
+        }
+        return persistedState;
+      },
     }
   )
 );

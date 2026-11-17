@@ -239,6 +239,8 @@ export interface NearbyPlace {
   latitude?: number;
   longitude?: number;
   walking_minutes?: number;
+  travel_mode?: 'walk' | 'drive';
+  travel_time_minutes?: number;
   display_order: number;
 }
 
@@ -295,6 +297,7 @@ export interface ActivitySectionVisibility {
   show_meeting_point?: boolean;
   show_worries?: boolean;
   show_reviews?: boolean;
+  show_faq?: boolean;
 }
 
 // ─────────────────────────────────────────────────────────
@@ -367,6 +370,10 @@ export interface ActivityListing {
   badge?: string;
   tags?: string[];
   vibe_tags?: string[];
+  faqs?: {
+    question: string;
+    answer: string;
+  }[];
 }
 
 // ─────────────────────────────────────────────────────────

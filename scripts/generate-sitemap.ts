@@ -23,17 +23,23 @@ const urls = pages
   .map((p) => {
     const loc = `${BASE_URL}${p.path}`;
     const alternates = p.hasLocalizedRoutes
-      ? SUPPORTED_LANGS.map((l) => {
+      ? '\n' +
+        SUPPORTED_LANGS.map((l) => {
           const href = `${BASE_URL}${localizePath(p.basePath, l)}`;
-          return `<xhtml:link rel="alternate" hreflang="${l}" href="${escapeXml(href)}" />`;
-        }).join('') +
-        `<xhtml:link rel="alternate" hreflang="x-default" href="${escapeXml(`${BASE_URL}${localizePath(p.basePath, 'en')}`)}" />`
+          return `    <xhtml:link rel="alternate" hreflang="${l}" href="${escapeXml(href)}" />`;
+        }).join('\n') +
+        `\n    <xhtml:link rel="alternate" hreflang="x-default" href="${escapeXml(`${BASE_URL}${localizePath(p.basePath, 'en')}`)}" />`
       : '';
-    return `  <url><loc>${escapeXml(loc)}</loc>${alternates}<lastmod>${today}</lastmod><priority>${p.priority.toFixed(1)}</priority></url>`;
+    return `  <url>\n    <loc>${escapeXml(loc)}</loc>${alternates}\n    <lastmod>${today}</lastmod>\n    <priority>${p.priority.toFixed(1)}</priority>\n  </url>`;
   })
   .join('\n');
 
-const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls}\n</urlset>\n`;
+const xml =
+  `<?xml version="1.0" encoding="UTF-8"?>\n` +
+  `<?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>\n` +
+  `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n` +
+  `${urls}\n` +
+  `</urlset>\n`;
 
 const target = resolve(process.cwd(), 'public', 'sitemap.xml');
 writeFileSync(target, xml);

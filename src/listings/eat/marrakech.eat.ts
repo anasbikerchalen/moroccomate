@@ -244,6 +244,16 @@ export const marrakechEat: EatListing[] = [
       restaurantguruReviewCount: 10990,
       openTime: "10:00",
       closeTime: "23:00",
+      exactAddressAndCoordinates: {
+        address: "32 Souk Jeld Sidi Abdelaziz, Médina, Marrakech 40000, Morocco",
+        lat: 31.6315,
+        lng: -7.9875
+      },
+      address: "32 Souk Jeld Sidi Abdelaziz, Médina, Marrakech 40000, Morocco",
+      coordinates: {
+        lat: 31.6315,
+        lng: -7.9875
+      },
       googleMapsUrl: "https://maps.google.com/?q=Le+Jardin+Marrakech",
       reservationMethod: ["website", "phone"],
       reservationContact: "+212524378295",
@@ -766,6 +776,16 @@ export const marrakechEat: EatListing[] = [
       restaurantguruReviewCount: 14000,
       openTime: "09:00",
       closeTime: "23:00",
+      exactAddressAndCoordinates: {
+        address: "75 Rahba Kedima (Place des Épices), Médina, Marrakech 40000, Morocco",
+        lat: 31.6297,
+        lng: -7.9857
+      },
+      address: "75 Rahba Kedima (Place des Épices), Médina, Marrakech 40000, Morocco",
+      coordinates: {
+        lat: 31.6297,
+        lng: -7.9857
+      },
       googleMapsUrl: "https://maps.google.com/?q=Cafe+des+Epices+Marrakech",
       reservationMethod: ["walk-in"],
       reservationContact: "+212662564134",
@@ -777,7 +797,183 @@ export const marrakechEat: EatListing[] = [
       bestTimeToVisit: "Early evening around 18:30 for sunset",
       averageWaitMinutes: 10,
       googlePlaceId: "ChIJuX4rVG3urw0RD8i8J7R2B6U",
-      nonCopyrightImage: "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=800&q=80"
+      nonCopyrightImage: "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=800&q=80",
+      languagesSpoken: ["French", "English", "Arabic/Darija"],
+      menu: {
+        currency: "MAD",
+        lastUpdated: "November 2026",
+        serviceChargeIncluded: true,
+        sections: [
+          {
+            id: "breakfast-brunch",
+            title: "Breakfast on the Square (09:00–11:30)",
+            description: "Freshly baked traditional breads, Beldi eggs, and morning pastries overlooking Rahba Kedima",
+            items: [
+              {
+                id: "epices-moroccan-breakfast",
+                name: "Moroccan Breakfast",
+                localName: "فطور مغربي تقليدي متكامل",
+                translations: {
+                  ar: "فطور مغربي تقليدي متكامل",
+                  en: "Hot drink, fresh orange juice, harcha, msemen, baghrir, amlou, jam, honey, and olive oil",
+                  es: "Desayuno marroquí completo con bebida caliente, zumo de naranja, harcha, msemen, amlou y miel",
+                  de: "Traditionelles marokkanisches Frühstück mit Orangensaft, Harcha, Msemen, Amlou und Honig"
+                },
+                price: 90,
+                isSignature: true,
+                dietary: ["vegetarian", "halal"]
+              },
+              {
+                id: "epices-beldi-plate",
+                name: "Moroccan Plate (Beldi Classics)",
+                localName: "طبق بلدي تقليدي مع الشاي بالنعناع",
+                translations: {
+                  ar: "طبق بلدي تقليدي مع الشاي بالنعناع",
+                  en: "Harcha, msemen, and baghrir flatbreads served with butter, olive oil, wild honey, and mint tea",
+                  es: "Plato beldi de harcha, msemen y baghrir con mantequilla, miel y té a la menta",
+                  de: "Beldi-Teller mit Harcha, Msemen und Baghrir, dazu Honig, Olivenöl und Minztee"
+                },
+                price: 50,
+                dietary: ["vegetarian", "halal"]
+              },
+              {
+                id: "epices-avocado-toast",
+                name: "Avocado Toast on Sourdough",
+                localName: "توست الأفوكادو بالخبز الحرفي والبيض",
+                translations: {
+                  ar: "توست الأفوكادو بالخبز الحرفي والبيض",
+                  en: "Artisan sourdough topped with mashed avocado, soft-poached egg, and pomegranate",
+                  es: "Tostada de masa madre con aguacate, huevo escalfado y granada",
+                  de: "Sauerteigtoast mit Avocado, pochiertem Ei und Granatapfelkernen"
+                },
+                price: 80,
+                dietary: ["vegetarian", "halal"]
+              }
+            ]
+          },
+          {
+            id: "mains-sandwiches",
+            title: "Tagines, Salads & Cafe Classics",
+            description: "All-day light Moroccan plates, freshly made burgers, and medina salads",
+            items: [
+              {
+                id: "epices-kefta-tagine",
+                name: "Kefta & Egg Tagine",
+                localName: "طاجين الكفتة بالبيض وصلصة الطماطم والأعشاب",
+                translations: {
+                  ar: "طاجين الكفتة بالبيض وصلصة الطماطم والأعشاب",
+                  en: "Spiced beef meatballs simmered in rich tomato-cumin sauce topped with farm eggs",
+                  es: "Tajine tradicional de albóndigas de ternera especiadas en salsa de tomate y huevo",
+                  de: "Würziger Kefta-Hackbällchen-Tagine in Tomatensauce mit pochiertem Ei"
+                },
+                price: 85,
+                isSignature: true,
+                dietary: ["halal"]
+              },
+              {
+                id: "epices-vegetarian-tagine",
+                name: "Seasonal Vegetable Tagine",
+                localName: "طاجين الخضار الموسمية بالأعشاب والتوابل",
+                translations: {
+                  ar: "طاجين الخضار الموسمية بالأعشاب والتوابل",
+                  en: "Slow-cooked zucchini, carrots, sweet potato, olives, and preserved lemon served with bread",
+                  es: "Tajine vegetariano de verduras de temporada con aceitunas y limón confitado",
+                  de: "Vegetarischer Gemüsetagine der Saison mit Oliven und Salzzitrone"
+                },
+                price: 60,
+                dietary: ["vegetarian", "vegan", "halal"]
+              },
+              {
+                id: "epices-harira-soup",
+                name: "Traditional Harira Soup",
+                localName: "حريرة مغربية تقليدية بالعدس والحمص",
+                translations: {
+                  ar: "حريرة مغربية تقليدية بالعدس والحمص",
+                  en: "Hearty tomato, lentil, and chickpea soup scented with fresh coriander and ginger",
+                  es: "Sopa tradicional marroquí harira de tomates, lentejas y garbanzos",
+                  de: "Traditionelle marokkanische Harira-Suppe mit Linsen, Kichererbsen und Koriander"
+                },
+                price: 40,
+                dietary: ["vegetarian", "halal"]
+              },
+              {
+                id: "epices-house-salad",
+                name: "Café des Épices Market Salad",
+                localName: "سلطة السوق المغربية الطازجة بالجبن والأعشاب",
+                translations: {
+                  ar: "سلطة السوق المغربية الطازجة بالجبن والأعشاب",
+                  en: "Crisp market greens, roasted seasonal vegetables, goat cheese, and lemon-argan vinaigrette",
+                  es: "Ensalada fresca del mercado con queso de cabra y vinagreta de argán",
+                  de: "Frischer Marktsalat mit Ziegenkäse und Arganöl-Zitronen-Vinaigrette"
+                },
+                price: 60,
+                dietary: ["vegetarian", "halal"]
+              },
+              {
+                id: "epices-chicken-sandwich",
+                name: "Spiced Chicken & Harissa Burger / Sandwich",
+                localName: "ساندويتش دجاج مشوي بالأعشاب والهريسة المنزلية",
+                translations: {
+                  ar: "ساندويتش دجاج مشوي بالأعشاب والهريسة المنزلية",
+                  en: "Grilled marinated chicken in warm khobz bread with house harissa mayo and crispy fries",
+                  es: "Sándwich de pollo especiado a la parrilla con mayonesa de harissa y patatas fritas",
+                  de: "Gegrilltes Gewürzhähnchen-Sandwich mit Haus-Harissa-Mayo und Pommes"
+                },
+                price: 60,
+                dietary: ["halal"]
+              }
+            ]
+          },
+          {
+            id: "spiced-drinks",
+            title: "Spiced Coffees, Teas & Fresh Juices",
+            description: "Freshly squeezed Taroudant citrus and signature Rahba Kedima spice blends",
+            items: [
+              {
+                id: "epices-spiced-coffee",
+                name: "Signature Spiced Coffee (Café Épicé)",
+                localName: "قهوة متبلة بالبهارات المغربية والزعفران",
+                translations: {
+                  ar: "قهوة متبلة بالبهارات المغربية والزعفران",
+                  en: "Freshly brewed coffee infused with cinnamon, nutmeg, cardamom, cloves, and black pepper",
+                  es: "Café aromático especiado con canela, cardamomo y nuez moscada",
+                  de: "Hausgemachter Gewürzkaffee mit Zimt, Kardamom und Muskat"
+                },
+                price: 20,
+                isSignature: true,
+                dietary: ["vegan", "halal"]
+              },
+              {
+                id: "epices-mint-tea",
+                name: "Traditional Moroccan Mint Tea",
+                localName: "شاي مغربي تقليدي بالنعناع الطازج",
+                translations: {
+                  ar: "شاي مغربي تقليدي بالنعناع الطازج",
+                  en: "Ceremonial Moroccan green tea brewed with fresh spearmint leaves",
+                  es: "Té verde marroquí tradicional con hierbabuena fresca",
+                  de: "Traditioneller marokkanischer grüner Tee mit frischer Nanaminze"
+                },
+                price: 15,
+                dietary: ["vegan", "halal"]
+              },
+              {
+                id: "epices-ginger-orange-juice",
+                name: "Fresh Orange & Ginger Juice",
+                localName: "عصير برتقال طازج مع الزنجبيل",
+                translations: {
+                  ar: "عصير برتقال طازج مع الزنجبيل",
+                  en: "Cold-pressed sweet Moroccan oranges blended with fresh spicy ginger root",
+                  es: "Zumo de naranja recién exprimido con jengibre fresco",
+                  de: "Frisch gepresster Orangensaft mit frischem Ingwer"
+                },
+                price: 35,
+                isSignature: true,
+                dietary: ["vegan", "halal"]
+              }
+            ]
+          }
+        ]
+      }
     },
     worries: [
       {
@@ -848,7 +1044,7 @@ export const marrakechEat: EatListing[] = [
 
     // ── 2. FILTER (search criteria, dietary rules, logistics & flags) ──
     filter: {
-      pricePerPerson: 20,
+      pricePerPerson: 25,
       isHalal: true,
       halalStatus: "likely-halal-food",
       isVegetarianFriendly: true,
@@ -913,6 +1109,16 @@ export const marrakechEat: EatListing[] = [
       restaurantguruReviewCount: 14500,
       openTime: "12:00",
       closeTime: "23:00",
+      exactAddressAndCoordinates: {
+        address: "1 Derb Aarjane, Rahba Kedima, Médina, Marrakech 40000, Morocco",
+        lat: 31.6298,
+        lng: -7.9859
+      },
+      address: "1 Derb Aarjane, Rahba Kedima, Médina, Marrakech 40000, Morocco",
+      coordinates: {
+        lat: 31.6298,
+        lng: -7.9859
+      },
       googleMapsUrl: "https://maps.google.com/?q=Nomad+Marrakech",
       reservationMethod: ["website", "phone"],
       reservationContact: "+212524381609",
@@ -924,7 +1130,198 @@ export const marrakechEat: EatListing[] = [
       bestTimeToVisit: "Early evening around 18:30 for sunset",
       averageWaitMinutes: 20,
       googlePlaceId: "ChIJuXAbl2Xurw0R9pfGiHPcnso",
-      nonCopyrightImage: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80"
+      nonCopyrightImage: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80",
+      languagesSpoken: ["English", "French", "Arabic/Darija"],
+      menu: {
+        currency: "MAD",
+        lastUpdated: "November 2026",
+        serviceChargeIncluded: true,
+        sections: [
+          {
+            id: "starters-sharing",
+            title: "Modern Maghrebi Starters & Salads",
+            description: "Seasonal market produce reimagined with preserved citrus, fresh herbs, and Atlas cheese",
+            items: [
+              {
+                id: "nomad-zucchini-fritters",
+                name: "Zucchini & Feta Fritters with Harissa Yogurt",
+                localName: "فطائر الكوسة المقرمشة بجبن الفيتا وزبادي الهريسة",
+                translations: {
+                  ar: "فطائر الكوسة المقرمشة بجبن الفيتا وزبادي الهريسة",
+                  en: "Crisp herb-flecked zucchini and feta fritters paired with smoky harissa yogurt (4 pcs / 8 pcs)",
+                  es: "Buñuelos crujientes de calabacín y feta con yogur de harissa",
+                  de: "Knusprige Zucchini-Feta-Puffer mit rauchigem Harissa-Joghurt"
+                },
+                price: 80,
+                isSignature: true,
+                dietary: ["vegetarian", "halal"],
+                portionNotes: "4 pcs 80 MAD • 8 pcs 140 MAD"
+              },
+              {
+                id: "nomad-lentil-salad",
+                name: "Warm Lentil & Essaouira Goat Cheese Salad",
+                localName: "سلطة العدس الدافئ مع جبن الماعز الصويري",
+                translations: {
+                  ar: "سلطة العدس الدافئ مع جبن الماعز الصويري",
+                  en: "Warm cumin-scented green lentils, creamy Essaouira goat cheese, and candied fennel vinaigrette",
+                  es: "Ensalada tibia de lentejas al comino y queso de cabra de Essaouira",
+                  de: "Warmer Linsensalat mit Kreuzkümmel und Ziegenkäse aus Essaouira"
+                },
+                price: 90,
+                dietary: ["vegetarian", "halal"]
+              },
+              {
+                id: "nomad-sardine-tart",
+                name: "Agadir Sardine & Caramelized Onion Tart",
+                localName: "تارت السردين الصويري بالبصل المعسل والكمون",
+                translations: {
+                  ar: "تارت السردين الصويري بالبصل المعسل والكمون",
+                  en: "Flaky puff pastry topped with Agadir marinated sardines, sweet onions, and wild thyme",
+                  es: "Hojaldre crujiente de sardinas de Agadir con cebolla caramelizada y tomillo",
+                  de: "Knusprige Tarte mit marinierten Agadir-Sardinen, Schmorzwiebeln und Thymian"
+                },
+                price: 90,
+                dietary: ["halal"]
+              },
+              {
+                id: "nomad-tuna-tartare",
+                name: "Moroccan Spiced Tuna Tartare",
+                localName: "تارتار التونة المغربية المتبلة بالليمون الحامض والأفوكادو",
+                translations: {
+                  ar: "تارتار التونة المغربية المتبلة بالليمون الحامض والأفوكادو",
+                  en: "Hand-diced Atlantic red tuna with avocado, preserved lemon zest, capers, and sesame crisp",
+                  es: "Tartar de atún rojo del Atlántico con aguacate y limón confitado",
+                  de: "Atlantik-Thunfischtatar mit Avocado, Salzzitrone und Sesamchip"
+                },
+                price: 160,
+                dietary: ["halal"]
+              }
+            ]
+          },
+          {
+            id: "mains-fusion",
+            title: "Main Plates & Contemporary Classics",
+            description: "Signature Nomad dishes balancing Moroccan pantry spices and Mediterranean techniques",
+            items: [
+              {
+                id: "nomad-lamb-burger",
+                name: "Nomad Spiced Lamb & Beef Burger",
+                localName: "برغر نوماد بلحم الغنم المتبل ومايونيز الهريسة",
+                translations: {
+                  ar: "برغر نوماد بلحم الغنم المتبل ومايونيز الهريسة",
+                  en: "Grilled spiced lamb and beef burger in brioche bun with caramelized onion, harissa mayo, and Nomad fries",
+                  es: "Hamburguesa Nomad de cordero y ternera especiada con mayonesa de harissa",
+                  de: "Nomad Gewürz-Lamm- und Rindfleisch-Burger mit Harissa-Mayo und Pommes"
+                },
+                price: 180,
+                isSignature: true,
+                dietary: ["halal"]
+              },
+              {
+                id: "nomad-calamari-sofrito",
+                name: "Pan-Roasted Calamari Sofrito",
+                localName: "كالامار مشوي بصلصة السوفريتو والطماطم والأعشاب",
+                translations: {
+                  ar: "كالامار مشوي بصلصة السوفريتو والطماطم والأعشاب",
+                  en: "Tender sautéed Atlantic calamari over roasted tomato-pepper sofrito, fresh herbs, and garlic toast",
+                  es: "Calamares salteados sobre sofrito casero de tomate, pimiento y hierbas",
+                  de: "Gebratener Atlantik-Tintenfisch auf Tomaten-Paprika-Sofrito mit Kräutern"
+                },
+                price: 180,
+                isSignature: true,
+                dietary: ["halal"]
+              },
+              {
+                id: "nomad-cauliflower-dukkah",
+                name: "Dukkah-Glazed Roasted Cauliflower",
+                localName: "قرنبيط مشوي بالدوقة والسمسم واللوز المحمص",
+                translations: {
+                  ar: "قرنبيط مشوي بالدوقة والسمسم واللوز المحمص",
+                  en: "Whole roasted cauliflower steak finished with toasted hazelnut dukkah, tahini crema, and mint",
+                  es: "Coliflor asada glaseada con dukkah de avellanas y crema de tahini",
+                  de: "Gerösteter Blumenkohl mit Haselnuss-Dukkah und Tahini-Creme"
+                },
+                price: 160,
+                dietary: ["vegetarian", "vegan", "halal"]
+              },
+              {
+                id: "nomad-fish-of-day",
+                name: "Pan-Seared Catch of the Day",
+                localName: "فيليه سمك اليوم المشوي بصلصة الزعفران والشمر",
+                translations: {
+                  ar: "فيليه سمك اليوم المشوي بصلصة الزعفران والشمر",
+                  en: "Crisp-skinned fresh Atlantic fish served with saffron fennel puree and preserved lemon salsa",
+                  es: "Pesca fresca del día a la plancha con puré de hinojo al azafrán",
+                  de: "Auf der Haut gebratener Tagesfang mit Safran-Fenchel-Püree"
+                },
+                price: 210,
+                dietary: ["halal"]
+              },
+              {
+                id: "nomad-lamb-confit",
+                name: "5-Hour Slow-Cooked Lamb Confit",
+                localName: "لحم خروف مطهو ببطء 5 ساعات مع الكسكس بالنعناع",
+                translations: {
+                  ar: "لحم خروف مطهو ببطء 5 ساعات مع الكسكس بالنعناع",
+                  en: "Melt-in-mouth spiced lamb shoulder confit served over saffron-mint couscous and roasted shallots",
+                  es: "Paletilla de cordero confitada 5 horas con cuscús al azafrán y menta",
+                  de: "5 Stunden konfiertes Lamm auf Safran-Minz-Couscous"
+                },
+                price: 240,
+                isSignature: true,
+                dietary: ["halal"]
+              }
+            ]
+          },
+          {
+            id: "desserts-mocktails",
+            title: "Artisan Sweets & Infused Mocktails",
+            description: "Signature saffron desserts and alcohol-free botanical refreshers",
+            items: [
+              {
+                id: "nomad-date-cake",
+                name: "Saffron & Medjool Date Cake",
+                localName: "كيك التمر المجهول بالزعفران وآيس كريم الفانيليا",
+                translations: {
+                  ar: "كيك التمر المجهول بالزعفران وآيس كريم الفانيليا",
+                  en: "Warm spiced Medjool date cake glazed in saffron caramel with house vanilla ice cream",
+                  es: "Bizcocho tibio de dátiles Medjool y azafrán con helado de vainilla",
+                  de: "Warmer Safran-Medjool-Dattelkuchen mit Vanilleeis"
+                },
+                price: 90,
+                isSignature: true,
+                dietary: ["vegetarian", "halal"]
+              },
+              {
+                id: "nomad-lavender-panna-cotta",
+                name: "Atlas Lavender & Honey Panna Cotta",
+                localName: "بانا كوتا بالخزامى الأطلسي وعسل البرتقال",
+                translations: {
+                  ar: "بانا كوتا بالخزامى الأطلسي وعسل البرتقال",
+                  en: "Silky cream panna cotta infused with wild Atlas lavender and orange blossom honey",
+                  es: "Panna cotta sedosa aromatizada con lavanda del Atlas y miel de azahar",
+                  de: "Seidige Panna Cotta mit Atlas-Lavendel und Orangenblütenhonig"
+                },
+                price: 80,
+                dietary: ["vegetarian", "halal"]
+              },
+              {
+                id: "nomad-chocolate-fondant",
+                name: "Dark Chocolate Fondant with Spiced Ice Cream",
+                localName: "فوندان الشوكولاتة الداكنة مع آيس كريم التوابل",
+                translations: {
+                  ar: "فوندان الشوكولاتة الداكنة مع آيس كريم التوابل",
+                  en: "Warm molten chocolate fondant paired with cinnamon-cardamom gelato",
+                  es: "Coulant tibio de chocolate negro con helado de canela y cardamomo",
+                  de: "Warmer Schokoladen-Fondant mit Zimt-Kardamom-Eis"
+                },
+                price: 90,
+                dietary: ["vegetarian", "halal"]
+              }
+            ]
+          }
+        ]
+      }
     },
     worries: [
       {
@@ -3607,11 +4004,51 @@ export const marrakechEat: EatListing[] = [
       }
     },
     worries: [
-      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
-      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
-      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
-      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
-      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" }
+      {
+        id: "financial-trust",
+        title: "Financial Trust",
+        tag: "Fixed 700 MAD + Drinks",
+        description: "Set multi-course banquet costs ~700 MAD per guest; bottled water, cocktails, and wine cellar selections are billed separately and raise checks fast.",
+        tone: "caution",
+        tagColor: "alert",
+        state: "verified"
+      },
+      {
+        id: "health-safety",
+        title: "Health & Safety",
+        tag: "Palace Kitchen",
+        description: "Spotless historic palace kitchen using triple-washed herbs, purified ice, and whole-roasted cuts prepared specifically for evening reservations.",
+        tone: "good",
+        tagColor: "water",
+        state: "verified"
+      },
+      {
+        id: "culinary-authenticity",
+        title: "Culinary Authenticity",
+        tag: "Royal Banquet Feast",
+        description: "Classic imperial Moroccan feast with cooked salads, pigeon pastilla, mhamer lamb, and couscous—arrive very hungry for the generous marathon.",
+        tone: "good",
+        tagColor: "food",
+        state: "verified"
+      },
+      {
+        id: "comfort-environment",
+        title: "Comfort & Atmosphere",
+        tag: "Escort Alley Arrival",
+        description: "Candlelit Bill Willis palace courtyard with fireplaces inside, though Bab Doukkala side alleys are dark at night—arrange the riad door escort.",
+        tone: "caution",
+        tagColor: "alert",
+        state: "verified"
+      },
+      {
+        id: "service-expectations",
+        title: "Service Expectations",
+        tag: "Theatrical Hospitality",
+        description: "Ceremonial white-glove service starting with rooftop aperitifs at 19:00 and live Andalusian music; reservations are mandatory.",
+        tone: "good",
+        tagColor: "safety",
+        state: "verified"
+      }
     ],
     reviewsData: { sources: [], reviews: [] }
   },
@@ -4464,11 +4901,51 @@ export const marrakechEat: EatListing[] = [
       }
     },
     worries: [
-      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
-      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
-      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
-      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
-      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" }
+      {
+        id: "financial-trust",
+        title: "Financial Trust",
+        tag: "Palace Luxury Tier",
+        description: "Transparent à la carte palace pricing printed in MAD with full card support; starters run 180–290 MAD and mains 360–390 MAD plus wine.",
+        tone: "caution",
+        tagColor: "alert",
+        state: "verified"
+      },
+      {
+        id: "health-safety",
+        title: "Health & Safety",
+        tag: "5-Star Hygiene",
+        description: "Impeccable five-star culinary hygiene harvesting produce directly from La Mamounia's organic palace kitchen gardens.",
+        tone: "good",
+        tagColor: "water",
+        state: "verified"
+      },
+      {
+        id: "culinary-authenticity",
+        title: "Culinary Authenticity",
+        tag: "Royal Fassi Craft",
+        description: "Chef Rachid Agouray elevates royal Marrakech tanjia, pigeon pastilla, and lamb tagines without losing deeply traditional roots.",
+        tone: "good",
+        tagColor: "food",
+        state: "verified"
+      },
+      {
+        id: "comfort-environment",
+        title: "Comfort & Atmosphere",
+        tag: "Strict Dress Code",
+        description: "Serene candlelit three-story garden riad with live oud music; hotel security strictly enforces elegant evening dress (no shorts or flip-flops).",
+        tone: "caution",
+        tagColor: "alert",
+        state: "verified"
+      },
+      {
+        id: "service-expectations",
+        title: "Service Expectations",
+        tag: "Ceremonial Pacing",
+        description: "Polished ceremonial palace hospitality with rosewater hand-washing rituals; peak dinner seatings can have deliberate, unhurried course pacing.",
+        tone: "good",
+        tagColor: "safety",
+        state: "verified"
+      }
     ],
     reviewsData: { sources: [], reviews: [] }
   },
@@ -4981,6 +5458,307 @@ export const marrakechEat: EatListing[] = [
       { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
       { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
       { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" }
+    ],
+    reviewsData: { sources: [], reviews: [] }
+  },
+
+  // =========================================================================
+  // COMPTOIR DARNA MARRAKECH
+  // =========================================================================
+  {
+    id: "e-marrakech-comptoir-darna",
+    city: "marrakech",
+
+    // ── 1. QUIZ (personalization, mood & matching) ──
+    quiz: {
+      lifestyle: "premium",
+      groupTypes: ["couple", "friends", "large-groups", "business-friendly"],
+      mealTypes: ["dinner", "late-night", "drinks"],
+      experienceTypes: ["fine-dining", "traditional"],
+      foodStyles: ["Moroccan", "French-Moroccan", "Mediterranean", "International"],
+      cuisineTags: ["moroccan-traditional", "international"],
+      archetypeAffinity: ["luxury", "first-timer", "culture"],
+      vibeTags: ["glamorous", "live-show", "festive", "iconic"],
+      crowdLevel: "bustling"
+    },
+
+    // ── 2. FILTER (search criteria, dietary rules, logistics & flags) ──
+    filter: {
+      pricePerPerson: 45,
+      isHalal: true,
+      halalStatus: "likely-halal-food",
+      isVegetarianFriendly: true,
+      servesAlcohol: true,
+      alcoholPolicy: "serves-alcohol",
+      hasDelivery: false,
+      hasParking: true,
+      nearMedina: false,
+      nearBeach: false,
+      nearCenter: true,
+      hasEnglishStaff: true,
+      hasFrenchStaff: true,
+      ramadanFriendly: "special-ftour",
+      closedDays: [],
+      seatingTypes: ["indoor", "terrace", "courtyard"],
+      paymentMethods: ["credit_card", "cash", "visa", "mastercard", "apple_pay"],
+      tags: ["alcohol", "dinner", "fine", "late-night", "live-music", "pastilla", "tagine", "terrace", "wifi"],
+      isHiddenGem: false,
+      isTemporarilyHidden: false,
+      verificationStatus: "verified",
+      wiFi: true,
+      airConditioning: true,
+      wheelchairAccessible: true
+    },
+
+    // ── 3. UI (presentation, stories, ratings, contacts & plates) ──
+    ui: {
+      name: "Comptoir Darna",
+      neighborhood: "Hivernage",
+      description: "Marrakech's legendary dinner-and-show institution in Hivernage since 1999. Fuses classic Moroccan feasts (including slow-roasted 7-hour méchoui and crisp pastillas) with French-international elegance, nightly belly-dancing performances around 22:00, live Gnawa & Oriental musicians, and a lively upstairs patio lounge open until 03:00.",
+      tip: "Reserve well ahead for a 21:00–21:30 table on the ground floor or terrace to catch the signature candelabrum belly-dance procession around 22:00. Smart-casual evening dress code is enforced.",
+      badge: "splurge",
+      bestDishes: [
+        "7-Hour Oven-Roasted Lamb Méchoui",
+        "Chicken & Almond Pastilla",
+        "Berber Lamb Shank Tagine",
+        "Miso-Glazed Atlantic Salmon",
+        "Jawhara Crispy Milk Pastilla"
+      ],
+      pros: [
+        "Electric dinner-show ambiance with live musicians and nightly belly dancers",
+        "Renowned 7-hour slow-roasted lamb méchoui and Moroccan-French fusion dishes",
+        "Seamless transition to upstairs cocktail lounge and club terrace until 03:00"
+      ],
+      cons: [
+        "Upscale evening pricing; signature cocktails and bar tabs quickly raise the check",
+        "High-energy music and closely spaced tables make it unsuitable for quiet conversation"
+      ],
+      googleRating: 4.7,
+      googleReviewCount: 14200,
+      tripadvisorRating: 4.5,
+      tripadvisorReviewCount: 4120,
+      theforkRating: 4.5,
+      theforkReviewCount: 680,
+      restaurantguruRating: 4.7,
+      restaurantguruReviewCount: 14200,
+      openTime: "19:00",
+      closeTime: "01:00",
+      weeklySchedule: [
+        { day: "Monday", openTime: "19:00", closeTime: "01:00", isClosed: false, note: "Patio lounge & club open until 03:00" },
+        { day: "Tuesday", openTime: "19:00", closeTime: "01:00", isClosed: false, note: "Patio lounge & club open until 03:00" },
+        { day: "Wednesday", openTime: "19:00", closeTime: "01:00", isClosed: false, note: "Patio lounge & club open until 03:00" },
+        { day: "Thursday", openTime: "19:00", closeTime: "01:00", isClosed: false, note: "Patio lounge & club open until 03:00" },
+        { day: "Friday", openTime: "19:00", closeTime: "01:00", isClosed: false, note: "Patio lounge & club open until 03:00" },
+        { day: "Saturday", openTime: "19:00", closeTime: "01:00", isClosed: false, note: "Patio lounge & club open until 03:00" },
+        { day: "Sunday", openTime: "19:00", closeTime: "01:00", isClosed: false, note: "Patio lounge & club open until 03:00" }
+      ],
+      exactAddressAndCoordinates: {
+        address: "Avenue Echouhada, Quartier Hivernage, Marrakech 40000, Morocco",
+        lat: 31.62372,
+        lng: -8.0031
+      },
+      address: "Avenue Echouhada, Quartier Hivernage, Marrakech 40000, Morocco",
+      coordinates: {
+        lat: 31.62372,
+        lng: -8.0031
+      },
+      googleMapsUrl: "https://maps.google.com/?q=Comptoir+Darna+Marrakech",
+      reservationMethod: ["website", "phone", "email"],
+      reservationContact: "+212524437702",
+      whatsappNumber: "",
+      bookingUrl: "https://comptoirmarrakech.com",
+      website: "https://comptoirmarrakech.com",
+      instagram: "https://instagram.com/comptoirdarna",
+      viewType: "garden",
+      bestTimeToVisit: "21:00 for dinner and 22:00 live dance show",
+      averageWaitMinutes: 15,
+      languagesSpoken: ["French", "English", "Arabic/Darija"],
+      menu: {
+        currency: "MAD",
+        lastUpdated: "November 2026",
+        serviceChargeIncluded: true,
+        sections: [
+          {
+            id: "starters-pastillas",
+            title: "Moroccan Starters & Handcrafted Pastillas",
+            description: "Crisp warqa pastries, spiced salads, and mezze to open the evening",
+            items: [
+              {
+                id: "darna-briouates",
+                name: "Assorted Moroccan Briouates",
+                localName: "تشكيلة بريوات مغربية مقرمشة",
+                translations: {
+                  ar: "تشكيلة بريوات مغربية مقرمشة",
+                  en: "Crisp warqa pastry triangles filled with spiced minced beef, goat cheese, and herbs",
+                  es: "Surtido de briouates crujientes de carne especiada y queso de cabra",
+                  de: "Knusprige Briouats gefüllt mit gewürztem Rindfleisch und Ziegenkäse"
+                },
+                price: 180,
+                isSignature: true,
+                dietary: ["halal"]
+              },
+              {
+                id: "darna-chicken-pastilla",
+                name: "Traditional Chicken & Almond Pastilla",
+                localName: "بسطيلة الدجاج باللوز المحمص والقرفة",
+                translations: {
+                  ar: "بسطيلة الدجاج باللوز المحمص والقرفة",
+                  en: "Flaky sweet-and-savory pastilla with shredded saffron chicken, roasted almonds, and cinnamon",
+                  es: "Pastela tradicional de pollo al azafrán con almendras tostadas y canela",
+                  de: "Traditionelle Hähnchenpastilla mit Safran, gerösteten Mandeln und Zimt"
+                },
+                price: 165,
+                isSignature: true,
+                dietary: ["halal"]
+              }
+            ]
+          },
+          {
+            id: "mains-mechoui-fusion",
+            title: "Signature Méchoui, Tagines & Fusion Mains",
+            description: "Iconic 7-hour roasted lamb alongside classic tagines and cosmopolitan grill plates",
+            items: [
+              {
+                id: "darna-mechoui",
+                name: "7-Hour Slow-Roasted Lamb Méchoui (For 2)",
+                localName: "مشوي الخروف المطهو 7 ساعات على نار هادئة (لشخصين)",
+                translations: {
+                  ar: "مشوي الخروف المطهو 7 ساعات على نار هادئة (لشخصين)",
+                  en: "Whole oven-roasted lamb shoulder slow-cooked for 7 hours with cumin salt and garlic (for 2 guests)",
+                  es: "Paletilla de cordero asada lentamente 7 horas al estilo méchoui (para 2)",
+                  de: "7 Stunden langsam geschmorte Lammschulter Méchoui mit Kreuzkümmelsalz (für 2)"
+                },
+                price: 750,
+                isSignature: true,
+                dietary: ["halal"],
+                portionNotes: "For 2 guests • Restaurant signature since 1999"
+              },
+              {
+                id: "darna-lamb-tagine",
+                name: "Berber Lamb Shank Tagine",
+                localName: "طاجين موزة الغنم على الطريقة الأمازيغية",
+                translations: {
+                  ar: "طاجين موزة الغنم على الطريقة الأمازيغية",
+                  en: "Melt-in-mouth lamb shank braised with seasonal root vegetables, prunes, and roasted almonds",
+                  es: "Tajine bereber de jarrete de cordero con verduras y ciruelas",
+                  de: "Berber-Lammhaxen-Tagine mit Wurzelgemüse, Pflaumen und Mandeln"
+                },
+                price: 240,
+                isSignature: true,
+                dietary: ["halal"]
+              },
+              {
+                id: "darna-royal-couscous",
+                name: "Royal Couscous",
+                localName: "كسكس ملكي تقليدي بسبع خضار",
+                translations: {
+                  ar: "كسكس ملكي تقليدي بسبع خضار",
+                  en: "Triple-steamed fine semolina couscous with tender lamb, chicken, merguez, and seven vegetables",
+                  es: "Cuscús real tradicional con cordero, pollo, merguez y siete verduras",
+                  de: "Königlicher Couscous mit Lamm, Hähnchen, Merguez und sieben Gemüsesorten"
+                },
+                price: 220,
+                dietary: ["halal"]
+              },
+              {
+                id: "darna-miso-salmon",
+                name: "Miso-Glazed Atlantic Salmon",
+                localName: "سلمون الأطلسي المزجج بالميسو والخضار المشوية",
+                translations: {
+                  ar: "سلمون الأطلسي المزجج بالميسو والخضار المشوية",
+                  en: "Caramelized miso-marinated salmon fillet served with sautéed baby bok choy and sesame rice",
+                  es: "Salmón glaseado al miso caramelizado con verduras salteadas",
+                  de: "Karamellisierter Miso-Lachs mit sautiertem Gemüse und Sesamreis"
+                },
+                price: 270,
+                dietary: ["halal"]
+              }
+            ]
+          },
+          {
+            id: "desserts-cocktails",
+            title: "Desserts & Oriental Cocktails",
+            description: "Signature crispy sweets and late-night lounge infusions",
+            items: [
+              {
+                id: "darna-jawhara",
+                name: "Jawhara (Crispy Milk & Almond Pastilla)",
+                localName: "جوهرة مقرمشة بالحليب المعطر بماء الزهر واللوز",
+                translations: {
+                  ar: "جوهرة مقرمشة بالحليب المعطر بماء الزهر واللوز",
+                  en: "Delicate stacked warqa pastry sheets layered with orange blossom milk cream and toasted almonds",
+                  es: "Jawhara crujiente de leche aromatizada con azahar y almendras tostadas",
+                  de: "Knusprige Jawhara-Milchpastilla mit Orangenblütencreme und Mandeln"
+                },
+                price: 110,
+                isSignature: true,
+                dietary: ["vegetarian", "halal"]
+              },
+              {
+                id: "darna-macaron-tree",
+                name: "Comptoir Macaron Tree (2–4 Guests)",
+                localName: "شجرة الماكرون الخاصة بالمطعم (من شخصين إلى 4)",
+                translations: {
+                  ar: "شجرة الماكرون الخاصة بالمطعم (من شخصين إلى 4)",
+                  en: "Playful sharing tower of artisan saffron, pistachio, rose, and dark chocolate macarons",
+                  es: "Torre de macarons artesanales de azafrán, pistacho, rosa y chocolate (para compartir)",
+                  de: "Macaron-Baum mit Safran-, Pistazien-, Rosen- und Schokoladen-Macarons"
+                },
+                price: 160,
+                dietary: ["vegetarian", "halal"],
+                portionNotes: "Ideal to share for 2–4 guests"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    worries: [
+      {
+        id: "financial-trust",
+        title: "Financial Trust",
+        tag: "Cocktails Inflate Check",
+        description: "Menu prices include tax with clean itemized card receipts, though signature cocktails, wines, and lounge shisha add 300–400 MAD rapidly.",
+        tone: "caution",
+        tagColor: "alert",
+        state: "verified"
+      },
+      {
+        id: "health-safety",
+        title: "Health & Safety",
+        tag: "Spotless Upscale Kitchen",
+        description: "High-volume luxury kitchen maintaining strict food safety, purified bar ice, and fresh meats cooked to order.",
+        tone: "good",
+        tagColor: "water",
+        state: "verified"
+      },
+      {
+        id: "culinary-authenticity",
+        title: "Culinary Authenticity",
+        tag: "7-Hr Méchoui & Fusion",
+        description: "Blends iconic 7-hour slow-roasted Moroccan lamb méchoui and pastilla with crowd-pleasing Franco-Asian dishes like miso salmon.",
+        tone: "good",
+        tagColor: "food",
+        state: "verified"
+      },
+      {
+        id: "comfort-environment",
+        title: "Comfort & Atmosphere",
+        tag: "Lively Show & Dress Code",
+        description: "High-energy Hivernage dinner theater with belly dancing around 22:00 and loud DJ beats; tables are tight and smart-casual dress is enforced.",
+        tone: "caution",
+        tagColor: "alert",
+        state: "verified"
+      },
+      {
+        id: "service-expectations",
+        title: "Service Expectations",
+        tag: "Book Ahead",
+        description: "Well-drilled, multilingual hospitality staff handling huge nightly crowds seamlessly; advance dinner reservations are essential.",
+        tone: "good",
+        tagColor: "safety",
+        state: "verified"
+      }
     ],
     reviewsData: { sources: [], reviews: [] }
   }

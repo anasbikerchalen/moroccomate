@@ -181,6 +181,7 @@ export interface SleepListing {
 export interface MenuItem {
   id: string;
   name: string;
+  nameEn?: string;
   localName?: string;
   translations?: {
     ar?: string;
@@ -200,7 +201,9 @@ export interface MenuItem {
 export interface MenuSection {
   id: string;
   title: string;
+  titleEn?: string;
   description?: string;
+  descriptionEn?: string;
   items: MenuItem[];
 }
 
@@ -310,6 +313,28 @@ export interface EatListingUI {
   languagesSpoken?: string[]
   googlePlaceId?: string
   nonCopyrightImage?: string
+  seasonalHoursNote?: string
+  editorialGuide?: { title?: string; heading?: string; body: string }[]
+  knowBeforeYouGo?: string[]
+  nearbyDistances?: {
+    id?: string
+    label?: string
+    name?: string
+    category?: string
+    distance?: string
+    distance_km?: number
+    time?: string
+    travel_time_minutes?: number
+    walking_time_minutes?: number
+    icon?: string
+    mode?: 'walk' | 'drive'
+    travel_mode?: 'walk' | 'drive'
+    note?: string
+  }[]
+  faqs?: {
+    question: string
+    answer: string
+  }[]
   /** Multi-platform reviews section data (Tripadvisor, Google Maps, TheFork, Wanderlog, Reddit) */
   reviewsData?: PlaceReviewsData
 }
@@ -416,6 +441,28 @@ export interface EatListing {
     lng: number
   }
   menuUrl?: string
+  seasonalHoursNote?: string
+  editorialGuide?: { title?: string; heading?: string; body: string }[]
+  knowBeforeYouGo?: string[]
+  nearbyDistances?: {
+    id?: string
+    label?: string
+    name?: string
+    category?: string
+    distance?: string
+    distance_km?: number
+    time?: string
+    travel_time_minutes?: number
+    walking_time_minutes?: number
+    icon?: string
+    mode?: 'walk' | 'drive'
+    travel_mode?: 'walk' | 'drive'
+    note?: string
+  }[]
+  faqs?: {
+    question: string
+    answer: string
+  }[]
   worries?: EatWorryEntry[] | string[] | any;
   /** Multi-platform reviews section data (Tripadvisor, Google Maps, TheFork, Wanderlog, Reddit) */
   reviewsData?: PlaceReviewsData;
@@ -714,6 +761,7 @@ export interface ShopListing {
   // Legacy / Shared
   tip?: string
   badge?: string
+  faqs?: { question: string; answer: string }[]
 }
 
 export interface SmartSuggestion {

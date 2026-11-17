@@ -321,6 +321,10 @@
 * **7.7 Kelaat M’Gouna**
   * **7.7.1 Touristic Neighborhoods:** Vallée des Roses
   * **7.7.2 Low-Touristic Neighborhoods:** Centre-Ville, Hay Al Massira, Hay Al Wahda
+  7.X Merzouga
+7.X.1 Touristic Neighborhoods: Erg Chebbi (Desert Camps)[4][5], Merzouga Centre[4], Hassilabied[3][4], Khamlia[3][4], Dayet Srij[6][7]
+7.X.2 Mid-Touristic Neighborhoods: Ras El Erg[8], Tanamoust[3][9], Takoujt[3][10]
+7.X.3 Low-Touristic Neighborhoods: Taouz[2][8], Tisserdmine[3], Mfis[11][12]
 
 #### Mid-Touristic Cities
 * **7.8 Midelt**

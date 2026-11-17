@@ -2,7 +2,7 @@ import React from 'react';
 import { Plus, Minus, Flame, HelpCircle } from 'lucide-react';
 import { useTastingStore, formatPrice } from '../../state/tastingStore';
 import { findGlossaryEntryForDish, type MoroccanDishGlossaryEntry } from '../../data/culinaryGlossary';
-import { getDishTranslation } from '../../data/menuTranslations';
+import { getDishDisplayName, getDishSecondaryText } from '../../data/menuTranslations';
 import type { MenuItem } from '../../listings/types';
 
 interface ClassicalDishRowProps {
@@ -35,7 +35,8 @@ export default function ClassicalDishRow({
   const selected = isDishSelected(dish.id);
   const quantity = getDishQuantity(dish.id);
   const glossaryEntry = findGlossaryEntryForDish(dish.name);
-  const translationText = getDishTranslation(dish, menuLanguage);
+  const displayName = getDishDisplayName(dish, menuLanguage);
+  const secondaryText = getDishSecondaryText(dish, menuLanguage);
 
   const isRecommended =
     dish.isSignature ||
@@ -61,7 +62,7 @@ export default function ClassicalDishRow({
         {/* Dish name & badges */}
         <div className="flex items-baseline gap-1.5 shrink-0 max-w-[68%] sm:max-w-[72%] flex-wrap">
           <h4 className="font-serif text-[13px] sm:text-[14px] font-bold text-[#3D2B1F] leading-snug">
-            {dish.name}
+            {displayName}
           </h4>
           {isRecommended && (
             <span
@@ -136,15 +137,19 @@ export default function ClassicalDishRow({
         </div>
       </div>
 
-      {/* ── Translation subtext (red, bold) ── */}
-      {translationText && (
+      {/* ── Subtitle / translation subtext ── */}
+      {secondaryText && (
         <p
-          className={`text-[10px] sm:text-[11px] font-semibold text-rose-700/90 mt-px leading-snug ${
-            menuLanguage === 'ar' ? 'font-arabic text-[11px]' : 'font-serif italic'
-          }`}
+          className={
+            menuLanguage === 'en'
+              ? 'text-[10.5px] sm:text-[11px] text-[#5C4E3E] mt-px leading-snug'
+              : `text-[10px] sm:text-[11px] font-semibold text-rose-700/90 mt-px leading-snug ${
+                  menuLanguage === 'ar' ? 'font-arabic text-[11px]' : 'font-serif italic'
+                }`
+          }
           dir={menuLanguage === 'ar' ? 'rtl' : 'ltr'}
         >
-          {translationText}
+          {secondaryText}
         </p>
       )}
 

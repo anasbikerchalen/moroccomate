@@ -99,6 +99,7 @@ export default function ThingsListingPage() {
         image={seoBundle.image}
         schemaType={seoBundle.schemaType}
         schemaData={seoBundle.schemaData}
+        faq={seoBundle.faq}
         breadcrumbs={seoBundle.breadcrumbs}
       />
 

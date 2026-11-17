@@ -28,30 +28,25 @@ import { enrichListingTags } from '../data/controllers';
 import { slugify } from '../utils/slugify';
 import { getActivityById } from '../things-to-do';
 
-/** URL categories for place pages (URL segment names) */
-export type PlaceUrlCategory = 'food' | 'sleep' | 'shopping';
+import {
+  PLACE_CATEGORY_LABEL,
+  PLACE_SCHEMA_TYPE,
+  PLACE_URL_CATEGORIES,
+  type PlaceUrlCategory,
+} from './placeConstants';
 
-export const PLACE_URL_CATEGORIES: PlaceUrlCategory[] = ['food', 'sleep', 'shopping'];
+export {
+  PLACE_CATEGORY_LABEL,
+  PLACE_SCHEMA_TYPE,
+  PLACE_URL_CATEGORIES,
+  type PlaceUrlCategory,
+};
 
 /** URL segment -> underlying data category */
 const DATA_CATEGORY: Record<PlaceUrlCategory, string> = {
   food: 'eat',
   sleep: 'sleep',
   shopping: 'shop',
-};
-
-/** Human labels used in page titles */
-export const PLACE_CATEGORY_LABEL: Record<PlaceUrlCategory, string> = {
-  food: 'Where to Eat',
-  sleep: 'Where to Sleep',
-  shopping: 'Shopping',
-};
-
-/** Schema.org type for structured data */
-export const PLACE_SCHEMA_TYPE: Record<PlaceUrlCategory, string> = {
-  food: 'Restaurant',
-  sleep: 'Hotel',
-  shopping: 'Store',
 };
 
 /** Accept 'eat'/'food', 'sleep'/'stay', 'shop'/'shopping' and common aliases, returning the canonical URL category */

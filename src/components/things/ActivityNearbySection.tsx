@@ -152,7 +152,7 @@ export const ActivityNearbySection: React.FC<ActivityNearbySectionProps> = ({
                         </text>
                         {place.walking_minutes && (
                           <text x="0" y="12" textAnchor="middle" className="text-[10px] fill-[#66757D] font-medium select-none">
-                            {place.walking_minutes} min
+                            {place.travel_time_minutes ?? place.walking_minutes} min {place.travel_mode === 'drive' || place.walking_minutes > 35 ? 'drive' : 'walk'}
                           </text>
                         )}
                       </g>
@@ -189,10 +189,10 @@ export const ActivityNearbySection: React.FC<ActivityNearbySectionProps> = ({
                   <span className="text-sm font-semibold text-[#173042] truncate">{place.name}</span>
                 </div>
 
-                {/* Walking Time */}
+                {/* Travel Time */}
                 {place.walking_minutes && (
-                  <span className="text-xs sm:text-sm font-medium text-[#66757D] whitespace-nowrap">
-                    {place.walking_minutes} min
+                  <span className="text-xs sm:text-sm font-medium text-[#66757D] whitespace-nowrap tabular-nums">
+                    {place.travel_time_minutes ?? place.walking_minutes} min {place.travel_mode === 'drive' || place.walking_minutes > 35 ? 'drive' : 'walk'}
                   </span>
                 )}
               </div>

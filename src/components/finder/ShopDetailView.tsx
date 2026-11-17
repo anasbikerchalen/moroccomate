@@ -18,12 +18,15 @@ import {
   Clock,
   Map,
   MessageSquareText,
+  HelpCircle,
 } from 'lucide-react';
 import { adaptToTemplateShop } from '../../engine/shopTemplateAdapter';
 import { getShopById } from '../../shop';
 import { ShopListing as LegacyShopListing } from '../../listings/types';
 import { useSavedStore } from '../../state/savedStore';
 import { ShopTemplateView } from './shop-template/ShopTemplateView';
+import { buildPlaceFaqs } from '../../data/seo/faqEngine';
+import { useAppLanguage } from '../../utils/localeRouting';
 import ListingHeroHeader, { type HeroFeatureChip, type HeroMetadataItem } from './ListingHeroHeader';
 import ListingSectionNavigator, { type ListingNavigatorItem } from './ListingSectionNavigator';
 import { hasVerifiedReviews, hasVerifiedWorries } from './listingNavUtils';
@@ -35,6 +38,7 @@ interface ShopDetailViewProps {
 }
 
 export default function ShopDetailView({ item: passedItem }: ShopDetailViewProps) {
+  const lang = useAppLanguage();
   const { toggleBookmark, isBookmarked } = useSavedStore();
   const [selectedReviewSource, setSelectedReviewSource] = useState<ReviewSource | null>(null);
   const [copiedLink, setCopiedLink] = useState(false);
@@ -47,6 +51,11 @@ export default function ShopDetailView({ item: passedItem }: ShopDetailViewProps
 
   // Bridge: collected shop data → modular template schema
   const shop = useMemo(() => adaptToTemplateShop(legacyItem), [legacyItem]);
+
+  const shopFaqs = useMemo(
+    () => buildPlaceFaqs({ listing: legacyItem, category: 'shopping', cityLabel: shop.city, lang }),
+    [legacyItem, shop.city, lang]
+  );
 
   const idString = String(legacyItem?.id || '');
   const bookmarked = isBookmarked(idString);
@@ -305,6 +314,13 @@ export default function ShopDetailView({ item: passedItem }: ShopDetailViewProps
             available: shop.visibility?.show_opening_hours !== false && Boolean(shop.opening_hours),
           },
           {
+            id: 'faq',
+            label: 'FAQ',
+            targetId: 'shop-faq-section',
+            icon: <HelpCircle className="w-4 h-4" />,
+            available: shop.visibility?.show_faq !== false && shopFaqs.length > 0,
+          },
+          {
             id: 'reviews',
             label: 'Reviews',
             targetId: 'shop-reviews-section',
@@ -322,6 +338,7 @@ export default function ShopDetailView({ item: passedItem }: ShopDetailViewProps
             radar minimap, pricing, payment, hours, languages, shipping */}
         <ShopTemplateView
           shop={shop}
+          faqs={shopFaqs}
           externalSelectedSource={selectedReviewSource}
           onSelectedSourceChange={setSelectedReviewSource}
         />

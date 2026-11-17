@@ -39,22 +39,39 @@ function LanguageRouteSync() {
   return null;
 }
 
-// Robust lazy loader: retries on chunk fetch hiccups and self-heals on Vercel deployments
+// Robust lazy loader: retries on chunk fetch hiccups and self-heals on dev restarts / deployments
 function lazyWithRetry<T extends React.ComponentType<any>>(
   factory: () => Promise<{ default: T }>
 ) {
   return lazy(async () => {
+    const reloadKey = 'chunk_reload_' + window.location.pathname;
     try {
-      return await factory();
+      const mod = await factory();
+      try {
+        sessionStorage.removeItem(reloadKey);
+      } catch {
+        // ignore storage errors
+      }
+      return mod;
     } catch (error) {
       console.warn('Dynamic chunk import failed, retrying...', error);
       try {
         await new Promise((resolve) => setTimeout(resolve, 600));
-        return await factory();
+        const mod = await factory();
+        try {
+          sessionStorage.removeItem(reloadKey);
+        } catch {
+          // ignore storage errors
+        }
+        return mod;
       } catch (retryError) {
-        const reloadKey = 'chunk_reload_' + window.location.pathname;
-        if (!sessionStorage.getItem(reloadKey)) {
-          sessionStorage.setItem(reloadKey, 'true');
+        try {
+          const lastReload = Number(sessionStorage.getItem(reloadKey) || '0');
+          if (!lastReload || Date.now() - lastReload > 10000) {
+            sessionStorage.setItem(reloadKey, String(Date.now()));
+            window.location.reload();
+          }
+        } catch {
           window.location.reload();
         }
         throw retryError;
@@ -112,6 +129,23 @@ function AppRoutes() {
  * Moroccan Mate — standalone multilingual Finder website.
  * Supports default English routes (/) and localized routes (/fr/*, /es/*, /de/*, /ar/*).
  */
+function BrandedSplashFallback() {
+  return (
+    <div className="min-h-screen flex flex-col items-center justify-center bg-[#FAF7F2]">
+      <div className="mate-splash flex flex-col items-center">
+        <img
+          src="/logo192.png"
+          alt="Moroccan Mate"
+          className="w-[52px] h-[52px] mb-[14px] object-contain"
+        />
+        <span className="text-[13px] font-bold text-[#173042] tracking-[0.14em] uppercase">
+          Moroccan Mate
+        </span>
+      </div>
+    </div>
+  );
+}
+
 export default function App() {
   const location = useLocation();
 
@@ -126,7 +160,7 @@ export default function App() {
   }, [location.pathname, location.search]);
 
   return (
-    <Suspense fallback={<div className="min-h-screen bg-[#FAF7F2]" />}>
+    <Suspense fallback={<BrandedSplashFallback />}>
       <ScrollToTop />
       <LanguageRouteSync />
       <Routes>

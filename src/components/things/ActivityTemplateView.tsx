@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import {
   ShieldCheck,
   Sparkles,
   Map,
   CheckSquare,
   Clock,
+  HelpCircle,
   MessageSquareText,
 } from 'lucide-react';
 import type { ActivityListing } from '../../things-to-do';
@@ -28,6 +29,9 @@ import { ActivityMeetingPointBanner } from './ActivityMeetingPointBanner';
 import { ActivityReviewsSection } from './ActivityReviewsSection';
 import PlaceReviewsSection from '../reviews/PlaceReviewsSection';
 import WorriesSection from '../worries/WorriesSection';
+import PlaceFAQSection from '../common/PlaceFAQSection';
+import { buildPlaceFaqs } from '../../data/seo/faqEngine';
+import { useAppLanguage } from '../../utils/localeRouting';
 import ListingSectionNavigator, { type ListingNavigatorItem } from '../finder/ListingSectionNavigator';
 import { hasVerifiedReviews, hasVerifiedWorries } from '../finder/listingNavUtils';
 import { type ReviewSource } from '../../types/reviews';
@@ -43,9 +47,14 @@ interface ActivityTemplateViewProps {
  * Conditional rendering: sections without data never show (no empty boxes).
  */
 export const ActivityTemplateView: React.FC<ActivityTemplateViewProps> = ({ activity }) => {
+  const lang = useAppLanguage();
   const [selectedReviewSource, setSelectedReviewSource] = useState<ReviewSource | null>(null);
   const v = activity.visibility || {};
   const cityLabel = getCityLabel(activity.city);
+  const activityFaqs = useMemo(
+    () => buildPlaceFaqs({ listing: activity, category: 'things-to-do', cityLabel, lang }),
+    [activity, cityLabel, lang]
+  );
 
   const hasWorries = v.show_worries !== false && hasVerifiedWorries(activity.worries);
   const hasExperience =
@@ -127,6 +136,13 @@ export const ActivityTemplateView: React.FC<ActivityTemplateViewProps> = ({ acti
       targetId: hasSchedule || hasBooking || hasCancellation ? 'activity-schedule-section' : 'activity-meeting-section',
       icon: <Clock className="w-4 h-4" />,
       available: hasScheduleOrMeeting,
+    },
+    {
+      id: 'faq',
+      label: 'FAQ',
+      targetId: 'activity-faq-section',
+      icon: <HelpCircle className="w-4 h-4" />,
+      available: v.show_faq !== false && activityFaqs.length > 0,
     },
     {
       id: 'reviews',
@@ -224,6 +240,17 @@ export const ActivityTemplateView: React.FC<ActivityTemplateViewProps> = ({ acti
       {hasMeetingPoint && (
         <div id="activity-meeting-section">
           <ActivityMeetingPointBanner activity={activity} />
+        </div>
+      )}
+
+      {/* 7b. Frequently Asked Questions */}
+      {v.show_faq !== false && activityFaqs.length > 0 && (
+        <div id="activity-faq-section">
+          <PlaceFAQSection
+            faqs={activityFaqs}
+            placeName={activity.name}
+            subtitle="Essential visitor logistics, ticket pricing, inclusions, and meeting point details"
+          />
         </div>
       )}
 

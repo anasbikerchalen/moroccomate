@@ -9,7 +9,9 @@ import { TraditionalSpacesSection } from './stay/TraditionalSpacesSection';
 import { RoomDetailsSection } from './stay/RoomDetailsSection';
 import { AmenitiesSection } from './stay/AmenitiesSection';
 import { PoliciesSection } from './stay/PoliciesSection';
-import { StayFAQSection } from './stay/StayFAQSection';
+import PlaceFAQSection from '../common/PlaceFAQSection';
+import { buildPlaceFaqs } from '../../data/seo/faqEngine';
+import { useAppLanguage } from '../../utils/localeRouting';
 import { LocationBottomBar } from './stay/LocationBottomBar';
 import PlaceReviewsSection from '../reviews/PlaceReviewsSection';
 import ListingHeroHeader, { WhatsAppIcon, type HeroFeatureChip, type HeroMetadataItem } from './ListingHeroHeader';
@@ -29,12 +31,25 @@ const LIFESTYLE_LABEL: Record<string, string> = {
 };
 
 export default function StayDetailView({ item }: StayDetailViewProps) {
+  const lang = useAppLanguage();
   const { toggleBookmark, isBookmarked } = useSavedStore();
   const [selectedReviewSource, setSelectedReviewSource] = useState<ReviewSource | null>(null);
   const [copiedLink, setCopiedLink] = useState(false);
 
   // Bridge: collected sleep listing → new modular stay template schema
   const stay = useMemo(() => adaptToStayListing(item), [item]);
+
+  const stayFaqs = useMemo(
+    () =>
+      buildPlaceFaqs({
+        listing: item,
+        category: 'sleep',
+        cityLabel: stay.location.city,
+        lang,
+        ownerAnswer: getStayOwnerAnswer(item),
+      }),
+    [item, stay.location.city, lang]
+  );
 
   const price = getStayPrice(item);
   const lifestyle = getStayLifestyle(item);
@@ -236,7 +251,7 @@ export default function StayDetailView({ item }: StayDetailViewProps) {
             label: 'FAQ',
             targetId: 'stay-faq-section',
             icon: <HelpCircle className="w-4 h-4" />,
-            available: true,
+            available: stay.visibility?.show_faq !== false && stayFaqs.length > 0,
           },
           {
             id: 'reviews',
@@ -289,9 +304,15 @@ export default function StayDetailView({ item }: StayDetailViewProps) {
         )}
 
         {/* Frequently Asked Questions (FAQ) */}
-        <div id="stay-faq-section">
-          <StayFAQSection propertyName={stay.name} ownerAnswer={getStayOwnerAnswer(item)} />
-        </div>
+        {stay.visibility?.show_faq !== false && stayFaqs.length > 0 && (
+          <div id="stay-faq-section">
+            <PlaceFAQSection
+              faqs={stayFaqs}
+              placeName={stay.name}
+              subtitle="Essential owner details, nightly rates, policies, and property information"
+            />
+          </div>
+        )}
 
         {/* Multi-platform Traveler Reviews */}
         {stay.visibility?.show_reviews !== false && hasVerifiedReviews(stayReviewsData) && (

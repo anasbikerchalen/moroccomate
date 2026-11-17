@@ -1,6 +1,6 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, lazy, Suspense } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { MapPin, ChevronDown, ChevronUp, ArrowRight, Heart, Check, Search, X, Compass } from 'lucide-react';
+import { MapPin, ChevronDown, ChevronUp, ArrowRight, Heart, Check, Search, X, Compass, ShieldCheck, Receipt, MapPinned } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { SEO } from '../components/ui/SEO';
 import { LanguageSwitcher } from '../components/ui/LanguageSwitcher';
@@ -8,12 +8,14 @@ import { LocalizedLink } from '../components/ui/LocalizedLink';
 import { useLangPath } from '../utils/localeRouting';
 import { HOME_SEO_I18N } from '../data/seo/i18nSeo';
 import { buildHomeSeo } from '../data/seo/seoEngine';
-import { getSearchIntent } from '../data/seo/searchIntents';
 import { useParameterStore } from '../state/parameterStore';
 import { useExploreStore } from '../state/exploreStore';
 import { useSavedStore } from '../state/savedStore';
-import FavoritesDrawer from '../components/finder/FavoritesDrawer';
-import { cities, cityMap } from '../data/cities';
+import HomeSearchBar from '../components/home/HomeSearchBar';
+import { getPopularGuidesLocalized, orderTouristicCitiesByRecommendedId } from '../utils/homeGuides';
+
+const FavoritesDrawer = lazy(() => import('../components/finder/FavoritesDrawer'));
+import { cities } from '../data/cities';
 import { getCityTier } from '../data/touristicHierarchy';
 import heroIllustration from '../assets/images/finder/finder_hero_matte_1786297047661.jpg';
 import logoImg from '../assets/images/logo.png';
@@ -22,8 +24,6 @@ import catFoodImg from '../assets/images/home/home_category_food_circle.jpg';
 import catStaysImg from '../assets/images/home/home_category_sleep_circle.jpg';
 import catThingsImg from '../assets/images/home/home_category_things_circle.jpg';
 import catShoppingImg from '../assets/images/home/home_category_shopping_circle.jpg';
-
-const RECOMMENDED_CITY_NAMES = ['Marrakech', 'Fes', 'Chefchaouen', 'Essaouira', 'Agadir', 'Casablanca', 'Tanger'];
 
 // Regional classification and tags for all 31 Touristic destinations
 const CITY_DESTINATIONS_META: Record<string, { region: 'imperial' | 'coast' | 'sahara' | 'atlas'; vibeLabel: string; icon: string }> = {
@@ -75,21 +75,6 @@ const CATEGORY_DEFS = [
   { id: 'shopping', image: catShoppingImg },
 ] as const;
 
-const POPULAR_GUIDE_LINKS = [
-  { cityId: 'agadir', slug: 'heated-pools', fallback: 'Hotels with Heated Pools in Agadir' },
-  { cityId: 'agadir', slug: '5-star', fallback: '5-Star Luxury Hotels in Agadir' },
-  { cityId: 'essaouira', slug: 'on-the-beach', fallback: 'Beachfront Hotels in Essaouira' },
-  { cityId: 'marrakech', slug: 'waterslides', fallback: 'Hotels with Waterslides in Marrakech' },
-  { cityId: 'marrakech', slug: '5-star', fallback: '5-Star Luxury Riads in Marrakech' },
-  { cityId: 'dakhla', slug: 'kitesurf-hotels', fallback: 'Kitesurf Hotels in Dakhla' },
-  { cityId: 'agadir', slug: 'all-inclusive', fallback: 'All-Inclusive Resorts in Agadir' },
-  { cityId: 'fes', slug: 'in-medina', fallback: 'Riads in Heart of Fes Medina' },
-  { cityId: 'taghazout', slug: 'private-beach', fallback: 'Stays with Private Beach in Taghazout' },
-  { cityId: 'marrakech', slug: 'swim-up-rooms', fallback: 'Hotels with Swim-Up Rooms in Marrakech' },
-  { cityId: 'chefchaouen', slug: 'mountain-view', fallback: 'Hotels with Mountain Views in Chefchaouen' },
-  { cityId: 'merzouga', slug: 'desert-camps', fallback: 'Desert Camps & Stays in Merzouga' },
-];
-
 export default function HomePage() {
   const { t } = useTranslation();
   const { lang, lp, navigateLang } = useLangPath();
@@ -99,6 +84,7 @@ export default function HomePage() {
   const [citySearchQuery, setCitySearchQuery] = useState('');
   const [selectedRegion, setSelectedRegion] = useState<'all' | 'imperial' | 'coast' | 'sahara' | 'atlas'>('all');
   const [favoritesOpen, setFavoritesOpen] = useState(false);
+  const [hasOpenedFavorites, setHasOpenedFavorites] = useState(false);
   const bookmarks = useSavedStore((state) => state.bookmarks);
 
   const setCityInStore = useParameterStore((state) => state.setCity);
@@ -107,16 +93,10 @@ export default function HomePage() {
 
   const homeSeo = HOME_SEO_I18N[lang];
 
-  // 31 Master Touristic Destinations (Rule 7)
+  // 31 Master Touristic Destinations (Rule 7) — matched by ID so accented Fès stays in top 7
   const touristicCities = useMemo(() => {
     const list = cities.filter((c: any) => getCityTier(c.id) === 'touristic');
-    const ordered: any[] = [];
-    for (const name of RECOMMENDED_CITY_NAMES) {
-      const found = list.find((r: any) => r.name.toLowerCase() === name.toLowerCase());
-      if (found) ordered.push(found);
-    }
-    const rest = list.filter((r: any) => !ordered.some((o: any) => o.id === r.id));
-    return [...ordered, ...rest];
+    return orderTouristicCitiesByRecommendedId(list);
   }, []);
 
   const quickBarCities = useMemo(() => {
@@ -169,16 +149,7 @@ export default function HomePage() {
 
   const homeBundle = useMemo(() => buildHomeSeo(lang), [lang]);
 
-  const popularGuideItems = useMemo(() => {
-    return POPULAR_GUIDE_LINKS.map((item) => {
-      const cityName = cityMap[item.cityId]?.name || item.cityId.charAt(0).toUpperCase() + item.cityId.slice(1);
-      const intent = getSearchIntent('sleep', item.slug, lang);
-      return {
-        url: `/finder/${item.cityId}/sleep/${item.slug}`,
-        title: intent ? intent.headerTitle(cityName) : item.fallback,
-      };
-    });
-  }, [lang]);
+  const popularGuideItems = useMemo(() => getPopularGuidesLocalized(lang), [lang]);
 
   return (
     <div className="min-h-screen bg-[#FAF7F2] text-[#29231F]">
@@ -190,22 +161,24 @@ export default function HomePage() {
         schemaData={homeBundle.schemaData}
       />
 
-      <header className="relative z-30 max-w-[1400px] mx-auto px-6 md:px-10 pt-4 md:pt-5 flex items-center justify-between gap-2">
-        <div className="flex items-center gap-3 min-w-0">
+      <header className="relative z-40 max-w-[1400px] mx-auto px-4 sm:px-6 md:px-10 pt-4 md:pt-5 flex items-center justify-between gap-2">
+        <div className="flex items-center gap-2.5 sm:gap-3 min-w-0 shrink-0">
           <img
             src={logoImg}
             alt="Moroccan Mate logo"
             className="w-8 h-8 sm:w-9 sm:h-9 shrink-0 object-contain"
           />
           <div className="min-w-0">
-            <p className="font-display text-lg md:text-xl font-semibold leading-none text-[#29231F] truncate">Moroccan Mate</p>
-            <p className="font-sans text-[9px] font-bold uppercase tracking-[0.22em] text-[#71685F] mt-1 truncate">
+            <p className="font-display text-base sm:text-lg md:text-xl font-semibold leading-none text-[#29231F] whitespace-nowrap">
+              Moroccan Mate
+            </p>
+            <p className="hidden sm:block font-sans text-[9px] font-bold uppercase tracking-[0.22em] text-[#71685F] mt-1">
               {t('home.brandTagline')}
             </p>
           </div>
         </div>
 
-        <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
+        <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
           <div className="hidden lg:flex items-center gap-2 mr-1">
             <span className="font-sans text-xs text-[#71685F]">{t('home.personalGuide')}</span>
           </div>
@@ -215,28 +188,31 @@ export default function HomePage() {
           {/* Near Me Navigation Link */}
           <LocalizedLink
             to={`/${selectedCategory === 'sleep' ? 'sleep' : selectedCategory === 'things-to-do' ? 'things' : selectedCategory === 'shopping' ? 'shop' : 'eat'}/${(selectedCity || 'marrakech').toLowerCase()}/near-me`}
-            className="group relative flex items-center gap-1.5 px-3 py-1.5 sm:px-3.5 sm:py-1.5 rounded-full bg-white/90 hover:bg-white border border-[#EADBCE] shadow-xs hover:shadow-md hover:border-[#EADBCE] transition-all duration-200"
+            className="group relative flex items-center gap-1.5 px-2.5 py-1.5 sm:px-3.5 sm:py-1.5 rounded-full bg-white/90 hover:bg-white border border-[#EADBCE] shadow-xs hover:shadow-md hover:border-[#EADBCE] transition-all duration-200 whitespace-nowrap shrink-0"
             title={t('common.nearMeTitle')}
           >
-            <Compass className="w-4 h-4 text-[#C2613C] transition-transform group-hover:rotate-45" />
+            <Compass className="w-4 h-4 text-[#C2613C] transition-transform group-hover:rotate-45 shrink-0" />
             <span className="font-sans text-xs font-semibold text-[#29231F] hidden sm:inline">{t('common.nearMe')}</span>
           </LocalizedLink>
 
           <button
             type="button"
-            onClick={() => setFavoritesOpen(true)}
-            className="group relative flex items-center gap-2 px-3 py-1.5 sm:px-3.5 sm:py-1.5 rounded-full bg-white/90 hover:bg-white border border-[#EADBCE] shadow-xs hover:shadow-md hover:border-[#EADBCE] transition-all duration-200 cursor-pointer"
+            onClick={() => {
+              setHasOpenedFavorites(true);
+              setFavoritesOpen(true);
+            }}
+            className="group relative flex items-center gap-1.5 sm:gap-2 px-2.5 py-1.5 sm:px-3.5 sm:py-1.5 rounded-full bg-white/90 hover:bg-white border border-[#EADBCE] shadow-xs hover:shadow-md hover:border-[#EADBCE] transition-all duration-200 cursor-pointer whitespace-nowrap shrink-0"
             aria-label={t('common.viewSaved')}
             title={t('common.viewSaved')}
           >
             <Heart
-              className={`w-4 h-4 transition-transform group-hover:scale-110 ${
+              className={`w-4 h-4 transition-transform group-hover:scale-110 shrink-0 ${
                 bookmarks.length > 0 ? 'text-[#C85A32] fill-[#C85A32]' : 'text-[#71685F] group-hover:text-[#C85A32]'
               }`}
             />
             <span className="font-sans text-xs font-semibold text-[#29231F] hidden sm:inline">{t('common.saved')}</span>
             {bookmarks.length > 0 && (
-              <span className="bg-[#C9A84C] text-white text-[10px] font-bold px-1.5 py-0.2 rounded-full min-w-[18px] text-center leading-none">
+              <span className="bg-[#C9A84C] text-white text-[10px] font-bold px-1.5 py-0.2 rounded-full min-w-[18px] text-center leading-none tabular-nums">
                 {bookmarks.length}
               </span>
             )}
@@ -244,13 +220,13 @@ export default function HomePage() {
         </div>
       </header>
 
-      <section className="relative overflow-hidden">
+      <section className="relative overflow-x-clip">
         <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
           <img src={heroIllustration} alt="" className="absolute inset-0 w-full h-full object-cover" loading="eager" {...({ fetchPriority: 'high' } as any)} />
           <div className="absolute inset-0 bg-gradient-to-b from-[#FAF7F2]/75 via-[#FAF7F2]/35 to-[#FAF7F2]" />
         </div>
 
-        <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10 pt-4 sm:pt-6 md:pt-7 pb-6 sm:pb-8 flex flex-col items-center justify-center text-center">
+        <div className="relative z-20 max-w-[1400px] mx-auto px-4 sm:px-6 md:px-10 pt-4 sm:pt-6 md:pt-7 pb-6 sm:pb-8 flex flex-col items-center justify-center text-center">
           <motion.h1
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
@@ -261,14 +237,24 @@ export default function HomePage() {
             <br className="hidden sm:block" /> {t('home.heroTitleLine2')}
           </motion.h1>
 
+          {/* Direct Place, City & Guide Instant Search */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45, delay: 0.16, ease: 'easeOut' }}
+            className="mt-4 sm:mt-5 w-full relative z-30"
+          >
+            <HomeSearchBar onSelectCity={(cityId) => handleCitySelect(cityId)} />
+          </motion.div>
+
           <motion.div
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2, ease: 'easeOut' }}
-            className="mt-3.5 sm:mt-4 md:mt-5 w-full max-w-[860px]"
+            transition={{ duration: 0.5, delay: 0.22, ease: 'easeOut' }}
+            className="mt-3 sm:mt-3.5 w-full max-w-[980px] relative z-20"
           >
             {/* Compact Destination Quick Bar */}
-            <div className={`bg-[#FFFDF9]/95 backdrop-blur-sm border rounded-full px-3 sm:px-4 py-1.5 sm:py-2 flex items-center justify-center gap-1.5 sm:gap-2 flex-wrap transition-all duration-300 ${
+            <div className={`bg-[#FFFDF9]/95 backdrop-blur-sm border rounded-2xl lg:rounded-full px-3 sm:px-4 py-1.5 sm:py-2 flex items-center justify-center gap-1 sm:gap-1.5 flex-wrap lg:flex-nowrap transition-all duration-300 ${
               isAwaitingCity
                 ? 'gold-breathe border-[#C9A84C] ring-2 ring-[#C9A84C]/35 shadow-[0_8px_32px_rgba(201,168,76,0.22)]'
                 : 'border-[#E9D8C8] shadow-[0_4px_20px_rgba(80,55,35,0.06)]'
@@ -276,11 +262,11 @@ export default function HomePage() {
               <MapPin className={`w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0 ${isAwaitingCity ? 'text-[#C9A84C] scale-110' : 'text-[#C9A84C]'}`} />
 
               {isAwaitingCity ? (
-                <span className="inline-flex items-center gap-1 bg-[#C9A84C] text-white text-[10px] font-sans font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full shadow-xs">
+                <span className="inline-flex items-center gap-1 bg-[#C9A84C] text-white text-[10px] font-sans font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full shadow-xs whitespace-nowrap shrink-0">
                   {t('home.step2PickCity')}
                 </span>
               ) : (
-                <span className="font-sans text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.16em] text-[#71685F] mr-0.5 sm:mr-1">
+                <span className="font-sans text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.14em] text-[#71685F] mr-0.5 sm:mr-1 whitespace-nowrap shrink-0">
                   {t('home.destinationLabel')}
                 </span>
               )}
@@ -296,7 +282,7 @@ export default function HomePage() {
                       e.preventDefault();
                       handleCitySelect(c.id);
                     }}
-                    className={`px-3 py-1 sm:px-3.5 sm:py-1 rounded-full text-xs font-sans transition-all duration-200 cursor-pointer ${
+                    className={`px-2.5 py-1 sm:px-3 sm:py-1 rounded-full text-xs font-sans transition-all duration-200 cursor-pointer whitespace-nowrap shrink-0 ${
                       isSelected
                         ? 'bg-[#C9A84C] text-white shadow-xs font-semibold'
                         : isAwaitingCity
@@ -313,7 +299,7 @@ export default function HomePage() {
               <button
                 type="button"
                 onClick={() => setShowAllCities(!showAllCities)}
-                className={`inline-flex items-center gap-1 px-3 py-1 sm:px-3.5 sm:py-1 rounded-full text-xs font-sans font-semibold transition-all cursor-pointer ${
+                className={`inline-flex items-center gap-1 px-2.5 py-1 sm:px-3 sm:py-1 rounded-full text-xs font-sans font-semibold transition-all cursor-pointer whitespace-nowrap shrink-0 ${
                   showAllCities
                     ? 'bg-[#C9A84C] text-white shadow-xs'
                     : 'bg-[#F5EBE1] hover:bg-[#EADBCE] text-[#71685F] hover:text-[#29231F] border border-[#EADBCE]'
@@ -321,7 +307,7 @@ export default function HomePage() {
                 aria-label={showAllCities ? t('home.closeCities') : t('home.chooseDestinations')}
               >
                 <span>{showAllCities ? t('home.closeCities') : t('home.moreCities')}</span>
-                {showAllCities ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5 text-[#C9A84C]" />}
+                {showAllCities ? <ChevronUp className="w-3.5 h-3.5 shrink-0" /> : <ChevronDown className="w-3.5 h-3.5 text-[#C9A84C] shrink-0" />}
               </button>
             </div>
 
@@ -529,6 +515,59 @@ export default function HomePage() {
       </section>
 
       <div className="max-w-[1200px] mx-auto px-6 md:px-10 pb-10">
+        {/* Why Travelers Check Moroccan Mate First — Verified Value Strip */}
+        <section
+          aria-labelledby="home-trust-heading"
+          data-testid="home-trust-strip"
+          className="pt-8 pb-8 border-t border-[#E9D8C8]/60"
+        >
+          <h2
+            id="home-trust-heading"
+            className="font-display text-lg sm:text-xl font-semibold text-[#29231F] mb-5"
+          >
+            {t('home.trustStrip.heading')}
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
+            {[
+              {
+                idx: 0,
+                icon: <ShieldCheck className="w-5 h-5 text-[#C2613C]" aria-hidden="true" />,
+                kickerColor: 'text-[#C2613C]',
+              },
+              {
+                idx: 1,
+                icon: <Receipt className="w-5 h-5 text-[#8A6D1F]" aria-hidden="true" />,
+                kickerColor: 'text-[#8A6D1F]',
+              },
+              {
+                idx: 2,
+                icon: <MapPinned className="w-5 h-5 text-[#234E35]" aria-hidden="true" />,
+                kickerColor: 'text-[#234E35]',
+              },
+            ].map(({ idx, icon, kickerColor }) => (
+              <div
+                key={idx}
+                className="rounded-2xl border border-[#E9D8C8] bg-[#FFFDF9] p-5 flex flex-col gap-2"
+              >
+                <div className="flex items-center gap-2.5">
+                  <span className="w-9 h-9 rounded-xl bg-[#FAF3EA] border border-[#E9D8C8]/80 flex items-center justify-center shrink-0">
+                    {icon}
+                  </span>
+                  <span className={`font-sans text-xs font-bold uppercase tracking-wider ${kickerColor}`}>
+                    {t(`home.trustStrip.items.${idx}.kicker`)}
+                  </span>
+                </div>
+                <h3 className="font-display text-base font-semibold text-[#29231F] mt-1">
+                  {t(`home.trustStrip.items.${idx}.title`)}
+                </h3>
+                <p className="font-sans text-sm leading-relaxed text-[#625950]">
+                  {t(`home.trustStrip.items.${idx}.body`)}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
         <div className="pt-8 border-t border-[#E9D8C8]/60">
           <h3 className="font-sans text-xs font-bold uppercase tracking-wider text-[#71685F] mb-4">
             {t('home.featuredHeading')}
@@ -599,7 +638,11 @@ export default function HomePage() {
         </div>
       </div>
 
-      <FavoritesDrawer isOpen={favoritesOpen} onClose={() => setFavoritesOpen(false)} />
+      {(favoritesOpen || hasOpenedFavorites) && (
+        <Suspense fallback={null}>
+          <FavoritesDrawer isOpen={favoritesOpen} onClose={() => setFavoritesOpen(false)} />
+        </Suspense>
+      )}
     </div>
   );
 }

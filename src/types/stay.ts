@@ -66,6 +66,9 @@ export interface NearbyPlace {
   name: string;
   category: NearbyCategory;
   walking_time_minutes: number;
+  travel_mode?: 'walk' | 'drive';
+  travel_time_minutes?: number;
+  distance_km?: number;
   icon?: string; // Optional icon identifier from Icon Library
   latitude?: number;
   longitude?: number;
@@ -257,6 +260,7 @@ export interface SectionVisibilityFlags {
   show_policies?: boolean;
   show_exact_location?: boolean;
   show_reviews?: boolean;
+  show_faq?: boolean;
 }
 
 // ==========================================

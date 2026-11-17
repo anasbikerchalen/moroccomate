@@ -189,7 +189,37 @@
     "thingsToDo": "Qué hacer",
     "exploreAllShops": "Ver todas las tiendas de Marrakech →",
     "exploreAllActivities": "Ver todas las actividades →",
-    "popularGuidesHeading": "Búsquedas populares y guías por filtro"
+    "popularGuidesHeading": "Búsquedas populares y guías por filtro",
+    "searchPlaceholder": "Buscar restaurantes, riads, monumentos o ciudades...",
+    "searchEmpty": "No se encontraron lugares verificados ni guías para \"{{query}}\".",
+    "searchKinds": {
+      "city": "Destino",
+      "food": "Comer",
+      "sleep": "Alojamiento",
+      "shopping": "Compras",
+      "things": "Qué hacer",
+      "guide": "Guía"
+    },
+    "trustStrip": {
+      "heading": "Por qué consultar Moroccan Mate antes de ir",
+      "items": [
+        {
+          "kicker": "Dudas verificadas",
+          "title": "Respuestas honestas sin rodeos",
+          "body": "Estafas, agua segura, precios fijos o regateo, vestimenta y ruido comprobados para cada lugar."
+        },
+        {
+          "kicker": "Precios reales en MAD",
+          "title": "Cartas y entradas verificadas",
+          "body": "Consulta menús reales en dirhams marroquíes, tarifas oficiales y guías claras de precios locales."
+        },
+        {
+          "kicker": "31 destinos",
+          "title": "Distancias a pie precisas",
+          "body": "Recorre medinas imperiales, playas de surf y oasis del Sáhara con tiempos reales a pie."
+        }
+      ]
+    }
   },
   "finder": {
     "title": "Buscador",
@@ -293,32 +323,62 @@
       "culture": {
         "label": "Cultura y Patrimonio",
         "description": "Palacios, museos, paseos por la medina y siglos de historia imperial viva.",
-        "keywords": ["Palacios", "Museos", "Medinas", "Tradiciones"]
+        "keywords": [
+          "Palacios",
+          "Museos",
+          "Medinas",
+          "Tradiciones"
+        ]
       },
       "sport": {
         "label": "Deporte y Actividad",
         "description": "Gimnasios cercanos, clases de surf, rutas en quad por el desierto y trekking.",
-        "keywords": ["Gimnasios", "Surf", "Senderismo", "Quads"]
+        "keywords": [
+          "Gimnasios",
+          "Surf",
+          "Senderismo",
+          "Quads"
+        ]
       },
       "wellness": {
         "label": "Bienestar y Spa",
         "description": "Hammams marroquíes tradicionales, estudios de yoga y spas relajantes.",
-        "keywords": ["Hammams", "Yoga", "Masajes", "Retiros"]
+        "keywords": [
+          "Hammams",
+          "Yoga",
+          "Masajes",
+          "Retiros"
+        ]
       },
       "desert-nature": {
         "label": "Desierto y Naturaleza",
         "description": "Rutas en camello, estrellas en el Sáhara y oasis de montaña.",
-        "keywords": ["Camellos", "Dunas", "Oasis", "Valles"]
+        "keywords": [
+          "Camellos",
+          "Dunas",
+          "Oasis",
+          "Valles"
+        ]
       },
       "photography": {
         "label": "Lugares para Fotos",
         "description": "Vistas espectaculares, puertas talladas, detalles de zellige y puestas de sol.",
-        "keywords": ["Hora dorada", "Azoteas", "Puertas", "Artesanía"]
+        "keywords": [
+          "Hora dorada",
+          "Azoteas",
+          "Puertas",
+          "Artesanía"
+        ]
       },
       "social": {
         "label": "Social y Diversión",
         "description": "Mercados con ambiente, azoteas animadas, música en vivo y planes nocturnos.",
-        "keywords": ["Azoteas", "Zocos", "Música en vivo", "Cenas"]
+        "keywords": [
+          "Azoteas",
+          "Zocos",
+          "Música en vivo",
+          "Cenas"
+        ]
       }
     }
   },
@@ -335,9 +395,18 @@
     "expMeta": "Guías expertos · Equipo incluido · Inolvidable",
     "browseExpBtn": "Ver experiencias →",
     "expItems": [
-      { "icon": "🏄", "label": "Surf, Windsurf y Kitesurf" },
-      { "icon": "🥾", "label": "Senderismo y Treks de Montaña" },
-      { "icon": "🧗", "label": "Escalada y Vías Ferratas" }
+      {
+        "icon": "🏄",
+        "label": "Surf, Windsurf y Kitesurf"
+      },
+      {
+        "icon": "🥾",
+        "label": "Senderismo y Treks de Montaña"
+      },
+      {
+        "icon": "🧗",
+        "label": "Escalada y Vías Ferratas"
+      }
     ],
     "chips": {
       "gym-fitness": "Gimnasio y Fitness",

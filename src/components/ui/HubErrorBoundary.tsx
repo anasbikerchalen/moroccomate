@@ -25,14 +25,27 @@ export class HubErrorBoundary extends Component<Props, State> {
       error.name === 'ChunkLoadError'
     ) {
       const reloadKey = 'chunk_reload_' + window.location.pathname;
-      if (!sessionStorage.getItem(reloadKey)) {
-        sessionStorage.setItem(reloadKey, 'true');
+      try {
+        const lastReload = Number(sessionStorage.getItem(reloadKey) || '0');
+        if (!lastReload || Date.now() - lastReload > 10000) {
+          sessionStorage.setItem(reloadKey, String(Date.now()));
+          window.location.reload();
+        }
+      } catch {
         window.location.reload();
       }
     }
   }
 
   private handleReset = () => {
+    const err = this.state.error;
+    if (
+      err?.message?.includes('Failed to fetch dynamically imported module') ||
+      err?.name === 'ChunkLoadError'
+    ) {
+      window.location.reload();
+      return;
+    }
     this.setState({ error: null });
     if (this.props.onReset) {
       this.props.onReset();

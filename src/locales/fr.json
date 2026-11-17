@@ -191,7 +191,37 @@
     "thingsToDo": "Choses à faire",
     "exploreAllShops": "Toutes les boutiques à Marrakech →",
     "exploreAllActivities": "Toutes les activités →",
-    "popularGuidesHeading": "Recherches populaires & Guides par filtre"
+    "popularGuidesHeading": "Recherches populaires & Guides par filtre",
+    "searchPlaceholder": "Rechercher restaurants, riads, monuments ou villes...",
+    "searchEmpty": "Aucun lieu vérifié ou guide trouvé pour « {{query}} ».",
+    "searchKinds": {
+      "city": "Destination",
+      "food": "Manger",
+      "sleep": "Séjourner",
+      "shopping": "Shopping",
+      "things": "Activités",
+      "guide": "Guide"
+    },
+    "trustStrip": {
+      "heading": "Pourquoi vérifier sur Moroccan Mate avant de partir",
+      "items": [
+        {
+          "kicker": "Inquiétudes vérifiées",
+          "title": "Des réponses honnêtes sur place",
+          "body": "Arnaques, eau, prix fixes ou négociables, tenue vestimentaire et bruit vérifiés pour chaque lieu."
+        },
+        {
+          "kicker": "Prix locaux en MAD",
+          "title": "Vrais menus & tarifs d’entrée",
+          "body": "Consultez de vrais menus en dirhams marocains, les billets officiels et des repères de prix fiables."
+        },
+        {
+          "kicker": "31 destinations",
+          "title": "Précision à pied & à proximité",
+          "body": "Médinas impériales, spots de surf et portes du Sahara avec temps de marche réels vers les repères."
+        }
+      ]
+    }
   },
   "finder": {
     "title": "Explorateur",
@@ -295,32 +325,62 @@
       "culture": {
         "label": "Culture & Patrimoine",
         "description": "Palais, musées, balades en médina et siècles d’histoire impériale vivante.",
-        "keywords": ["Palais", "Musées", "Médina", "Traditions"]
+        "keywords": [
+          "Palais",
+          "Musées",
+          "Médina",
+          "Traditions"
+        ]
       },
       "sport": {
         "label": "Sport & Activités",
         "description": "Salles de sport à proximité, cours de surf, quad dans le désert et randonnées.",
-        "keywords": ["Fitness", "Surf", "Randonnée", "Quad"]
+        "keywords": [
+          "Fitness",
+          "Surf",
+          "Randonnée",
+          "Quad"
+        ]
       },
       "wellness": {
         "label": "Bien-être & Spa",
         "description": "Hammams marocains traditionnels, studios de yoga et spas d’exception.",
-        "keywords": ["Hammams", "Yoga", "Massages", "Retraites"]
+        "keywords": [
+          "Hammams",
+          "Yoga",
+          "Massages",
+          "Retraites"
+        ]
       },
       "desert-nature": {
         "label": "Désert & Nature",
         "description": "Méharées, observation des étoiles dans le Sahara et oasis de montagne.",
-        "keywords": ["Dromadaires", "Dunes", "Oasis", "Vallées"]
+        "keywords": [
+          "Dromadaires",
+          "Dunes",
+          "Oasis",
+          "Vallées"
+        ]
       },
       "photography": {
         "label": "Spots Photo",
         "description": "Vues panoramiques, portes sculptées, détails de zellige et couchers de soleil.",
-        "keywords": ["Heure dorée", "Rooftops", "Portes", "Artisanat"]
+        "keywords": [
+          "Heure dorée",
+          "Rooftops",
+          "Portes",
+          "Artisanat"
+        ]
       },
       "social": {
         "label": "Sorties & Convivialité",
         "description": "Marchés animés, rooftops, musique live et soirées chaleureuses.",
-        "keywords": ["Rooftops", "Souks", "Musique live", "Dîners"]
+        "keywords": [
+          "Rooftops",
+          "Souks",
+          "Musique live",
+          "Dîners"
+        ]
       }
     }
   },
@@ -337,9 +397,18 @@
     "expMeta": "Guides certifiés · Équipement inclus · Inoubliable",
     "browseExpBtn": "Voir les expériences →",
     "expItems": [
-      { "icon": "🏄", "label": "Surf, Windsurf & Kitesurf" },
-      { "icon": "🥾", "label": "Randonnée en montagne & Treks" },
-      { "icon": "🧗", "label": "Escalade & Via Ferrata" }
+      {
+        "icon": "🏄",
+        "label": "Surf, Windsurf & Kitesurf"
+      },
+      {
+        "icon": "🥾",
+        "label": "Randonnée en montagne & Treks"
+      },
+      {
+        "icon": "🧗",
+        "label": "Escalade & Via Ferrata"
+      }
     ],
     "chips": {
       "gym-fitness": "Salle & Fitness",

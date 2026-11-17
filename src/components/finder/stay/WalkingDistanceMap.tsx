@@ -264,29 +264,37 @@ export const WalkingDistanceMap: React.FC<WalkingDistanceMapProps> = ({
               </foreignObject>
 
               {/* Place Name & Time Label Pill */}
-              <g transform={`translate(${pos.x}, ${pos.y > centerY ? pos.y + 26 : pos.y - 20})`}>
-                <rect
-                  x="-55"
-                  y="-11"
-                  width="110"
-                  height="22"
-                  rx="11"
-                  fill="#ffffff"
-                  stroke={isHighlighted ? theme.border : '#e2d8c6'}
-                  strokeWidth={isHighlighted ? '1.5' : '1'}
-                  className="drop-shadow-xs transition-colors"
-                />
-                <text
-                  x="0"
-                  y="4"
-                  textAnchor="middle"
-                  className={`text-[11px] ${
-                    isHighlighted ? 'font-bold fill-[#1c1917]' : 'font-medium fill-[#3a3227]'
-                  }`}
-                >
-                  {place.name.length > 13 ? place.name.slice(0, 12) + '…' : place.name} · {place.walking_time_minutes} min
-                </text>
-              </g>
+              {(() => {
+                const mins = place.travel_time_minutes ?? place.walking_time_minutes;
+                const mode = place.travel_mode ?? (mins > 35 ? 'drive' : 'walk');
+                const modeShort = mode === 'drive' ? `${mins}m drive` : `${mins}m walk`;
+                const shortName = place.name.length > 13 ? place.name.slice(0, 12) + '…' : place.name;
+                return (
+                  <g transform={`translate(${pos.x}, ${pos.y > centerY ? pos.y + 26 : pos.y - 20})`}>
+                    <rect
+                      x="-68"
+                      y="-11"
+                      width="136"
+                      height="22"
+                      rx="11"
+                      fill="#ffffff"
+                      stroke={isHighlighted ? theme.border : '#e2d8c6'}
+                      strokeWidth={isHighlighted ? '1.5' : '1'}
+                      className="drop-shadow-xs transition-colors"
+                    />
+                    <text
+                      x="0"
+                      y="4"
+                      textAnchor="middle"
+                      className={`text-[10.5px] ${
+                        isHighlighted ? 'font-bold fill-[#1c1917]' : 'font-medium fill-[#3a3227]'
+                      }`}
+                    >
+                      {shortName} · {modeShort}
+                    </text>
+                  </g>
+                );
+              })()}
             </g>
           );
         })}

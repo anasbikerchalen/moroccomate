@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Footprints } from 'lucide-react';
+import { Car, Footprints } from 'lucide-react';
 import { NearbyPlace } from '../../../types/stay';
+import { formatNearbyTravelLabel } from '../../../engine/proximityEngine';
 import { StayIcon } from './StayIcon';
 import { WalkingDistanceMap } from './WalkingDistanceMap';
 
@@ -65,19 +66,26 @@ export const WalkingDistanceSection: React.FC<WalkingDistanceSectionProps> = ({
         {/* Left Column: Walking Distance Map Graph */}
         <div className="lg:col-span-7">
           {/* Header Title & Subtitle */}
-          <div className="mb-4 flex items-start gap-3">
-            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#b45309]/10 text-[#a14006]">
-              <Footprints className="w-5 h-5 text-[#a14006]" />
-            </div>
-            <div>
-              <h2 className="font-serif text-2xl font-bold tracking-tight text-[#1c1917]">
-                Walking distance
-              </h2>
-              <p className="text-sm text-[#736554]">
-                Approximate walking times from the property
-              </p>
-            </div>
-          </div>
+          {(() => {
+            const hasDrive = nearbyPlaces.some((p) => p.travel_mode === 'drive' || (p.travel_time_minutes ?? p.walking_time_minutes) > 35);
+            return (
+              <div className="mb-4 flex items-start gap-3">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#b45309]/10 text-[#a14006]">
+                  <Footprints className="w-5 h-5 text-[#a14006]" />
+                </div>
+                <div>
+                  <h2 className="font-serif text-2xl font-bold tracking-tight text-[#1c1917]">
+                    {hasDrive ? 'Nearby landmarks & access' : 'Walking distance'}
+                  </h2>
+                  <p className="text-sm text-[#736554]">
+                    {hasDrive
+                      ? 'Estimated walking and driving times from the property'
+                      : 'Approximate walking times from the property'}
+                  </p>
+                </div>
+              </div>
+            );
+          })()}
 
           {/* Interactive Illustrated Map Canvas */}
           <WalkingDistanceMap
@@ -137,10 +145,14 @@ export const WalkingDistanceSection: React.FC<WalkingDistanceSectionProps> = ({
                     </div>
                   </div>
 
-                  {/* Right: Walking Icon + Minutes */}
-                  <div className="flex shrink-0 items-center gap-1.5 pl-3 text-sm font-semibold text-[#302820]">
-                    <Footprints className="w-4 h-4 text-[#8a7a69]" />
-                    <span>{place.walking_time_minutes} min</span>
+                  {/* Right: Walk or Drive Icon + Minutes */}
+                  <div className="flex shrink-0 items-center gap-1.5 pl-3 text-sm font-semibold text-[#302820] tabular-nums">
+                    {(place.travel_mode === 'drive' || (place.travel_time_minutes ?? place.walking_time_minutes) > 35) ? (
+                      <Car className="w-4 h-4 text-[#8a7a69]" />
+                    ) : (
+                      <Footprints className="w-4 h-4 text-[#8a7a69]" />
+                    )}
+                    <span>{formatNearbyTravelLabel(place)}</span>
                   </div>
                 </div>
               );

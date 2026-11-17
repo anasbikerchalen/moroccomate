@@ -1,4 +1,4 @@
-import type { MenuItem } from '../listings/types';
+import type { MenuItem, MenuSection } from '../listings/types';
 
 export type MenuLanguage = 'ar' | 'en' | 'es' | 'de';
 
@@ -773,14 +773,88 @@ export function getDishTranslation(
     return dish.name;
   }
 
-  if (lang === 'es') {
-    // If we have a Spanish match or fallback to dish name
-    return dish.name;
-  }
-
-  if (lang === 'de') {
-    return dish.name;
-  }
-
-  return dish.localName || dish.name;
+  return dish.name;
 }
+
+const SECTION_TITLE_EN_MAP: Record<string, string> = {
+  'Entrées Froides (Cold Starters)': 'Cold Starters',
+  'Soupes (Soups)': 'Soups & Bisques',
+  'Entrées Chaudes (Hot Starters & Classics)': 'Hot Starters & Classics',
+  'Viandes de Qualité & Grills (Steaks & Charcoal Cuts)': 'Prime Steaks & Charcoal Grills',
+  'Burgers & Sandwiches': 'Burgers & Sandwiches',
+  'Pizzas & Pâtes': 'Artisan Pizzas & Pasta',
+  'Poffertjes Hollandais (Dutch Mini Pancakes)': 'Dutch Mini Pancakes (Poffertjes)',
+  'Desserts & Spécialités Sucrées': 'Desserts & Sweet Specialties',
+  'Boissons Chaudes, Petit-Déjeuner & Jus': 'Breakfast, Coffees & Fresh Juices',
+  'Mocktails & Mixologie Sans Alcool': 'Alcohol-Free Mocktails & Mixology',
+  'Entrées & Tapas': 'Starters & Tapas',
+  'Entrées & Tapas Marocaines': 'Moroccan Starters & Tapas',
+  'Plats Principaux': 'Main Courses',
+  'Poissons & Fruits de Mer': 'Fresh Fish & Seafood',
+  'Tagines & Couscous': 'Tagines & Couscous',
+  'Tagines & Spécialités': 'Tagines & House Specialties',
+  'Desserts & Pâtisseries': 'Desserts & Pastries',
+  'Desserts Maison': 'Homemade Desserts',
+  'Pizzas au Feu de Bois': 'Wood-Fired Pizzas',
+  'Pâtes Fraîches': 'Fresh Pasta',
+  'Boissons & Cocktails Sans Alcool': 'Drinks & Mocktails',
+  'Petit-Déjeuner & Brunch': 'Breakfast & Brunch',
+};
+
+const SECTION_DESC_EN_MAP: Record<string, string> = {
+  'Salades fraîches, burrata et carpaccio préparés à la minute': 'Freshly prepared burrata, shrimp tartare, and beef carpaccio.',
+  'Soupes chaudes réconfortantes et veloutés marins': 'Warm coastal seafood soups and spiced velvet broths.',
+  'Crevettes pili-pili, croquettes maison et véritables frites hollandaises': 'Sizzling garlic-chili prawns, golden croquettes, and authentic Dutch loaded fries.',
+  'Viandes maturées, Black Angus, Wagyu A5 Kobe et finition or 24K en spectacle': 'Dry-aged Black Angus, certified A5 Kobe Wagyu, and signature 24K gold tableside carving.',
+  'Burgers briochés préparés à la main avec viande hachée fraîche': 'Brioche burgers crafted with Wagyu patties, halal beef bacon, or crispy fish.',
+  'Pizzas artisanales, lasagne maison et pâtes aux fruits de mer': 'House-baked pizzas, beef Bolognese lasagna, and Atlantic seafood pasta.',
+  'Spécialité emblématique d’Amsterdam cuite minute sur plaque traditionnelle': 'Traditional Amsterdam mini pancakes griddled to order with warm toppings.',
+  'Desserts signatures et douceurs préparées sur place': 'House signature sweets including Dubai 24K Pistachio Chocolate and warm lava cake.',
+};
+
+export function getLocalizedSectionTitle(section: MenuSection, lang: MenuLanguage): string {
+  if (lang === 'en') {
+    if (section.titleEn) return section.titleEn;
+    if (SECTION_TITLE_EN_MAP[section.title]) return SECTION_TITLE_EN_MAP[section.title];
+    // Extract English parenthetical when heading follows "French Title (English Title)"
+    const parenMatch = section.title.match(/^[^(]+\(([^)]+)\)\s*$/);
+    if (parenMatch && parenMatch[1]) {
+      const candidate = parenMatch[1].trim();
+      if (!/froides|chaudes|pâtes|viandes|poissons/i.test(candidate)) {
+        return candidate;
+      }
+    }
+  }
+  return section.title;
+}
+
+export function getLocalizedSectionDescription(section: MenuSection, lang: MenuLanguage): string {
+  if (lang === 'en') {
+    if (section.descriptionEn) return section.descriptionEn;
+    if (section.description && SECTION_DESC_EN_MAP[section.description]) {
+      return SECTION_DESC_EN_MAP[section.description];
+    }
+    return section.description || '';
+  }
+  return section.description || '';
+}
+
+export function getDishDisplayName(dish: MenuItem, lang: MenuLanguage): string {
+  if (lang === 'en' && dish.nameEn) {
+    return dish.nameEn;
+  }
+  return dish.name;
+}
+
+export function getDishSecondaryText(dish: MenuItem, lang: MenuLanguage): string {
+  if (lang === 'en') {
+    const enDesc = dish.translations?.en || DISH_TRANSLATIONS[dish.name]?.en || '';
+    // Avoid repeating identical text if description already matches the dish name
+    if (!enDesc || enDesc.toLowerCase() === getDishDisplayName(dish, lang).toLowerCase()) {
+      return '';
+    }
+    return enDesc;
+  }
+  return getDishTranslation(dish, lang);
+}
+

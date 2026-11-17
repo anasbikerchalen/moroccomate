@@ -23,7 +23,7 @@ import { getListingRating } from '../listings/utils';
 import { cityMap } from '../data/cities';
 import logoImg from '../assets/images/logo.png';
 import { getStayOwnerAnswer } from '../engine/stayAdapter';
-import { getCityPopularIntents } from '../data/seo/searchIntents';
+import { getCityPopularIntents, doesListingMatchIntent } from '../data/seo/searchIntents';
 
 import { getActivityByCityAndSlug } from '../things-to-do';
 
@@ -164,11 +164,23 @@ export default function PlaceListingPage() {
     }
   }, [cityKey, category, slug]);
 
-  // High-intent search filter links for this city
+  // High-intent search filter links for this city (only intents backed by >=3 places)
   const popularIntents = useMemo(() => {
     if (!cityKey || !category) return [];
     try {
-      return getCityPopularIntents(cityKey, category, lang).slice(0, 5);
+      const candidates = getCityPopularIntents(cityKey, category, lang);
+      const index = getPlaceIndex(cityKey, category);
+      const allListings = Array.from(index.bySlug.values());
+      return candidates
+        .filter((intent) => {
+          let matches = 0;
+          for (const l of allListings) {
+            if (doesListingMatchIntent(l, intent)) matches++;
+            if (matches >= 3) return true;
+          }
+          return false;
+        })
+        .slice(0, 6);
     } catch {
       return [];
     }

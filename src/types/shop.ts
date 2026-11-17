@@ -47,6 +47,8 @@ export interface ShopNearbyPlace {
   latitude: number;
   longitude: number;
   walking_minutes: number;
+  travel_mode?: 'walk' | 'drive';
+  travel_time_minutes?: number;
   display_order: number;
 }
 
@@ -131,6 +133,7 @@ export interface ShopSectionVisibility {
   show_languages?: boolean;
   show_shipping?: boolean;
   show_reviews?: boolean;
+  show_faq?: boolean;
 }
 
 // 12. Main Complete Shop Model
@@ -167,6 +170,10 @@ export interface ShopListing {
   // Reviews & Intelligence
   /** Multi-platform reviews section data (Tripadvisor, Google Maps, Trustpilot, Lonely Planet, Reddit) */
   reviewsData?: PlaceReviewsData;
+  faqs?: {
+    question: string;
+    answer: string;
+  }[];
 
   // Publishing & CMS
   is_published: boolean;

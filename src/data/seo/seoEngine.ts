@@ -1,6 +1,6 @@
 import type { EatListing, EatMenu } from '../../listings/types';
 import { getListingRating } from '../../listings/utils';
-import { PLACE_SCHEMA_TYPE, type PlaceUrlCategory } from '../../listings/placeRoutes';
+import { PLACE_SCHEMA_TYPE, type PlaceUrlCategory } from '../../listings/placeConstants';
 import { localizePath, type AppLanguage } from '../../utils/localeRouting';
 import {
   CATEGORY_LABELS_I18N,
@@ -10,6 +10,14 @@ import {
   type BrowseSegment,
 } from './i18nSeo';
 import type { SearchIntent } from './searchIntents';
+import { getEatPriceMetrics } from '../../utils/eatPrice';
+import { buildPlaceFaqs } from './faqEngine';
+import {
+  getLocalizedSectionTitle,
+  getDishDisplayName,
+  getDishSecondaryText,
+  type MenuLanguage,
+} from '../menuTranslations';
 
 export const SITE_NAME = 'Moroccan Mate';
 export const BASE_URL = 'https://www.moroccanmate.com';
@@ -144,6 +152,156 @@ export function computeMenuPriceRange(menu?: EatMenu | null): { min: number; max
   }
   if (!Number.isFinite(min) || max <= 0) return null;
   return { min: Math.round(min), max: Math.round(max) };
+}
+
+function normalizeHttpUrl(raw?: string | null): string | null {
+  const s = String(raw || '').trim();
+  if (!s || s === 'not-available') return null;
+  if (/^https?:\/\//i.test(s)) return s;
+  if (/^[a-z0-9.-]+\.[a-z]{2,}(\/.*)?$/i.test(s) && !s.includes(' ')) {
+    return `https://${s}`;
+  }
+  return null;
+}
+
+function normalizeInstagramUrl(raw?: string | null): string | null {
+  const s = String(raw || '').trim();
+  if (!s || s === 'not-available') return null;
+  if (/^https?:\/\//i.test(s)) return s;
+  const handle = s.replace(/^@/, '').replace(/\/+$/, '');
+  if (handle && /^[a-zA-Z0-9._]{2,40}$/.test(handle)) {
+    return `https://www.instagram.com/${handle}/`;
+  }
+  return null;
+}
+
+function isPhoneLike(raw?: string | null): string | undefined {
+  const s = String(raw || '').trim();
+  if (!s || s.includes('@') || /http/i.test(s)) return undefined;
+  const digits = s.replace(/\D/g, '');
+  if (digits.length >= 7 && digits.length <= 16) return s;
+  return undefined;
+}
+
+function extractSameAsUrls(listing: any): string[] {
+  const urls = new Set<string>();
+  const web = normalizeHttpUrl(
+    listing?.ui?.website || listing?.website || listing?.booking?.website || listing?.contact?.website
+  );
+  if (web) urls.add(web);
+  const ig = normalizeInstagramUrl(
+    listing?.ui?.instagram || listing?.instagram || listing?.contact?.instagram
+  );
+  if (ig) urls.add(ig);
+  const fb = normalizeHttpUrl(listing?.ui?.facebook || listing?.facebook || listing?.contact?.facebook);
+  if (fb) urls.add(fb);
+  return Array.from(urls);
+}
+
+function extractTelephone(listing: any): string | undefined {
+  const candidates = [
+    listing?.ui?.phone,
+    listing?.phone,
+    listing?.phoneNumber,
+    listing?.ui?.phoneNumber,
+    listing?.contact?.phone,
+    listing?.contact_whatsapp,
+    listing?.ui?.reservationContact,
+    listing?.reservationContact,
+  ];
+  for (const c of candidates) {
+    const valid = isPhoneLike(c);
+    if (valid) return valid;
+  }
+  return undefined;
+}
+
+const WEEK_DAYS_SCHEMA = [
+  'Monday',
+  'Tuesday',
+  'Wednesday',
+  'Thursday',
+  'Friday',
+  'Saturday',
+  'Sunday',
+];
+
+function normalizeDayName(raw: string): string {
+  const lower = String(raw || '').trim().toLowerCase();
+  const found = WEEK_DAYS_SCHEMA.find(
+    (d) => d.toLowerCase() === lower || d.toLowerCase().startsWith(lower.slice(0, 3))
+  );
+  return found || raw;
+}
+
+function parseTimeRange(str: string): { opens: string; closes: string } | null {
+  const m = String(str || '').match(/(\d{1,2}[:h]\d{2})\s*[-–—àto]+\s*(\d{1,2}[:h]\d{2})/i);
+  if (!m) return null;
+  const fmt = (t: string) => t.replace(/h/i, ':').padStart(5, '0');
+  return { opens: fmt(m[1]), closes: fmt(m[2]) };
+}
+
+function extractOpeningHoursSpecification(listing: any): Record<string, any>[] | undefined {
+  const schedule = listing?.ui?.weeklySchedule || listing?.weeklySchedule;
+  if (Array.isArray(schedule) && schedule.length > 0) {
+    const specs: Record<string, any>[] = [];
+    for (const row of schedule) {
+      if (!row || row.closed) continue;
+      const day = row.day ? normalizeDayName(row.day) : '';
+      const range =
+        row.open && row.close
+          ? { opens: String(row.open), closes: String(row.close) }
+          : row.hours
+            ? parseTimeRange(row.hours)
+            : null;
+      if (day && range) {
+        specs.push({
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: `https://schema.org/${day}`,
+          opens: range.opens,
+          closes: range.closes,
+        });
+      }
+    }
+    if (specs.length > 0) return specs;
+  }
+
+  const openTime = listing?.ui?.openTime || listing?.openTime || listing?.hours?.open;
+  const closeTime = listing?.ui?.closeTime || listing?.closeTime || listing?.hours?.close;
+  if (openTime && closeTime) {
+    return [
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: WEEK_DAYS_SCHEMA.map((d) => `https://schema.org/${d}`),
+        opens: String(openTime),
+        closes: String(closeTime),
+      },
+    ];
+  }
+  return undefined;
+}
+
+function buildMenuSectionsSchema(menu: EatMenu | undefined, lang: AppLanguage) {
+  if (!menu?.sections || !Array.isArray(menu.sections)) return [];
+  const menuLang: MenuLanguage | null = lang === 'fr' ? null : lang;
+  return menu.sections.map((sec) => ({
+    '@type': 'MenuSection',
+    name: menuLang ? getLocalizedSectionTitle(sec, menuLang) : sec.title,
+    hasMenuItem: (sec.items || []).map((item) => {
+      const displayName = menuLang ? getDishDisplayName(item, menuLang) : item.name;
+      const secText = menuLang ? getDishSecondaryText(item, menuLang) : '';
+      return {
+        '@type': 'MenuItem',
+        name: displayName,
+        ...(secText ? { description: secText } : {}),
+        offers: {
+          '@type': 'Offer',
+          price: item.price,
+          priceCurrency: 'MAD',
+        },
+      };
+    }),
+  }));
 }
 
 // ---------------------------------------------------------------------------
@@ -602,26 +760,46 @@ export function buildPlaceSeo(params: {
   const isEat = category === 'food';
   const isShopping = category === 'shopping';
 
+  const eatMetrics = isEat ? getEatPriceMetrics(listing) : null;
   const price = isSleep
     ? Number(listing?.pricePerNight ?? 0)
-    : Number(listing?.pricePerPerson ?? listing?.filter?.pricePerPerson ?? 0);
+    : isEat
+      ? (eatMetrics?.avgPersonMad ?? 0)
+      : Number(listing?.pricePerPerson ?? listing?.filter?.pricePerPerson ?? 0);
 
   const rating = getListingRating(listing);
   const rawDesc = String(listing?.ui?.description || listing?.description || listing?.short_description || '');
 
-  // Title: "{Name} — {ShortCat} in {City}" with dynamic brand suffix
-  const coreTitle = `${name} — ${shortCat} ${copy.inWord} ${cityLabel}`;
+  // Category-aware SERP title (<= 60 chars)
+  let coreTitle = `${name} — ${shortCat} ${copy.inWord} ${cityLabel}`;
+  if (isEat && lang === 'en') {
+    const richEatTitle = `${name} ${cityLabel}: Menu, Prices & Reviews`;
+    const compactEatTitle = `${name} — ${cityLabel} Menu & Reviews`;
+    if (richEatTitle.length <= 60) {
+      coreTitle = richEatTitle;
+    } else if (compactEatTitle.length <= 60) {
+      coreTitle = compactEatTitle;
+    }
+  }
   const title = composeTitle(coreTitle, SITE_NAME, 60);
 
-  // Description: pack concrete SERP hooks (rating, price, location, summary/CTA)
+  // Description: pack concrete SERP hooks (rating, realistic MAD price, location, summary/CTA)
   const factParts: string[] = [];
   if (rating && rating.averageRating > 0) {
     factParts.push(`★ ${rating.averageRating.toFixed(1)}`);
   }
   if (isSleep && price > 0) {
     factParts.push(copy.fromNight(price));
-  } else if (isEat && price > 0) {
-    factParts.push(copy.avgPerson(price));
+  } else if (isEat && eatMetrics) {
+    if (eatMetrics.perPersonRangeText) {
+      factParts.push(
+        lang === 'en'
+          ? `${eatMetrics.perPersonRangeText}/person`
+          : copy.avgPerson(eatMetrics.avgPersonMad)
+      );
+    } else if (eatMetrics.avgPersonMad > 0) {
+      factParts.push(copy.avgPerson(eatMetrics.avgPersonMad));
+    }
   }
   const locText = neighborhood && neighborhood.toLowerCase() !== cityLabel.toLowerCase()
     ? `${neighborhood}, ${cityLabel}`
@@ -651,8 +829,20 @@ export function buildPlaceSeo(params: {
     undefined;
   const image = resolveAbsoluteImageUrl(rawImage);
 
-  const addressText = listing?.ui?.address || listing?.address || `${neighborhood || cityLabel}, Morocco`;
-  const coords = listing?.ui?.coordinates || listing?.coordinates;
+  const addressText =
+    listing?.ui?.exactAddressAndCoordinates?.address ||
+    listing?.ui?.address ||
+    listing?.address ||
+    `${neighborhood || cityLabel}, Morocco`;
+  const coords =
+    listing?.ui?.exactAddressAndCoordinates?.coordinates ||
+    listing?.ui?.coordinates ||
+    listing?.coordinates;
+  const telephone = extractTelephone(listing);
+  const sameAs = extractSameAsUrls(listing);
+  const openingHoursSpecification = extractOpeningHoursSpecification(listing);
+  const eatMenu: EatMenu | undefined = isEat ? (listing?.ui?.menu || listing?.menu) : undefined;
+  const eatMenuSections = isEat ? buildMenuSectionsSchema(eatMenu, lang) : [];
 
   const schemaData: Record<string, any> = {
     name,
@@ -660,6 +850,9 @@ export function buildPlaceSeo(params: {
     url: localizedCanonicalUrl,
     image,
     inLanguage: lang,
+    ...(telephone ? { telephone } : {}),
+    ...(sameAs.length > 0 ? { sameAs } : {}),
+    ...(openingHoursSpecification ? { openingHoursSpecification } : {}),
     address: {
       '@type': 'PostalAddress',
       ...(addressText ? { streetAddress: addressText } : {}),
@@ -706,15 +899,27 @@ export function buildPlaceSeo(params: {
       : {}),
     ...(isEat
       ? {
-          ...(price > 0 ? { priceRange: `${price} MAD` } : {}),
+          ...(eatMetrics?.perPersonRangeText
+            ? { priceRange: eatMetrics.perPersonRangeText }
+            : price > 0
+              ? { priceRange: `${price} MAD` }
+              : {}),
           ...((listing?.foodStyles || listing?.quiz?.foodStyles || listing?.cuisineTags)
             ? { servesCuisine: listing.foodStyles || listing.quiz?.foodStyles || listing.cuisineTags }
             : {}),
           ...((listing?.ui?.reservationMethod || listing?.reservationMethod)?.length > 0
             ? { acceptsReservations: true }
             : {}),
-          ...((listing?.ui?.menu || listing?.menu)
-            ? { hasMenu: `${BASE_URL}${localizePath(`${canonical}/menu`, lang)}` }
+          ...(eatMenu
+            ? {
+                hasMenu: {
+                  '@type': 'Menu',
+                  name: `${name} ${copy.menuWord}`,
+                  url: `${BASE_URL}${localizePath(`${canonical}/menu`, lang)}`,
+                  inLanguage: lang,
+                  ...(eatMenuSections.length > 0 ? { hasMenuSection: eatMenuSections } : {}),
+                },
+              }
             : {}),
         }
       : {}),
@@ -738,10 +943,14 @@ export function buildPlaceSeo(params: {
     { name, item: canonical },
   ];
 
-  const faq: FaqItem[] | undefined =
-    isSleep && ownerAnswer
-      ? [{ question: copy.ownerFaqQ(name), answer: ownerAnswer }]
-      : undefined;
+  const computedFaqs = buildPlaceFaqs({
+    listing,
+    category,
+    cityLabel,
+    lang,
+    ownerAnswer,
+  });
+  const faq: FaqItem[] | undefined = computedFaqs.length > 0 ? computedFaqs : undefined;
 
   return {
     title,
@@ -832,29 +1041,7 @@ export function buildMenuSeo(params: {
     },
   ];
 
-  const menuSectionsForSchema =
-    menu?.sections?.map((sec) => ({
-      '@type': 'MenuSection',
-      name: sec.title,
-      hasMenuItem: sec.items.map((item) => {
-        const localizedItemDesc =
-          lang === 'fr'
-            ? item.description || item.translations?.en
-            : (lang !== 'en' ? item.translations?.[lang] : item.translations?.en) ||
-              item.description ||
-              item.translations?.en;
-        return {
-          '@type': 'MenuItem',
-          name: item.name,
-          ...(localizedItemDesc ? { description: localizedItemDesc } : {}),
-          offers: {
-            '@type': 'Offer',
-            price: item.price,
-            priceCurrency: 'MAD',
-          },
-        };
-      }),
-    })) || [];
+  const menuSectionsForSchema = buildMenuSectionsSchema(menu, lang);
 
   const coords = listing.ui?.coordinates || (listing as any).coordinates;
   const addressText = listing.ui?.address || `${loc}, Morocco`;
@@ -981,12 +1168,17 @@ export function buildThingsSeo(params: {
   const ratingVal = Number(activity?.google_rating ?? activity?.googleRating ?? 0);
   const reviewCount = Number(activity?.review_count ?? activity?.googleReviewCount ?? activity?.reviewCount ?? 0);
 
+  const telephone = extractTelephone(activity);
+  const sameAs = extractSameAsUrls(activity);
+
   const schemaData: Record<string, any> = {
     name,
     description,
     url: localizedUrl,
     image,
     inLanguage: lang,
+    ...(telephone ? { telephone } : {}),
+    ...(sameAs.length > 0 ? { sameAs } : {}),
     address: {
       '@type': 'PostalAddress',
       ...(activity?.address ? { streetAddress: activity.address } : {}),
@@ -1035,6 +1227,13 @@ export function buildThingsSeo(params: {
     { name, item: canonical },
   ];
 
+  const computedFaqs = buildPlaceFaqs({
+    listing: activity,
+    category: 'things-to-do',
+    cityLabel,
+    lang,
+  });
+
   return {
     title,
     description,
@@ -1045,6 +1244,7 @@ export function buildThingsSeo(params: {
     schemaData,
     jsonLd,
     breadcrumbs,
+    ...(computedFaqs.length > 0 ? { faq: computedFaqs } : {}),
   };
 }
 

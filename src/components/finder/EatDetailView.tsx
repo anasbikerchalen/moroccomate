@@ -7,7 +7,7 @@ import {
   Info, Sparkles, Car, Languages, CreditCard,
   Accessibility, DollarSign, Moon, Sun, Armchair, Leaf, ShieldCheck,
   Compass, Award, Share2, Phone, PhoneCall, Check, Copy, Lightbulb,
-  CalendarCheck, Settings, Footprints, MessageSquareText
+  CalendarCheck, Settings, Footprints, MessageSquareText, HelpCircle
 } from 'lucide-react';
 import { cn } from '../../utils/cn';
 import { useSavedStore } from '../../state/savedStore';
@@ -20,21 +20,28 @@ import CamelRating from './CamelRating';
 import TagTooltip from './TagTooltip';
 import { getEatWeeklySchedule } from '../../utils/timeEngine';
 import { deriveEatProsCons } from '../../utils/eatProsConsEngine';
+import { getEatPriceMetrics } from '../../utils/eatPrice';
 import diningHeroEditorialImg from '../../assets/images/botanical_food_flat_1791668271591.jpg';
 import { useNavigate } from 'react-router-dom';
 import { WalkingDistanceMap } from './stay/WalkingDistanceMap';
-import { computePoiNearbyPlaces } from '../../engine/proximityEngine';
+import {
+  computePoiNearbyPlaces,
+  formatNearbyTravelLabel,
+  getWalkingDistancePlaces,
+} from '../../engine/proximityEngine';
 import { getCityCenter } from '../../engine/stayAdapter';
 import { getPlaceSlugById, buildPlaceUrl } from '../../listings/placeRoutes';
 import InteractiveRestaurantMenu from '../menu/InteractiveRestaurantMenu';
 import WorriesSection from '../worries/WorriesSection';
 import { resolveEatWorries } from '../../utils/eatWorriesResolver';
 import PlaceReviewsSection from '../reviews/PlaceReviewsSection';
+import PlaceFAQSection from '../common/PlaceFAQSection';
+import { buildPlaceFaqs } from '../../data/seo/faqEngine';
 import ListingHeroHeader, { WhatsAppIcon, type HeroFeatureChip, type HeroMetadataItem } from './ListingHeroHeader';
 import ListingSectionNavigator, { type ListingNavigatorItem } from './ListingSectionNavigator';
 import { hasVerifiedReviews, hasVerifiedWorries } from './listingNavUtils';
 import type { ReviewSource } from '../../types/reviews';
-import { useLangPath } from '../../utils/localeRouting';
+import { useAppLanguage, useLangPath } from '../../utils/localeRouting';
 import LocalizedLink from '../ui/LocalizedLink';
 
 interface EatDetailViewProps {
@@ -44,6 +51,7 @@ interface EatDetailViewProps {
 
 export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
   const navigate = useNavigate();
+  const lang = useAppLanguage();
   const { navigateLang } = useLangPath();
   const { toggleBookmark, isBookmarked } = useSavedStore();
   const { city } = useParameterStore();
@@ -152,18 +160,27 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
   const cityKey = String(item?.city || city || 'marrakech').toLowerCase();
   const cityLabel = cityMap[cityKey]?.name || cityKey.charAt(0).toUpperCase() + cityKey.slice(1);
 
-  // Price tier symbol ($ / $$ / $$$)
+  // Price tier symbol ($ / $$ / $$$) & normalized MAD price metrics
   const priceTier = useMemo(() => {
     if (lifestyle === 'lean' || pricePerPerson <= 10) return '$';
     if (lifestyle === 'premium' || pricePerPerson >= 25) return '$$$';
     return '$$';
   }, [lifestyle, pricePerPerson]);
 
-  const calculatedPriceRange = useMemo(() => {
-    const min = Math.round(pricePerPerson * 6);
-    const max = Math.round(pricePerPerson * 12);
-    return `${min}–${max} MAD`;
-  }, [pricePerPerson]);
+  const eatPriceMetrics = useMemo(() => getEatPriceMetrics(item), [item]);
+  const calculatedPriceRange = eatPriceMetrics.perPersonRangeText;
+  const seasonalHoursNote: string | undefined =
+    item?.seasonalHoursNote || item?.ui?.seasonalHoursNote;
+  const editorialGuide: Array<{ heading?: string; title?: string; body: string }> = Array.isArray(
+    item?.editorialGuide || item?.ui?.editorialGuide
+  )
+    ? (item?.editorialGuide || item?.ui?.editorialGuide)
+    : [];
+  const knowBeforeYouGo: string[] = Array.isArray(
+    item?.knowBeforeYouGo || item?.ui?.knowBeforeYouGo
+  )
+    ? (item?.knowBeforeYouGo || item?.ui?.knowBeforeYouGo)
+    : [];
 
   // Primary cuisine label
   const primaryCuisine = useMemo(() => {
@@ -332,10 +349,33 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
     return getCityCenter(cityKey);
   }, [item, cityKey]);
 
-  // Verified landmark walking distances using real GPS math
+  // Verified landmark proximity distances (curated nearbyDistances first, GPS math fallback)
   const nearbyPlaces = useMemo(() => {
+    const curated = getWalkingDistancePlaces(item);
+    if (curated.length > 0) return curated;
     return computePoiNearbyPlaces(cityKey, restaurantCoords, 4);
-  }, [cityKey, restaurantCoords]);
+  }, [item, cityKey, restaurantCoords]);
+
+  const hasDriveLandmarks = useMemo(
+    () =>
+      nearbyPlaces.some(
+        (p) =>
+          p.travel_mode === 'drive' ||
+          (p.travel_time_minutes ?? p.walking_time_minutes ?? 0) > 25
+      ),
+    [nearbyPlaces]
+  );
+
+  const eatFaqs = useMemo(
+    () =>
+      buildPlaceFaqs({
+        listing: item,
+        category: 'food',
+        cityLabel,
+        lang,
+      }),
+    [item, cityLabel, lang]
+  );
 
   const addressText = item?.exactAddressAndCoordinates?.address || item?.address;
 
@@ -435,6 +475,11 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
                     </div>
                   ))}
                 </div>
+                {seasonalHoursNote && (
+                  <div className="p-2.5 rounded-xl bg-emerald-50 border border-emerald-200/80 text-[11px] text-emerald-900 leading-snug">
+                    {seasonalHoursNote}
+                  </div>
+                )}
                 {scheduleData.specialNote && (
                   <div className="p-2.5 rounded-xl bg-amber-50 border border-amber-200/80 text-[11px] text-amber-900 leading-snug">
                     {scheduleData.specialNote}
@@ -628,6 +673,13 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
             targetId: 'eat-logistics-section',
             icon: <Clock className="w-4 h-4" />,
             available: true,
+          },
+          {
+            id: 'faq',
+            label: 'FAQ',
+            targetId: 'eat-faq-section',
+            icon: <HelpCircle className="w-4 h-4" />,
+            available: eatFaqs.length > 0,
           },
           {
             id: 'reviews',
@@ -828,21 +880,58 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
 
 
         {/* ───────────────────────────────────────────────────────────
-            3. ABOUT THE EXPERIENCE
+            3. ABOUT THE EXPERIENCE + EDITORIAL DINING GUIDE
         ─────────────────────────────────────────────────────────── */}
-        {description && (
-          <div className="bg-white border border-stone-200/80 rounded-3xl p-6 sm:p-8 shadow-xs">
-            <div className="flex items-center gap-2.5 mb-4">
-              <span className="w-8 h-8 rounded-xl bg-amber-500/10 flex items-center justify-center text-[#D4863A]">
-                <Award className="w-4 h-4" />
-              </span>
-              <h3 className="font-display text-xl sm:text-2xl font-bold text-stone-900">
-                About the Experience
-              </h3>
+        {(description || editorialGuide.length > 0 || knowBeforeYouGo.length > 0) && (
+          <div className="bg-white border border-stone-200/80 rounded-3xl p-6 sm:p-8 shadow-xs space-y-6">
+            <div>
+              <div className="flex items-center gap-2.5 mb-4">
+                <span className="w-8 h-8 rounded-xl bg-amber-500/10 flex items-center justify-center text-[#D4863A]">
+                  <Award className="w-4 h-4" />
+                </span>
+                <h3 className="font-display text-xl sm:text-2xl font-bold text-stone-900">
+                  About the Experience
+                </h3>
+              </div>
+              {description && (
+                <p className="text-stone-700 text-base leading-relaxed max-w-4xl">
+                  {description}
+                </p>
+              )}
             </div>
-            <p className="text-stone-700 text-base leading-relaxed leading-7 max-w-4xl">
-              {description}
-            </p>
+
+            {editorialGuide.length > 0 && (
+              <div className="pt-5 border-t border-[#EDE4D5] grid grid-cols-1 md:grid-cols-2 gap-6">
+                {editorialGuide.map((part, idx) => (
+                  <div key={`${part.heading || part.title || 'section'}-${idx}`} className="space-y-1.5">
+                    <h4 className="font-serif text-base sm:text-lg font-bold text-[#142333]">
+                      {part.heading || part.title}
+                    </h4>
+                    <p className="text-sm text-stone-700 leading-relaxed">
+                      {part.body}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {knowBeforeYouGo.length > 0 && (
+              <div className="pt-5 border-t border-[#EDE4D5]">
+                <div className="rounded-2xl border border-[#E8DFCF] bg-[#FAF7F2] p-5 space-y-3">
+                  <span className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#8A6D1F]">
+                    <Info className="w-4 h-4" /> Know Before You Go
+                  </span>
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs sm:text-sm text-stone-800">
+                    {knowBeforeYouGo.map((bullet, idx) => (
+                      <li key={idx} className="flex items-start gap-2 leading-snug">
+                        <CheckCircle2 className="w-4 h-4 text-[#1F5A3B] shrink-0 mt-0.5" />
+                        <span>{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            )}
           </div>
         )}
 
@@ -952,16 +1041,24 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
               )}
             </div>
 
-            {/* Interactive Radius Walking Distance Map (Restaurant Hub) */}
+            {/* Interactive Radius Proximity Map (Restaurant Hub) */}
             {nearbyPlaces.length > 0 && (
               <div className="pt-5 border-t border-stone-100 space-y-3">
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between gap-2">
                   <span className="flex items-center gap-2 text-xs font-bold text-stone-900 uppercase tracking-wider">
-                    <Footprints className="w-4 h-4 text-emerald-700" />
-                    <span>Walking Distance to Landmarks</span>
+                    {hasDriveLandmarks ? (
+                      <Car className="w-4 h-4 text-[#C85A32]" />
+                    ) : (
+                      <Footprints className="w-4 h-4 text-emerald-700" />
+                    )}
+                    <span>
+                      {hasDriveLandmarks
+                        ? 'Nearby Landmarks & Access'
+                        : 'Walking Distance to Landmarks'}
+                    </span>
                   </span>
-                  <span className="text-[10px] font-semibold text-stone-500 bg-stone-100/90 px-2 py-0.5 rounded-md border border-stone-200/60">
-                    Real GPS Proximity
+                  <span className="text-[10px] font-semibold text-stone-500 bg-stone-100/90 px-2 py-0.5 rounded-md border border-stone-200/60 shrink-0">
+                    {hasDriveLandmarks ? 'Walk & Drive Times' : 'Real GPS Proximity'}
                   </span>
                 </div>
 
@@ -972,6 +1069,46 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
                   onHoverPlace={setHoveredPlaceId}
                   centerIcon="utensils"
                 />
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
+                  {nearbyPlaces.map((place) => {
+                    const isDrive =
+                      place.travel_mode === 'drive' ||
+                      (place.travel_time_minutes ?? place.walking_time_minutes ?? 0) > 25;
+                    const travelLabel = formatNearbyTravelLabel(place);
+                    const isHovered = hoveredPlaceId === place.id;
+                    return (
+                      <div
+                        key={place.id}
+                        onMouseEnter={() => setHoveredPlaceId(place.id)}
+                        onMouseLeave={() => setHoveredPlaceId(null)}
+                        className={cn(
+                          'flex items-center justify-between gap-2 px-3 py-2 rounded-xl border text-xs transition-colors',
+                          isHovered
+                            ? 'bg-[#FAF3EA] border-[#C9A84C]'
+                            : 'bg-[#FAF7F2]/70 border-[#EDE4D5]'
+                        )}
+                      >
+                        <div className="min-w-0">
+                          <p className="font-semibold text-stone-900 truncate">{place.name}</p>
+                          {typeof place.distance_km === 'number' && place.distance_km > 0 && (
+                            <p className="text-[10px] text-stone-500 tabular-nums">
+                              {place.distance_km} km
+                            </p>
+                          )}
+                        </div>
+                        <span className="inline-flex items-center gap-1 font-bold text-stone-800 shrink-0 tabular-nums">
+                          {isDrive ? (
+                            <Car className="w-3.5 h-3.5 text-[#C85A32]" />
+                          ) : (
+                            <Footprints className="w-3.5 h-3.5 text-emerald-700" />
+                          )}
+                          <span>{travelLabel}</span>
+                        </span>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
             )}
           </div>
@@ -988,14 +1125,25 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
             </div>
 
             <div className="divide-y divide-stone-100 text-sm">
-              <div className="py-3.5 flex items-center justify-between gap-4">
-                <span className="flex items-center gap-2 text-sm font-bold text-stone-900">
-                  <DollarSign className="w-4 h-4 text-emerald-700" /> Average Meal Cost
-                </span>
-                <span className="text-sm font-bold text-stone-900">
-                  ~{pricePerPerson * 12} MAD per person
-                </span>
-              </div>
+              {(eatPriceMetrics.perPersonRangeText || eatPriceMetrics.avgPersonText) && (
+                <div className="py-3.5 flex items-start justify-between gap-4">
+                  <span className="flex items-center gap-2 text-sm font-bold text-stone-900">
+                    <DollarSign className="w-4 h-4 text-emerald-700" /> Average Meal Cost
+                  </span>
+                  <div className="text-right tabular-nums">
+                    <span className="text-sm font-bold text-stone-900 block">
+                      {eatPriceMetrics.perPersonRangeText
+                        ? `${eatPriceMetrics.perPersonRangeText} / person`
+                        : eatPriceMetrics.avgPersonText}
+                    </span>
+                    {eatPriceMetrics.menuRangeText && (
+                      <span className="text-[11px] font-medium text-stone-500 block">
+                        Menu dishes: {eatPriceMetrics.menuRangeText}
+                      </span>
+                    )}
+                  </div>
+                </div>
+              )}
 
               {alcoholPolicy && (
                 <div className="py-3.5 flex items-center justify-between gap-4">
@@ -1009,13 +1157,20 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
               )}
 
               {openTime && closeTime && (
-                <div className="py-3.5 flex items-center justify-between gap-4">
+                <div className="py-3.5 flex items-start justify-between gap-4">
                   <span className="flex items-center gap-2 text-sm font-bold text-stone-900">
                     <Clock className="w-4 h-4 text-amber-700" /> Service Hours
                   </span>
-                  <span className="text-sm font-bold text-stone-900 font-mono">
-                    {openTime} – {closeTime}
-                  </span>
+                  <div className="text-right">
+                    <span className="text-sm font-bold text-stone-900 font-mono tabular-nums block">
+                      {openTime} – {closeTime}
+                    </span>
+                    {seasonalHoursNote && (
+                      <span className="text-[11px] font-medium text-emerald-800 block mt-0.5">
+                        {seasonalHoursNote}
+                      </span>
+                    )}
+                  </div>
                 </div>
               )}
 
@@ -1108,6 +1263,19 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
         </div>
 
         {/* ───────────────────────────────────────────────────────────
+            5.4. FREQUENTLY ASKED QUESTIONS
+        ─────────────────────────────────────────────────────────── */}
+        {eatFaqs.length > 0 && (
+          <div id="eat-faq-section">
+            <PlaceFAQSection
+              faqs={eatFaqs}
+              placeName={name}
+              subtitle="Verified answers on prices in MAD, halal & beverage policy, reservations, and hours"
+            />
+          </div>
+        )}
+
+        {/* ───────────────────────────────────────────────────────────
             5.5. TRAVELER REVIEWS & COMMUNITY RATINGS
         ─────────────────────────────────────────────────────────── */}
         {hasVerifiedReviews(eatReviewsData) && (
@@ -1146,7 +1314,7 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
                 const peerName = peer.name || peer.ui?.name || peer.title || 'Restaurant';
                 const peerNeighborhood = peer.neighborhood || peer.ui?.neighborhood || peer.district || 'Medina';
                 const peerFoodStyle = peer.foodStyles?.[0] || peer.quiz?.foodStyles?.[0] || peer.cuisineTags?.[0] || peer.quiz?.cuisineTags?.[0] || 'Moroccan';
-                const peerPrice = peer.pricePerPerson ?? peer.filter?.pricePerPerson;
+                const peerMetrics = getEatPriceMetrics(peer);
                 const peerSlug = getPlaceSlugById(peerCity, 'food', peer.id) || (peerName ? peerName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') : peer.id);
                 const peerUrl = buildPlaceUrl(peerCity, 'food', peerSlug);
                 return (
@@ -1171,9 +1339,9 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
                       <h4 className="font-bold text-stone-900 text-sm group-hover:text-[#234E35] transition-colors line-clamp-1">
                         {peerName}
                       </h4>
-                      {peerPrice ? (
-                        <p className="text-[11px] text-stone-500 mt-0.5">
-                          ~{peerPrice} MAD / person
+                      {peerMetrics.avgPersonText ? (
+                        <p className="text-[11px] text-stone-500 mt-0.5 tabular-nums">
+                          {peerMetrics.avgPersonText}
                         </p>
                       ) : null}
                     </div>

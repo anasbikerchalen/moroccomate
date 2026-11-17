@@ -11,6 +11,7 @@ import EatDetailView from './EatDetailView';
 import StayDetailView from './StayDetailView';
 import ShopDetailView from './ShopDetailView';
 import ActivityDetailView from './ActivityDetailView';
+import { getEatPriceMetrics } from '../../utils/eatPrice';
 
 interface DetailViewProps {
   item: any;
@@ -135,12 +136,13 @@ export default function DetailView({ item, onBack, category }: DetailViewProps) 
   const displayRating = googleRating || rating || 0;
 
   const finalLifestyle = Array.isArray(lifestyle) ? lifestyle[0] : lifestyle;
-  const displayPrice = pricePerNight 
-    ? `${pricePerNight} MAD/night` 
-    : pricePerPerson 
-      ? `${pricePerPerson} MAD/person` 
-      : price 
-        ? `${price} MAD` 
+  const eatMetrics = pricePerPerson ? getEatPriceMetrics(item) : null;
+  const displayPrice = pricePerNight
+    ? `${pricePerNight} MAD/night`
+    : eatMetrics?.perPersonRangeText
+      ? `${eatMetrics.perPersonRangeText}/person`
+      : price
+        ? `${price} MAD`
         : null;
 
   // Compile feature pills from booleans

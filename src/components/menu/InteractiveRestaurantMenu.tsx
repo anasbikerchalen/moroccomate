@@ -1,5 +1,4 @@
-import React, { useState, useMemo } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import React, { useState, useMemo, useEffect, useRef } from 'react';
 import {
   UtensilsCrossed,
   Search,
@@ -9,7 +8,8 @@ import {
   ExternalLink,
   Languages,
   LayoutList,
-  X
+  ChevronDown,
+  X,
 } from 'lucide-react';
 import MenuItemCard from './MenuItemCard';
 import ClassicalMenuBooklet from './ClassicalMenuBooklet';
@@ -17,7 +17,13 @@ import MoroccanGlossaryModal from './MoroccanGlossaryModal';
 import MenuReservationModal from './MenuReservationModal';
 import TastingSelectionBar from './TastingSelectionBar';
 import { useTastingStore, type CurrencyCode } from '../../state/tastingStore';
-import { MENU_LANGUAGES } from '../../data/menuTranslations';
+import {
+  MENU_LANGUAGES,
+  getLocalizedSectionTitle,
+  getLocalizedSectionDescription,
+  type MenuLanguage,
+} from '../../data/menuTranslations';
+import { useAppLanguage } from '../../utils/localeRouting';
 import type { EatMenu, MenuItem } from '../../listings/types';
 import type { MoroccanDishGlossaryEntry } from '../../data/culinaryGlossary';
 
@@ -55,7 +61,6 @@ export default function InteractiveRestaurantMenu({
   restaurantId,
   restaurantName,
   city,
-  primaryCuisine = 'Moroccan',
   reservationContact = '',
   whatsappNumber = '',
   bookingUrl = '',
@@ -69,7 +74,11 @@ export default function InteractiveRestaurantMenu({
   highlightedDishes = [],
 }: InteractiveRestaurantMenuProps) {
   const { currency, setCurrency, menuLanguage, setMenuLanguage } = useTastingStore();
-  const [viewMode, setViewMode] = useState<'booklet' | 'list'>('booklet');
+  const routeLang = useAppLanguage();
+  const hasManualLangRef = useRef(false);
+
+  // Default to 'accordion' so ALL menu sections & dishes render inline in HTML DOM
+  const [viewMode, setViewMode] = useState<'accordion' | 'booklet'>('accordion');
   const [activeCategory, setActiveCategory] = useState<string>('all');
   const [dietaryFilter, setDietaryFilter] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
@@ -79,6 +88,37 @@ export default function InteractiveRestaurantMenu({
   const sections = menu?.sections || [];
   const hasSections = sections.length > 0;
 
+  // All sections start expanded so visitors & search engines read every item inline
+  const [collapsedIds, setCollapsedIds] = useState<Set<string>>(() => new Set());
+
+  // Sync menu language with route language when navigating (/en -> en, /es -> es, /de -> de, /ar -> ar)
+  useEffect(() => {
+    if (hasManualLangRef.current) return;
+    const mapped: MenuLanguage =
+      routeLang === 'es' || routeLang === 'de' || routeLang === 'ar' ? routeLang : 'en';
+    if (menuLanguage !== mapped) {
+      setMenuLanguage(mapped);
+    }
+  }, [routeLang, menuLanguage, setMenuLanguage]);
+
+  // Reset collapsed accordion sections when switching restaurants
+  useEffect(() => {
+    setCollapsedIds(new Set());
+    setActiveCategory('all');
+  }, [restaurantId]);
+
+  const toggleSectionOpen = (sectionId: string) => {
+    setCollapsedIds((prev) => {
+      const next = new Set(prev);
+      if (next.has(sectionId)) next.delete(sectionId);
+      else next.add(sectionId);
+      return next;
+    });
+  };
+
+  const expandAll = () => setCollapsedIds(new Set());
+  const collapseAll = () => setCollapsedIds(new Set(sections.map((s) => s.id)));
+
   // Count how many dishes are marked as signature or in the recommended plates list
   const recommendedCount = useMemo(() => {
     return sections.reduce((acc, sec) => {
@@ -86,11 +126,14 @@ export default function InteractiveRestaurantMenu({
     }, 0);
   }, [sections, highlightedDishes]);
 
-  // For booklet view: retain all sections (filtered by dietary and search query)
-  // so the diner can freely flip through the entire booklet
+  // Total dish count across all sections
+  const totalDishCount = useMemo(() => {
+    return sections.reduce((acc, s) => acc + s.items.length, 0);
+  }, [sections]);
+
+  // Booklet filtered sections
   const bookletSections = useMemo(() => {
     if (!hasSections) return [];
-
     return sections
       .map((section) => {
         const filteredItems = section.items.filter((item) => {
@@ -101,35 +144,34 @@ export default function InteractiveRestaurantMenu({
 
           if (searchQuery.trim()) {
             const q = searchQuery.toLowerCase();
-            const matchesName = item.name.toLowerCase().includes(q);
-            const matchesDesc = (item.description || '').toLowerCase().includes(q);
+            const matchesName = item.name.toLowerCase().includes(q) || (item.nameEn || '').toLowerCase().includes(q);
+            const matchesDesc =
+              (item.description || '').toLowerCase().includes(q) ||
+              (item.translations?.en || '').toLowerCase().includes(q);
             const matchesLocal = (item.localName || '').toLowerCase().includes(q);
             if (!matchesName && !matchesDesc && !matchesLocal) return false;
           }
-
           return true;
         });
-
         if (filteredItems.length === 0) return null;
-
         return {
           ...section,
+          title: getLocalizedSectionTitle(section, menuLanguage),
+          description: getLocalizedSectionDescription(section, menuLanguage),
           items: filteredItems,
         };
       })
       .filter(Boolean) as typeof sections;
-  }, [sections, dietaryFilter, searchQuery, hasSections, highlightedDishes]);
+  }, [sections, dietaryFilter, searchQuery, hasSections, highlightedDishes, menuLanguage]);
 
-  // Filter items based on active category, dietary preference, and search term (for list view)
+  // Inline Accordion filtered sections
   const filteredSections = useMemo(() => {
     if (!hasSections) return [];
-
     return sections
       .map((section) => {
         if (activeCategory !== 'all' && section.id !== activeCategory) {
           return null;
         }
-
         const filteredItems = section.items.filter((item) => {
           if (dietaryFilter === 'signature' && !isDishHighlighted(item, highlightedDishes)) return false;
           if (dietaryFilter === 'vegetarian' && !item.dietary?.includes('vegetarian')) return false;
@@ -138,17 +180,16 @@ export default function InteractiveRestaurantMenu({
 
           if (searchQuery.trim()) {
             const q = searchQuery.toLowerCase();
-            const matchesName = item.name.toLowerCase().includes(q);
-            const matchesDesc = (item.description || '').toLowerCase().includes(q);
+            const matchesName = item.name.toLowerCase().includes(q) || (item.nameEn || '').toLowerCase().includes(q);
+            const matchesDesc =
+              (item.description || '').toLowerCase().includes(q) ||
+              (item.translations?.en || '').toLowerCase().includes(q);
             const matchesLocal = (item.localName || '').toLowerCase().includes(q);
             if (!matchesName && !matchesDesc && !matchesLocal) return false;
           }
-
           return true;
         });
-
         if (filteredItems.length === 0) return null;
-
         return {
           ...section,
           items: filteredItems,
@@ -165,7 +206,7 @@ export default function InteractiveRestaurantMenu({
           <div className="flex items-center gap-2 mb-1.5 flex-wrap">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-extrabold uppercase tracking-wider bg-amber-500/15 text-[#C2613C] border border-amber-500/25">
               <UtensilsCrossed className="w-3.5 h-3.5" />
-              Verified Menu & Prices
+              Verified Menu &amp; Prices
             </span>
             {recommendedCount > 0 && (
               <button
@@ -188,15 +229,15 @@ export default function InteractiveRestaurantMenu({
             )}
           </div>
           <h2 className="font-serif text-2xl sm:text-3xl font-extrabold text-stone-900 tracking-tight">
-            {restaurantName} Menu & Prices
+            {restaurantName} Menu &amp; Prices
           </h2>
           <p className="text-xs sm:text-sm text-stone-600 font-medium mt-1">
-            Prices in local Moroccan Dirhams (MAD). Highly recommended plates are highlighted with <span className="font-bold text-[#C2613C]">★ Recommended</span>. Tap <span className="font-bold text-[#D4863A]">(+)</span> on any dish to save to your personal tasting selection.
+            All {totalDishCount} dishes listed inline with verified Moroccan Dirham (MAD) prices. Signature favorites are marked <span className="font-bold text-[#C2613C]">★ Recommended</span>. Tap <span className="font-bold text-[#D4863A]">(+)</span> to build your tasting list.
           </p>
         </div>
       )}
 
-      {/* Sleek inline control bar: Search + Category + Currency */}
+      {/* Sleek inline control bar: Search + View Mode + Language + Currency + Dietary */}
       <div className="space-y-3 mb-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-2">
           {/* Quick Search */}
@@ -211,6 +252,7 @@ export default function InteractiveRestaurantMenu({
             />
             {searchQuery && (
               <button
+                type="button"
                 onClick={() => setSearchQuery('')}
                 aria-label="Clear filter"
                 className="absolute right-2.5 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-600 p-0.5 cursor-pointer"
@@ -220,10 +262,23 @@ export default function InteractiveRestaurantMenu({
             )}
           </div>
 
-          {/* Controls: Translation Language, Currency, View Mode & Dietary filters */}
+          {/* Controls */}
           <div className="flex items-center gap-2 self-start sm:self-auto flex-wrap">
-            {/* View Mode Switcher: Classical Booklet vs Modern List */}
+            {/* View Mode Switcher: Full Accordion (default) vs Classical Booklet */}
             <div className="flex items-center bg-stone-100/90 p-0.5 rounded-full border border-stone-200/60 shadow-2xs">
+              <button
+                type="button"
+                onClick={() => setViewMode('accordion')}
+                title="Full expandable menu list view"
+                className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold transition-all cursor-pointer ${
+                  viewMode === 'accordion'
+                    ? 'bg-stone-900 text-white shadow-2xs'
+                    : 'text-stone-600 hover:text-stone-900'
+                }`}
+              >
+                <LayoutList className="w-3 h-3" />
+                <span>Full Menu</span>
+              </button>
               <button
                 type="button"
                 onClick={() => setViewMode('booklet')}
@@ -237,35 +292,28 @@ export default function InteractiveRestaurantMenu({
                 <BookOpen className="w-3 h-3 text-amber-400" />
                 <span>Booklet</span>
               </button>
-              <button
-                type="button"
-                onClick={() => setViewMode('list')}
-                title="Modern vertical list view"
-                className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold transition-all cursor-pointer ${
-                  viewMode === 'list'
-                    ? 'bg-stone-900 text-white shadow-2xs'
-                    : 'text-stone-600 hover:text-stone-900'
-                }`}
-              >
-                <LayoutList className="w-3 h-3" />
-                <span>List</span>
-              </button>
             </div>
 
             {/* Translation Language Selector */}
             <div className="flex items-center gap-1 bg-stone-100/90 p-0.5 rounded-full border border-stone-200/60 shadow-2xs">
               <span className="text-[10px] font-bold text-stone-500 pl-2 pr-0.5 flex items-center gap-1">
                 <Languages className="w-3 h-3 text-rose-600" />
-                <span className="hidden md:inline text-[9px] uppercase tracking-wider text-stone-400">Translate:</span>
+                <span className="hidden md:inline text-[9px] uppercase tracking-wider text-stone-400">Lang:</span>
               </span>
               {MENU_LANGUAGES.map((lang) => (
                 <button
                   key={lang.code}
-                  onClick={() => setMenuLanguage(lang.code)}
-                  title={`View red dish translations in ${lang.label}`}
+                  type="button"
+                  onClick={() => {
+                    hasManualLangRef.current = true;
+                    setMenuLanguage(lang.code);
+                  }}
+                  title={`Display dish descriptions in ${lang.label}`}
                   className={`px-2 py-0.5 rounded-full text-[11px] font-bold transition-all cursor-pointer ${
                     menuLanguage === lang.code
-                      ? 'bg-rose-600 text-white shadow-2xs'
+                      ? lang.code === 'en'
+                        ? 'bg-stone-900 text-white shadow-2xs'
+                        : 'bg-rose-600 text-white shadow-2xs'
                       : 'text-stone-600 hover:text-stone-900'
                   }`}
                 >
@@ -279,6 +327,7 @@ export default function InteractiveRestaurantMenu({
               {(['MAD', 'EUR', 'USD'] as CurrencyCode[]).map((c) => (
                 <button
                   key={c}
+                  type="button"
                   onClick={() => setCurrency(c)}
                   className={`px-2 py-0.5 rounded-full text-[10px] font-mono font-bold transition-all cursor-pointer ${
                     currency === c
@@ -303,6 +352,7 @@ export default function InteractiveRestaurantMenu({
               ].map((pill) => (
                 <button
                   key={pill.id}
+                  type="button"
                   onClick={() => setDietaryFilter(pill.id)}
                   className={`px-2 py-0.5 rounded-full text-[10px] font-semibold transition-all cursor-pointer ${
                     dietaryFilter === pill.id
@@ -317,32 +367,47 @@ export default function InteractiveRestaurantMenu({
           </div>
         </div>
 
-        {/* Minimalist category tab bar (shown in list view) */}
-        {hasSections && viewMode === 'list' && (
-          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none border-b border-stone-100">
-            <button
-              onClick={() => setActiveCategory('all')}
-              className={`px-3 py-1 rounded-full text-xs font-semibold shrink-0 transition-all cursor-pointer ${
-                activeCategory === 'all'
-                  ? 'bg-stone-900 text-white'
-                  : 'text-stone-600 hover:bg-stone-100'
-              }`}
-            >
-              All Items ({sections.reduce((acc, s) => acc + s.items.length, 0)})
-            </button>
-            {sections.map((sec) => (
+        {/* Section Jump Pills + Expand/Collapse All (shown in Full Menu accordion view) */}
+        {hasSections && viewMode === 'accordion' && (
+          <div className="flex items-center justify-between gap-2 pb-1.5 border-b border-stone-200/70">
+            <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none">
               <button
-                key={sec.id}
-                onClick={() => setActiveCategory(sec.id)}
+                type="button"
+                onClick={() => setActiveCategory('all')}
                 className={`px-3 py-1 rounded-full text-xs font-semibold shrink-0 transition-all cursor-pointer ${
-                  activeCategory === sec.id
+                  activeCategory === 'all'
                     ? 'bg-stone-900 text-white'
                     : 'text-stone-600 hover:bg-stone-100'
                 }`}
               >
-                {sec.title}
+                All Sections ({totalDishCount})
               </button>
-            ))}
+              {sections.map((sec) => (
+                <button
+                  key={sec.id}
+                  type="button"
+                  onClick={() => setActiveCategory(sec.id)}
+                  className={`px-3 py-1 rounded-full text-xs font-semibold shrink-0 transition-all cursor-pointer ${
+                    activeCategory === sec.id
+                      ? 'bg-stone-900 text-white'
+                      : 'text-stone-600 hover:bg-stone-100'
+                  }`}
+                >
+                  {getLocalizedSectionTitle(sec, menuLanguage)} ({sec.items.length})
+                </button>
+              ))}
+            </div>
+            {sections.length > 1 && (
+              <div className="hidden sm:flex items-center gap-2 shrink-0 text-[11px] font-semibold text-stone-500">
+                <button
+                  type="button"
+                  onClick={collapsedIds.size > 0 ? expandAll : collapseAll}
+                  className="hover:text-stone-900 underline-offset-2 hover:underline cursor-pointer"
+                >
+                  {collapsedIds.size > 0 ? 'Expand all' : 'Collapse all'}
+                </button>
+              </div>
+            )}
           </div>
         )}
       </div>
@@ -374,38 +439,66 @@ export default function InteractiveRestaurantMenu({
             </div>
           )
         ) : (
-          <div className="space-y-10">
+          <div className="space-y-4">
             {filteredSections.length > 0 ? (
-              filteredSections.map((section) => (
-                <div key={section.id} className="space-y-1">
-                  {/* Editorial Section Header */}
-                  <div className="flex items-baseline justify-between pt-2 pb-1 border-b-2 border-stone-800">
-                    <h3 className="font-serif text-lg sm:text-xl font-bold tracking-tight text-stone-900 uppercase">
-                      {section.title}
-                    </h3>
-                    {section.description && (
-                      <span className="text-xs text-stone-500 italic hidden sm:inline">
-                        {section.description}
-                      </span>
-                    )}
-                  </div>
-
-                  {/* Printed Menu Style Item List */}
-                  <div className="divide-y-0">
-                    {section.items.map((dish) => (
-                      <MenuItemCard
-                        key={dish.id}
-                        dish={dish}
-                        placeId={restaurantId}
-                        placeName={restaurantName}
-                        city={city}
-                        highlightedDishes={highlightedDishes}
-                        onOpenGlossary={setGlossaryEntry}
+              filteredSections.map((section) => {
+                const isOpen = !collapsedIds.has(section.id);
+                const sectionTitle = getLocalizedSectionTitle(section, menuLanguage);
+                const sectionDesc = getLocalizedSectionDescription(section, menuLanguage);
+                return (
+                  <div
+                    key={section.id}
+                    id={`menu-section-${section.id}`}
+                    className="rounded-2xl border border-[#E8DFCF] bg-[#FDFBF7]/75 overflow-hidden"
+                  >
+                    {/* Collapsible Section Header */}
+                    <button
+                      type="button"
+                      onClick={() => toggleSectionOpen(section.id)}
+                      aria-expanded={isOpen}
+                      className="w-full flex items-center justify-between gap-3 px-4 sm:px-5 py-3.5 text-left bg-[#FAF6EE]/80 hover:bg-[#F5EFE2] transition-colors cursor-pointer border-b border-[#E8DFCF]/70"
+                    >
+                      <div className="min-w-0">
+                        <div className="flex items-center gap-2.5 flex-wrap">
+                          <h3 className="font-serif text-base sm:text-lg font-bold tracking-tight text-stone-900">
+                            {sectionTitle}
+                          </h3>
+                          <span className="text-[11px] font-semibold text-stone-500 tabular-nums">
+                            ({section.items.length} {section.items.length === 1 ? 'item' : 'items'})
+                          </span>
+                        </div>
+                        {sectionDesc && (
+                          <p className="text-xs text-stone-600 mt-0.5 line-clamp-2">
+                            {sectionDesc}
+                          </p>
+                        )}
+                      </div>
+                      <ChevronDown
+                        className={`w-4 h-4 text-stone-500 shrink-0 transition-transform duration-200 ${
+                          isOpen ? 'rotate-180' : ''
+                        }`}
                       />
-                    ))}
+                    </button>
+
+                    {/* Dishes always remain mounted in DOM for instant search/crawlability, hidden visually when collapsed */}
+                    <div className={isOpen ? 'px-4 sm:px-5 py-1.5 bg-white' : 'hidden'}>
+                      <div className="divide-y-0">
+                        {section.items.map((dish) => (
+                          <MenuItemCard
+                            key={dish.id}
+                            dish={dish}
+                            placeId={restaurantId}
+                            placeName={restaurantName}
+                            city={city}
+                            highlightedDishes={highlightedDishes}
+                            onOpenGlossary={setGlossaryEntry}
+                          />
+                        ))}
+                      </div>
+                    </div>
                   </div>
-                </div>
-              ))
+                );
+              })
             ) : (
               <div className="py-12 text-center text-stone-500 text-xs">
                 <p>No dishes found matching your current filter.</p>
@@ -449,6 +542,7 @@ export default function InteractiveRestaurantMenu({
               </a>
             )}
             <button
+              type="button"
               onClick={() => setIsReservationOpen(true)}
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-stone-100 text-stone-800 text-xs font-semibold hover:bg-stone-200 transition-colors cursor-pointer"
             >

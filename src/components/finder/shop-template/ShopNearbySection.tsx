@@ -262,7 +262,7 @@ export const ShopNearbySection: React.FC<ShopNearbySectionProps> = ({
                         textAnchor="middle"
                         className="text-[10px] fill-[#786b5b] font-medium select-none"
                       >
-                        {place.walking_minutes} min
+                        {place.travel_time_minutes ?? place.walking_minutes} min {place.travel_mode === 'drive' || place.walking_minutes > 35 ? 'drive' : 'walk'}
                       </text>
                     </g>
                   </g>
@@ -302,9 +302,9 @@ export const ShopNearbySection: React.FC<ShopNearbySectionProps> = ({
                   </span>
                 </div>
 
-                {/* Walking Time */}
-                <span className="text-xs sm:text-sm font-medium text-[#7a6a57] whitespace-nowrap">
-                  {place.walking_minutes} min
+                {/* Travel Time */}
+                <span className="text-xs sm:text-sm font-medium text-[#7a6a57] whitespace-nowrap tabular-nums">
+                  {place.travel_time_minutes ?? place.walking_minutes} min {place.travel_mode === 'drive' || place.walking_minutes > 35 ? 'drive' : 'walk'}
                 </span>
               </div>
             );

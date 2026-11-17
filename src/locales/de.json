@@ -189,7 +189,37 @@
     "thingsToDo": "Aktivitäten",
     "exploreAllShops": "Alle Läden in Marrakesch entdecken →",
     "exploreAllActivities": "Alle Aktivitäten entdecken →",
-    "popularGuidesHeading": "Beliebte Suchen & Themen-Guides"
+    "popularGuidesHeading": "Beliebte Suchen & Themen-Guides",
+    "searchPlaceholder": "Restaurants, Riads, Sehenswürdigkeiten oder Städte suchen...",
+    "searchEmpty": "Keine geprüften Orte oder Guides für „{{query}}“ gefunden.",
+    "searchKinds": {
+      "city": "Reiseziel",
+      "food": "Essen",
+      "sleep": "Unterkunft",
+      "shopping": "Shopping",
+      "things": "Aktivitäten",
+      "guide": "Guide"
+    },
+    "trustStrip": {
+      "heading": "Warum Reisende zuerst Moroccan Mate prüfen",
+      "items": [
+        {
+          "kicker": "Geprüfte Sorgen",
+          "title": "Ehrliche Antworten vorab",
+          "body": "Abzocke, Wasserqualität, Festpreis vs. Handeln, Kleiderordnung und Lautstärke je Ort geprüft."
+        },
+        {
+          "kicker": "Echte MAD-Preise",
+          "title": "Aktuelle Speisekarten & Tickets",
+          "body": "Echte Gerichte in marokkanischen Dirham, offizielle Eintrittspreise und faire Preisrichtwerte."
+        },
+        {
+          "kicker": "31 Reiseziele",
+          "title": "Präzise Gehzeiten vor Ort",
+          "body": "Königsstädte, Surfspots und Wüstentore mit exakten GPS-Entfernungen zu wichtigen Punkten."
+        }
+      ]
+    }
   },
   "finder": {
     "title": "Finder",
@@ -293,32 +323,62 @@
       "culture": {
         "label": "Kultur & Erbe",
         "description": "Paläste, Museen, Spaziergänge durch die Medina und Jahrhunderte lebendiger Geschichte.",
-        "keywords": ["Paläste", "Museen", "Medina-Touren", "Traditionen"]
+        "keywords": [
+          "Paläste",
+          "Museen",
+          "Medina-Touren",
+          "Traditionen"
+        ]
       },
       "sport": {
         "label": "Sport & Aktiv",
         "description": "Fitnessstudios in der Nähe, Surfkurse, Wüsten-Quad-Touren und Bergwanderungen.",
-        "keywords": ["Fitness", "Surfen", "Wandern", "Quad-Touren"]
+        "keywords": [
+          "Fitness",
+          "Surfen",
+          "Wandern",
+          "Quad-Touren"
+        ]
       },
       "wellness": {
         "label": "Wellness & Spa",
         "description": "Traditionelle marokkanische Hammams, ruhige Yoga-Studios und entspannende Spas.",
-        "keywords": ["Hammams", "Yoga", "Massagen", "Retreats"]
+        "keywords": [
+          "Hammams",
+          "Yoga",
+          "Massagen",
+          "Retreats"
+        ]
       },
       "desert-nature": {
         "label": "Wüste & Natur",
         "description": "Kamelritte, Sternenhimmel über der Sahara und Bergoasen.",
-        "keywords": ["Kamelritte", "Sanddünen", "Oasen", "Täler"]
+        "keywords": [
+          "Kamelritte",
+          "Sanddünen",
+          "Oasen",
+          "Täler"
+        ]
       },
       "photography": {
         "label": "Fotospots",
         "description": "Malerische Ausblicke, versteckte Türen, Zellige-Details und Sonnenuntergänge.",
-        "keywords": ["Golden Hour", "Dachterrassen", "Türen", "Handwerk"]
+        "keywords": [
+          "Golden Hour",
+          "Dachterrassen",
+          "Türen",
+          "Handwerk"
+        ]
       },
       "social": {
         "label": "Gesellig & Ausgehen",
         "description": "Lebhafte Märkte, stilvolle Rooftop-Lounges, Livemusik und Abendstimmung.",
-        "keywords": ["Rooftops", "Souks", "Livemusik", "Abendessen"]
+        "keywords": [
+          "Rooftops",
+          "Souks",
+          "Livemusik",
+          "Abendessen"
+        ]
       }
     }
   },
@@ -335,9 +395,18 @@
     "expMeta": "Geprüfte Guides · Ausrüstung inklusive · Unvergesslich",
     "browseExpBtn": "Erlebnisse entdecken →",
     "expItems": [
-      { "icon": "🏄", "label": "Surfen, Windsurfen & Kitesurfen" },
-      { "icon": "🥾", "label": "Bergwandern & Hochtouren" },
-      { "icon": "🧗", "label": "Klettern & Klettersteige" }
+      {
+        "icon": "🏄",
+        "label": "Surfen, Windsurfen & Kitesurfen"
+      },
+      {
+        "icon": "🥾",
+        "label": "Bergwandern & Hochtouren"
+      },
+      {
+        "icon": "🧗",
+        "label": "Klettern & Klettersteige"
+      }
     ],
     "chips": {
       "gym-fitness": "Fitnessstudio",

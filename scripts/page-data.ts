@@ -33,6 +33,14 @@ import {
   type BreadcrumbItem,
   type FaqItem,
 } from '../src/data/seo/seoEngine';
+import { getEatPriceMetrics } from '../src/utils/eatPrice';
+import { getWalkingDistancePlaces, formatNearbyTravelLabel } from '../src/engine/proximityEngine';
+import {
+  getLocalizedSectionTitle,
+  getLocalizedSectionDescription,
+  getDishDisplayName,
+  getDishSecondaryText,
+} from '../src/data/menuTranslations';
 
 export { BASE_URL, DEFAULT_OG_IMAGE };
 
@@ -65,9 +73,14 @@ export interface IndexablePage {
     cons?: string[];
     tip?: string;
     openingHours?: string;
+    seasonalHoursNote?: string;
     specialties?: string[];
     lifestyle?: string;
     fullDescription?: string;
+    editorialGuide?: Array<{ heading: string; body: string }>;
+    knowBeforeYouGo?: string[];
+    nearbyDistances?: Array<{ name: string; travelLabel: string; distanceText?: string }>;
+    sampleReviews?: Array<{ author: string; rating: number; text: string }>;
     durationMinutes?: number;
     highlights?: string[];
     includedServices?: string[];
@@ -77,7 +90,11 @@ export interface IndexablePage {
     hasMenu?: boolean;
     menuUrl?: string;
     placeUrl?: string;
-    menuSections?: Array<{ title: string; items: Array<{ name: string; price: number }> }>;
+    menuSections?: Array<{
+      title: string;
+      description?: string;
+      items: Array<{ name: string; description?: string; price: number }>;
+    }>;
     matchedPlaces?: Array<{ name: string; url: string; rating?: number; price?: number; neighborhood?: string }>;
   };
 }
@@ -108,9 +125,12 @@ export function collectPlacePages(): IndexablePage[] {
     const label = cityLabel(city);
     const isSleep = category === 'sleep';
     const isEat = category === 'food';
+    const eatMetrics = isEat ? getEatPriceMetrics(listing) : null;
     const price = isSleep
       ? Number(listing.pricePerNight ?? 0)
-      : Number(listing.pricePerPerson ?? listing.filter?.pricePerPerson ?? 0);
+      : isEat
+        ? (eatMetrics?.avgPersonMad ?? 0)
+        : Number(listing.pricePerPerson ?? listing.filter?.pricePerPerson ?? 0);
     const rating = getListingRating(listing);
     const ownerAnswer = isSleep ? getStayOwnerAnswer(listing) : undefined;
     const basePlacePath = `/place/${city}/${category}/${slug}`;
@@ -120,6 +140,40 @@ export function collectPlacePages(): IndexablePage[] {
       (listing.ui?.openTime || listing.openTime) && (listing.ui?.closeTime || listing.closeTime)
         ? `${listing.ui?.openTime || listing.openTime} – ${listing.ui?.closeTime || listing.closeTime}`
         : undefined;
+    const seasonalHoursNote: string | undefined =
+      listing.ui?.seasonalHoursNote || listing.seasonalHoursNote;
+    const editorialGuide: Array<{ heading: string; body: string }> | undefined = Array.isArray(
+      listing.ui?.editorialGuide || listing.editorialGuide
+    )
+      ? (listing.ui?.editorialGuide || listing.editorialGuide)
+      : undefined;
+    const knowBeforeYouGo: string[] | undefined = Array.isArray(
+      listing.ui?.knowBeforeYouGo || listing.knowBeforeYouGo
+    )
+      ? (listing.ui?.knowBeforeYouGo || listing.knowBeforeYouGo)
+      : undefined;
+
+    const rawNearby = isEat || isSleep ? getWalkingDistancePlaces(listing) : [];
+    const nearbyDistances =
+      rawNearby.length > 0
+        ? rawNearby.slice(0, 6).map((p) => ({
+            name: p.name,
+            travelLabel: formatNearbyTravelLabel(p),
+            distanceText: typeof p.distance_km === 'number' ? `${p.distance_km} km` : undefined,
+          }))
+        : undefined;
+
+    const rawReviewsList = listing.reviewsData?.reviews || listing.ui?.reviewsData?.reviews || [];
+    const sampleReviews = Array.isArray(rawReviewsList)
+      ? rawReviewsList
+          .filter((r: any) => r?.text && String(r.text).trim().length >= 30)
+          .slice(0, 3)
+          .map((r: any) => ({
+            author: String(r.author || 'Traveler'),
+            rating: Number(r.rating || 5),
+            text: String(r.text).trim(),
+          }))
+      : undefined;
 
     for (const lang of ['en'] as const) {
       const seo = buildPlaceSeo({
@@ -133,6 +187,17 @@ export function collectPlacePages(): IndexablePage[] {
       });
 
       const catLabel = CATEGORY_LABELS_I18N[lang]?.[category] || PLACE_CATEGORY_LABEL[category];
+      const fullMenuSections = hasMenu
+        ? (menuData?.sections || []).map((sec: any) => ({
+            title: getLocalizedSectionTitle(sec, lang),
+            description: getLocalizedSectionDescription(sec, lang),
+            items: (sec.items || []).map((it: any) => ({
+              name: getDishDisplayName(it, lang),
+              description: getDishSecondaryText(it, lang),
+              price: Number(it.price || 0),
+            })),
+          }))
+        : undefined;
 
       pages.push({
         path: localizePath(basePlacePath, lang),
@@ -153,9 +218,15 @@ export function collectPlacePages(): IndexablePage[] {
           category: catLabel,
           neighborhood: listing.ui?.neighborhood || listing.neighborhood,
           price: price > 0 ? price : undefined,
+          priceRangeText: isEat && eatMetrics?.perPersonRangeText
+            ? `${eatMetrics.perPersonRangeText} / person`
+            : undefined,
           rating: rating?.averageRating,
           reviewCount: rating?.totalReviews,
-          address: listing.ui?.address || listing.address,
+          address:
+            listing.ui?.exactAddressAndCoordinates?.address ||
+            listing.ui?.address ||
+            listing.address,
           amenities: Array.isArray(listing.amenities) ? listing.amenities : undefined,
           cuisines: Array.isArray(listing.foodStyles)
             ? listing.foodStyles
@@ -169,8 +240,14 @@ export function collectPlacePages(): IndexablePage[] {
               : undefined,
           tip: listing.tip || listing.ui?.tip,
           openingHours: openingHoursStr,
+          seasonalHoursNote,
+          editorialGuide,
+          knowBeforeYouGo,
+          nearbyDistances,
+          sampleReviews,
           hasMenu,
           menuUrl: hasMenu ? localizePath(`${basePlacePath}/menu`, lang) : undefined,
+          menuSections: fullMenuSections,
         },
       });
 
@@ -183,14 +260,6 @@ export function collectPlacePages(): IndexablePage[] {
           slug,
           lang,
         });
-
-        const menuSectionsSummary = (menuData?.sections || []).slice(0, 6).map((sec: any) => ({
-          title: String(sec.title || ''),
-          items: (sec.items || []).slice(0, 8).map((it: any) => ({
-            name: String(it.name || ''),
-            price: Number(it.price || 0),
-          })),
-        }));
 
         pages.push({
           path: localizePath(baseMenuPath, lang),
@@ -214,7 +283,10 @@ export function collectPlacePages(): IndexablePage[] {
             priceRangeText: menuSeo.priceRangeText,
             rating: rating?.averageRating,
             reviewCount: rating?.totalReviews,
-            address: listing.ui?.address || listing.address,
+            address:
+              listing.ui?.exactAddressAndCoordinates?.address ||
+              listing.ui?.address ||
+              listing.address,
             cuisines: Array.isArray(listing.foodStyles)
               ? listing.foodStyles
               : Array.isArray(listing.quiz?.foodStyles)
@@ -226,8 +298,9 @@ export function collectPlacePages(): IndexablePage[] {
                 ? listing.ui.bestDishes
                 : undefined,
             openingHours: openingHoursStr,
+            seasonalHoursNote,
             placeUrl: localizePath(basePlacePath, lang),
-            menuSections: menuSectionsSummary,
+            menuSections: fullMenuSections,
           },
         });
       }
@@ -280,6 +353,7 @@ export function collectThingsPages(): IndexablePage[] {
         image: seo.image,
         jsonLd: seo.jsonLd,
         breadcrumbs: seo.breadcrumbs,
+        faq: seo.faq,
         h1: seo.h1,
         meta: {
           city: label,
@@ -358,7 +432,11 @@ export function collectStaticPages(): IndexablePage[] {
           for (const [s, l] of index.bySlug.entries()) {
             const r = getListingRating(l);
             const isSleep = normCat === 'sleep';
-            const price = isSleep ? (l.pricePerNight ?? 0) : (l.pricePerPerson ?? (l.filter?.pricePerPerson ?? 0));
+            const price = isSleep
+              ? (l.pricePerNight ?? 0)
+              : normCat === 'food'
+                ? getEatPriceMetrics(l).avgPersonMad
+                : 0;
             matchedPlaces.push({
               name: l.name || l.title || 'Place',
               url: `/place/${cityKey}/${normCat}/${s}`,
@@ -431,11 +509,17 @@ export function collectSearchIntentPages(): IndexablePage[] {
           for (const [s, l] of index.bySlug.entries()) {
             if (doesListingMatchIntent(l, enIntent)) {
               const r = getListingRating(l);
+              const price =
+                normCat === 'sleep'
+                  ? (l.pricePerNight ?? 0)
+                  : normCat === 'food'
+                    ? getEatPriceMetrics(l).avgPersonMad
+                    : 0;
               matchedPlaces.push({
                 name: l.name || l.title || 'Place',
                 url: `/place/${cityKey}/${normCat}/${s}`,
                 rating: r?.averageRating,
-                price: l.pricePerNight,
+                price: price > 0 ? price : undefined,
                 neighborhood: l.neighborhood,
               });
               if (matchedPlaces.length >= 8) break;

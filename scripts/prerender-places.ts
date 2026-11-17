@@ -184,14 +184,15 @@ for (const page of pages) {
             .map(
               (sec) =>
                 `<section style="margin:24px 0;">` +
-                `<h2 style="font-size:18px;font-weight:700;color:#173042;margin:0 0 10px;">${esc(sec.title)}</h2>` +
+                `<h2 style="font-size:18px;font-weight:700;color:#173042;margin:0 0 6px;">${esc(sec.title)}</h2>` +
+                (sec.description ? `<p style="font-size:13px;color:#71685F;margin:0 0 10px;">${esc(sec.description)}</p>` : '') +
                 `<ul style="list-style:none;padding:0;margin:0;border:1px solid #E9D8C8;border-radius:12px;background:#fff;">` +
                 sec.items
                   .map(
                     (it) =>
-                      `<li style="display:flex;justify-content:space-between;padding:10px 14px;border-bottom:1px solid #F3ECE1;font-size:14px;">` +
-                      `<span>${esc(it.name)}</span>` +
-                      `<strong style="color:#8A6D1F;">${it.price > 0 ? `${it.price} MAD` : ''}</strong>` +
+                      `<li style="display:flex;justify-content:space-between;gap:12px;padding:10px 14px;border-bottom:1px solid #F3ECE1;font-size:14px;">` +
+                      `<div><span style="font-weight:600;color:#173042;">${esc(it.name)}</span>${it.description ? `<p style="margin:3px 0 0;font-size:12px;color:#66757D;">${esc(it.description)}</p>` : ''}</div>` +
+                      `<strong style="color:#8A6D1F;white-space:nowrap;">${it.price > 0 ? `${it.price} MAD` : ''}</strong>` +
                       `</li>`
                   )
                   .join('') +
@@ -246,18 +247,87 @@ for (const page of pages) {
         : '';
 
     const tipHtml = m.tip
-      ? `<div style="margin:20px 0;padding:14px 18px;border-radius:12px;background:#FFFDF9;border-left:4px solid #C9A84C;border-top:1px solid #E9D8C8;border-right:1px solid #E9D8C8;border-bottom:1px solid #E9D8C8;"><h4 style="margin:0 0 4px;font-size:13px;font-weight:700;color:#8A6D1F;text-transform:uppercase;">${esc(ui.localTipHeading)}</h4><p style="margin:0;font-size:14px;color:#29231F;line-height:1.5;">${esc(m.tip)}</p></div>`
+      ? `<div style="margin:20px 0;padding:14px 18px;border-radius:12px;background:#FFFDF9;border:1px solid #E9D8C8;"><h4 style="margin:0 0 4px;font-size:13px;font-weight:700;color:#8A6D1F;text-transform:uppercase;">${esc(ui.localTipHeading)}</h4><p style="margin:0;font-size:14px;color:#29231F;line-height:1.5;">${esc(m.tip)}</p></div>`
       : '';
+
+    const editorialHtml =
+      (m.editorialGuide && m.editorialGuide.length > 0) || (m.knowBeforeYouGo && m.knowBeforeYouGo.length > 0)
+        ? `<section style="margin:24px 0;padding:20px;border:1px solid #E9D8C8;border-radius:14px;background:#fff;">` +
+          `<h2 style="font-size:20px;font-weight:700;color:#173042;margin:0 0 14px;">${esc(ui.editorialHeading)}</h2>` +
+          (m.editorialGuide && m.editorialGuide.length > 0
+            ? m.editorialGuide
+                .map(
+                  (sub) =>
+                    `<div style="margin-bottom:14px;"><h3 style="font-size:15px;font-weight:700;color:#173042;margin:0 0 4px;">${esc(sub.heading)}</h3><p style="margin:0;font-size:14px;line-height:1.6;color:#374151;">${esc(sub.body)}</p></div>`
+                )
+                .join('')
+            : '') +
+          (m.knowBeforeYouGo && m.knowBeforeYouGo.length > 0
+            ? `<div style="margin-top:16px;padding-top:14px;border-top:1px solid #EFE6D8;"><h3 style="font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:#8A6D1F;margin:0 0 8px;">${esc(ui.knowBeforeHeading)}</h3><ul style="margin:0;padding-left:18px;font-size:14px;color:#374151;line-height:1.6;">${m.knowBeforeYouGo
+                .map((b) => `<li style="margin-bottom:4px;">${esc(b)}</li>`)
+                .join('')}</ul></div>`
+            : '') +
+          `</section>`
+        : '';
+
+    const inlineMenuHtml =
+      m.menuSections && m.menuSections.length > 0
+        ? `<section style="margin:28px 0;"><h2 style="font-size:22px;font-weight:700;color:#173042;margin:0 0 12px;">${esc(ui.menuHeading)}</h2>` +
+          m.menuSections
+            .map(
+              (sec) =>
+                `<details open style="margin-bottom:12px;border:1px solid #E9D8C8;border-radius:12px;background:#fff;">` +
+                `<summary style="padding:12px 16px;font-size:16px;font-weight:700;color:#173042;cursor:pointer;">${esc(sec.title)}</summary>` +
+                (sec.description ? `<p style="margin:0;padding:0 16px 8px;font-size:13px;color:#71685F;">${esc(sec.description)}</p>` : '') +
+                `<ul style="list-style:none;padding:0;margin:0;border-top:1px solid #F3ECE1;">` +
+                sec.items
+                  .map(
+                    (it) =>
+                      `<li style="display:flex;justify-content:space-between;gap:12px;padding:10px 16px;border-bottom:1px solid #F7F1E8;font-size:14px;">` +
+                      `<div><span style="font-weight:600;color:#173042;">${esc(it.name)}</span>${it.description ? `<p style="margin:2px 0 0;font-size:12px;color:#66757D;">${esc(it.description)}</p>` : ''}</div>` +
+                      `<strong style="color:#8A6D1F;white-space:nowrap;">${it.price > 0 ? `${it.price} MAD` : ''}</strong>` +
+                      `</li>`
+                  )
+                  .join('') +
+                `</ul></details>`
+            )
+            .join('') +
+          `</section>`
+        : '';
+
+    const nearbyHtml =
+      m.nearbyDistances && m.nearbyDistances.length > 0
+        ? `<section style="margin:24px 0;"><h3 style="font-size:15px;font-weight:700;color:#173042;margin:0 0 10px;">${esc(ui.nearbyHeading)}</h3><ul style="list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;">${m.nearbyDistances
+            .map(
+              (n) =>
+                `<li style="padding:10px 12px;border:1px solid #E9D8C8;border-radius:10px;background:#fff;font-size:13px;">` +
+                `<strong style="color:#173042;display:block;">${esc(n.name)}</strong>` +
+                `<span style="color:#8A6D1F;font-weight:600;">${esc(n.travelLabel)}${n.distanceText ? ` · ${esc(n.distanceText)}` : ''}</span>` +
+                `</li>`
+            )
+            .join('')}</ul></section>`
+        : '';
+
+    const sampleReviewsHtml =
+      m.sampleReviews && m.sampleReviews.length > 0
+        ? `<section style="margin:24px 0;"><h3 style="font-size:16px;font-weight:700;color:#173042;margin:0 0 10px;">Guest Reviews</h3><div style="display:grid;gap:10px;">${m.sampleReviews
+            .map(
+              (r) =>
+                `<article style="padding:12px 14px;border:1px solid #E9D8C8;border-radius:10px;background:#fff;font-size:13px;">` +
+                `<div style="font-weight:700;color:#173042;margin-bottom:4px;">${esc(r.author)} · ★ ${r.rating}</div>` +
+                `<p style="margin:0;color:#374151;line-height:1.5;">${esc(r.text)}</p>` +
+                `</article>`
+            )
+            .join('')}</div></section>`
+        : '';
 
     const menuCtaHtml = m.menuUrl
       ? `<p style="margin:16px 0;"><a href="${esc(m.menuUrl)}" style="display:inline-block;padding:10px 18px;border-radius:10px;background:#173042;color:#fff;font-size:13px;font-weight:700;text-decoration:none;">${esc(ui.viewMenuBtn)} &rarr;</a></p>`
       : '';
 
-    const priceLabel = m.price
-      ? page.basePath.includes('/sleep/')
-        ? ui.fromPrice(m.price)
-        : ui.avgPerson(m.price)
-      : '';
+    const priceLabel = page.basePath.includes('/sleep/')
+      ? (m.price ? ui.fromPrice(m.price) : '')
+      : (m.priceRangeText || (m.price ? ui.avgPerson(m.price) : ''));
 
     preContent =
       `<div dir="${dir}" style="max-width:880px;margin:32px auto;padding:0 24px;font-family:system-ui,-apple-system,sans-serif;color:#29231F;">` +
@@ -275,16 +345,21 @@ for (const page of pages) {
       (priceLabel ? `<span style="font-weight:700;color:#29231F;">💰 ${esc(priceLabel)}</span>` : '') +
       (m.openingHours ? `<span>🕒 ${esc(m.openingHours)}</span>` : '') +
       `</div>` +
+      (m.seasonalHoursNote ? `<p style="margin:8px 0 0;font-size:13px;color:#065F46;">${esc(m.seasonalHoursNote)}</p>` : '') +
       `</header>` +
       `<section style="margin:24px 0;font-size:16px;line-height:1.65;color:#374151;border-top:1px solid #E9D8C8;padding-top:20px;">` +
       `<p style="margin:0 0 16px;">${esc(page.description)}</p>` +
       (m.address ? `<p style="font-size:14px;color:#66757D;margin:0 0 16px;"><strong>${esc(ui.addressLabel)}:</strong> ${esc(m.address)}</p>` : '') +
       menuCtaHtml +
       `</section>` +
+      editorialHtml +
+      inlineMenuHtml +
       cuisinesHtml +
       bestDishesHtml +
       amenitiesHtml +
+      nearbyHtml +
       tipHtml +
+      sampleReviewsHtml +
       faqHtml +
       cityExploreLinks +
       `<footer style="margin-top:36px;padding-top:20px;border-top:1px solid #E9D8C8;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:#71685F;">` +
@@ -375,12 +450,29 @@ for (const page of pages) {
       `</div>`;
   }
 
+  const splashOverlay =
+    `<div style="position:fixed;inset:0;z-index:9999;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#FAF7F2;font-family:system-ui,-apple-system,sans-serif;">` +
+    `<div class="mate-splash" style="display:flex;flex-direction:column;align-items:center;">` +
+    `<img src="/logo192.png" alt="Moroccan Mate" style="width:52px;height:52px;margin-bottom:14px;object-fit:contain;" />` +
+    `<span style="font-size:13px;font-weight:700;color:#173042;letter-spacing:0.14em;text-transform:uppercase;">Moroccan Mate</span>` +
+    `</div>` +
+    `</div>`;
+
+  const rootReplacement =
+    `<div id="root" style="height: 100%;">` +
+    `<div style="height:100vh;overflow:hidden;">${preContent}</div>` +
+    `${splashOverlay}` +
+    `</div>`;
+
   let html = stripped.replace(/<html\s+lang="[^"]*"/i, `<html lang="${lang}" dir="${dir}"`);
-  const rootMatch = /<div id="root"[^>]*>[\s\S]*?<\/div>/i;
-  if (rootMatch.test(html)) {
-    html = html.replace(rootMatch, `<div id="root" style="min-height: 100%;">${preContent}</div>`);
+  const markerMatch = /<!--app-root-start-->[\s\S]*?<!--app-root-end-->/i;
+  const fallbackRootMatch = /<div id="root"[^>]*>[\s\S]*?(?=\s*<script\b)/i;
+  if (markerMatch.test(html)) {
+    html = html.replace(markerMatch, rootReplacement);
+  } else if (fallbackRootMatch.test(html)) {
+    html = html.replace(fallbackRootMatch, rootReplacement);
   } else {
-    html = html.replace('<body>', `<body>\n<div id="root">${preContent}</div>`);
+    html = html.replace('<body>', `<body>\n${rootReplacement}`);
   }
 
   html = html.replace('</head>', `    ${head}\n  </head>`);

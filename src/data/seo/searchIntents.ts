@@ -292,6 +292,75 @@ export const SLEEP_SEARCH_INTENTS: Record<string, SearchIntent> = {
   }
 };
 
+export const FOOD_SEARCH_INTENTS: Record<string, SearchIntent> = {
+  'halal-fine-dining': {
+    slug: 'halal-fine-dining',
+    label: 'Halal Fine Dining',
+    icon: '✨',
+    category: 'food',
+    matchTags: ['halal', 'halal-certified', 'fine-dining', 'fine dining', 'luxury', 'upscale'],
+    seoTitle: (city) => `Best Halal Fine Dining Restaurants in ${city}`,
+    seoDescription: (city) =>
+      `Discover verified halal fine dining restaurants in ${city}, Morocco—compare MAD menu prices, ratings, dress codes, and local tips.`,
+    headerTitle: (city) => `Halal Fine Dining Restaurants in ${city}`,
+  },
+  steakhouses: {
+    slug: 'steakhouses',
+    label: 'Steakhouses & Grill',
+    icon: '🥩',
+    category: 'food',
+    matchTags: ['steakhouse', 'steak', 'wagyu', 'grill', 'bbq', 'chophouse', 'ribeye', 'tomahawk'],
+    seoTitle: (city) => `Best Steakhouses & Grill Restaurants in ${city}`,
+    seoDescription: (city) =>
+      `Find top halal steakhouses, dry-aged cuts, wagyu dining, and wood-fired grills in ${city} with menu prices in MAD and guest reviews.`,
+    headerTitle: (city) => `Steakhouses & Grill Restaurants in ${city}`,
+  },
+  'dinner-shows-romantic': {
+    slug: 'dinner-shows-romantic',
+    label: 'Dinner Shows & Romantic',
+    icon: '🎻',
+    category: 'food',
+    matchTags: ['live-music', 'live music', 'dinner-show', 'violin', 'romantic', 'sunset', 'theatrical', 'intimate'],
+    seoTitle: (city) => `Romantic & Dinner Show Restaurants in ${city}`,
+    seoDescription: (city) =>
+      `Explore romantic evening restaurants and live-music dinner shows in ${city}—compare atmospheres, music schedules, menus, and MAD budgets.`,
+    headerTitle: (city) => `Romantic & Dinner Show Restaurants in ${city}`,
+  },
+  'breakfast-brunch': {
+    slug: 'breakfast-brunch',
+    label: 'Breakfast & Brunch',
+    icon: '☕',
+    category: 'food',
+    matchTags: ['breakfast', 'brunch', 'cafe', 'pastry', 'bakery', 'morning'],
+    seoTitle: (city) => `Best Breakfast & Brunch Spots in ${city}`,
+    seoDescription: (city) =>
+      `Wake up to top-rated Moroccan breakfasts, specialty coffee houses, and oceanfront brunch terraces in ${city} with hours and MAD menus.`,
+    headerTitle: (city) => `Breakfast & Brunch Spots in ${city}`,
+  },
+  seafood: {
+    slug: 'seafood',
+    label: 'Seafood & Oceanfront',
+    icon: '🦞',
+    category: 'food',
+    matchTags: ['seafood', 'fish', 'oysters', 'calamari', 'marina', 'oceanfront'],
+    seoTitle: (city) => `Best Seafood Restaurants in ${city}`,
+    seoDescription: (city) =>
+      `Enjoy fresh Atlantic grilled fish, seafood platters, and marina restaurants in ${city} with verified menus, prices in MAD, and hours.`,
+    headerTitle: (city) => `Seafood Restaurants in ${city}`,
+  },
+  'rooftop-dining': {
+    slug: 'rooftop-dining',
+    label: 'Rooftop & Terrace Dining',
+    icon: '🌇',
+    category: 'food',
+    matchTags: ['rooftop', 'terrace', 'panoramic', 'sea-view', 'sunset'],
+    seoTitle: (city) => `Best Rooftop Restaurants in ${city}`,
+    seoDescription: (city) =>
+      `Dine above the skyline at the finest rooftop and sunset terrace restaurants in ${city}—menus, MAD prices, and local reservations advice.`,
+    headerTitle: (city) => `Rooftop & Terrace Restaurants in ${city}`,
+  },
+};
+
 /**
  * Top high-intent search queries per city in priority order.
  * Grounded in the search volume documented in /people_search_for.md
@@ -308,6 +377,14 @@ export const CITY_SEARCH_INTENTS: Record<string, Record<string, string[]>> = {
       'kids-club',
       'swim-up-rooms',
       'nightclubs'
+    ],
+    food: [
+      'halal-fine-dining',
+      'steakhouses',
+      'dinner-shows-romantic',
+      'breakfast-brunch',
+      'seafood',
+      'rooftop-dining'
     ]
   },
   marrakech: {
@@ -321,7 +398,8 @@ export const CITY_SEARCH_INTENTS: Record<string, Record<string, string[]>> = {
       'kids-club',
       'spa',
       'swim-up-rooms'
-    ]
+    ],
+    food: ['halal-fine-dining', 'breakfast-brunch', 'rooftop-dining', 'dinner-shows-romantic']
   },
   casablanca: {
     sleep: [
@@ -331,7 +409,8 @@ export const CITY_SEARCH_INTENTS: Record<string, Record<string, string[]>> = {
       'pool',
       'rooftop-bar',
       'spa'
-    ]
+    ],
+    food: ['halal-fine-dining', 'breakfast-brunch', 'seafood', 'rooftop-dining']
   },
   fes: {
     sleep: [
@@ -342,7 +421,8 @@ export const CITY_SEARCH_INTENTS: Record<string, Record<string, string[]>> = {
       'spa',
       'heated-pools',
       'airport-shuttle'
-    ]
+    ],
+    food: ['halal-fine-dining', 'breakfast-brunch', 'rooftop-dining']
   },
   essaouira: {
     sleep: [
@@ -354,7 +434,8 @@ export const CITY_SEARCH_INTENTS: Record<string, Record<string, string[]>> = {
       'in-medina',
       'spa',
       '5-star'
-    ]
+    ],
+    food: ['seafood', 'breakfast-brunch', 'rooftop-dining']
   },
   tangier: {
     sleep: [
@@ -366,7 +447,8 @@ export const CITY_SEARCH_INTENTS: Record<string, Record<string, string[]>> = {
       'rooftop-terrace',
       'in-medina',
       'airport-shuttle'
-    ]
+    ],
+    food: ['halal-fine-dining', 'breakfast-brunch', 'seafood', 'rooftop-dining']
   },
   chefchaouen: {
     sleep: [
@@ -430,20 +512,22 @@ import type { AppLanguage } from '../../utils/localeRouting';
  * Resolves a search intent for a given category & slug
  */
 export function getSearchIntent(category: string, slug: string, lang: AppLanguage = 'en'): SearchIntent | undefined {
+  let base: SearchIntent | undefined;
   if (category === 'sleep' || category === 'stay') {
-    const base = SLEEP_SEARCH_INTENTS[slug];
-    if (!base) return undefined;
-    const tr = getSearchIntentTranslation(slug, lang);
-    if (!tr) return base;
-    return {
-      ...base,
-      label: tr.label,
-      seoTitle: tr.seoTitle,
-      seoDescription: tr.seoDescription,
-      headerTitle: tr.headerTitle,
-    };
+    base = SLEEP_SEARCH_INTENTS[slug];
+  } else if (category === 'food' || category === 'eat') {
+    base = FOOD_SEARCH_INTENTS[slug];
   }
-  return undefined;
+  if (!base) return undefined;
+  const tr = getSearchIntentTranslation(slug, lang);
+  if (!tr) return base;
+  return {
+    ...base,
+    label: tr.label,
+    seoTitle: tr.seoTitle,
+    seoDescription: tr.seoDescription,
+    headerTitle: tr.headerTitle,
+  };
 }
 
 /**
@@ -451,10 +535,19 @@ export function getSearchIntent(category: string, slug: string, lang: AppLanguag
  */
 export function getCityPopularIntents(cityId: string, category: string, lang: AppLanguage = 'en'): SearchIntent[] {
   const normCity = cityId.toLowerCase();
-  const normCat = category === 'sleep' || category === 'stay' ? 'sleep' : category;
-  
+  const normCat =
+    category === 'sleep' || category === 'stay'
+      ? 'sleep'
+      : category === 'food' || category === 'eat'
+        ? 'food'
+        : category;
+
   const slugs = CITY_SEARCH_INTENTS[normCity]?.[normCat] || (
-    normCat === 'sleep' ? Object.keys(SLEEP_SEARCH_INTENTS).slice(0, 7) : []
+    normCat === 'sleep'
+      ? Object.keys(SLEEP_SEARCH_INTENTS).slice(0, 7)
+      : normCat === 'food'
+        ? Object.keys(FOOD_SEARCH_INTENTS).slice(0, 6)
+        : []
   );
 
   return slugs
@@ -467,6 +560,122 @@ export function getCityPopularIntents(cityId: string, category: string, lang: Ap
  */
 export function doesListingMatchIntent(item: any, intent: SearchIntent): boolean {
   if (!item || !intent) return false;
+
+  if (intent.category === 'food') {
+    const foodStyles: string[] = Array.isArray(item.quiz?.foodStyles)
+      ? item.quiz.foodStyles
+      : Array.isArray(item.foodStyles)
+        ? item.foodStyles
+        : [];
+    const mealTypes: string[] = Array.isArray(item.quiz?.mealTypes)
+      ? item.quiz.mealTypes
+      : Array.isArray(item.mealTypes)
+        ? item.mealTypes
+        : [];
+    const expTypes: string[] = Array.isArray(item.quiz?.experienceTypes)
+      ? item.quiz.experienceTypes
+      : Array.isArray(item.experienceTypes)
+        ? item.experienceTypes
+        : [];
+    const cuisineTags: string[] = Array.isArray(item.filter?.cuisineTags)
+      ? item.filter.cuisineTags
+      : Array.isArray(item.cuisineTags)
+        ? item.cuisineTags
+        : [];
+    const seatingTypes: string[] = Array.isArray(item.filter?.seatingTypes)
+      ? item.filter.seatingTypes
+      : Array.isArray(item.seatingTypes)
+        ? item.seatingTypes
+        : [];
+    const tags: string[] = Array.isArray(item.filter?.tags)
+      ? item.filter.tags
+      : Array.isArray(item.tags)
+        ? item.tags
+        : [];
+    const vibeTags: string[] = Array.isArray(item.vibeTags) ? item.vibeTags : [];
+    const lifestyle: string[] = Array.isArray(item.quiz?.lifestyle) ? item.quiz.lifestyle : [];
+    const isHalal = item.filter?.isHalal ?? item.isHalal;
+    const halalStatus = item.filter?.halalStatus ?? item.halalStatus;
+    const priceTier = item.filter?.priceTier ?? item.priceTier;
+    const textBlob = [
+      item.ui?.name || item.name || '',
+      item.ui?.description || item.description || '',
+      item.ui?.neighborhood || item.neighborhood || '',
+      ...(Array.isArray(item.ui?.bestDishes) ? item.ui.bestDishes : []),
+      ...foodStyles,
+      ...cuisineTags,
+      ...tags,
+      ...vibeTags,
+      ...expTypes,
+      ...seatingTypes,
+    ]
+      .join(' ')
+      .toLowerCase();
+
+    if (intent.slug === 'halal-fine-dining') {
+      const halalOk = isHalal === true || halalStatus === 'halal-certified' || lifestyle.includes('halal-dining');
+      const upscaleOk =
+        expTypes.includes('fine-dining') ||
+        priceTier === 'luxury' ||
+        priceTier === 'mid-upscale' ||
+        tags.some((t) => ['fine-dining', 'gourmet', 'upscale', 'luxury'].includes(t.toLowerCase())) ||
+        textBlob.includes('fine dining');
+      return Boolean(halalOk && upscaleOk);
+    }
+
+    if (intent.slug === 'steakhouses') {
+      return (
+        textBlob.includes('steak') ||
+        textBlob.includes('wagyu') ||
+        textBlob.includes('ribeye') ||
+        textBlob.includes('tomahawk') ||
+        textBlob.includes('entrecote') ||
+        textBlob.includes('entrecôte') ||
+        textBlob.includes('grill') ||
+        tags.some((t) => ['steakhouse', 'grill', 'steak'].includes(t.toLowerCase()))
+      );
+    }
+
+    if (intent.slug === 'dinner-shows-romantic') {
+      const liveEntertainment =
+        item.filter?.hasLiveEntertainment ||
+        tags.some((t) => ['live-music', 'dinner-show', 'romantic', 'violin', 'sunset', 'theatrical'].includes(t.toLowerCase())) ||
+        vibeTags.some((v) => ['romantic', 'theatrical', 'intimate', 'energetic'].includes(v.toLowerCase())) ||
+        expTypes.some((e) => ['romantic', 'theatrical'].includes(e.toLowerCase()));
+      return Boolean(liveEntertainment || textBlob.includes('live music') || textBlob.includes('violin') || textBlob.includes('romantic') || textBlob.includes('dinner show'));
+    }
+
+    if (intent.slug === 'breakfast-brunch') {
+      return (
+        mealTypes.some((m) => ['breakfast', 'brunch'].includes(m.toLowerCase())) ||
+        expTypes.some((e) => ['cafe'].includes(e.toLowerCase())) ||
+        tags.some((t) => ['breakfast', 'brunch'].includes(t.toLowerCase())) ||
+        textBlob.includes('breakfast') ||
+        textBlob.includes('brunch')
+      );
+    }
+
+    if (intent.slug === 'seafood') {
+      return (
+        foodStyles.some((f) => f.toLowerCase().includes('seafood')) ||
+        cuisineTags.some((c) => c.toLowerCase().includes('seafood')) ||
+        tags.some((t) => t.toLowerCase().includes('seafood')) ||
+        textBlob.includes('seafood') ||
+        textBlob.includes('calamari') ||
+        textBlob.includes('oyster')
+      );
+    }
+
+    if (intent.slug === 'rooftop-dining') {
+      return (
+        expTypes.some((e) => ['rooftop', 'beachfront'].includes(e.toLowerCase())) ||
+        seatingTypes.some((s) => ['rooftop', 'terrace', 'oceanfront'].includes(s.toLowerCase())) ||
+        tags.some((t) => ['rooftop', 'terrace', 'sea-view'].includes(t.toLowerCase())) ||
+        textBlob.includes('rooftop') ||
+        textBlob.includes('terrace')
+      );
+    }
+  }
 
   // Direct boolean amenity matching
   if (intent.slug === 'pool' && item.hasPool) return true;

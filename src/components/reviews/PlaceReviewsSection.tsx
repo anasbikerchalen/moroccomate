@@ -312,11 +312,28 @@ export const PlaceReviewsSection: React.FC<PlaceReviewsSectionProps> = ({
    * filter tags dynamically from the `tags` found inside its collected reviews.
    */
   const availableTags = useMemo(() => {
-    const set = new Set<string>();
+    const counts = new Map<string, number>();
     rawReviews.forEach((r) => {
-      (r.tags || []).forEach((t) => set.add(t));
+      (r.tags || []).forEach((t) => counts.set(t, (counts.get(t) || 0) + 1));
     });
-    return Array.from(set);
+    return Array.from(counts.entries())
+      .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+      .map(([tag, count]) => ({ tag, count }));
+  }, [rawReviews]);
+
+  const ratingBreakdown = useMemo(() => {
+    const tiers = [5, 4, 3, 2, 1].map((stars) => ({ stars, count: 0, pct: 0 }));
+    const rated = rawReviews.filter((r) => typeof r.rating === 'number' && r.rating >= 1 && r.rating <= 5);
+    if (rated.length === 0) return { tiers, totalRated: 0 };
+    for (const r of rated) {
+      const bucket = Math.min(5, Math.max(1, Math.round(r.rating!)));
+      const tier = tiers.find((t) => t.stars === bucket);
+      if (tier) tier.count += 1;
+    }
+    for (const t of tiers) {
+      t.pct = Math.round((t.count / rated.length) * 100);
+    }
+    return { tiers, totalRated: rated.length };
   }, [rawReviews]);
 
   const filteredReviews = useMemo(() => {
@@ -520,6 +537,94 @@ export const PlaceReviewsSection: React.FC<PlaceReviewsSectionProps> = ({
             </span>
           </div>
         </div>
+
+        {/* RATING DISTRIBUTION + MOST MENTIONED TOPICS */}
+        {(ratingBreakdown.totalRated > 0 || availableTags.length > 0) && (
+          <div className="mt-5 pt-5 border-t border-[#ece3d3] grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+            {ratingBreakdown.totalRated > 0 && (
+              <div className="lg:col-span-5 rounded-2xl border border-[#e5dcce] bg-white p-4">
+                <div className="flex items-center justify-between mb-2.5">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#5c554c]">
+                    Rating Breakdown
+                  </span>
+                  <span className="text-[11px] text-[#7a6f62] tabular-nums">
+                    {ratingBreakdown.totalRated} featured reviews
+                  </span>
+                </div>
+                <div className="space-y-1.5">
+                  {ratingBreakdown.tiers.map((tier) => (
+                    <div key={tier.stars} className="flex items-center gap-2.5 text-xs">
+                      <span className="w-8 font-bold text-[#142333] tabular-nums shrink-0">
+                        {tier.stars}★
+                      </span>
+                      <div className="flex-1 h-2 rounded-full bg-[#EFE8DB] overflow-hidden">
+                        <div
+                          className="h-full rounded-full bg-[#C9A84C] transition-all duration-300"
+                          style={{ width: `${tier.pct}%` }}
+                        />
+                      </div>
+                      <span className="w-10 text-right font-medium text-[#5c554c] tabular-nums shrink-0">
+                        {tier.pct}%
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {availableTags.length > 0 && (
+              <div
+                className={cn(
+                  'rounded-2xl border border-[#e5dcce] bg-white p-4',
+                  ratingBreakdown.totalRated > 0 ? 'lg:col-span-7' : 'lg:col-span-12'
+                )}
+              >
+                <div className="flex items-center justify-between mb-2.5">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#5c554c]">
+                    Most Mentioned Topics
+                  </span>
+                  {selectedTag && (
+                    <button
+                      type="button"
+                      onClick={() => setSelectedTag(null)}
+                      className="text-[11px] font-semibold text-[#8c6d37] hover:underline cursor-pointer"
+                    >
+                      Clear topic
+                    </button>
+                  )}
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {availableTags.slice(0, 8).map(({ tag, count }) => {
+                    const isTagActive = selectedTag === tag;
+                    return (
+                      <button
+                        key={`summary-${tag}`}
+                        type="button"
+                        onClick={() => setSelectedTag(isTagActive ? null : tag)}
+                        className={cn(
+                          'inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold border transition-all cursor-pointer tabular-nums',
+                          isTagActive
+                            ? 'bg-[#142333] text-white border-[#142333]'
+                            : 'bg-[#FAF7F2] text-[#29231F] border-[#E5DCCE] hover:border-[#C9A84C] hover:bg-white'
+                        )}
+                      >
+                        <span>{tag}</span>
+                        <span
+                          className={cn(
+                            'text-[10px] font-bold px-1.5 py-0.5 rounded-md',
+                            isTagActive ? 'bg-white/15 text-white' : 'bg-white text-[#6B5D4D] border border-[#E8DFCF]'
+                          )}
+                        >
+                          {count}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+          </div>
+        )}
       </div>
 
       {/* ─────────────────────────────────────────────────────────────
@@ -570,7 +675,7 @@ export const PlaceReviewsSection: React.FC<PlaceReviewsSectionProps> = ({
           {/* Dynamic place-specific topic tags */}
           {availableTags.length > 0 && (
             <div className="flex items-center gap-1.5 overflow-x-auto pb-0.5 max-w-full">
-              {availableTags.map((tag) => {
+              {availableTags.map(({ tag }) => {
                 const isTagActive = selectedTag === tag;
                 return (
                   <button

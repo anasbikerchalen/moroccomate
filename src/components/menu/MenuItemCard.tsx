@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Plus, Minus, Flame, HelpCircle, ChevronDown } from 'lucide-react';
 import { useTastingStore, formatPrice } from '../../state/tastingStore';
 import { findGlossaryEntryForDish, type MoroccanDishGlossaryEntry } from '../../data/culinaryGlossary';
-import { getDishTranslation } from '../../data/menuTranslations';
+import { getDishDisplayName, getDishSecondaryText } from '../../data/menuTranslations';
 import type { MenuItem } from '../../listings/types';
 
 interface MenuItemCardProps {
@@ -37,7 +37,8 @@ export default function MenuItemCard({
   const selected = isDishSelected(dish.id);
   const quantity = getDishQuantity(dish.id);
   const glossaryEntry = findGlossaryEntryForDish(dish.name);
-  const translationText = getDishTranslation(dish, menuLanguage);
+  const displayName = getDishDisplayName(dish, menuLanguage);
+  const secondaryText = getDishSecondaryText(dish, menuLanguage);
   const hasDetail = !!(dish.description || dish.portionNotes);
 
   const isRecommended =
@@ -102,7 +103,7 @@ export default function MenuItemCard({
                 selected ? 'text-[#C2613C]' : 'text-stone-900'
               }`}
             >
-              {dish.name}
+              {displayName}
             </h4>
             {glossaryEntry && (
               <button
@@ -117,15 +118,19 @@ export default function MenuItemCard({
             )}
           </div>
 
-          {/* Multilingual Translation: Arabic / English / Español / German (Red & Bold) */}
-          {translationText && (
+          {/* Dish subtitle: Clean neutral English by default; accent language cue when translated */}
+          {secondaryText && (
             <p
-              className={`text-xs sm:text-[13px] font-semibold text-red-600 dark:text-red-500 mt-0.5 leading-snug tracking-wide ${
-                menuLanguage === 'ar' ? 'font-arabic text-sm' : ''
-              }`}
+              className={
+                menuLanguage === 'en'
+                  ? 'text-xs sm:text-[13px] text-stone-600 mt-0.5 leading-snug'
+                  : `text-xs sm:text-[13px] font-semibold text-rose-700 mt-0.5 leading-snug tracking-wide ${
+                      menuLanguage === 'ar' ? 'font-arabic text-sm' : ''
+                    }`
+              }
               dir={menuLanguage === 'ar' ? 'rtl' : 'ltr'}
             >
-              {translationText}
+              {secondaryText}
             </p>
           )}
 

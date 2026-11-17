@@ -12,21 +12,31 @@ import { ShopLanguagesCard } from './ShopLanguagesCard';
 import { ShopShippingBanner } from './ShopShippingBanner';
 import PlaceReviewsSection from '../../reviews/PlaceReviewsSection';
 import WorriesSection from '../../worries/WorriesSection';
+import PlaceFAQSection from '../../common/PlaceFAQSection';
+import { buildPlaceFaqs, type FaqEntry } from '../../../data/seo/faqEngine';
+import { useAppLanguage } from '../../../utils/localeRouting';
 import { hasVerifiedReviews, hasVerifiedWorries } from '../listingNavUtils';
 
 interface ShopTemplateViewProps {
   shop: ShopListing;
+  faqs?: FaqEntry[];
   externalSelectedSource?: ReviewSource | null;
   onSelectedSourceChange?: (source: ReviewSource | null) => void;
 }
 
 export const ShopTemplateView: React.FC<ShopTemplateViewProps> = ({
   shop,
+  faqs,
   externalSelectedSource,
   onSelectedSourceChange,
 }) => {
+  const lang = useAppLanguage();
   const v = shop.visibility || {};
   const shopReviewsData = shop.reviewsData || (shop as any).reviews;
+  const resolvedFaqs =
+    faqs && faqs.length > 0
+      ? faqs
+      : buildPlaceFaqs({ listing: shop, category: 'shopping', cityLabel: shop.city, lang });
 
   return (
     <div className="space-y-7 pb-10">
@@ -95,6 +105,17 @@ export const ShopTemplateView: React.FC<ShopTemplateViewProps> = ({
       {/* 5. Row 4: "Shipping" (Full width) */}
       {v.show_shipping !== false && shop.shipping && shop.shipping.available && (
         <ShopShippingBanner shipping={shop.shipping} />
+      )}
+
+      {/* 5b. Frequently Asked Questions */}
+      {v.show_faq !== false && resolvedFaqs.length > 0 && (
+        <div id="shop-faq-section">
+          <PlaceFAQSection
+            faqs={resolvedFaqs}
+            placeName={shop.name}
+            subtitle="Verified answers on pricing policy, payment methods, shipping, and craft authenticity"
+          />
+        </div>
       )}
 
       {/* 6. Multi-platform Traveler Reviews & Community Intelligence */}
