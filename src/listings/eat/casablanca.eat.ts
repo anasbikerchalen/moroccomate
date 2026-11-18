@@ -2274,11 +2274,11 @@ export const casablancaEat: EatListing[] = [
   ,
     // ── 4. WORRIES ("Things You're Worried About!") ──
     worries: [
-      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
-      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
-      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
-      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
-      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "Fixed Digital Kiosk Pricing", tagColor: "money", tone: "good", description: "Transparent menu-board and digital kiosk pricing in MAD (Best Of combos ~62–83 MAD); pricier than local Moroccan street snacks, card and contactless accepted.", state: "verified" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "Standardized, Busy Rush Cleanups", tagColor: "water", tone: "caution", description: "Global chain food-safety standards, though high foot traffic during peak evenings and weekends can temporarily strain table and restroom upkeep.", state: "verified" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "100% Halal Certified Chain", tagColor: "food", tone: "good", description: "All beef and chicken served at McDonald's Morocco is 100% halal-certified; international fast-food menu rather than Moroccan dishes, completely dry.", state: "verified" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "Bustling Family Crowds", tagColor: "alert", tone: "caution", description: "Air-conditioned dining room, McCafé, and Ain Diab ocean-view terrace; expect lively crowds and queues on weekends and evenings.", state: "verified" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "Kiosks Speed Up Ordering", tagColor: "safety", tone: "good", description: "Self-order touchscreen kiosks streamline queues; peak-hour waits and occasional takeaway bag mix-ups can occur during rush periods.", state: "verified" }
     ],
     // Multi-platform reviews holder (hidden on UI until populated)
     reviewsData: { sources: [], reviews: [] },
@@ -6238,6 +6238,468 @@ export const casablancaEat: EatListing[] = [
         description: "Consistently praised across 13,000+ Google reviews for warm, professional service from 08:00 to midnight; reserve or go early on weekends.",
         state: "verified"
       }
+    ],
+    reviewsData: { sources: [], reviews: [] }
+  },
+
+  {
+    id: "eat-casablanca-crusty-bourgogne",
+    city: "casablanca",
+
+    // ── 1. QUIZ (personalization, mood & matching) ──
+    quiz: {
+      lifestyle: "lean",
+      groupTypes: ["solo", "friends", "family"],
+      mealTypes: ["lunch", "dinner", "late-night", "snack"],
+      experienceTypes: ["casual", "street-food"],
+      foodStyles: ["Grill & BBQ", "Middle Eastern", "International"],
+      cuisineTags: ["international"],
+      archetypeAffinity: ["budget"],
+      vibeTags: ["roasted-chicken", "kebsa-rice", "quick-pickup", "delivery-favorite"],
+      crowdLevel: "bustling"
+    },
+
+    // ── 2. FILTER (search criteria, dietary rules, logistics & flags) ──
+    filter: {
+      pricePerPerson: 9,
+      isHalal: true,
+      halalStatus: "halal-certified",
+      isVegetarianFriendly: false,
+      servesAlcohol: false,
+      alcoholPolicy: "dry",
+      hasDelivery: true,
+      hasParking: false,
+      nearMedina: false,
+      nearBeach: false,
+      nearCenter: false,
+      hasEnglishStaff: false,
+      hasFrenchStaff: true,
+      ramadanFriendly: "special-ftour",
+      closedDays: [],
+      seatingTypes: ["indoor"],
+      paymentMethods: ["cash", "credit_card", "visa", "mastercard"],
+      tags: [
+        "budget",
+        "lunch",
+        "dinner",
+        "late-night",
+        "halal",
+        "dry",
+        "delivery",
+        "ac",
+        "family",
+        "ramadan-friendly",
+        "wheelchair-accessible"
+      ],
+      wiFi: false,
+      airConditioning: true,
+      wheelchairAccessible: true,
+      isHiddenGem: false,
+      isTemporarilyHidden: false,
+      verificationStatus: "verified"
+    },
+
+    // ── 3. UI (presentation, stories, ratings, contacts & plates) ──
+    ui: {
+      name: "Crusty",
+      neighborhood: "Anfa",
+      district: "Bourgogne (Bd Tantan / Sijilmassi)",
+      description: "Popular Moroccan fast-casual roasted chicken house at RAFINA Résidences in Bourgogne, known for oven-roasted marinated chicken, spiced Kebsa rice bowls, chicken-pasta boxes, and late-night buzzer counter pickup.",
+      tip: "Order the Half-Chicken or Chicken & Kebsa Rice combo for generous portions at 50–85 MAD, or order via Glovo/Yassir Food until midnight.",
+      badge: "local",
+      bestDishes: [
+        "1/2 Poulet & Riz Kebsa",
+        "Kebsa Poulet",
+        "2 Pilons & Pasta",
+        "Cheesy Fries Box"
+      ],
+      pros: [
+        "Generous roasted chicken and spiced Kebsa rice combos from 35 to 115 MAD",
+        "Fast counter buzzer pickup and wide Glovo/Yassir Food delivery availability",
+        "Open daily from 11:00 to 00:00 (and up to 02:00 at sister Rabat branches)"
+      ],
+      cons: [
+        "Very limited dine-in seating; primarily geared toward takeaway and delivery",
+        "Fried items and rice combos can feel rich/oily during late-night rushes"
+      ],
+      googleRating: 4.3,
+      googleReviewCount: 320,
+      openTime: "11:00",
+      closeTime: "00:00",
+      exactAddressAndCoordinates: {
+        address: "RAFINA Résidences Bourgogne, Angle Boulevard Tantan et Avenue Mohamed Sijilmassi, Casablanca 20250, Morocco",
+        lat: 33.5988,
+        lng: -7.6464
+      },
+      googleMapsUrl: "https://maps.google.com/?q=33.5988,-7.6464",
+      reservationMethod: ["walk-in", "phone"],
+      reservationContact: "+212601526352",
+      bookingUrl: "",
+      whatsappNumber: "",
+      website: "not-available",
+      instagram: "not-available",
+      languagesSpoken: ["Arabic", "French"],
+      menu: {
+        currency: "MAD",
+        lastUpdated: "2026-11",
+        serviceChargeIncluded: true,
+        sections: [
+          {
+            id: "poulet-wings",
+            title: "Oven-Roasted Chicken & Wings",
+            description: "Signature marinated crispy/roasted chicken pieces published on Yumlo Casablanca.",
+            items: [
+              { id: "crusty-whole-chicken", name: "Poulet Entier (Whole Chicken)", description: "Full marinated oven-roasted crispy chicken.", price: 95, dietary: ["halal"] },
+              { id: "crusty-half-chicken", name: "1/2 Poulet (Half Chicken)", description: "Half marinated roasted chicken.", price: 65, isSignature: true, dietary: ["halal"] },
+              { id: "crusty-wings-3", name: "3 Ailes de Poulet (3 Chicken Wings)", description: "Three spiced crispy chicken wings.", price: 30, dietary: ["halal"] },
+              { id: "crusty-drumstick-1", name: "1 Pilon (1 Drumstick)", description: "Single marinated chicken drumstick.", price: 25, dietary: ["halal"] }
+            ]
+          },
+          {
+            id: "kebsa-rice-pasta",
+            title: "Kebsa Rice & Pasta Combos",
+            description: "Hearty chicken combos paired with spiced Kebsa rice or pasta (Yumlo / Glovo rates).",
+            items: [
+              { id: "crusty-whole-rice", name: "Poulet Entier & Riz Kebsa", description: "Whole roasted chicken served over fragrant spiced Kebsa rice.", price: 115, dietary: ["halal"] },
+              { id: "crusty-whole-pasta", name: "Poulet Entier & Pasta", description: "Whole roasted chicken with creamy seasoned pasta.", price: 115, dietary: ["halal"] },
+              { id: "crusty-half-pasta", name: "1/2 Poulet & Pasta", description: "Half roasted chicken served with pasta.", price: 90, dietary: ["halal"] },
+              { id: "crusty-half-rice", name: "1/2 Poulet & Riz Kebsa", description: "Half roasted chicken over spiced Kebsa rice.", price: 85, isSignature: true, dietary: ["halal"] },
+              { id: "crusty-filet-pasta", name: "Filet & Pasta", description: "Crispy chicken fillet served with creamy pasta.", price: 70, dietary: ["halal"] },
+              { id: "crusty-2pilons-rice", name: "2 Pilons & Riz Kebsa", description: "Two chicken drumsticks with spiced Kebsa rice.", price: 65, dietary: ["halal"] },
+              { id: "crusty-2pilons-pasta", name: "2 Pilons & Pasta", description: "Two chicken drumsticks served with pasta.", price: 65, dietary: ["halal"] },
+              { id: "crusty-1pilon-rice", name: "1 Pilon & Riz Kebsa", description: "Single chicken drumstick served over Kebsa rice.", price: 50, dietary: ["halal"] },
+              { id: "crusty-kebsa-poulet", name: "Kebsa Poulet", description: "Fragrant spiced Kebsa rice plate with shredded roasted chicken.", price: 35, isSignature: true, dietary: ["halal"] }
+            ]
+          },
+          {
+            id: "sides-desserts",
+            title: "Loaded Fries, Sides & Dessert Jars",
+            description: "Quick sides, soft drinks, and sweet dessert cups.",
+            items: [
+              { id: "crusty-fries-box", name: "Cheesy / Spicy Fries Box", description: "Loaded fries topped with melted cheese sauce or house spice blend (30–40 MAD).", price: 35, dietary: ["halal", "vegetarian"] },
+              { id: "crusty-fries-cone", name: "Cornet de Frites", description: "Crisp golden French fries cone.", price: 25, dietary: ["halal", "vegan", "vegetarian"] },
+              { id: "crusty-tiramisu-jar", name: "Tiramisu / Sweet Jar (Lotus, Oreo, Nutella, Strawberry)", description: "Individual layered dessert cup.", price: 25, dietary: ["halal", "vegetarian"] },
+              { id: "crusty-soda-1l", name: "Soda 1L", description: "1-liter chilled soft drink bottle.", price: 20, dietary: ["halal", "vegan", "vegetarian"] }
+            ]
+          }
+        ]
+      }
+    },
+
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "Clear Budget Combos (25–115 MAD)", tagColor: "money", tone: "good", description: "Straightforward fixed pricing on counter menus and delivery apps (35–85 MAD for Kebsa combos); zero hidden charges.", state: "verified" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "Fast Turnover, Rich/Oily Items", tagColor: "water", tone: "caution", description: "High-turnover oven-roasted chicken counter; note some diners mention fried sides and sauces lean rich/oily.", state: "verified" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "Halal Roasted Chicken & Kebsa", tagColor: "food", tone: "good", description: "Modern Moroccan fast-food take on spiced Kebsa rice, roasted chicken, and pasta; 100% halal and dry.", state: "verified" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "Takeout & Delivery Focus", tagColor: "alert", tone: "caution", description: "Built around quick buzzer counter pickup and delivery rather than lingering sit-down dining.", state: "verified" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "Quick Pickup, Busy Peaks", tagColor: "safety", tone: "good", description: "Fast prep praised for late-night bites, though peak-hour counter etiquette can feel brisk.", state: "verified" }
+    ],
+    reviewsData: { sources: [], reviews: [] }
+  },
+
+  {
+    id: "eat-casablanca-little-mamma-cil",
+    city: "casablanca",
+
+    // ── 1. QUIZ (personalization, mood & matching) ──
+    quiz: {
+      lifestyle: "balanced",
+      groupTypes: ["couple", "friends", "family", "solo"],
+      mealTypes: ["lunch", "dinner", "late-night"],
+      experienceTypes: ["casual"],
+      foodStyles: ["Italian", "Mediterranean"],
+      cuisineTags: ["international"],
+      archetypeAffinity: ["first-timer", "nomad"],
+      vibeTags: ["artisan-pizza", "cozy-trattoria", "tiramisu", "terrace"],
+      crowdLevel: "bustling"
+    },
+
+    // ── 2. FILTER (search criteria, dietary rules, logistics & flags) ──
+    filter: {
+      pricePerPerson: 16,
+      isHalal: true,
+      halalStatus: "likely-halal-food",
+      isVegetarianFriendly: true,
+      servesAlcohol: false,
+      alcoholPolicy: "dry",
+      hasDelivery: true,
+      hasParking: false,
+      nearMedina: false,
+      nearBeach: false,
+      nearCenter: false,
+      hasEnglishStaff: true,
+      hasFrenchStaff: true,
+      ramadanFriendly: "serves-lunch",
+      closedDays: [],
+      seatingTypes: ["indoor", "terrace"],
+      paymentMethods: ["cash", "credit_card", "visa", "mastercard"],
+      tags: [
+        "lunch",
+        "dinner",
+        "late-night",
+        "halal",
+        "vegetarian",
+        "dry",
+        "delivery",
+        "wifi",
+        "ac",
+        "terrace",
+        "wheelchair-accessible",
+        "family",
+        "couple",
+        "local-favorite",
+        "ramadan-friendly"
+      ],
+      wiFi: true,
+      airConditioning: true,
+      wheelchairAccessible: true,
+      isHiddenGem: false,
+      isTemporarilyHidden: false,
+      verificationStatus: "verified"
+    },
+
+    // ── 3. UI (presentation, stories, ratings, contacts & plates) ──
+    ui: {
+      name: "Little Mamma",
+      neighborhood: "CIL",
+      district: "Boulevard Sidi Abderrahmane (CIL)",
+      description: "Lively Moroccan Italian trattoria chain flagship at 381 Boulevard Sidi Abderrahmane in CIL (with sister Casablanca outlets in Bourgogne, Maârif, and Moulay Youssef), beloved for Neapolitan-style burrata and truffle pizzas, baked pasta, and house tiramisu.",
+      tip: "Order the signature Pizza Burrata or Truffly pizza paired with Le Tiramisu Little Mamma, and dine slightly before 20:30 on weekends to beat peak terrace waits.",
+      badge: "local-favorite",
+      bestDishes: [
+        "Pizza Burrata",
+        "Pizza Truffly",
+        "Lasagna Al Pollo",
+        "Le Tiramisu Little Mamma"
+      ],
+      pros: [
+        "Cozy, stylish Italian trattoria setting with spacious CIL terrace seating",
+        "Well-priced artisanal pizzas and pastas (~69–99 MAD) plus popular tiramisu",
+        "Halal-friendly, dry dining room with Glovo and Yumlo delivery available"
+      ],
+      cons: [
+        "Service pace can slow down during crowded dinner rushes",
+        "Occasional portion-size and pasta consistency complaints at peak times"
+      ],
+      googleRating: 4.4,
+      googleReviewCount: 450,
+      openTime: "11:30",
+      closeTime: "23:30",
+      exactAddressAndCoordinates: {
+        address: "381 Boulevard Sidi Abderrahmane, CIL, Casablanca 20200, Morocco",
+        lat: 33.5699,
+        lng: -7.6646
+      },
+      googleMapsUrl: "https://maps.google.com/?q=33.5699,-7.6646",
+      reservationMethod: ["walk-in"],
+      reservationContact: "not-available",
+      bookingUrl: "",
+      whatsappNumber: "",
+      website: "not-available",
+      instagram: "https://www.instagram.com/littlemamma.ma",
+      languagesSpoken: ["Arabic", "French", "English"],
+      menu: {
+        currency: "MAD",
+        lastUpdated: "2026-11",
+        serviceChargeIncluded: true,
+        sections: [
+          {
+            id: "artisanal-pizzas",
+            title: "Artisanal Pizzas",
+            description: "Published MAD pricing from Glovo & Yumlo Morocco.",
+            items: [
+              { id: "littlemamma-pizza-burrata", name: "Pizza Burrata", description: "Tomato sauce, mozzarella, fresh creamy burrata, cherry tomatoes, arugula, parmesan, and pesto.", price: 95, isSignature: true, dietary: ["halal", "vegetarian"] },
+              { id: "littlemamma-pizza-truffly", name: "Pizza Truffly", description: "Signature truffle cream pizza with mozzarella and herbs.", price: 79, isSignature: true, dietary: ["halal", "vegetarian"] },
+              { id: "littlemamma-pizza-5fromaggi", name: "Pizza 5 Fromaggi (Quattro Formaggi)", description: "Rich five-cheese melted pizza blend.", price: 79, dietary: ["halal", "vegetarian"] },
+              { id: "littlemamma-pizza-margherita", name: "Pizza Margherita / Classic Pizza", description: "Traditional tomato sauce, melted mozzarella, and fresh basil.", price: 75, dietary: ["halal", "vegetarian"] }
+            ]
+          },
+          {
+            id: "pastas-lasagna",
+            title: "Pasta & Lasagna",
+            description: "Freshly baked pasta plates and house sauces.",
+            items: [
+              { id: "littlemamma-pasta-salmone", name: "Tagliatelle Al Salmone", description: "Ribbon pasta tossed with smoked salmon in creamy sauce.", price: 90, dietary: ["halal"] },
+              { id: "littlemamma-lasagna-pollo", name: "Lasagna Al Pollo", description: "Oven-baked layered chicken lasagna with béchamel and mozzarella.", price: 75, isSignature: true, dietary: ["halal"] },
+              { id: "littlemamma-pasta-bolognese", name: "Spaghetti Alle Bolognese / Little Mamma", description: "Classic braised beef ragù or signature tomato-herb spaghetti.", price: 69, dietary: ["halal"] }
+            ]
+          },
+          {
+            id: "desserts",
+            title: "Homemade Italian Desserts",
+            description: "Signature sweet finishes.",
+            items: [
+              { id: "littlemamma-tiramisu", name: "Le Tiramisu Little Mamma", description: "Creamy mascarpone and espresso-soaked sponge dessert.", price: 45, isSignature: true, dietary: ["halal", "vegetarian"] },
+              { id: "littlemamma-cheesecake", name: "Cheesecake / French Toast", description: "House baked cheesecake or caramelized brioche French toast.", price: 45, dietary: ["halal", "vegetarian"] }
+            ]
+          }
+        ]
+      }
+    },
+
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "Transparent Trattoria Pricing", tagColor: "money", tone: "good", description: "Clearly listed menu prices (pizzas 75–95 MAD, pastas 69–90 MAD, desserts 45 MAD); card payment and delivery apps accepted.", state: "verified" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "Clean Modern Kitchen", tagColor: "water", tone: "good", description: "Established Casablanca Italian chain with clean dining rooms and freshly baked pizzas to order.", state: "verified" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "Halal Italian Comfort Food", tagColor: "food", tone: "good", description: "Moroccan-adapted Italian pizza and pasta menu using halal meats (non-alcoholic) rather than strict Naples-imported deli cuts.", state: "verified" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "Cozy Decor, Busy Evenings", tagColor: "safety", tone: "good", description: "Warm, inviting trattoria interior with CIL terrace seating and AC; bustling energy on Friday and Saturday nights.", state: "verified" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "Peak Dinner Delays", tagColor: "alert", tone: "caution", description: "Friendly waitstaff overall, though reviewers note occasional slow service and kitchen waits during peak weekend dinner rushes.", state: "verified" }
+    ],
+    reviewsData: { sources: [], reviews: [] }
+  },
+
+  {
+    id: "eat-casablanca-caribou-coffee-ghandi",
+    city: "casablanca",
+
+    // ── 1. QUIZ (personalization, mood & matching) ──
+    quiz: {
+      lifestyle: "lean",
+      groupTypes: ["solo", "friends", "business-friendly", "couple"],
+      mealTypes: ["breakfast", "brunch", "snack", "afternoon-tea"],
+      experienceTypes: ["cafes-tea", "casual"],
+      foodStyles: ["Cafe & Pastry", "International"],
+      cuisineTags: ["cafe-pastry"],
+      archetypeAffinity: ["nomad", "budget"],
+      vibeTags: ["specialty-coffee", "study-spot", "free-wifi", "wood-interior"],
+      crowdLevel: "balanced"
+    },
+
+    // ── 2. FILTER (search criteria, dietary rules, logistics & flags) ──
+    filter: {
+      pricePerPerson: 6,
+      isHalal: true,
+      halalStatus: "halal-certified",
+      isVegetarianFriendly: true,
+      servesAlcohol: false,
+      alcoholPolicy: "dry",
+      hasDelivery: true,
+      hasParking: false,
+      nearMedina: false,
+      nearBeach: false,
+      nearCenter: true,
+      hasEnglishStaff: true,
+      hasFrenchStaff: true,
+      ramadanFriendly: "serves-lunch",
+      closedDays: [],
+      seatingTypes: ["indoor", "terrace"],
+      paymentMethods: ["cash", "credit_card", "visa", "mastercard"],
+      tags: [
+        "budget",
+        "breakfast",
+        "brunch",
+        "afternoon-tea",
+        "cafes-tea",
+        "halal",
+        "vegetarian",
+        "dry",
+        "delivery",
+        "wifi",
+        "ac",
+        "terrace",
+        "wheelchair-accessible",
+        "couple",
+        "ramadan-friendly"
+      ],
+      wiFi: true,
+      airConditioning: true,
+      wheelchairAccessible: true,
+      isHiddenGem: false,
+      isTemporarilyHidden: false,
+      verificationStatus: "verified"
+    },
+
+    // ── 3. UI (presentation, stories, ratings, contacts & plates) ──
+    ui: {
+      name: "Caribou Coffee",
+      neighborhood: "Maârif",
+      district: "Boulevard Ghandi",
+      description: "Warm wood-toned specialty coffeehouse on Boulevard Ghandi in Casablanca (part of Morocco's Caribou network spanning Bachkou, Hay Riad Rabat, and Agdal station), favored by remote workers and students for espresso drinks, bagels, quiches, and free Wi-Fi.",
+      tip: "Try the Matin Express (64 MAD) or Formule Déjeuner (68 MAD) combos for good value, and arrive mid-morning before afternoon remote-work tables fill up.",
+      badge: "local",
+      bestDishes: [
+        "Spanish Latte",
+        "Caramel Macchiato",
+        "Bagel Charcuterie Fromage",
+        "Quiche Épinard Ricotta"
+      ],
+      pros: [
+        "Clean, cozy wood-accented lounge with free Wi-Fi suited for studying and remote work",
+        "Friendly, attentive baristas and clearly priced combo formulas (60–68 MAD)",
+        "Dry, halal-certified savory snacks including bagels, paninis, and spinach quiche"
+      ],
+      cons: [
+        "Peak-afternoon seating fills quickly with students and laptop workers",
+        "Staff may begin tidying tables slightly ahead of the 22:00 closing hour"
+      ],
+      googleRating: 4.2,
+      googleReviewCount: 350,
+      openTime: "07:00",
+      closeTime: "22:00",
+      exactAddressAndCoordinates: {
+        address: "Boulevard Ghandi, Maârif Extension, Casablanca, Morocco",
+        lat: 33.57504,
+        lng: -7.65154
+      },
+      googleMapsUrl: "https://maps.google.com/?q=33.57504,-7.65154",
+      reservationMethod: ["walk-in"],
+      reservationContact: "not-available",
+      bookingUrl: "",
+      whatsappNumber: "",
+      website: "https://www.cariboucoffee.com",
+      instagram: "https://www.instagram.com/cariboucoffeemorocco",
+      languagesSpoken: ["Arabic", "French", "English"],
+      menu: {
+        currency: "MAD",
+        lastUpdated: "2026-11",
+        serviceChargeIncluded: true,
+        sections: [
+          {
+            id: "coffee-drinks",
+            title: "Specialty Coffees, Matcha & Milkshakes",
+            description: "Published MAD pricing from Yumlo & Glovo Morocco.",
+            items: [
+              { id: "caribou-matcha", name: "Seasonal Matcha & Signature Lattes", description: "Iced or hot specialty matcha or seasonal flavored latte (50–80 MAD by size).", price: 55, dietary: ["halal", "vegetarian"] },
+              { id: "caribou-mocha", name: "Hot Mocha", description: "Espresso blended with steamed milk and rich chocolate.", price: 45, dietary: ["halal", "vegetarian"] },
+              { id: "caribou-milkshake", name: "Fruit Milkshake (Strawberry, Mango, or Passion Fruit)", description: "Creamy blended fruit milkshake.", price: 44, dietary: ["halal", "vegetarian"] },
+              { id: "caribou-spanish-latte", name: "Spanish Latte", description: "Double espresso with textured milk and sweetened condensed milk.", price: 40, isSignature: true, dietary: ["halal", "vegetarian"] },
+              { id: "caribou-hotchoc", name: "Hot or Iced Chocolate", description: "Rich melted chocolate drink served hot or over ice.", price: 40, dietary: ["halal", "vegetarian"] },
+              { id: "caribou-macchiato", name: "Caramel Macchiato", description: "Steamed milk marked with espresso and caramel drizzle.", price: 35, dietary: ["halal", "vegetarian"] },
+              { id: "caribou-cappuccino", name: "Cappuccino / Flat White", description: "Classic espresso with velvety micro-foam milk.", price: 30, dietary: ["halal", "vegetarian"] },
+              { id: "caribou-americano", name: "Americano / Cortado", description: "Rich espresso diluted with hot water or a splash of warm milk.", price: 25, dietary: ["halal", "vegan", "vegetarian"] }
+            ]
+          },
+          {
+            id: "bakery-snacks",
+            title: "Bagels, Paninis & Quiches",
+            description: "Light savory bites baked and warmed to order.",
+            items: [
+              { id: "caribou-quiche", name: "Quiche Épinard Ricotta", description: "Savory spinach and ricotta cheese pastry quiche.", price: 36, dietary: ["halal", "vegetarian"] },
+              { id: "caribou-bagel", name: "Bagel Charcuterie Fromage", description: "Toasted bagel filled with halal turkey charcuterie and melted cheese.", price: 35, isSignature: true, dietary: ["halal"] },
+              { id: "caribou-panini", name: "Panini Aux 4 Fromages", description: "Pressed warm four-cheese panini sandwich.", price: 35, dietary: ["halal", "vegetarian"] }
+            ]
+          },
+          {
+            id: "combos",
+            title: "Breakfast & Lunch Formulas",
+            description: "Daily value combos available at Moroccan Caribou branches.",
+            items: [
+              { id: "caribou-formule-dej", name: "Formule Déjeuner", description: "Choice of savory sandwich or quiche paired with fresh juice.", price: 68, isSignature: true, dietary: ["halal"] },
+              { id: "caribou-formule-matin", name: "Matin Express", description: "Latte, extra espresso shot, and croissant or pain au chocolat.", price: 64, dietary: ["halal", "vegetarian"] },
+              { id: "caribou-formule-gourmande", name: "Formule Gourmande", description: "Americano or Latte paired with freshly baked muffins.", price: 60, dietary: ["halal", "vegetarian"] }
+            ]
+          }
+        ]
+      }
+    },
+
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "Clear Café Board Prices", tagColor: "money", tone: "good", description: "Transparent menu board pricing in MAD (coffees 25–45 MAD, breakfast/lunch formulas 60–68 MAD) with card payment accepted.", state: "verified" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "High Hygiene Standards", tagColor: "water", tone: "good", description: "Frequently praised on Google Reviews for spotless counters, clean prep stations, and sealed dairy/beverage handling.", state: "verified" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "International Coffeehouse", tagColor: "food", tone: "good", description: "American specialty coffee chain serving espresso drinks, bagels, quiches, and paninis rather than Moroccan tea-house fare; halal and dry.", state: "verified" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "Cozy Wi-Fi Lounge, Peak Seats", tagColor: "safety", tone: "caution", description: "Warm wood-heavy lounge with reliable free Wi-Fi and AC, though seating fills quickly during peak afternoon study/work hours.", state: "verified" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "Friendly Baristas", tagColor: "safety", tone: "good", description: "Welcoming, attentive staff; note baristas occasionally start tidying terrace tables shortly before the 22:00 close.", state: "verified" }
     ],
     reviewsData: { sources: [], reviews: [] }
   }

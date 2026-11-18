@@ -11047,6 +11047,36 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.moroccanmate.com/place/casablanca/food/crusty</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.moroccanmate.com/place/casablanca/food/crusty/menu</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.moroccanmate.com/place/casablanca/food/little-mamma</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.moroccanmate.com/place/casablanca/food/little-mamma/menu</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.moroccanmate.com/place/casablanca/food/caribou-coffee</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.moroccanmate.com/place/casablanca/food/caribou-coffee/menu</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.moroccanmate.com/place/chefchaouen/food/beldi-bab-ssour</loc>
     <lastmod>2026-11-18</lastmod>
     <priority>0.7</priority>
@@ -12725,6 +12755,16 @@
     <loc>https://www.moroccanmate.com/place/tangier/food/snack-hassan</loc>
     <lastmod>2026-11-18</lastmod>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.moroccanmate.com/place/tangier/food/le-mirage</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.moroccanmate.com/place/tangier/food/le-mirage/menu</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.moroccanmate.com/place/taroudant_tafraoute/food/restaurant-riad-maryam</loc>

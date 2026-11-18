@@ -4425,11 +4425,11 @@ export const agadirEat: EatListing[] = [
   ,
     // ── 4. WORRIES ("Things You're Worried About!") ──
     worries: [
-      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
-      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
-      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
-      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
-      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "Fixed Digital Kiosk Pricing", tagColor: "money", tone: "good", description: "Transparent menu-board and digital kiosk pricing in MAD (Best Of combos ~62–83 MAD); pricier than local Moroccan street snacks, card and contactless accepted.", state: "verified" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "Standardized, Busy Rush Cleanups", tagColor: "water", tone: "caution", description: "Global chain food-safety standards, though high beachfront foot traffic during peak evenings and weekends can temporarily strain table and restroom upkeep.", state: "verified" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "100% Halal Certified Chain", tagColor: "food", tone: "good", description: "All beef and chicken served at McDonald's Morocco is 100% halal-certified; international fast-food menu rather than Moroccan dishes, completely dry.", state: "verified" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "Bustling Oceanfront Terrace", tagColor: "alert", tone: "caution", description: "Air-conditioned dining room and upper-level ocean-view terrace on Agadir corniche; expect busy holiday weekend crowds.", state: "verified" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "Kiosks Speed Up Ordering", tagColor: "safety", tone: "good", description: "Self-order touchscreen kiosks streamline queues; peak-hour waits and occasional takeaway bag mix-ups can occur during rush periods.", state: "verified" }
     ],
     // Multi-platform reviews holder (hidden on UI until populated)
     reviewsData: { sources: [], reviews: [] },

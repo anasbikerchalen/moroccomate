@@ -2557,11 +2557,11 @@ export const tangierEat: EatListing[] = [
   ,
     // ── 4. WORRIES ("Things You're Worried About!") ──
     worries: [
-      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
-      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
-      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
-      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
-      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "Fixed Digital Kiosk Pricing", tagColor: "money", tone: "good", description: "Transparent menu-board and digital kiosk pricing in MAD (Best Of combos ~62–83 MAD); pricier than local Moroccan street snacks, card and contactless accepted.", state: "verified" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "Standardized, Busy Rush Cleanups", tagColor: "water", tone: "caution", description: "Global chain food-safety standards, though high mall foot traffic during peak evenings and weekends can temporarily strain table and restroom upkeep.", state: "verified" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "100% Halal Certified Chain", tagColor: "food", tone: "good", description: "All beef and chicken served at McDonald's Morocco is 100% halal-certified; international fast-food menu rather than Moroccan dishes, completely dry.", state: "verified" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "Bustling Mall Food Court", tagColor: "alert", tone: "caution", description: "Air-conditioned Tanger City Mall branch near the bayfront; expect lively weekend families and evening crowds.", state: "verified" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "Kiosks Speed Up Ordering", tagColor: "safety", tone: "good", description: "Self-order touchscreen kiosks streamline queues; peak-hour waits and occasional takeaway bag mix-ups can occur during rush periods.", state: "verified" }
     ],
     // Multi-platform reviews holder (hidden on UI until populated)
     reviewsData: { sources: [], reviews: [] },
@@ -2859,5 +2859,164 @@ export const tangierEat: EatListing[] = [
     ],
     // Multi-platform reviews holder (hidden on UI until populated)
     reviewsData: { sources: [], reviews: [] },
+  },
+
+  {
+    id: "e-tangier-le-mirage",
+    city: "tangier",
+
+    // ── 1. QUIZ (personalization, mood & matching) ──
+    quiz: {
+      lifestyle: "premium",
+      groupTypes: ["couple", "friends", "family", "seniors", "business-friendly"],
+      mealTypes: ["breakfast", "lunch", "afternoon-tea", "drinks", "dinner"],
+      experienceTypes: ["fine-dining", "rooftop"],
+      foodStyles: ["Mediterranean", "Seafood", "Moroccan", "French-Moroccan"],
+      cuisineTags: ["seafood", "international"],
+      archetypeAffinity: ["luxury", "first-timer"],
+      vibeTags: ["cliffside-sunset", "atlantic-panorama", "resort-dining", "romantic-terrace"],
+      crowdLevel: "balanced"
+    },
+
+    // ── 2. FILTER (search criteria, dietary rules, logistics & flags) ──
+    filter: {
+      pricePerPerson: 42,
+      isHalal: true,
+      halalStatus: "likely-halal-food",
+      isVegetarianFriendly: true,
+      servesAlcohol: true,
+      alcoholPolicy: "serves-alcohol",
+      hasDelivery: false,
+      hasParking: true,
+      nearMedina: false,
+      nearBeach: true,
+      nearCenter: false,
+      hasEnglishStaff: true,
+      hasFrenchStaff: true,
+      ramadanFriendly: "serves-lunch",
+      closedDays: [],
+      seatingTypes: ["indoor", "outdoor", "terrace"],
+      paymentMethods: ["cash", "credit_card", "visa", "mastercard"],
+      tags: [
+        "fine",
+        "breakfast",
+        "lunch",
+        "afternoon-tea",
+        "drinks",
+        "dinner",
+        "alcohol",
+        "halal",
+        "vegetarian",
+        "terrace",
+        "beach",
+        "parking",
+        "wifi",
+        "ac",
+        "wheelchair-accessible",
+        "couple",
+        "family",
+        "local-favorite",
+        "ramadan-friendly"
+      ],
+      wiFi: true,
+      airConditioning: true,
+      wheelchairAccessible: true,
+      isHiddenGem: false,
+      isTemporarilyHidden: false,
+      verificationStatus: "verified"
+    },
+
+    // ── 3. UI (presentation, stories, ratings, contacts & plates) ──
+    ui: {
+      name: "Le Mirage",
+      neighborhood: "Cap Spartel / Achakkar",
+      district: "Route des Grottes d'Hercule, Achakkar",
+      description: "Legendary 5-star cliffside hotel restaurant and Sunset Terrace perched directly above the Atlantic Ocean beside the Caves of Hercules and Cap Spartel (~14 km west of Tangier), famous for dramatic sunsets, fresh seafood paella, and salt-crusted fish.",
+      tip: "Combine a late-afternoon visit to the Caves of Hercules with sunset cocktails/tapas on the terrace (16:00–sunset) or a weekday 2–3 course lunch formula (350–450 MAD); arrange return taxi/car ahead as it sits 25 minutes outside downtown.",
+      badge: "splurge",
+      bestDishes: [
+        "Poisson du Jour Grillé (Salt-Crusted / Sauce Vierge)",
+        "Paella aux Fruits de Mer",
+        "Grillades de Fruits de Mer (For 2)",
+        "Formule Déjeuner (Weekday 2–3 Course)"
+      ],
+      pros: [
+        "Unmatched panoramic Atlantic cliffside and sunset views near Cap Spartel and Caves of Hercules",
+        "Fresh daily seafood, seafood paella, weekday lunch formulas, and full cocktail/wine terrace bar",
+        "Free on-site resort parking, free Wi-Fi, and calm upscale hospitality"
+      ],
+      cons: [
+        "Remote coastal location (~20–25 min drive from central Tangier; requires car or pre-booked taxi)",
+        "Upscale 5-star resort prices (lunch/seafood plates ~270–580 MAD)"
+      ],
+      googleRating: 4.5,
+      googleReviewCount: 1850,
+      tripadvisorRating: 4.2,
+      tripadvisorReviewCount: 720,
+      openTime: "07:30",
+      closeTime: "23:00",
+      exactAddressAndCoordinates: {
+        address: "Route des Grottes d'Hercule, Achakkar, Tangier 90000, Morocco",
+        lat: 35.7591,
+        lng: -5.9387
+      },
+      googleMapsUrl: "https://maps.google.com/?q=35.7591,-5.9387",
+      reservationMethod: ["phone", "website"],
+      reservationContact: "+212611994242",
+      bookingUrl: "https://lemirage.com/",
+      whatsappNumber: "+212611994242",
+      website: "https://lemirage.com/",
+      instagram: "https://www.instagram.com/lemiragetanger",
+      languagesSpoken: ["Arabic", "French", "English", "Spanish"],
+      menu: {
+        currency: "MAD",
+        lastUpdated: "2026-11",
+        serviceChargeIncluded: true,
+        sections: [
+          {
+            id: "breakfast-sets",
+            title: "Morning Breakfast Sets (07:30–11:00)",
+            description: "Breakfast formulas served overlooking the Atlantic Ocean.",
+            items: [
+              { id: "mirage-bf-americain", name: "Petit-Déjeuner L'Américain / Continental", description: "Pastries, eggs, fresh juice, and hot beverages overlooking the sea (70–90 MAD).", price: 90, dietary: ["halal", "vegetarian"] },
+              { id: "mirage-bf-beldi", name: "Petit-Déjeuner Le Beldi", description: "Traditional Moroccan breads, olive oil, honey, amlou, mint tea, and fresh orange juice (70–90 MAD).", price: 75, isSignature: true, dietary: ["halal", "vegetarian"] }
+            ]
+          },
+          {
+            id: "salads-starters",
+            title: "Salads & Starters",
+            description: "Published MAD pricing from lemirage.com.",
+            items: [
+              { id: "mirage-sal-club", name: "Salade Le Club Mirage", description: "Roast chicken, vine tomatoes, boiled egg, crisp greens, and classic dressing.", price: 200, dietary: ["halal"] },
+              { id: "mirage-sal-quinoa", name: "Quinoa Méditerranéen", description: "Fresh Mediterranean quinoa salad with seasonal garden produce and citrus vinaigrette.", price: 180, dietary: ["halal", "vegan", "vegetarian"] }
+            ]
+          },
+          {
+            id: "seafood-paella-lunch",
+            title: "Seafood, Paella & Weekday Lunch Formulas",
+            description: "Published MAD pricing from lemirage.com (Monday–Friday lunch formulas & signature coastal mains).",
+            items: [
+              { id: "mirage-grill-platter2", name: "Grillades de Fruits de Mer (For 2)", description: "Mixed Atlantic fish and shellfish grill platter prepared to share.", price: 580, isSignature: true, dietary: ["halal"] },
+              { id: "mirage-paella-2", name: "Paella aux Fruits de Mer (For 2)", description: "Saffron rice simmered with mussels, calamari, prawns, and fresh fish for two.", price: 500, isSignature: true, dietary: ["halal"] },
+              { id: "mirage-lunch-3course", name: "Formule Déjeuner (3 Courses, Mon–Fri)", description: "Starter + Main + Dessert with a soft drink included.", price: 450, dietary: ["halal"] },
+              { id: "mirage-lunch-2course", name: "Formule Déjeuner (2 Courses, Mon–Fri)", description: "Starter + Main or Main + Dessert with a soft drink included.", price: 350, dietary: ["halal"] },
+              { id: "mirage-gambas", name: "Brochettes de Gambas à la Plancha", description: "Plancha-seared king prawn skewers with coastal herbs.", price: 300, dietary: ["halal", "gluten-free"] },
+              { id: "mirage-fish-day", name: "Poisson du Jour Grillé", description: "Fresh catch of the day grilled and finished with Mediterranean sauce vierge.", price: 280, isSignature: true, dietary: ["halal", "gluten-free"] },
+              { id: "mirage-paella-1", name: "Paella aux Fruits de Mer (1 Person)", description: "Individual portion of seafood paella with mussels, calamari, prawns, and fish.", price: 270, dietary: ["halal"] }
+            ]
+          }
+        ]
+      }
+    },
+
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "5-Star Resort Pricing", tagColor: "money", tone: "caution", description: "Transparent menu pricing (lunch combos 350–450 MAD, seafood plates 270–580 MAD); high resort tier where you pay partly for the iconic setting.", state: "verified" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "5-Star Resort Kitchen", tagColor: "water", tone: "good", description: "Luxury 5-star hotel standards prized for fresh Atlantic catch-of-the-day seafood, clean bar ice, and hygienic prep.", state: "verified" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "Coastal Seafood & Resort Fare", tagColor: "food", tone: "good", description: "Mediterranean seafood, salt-baked fish, and paella alongside select Moroccan dishes; serves full cocktails, beer, and wine.", state: "verified" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "Scenic Cliff, Remote Access", tagColor: "alert", tone: "caution", description: "Unmatched Atlantic sunset terrace and free parking 14 km from town; arrange a driver or taxi ahead and follow smart-casual evening attire.", state: "verified" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "Book Sunset Terrace", tagColor: "safety", tone: "good", description: "Polished hotel hospitality; reserve ahead (+212 611 994 242) for sunset terrace seats, as peak golden hour fills rapidly.", state: "verified" }
+    ],
+    reviewsData: { sources: [], reviews: [] }
   }
 ];

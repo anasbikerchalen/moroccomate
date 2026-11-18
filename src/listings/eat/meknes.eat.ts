@@ -2318,11 +2318,11 @@ export const meknesEat: EatListing[] = [
 
     // ── 4. WORRIES ("Things You're Worried About!") ──
     worries: [
-      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
-      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
-      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
-      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
-      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" }
+      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "Fixed Digital Kiosk Pricing", tagColor: "money", tone: "good", description: "Transparent menu-board and digital kiosk pricing in MAD (Best Of combos ~62–83 MAD); pricier than local street spots, card and contactless accepted.", state: "verified" },
+      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "Standardized, Busy Rush Cleanups", tagColor: "water", tone: "caution", description: "Global chain food-safety standards, though peak evening and weekend family rushes can temporarily strain table clearing and restroom upkeep.", state: "verified" },
+      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "100% Halal Certified Chain", tagColor: "food", tone: "good", description: "All beef and chicken served at McDonald's Morocco is 100% halal-certified; international fast-food menu rather than Moroccan dishes, completely dry.", state: "verified" },
+      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "Family Play Area & Drive-Thru", tagColor: "alert", tone: "caution", description: "Spacious Hamria location next to Hotel Ibis with parking, drive-thru, outdoor seating, and a kids' play area; Wi-Fi can lag when busy.", state: "verified" },
+      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "Kiosks Speed Up Ordering", tagColor: "safety", tone: "good", description: "Self-order touchscreen kiosks and drive-thru lanes streamline ordering; peak-hour waits and occasional takeaway bag mix-ups can occur.", state: "verified" }
     ],
     reviewsData: { sources: [], reviews: [] }
   },
