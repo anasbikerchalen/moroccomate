@@ -11017,6 +11017,36 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.moroccanmate.com/place/casablanca/food/espressolab</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.moroccanmate.com/place/casablanca/food/espressolab/menu</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.moroccanmate.com/place/casablanca/food/b-laban</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.moroccanmate.com/place/casablanca/food/b-laban/menu</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.moroccanmate.com/place/casablanca/food/moods-cafe-restaurant</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.moroccanmate.com/place/casablanca/food/moods-cafe-restaurant/menu</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.moroccanmate.com/place/chefchaouen/food/beldi-bab-ssour</loc>
     <lastmod>2026-11-18</lastmod>
     <priority>0.7</priority>
@@ -12385,6 +12415,16 @@
     <loc>https://www.moroccanmate.com/place/rabat/food/restaurant-la-liberation</loc>
     <lastmod>2026-11-18</lastmod>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.moroccanmate.com/place/rabat/food/joe-the-juice</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.moroccanmate.com/place/rabat/food/joe-the-juice/menu</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.moroccanmate.com/place/saidia/food/la-table-du-green-teelal</loc>
