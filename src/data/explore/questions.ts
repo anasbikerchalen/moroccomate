@@ -1,6 +1,7 @@
 import { JourneyType, ExploreCategory, ThingsToDoSubCategory, SportIntent } from '../../types';
 import type { AppLanguage } from '../../utils/localeRouting';
 import { THINGS_TREE_ROOT_QUESTION, THINGS_TREE_ALL_QUESTIONS } from './thingsQuiz';
+import { FOOD_TREE_ROOT_QUESTION, FOOD_TREE_ALL_QUESTIONS } from './foodQuiz';
 import { translateQuizOptionLabel } from './quizTranslations';
 
 export interface QuizOption {
@@ -75,50 +76,12 @@ export const CATEGORY_QUESTIONS: Record<Exclude<ExploreCategory, 'photos'>, Quiz
   // The previous flat quiz is preserved below as the legacy array.
   // ==================================================================
   'things-to-do': [THINGS_TREE_ROOT_QUESTION],
-  'food': [
-    ...BASE_QUESTIONS,
-    {
-      id: 'food-time',
-      question: "When are you planning to eat?",
-      options: [
-        { id: 'breakfast', label: 'Morning / Breakfast', tag: 'breakfast', icon: '🍳' },
-        { id: 'lunch', label: 'Mid-day / Lunch', tag: 'lunch', icon: '☀️' },
-        { id: 'dinner', label: 'Evening / Dinner', tag: 'dinner', icon: '🌙' },
-        { id: 'flexible', label: 'Anytime / Snacks', tag: 'flexible', icon: '🥨' }
-      ]
-    },
-    {
-      id: 'food-diet',
-      question: "Any dietary preferences?",
-      multiSelect: true,
-      weight: 'hard', // Dietary needs are non-negotiable
-      options: [
-        { id: 'halal', label: 'Halal Only', tag: 'halal', icon: '🥩' },
-        { id: 'vegetarian', label: 'Vegetarian Friendly', tag: 'vegetarian', icon: '🥬' },
-        { id: 'alcohol', label: 'Serves Alcohol', tag: 'alcohol', icon: '🍷' }
-      ]
-    },
-    {
-      id: 'food-cuisine',
-      question: "What kind of food are you craving?",
-      options: [
-        { id: 'moroccan-traditional', label: 'Traditional Moroccan', tag: 'moroccan-traditional', icon: '🍲', sub: 'Tagine, couscous, pastilla, the real deal' },
-        { id: 'international', label: 'International & Fusion', tag: 'international', icon: '🌍', sub: 'Italian, Asian, French, or creative fusion' },
-        { id: 'cafe-pastry', label: 'Café & Pastries', tag: 'cafe-pastry', icon: '☕', sub: 'Coffee spots, patisseries, and sweet treats' },
-        { id: 'seafood', label: 'Fresh Seafood', tag: 'seafood', icon: '🐟', sub: 'Ocean-fresh catch and coastal dishes' }
-      ]
-    },
-    {
-      id: 'food-vibe',
-      question: "What's the dining mood?",
-      options: [
-        { id: 'rooftop', label: 'Rooftop & Views', tag: 'rooftop', icon: '🌇' },
-        { id: 'street', label: 'Authentic Street Food', tag: 'street-food', icon: '🌮' },
-        { id: 'fine', label: 'Modern & Chic', tag: 'fine-dining', icon: '✨' },
-        { id: 'hole', label: 'Hidden Local Gem', tag: 'hole-in-wall', icon: '🏠' }
-      ]
-    }
-  ],
+  // ==================================================================
+  // QUIZ ARRAYS - FOOD & DRINK DECISION TREE (data/explore/foodQuiz.ts)
+  // Question 1 ('food-intent') picks Eat a Meal / Coffee & Tea / Bars & Nightlife
+  // and CategoryQuiz appends the matching branch questions live.
+  // ==================================================================
+  'food': [FOOD_TREE_ROOT_QUESTION],
   'sleep': [
     ...BASE_QUESTIONS,
     {
@@ -873,6 +836,7 @@ export const getTagForOptionId = (optionId: string): string => {
     ...Object.values(CATEGORY_QUESTIONS).flat(),
     ...Object.values(PATH_SPECIFIC_QUESTIONS).flat(),
     ...BASE_QUESTIONS,
+    ...FOOD_TREE_ALL_QUESTIONS,
     ...THINGS_TREE_ALL_QUESTIONS,
     ...THINGS_TO_DO_LEGACY_QUESTIONS,
     ...PRACTICAL_SPORT_QUESTIONS,
@@ -902,6 +866,7 @@ export const getQuizWeightForQuestionId = (questionId: string): 'hard' | 'strong
     ...Object.values(CATEGORY_QUESTIONS).flat(),
     ...Object.values(PATH_SPECIFIC_QUESTIONS).flat(),
     ...BASE_QUESTIONS,
+    ...FOOD_TREE_ALL_QUESTIONS,
     ...THINGS_TREE_ALL_QUESTIONS,
     ...THINGS_TO_DO_LEGACY_QUESTIONS,
     ...PRACTICAL_SPORT_QUESTIONS,
@@ -919,6 +884,7 @@ export const getAllQuizQuestions = (): QuizQuestion[] => [
   ...Object.values(CATEGORY_QUESTIONS).flat(),
   ...Object.values(PATH_SPECIFIC_QUESTIONS).flat(),
   ...BASE_QUESTIONS,
+  ...FOOD_TREE_ALL_QUESTIONS,
   ...THINGS_TREE_ALL_QUESTIONS,
   ...THINGS_TO_DO_LEGACY_QUESTIONS,
   ...PRACTICAL_SPORT_QUESTIONS,

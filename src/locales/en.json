@@ -300,6 +300,8 @@
     "singleSelectHint": "Choose the option that fits you best",
     "back": "Back",
     "surpriseMe": "Not sure? Surprise me",
+    "anyOption": "Any / No preference",
+    "anyOptionSub": "Skip this question and keep all options open",
     "nextQuestion": "Next Question",
     "seeMatches": "See Matches ({{count}})",
     "trust": {

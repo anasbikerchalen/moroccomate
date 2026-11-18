@@ -138,7 +138,9 @@ export default function ExplorePage({ onClose }: ExplorePageProps) {
         else if (lower === 'shopping' || lower === 'shop') targetCategory = 'shopping';
         else targetCategory = 'things-to-do';
       }
-      setActiveCategory(targetCategory);
+      if (useExploreStore.getState().activeCategory !== targetCategory) {
+        setActiveCategory(targetCategory);
+      }
 
       // Free scroll is exclusive to Things to Do
       if (targetCategory === 'things-to-do') {
@@ -175,7 +177,9 @@ export default function ExplorePage({ onClose }: ExplorePageProps) {
               categoryId = 'food';
             }
             
-            setActiveCategory(categoryId);
+            if (useExploreStore.getState().activeCategory !== categoryId) {
+              setActiveCategory(categoryId);
+            }
             // Named place/things URLs are canonical — redirect old id-based
             // links to the new pages so each place has exactly one URL
             if (categoryId === 'things-to-do') {
@@ -209,7 +213,9 @@ export default function ExplorePage({ onClose }: ExplorePageProps) {
             } else if (categoryId === 'stay' || categoryId === 'sleep') {
               targetCategory = 'sleep';
             }
-            setActiveCategory(targetCategory);
+            if (useExploreStore.getState().activeCategory !== targetCategory) {
+              setActiveCategory(targetCategory);
+            }
             
             const featureParam = param3 || params.get('feature') || params.get('tag') || params.get('intent');
             const selectedDish = params.get('dish') || (targetCategory === 'food' ? param3 : null);
@@ -275,7 +281,9 @@ export default function ExplorePage({ onClose }: ExplorePageProps) {
       } else {
         // Handle /finder/:category
         const categoryId = param1.toLowerCase();
-        setActiveCategory(categoryId as any);
+        if (useExploreStore.getState().activeCategory !== categoryId) {
+          setActiveCategory(categoryId as any);
+        }
         
         if (categoryId === 'things-to-do') {
           const subParam = params.get('sub') as ThingsToDoSubCategory | null;
@@ -409,6 +417,38 @@ export default function ExplorePage({ onClose }: ExplorePageProps) {
     );
   }, [view, location.search]);
 
+  // Prevent cold-load blank frame while useEffect synchronizes store view from URL
+  const effectiveView: ExploreView = useMemo(() => {
+    if (view && view !== 'hub') return view;
+    const sp = new URLSearchParams(location.search);
+    const vp = sp.get('view') as ExploreView | null;
+    if (vp && VIEW_PARAM_VALUES.includes(vp)) return vp;
+    if (sp.get('mode') === 'free-scroll') return 'free-scroll';
+    if (sp.get('start') === 'quiz') return 'quiz';
+    if (param1 && !cityMap[param1.toLowerCase()] && param1.toLowerCase() === 'things-to-do') {
+      return sp.get('sub') ? (sp.get('sub') === 'sport' ? 'sport-path' : 'quiz') : 'subcategory';
+    }
+    return 'results';
+  }, [view, location.search, param1]);
+
+  const effectiveCategory = useMemo(() => {
+    if (activeCategory) return activeCategory;
+    const urlCat = (param2 || param1 || '').toLowerCase();
+    if (urlCat === 'food' || urlCat === 'eat') return 'food';
+    if (urlCat === 'sleep' || urlCat === 'stay') return 'sleep';
+    if (urlCat === 'shopping' || urlCat === 'shop') return 'shopping';
+    if (urlCat === 'things' || urlCat === 'things-to-do') return 'things-to-do';
+    return null;
+  }, [activeCategory, param1, param2]);
+
+  const effectiveQuestions = useMemo(() => {
+    if (activeQuestions.length > 0) return activeQuestions;
+    if (effectiveCategory === 'things-to-do') {
+      return getSubCategoryQuestions(activeSubCategory, sportIntent);
+    }
+    return effectiveCategory ? CATEGORY_QUESTIONS[effectiveCategory as Exclude<ExploreCategory, 'photos'>] || [] : [];
+  }, [activeQuestions, effectiveCategory, activeSubCategory, sportIntent]);
+
   if (view === 'free-scroll') {
     return (
       <FreeScrollView
@@ -507,16 +547,16 @@ export default function ExplorePage({ onClose }: ExplorePageProps) {
 
       {/* Content */}
       <main className="max-w-7xl mx-auto p-4 md:p-8 pt-4 md:pt-6 relative z-30">
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode="wait" initial={false}>
           <motion.div
-            key={view + (displayCategory || '')}
-            initial={{ opacity: 0, y: 10 }}
+            key={effectiveView + (displayCategory || '')}
+            initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.3 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.2 }}
           >
             <>
-              {view === 'subcategory' && (
+              {effectiveView === 'subcategory' && (
                 <SubCategorySplash
                   city={cityId || 'marrakech'}
                   onSelect={(sub) => {
@@ -537,7 +577,7 @@ export default function ExplorePage({ onClose }: ExplorePageProps) {
                 />
               )}
 
-              {view === 'sport-path' && (
+              {effectiveView === 'sport-path' && (
                 <SportDualPath
                   city={cityId || 'marrakech'}
                   onQuickFilter={(type) => {
@@ -560,7 +600,7 @@ export default function ExplorePage({ onClose }: ExplorePageProps) {
                 />
               )}
 
-              {view === 'curated-eat' && (
+              {effectiveView === 'curated-eat' && (
                 <div className="bg-white/80 backdrop-blur-md border border-stone-200/60 rounded-[32px] p-6 md:p-12 shadow-sm relative overflow-hidden">
                   <EatCuratedView
                     cityId={cityId || 'marrakech'}
@@ -574,7 +614,7 @@ export default function ExplorePage({ onClose }: ExplorePageProps) {
                 </div>
               )}
 
-              {view === 'curated-sleep' && (
+              {effectiveView === 'curated-sleep' && (
                 <div className="bg-white/80 backdrop-blur-md border border-stone-200/60 rounded-[32px] p-6 md:p-12 shadow-sm relative overflow-hidden">
                   <SleepCuratedView
                     cityId={cityId || 'marrakech'}
@@ -587,7 +627,7 @@ export default function ExplorePage({ onClose }: ExplorePageProps) {
                 </div>
               )}
 
-              {view === 'curated-things' && (
+              {effectiveView === 'curated-things' && (
                 <div className="bg-white/80 backdrop-blur-md border border-stone-200/60 rounded-[32px] p-6 md:p-12 shadow-sm relative overflow-hidden">
                   <ThingsCuratedView
                     cityId={cityId || 'marrakech'}
@@ -600,7 +640,7 @@ export default function ExplorePage({ onClose }: ExplorePageProps) {
                 </div>
               )}
 
-              {view === 'shopping-categories' && (
+              {effectiveView === 'shopping-categories' && (
                 <div className="bg-white/80 backdrop-blur-md border border-stone-200/60 rounded-[32px] p-6 md:p-12 shadow-sm relative overflow-hidden">
                   <ShoppingCategoryPage
                     onSelectCategory={(catId) => {
@@ -616,15 +656,15 @@ export default function ExplorePage({ onClose }: ExplorePageProps) {
                 </div>
               )}
 
-              {view === 'quiz' && activeCategory && (
-                <div className="bg-white/60 backdrop-blur-md border border-stone-200/60 rounded-[32px] p-6 md:p-12 shadow-sm relative overflow-hidden">
+              {effectiveView === 'quiz' && effectiveCategory && (
+                <div className="bg-white/60 backdrop-blur-md border border-stone-200/60 rounded-[32px] p-4 sm:p-6 md:p-10 shadow-sm relative overflow-hidden">
                   {/* Subtle design element: elegant pattern or glow */}
                   <div className="absolute top-0 right-0 w-64 h-64 bg-stone-100 rounded-full blur-3xl -z-10 opacity-30" />
                   
                   <CategoryQuiz 
-                    questions={activeQuestions}
+                    questions={effectiveQuestions}
                     listings={realListings}
-                    categoryId={activeCategory}
+                    categoryId={effectiveCategory}
                     onBack={handleBack}
                     onComplete={(answers) => {
                       if (Object.keys(answers).length === 0) {
@@ -642,11 +682,11 @@ export default function ExplorePage({ onClose }: ExplorePageProps) {
                 </div>
               )}
 
-              {view === 'results' && <ResultPage />}
+              {effectiveView === 'results' && <ResultPage />}
               
-              {view === 'listing' && <CategoryListing />}
+              {effectiveView === 'listing' && <CategoryListing />}
 
-              {view === 'detail' && <DetailView item={activeItem} onBack={handleBack} />}
+              {effectiveView === 'detail' && <DetailView item={activeItem} onBack={handleBack} />}
             </>
           </motion.div>
         </AnimatePresence>

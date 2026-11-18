@@ -88,6 +88,10 @@ export const EAT_TAG_RULES: TagRule[] = [
 export const EAT_EXTRA_TAG_RULES: TagRule[] = [
   // Example of a real working rule:
   { tag: 'ramadan-friendly', condition: l => l?.ramadanFriendly === 'serves-lunch' || l?.ramadanFriendly === 'special-ftour' },
+  { tag: 'drinks', condition: l => hasMealType(l, 'drinks') || !!l?.servesAlcohol || l?.alcoholPolicy === 'serves-alcohol' },
+  { tag: 'afternoon-tea', condition: l => hasMealType(l, 'afternoon-tea') },
+  { tag: 'cafes-tea', condition: l => (l?.experienceTypes || []).includes('cafes-tea') || (l?.cuisineTags || []).includes('cafe-pastry') },
+  { tag: 'courtyard', condition: l => /courtyard/i.test(eatStyleText(l)) },
 ];
 
 // ── 3. READ-TIME ENRICHMENT (non-mutating adapter) ──

@@ -2651,6 +2651,256 @@ const QUIZ_TRANSLATIONS: QuestionTranslationMap = {
       },
     },
   },
+
+  // ═══════════════════════════════════════════════════════════════════
+  // FOOD & DRINK DECISION TREE (foodQuiz.ts)
+  // ═══════════════════════════════════════════════════════════════════
+  'food-intent': {
+    fr: {
+      question: 'De quoi avez-vous envie en ce moment ?',
+      options: {
+        'branch-eat': { label: 'Manger un repas', sub: 'Tajines, street food, poissons frais ou gastronomie' },
+        'branch-coffee': { label: 'Café & Thé', sub: 'Cafés de spécialité, thé à la menthe, pâtisseries et jus frais' },
+        'branch-bars': { label: 'Bars & Vie nocturne', sub: 'Rooftops au coucher du soleil, bars à cocktails et musique live' },
+      },
+    },
+    es: {
+      question: '¿Qué te apetece ahora mismo?',
+      options: {
+        'branch-eat': { label: 'Comer una comida', sub: 'Tajines, comida callejera, marisco o alta cocina' },
+        'branch-coffee': { label: 'Café y Té', sub: 'Cafés de especialidad, té a la menta, dulces y zumos frescos' },
+        'branch-bars': { label: 'Bares y Vida nocturna', sub: 'Rooftops al atardecer, cócteles, vinos y música en vivo' },
+      },
+    },
+    de: {
+      question: 'Worauf hast du gerade Lust?',
+      options: {
+        'branch-eat': { label: 'Etwas essen', sub: 'Tajine, Street Food, frischer Fisch oder Fine Dining' },
+        'branch-coffee': { label: 'Kaffee & Tee', sub: 'Cafés, Minztee-Terrassen, Gebäck & frische Säfte' },
+        'branch-bars': { label: 'Bars & Nachtleben', sub: 'Sunset-Rooftops, Cocktail-Lounges & Live-Musik' },
+      },
+    },
+    ar: {
+      question: 'ما الذي تشتهيه الآن؟',
+      options: {
+        'branch-eat': { label: 'تناول وجبة', sub: 'طواجن، أكل الشارع، مأكولات بحرية أو مطاعم فاخرة' },
+        'branch-coffee': { label: 'قهوة وشاي', sub: 'مقاهي مختصة، شاي بالنعناع، حلويات وعصائر طازجة' },
+        'branch-bars': { label: 'بارات وسهرات ليلية', sub: 'روفتوب عند الغروب، كوكتيلات وموسيقى حية' },
+      },
+    },
+  },
+  'coffee-drink': {
+    fr: {
+      question: 'Que souhaitez-vous boire ou déguster ?',
+      options: {
+        'specialty-coffee': { label: 'Café de spécialité & Espresso', sub: 'Cappuccinos, cafés filtres et lattes glacés' },
+        'mint-tea': { label: 'Thé à la menthe traditionnel', sub: 'Thé marocain à la menthe et infusions' },
+        'fresh-juice': { label: 'Jus frais & Smoothies', sub: 'Agrumes pressés et smoothies avocat zâazâa' },
+        'cafe-pastries': { label: 'Pâtisseries & Douceurs', sub: 'Croissants, cornes de gazelle et desserts' },
+      },
+    },
+    es: {
+      question: '¿Qué te gustaría tomar o disfrutar?',
+      options: {
+        'specialty-coffee': { label: 'Café de especialidad y Espresso', sub: 'Capuchinos, cafés de filtro y lattes fríos' },
+        'mint-tea': { label: 'Té a la menta tradicional', sub: 'Té marroquí e infusiones de hierbas' },
+        'fresh-juice': { label: 'Zumos frescos y Batidos', sub: 'Naranja recién exprimida y batidos zâazâa' },
+        'cafe-pastries': { label: 'Repostería y Dulces', sub: 'Croissants, cuernos de gacela y postres' },
+      },
+    },
+    de: {
+      question: 'Was möchtest du trinken oder genießen?',
+      options: {
+        'specialty-coffee': { label: 'Specialty Coffee & Espresso', sub: 'Cappuccino, Filterkaffee und Iced Latte' },
+        'mint-tea': { label: 'Traditioneller Minztee', sub: 'Marokkanischer Minztee und Kräutertees' },
+        'fresh-juice': { label: 'Frische Säfte & Smoothies', sub: 'Frisch gepresste Zitrusfrüchte und Avocado-Shakes' },
+        'cafe-pastries': { label: 'Gebäck & Süßes', sub: 'Croissants, Gazellenhörner und Desserts' },
+      },
+    },
+    ar: {
+      question: 'ماذا تود أن تشرب أو تستمتع به؟',
+      options: {
+        'specialty-coffee': { label: 'قهوة مختصة وإسبريسو', sub: 'كابتشينو، قهوة مقطرة ولاتيه مثلج' },
+        'mint-tea': { label: 'شاي مغربي بالنعناع', sub: 'أتاي تقليدي ومشروبات عشبية' },
+        'fresh-juice': { label: 'عصائر طازجة وسموذي', sub: 'عصير برتقال طازج وزعزع بالأفوكادو' },
+        'cafe-pastries': { label: 'مخبوزات وحلويات', sub: 'كرواسان، كعب الغزال وحلويات تقليدية' },
+      },
+    },
+  },
+  'coffee-setting': {
+    fr: {
+      question: 'Quel cadre correspond à votre moment ?',
+      options: {
+        'wifi-work': { label: 'Ordinateur & Wi-Fi calme', sub: 'Wi-Fi fiable et tables paisibles pour travailler' },
+        'sunny-terrace': { label: 'Terrasse ensoleillée', sub: 'Observer la ville dans une ambiance animée' },
+        'quiet-courtyard': { label: 'Cour ou jardin ombragé', sub: 'Oasis paisible loin du bruit de la rue' },
+        'rooftop-cafe': { label: 'Café en rooftop', sub: 'Café ou thé avec vue sur la médina' },
+      },
+    },
+    es: {
+      question: '¿Qué ambiente encaja con tu momento?',
+      options: {
+        'wifi-work': { label: 'Portátil y Wi-Fi tranquilo', sub: 'Buen Wi-Fi y mesas cómodas para trabajar o leer' },
+        'sunny-terrace': { label: 'Terraza soleada', sub: 'Ver la vida pasar y ambiente animado' },
+        'quiet-courtyard': { label: 'Patio ajardinado con sombra', sub: 'Oasis tranquilo lejos del bullicio' },
+        'rooftop-cafe': { label: 'Café en azotea', sub: 'Té o café con vistas a la medina' },
+      },
+    },
+    de: {
+      question: 'Welche Café-Atmosphäre passt zu dir?',
+      options: {
+        'wifi-work': { label: 'Laptop & ruhiges WLAN', sub: 'Zuverlässiges WLAN und ruhige Tische zum Arbeiten' },
+        'sunny-terrace': { label: 'Sonnige Straßenterrasse', sub: 'Leute beobachten und lebendiges Flair' },
+        'quiet-courtyard': { label: 'Schattiger Innenhof', sub: 'Ruhige Riad-Oase abseits des Trubels' },
+        'rooftop-cafe': { label: 'Rooftop-Café', sub: 'Tee oder Kaffee mit Blick über die Medina' },
+      },
+    },
+    ar: {
+      question: 'أي أجواء مقهى تناسب لحظتك؟',
+      options: {
+        'wifi-work': { label: 'عمل وواي فاي هادئ', sub: 'إنترنت موثوق وطاولات مريحة للقراءة أو العمل' },
+        'sunny-terrace': { label: 'تراس مشمس على الشارع', sub: 'مشاهدة الحياة اليومية وأجواء حيوية' },
+        'quiet-courtyard': { label: 'فناء وحديقة مظللة', sub: 'واحة هادئة بعيداً عن ضجيج الشارع' },
+        'rooftop-cafe': { label: 'مقهى على السطح', sub: 'شاي أو قهوة مع إطلالة على المدينة' },
+      },
+    },
+  },
+  'coffee-tier': {
+    fr: {
+      question: 'Quel style de café préférez-vous ?',
+      options: {
+        'local-cafe': { label: 'Café de quartier local', sub: 'Adresse marocaine classique, 15–35 MAD' },
+        'boutique-cafe': { label: 'Torréfacteur & Salon chic', sub: 'Café de spécialité soigné, 40–90 MAD' },
+      },
+    },
+    es: {
+      question: '¿Qué estilo de café prefieres?',
+      options: {
+        'local-cafe': { label: 'Café local de barrio', sub: 'Sitio marroquí clásico, 15–35 MAD' },
+        'boutique-cafe': { label: 'Cafetería boutique y de autor', sub: 'Café de especialidad cuidado, 40–90 MAD' },
+      },
+    },
+    de: {
+      question: 'Welchen Café-Stil bevorzugst du?',
+      options: {
+        'local-cafe': { label: 'Lokales Nachbarschafts-Café', sub: 'Klassisch marokkanisch, 15–35 MAD' },
+        'boutique-cafe': { label: 'Boutique-Rösterei & Salon', sub: 'Kuratierter Specialty-Spot, 40–90 MAD' },
+      },
+    },
+    ar: {
+      question: 'أي نوع مقهى تفضل؟',
+      options: {
+        'local-cafe': { label: 'مقهى حي تقليدي', sub: 'أسعار محلية مناسبة، 15–35 درهم' },
+        'boutique-cafe': { label: 'مقهى بوتيك وقهوة مختصة', sub: 'تصميم عصري وجودة عالية، 40–90 درهم' },
+      },
+    },
+  },
+  'bars-type': {
+    fr: {
+      question: 'Quel type de bar recherchez-vous ce soir ?',
+      options: {
+        'sunset-rooftop-bar': { label: 'Bar rooftop au coucher du soleil', sub: 'Verres panoramiques à l’heure dorée' },
+        'cocktail-wine-lounge': { label: 'Bar à cocktails & à vin', sub: 'Mixologie créative, vins marocains et apéritifs' },
+        'live-music-bar': { label: 'Bar musique live & Jazz', sub: 'Jazz acoustique, fusion Gnawa ou DJ sets' },
+        'casual-social-bar': { label: 'Bar convivial & décontracté', sub: 'Bières, tables animées et accès facile' },
+      },
+    },
+    es: {
+      question: '¿Qué tipo de local nocturno buscas?',
+      options: {
+        'sunset-rooftop-bar': { label: 'Bar en azotea al atardecer', sub: 'Copas panorámicas en la hora dorada' },
+        'cocktail-wine-lounge': { label: 'Lounge de cócteles y vinos', sub: 'Coctelería de autor y vinos marroquíes' },
+        'live-music-bar': { label: 'Bar de música en vivo y Jazz', sub: 'Jazz acústico, fusión Gnawa o sesiones DJ' },
+        'casual-social-bar': { label: 'Bar informal y social', sub: 'Cervezas relajadas, ambiente vivo y sin reserva' },
+      },
+    },
+    de: {
+      question: 'Welche Art von Abend-Spot suchst du?',
+      options: {
+        'sunset-rooftop-bar': { label: 'Sunset-Rooftop-Bar', sub: 'Panoramablick und Drinks zur goldenen Stunde' },
+        'cocktail-wine-lounge': { label: 'Cocktail- & Weinlounge', sub: 'Craft-Cocktails, marokkanische Weine & Aperitifs' },
+        'live-music-bar': { label: 'Live-Musik- & Jazzbar', sub: 'Akustik-Jazz, Gnawa-Fusion oder DJ-Sets' },
+        'casual-social-bar': { label: 'Lockere Social-Bar', sub: 'Entspannte Drinks, gesellige Tische, unkompliziert' },
+      },
+    },
+    ar: {
+      question: 'ما نوع المكان المسائي الذي تبحث عنه؟',
+      options: {
+        'sunset-rooftop-bar': { label: 'بار روفتوب عند الغروب', sub: 'مشروبات بإطلالة بانورامية وقت الغروب' },
+        'cocktail-wine-lounge': { label: 'لاونج كوكتيل ونبيذ', sub: 'كوكتيلات مبتكرة ونبيذ مغربي' },
+        'live-music-bar': { label: 'بار موسيقى حية وجاز', sub: 'موسيقى جاز وكناوة أو دي جي' },
+        'casual-social-bar': { label: 'بار مريح واجتماعي', sub: 'أجواء بسيطة ومريحة مع الأصدقاء' },
+      },
+    },
+  },
+  'bars-vibe': {
+    fr: {
+      question: 'Quelle ambiance correspond à votre soirée ?',
+      options: {
+        'intimate-date': { label: 'Intime & Romantique', sub: 'Tables aux chandelles et conversations calmes' },
+        'lively-friends': { label: 'Animé & Festif', sub: 'Énergie conviviale, parfait entre amis' },
+        'upscale-chic': { label: 'Chic & Élégant', sub: 'Lounge habillé ou bar d’hôtel raffiné' },
+      },
+    },
+    es: {
+      question: '¿Qué ambiente encaja con tu noche?',
+      options: {
+        'intimate-date': { label: 'Íntimo y Romántico', sub: 'Rincones con velas y charla tranquila' },
+        'lively-friends': { label: 'Animado y Social', sub: 'Buen ambiente y música, ideal con amigos' },
+        'upscale-chic': { label: 'Elegante y Chic', sub: 'Lounge sofisticado o bar de hotel' },
+      },
+    },
+    de: {
+      question: 'Welche Stimmung passt zu deinem Abend?',
+      options: {
+        'intimate-date': { label: 'Intim & Romantisch', sub: 'Kerzenlicht und entspannte Gespräche' },
+        'lively-friends': { label: 'Lebhaft & Gesellig', sub: 'Energiegeladene Atmosphäre mit Freunden' },
+        'upscale-chic': { label: 'Gehoben & Schick', sub: 'Stilvolle Lounge oder elegante Hotelbar' },
+      },
+    },
+    ar: {
+      question: 'ما الأجواء المناسبة لسهرتك؟',
+      options: {
+        'intimate-date': { label: 'هادئ ورومانسي', sub: 'أجواء دافئة على ضوء الشموع' },
+        'lively-friends': { label: 'حيوي واجتماعي', sub: 'أجواء نشطة مثالية مع الأصدقاء' },
+        'upscale-chic': { label: 'راقٍ وأنيق', sub: 'لاونج فاخر أو بار فندقي أنيق' },
+      },
+    },
+  },
+  'bars-budget': {
+    fr: {
+      question: 'Quel niveau de budget vous convient ?',
+      options: {
+        'accessible-bar': { label: 'Accessible & Décontracté', sub: 'Verres simples sans tarifs de luxe' },
+        'stylish-mid-bar': { label: 'Milieu de gamme & Stylé', sub: 'Bons cocktails et cadre soigné, budget équilibré' },
+        'luxury-palace-bar': { label: 'Palais & Bar d’exception', sub: 'Bars cinq étoiles iconiques et service sur mesure' },
+      },
+    },
+    es: {
+      question: '¿Qué nivel de gasto te encaja?',
+      options: {
+        'accessible-bar': { label: 'Accesible e Informal', sub: 'Copas sencillas sin precios de lujo' },
+        'stylish-mid-bar': { label: 'Gama media y con Estilo', sub: 'Buenos cócteles y ambiente cuidado' },
+        'luxury-palace-bar': { label: 'Lounge de Palacio y Lujo', sub: 'Bares icónicos de cinco estrellas' },
+      },
+    },
+    de: {
+      question: 'Welches Preisniveau passt zu dir?',
+      options: {
+        'accessible-bar': { label: 'Erschwinglich & Locker', sub: 'Entspannte Drinks ohne Luxusaufschlag' },
+        'stylish-mid-bar': { label: 'Mittelklasse & Stilvoll', sub: 'Tolle Cocktails und schönes Ambiente' },
+        'luxury-palace-bar': { label: 'Luxus-Palastlounge', sub: 'Legendäre Fünf-Sterne-Bars mit Top-Service' },
+      },
+    },
+    ar: {
+      question: 'ما مستوى الميزانية المناسب لك؟',
+      options: {
+        'accessible-bar': { label: 'مناسب وبسيط', sub: 'مشروبات بأسعار معتدلة بدون تكلف' },
+        'stylish-mid-bar': { label: 'متوسط وأنيق', sub: 'كوكتيلات مميزة وأجواء جميلة' },
+        'luxury-palace-bar': { label: 'لاونج قصر فاخر', sub: 'بارات خمس نجوم وخدمة استثنائية' },
+      },
+    },
+  },
 };
 
 // City Category Pick Labels (PreQuizShortcutBar pills across all cities)

@@ -32,6 +32,12 @@ import FilterPanel from './modals/FilterPanel';
 import { ARCHETYPE_METADATA } from '../../data/explore/archetypes';
 import { getTagForOptionId, getQuizWeightForQuestionId, QUIZ_STOP_WORDS, getAllQuizQuestions, getQuizOptionLabel, type QuizQuestion } from '../../data/explore/questions';
 import { THINGS_QUIZ_FILTERS, evaluateThingsQuizAnswer, THINGS_TREE_ROOT_ID, THINGS_TREE_FOLLOW_UP_QUESTION_IDS } from '../../data/explore/thingsQuiz';
+import {
+  FOOD_TREE_ROOT_ID,
+  FOOD_TREE_FOLLOW_UP_QUESTION_IDS,
+  FOOD_TREE_OPTION_IDS,
+  evaluateFoodQuizAnswer
+} from '../../data/explore/foodQuiz';
 import { cn } from '../../utils/cn';
 import { useNavigate, useParams, useLocation } from 'react-router-dom';
 import { SEO } from '../ui/SEO';
@@ -370,8 +376,21 @@ export default function ResultPage() {
             if (!answerId) return;
             totalCriteria += weightGain;
 
-            // Decision-tree answers (Things To Do) score against the structured
-            // FILTER ARRAYS in data/explore/thingsQuiz.ts
+            // Decision-tree answers (Things To Do & Food & Drink) score against
+            // their structured filter evaluators
+            if (FOOD_TREE_OPTION_IDS.has(String(answerId))) {
+              const foodResult = evaluateFoodQuizAnswer(item, String(answerId));
+              if (foodResult === 'match') {
+                matchScore += weightGain;
+                matchedTags.push(getQuizOptionLabel(questionId, answerId, lang));
+              } else if (foodResult === 'miss') {
+                matchScore += missPenalty;
+                missedTags.push(getQuizOptionLabel(questionId, answerId, lang));
+              } else {
+                totalCriteria -= weightGain;
+              }
+              return;
+            }
             if (THINGS_QUIZ_FILTERS[String(answerId)]) {
               const treeResult = evaluateThingsQuizAnswer(item, String(answerId));
               if (treeResult === 'match') {
@@ -658,10 +677,14 @@ export default function ResultPage() {
         label: labels,
         question,
         onRemove: () => {
-          // Decision-tree: removing the Road answer also drops the old road's follow-ups
+          // Decision-tree: removing the Root answer also drops old branch follow-ups
           if (questionId === THINGS_TREE_ROOT_ID) {
             const cleaned = { ...quizAnswers };
             THINGS_TREE_FOLLOW_UP_QUESTION_IDS.forEach(id => delete cleaned[id]);
+            useExploreStore.setState({ quizAnswers: cleaned });
+          } else if (questionId === FOOD_TREE_ROOT_ID) {
+            const cleaned = { ...quizAnswers };
+            FOOD_TREE_FOLLOW_UP_QUESTION_IDS.forEach(id => delete cleaned[id]);
             useExploreStore.setState({ quizAnswers: cleaned });
           }
           setQuizAnswer(questionId, Array.isArray(answerValue) ? [] : null);
@@ -1037,10 +1060,14 @@ export default function ResultPage() {
                                         const next = arr.includes(opt.id) ? arr.filter(v => v !== opt.id) : [...arr, opt.id];
                                         setQuizAnswer(pill.questionId, next);
                                       } else {
-                                        // Decision-tree: switching the Road drops the old road's answers
+                                        // Decision-tree: switching the Root drops old branch answers
                                         if (pill.questionId === THINGS_TREE_ROOT_ID && quizAnswers[pill.questionId] !== opt.id) {
                                           const cleaned = { ...quizAnswers };
                                           THINGS_TREE_FOLLOW_UP_QUESTION_IDS.forEach(id => delete cleaned[id]);
+                                          useExploreStore.setState({ quizAnswers: cleaned });
+                                        } else if (pill.questionId === FOOD_TREE_ROOT_ID && quizAnswers[pill.questionId] !== opt.id) {
+                                          const cleaned = { ...quizAnswers };
+                                          FOOD_TREE_FOLLOW_UP_QUESTION_IDS.forEach(id => delete cleaned[id]);
                                           useExploreStore.setState({ quizAnswers: cleaned });
                                         }
                                         setQuizAnswer(pill.questionId, opt.id);

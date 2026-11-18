@@ -301,6 +301,8 @@
     "singleSelectHint": "اختر الخيار الأنسب لك",
     "back": "رجوع",
     "surpriseMe": "غير متأكد؟ فاجئني",
+    "anyOption": "لا يهم / أي خيار",
+    "anyOptionSub": "تخطي هذا السؤال وإبقاء جميع الخيارات مفتوحة",
     "nextQuestion": "السؤال التالي",
     "seeMatches": "عرض النتائج ({{count}})",
     "trust": {

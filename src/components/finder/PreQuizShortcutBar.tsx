@@ -81,19 +81,21 @@ export default function PreQuizShortcutBar({
         </span>
       </div>
 
-      {/* Flexible 5-pill row fitting all 5 pills on screen simultaneously without cut-off */}
-      <div className="flex items-center gap-1.5 sm:gap-2 w-full overflow-x-auto sm:overflow-visible pb-1 sm:pb-0 scrollbar-none">
-        {picks.map((pick) => (
+      {/* Responsive grid on mobile (zero mid-word clipping) -> balanced 5-pill row on sm+ */}
+      <div className="grid grid-cols-2 sm:flex sm:items-center gap-2 w-full">
+        {picks.map((pick, idx) => (
           <button
             key={pick.id}
             onClick={() => onSelectCategory(pick)}
             type="button"
-            className="group flex-1 min-w-[105px] sm:min-w-0 flex items-center justify-center sm:justify-start gap-1.5 sm:gap-2 px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-full border border-stone-200/80 bg-white hover:border-[#C86D51]/50 hover:shadow-xs hover:-translate-y-0.5 active:translate-y-0 transition-all cursor-pointer text-start shadow-2xs shrink-0 sm:shrink"
+            className={`group min-h-[44px] sm:flex-1 sm:min-w-0 flex items-center justify-start gap-2 px-3 py-2 rounded-2xl sm:rounded-full border border-stone-200/80 bg-white hover:border-[#C86D51]/50 hover:shadow-xs hover:-translate-y-0.5 active:translate-y-0 transition-all cursor-pointer text-start shadow-2xs ${
+              idx === picks.length - 1 && picks.length % 2 === 1 ? 'col-span-2 sm:col-span-1' : ''
+            }`}
           >
-            <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-[#FAF3EA] flex items-center justify-center text-[#C86D51] shrink-0 group-hover:bg-[#C86D51] group-hover:text-white transition-colors">
+            <div className="w-6 h-6 rounded-full bg-[#FAF3EA] flex items-center justify-center text-[#C86D51] shrink-0 group-hover:bg-[#C86D51] group-hover:text-white transition-colors">
               {renderPickIcon(pick)}
             </div>
-            <span className="text-[11px] sm:text-xs font-bold text-stone-800 group-hover:text-[#C86D51] transition-colors truncate">
+            <span className="text-xs font-bold text-stone-800 group-hover:text-[#C86D51] transition-colors leading-tight sm:truncate">
               {translateCityPickLabel(pick.label, lang)}
             </span>
           </button>

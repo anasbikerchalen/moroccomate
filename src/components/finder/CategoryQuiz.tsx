@@ -9,6 +9,14 @@ import {
   THINGS_TREE_FOLLOW_UP_QUESTION_IDS,
   matchesThingsQuizAnswer
 } from '../../data/explore/thingsQuiz';
+import {
+  FOOD_TREE_ROOT_ID,
+  FOOD_BRANCH_QUESTIONS,
+  FOOD_QUIZ_OPTION_IMAGES,
+  FOOD_TREE_OPTION_IDS,
+  FOOD_TREE_FOLLOW_UP_QUESTION_IDS,
+  matchesFoodQuizAnswer
+} from '../../data/explore/foodQuiz';
 import PreQuizShortcutBar from './PreQuizShortcutBar';
 import { getCityCategoryPicks, type CityCategoryPick } from '../../data/explore/cityCategoryPicks';
 import { useParameterStore } from '../../state/parameterStore';
@@ -28,7 +36,23 @@ import {
   Landmark,
   ShieldCheck,
   Wand2,
-  X
+  X,
+  Shuffle,
+  Wallet,
+  Scale,
+  Crown,
+  Coffee,
+  Wine,
+  Citrus,
+  Wifi,
+  Sun,
+  Trees,
+  Sunset,
+  Music,
+  Heart,
+  Users,
+  Store,
+  Leaf
 } from 'lucide-react';
 import { cn } from '../../utils/cn';
 import { useExploreStore } from '../../state/exploreStore';
@@ -272,6 +296,9 @@ const getOptionImage = (option: QuizOption, questionId: string, stepIndex: numbe
   // 0. Decision-tree quiz options (Things To Do): images come from the curated UI
   // ARRAYS in data/explore/thingsQuiz.ts. Options without a fitting existing image
   // stay on the pending placeholder - never a fake or unrelated image.
+  if (FOOD_TREE_OPTION_IDS.has(option.id)) {
+    return FOOD_QUIZ_OPTION_IMAGES[option.id] || getOptionFallback(categoryId, option.id);
+  }
   if (THINGS_TREE_OPTION_IDS.has(option.id)) {
     return THINGS_QUIZ_OPTION_IMAGES[option.id] || quizPlaceholderPending;
   }
@@ -560,6 +587,23 @@ const getOptionIcon = (option: QuizOption) => {
     return <span className="text-xl">{option.icon}</span>;
   }
   const id = (option.id || '').toLowerCase();
+  if (id === 'lean' || id.includes('budget')) return <Wallet className="w-5 h-5 text-[#C86D51]" />;
+  if (id === 'balanced' || id === 'boutique-cafe' || id === 'stylish-mid-bar') return <Scale className="w-5 h-5 text-[#C86D51]" />;
+  if (id === 'premium' || id === 'luxury-palace-bar' || id === 'upscale-chic') return <Crown className="w-5 h-5 text-[#C86D51]" />;
+  if (id === 'branch-eat') return <Utensils className="w-5 h-5 text-[#C86D51]" />;
+  if (id === 'branch-coffee' || id === 'specialty-coffee') return <Coffee className="w-5 h-5 text-[#C86D51]" />;
+  if (id === 'mint-tea') return <Leaf className="w-5 h-5 text-[#C86D51]" />;
+  if (id === 'branch-bars' || id === 'cocktail-wine-lounge') return <Wine className="w-5 h-5 text-[#C86D51]" />;
+  if (id === 'fresh-juice') return <Citrus className="w-5 h-5 text-[#C86D51]" />;
+  if (id === 'cafe-pastries') return <Sparkles className="w-5 h-5 text-[#C86D51]" />;
+  if (id === 'wifi-work') return <Wifi className="w-5 h-5 text-[#C86D51]" />;
+  if (id === 'sunny-terrace') return <Sun className="w-5 h-5 text-[#C86D51]" />;
+  if (id === 'quiet-courtyard') return <Trees className="w-5 h-5 text-[#C86D51]" />;
+  if (id === 'rooftop-cafe' || id === 'sunset-rooftop-bar') return <Sunset className="w-5 h-5 text-[#C86D51]" />;
+  if (id === 'live-music-bar') return <Music className="w-5 h-5 text-[#C86D51]" />;
+  if (id === 'local-cafe' || id === 'accessible-bar') return <Store className="w-5 h-5 text-[#C86D51]" />;
+  if (id === 'intimate-date') return <Heart className="w-5 h-5 text-[#C86D51]" />;
+  if (id === 'lively-friends' || id === 'casual-social-bar') return <Users className="w-5 h-5 text-[#C86D51]" />;
   if (id.includes('culture') || id.includes('history')) return <Landmark className="w-5 h-5 text-[#C86D51]" />;
   if (id.includes('adventure') || id.includes('active') || id.includes('hiking')) return <Mountain className="w-5 h-5 text-[#C86D51]" />;
   if (id.includes('food') || id.includes('dish') || id.includes('eat')) return <Utensils className="w-5 h-5 text-[#C86D51]" />;
@@ -570,6 +614,7 @@ const getOptionIcon = (option: QuizOption) => {
 export default function CategoryQuiz({ questions, onComplete, onBack, listings = [], categoryId }: CategoryQuizProps) {
   const [currentStep, setCurrentStep] = useState(0);
   const [answers, setAnswers] = useState<Record<string, any>>({});
+  const [skippedSteps, setSkippedSteps] = useState<Record<string, boolean>>({});
   const applyQuizAutoFilters = useExploreStore((s) => s.applyQuizAutoFilters);
   const parameterCity = useParameterStore((s) => s.city);
   const { t } = useTranslation();
@@ -580,14 +625,18 @@ export default function CategoryQuiz({ questions, onComplete, onBack, listings =
     return getCityCategoryPicks(parameterCity || 'agadir', categoryId);
   }, [parameterCity, categoryId]);
 
-  // Decision-tree branching (Things To Do): Question 1 ('things-road') picks the
-  // traveler's Road and the matching Road questions from the QUIZ ARRAYS in
-  // data/explore/thingsQuiz.ts are appended live (5 questions total, never more).
+  // Decision-tree branching (Things To Do & Food & Drink): Question 1 picks the
+  // traveler's Road/Branch and the matching follow-up questions are appended live.
   const effectiveQuestions = useMemo(() => {
     const isThingsTree = questions.length === 1 && questions[0].id === THINGS_TREE_ROOT_ID;
     if (isThingsTree) {
       const road = answers[THINGS_TREE_ROOT_ID];
       return [questions[0], ...(road ? THINGS_ROAD_QUESTIONS[road] || [] : [])];
+    }
+    const isFoodTree = questions.length === 1 && questions[0].id === FOOD_TREE_ROOT_ID;
+    if (isFoodTree) {
+      const intent = answers[FOOD_TREE_ROOT_ID];
+      return [questions[0], ...(intent ? FOOD_BRANCH_QUESTIONS[intent] || [] : [])];
     }
     return questions;
   }, [questions, answers]);
@@ -602,7 +651,10 @@ export default function CategoryQuiz({ questions, onComplete, onBack, listings =
   const answerMatchesListing = (item: any, questionId: string, ids: string[]): boolean => {
     return ids.some(id => {
       // Decision-tree options match via the structured FILTER ARRAYS in
-      // data/explore/thingsQuiz.ts (identical rules to the results page scoring)
+      // data/explore/thingsQuiz.ts and data/explore/foodQuiz.ts
+      if (FOOD_TREE_OPTION_IDS.has(id)) {
+        return matchesFoodQuizAnswer(item, id);
+      }
       if (THINGS_TREE_OPTION_IDS.has(id)) {
         return matchesThingsQuizAnswer(item, id);
       }
@@ -702,6 +754,13 @@ export default function CategoryQuiz({ questions, onComplete, onBack, listings =
   }
 
   const handleOptionSelect = (questionId: string, optionId: string) => {
+    setSkippedSteps(prev => {
+      if (!prev[questionId]) return prev;
+      const next = { ...prev };
+      delete next[questionId];
+      return next;
+    });
+
     if (currentQuestion.multiSelect) {
       const currentAnswers = Array.isArray(answers[questionId]) ? answers[questionId] : [];
       const updated = currentAnswers.includes(optionId)
@@ -710,17 +769,50 @@ export default function CategoryQuiz({ questions, onComplete, onBack, listings =
       
       setAnswers({ ...answers, [questionId]: updated });
     } else {
-      // Decision-tree: switching the Road resets the previous road's follow-up
-      // answers so stale filters never leak into the new branch
+      // Decision-tree: switching the Root Road/Branch resets follow-up answers
+      // so stale filters never leak across branches
       if (questionId === THINGS_TREE_ROOT_ID && answers[questionId] && answers[questionId] !== optionId) {
         const cleaned: Record<string, any> = { ...answers };
         THINGS_TREE_FOLLOW_UP_QUESTION_IDS.forEach(id => delete cleaned[id]);
         cleaned[questionId] = optionId;
+        setSkippedSteps(prev => {
+          const next = { ...prev };
+          THINGS_TREE_FOLLOW_UP_QUESTION_IDS.forEach(id => delete next[id]);
+          return next;
+        });
+        setAnswers(cleaned);
+        return;
+      }
+      if (questionId === FOOD_TREE_ROOT_ID && answers[questionId] && answers[questionId] !== optionId) {
+        const cleaned: Record<string, any> = { ...answers };
+        FOOD_TREE_FOLLOW_UP_QUESTION_IDS.forEach(id => delete cleaned[id]);
+        cleaned[questionId] = optionId;
+        setSkippedSteps(prev => {
+          const next = { ...prev };
+          FOOD_TREE_FOLLOW_UP_QUESTION_IDS.forEach(id => delete next[id]);
+          return next;
+        });
         setAnswers(cleaned);
         return;
       }
       const updatedAnswers = { ...answers, [questionId]: optionId };
       setAnswers(updatedAnswers);
+    }
+  };
+
+  const handleSkipCurrentStep = () => {
+    const qId = currentQuestion.id;
+    const nextAnswers = { ...answers };
+    delete nextAnswers[qId];
+    setAnswers(nextAnswers);
+    setSkippedSteps(prev => ({ ...prev, [qId]: true }));
+
+    if (stepIndex < effectiveQuestions.length - 1) {
+      setCurrentStep(stepIndex + 1);
+    } else {
+      applyQuizAutoFilters(nextAnswers);
+      useExploreStore.setState({ quizAnswers: nextAnswers });
+      onComplete(nextAnswers);
     }
   };
 
@@ -784,8 +876,29 @@ export default function CategoryQuiz({ questions, onComplete, onBack, listings =
   const hasSelection = isMultiSelect 
     ? (Array.isArray(currentAnswer) && currentAnswer.length > 0)
     : Boolean(currentAnswer);
+  const isSkippedCurrent = Boolean(skippedSteps[currentQuestion.id]);
+  const canAdvance = hasSelection || isSkippedCurrent;
 
-  const progressPercentage = Math.round(((stepIndex + 1) / effectiveQuestions.length) * 100);
+  const isBranchRoot = currentQuestion.id === THINGS_TREE_ROOT_ID || currentQuestion.id === FOOD_TREE_ROOT_ID;
+  const isThingsPending = questions.length === 1 && questions[0].id === THINGS_TREE_ROOT_ID && !answers[THINGS_TREE_ROOT_ID];
+  const isFoodPending = questions.length === 1 && questions[0].id === FOOD_TREE_ROOT_ID && !answers[FOOD_TREE_ROOT_ID];
+  const displayTotalSteps = isThingsPending ? 5 : isFoodPending ? 4 : effectiveQuestions.length;
+  const isLastStep = !isThingsPending && !isFoodPending && stepIndex >= effectiveQuestions.length - 1;
+
+  const showAnyCard = !isBranchRoot;
+  const totalCards = displayedOptions.length + (showAnyCard ? 1 : 0);
+  const gridLayoutClass =
+    totalCards === 2
+      ? 'grid-cols-1 sm:grid-cols-2 max-w-3xl mx-auto gap-5'
+      : totalCards === 3
+        ? 'grid-cols-1 sm:grid-cols-3 max-w-5xl mx-auto gap-5'
+        : totalCards === 5
+          ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4'
+          : totalCards === 6
+            ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto gap-5'
+            : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5';
+
+  const progressPercentage = Math.round(((stepIndex + 1) / displayTotalSteps) * 100);
 
   const stepLabels = [
     t('quiz.stepLabels.preferences'),
@@ -817,7 +930,7 @@ export default function CategoryQuiz({ questions, onComplete, onBack, listings =
         {/* Step indicator & label */}
         <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
           <span className="text-xs sm:text-sm font-bold text-stone-800 font-display whitespace-nowrap">
-            {t('quiz.stepOf', { current: currentStep + 1, total: effectiveQuestions.length })}
+            {t('quiz.stepOf', { current: currentStep + 1, total: displayTotalSteps })}
           </span>
           <span className="hidden sm:inline text-xs text-stone-400 font-medium">·</span>
           <span className="hidden sm:inline text-xs text-stone-600 font-medium truncate max-w-[140px] md:max-w-[200px]">
@@ -827,7 +940,7 @@ export default function CategoryQuiz({ questions, onComplete, onBack, listings =
 
         {/* Progress Bar Segments */}
         <div className="flex-1 max-w-xs sm:max-w-md flex items-center gap-1.5 sm:gap-2">
-          {effectiveQuestions.map((_, idx) => (
+          {Array.from({ length: displayTotalSteps }).map((_, idx) => (
             <div 
               key={idx}
               className="h-1.5 sm:h-2 flex-1 rounded-full bg-stone-100 overflow-hidden transition-all relative"
@@ -835,7 +948,7 @@ export default function CategoryQuiz({ questions, onComplete, onBack, listings =
               <div 
                 className={cn(
                   "h-full transition-all duration-500 rounded-full",
-                  idx < currentStep ? "bg-[#C86D51]" : idx === currentStep ? "bg-[#C86D51] animate-pulse" : "bg-transparent"
+                  idx <= currentStep ? "bg-[#C86D51]" : "bg-transparent"
                 )}
               />
             </div>
@@ -855,7 +968,7 @@ export default function CategoryQuiz({ questions, onComplete, onBack, listings =
         
         {/* Question Title & Subtitle */}
         <div className="text-center space-y-1 max-w-2xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl font-display font-serif font-semibold text-stone-900 leading-snug">
+          <h2 className="text-2xl sm:text-3xl font-display font-serif font-semibold text-stone-900 leading-snug text-balance">
             {localizedQuestion.question}
           </h2>
           <p className="text-stone-500 text-xs sm:text-sm">
@@ -871,7 +984,7 @@ export default function CategoryQuiz({ questions, onComplete, onBack, listings =
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.25 }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"
+            className={cn("grid", gridLayoutClass)}
           >
             {displayedOptions.map((option) => {
               const isSelected = isMultiSelect 
@@ -883,10 +996,11 @@ export default function CategoryQuiz({ questions, onComplete, onBack, listings =
 
               return (
                 <button
+                  type="button"
                   key={option.id}
                   onClick={() => handleOptionSelect(currentQuestion.id, option.id)}
                   className={cn(
-                    "group relative flex flex-col rounded-[24px] border overflow-hidden transition-all duration-300 cursor-pointer text-start h-full",
+                    "group relative flex flex-col rounded-[24px] border overflow-hidden transition-all duration-300 cursor-pointer text-start h-full min-h-[44px]",
                     isSelected 
                       ? "bg-[#FAF3F0] border-2 border-[#C86D51] shadow-lg shadow-[#C86D51]/10 -translate-y-1 ring-2 ring-[#C86D51] ring-offset-2"
                       : "bg-white border-stone-200/80 hover:border-stone-300 hover:shadow-md hover:-translate-y-0.5"
@@ -898,7 +1012,8 @@ export default function CategoryQuiz({ questions, onComplete, onBack, listings =
                       src={cardImg} 
                       alt={translatedOption.label}
                       loading="lazy"
-                      decoding="async" 
+                      decoding="async"
+                      referrerPolicy="no-referrer"
                       onError={(e) => {
                         (e.target as HTMLImageElement).src = getOptionFallback(categoryId, option.id);
                       }}
@@ -909,9 +1024,9 @@ export default function CategoryQuiz({ questions, onComplete, onBack, listings =
                       isSelected ? "bg-[#C86D51]/20 mix-blend-multiply" : "bg-gradient-to-t from-black/40 via-transparent to-transparent"
                     )} />
 
-                    {/* Selected Badge (Top Right) */}
+                    {/* Selected Badge (Top Right / End) */}
                     {isSelected && (
-                      <div className="absolute top-3 right-3 w-7 h-7 bg-[#C86D51] text-white rounded-full flex items-center justify-center shadow-md z-10 animate-scale-in">
+                      <div className="absolute top-3 end-3 w-7 h-7 bg-[#C86D51] text-white rounded-full flex items-center justify-center shadow-md z-10 animate-scale-in">
                         <Check className="w-4 h-4 stroke-[3]" />
                       </div>
                     )}
@@ -923,9 +1038,9 @@ export default function CategoryQuiz({ questions, onComplete, onBack, listings =
                   </div>
 
                   {/* Card Body */}
-                  <div className="p-4 pt-2 flex-1 flex flex-col items-center text-center space-y-1">
+                  <div className="p-4 pt-2 flex-1 flex flex-col items-center text-center space-y-1 min-w-0">
                     <h3 className={cn(
-                      "font-display font-semibold text-base sm:text-lg transition-colors",
+                      "font-display font-semibold text-base sm:text-lg transition-colors leading-snug",
                       isSelected ? "text-[#C86D51]" : "text-stone-900 group-hover:text-[#C86D51]"
                     )}>
                       {translatedOption.label}
@@ -940,39 +1055,84 @@ export default function CategoryQuiz({ questions, onComplete, onBack, listings =
                 </button>
               );
             })}
+
+            {/* Per-Question "Any / No preference" Escape Card */}
+            {showAnyCard && (
+              <button
+                type="button"
+                onClick={handleSkipCurrentStep}
+                className={cn(
+                  "group relative flex flex-col rounded-[24px] border overflow-hidden transition-all duration-300 cursor-pointer text-start h-full min-h-[44px]",
+                  isSkippedCurrent
+                    ? "bg-[#FAF3F0] border-2 border-[#C86D51] shadow-lg shadow-[#C86D51]/10 -translate-y-1 ring-2 ring-[#C86D51] ring-offset-2"
+                    : "bg-[#FCFAF7] border-dashed border-stone-300 hover:border-[#C86D51]/60 hover:bg-[#FAF3F0]/50 hover:shadow-md hover:-translate-y-0.5"
+                )}
+              >
+                <div className="relative aspect-[4/3] sm:aspect-[16/9] w-full bg-gradient-to-br from-[#FAF3EA] via-[#F6EBDC] to-[#EFE0CD] overflow-hidden flex items-center justify-center">
+                  <div className="absolute inset-0 bg-[radial-gradient(#C86D51_0.6px,transparent_0.6px)] [background-size:16px_16px] opacity-15 pointer-events-none" />
+                  <div className="w-12 h-12 rounded-2xl bg-white/90 border border-[#E5D3BE] shadow-xs flex items-center justify-center text-[#C86D51] group-hover:scale-105 transition-transform">
+                    <Shuffle className="w-6 h-6" />
+                  </div>
+                  {isSkippedCurrent && (
+                    <div className="absolute top-3 end-3 w-7 h-7 bg-[#C86D51] text-white rounded-full flex items-center justify-center shadow-md z-10">
+                      <Check className="w-4 h-4 stroke-[3]" />
+                    </div>
+                  )}
+                </div>
+
+                <div className="relative z-10 -mt-5 mx-auto w-10 h-10 rounded-full bg-white shadow-md border border-stone-100 flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <Wand2 className="w-4 h-4 text-[#C86D51]" />
+                </div>
+
+                <div className="p-4 pt-2 flex-1 flex flex-col items-center text-center space-y-1 min-w-0">
+                  <h3 className={cn(
+                    "font-display font-semibold text-base sm:text-lg transition-colors leading-snug",
+                    isSkippedCurrent ? "text-[#C86D51]" : "text-stone-800 group-hover:text-[#C86D51]"
+                  )}>
+                    {t('quiz.anyOption')}
+                  </h3>
+                  <p className="text-xs text-stone-500 leading-relaxed line-clamp-3 font-sans">
+                    {t('quiz.anyOptionSub')}
+                  </p>
+                </div>
+              </button>
+            )}
           </motion.div>
         </AnimatePresence>
 
         {/* Navigation Action Buttons Bar */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mt-6 pt-4 border-t border-stone-200/60">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 mt-6 pt-4 border-t border-stone-200/60">
           <button
+            type="button"
             onClick={handlePreviousStep}
-            className="w-full sm:w-auto px-5 sm:px-6 py-2.5 sm:py-3 rounded-full bg-stone-100 hover:bg-stone-200 text-stone-700 font-bold text-xs sm:text-sm transition-all cursor-pointer flex items-center justify-center gap-2"
+            className="w-full sm:w-auto min-h-[44px] px-5 sm:px-6 py-2.5 sm:py-3 rounded-full bg-stone-100 hover:bg-stone-200 text-stone-700 font-bold text-xs sm:text-sm transition-all cursor-pointer flex items-center justify-center gap-2"
           >
             <BackArrow className="w-4 h-4" />
             {t('quiz.back')}
           </button>
 
-          <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+          <div className="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
             <button
+              type="button"
               onClick={handleSurpriseMe}
-              className="text-xs sm:text-sm font-medium text-stone-500 hover:text-[#C86D51] transition-colors flex items-center gap-1.5 cursor-pointer"
+              className="w-full sm:w-auto min-h-[44px] px-5 py-2.5 rounded-full border-2 border-[#C86D51]/40 bg-[#FAF3F0] hover:bg-[#C86D51]/10 hover:border-[#C86D51] text-[#A85237] font-semibold text-xs sm:text-sm transition-all flex items-center justify-center gap-2 cursor-pointer"
             >
-              <Wand2 className="w-4 h-4" />
-              {t('quiz.surpriseMe')}
+              <Wand2 className="w-4 h-4 shrink-0" />
+              <span>{t('quiz.surpriseMe')}</span>
             </button>
 
             <button
-              disabled={!hasSelection}
+              type="button"
+              disabled={!canAdvance}
               onClick={handleNext}
               className={cn(
-                "w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-3.5 rounded-full font-bold text-xs sm:text-sm transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer",
-                hasSelection 
-                  ? "bg-[#C86D51] hover:bg-[#B55C41] text-white shadow-[#C86D51]/20 hover:-translate-y-0.5" 
+                "w-full sm:w-auto min-h-[44px] px-6 sm:px-8 py-3 sm:py-3.5 rounded-full font-bold text-xs sm:text-sm transition-all shadow-md flex items-center justify-center gap-2",
+                canAdvance 
+                  ? "bg-[#C86D51] hover:bg-[#B55C41] text-white shadow-[#C86D51]/20 hover:-translate-y-0.5 cursor-pointer" 
                   : "bg-stone-200 text-stone-400 cursor-not-allowed shadow-none"
               )}
             >
-              {stepIndex < effectiveQuestions.length - 1 ? (
+              {!isLastStep ? (
                 <>
                   {t('quiz.nextQuestion')}
                   <NextArrow className="w-4 h-4" />
@@ -990,44 +1150,44 @@ export default function CategoryQuiz({ questions, onComplete, onBack, listings =
       </div>
 
       {/* 4. Bottom Trust Strip Footer */}
-      <div className="bg-white rounded-[24px] p-6 border border-stone-200/80 shadow-xs grid grid-cols-2 md:grid-cols-4 gap-6 text-start">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-[#FAF3F0] text-[#C86D51] flex items-center justify-center flex-shrink-0">
-            <Clock className="w-5 h-5" />
+      <div className="bg-white rounded-[24px] p-4 sm:p-6 border border-stone-200/80 shadow-xs grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 text-start">
+        <div className="flex items-start sm:items-center gap-2 sm:gap-3 min-w-0">
+          <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-[#FAF3F0] text-[#C86D51] flex items-center justify-center shrink-0">
+            <Clock className="w-4 h-4 sm:w-5 sm:h-5" />
           </div>
-          <div>
-            <div className="font-bold text-xs sm:text-sm text-stone-900">{t('quiz.trust.fastTitle')}</div>
-            <div className="text-[11px] text-stone-500">{t('quiz.trust.fastSub')}</div>
-          </div>
-        </div>
-
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-[#FAF3F0] text-[#C86D51] flex items-center justify-center flex-shrink-0">
-            <User className="w-5 h-5" />
-          </div>
-          <div>
-            <div className="font-bold text-xs sm:text-sm text-stone-900">{t('quiz.trust.personalizedTitle')}</div>
-            <div className="text-[11px] text-stone-500">{t('quiz.trust.personalizedSub')}</div>
+          <div className="min-w-0">
+            <div className="font-bold text-[11px] sm:text-sm text-stone-900 leading-snug">{t('quiz.trust.fastTitle')}</div>
+            <div className="text-[11px] text-stone-500 leading-snug">{t('quiz.trust.fastSub')}</div>
           </div>
         </div>
 
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-[#FAF3F0] text-[#C86D51] flex items-center justify-center flex-shrink-0">
-            <Star className="w-5 h-5" />
+        <div className="flex items-start sm:items-center gap-2 sm:gap-3 min-w-0">
+          <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-[#FAF3F0] text-[#C86D51] flex items-center justify-center shrink-0">
+            <User className="w-4 h-4 sm:w-5 sm:h-5" />
           </div>
-          <div>
-            <div className="font-bold text-xs sm:text-sm text-stone-900">{t('quiz.trust.betterTitle')}</div>
-            <div className="text-[11px] text-stone-500">{t('quiz.trust.betterSub')}</div>
+          <div className="min-w-0">
+            <div className="font-bold text-[11px] sm:text-sm text-stone-900 leading-snug">{t('quiz.trust.personalizedTitle')}</div>
+            <div className="text-[11px] text-stone-500 leading-snug">{t('quiz.trust.personalizedSub')}</div>
           </div>
         </div>
 
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-[#FAF3F0] text-[#C86D51] flex items-center justify-center flex-shrink-0">
-            <ShieldCheck className="w-5 h-5" />
+        <div className="flex items-start sm:items-center gap-2 sm:gap-3 min-w-0">
+          <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-[#FAF3F0] text-[#C86D51] flex items-center justify-center shrink-0">
+            <Star className="w-4 h-4 sm:w-5 sm:h-5" />
           </div>
-          <div>
-            <div className="font-bold text-xs sm:text-sm text-stone-900">{t('quiz.trust.privateTitle')}</div>
-            <div className="text-[11px] text-stone-500">{t('quiz.trust.privateSub')}</div>
+          <div className="min-w-0">
+            <div className="font-bold text-[11px] sm:text-sm text-stone-900 leading-snug">{t('quiz.trust.betterTitle')}</div>
+            <div className="text-[11px] text-stone-500 leading-snug">{t('quiz.trust.betterSub')}</div>
+          </div>
+        </div>
+
+        <div className="flex items-start sm:items-center gap-2 sm:gap-3 min-w-0">
+          <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-[#FAF3F0] text-[#C86D51] flex items-center justify-center shrink-0">
+            <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5" />
+          </div>
+          <div className="min-w-0">
+            <div className="font-bold text-[11px] sm:text-sm text-stone-900 leading-snug">{t('quiz.trust.privateTitle')}</div>
+            <div className="text-[11px] text-stone-500 leading-snug">{t('quiz.trust.privateSub')}</div>
           </div>
         </div>
       </div>

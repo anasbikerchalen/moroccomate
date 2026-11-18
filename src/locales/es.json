@@ -300,6 +300,8 @@
     "singleSelectHint": "Elige la opción que mejor encaje contigo",
     "back": "Atrás",
     "surpriseMe": "¿Dudas? Sorpréndeme",
+    "anyOption": "Me da igual / Cualquiera",
+    "anyOptionSub": "Saltar esta pregunta y mantener todo abierto",
     "nextQuestion": "Siguiente pregunta",
     "seeMatches": "Ver resultados ({{count}})",
     "trust": {

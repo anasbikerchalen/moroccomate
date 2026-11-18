@@ -302,6 +302,8 @@
     "singleSelectHint": "Choisissez l’option qui vous convient le mieux",
     "back": "Retour",
     "surpriseMe": "Indécis ? Surprenez-moi",
+    "anyOption": "Peu importe",
+    "anyOptionSub": "Passer cette question et garder toutes les options",
     "nextQuestion": "Question suivante",
     "seeMatches": "Voir les résultats ({{count}})",
     "trust": {

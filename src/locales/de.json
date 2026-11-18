@@ -300,6 +300,8 @@
     "singleSelectHint": "Wähle die Option, die am besten zu dir passt",
     "back": "Zurück",
     "surpriseMe": "Unsicher? Überrasch mich",
+    "anyOption": "Egal / Keine Präferenz",
+    "anyOptionSub": "Frage überspringen und alle Optionen behalten",
     "nextQuestion": "Nächste Frage",
     "seeMatches": "Treffer ansehen ({{count}})",
     "trust": {
