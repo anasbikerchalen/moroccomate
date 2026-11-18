@@ -2681,7 +2681,77 @@ export const rabatEat: EatListing[] = [
       reservationContact: "not-available",
       website: "https://mcdonalds.ma",
       instagram: "https://instagram.com/mcdonalds_maroc",
-      languagesSpoken: ["Arabic", "French", "English"]
+      languagesSpoken: ["Arabic", "French", "English"],
+      menu: {
+        currency: "MAD",
+        lastUpdated: "2026-11",
+        serviceChargeIncluded: true,
+        sections: [
+          {
+            id: "menus-best-of",
+            title: "Best Of™ Meals (Burger + Fries + Drink)",
+            description: "Indicative McDonald's Morocco combo pricing in MAD (counter and delivery app rates vary slightly by ~2–5 MAD).",
+            items: [
+              { id: "mcd-bo-bigtasty", name: "Menu Best Of™ Big Tasty", description: "Grilled 100% halal beef patty, Emmental cheese, lettuce, tomato, onions, and smoky Tasty sauce with medium fries and drink.", price: 83, isSignature: true, dietary: ["halal"] },
+              { id: "mcd-bo-bigtastychicken", name: "Menu Best Of™ Big Tasty Chicken", description: "Crispy breaded halal chicken breast with Emmental cheese and smoky Tasty sauce, fries, and drink.", price: 81, dietary: ["halal"] },
+              { id: "mcd-bo-mythic", name: "Menu Best Of™ Chicken Mythic®", description: "Crunchy chicken fillet with cheddar, crispy onions, and savory sauce in a toasted bun, served with fries and drink.", price: 81, dietary: ["halal"] },
+              { id: "mcd-bo-mccrispy", name: "Menu Best Of™ McCrispy®", description: "Golden crispy chicken breast fillet with lettuce and creamy sauce on a brioche-style bun, plus fries and drink.", price: 73, dietary: ["halal"] },
+              { id: "mcd-bo-bigmac", name: "Menu Best Of™ Big Mac®", description: "Double 100% halal beef patties, iconic Big Mac® sauce, lettuce, cheddar, pickles, and onions with fries and drink.", price: 68, isSignature: true, dietary: ["halal"] },
+              { id: "mcd-bo-triplecheese", name: "Menu Best Of™ Triple Cheese", description: "Three halal beef patties layered with melted cheddar, pickles, onions, ketchup, and mustard with fries and drink.", price: 68, dietary: ["halal"] },
+              { id: "mcd-bo-grandmcwrap", name: "Menu Best Of™ Grand McWrap®", description: "Grilled tortilla wrap with chicken or beef, crisp greens, tomato, and signature sauce, plus fries and drink.", price: 68, dietary: ["halal"], portionNotes: "Choice of Beef Tasty Sauce or Chicken (Honey Mustard / Algerian)" },
+              { id: "mcd-bo-mcchicken", name: "Menu Best Of™ McChicken®", description: "Breaded halal chicken patty, shredded lettuce, and classic McChicken® sauce with fries and drink.", price: 66, dietary: ["halal"] },
+              { id: "mcd-bo-royalcheese", name: "Menu Best Of™ Royal Cheese", description: "Quarter-pound halal beef patty with double cheddar, pickles, onions, ketchup, and mustard with fries and drink.", price: 65, dietary: ["halal"] },
+              { id: "mcd-bo-doublecheese", name: "Menu Best Of™ Double Cheeseburger", description: "Two halal beef patties with double melted cheddar, pickles, and onions, served with fries and drink.", price: 63, dietary: ["halal"] },
+              { id: "mcd-bo-filetofish", name: "Menu Best Of™ Filet-O-Fish®", description: "Crispy white fish fillet with cheddar and tartar sauce on a steamed bun, served with fries and drink.", price: 62, dietary: ["halal"] },
+              { id: "mcd-bo-nuggets6", name: "Menu Best Of™ Chicken McNuggets® (6 pcs)", description: "Six golden halal chicken breast McNuggets with dipping sauce, medium fries, and drink.", price: 62, dietary: ["halal"] }
+            ]
+          },
+          {
+            id: "burgers-wraps",
+            title: "Burgers & Wraps (À la Carte)",
+            description: "Single halal-certified burgers and wraps available without the combo.",
+            items: [
+              { id: "mcd-alacarte-bigtasty", name: "Big Tasty", description: "Single Big Tasty beef burger with smoky sauce and Emmental cheese.", price: 71, dietary: ["halal"] },
+              { id: "mcd-alacarte-grandwrap", name: "Grand McWrap®", description: "Full-size toasted tortilla wrap with beef or chicken and fresh vegetables.", price: 58, dietary: ["halal"] },
+              { id: "mcd-alacarte-bigmac", name: "Big Mac®", description: "Classic double-patty halal Big Mac® burger.", price: 55, isSignature: true, dietary: ["halal"] },
+              { id: "mcd-alacarte-mcchicken", name: "McChicken®", description: "Crispy breaded halal chicken burger with lettuce and mayo.", price: 54, dietary: ["halal"] },
+              { id: "mcd-alacarte-royalcheese", name: "Royal Cheese", description: "Single halal beef patty with double cheddar cheese.", price: 53, dietary: ["halal"] },
+              { id: "mcd-alacarte-doublecheese", name: "Double Cheeseburger", description: "Two halal beef patties and two slices of melted cheddar.", price: 50, dietary: ["halal"] },
+              { id: "mcd-alacarte-ptitwrap", name: "P'tit Wrap", description: "Snack-sized chicken wrap with honey mustard sauce and lettuce.", price: 30, dietary: ["halal"] },
+              { id: "mcd-alacarte-chickenburger", name: "Chickenburger", description: "Classic value crispy chicken sandwich.", price: 23, dietary: ["halal"] },
+              { id: "mcd-alacarte-cheeseburger", name: "Cheeseburger", description: "Halal beef patty with cheddar, pickles, ketchup, and mustard.", price: 22, dietary: ["halal"] },
+              { id: "mcd-alacarte-hamburger", name: "Hamburger", description: "Classic single halal beef patty burger.", price: 19, dietary: ["halal"] }
+            ]
+          },
+          {
+            id: "nuggets-sides-kids",
+            title: "McNuggets®, Fries & Happy Meal®",
+            description: "Crispy chicken bites, share boxes, fries, and kids meals.",
+            items: [
+              { id: "mcd-side-chickenbox21", name: "Chicken Box (21 pcs)", description: "Large sharing box of crispy halal chicken pieces and nuggets.", price: 116, dietary: ["halal"] },
+              { id: "mcd-side-nuggets9", name: "Chicken McNuggets® (9 pcs)", description: "Nine halal chicken McNuggets served with two dipping sauces.", price: 57, dietary: ["halal"] },
+              { id: "mcd-side-nuggets6", name: "Chicken McNuggets® (6 pcs)", description: "Six halal chicken McNuggets served with dipping sauce.", price: 49, dietary: ["halal"] },
+              { id: "mcd-side-nuggets4", name: "Chicken McNuggets® (4 pcs)", description: "Four halal chicken McNuggets served with dipping sauce.", price: 35, dietary: ["halal"] },
+              { id: "mcd-kids-happymeal", name: "Happy Meal®", description: "Kids meal with choice of burger or 4 McNuggets, small fries or fruit, drink, and toy.", price: 36, dietary: ["halal"] },
+              { id: "mcd-side-mcflavorfries", name: "McFlavor Fries", description: "Loaded fries topped with melted cheddar and crispy onions or Algerian sauce.", price: 27, dietary: ["halal", "vegetarian"] },
+              { id: "mcd-side-mediumfries", name: "Medium Fries / Crinkle Fries", description: "Medium portion of golden salted fries or crinkle-cut potatoes.", price: 20, dietary: ["halal", "vegan", "vegetarian"] },
+              { id: "mcd-side-smallfries", name: "Small Fries", description: "Classic small golden French fries.", price: 16, dietary: ["halal", "vegan", "vegetarian"] }
+            ]
+          },
+          {
+            id: "desserts-drinks",
+            title: "McFlurry®, Drinks & Cold Treats",
+            description: "Soft-serve ice cream cups and chilled soft drinks.",
+            items: [
+              { id: "mcd-dessert-mcflurry-special", name: "Golden / Special Edition McFlurry®", description: "Creamy vanilla soft serve swirled with seasonal toppings.", price: 32, dietary: ["halal", "vegetarian"] },
+              { id: "mcd-dessert-mcflurry", name: "McFlurry® (Oreo, KitKat, or M&M's)", description: "Vanilla soft-serve ice cream blended with classic chocolate or cookie mix-ins.", price: 30, isSignature: true, dietary: ["halal", "vegetarian"] },
+              { id: "mcd-drink-mcfizz", name: "McFizz®", description: "Sparkling fruit refresher available in Passion Fruit or Mojito flavor.", price: 22, dietary: ["halal", "vegan", "vegetarian"] },
+              { id: "mcd-drink-hawaii", name: "Small Hawaii™", description: "Iconic Moroccan tropical soda served ice-cold.", price: 18, dietary: ["halal", "vegan", "vegetarian"] },
+              { id: "mcd-drink-soda", name: "Small Coca-Cola® / Zero / Fanta / Sprite", description: "Chilled 25cl fountain soft drink.", price: 16, dietary: ["halal", "vegan", "vegetarian"] }
+            ]
+          }
+        ]
+      }
     }
   ,
     // ── 4. WORRIES ("Things You're Worried About!") ──

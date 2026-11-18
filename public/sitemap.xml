@@ -10987,6 +10987,36 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.moroccanmate.com/place/casablanca/food/les-halles</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.moroccanmate.com/place/casablanca/food/les-halles/menu</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.moroccanmate.com/place/casablanca/food/le-pavillon-cfc</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.moroccanmate.com/place/casablanca/food/le-pavillon-cfc/menu</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.moroccanmate.com/place/casablanca/food/baristas</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.moroccanmate.com/place/casablanca/food/baristas/menu</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.moroccanmate.com/place/chefchaouen/food/beldi-bab-ssour</loc>
     <lastmod>2026-11-18</lastmod>
     <priority>0.7</priority>
@@ -11587,6 +11617,21 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.moroccanmate.com/place/imlil_toubkal/food/kasbah-du-toubkal-restaurant</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.moroccanmate.com/place/imlil_toubkal/food/kasbah-du-toubkal-restaurant/menu</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.moroccanmate.com/place/imlil_toubkal/food/cafe-soleil-imlil</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.moroccanmate.com/place/marrakech/food/le-jardin</loc>
     <lastmod>2026-11-18</lastmod>
     <priority>0.7</priority>
@@ -11773,6 +11818,16 @@
   </url>
   <url>
     <loc>https://www.moroccanmate.com/place/marrakech/food/comptoir-darna/menu</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.moroccanmate.com/place/marrakech/food/la-fontaine-des-epices</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.moroccanmate.com/place/marrakech/food/la-fontaine-des-epices/menu</loc>
     <lastmod>2026-11-18</lastmod>
     <priority>0.8</priority>
   </url>
@@ -12027,6 +12082,16 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.moroccanmate.com/place/mhamid/food/restaurant-kasbah-riad-amnir</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.moroccanmate.com/place/mhamid/food/restaurant-chez-le-pacha</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.moroccanmate.com/place/ouarzazate/food/la-kasbah-des-sables</loc>
     <lastmod>2026-11-18</lastmod>
     <priority>0.7</priority>
@@ -12123,6 +12188,96 @@
   </url>
   <url>
     <loc>https://www.moroccanmate.com/place/ouarzazate/food/restaurant-riad-ksar-ighnda</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.moroccanmate.com/place/ouarzazate/food/wall-of-fame-oscar-hotel-by-atlas-studios</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.moroccanmate.com/place/ouarzazate/food/la-table-du-berbere-riad-chay</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.moroccanmate.com/place/ouarzazate/food/la-maison-arabe-le-berbere-palace</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.moroccanmate.com/place/ouarzazate/food/out-of-africa-le-temple-des-arts</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.moroccanmate.com/place/ouarzazate/food/riad-dar-rita-restaurant</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.moroccanmate.com/place/ouarzazate/food/restaurant-toudgha</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.moroccanmate.com/place/ouarzazate/food/plateau-de-mer</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.moroccanmate.com/place/ouarzazate/food/anwal-coffee-kitchen</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.moroccanmate.com/place/ouarzazate/food/pasto-four-a-bois</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.moroccanmate.com/place/ouarzazate/food/la-grilla-cafe-restaurant-grillade</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.moroccanmate.com/place/ouarzazate/food/la-gironde</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.moroccanmate.com/place/ouarzazate/food/restaurant-chez-nabil</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.moroccanmate.com/place/ouarzazate/food/il-postino-ouarzazate</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.moroccanmate.com/place/ourika/food/auberge-le-maquis</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.moroccanmate.com/place/ourika/food/chez-larbi-ourika</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.moroccanmate.com/place/ouzoud/food/chez-mounir</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.moroccanmate.com/place/ouzoud/food/chez-mounir/menu</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.moroccanmate.com/place/ouzoud/food/restaurant-chez-rachid</loc>
     <lastmod>2026-11-18</lastmod>
     <priority>0.7</priority>
   </url>
@@ -12688,6 +12843,16 @@
   </url>
   <url>
     <loc>https://www.moroccanmate.com/place/tetouan_martil/food/dar-el-kasbah-la-terrasse</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.moroccanmate.com/place/todra_dades/food/cafe-restaurant-source-des-poissons-sacres</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.moroccanmate.com/place/todra_dades/food/restaurant-rooftop-atlas-dades</loc>
     <lastmod>2026-11-18</lastmod>
     <priority>0.7</priority>
   </url>

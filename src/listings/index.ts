@@ -41,6 +41,7 @@ import { el_jadidaEat } from './eat/el_jadida.eat'
 import { essaouiraEat } from './eat/essaouira.eat'
 import { fesEat } from './eat/fes.eat'
 import { ifrane_azrouEat } from './eat/ifrane_azrou.eat'
+import { imlil_toubkalEat } from './eat/imlil_toubkal.eat'
 import { marrakechEat } from './eat/marrakech.eat'
 import { meknesEat } from './eat/meknes.eat'
 import { merzougaEat } from './eat/merzouga.eat'
@@ -145,6 +146,7 @@ export const listingsRegistry: Record<string, any[]> = {
   'essaouira-eat': essaouiraEat,
   'fes-eat': fesEat,
   'ifrane_azrou-eat': ifrane_azrouEat,
+  'imlil_toubkal-eat': imlil_toubkalEat,
   'marrakech-eat': marrakechEat,
   'meknes-eat': meknesEat,
   'merzouga-eat': merzougaEat,

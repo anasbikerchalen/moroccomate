@@ -3360,7 +3360,77 @@ export const marrakechEat: EatListing[] = [
       whatsappNumber: "",
       website: "https://mcdonalds.ma",
       instagram: "https://instagram.com/mcdonalds_maroc",
-      languagesSpoken: ["Arabic", "French", "English"]
+      languagesSpoken: ["Arabic", "French", "English"],
+      menu: {
+        currency: "MAD",
+        lastUpdated: "2026-11",
+        serviceChargeIncluded: true,
+        sections: [
+          {
+            id: "menus-best-of",
+            title: "Best Of™ Meals (Burger + Fries + Drink)",
+            description: "Indicative McDonald's Morocco combo pricing in MAD (counter and delivery app rates vary slightly by ~2–5 MAD).",
+            items: [
+              { id: "mcd-bo-bigtasty", name: "Menu Best Of™ Big Tasty", description: "Grilled 100% halal beef patty, Emmental cheese, lettuce, tomato, onions, and smoky Tasty sauce with medium fries and drink.", price: 83, isSignature: true, dietary: ["halal"] },
+              { id: "mcd-bo-bigtastychicken", name: "Menu Best Of™ Big Tasty Chicken", description: "Crispy breaded halal chicken breast with Emmental cheese and smoky Tasty sauce, fries, and drink.", price: 81, dietary: ["halal"] },
+              { id: "mcd-bo-mythic", name: "Menu Best Of™ Chicken Mythic®", description: "Crunchy chicken fillet with cheddar, crispy onions, and savory sauce in a toasted bun, served with fries and drink.", price: 81, dietary: ["halal"] },
+              { id: "mcd-bo-mccrispy", name: "Menu Best Of™ McCrispy®", description: "Golden crispy chicken breast fillet with lettuce and creamy sauce on a brioche-style bun, plus fries and drink.", price: 73, dietary: ["halal"] },
+              { id: "mcd-bo-bigmac", name: "Menu Best Of™ Big Mac®", description: "Double 100% halal beef patties, iconic Big Mac® sauce, lettuce, cheddar, pickles, and onions with fries and drink.", price: 68, isSignature: true, dietary: ["halal"] },
+              { id: "mcd-bo-triplecheese", name: "Menu Best Of™ Triple Cheese", description: "Three halal beef patties layered with melted cheddar, pickles, onions, ketchup, and mustard with fries and drink.", price: 68, dietary: ["halal"] },
+              { id: "mcd-bo-grandmcwrap", name: "Menu Best Of™ Grand McWrap®", description: "Grilled tortilla wrap with chicken or beef, crisp greens, tomato, and signature sauce, plus fries and drink.", price: 68, dietary: ["halal"], portionNotes: "Choice of Beef Tasty Sauce or Chicken (Honey Mustard / Algerian)" },
+              { id: "mcd-bo-mcchicken", name: "Menu Best Of™ McChicken®", description: "Breaded halal chicken patty, shredded lettuce, and classic McChicken® sauce with fries and drink.", price: 66, dietary: ["halal"] },
+              { id: "mcd-bo-royalcheese", name: "Menu Best Of™ Royal Cheese", description: "Quarter-pound halal beef patty with double cheddar, pickles, onions, ketchup, and mustard with fries and drink.", price: 65, dietary: ["halal"] },
+              { id: "mcd-bo-doublecheese", name: "Menu Best Of™ Double Cheeseburger", description: "Two halal beef patties with double melted cheddar, pickles, and onions, served with fries and drink.", price: 63, dietary: ["halal"] },
+              { id: "mcd-bo-filetofish", name: "Menu Best Of™ Filet-O-Fish®", description: "Crispy white fish fillet with cheddar and tartar sauce on a steamed bun, served with fries and drink.", price: 62, dietary: ["halal"] },
+              { id: "mcd-bo-nuggets6", name: "Menu Best Of™ Chicken McNuggets® (6 pcs)", description: "Six golden halal chicken breast McNuggets with dipping sauce, medium fries, and drink.", price: 62, dietary: ["halal"] }
+            ]
+          },
+          {
+            id: "burgers-wraps",
+            title: "Burgers & Wraps (À la Carte)",
+            description: "Single halal-certified burgers and wraps available without the combo.",
+            items: [
+              { id: "mcd-alacarte-bigtasty", name: "Big Tasty", description: "Single Big Tasty beef burger with smoky sauce and Emmental cheese.", price: 71, dietary: ["halal"] },
+              { id: "mcd-alacarte-grandwrap", name: "Grand McWrap®", description: "Full-size toasted tortilla wrap with beef or chicken and fresh vegetables.", price: 58, dietary: ["halal"] },
+              { id: "mcd-alacarte-bigmac", name: "Big Mac®", description: "Classic double-patty halal Big Mac® burger.", price: 55, isSignature: true, dietary: ["halal"] },
+              { id: "mcd-alacarte-mcchicken", name: "McChicken®", description: "Crispy breaded halal chicken burger with lettuce and mayo.", price: 54, dietary: ["halal"] },
+              { id: "mcd-alacarte-royalcheese", name: "Royal Cheese", description: "Single halal beef patty with double cheddar cheese.", price: 53, dietary: ["halal"] },
+              { id: "mcd-alacarte-doublecheese", name: "Double Cheeseburger", description: "Two halal beef patties and two slices of melted cheddar.", price: 50, dietary: ["halal"] },
+              { id: "mcd-alacarte-ptitwrap", name: "P'tit Wrap", description: "Snack-sized chicken wrap with honey mustard sauce and lettuce.", price: 30, dietary: ["halal"] },
+              { id: "mcd-alacarte-chickenburger", name: "Chickenburger", description: "Classic value crispy chicken sandwich.", price: 23, dietary: ["halal"] },
+              { id: "mcd-alacarte-cheeseburger", name: "Cheeseburger", description: "Halal beef patty with cheddar, pickles, ketchup, and mustard.", price: 22, dietary: ["halal"] },
+              { id: "mcd-alacarte-hamburger", name: "Hamburger", description: "Classic single halal beef patty burger.", price: 19, dietary: ["halal"] }
+            ]
+          },
+          {
+            id: "nuggets-sides-kids",
+            title: "McNuggets®, Fries & Happy Meal®",
+            description: "Crispy chicken bites, share boxes, fries, and kids meals.",
+            items: [
+              { id: "mcd-side-chickenbox21", name: "Chicken Box (21 pcs)", description: "Large sharing box of crispy halal chicken pieces and nuggets.", price: 116, dietary: ["halal"] },
+              { id: "mcd-side-nuggets9", name: "Chicken McNuggets® (9 pcs)", description: "Nine halal chicken McNuggets served with two dipping sauces.", price: 57, dietary: ["halal"] },
+              { id: "mcd-side-nuggets6", name: "Chicken McNuggets® (6 pcs)", description: "Six halal chicken McNuggets served with dipping sauce.", price: 49, dietary: ["halal"] },
+              { id: "mcd-side-nuggets4", name: "Chicken McNuggets® (4 pcs)", description: "Four halal chicken McNuggets served with dipping sauce.", price: 35, dietary: ["halal"] },
+              { id: "mcd-kids-happymeal", name: "Happy Meal®", description: "Kids meal with choice of burger or 4 McNuggets, small fries or fruit, drink, and toy.", price: 36, dietary: ["halal"] },
+              { id: "mcd-side-mcflavorfries", name: "McFlavor Fries", description: "Loaded fries topped with melted cheddar and crispy onions or Algerian sauce.", price: 27, dietary: ["halal", "vegetarian"] },
+              { id: "mcd-side-mediumfries", name: "Medium Fries / Crinkle Fries", description: "Medium portion of golden salted fries or crinkle-cut potatoes.", price: 20, dietary: ["halal", "vegan", "vegetarian"] },
+              { id: "mcd-side-smallfries", name: "Small Fries", description: "Classic small golden French fries.", price: 16, dietary: ["halal", "vegan", "vegetarian"] }
+            ]
+          },
+          {
+            id: "desserts-drinks",
+            title: "McFlurry®, Drinks & Cold Treats",
+            description: "Soft-serve ice cream cups and chilled soft drinks.",
+            items: [
+              { id: "mcd-dessert-mcflurry-special", name: "Golden / Special Edition McFlurry®", description: "Creamy vanilla soft serve swirled with seasonal toppings.", price: 32, dietary: ["halal", "vegetarian"] },
+              { id: "mcd-dessert-mcflurry", name: "McFlurry® (Oreo, KitKat, or M&M's)", description: "Vanilla soft-serve ice cream blended with classic chocolate or cookie mix-ins.", price: 30, isSignature: true, dietary: ["halal", "vegetarian"] },
+              { id: "mcd-drink-mcfizz", name: "McFizz®", description: "Sparkling fruit refresher available in Passion Fruit or Mojito flavor.", price: 22, dietary: ["halal", "vegan", "vegetarian"] },
+              { id: "mcd-drink-hawaii", name: "Small Hawaii™", description: "Iconic Moroccan tropical soda served ice-cold.", price: 18, dietary: ["halal", "vegan", "vegetarian"] },
+              { id: "mcd-drink-soda", name: "Small Coca-Cola® / Zero / Fanta / Sprite", description: "Chilled 25cl fountain soft drink.", price: 16, dietary: ["halal", "vegan", "vegetarian"] }
+            ]
+          }
+        ]
+      }
     },
     worries: [
       { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
@@ -5757,6 +5827,213 @@ export const marrakechEat: EatListing[] = [
         description: "Well-drilled, multilingual hospitality staff handling huge nightly crowds seamlessly; advance dinner reservations are essential.",
         tone: "good",
         tagColor: "safety",
+        state: "verified"
+      }
+    ],
+    reviewsData: { sources: [], reviews: [] }
+  },
+
+  {
+    id: "e-marrakech-la-fontaine-des-epices",
+    city: "marrakech",
+
+    // ── 1. QUIZ (personalization, mood & matching) ──
+    quiz: {
+      lifestyle: "balanced",
+      groupTypes: ["solo", "couple", "family", "friends"],
+      mealTypes: ["lunch", "afternoon-tea", "dinner"],
+      experienceTypes: ["rooftop", "traditional", "casual"],
+      foodStyles: ["Moroccan", "Tagine & Couscous", "Grill & BBQ", "Vegetarian/Vegan"],
+      cuisineTags: ["moroccan-traditional"],
+      archetypeAffinity: ["first-timer", "culture"],
+      vibeTags: ["rooftop-terrace", "mouassine", "photogenic", "medina-views"],
+      crowdLevel: "bustling"
+    },
+
+    // ── 2. FILTER (search criteria, dietary rules, logistics & flags) ──
+    filter: {
+      pricePerPerson: 22,
+      isHalal: true,
+      halalStatus: "likely-halal-food",
+      isVegetarianFriendly: true,
+      servesAlcohol: false,
+      alcoholPolicy: "dry",
+      hasDelivery: false,
+      hasParking: false,
+      nearMedina: true,
+      nearBeach: false,
+      nearCenter: true,
+      hasEnglishStaff: true,
+      hasFrenchStaff: true,
+      ramadanFriendly: "serves-lunch",
+      closedDays: [],
+      seatingTypes: ["indoor", "rooftop", "terrace"],
+      paymentMethods: ["cash"],
+      tags: [
+        "moroccan",
+        "halal",
+        "vegetarian",
+        "dry",
+        "lunch",
+        "afternoon-tea",
+        "dinner",
+        "rooftop",
+        "terrace",
+        "medina",
+        "wifi",
+        "family",
+        "couple",
+        "local-favorite",
+        "ramadan-friendly"
+      ],
+      wiFi: true,
+      airConditioning: false,
+      wheelchairAccessible: false,
+      isHiddenGem: false,
+      isTemporarilyHidden: false,
+      verificationStatus: "verified"
+    },
+
+    // ── 3. UI (presentation, stories, ratings, contacts & plates) ──
+    ui: {
+      name: "La Fontaine des Épices",
+      neighborhood: "Medina (Mouassine)",
+      district: "Rue Mouassine",
+      description: "Photogenic multi-level rooftop restaurant tucked beside Le Jardin Secret at 131 Rue Mouassine in the Marrakech Medina, serving traditional Moroccan tagines, couscous, chicken pastilla, and Marrakech-style tangia.",
+      tip: "Reserve a rooftop terrace table ahead for sunset views, and bring sufficient cash in Moroccan Dirhams as card terminals in the medina can be unreliable.",
+      badge: "local-favorite",
+      bestDishes: [
+        "Tangia Marrakchia",
+        "Tajine Maison (Chicken, Figs, Walnuts & Cinnamon)",
+        "Pastilla au Poulet",
+        "Assortiment de Briouates"
+      ],
+      pros: [
+        "Multi-level rooftop terrace with panoramic Medina views right next to Le Jardin Secret",
+        "Generous traditional Moroccan tagines, pastilla, couscous, and tangia",
+        "Open continuously from 10:00 to 23:30 for mint tea, lunch, and dinner"
+      ],
+      cons: [
+        "Cash payment strongly recommended (card machines can be unavailable)",
+        "Service can stretch and music can feel loud during busy sunset hours"
+      ],
+      googleRating: 4.6,
+      googleReviewCount: 2500,
+      tripadvisorRating: 4.3,
+      tripadvisorReviewCount: 350,
+      openTime: "10:00",
+      closeTime: "23:30",
+      exactAddressAndCoordinates: {
+        address: "131 Rue Mouassine, Medina, Marrakech 40000, Morocco",
+        lat: 31.6298,
+        lng: -7.9886
+      },
+      googleMapsUrl: "https://maps.google.com/?q=31.6298,-7.9886",
+      reservationMethod: ["phone", "walk-in"],
+      reservationContact: "+212706036459",
+      bookingUrl: "",
+      whatsappNumber: "+212707772568",
+      website: "not-available",
+      instagram: "https://www.instagram.com/la_fontaine_des_epices/",
+      languagesSpoken: ["Arabic", "French", "English"],
+      menu: {
+        currency: "MAD",
+        lastUpdated: "2026-11",
+        serviceChargeIncluded: true,
+        sections: [
+          {
+            id: "starters-salads",
+            title: "Starters & Moroccan Salads",
+            description: "Published starters from marrakechbestof.com & atmarrakech.com.",
+            items: [
+              { id: "fontaine-sal-signature", name: "Salade Signature La Fontaine", description: "Fresh shrimp, mango, pineapple, feta, and toasted nuts.", price: 130, dietary: ["halal"] },
+              { id: "fontaine-briouates", name: "Briouates Selection (6 pcs)", description: "Crisp filo pastries filled with chicken, vegetables, or cheese.", price: 110, isSignature: true, dietary: ["halal"] },
+              { id: "fontaine-zaalouk", name: "Zaâlouk / Baba Ganoush / Taktouka", description: "Smoky roasted eggplant dip or stewed Moroccan pepper-tomato salad.", price: 80, dietary: ["halal", "vegan", "vegetarian"] },
+              { id: "fontaine-hummus", name: "Spiced Hummus", description: "Smooth chickpeas blended with tahini, cumin, and olive oil.", price: 70, dietary: ["halal", "vegan", "vegetarian"] },
+              { id: "fontaine-harira", name: "Harira Soup", description: "Traditional spiced Moroccan tomato and lentil soup served with dates and chebakia.", price: 60, dietary: ["halal", "vegetarian"] }
+            ]
+          },
+          {
+            id: "tagines-moroccan-mains",
+            title: "Tagines, Tangia, Pastilla & Couscous",
+            description: "Traditional Marrakech specialties slow-cooked to order.",
+            items: [
+              { id: "fontaine-tangia", name: "Tangia Marrakchia", description: "Slow-braised beef cooked with preserved lemon, garlic, cumin, and saffron.", price: 195, isSignature: true, dietary: ["halal"] },
+              { id: "fontaine-couscous", name: "Couscous (Vegetarian, Chicken, or Royal)", description: "Steamed semolina with seven seasonal vegetables (130–190 MAD depending on protein).", price: 160, dietary: ["halal"], portionNotes: "Vegetarian ~130 MAD • Royal beef/chicken/kefta ~190 MAD" },
+              { id: "fontaine-tagine-beef", name: "Beef Tagine with Prunes & Almonds", description: "Tender braised beef with sweet prunes, apricots, and toasted almonds.", price: 170, dietary: ["halal"] },
+              { id: "fontaine-tagine-maison", name: "Tajine Maison", description: "Signature chicken tagine with caramelized onions, figs, walnuts, and cinnamon.", price: 160, isSignature: true, dietary: ["halal"] },
+              { id: "fontaine-tagine-lemon", name: "Chicken Tagine with Preserved Lemons", description: "Classic chicken tagine simmered with house-preserved lemons and olives.", price: 150, dietary: ["halal"] },
+              { id: "fontaine-tagine-kofta", name: "Tajine Brania Kofta", description: "Spiced beef meatballs baked with tender eggplant in tomato sauce.", price: 150, dietary: ["halal"] },
+              { id: "fontaine-pastilla", name: "Pastilla au Poulet", description: "Sweet-and-savory layered warqa pastry filled with spiced chicken and almonds.", price: 130, isSignature: true, dietary: ["halal"] },
+              { id: "fontaine-tagine-veg", name: "Vegetarian Tagine", description: "Seasonal slow-cooked medina market vegetables in aromatic spices.", price: 130, dietary: ["halal", "vegan", "vegetarian"] },
+              { id: "fontaine-burger", name: "Burger La Fontaine des Épices", description: "Beef burger topped with sautéed mushrooms, caramelized onions, avocado, and fries.", price: 130, dietary: ["halal"] },
+              { id: "fontaine-brochettes", name: "Chicken or Kefta Brochettes", description: "Grilled marinated skewers served with sautéed vegetables and fries.", price: 110, dietary: ["halal"] },
+              { id: "fontaine-pasta", name: "Pasta Selection (Bolognese / Minced Beef)", description: "Spaghetti bolognese or tagliatelle with spiced beef sauce (90–105 MAD).", price: 98, dietary: ["halal"] }
+            ]
+          },
+          {
+            id: "drinks-tea",
+            title: "Mint Tea, Coffee & Fresh Juices",
+            description: "Dry venue serving Moroccan teas, coffees, soft drinks, and fresh juices.",
+            items: [
+              { id: "fontaine-juice", name: "Fresh Fruit Juice / Soft Drinks", description: "Freshly squeezed seasonal juices, sodas, and bottled water (15–45 MAD).", price: 30, dietary: ["halal", "vegan", "vegetarian"] },
+              { id: "fontaine-minttea", name: "Moroccan Mint Tea & Coffees", description: "Traditional fresh spearmint green tea or espresso/milk coffee (15–30 MAD).", price: 20, dietary: ["halal", "vegan", "vegetarian"] }
+            ]
+          }
+        ]
+      }
+    },
+
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      {
+        id: "financial-trust",
+        title: "Financial Trust",
+        icon: "receipt",
+        tag: "Cash Strongly Advised",
+        tagColor: "alert",
+        tone: "caution",
+        description: "Prices are clearly printed (tagines 130–195 MAD), though guests frequently report cash-only preference or unreliable card terminals—carry MAD cash.",
+        state: "verified"
+      },
+      {
+        id: "health-safety",
+        title: "Health & Safety",
+        icon: "droplets",
+        tag: "Clean Rooftop Kitchen",
+        tagColor: "water",
+        tone: "good",
+        description: "Clean modern medina rooftop kitchen with high tourist turnover, hot cooked tagines, and sealed bottled beverages.",
+        state: "verified"
+      },
+      {
+        id: "culinary-authenticity",
+        title: "Culinary Authenticity",
+        icon: "chef",
+        tag: "Classic Medina Specialties",
+        tagColor: "food",
+        tone: "good",
+        description: "Serves authentic Marrakech tangia, chicken pastilla, harira, and fruit-spiced tagines alongside a few pasta/burger options; completely dry.",
+        state: "verified"
+      },
+      {
+        id: "comfort-environment",
+        title: "Comfort & Atmosphere",
+        icon: "megaphone",
+        tag: "Scenic Rooftop, Upbeat Music",
+        tagColor: "alert",
+        tone: "caution",
+        description: "Gorgeous multi-level rooftop terrace beside Le Jardin Secret with Wi-Fi; expect energetic music volume and steep medina stairs (no elevator).",
+        state: "verified"
+      },
+      {
+        id: "service-expectations",
+        title: "Service Expectations",
+        icon: "clock",
+        tag: "Book Sunset Early",
+        tagColor: "safety",
+        tone: "caution",
+        description: "Warm staff, though service can slow down during peak sunset rushes; reserve ahead for top-deck terrace tables.",
         state: "verified"
       }
     ],

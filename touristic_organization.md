@@ -326,6 +326,11 @@
 7.X.2 Mid-Touristic Neighborhoods: Ras El Erg[8], Tanamoust[3][9], Takoujt[3][10]
 7.X.3 Low-Touristic Neighborhoods: Taouz[2][8], Tisserdmine[3], Mfis[11][12]
 
+7.X M’Hamid El Ghizlane
+7.X.1 Touristic Neighborhoods: Erg Chigaga (Desert Camps)[3][4], Erg Lihoudi[5][6], Ksar Ouled Driss[5][7], Ksar Bounou[5][8], M’Hamid Jdid (Centre)[2][6], M’Hamid Bali (Old Ksar)[2][6]
+7.X.2 Mid-Touristic Neighborhoods: Palmeraie de M’Hamid[2][9], Oum Lâalag (Sacred Oasis)[7]
+7.X.3 Low-Touristic Neighborhoods: Talha (Talhat El Chorfa)[5], Ouled Mhya[10], Rgabi Aït Hassou[8]
+
 #### Mid-Touristic Cities
 * **7.8 Midelt**
   * **7.8.1 Touristic Neighborhoods:** Berrem, Souk El Qdim

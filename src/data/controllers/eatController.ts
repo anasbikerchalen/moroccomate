@@ -28,23 +28,30 @@ import { el_jadidaEat } from '../../listings/eat/el_jadida.eat';
 import { essaouiraEat } from '../../listings/eat/essaouira.eat';
 import { fesEat } from '../../listings/eat/fes.eat';
 import { ifrane_azrouEat } from '../../listings/eat/ifrane_azrou.eat';
+import { imlil_toubkalEat } from '../../listings/eat/imlil_toubkal.eat';
 import { marrakechEat } from '../../listings/eat/marrakech.eat';
 import { meknesEat } from '../../listings/eat/meknes.eat';
 import { merzougaEat } from '../../listings/eat/merzouga.eat';
+import { mhamidEat } from '../../listings/eat/mhamid.eat';
 import { ouarzazateEat } from '../../listings/eat/ouarzazate.eat';
+import { ourikaEat } from '../../listings/eat/ourika.eat';
+import { ouzoudEat } from '../../listings/eat/ouzoud.eat';
 import { rabatEat } from '../../listings/eat/rabat.eat';
 import { saidiaEat } from '../../listings/eat/saidia.eat';
 import { taghazoutEat } from '../../listings/eat/taghazout.eat';
 import { tangierEat } from '../../listings/eat/tangier.eat';
+import { todra_dadesEat } from '../../listings/eat/todra_dades.eat';
 import { tetouan_martilEat } from '../../listings/eat/tetouan_martil.eat';
 import { taroudant_tafraouteEat } from '../../listings/eat/taroudant_tafraoute.eat';
 
 export const EAT_MASTER: any[] = [
   ...agadirEat, ...al_hoceimaEat, ...asilahEat, ...casablancaEat,
   ...chefchaouenEat, ...dakhlaEat, ...el_jadidaEat, ...essaouiraEat,
-  ...fesEat, ...ifrane_azrouEat, ...marrakechEat, ...meknesEat,
-  ...merzougaEat, ...ouarzazateEat, ...rabatEat, ...saidiaEat,
-  ...taghazoutEat, ...tangierEat, ...tetouan_martilEat, ...taroudant_tafraouteEat,
+  ...fesEat, ...ifrane_azrouEat, ...imlil_toubkalEat, ...marrakechEat,
+  ...meknesEat, ...merzougaEat, ...mhamidEat, ...ouarzazateEat,
+  ...ourikaEat, ...ouzoudEat, ...rabatEat, ...saidiaEat,
+  ...taghazoutEat, ...tangierEat, ...todra_dadesEat, ...tetouan_martilEat,
+  ...taroudant_tafraouteEat,
 ];
 
 // ── 1. GLOBAL TAG RULES — defined once, injected everywhere ──

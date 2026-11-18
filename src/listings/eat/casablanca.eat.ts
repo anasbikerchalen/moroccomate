@@ -2199,7 +2199,77 @@ export const casablancaEat: EatListing[] = [
       bookingUrl: "",
       whatsappNumber: "",
       website: "https://mcdonalds.ma",
-      instagram: "https://instagram.com/mcdonalds_maroc"
+      instagram: "https://instagram.com/mcdonalds_maroc",
+      menu: {
+        currency: "MAD",
+        lastUpdated: "2026-11",
+        serviceChargeIncluded: true,
+        sections: [
+          {
+            id: "menus-best-of",
+            title: "Best Of™ Meals (Burger + Fries + Drink)",
+            description: "Indicative McDonald's Morocco combo pricing in MAD (counter and delivery app rates vary slightly by ~2–5 MAD).",
+            items: [
+              { id: "mcd-bo-bigtasty", name: "Menu Best Of™ Big Tasty", description: "Grilled 100% halal beef patty, Emmental cheese, lettuce, tomato, onions, and smoky Tasty sauce with medium fries and drink.", price: 83, isSignature: true, dietary: ["halal"] },
+              { id: "mcd-bo-bigtastychicken", name: "Menu Best Of™ Big Tasty Chicken", description: "Crispy breaded halal chicken breast with Emmental cheese and smoky Tasty sauce, fries, and drink.", price: 81, dietary: ["halal"] },
+              { id: "mcd-bo-mythic", name: "Menu Best Of™ Chicken Mythic®", description: "Crunchy chicken fillet with cheddar, crispy onions, and savory sauce in a toasted bun, served with fries and drink.", price: 81, dietary: ["halal"] },
+              { id: "mcd-bo-mccrispy", name: "Menu Best Of™ McCrispy®", description: "Golden crispy chicken breast fillet with lettuce and creamy sauce on a brioche-style bun, plus fries and drink.", price: 73, dietary: ["halal"] },
+              { id: "mcd-bo-bigmac", name: "Menu Best Of™ Big Mac®", description: "Double 100% halal beef patties, iconic Big Mac® sauce, lettuce, cheddar, pickles, and onions with fries and drink.", price: 68, isSignature: true, dietary: ["halal"] },
+              { id: "mcd-bo-triplecheese", name: "Menu Best Of™ Triple Cheese", description: "Three halal beef patties layered with melted cheddar, pickles, onions, ketchup, and mustard with fries and drink.", price: 68, dietary: ["halal"] },
+              { id: "mcd-bo-grandmcwrap", name: "Menu Best Of™ Grand McWrap®", description: "Grilled tortilla wrap with chicken or beef, crisp greens, tomato, and signature sauce, plus fries and drink.", price: 68, dietary: ["halal"], portionNotes: "Choice of Beef Tasty Sauce or Chicken (Honey Mustard / Algerian)" },
+              { id: "mcd-bo-mcchicken", name: "Menu Best Of™ McChicken®", description: "Breaded halal chicken patty, shredded lettuce, and classic McChicken® sauce with fries and drink.", price: 66, dietary: ["halal"] },
+              { id: "mcd-bo-royalcheese", name: "Menu Best Of™ Royal Cheese", description: "Quarter-pound halal beef patty with double cheddar, pickles, onions, ketchup, and mustard with fries and drink.", price: 65, dietary: ["halal"] },
+              { id: "mcd-bo-doublecheese", name: "Menu Best Of™ Double Cheeseburger", description: "Two halal beef patties with double melted cheddar, pickles, and onions, served with fries and drink.", price: 63, dietary: ["halal"] },
+              { id: "mcd-bo-filetofish", name: "Menu Best Of™ Filet-O-Fish®", description: "Crispy white fish fillet with cheddar and tartar sauce on a steamed bun, served with fries and drink.", price: 62, dietary: ["halal"] },
+              { id: "mcd-bo-nuggets6", name: "Menu Best Of™ Chicken McNuggets® (6 pcs)", description: "Six golden halal chicken breast McNuggets with dipping sauce, medium fries, and drink.", price: 62, dietary: ["halal"] }
+            ]
+          },
+          {
+            id: "burgers-wraps",
+            title: "Burgers & Wraps (À la Carte)",
+            description: "Single halal-certified burgers and wraps available without the combo.",
+            items: [
+              { id: "mcd-alacarte-bigtasty", name: "Big Tasty", description: "Single Big Tasty beef burger with smoky sauce and Emmental cheese.", price: 71, dietary: ["halal"] },
+              { id: "mcd-alacarte-grandwrap", name: "Grand McWrap®", description: "Full-size toasted tortilla wrap with beef or chicken and fresh vegetables.", price: 58, dietary: ["halal"] },
+              { id: "mcd-alacarte-bigmac", name: "Big Mac®", description: "Classic double-patty halal Big Mac® burger.", price: 55, isSignature: true, dietary: ["halal"] },
+              { id: "mcd-alacarte-mcchicken", name: "McChicken®", description: "Crispy breaded halal chicken burger with lettuce and mayo.", price: 54, dietary: ["halal"] },
+              { id: "mcd-alacarte-royalcheese", name: "Royal Cheese", description: "Single halal beef patty with double cheddar cheese.", price: 53, dietary: ["halal"] },
+              { id: "mcd-alacarte-doublecheese", name: "Double Cheeseburger", description: "Two halal beef patties and two slices of melted cheddar.", price: 50, dietary: ["halal"] },
+              { id: "mcd-alacarte-ptitwrap", name: "P'tit Wrap", description: "Snack-sized chicken wrap with honey mustard sauce and lettuce.", price: 30, dietary: ["halal"] },
+              { id: "mcd-alacarte-chickenburger", name: "Chickenburger", description: "Classic value crispy chicken sandwich.", price: 23, dietary: ["halal"] },
+              { id: "mcd-alacarte-cheeseburger", name: "Cheeseburger", description: "Halal beef patty with cheddar, pickles, ketchup, and mustard.", price: 22, dietary: ["halal"] },
+              { id: "mcd-alacarte-hamburger", name: "Hamburger", description: "Classic single halal beef patty burger.", price: 19, dietary: ["halal"] }
+            ]
+          },
+          {
+            id: "nuggets-sides-kids",
+            title: "McNuggets®, Fries & Happy Meal®",
+            description: "Crispy chicken bites, share boxes, fries, and kids meals.",
+            items: [
+              { id: "mcd-side-chickenbox21", name: "Chicken Box (21 pcs)", description: "Large sharing box of crispy halal chicken pieces and nuggets.", price: 116, dietary: ["halal"] },
+              { id: "mcd-side-nuggets9", name: "Chicken McNuggets® (9 pcs)", description: "Nine halal chicken McNuggets served with two dipping sauces.", price: 57, dietary: ["halal"] },
+              { id: "mcd-side-nuggets6", name: "Chicken McNuggets® (6 pcs)", description: "Six halal chicken McNuggets served with dipping sauce.", price: 49, dietary: ["halal"] },
+              { id: "mcd-side-nuggets4", name: "Chicken McNuggets® (4 pcs)", description: "Four halal chicken McNuggets served with dipping sauce.", price: 35, dietary: ["halal"] },
+              { id: "mcd-kids-happymeal", name: "Happy Meal®", description: "Kids meal with choice of burger or 4 McNuggets, small fries or fruit, drink, and toy.", price: 36, dietary: ["halal"] },
+              { id: "mcd-side-mcflavorfries", name: "McFlavor Fries", description: "Loaded fries topped with melted cheddar and crispy onions or Algerian sauce.", price: 27, dietary: ["halal", "vegetarian"] },
+              { id: "mcd-side-mediumfries", name: "Medium Fries / Crinkle Fries", description: "Medium portion of golden salted fries or crinkle-cut potatoes.", price: 20, dietary: ["halal", "vegan", "vegetarian"] },
+              { id: "mcd-side-smallfries", name: "Small Fries", description: "Classic small golden French fries.", price: 16, dietary: ["halal", "vegan", "vegetarian"] }
+            ]
+          },
+          {
+            id: "desserts-drinks",
+            title: "McFlurry®, Drinks & Cold Treats",
+            description: "Soft-serve ice cream cups and chilled soft drinks.",
+            items: [
+              { id: "mcd-dessert-mcflurry-special", name: "Golden / Special Edition McFlurry®", description: "Creamy vanilla soft serve swirled with seasonal toppings.", price: 32, dietary: ["halal", "vegetarian"] },
+              { id: "mcd-dessert-mcflurry", name: "McFlurry® (Oreo, KitKat, or M&M's)", description: "Vanilla soft-serve ice cream blended with classic chocolate or cookie mix-ins.", price: 30, isSignature: true, dietary: ["halal", "vegetarian"] },
+              { id: "mcd-drink-mcfizz", name: "McFizz®", description: "Sparkling fruit refresher available in Passion Fruit or Mojito flavor.", price: 22, dietary: ["halal", "vegan", "vegetarian"] },
+              { id: "mcd-drink-hawaii", name: "Small Hawaii™", description: "Iconic Moroccan tropical soda served ice-cold.", price: 18, dietary: ["halal", "vegan", "vegetarian"] },
+              { id: "mcd-drink-soda", name: "Small Coca-Cola® / Zero / Fanta / Sprite", description: "Chilled 25cl fountain soft drink.", price: 16, dietary: ["halal", "vegan", "vegetarian"] }
+            ]
+          }
+        ]
+      }
     }
   ,
     // ── 4. WORRIES ("Things You're Worried About!") ──
@@ -5008,5 +5078,591 @@ export const casablancaEat: EatListing[] = [
     ],
     // Multi-platform reviews holder (hidden on UI until populated)
     reviewsData: { sources: [], reviews: [] },
+  },
+
+  {
+    id: "eat-casablanca-les-halles",
+    city: "casablanca",
+
+    // ── 1. QUIZ (personalization, mood & matching) ──
+    quiz: {
+      lifestyle: "balanced",
+      groupTypes: ["solo", "couple", "family", "friends", "business-friendly"],
+      mealTypes: ["breakfast", "brunch", "lunch", "afternoon-tea", "dinner"],
+      experienceTypes: ["casual", "cafes-tea"],
+      foodStyles: ["French-Moroccan", "Mediterranean", "Seafood", "Cafe & Pastry", "Grill & BBQ", "Moroccan"],
+      cuisineTags: ["international", "cafe-pastry", "seafood"],
+      archetypeAffinity: ["nomad", "first-timer", "culture"],
+      vibeTags: ["glass-roof", "market-hall", "artisanal-bakery", "brunch-spot"],
+      crowdLevel: "balanced"
+    },
+
+    // ── 2. FILTER (search criteria, dietary rules, logistics & flags) ──
+    filter: {
+      pricePerPerson: 22,
+      isHalal: true,
+      halalStatus: "likely-halal-food",
+      isVegetarianFriendly: true,
+      servesAlcohol: false,
+      alcoholPolicy: "dry",
+      hasDelivery: false,
+      hasParking: false,
+      nearMedina: false,
+      nearBeach: false,
+      nearCenter: false,
+      hasEnglishStaff: true,
+      hasFrenchStaff: true,
+      ramadanFriendly: "serves-lunch",
+      closedDays: [],
+      seatingTypes: ["indoor", "terrace"],
+      paymentMethods: ["cash", "credit_card", "visa", "mastercard"],
+      tags: [
+        "breakfast",
+        "brunch",
+        "lunch",
+        "dinner",
+        "afternoon-tea",
+        "cafes-tea",
+        "halal",
+        "vegetarian",
+        "dry",
+        "wifi",
+        "ac",
+        "terrace",
+        "wheelchair-accessible",
+        "family",
+        "couple",
+        "local-favorite",
+        "ramadan-friendly"
+      ],
+      wiFi: true,
+      airConditioning: true,
+      wheelchairAccessible: true,
+      isHiddenGem: false,
+      isTemporarilyHidden: false,
+      verificationStatus: "verified"
+    },
+
+    // ── 3. UI (presentation, stories, ratings, contacts & plates) ──
+    ui: {
+      name: "Les Halles",
+      neighborhood: "CIL",
+      district: "CIL / Limite Racine",
+      description: "Contemporary European-style market hall, coffee roastery, artisan bakery, and brasserie under a luminous glass roof at 11 Rue d'Ifrane in Casablanca's CIL district.",
+      tip: "Drop by from 08:00 for roastery espresso and complete Escapade Matinale breakfast spreads, or dine across the butcher grill and seafood stalls before the strict 23:00 closing time.",
+      badge: "local-favorite",
+      bestDishes: [
+        "Brochettes Filet & Majhool (Façon Fondue)",
+        "Le Carpaccio de Bœuf",
+        "Gyozas de Poulet Croustillants",
+        "Formule Petit-Déjeuner Complète"
+      ],
+      pros: [
+        "Spacious glass-roof market architecture with in-house bakery and specialty roaster",
+        "Consistent, attentive table service from morning brunch through dinner",
+        "Wide culinary variety spanning grilled meats, seafood, French plates, and Moroccan tagines"
+      ],
+      cons: [
+        "Closes promptly at 23:00 (not suited for late-night socializing)",
+        "Higher check average than standard neighborhood Casablanca cafés"
+      ],
+      googleRating: 4.2,
+      googleReviewCount: 700,
+      openTime: "08:00",
+      closeTime: "23:00",
+      exactAddressAndCoordinates: {
+        address: "11 Rue d'Ifrane, CIL, Casablanca 20450, Morocco",
+        lat: 33.57319,
+        lng: -7.6567
+      },
+      googleMapsUrl: "https://maps.google.com/?q=33.57319,-7.65670",
+      reservationMethod: ["phone", "walk-in"],
+      reservationContact: "+212522940698",
+      bookingUrl: "https://www.leshalles.ma/",
+      whatsappNumber: "",
+      website: "https://www.leshalles.ma/",
+      instagram: "not-available",
+      languagesSpoken: ["Arabic", "French", "English"],
+      menu: {
+        currency: "MAD",
+        lastUpdated: "2026-11",
+        serviceChargeIncluded: true,
+        sections: [
+          {
+            id: "breakfast-coffee",
+            title: "Breakfast, Specialty Coffee & Cold-Pressed Juices",
+            description: "Published morning formulas, roastery coffee, and cold-pressed juices from leshalles.ma.",
+            items: [
+              { id: "leshalles-bf-complete", name: "Formule Petit-Déjeuner Complète", description: "Complete morning breakfast spread with artisan breads, pastries, eggs, hot drink, and juice (varies 70–110 MAD by formula).", price: 90, isSignature: true, dietary: ["halal"] },
+              { id: "leshalles-bf-kids", name: "La Petite Escale (Kids Breakfast)", description: "Children's breakfast formula with pastry and beverage.", price: 55, dietary: ["halal", "vegetarian"] },
+              { id: "leshalles-juice-coldpress", name: "Cold-Pressed Fresh Juice (L'Incontournable / Détox)", description: "Freshly cold-pressed seasonal fruit and vegetable blends (35–50 MAD).", price: 42, dietary: ["halal", "vegan", "vegetarian"] },
+              { id: "leshalles-coffee-latte", name: "Cappuccino / Café Latte", description: "In-house roasted specialty espresso with steamed milk (35–40 MAD).", price: 38, dietary: ["halal", "vegetarian"] },
+              { id: "leshalles-coffee-espresso", name: "Espresso / Café", description: "Single specialty roast espresso brewed on site.", price: 28, dietary: ["halal", "vegan", "vegetarian"] }
+            ]
+          },
+          {
+            id: "market-starters-grill",
+            title: "Market Stalls & Sharing Plates",
+            description: "Signature starters and grill plates from Le Grill du Boucher and sharing counters.",
+            items: [
+              { id: "leshalles-brochettes", name: "Brochettes Filet & Majhool (Façon Fondue)", description: "Tender beef tenderloin skewers paired with rich fondue-style Majhool date accompaniment.", price: 120, isSignature: true, dietary: ["halal"] },
+              { id: "leshalles-carpaccio", name: "Le Carpaccio de Bœuf", description: "Thinly sliced raw beef seasoned with herbs, olive oil, and aged cheese.", price: 110, dietary: ["halal"] },
+              { id: "leshalles-gyozas", name: "Gyozas de Poulet Croustillants", description: "Crispy golden-seared chicken dumplings served with savory dipping sauce.", price: 85, dietary: ["halal"] }
+            ]
+          }
+        ]
+      }
+    },
+
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      {
+        id: "financial-trust",
+        title: "Financial Trust",
+        icon: "receipt",
+        tag: "Upscale Market Pricing",
+        tagColor: "money",
+        tone: "good",
+        description: "Printed menus list exact prices across breakfast sets (70–110 MAD), coffees (28–40 MAD), and grill/fish mains (110+ MAD) with card payment accepted.",
+        state: "verified"
+      },
+      {
+        id: "health-safety",
+        title: "Health & Safety",
+        icon: "droplets",
+        tag: "Clean Modern Kitchen",
+        tagColor: "water",
+        tone: "good",
+        description: "Modern CIL market-hall kitchen and cold-pressed juice counter praised for clean presentation, fresh seafood turnover, and quality cuts.",
+        state: "verified"
+      },
+      {
+        id: "culinary-authenticity",
+        title: "Culinary Authenticity",
+        icon: "chef",
+        tag: "Brasserie & Market Stalls",
+        tagColor: "food",
+        tone: "good",
+        description: "Blends French-Mediterranean brasserie staples, artisan viennoiserie, fresh fish, and local beef tagines rather than strictly traditional street food.",
+        state: "verified"
+      },
+      {
+        id: "comfort-environment",
+        title: "Comfort & Atmosphere",
+        icon: "megaphone",
+        tag: "Bright Glass-Roof Hall",
+        tagColor: "safety",
+        tone: "good",
+        description: "Warm, stylish CIL interior with high glass ceilings, Wi-Fi, AC, and terrace seating away from medina street touts.",
+        state: "verified"
+      },
+      {
+        id: "service-expectations",
+        title: "Service Expectations",
+        icon: "clock",
+        tag: "Polished, Closes at 23:00",
+        tagColor: "safety",
+        tone: "good",
+        description: "Consistently reviewed as welcoming and professional; note the kitchen and doors close promptly at 23:00.",
+        state: "verified"
+      }
+    ],
+    reviewsData: { sources: [], reviews: [] }
+  },
+
+  {
+    id: "eat-casablanca-le-pavillon-cfc",
+    city: "casablanca",
+
+    // ── 1. QUIZ (personalization, mood & matching) ──
+    quiz: {
+      lifestyle: "premium",
+      groupTypes: ["couple", "friends", "business-friendly", "large-groups"],
+      mealTypes: ["lunch", "afternoon-tea", "dinner", "drinks"],
+      experienceTypes: ["fine-dining"],
+      foodStyles: ["French-Moroccan", "Mediterranean", "Seafood", "Grill & BBQ"],
+      cuisineTags: ["international", "seafood"],
+      archetypeAffinity: ["luxury", "culture"],
+      vibeTags: ["art-deco", "hidden-garden", "historical-aero-club", "live-piano"],
+      crowdLevel: "balanced"
+    },
+
+    // ── 2. FILTER (search criteria, dietary rules, logistics & flags) ──
+    filter: {
+      pricePerPerson: 60,
+      isHalal: true,
+      halalStatus: "likely-halal-food",
+      isVegetarianFriendly: true,
+      servesAlcohol: true,
+      alcoholPolicy: "serves-alcohol",
+      hasDelivery: false,
+      hasParking: true,
+      nearMedina: false,
+      nearBeach: false,
+      nearCenter: false,
+      hasEnglishStaff: true,
+      hasFrenchStaff: true,
+      ramadanFriendly: "serves-lunch",
+      closedDays: [],
+      seatingTypes: ["indoor", "outdoor", "terrace", "courtyard"],
+      paymentMethods: ["cash", "credit_card", "visa", "mastercard"],
+      tags: [
+        "fine",
+        "lunch",
+        "dinner",
+        "afternoon-tea",
+        "drinks",
+        "alcohol",
+        "halal",
+        "vegetarian",
+        "terrace",
+        "courtyard",
+        "parking",
+        "wifi",
+        "ac",
+        "wheelchair-accessible",
+        "couple",
+        "ramadan-friendly"
+      ],
+      wiFi: true,
+      airConditioning: true,
+      wheelchairAccessible: true,
+      isHiddenGem: false,
+      isTemporarilyHidden: false,
+      verificationStatus: "verified"
+    },
+
+    // ── 3. UI (presentation, stories, ratings, contacts & plates) ──
+    ui: {
+      name: "Le Pavillon CFC",
+      neighborhood: "Anfa",
+      district: "Casablanca Finance City (Casa-Anfa)",
+      description: "Upscale French brasserie set inside the restored 1930s Aéro-Club du Maroc pavilion at Casablanca Finance City, surrounded by a lush 1,500 m² hidden palm garden, green zellige fountains, and Parisian terraces.",
+      tip: "Reserve ahead for a shaded garden terrace table at business lunch or Friday/Saturday nights when live piano and vocalists perform; smart/chic attire is advised.",
+      badge: "splurge",
+      bestDishes: [
+        "Terrine de Foie Gras Maison",
+        "Sea Bass Carpaccio with Argan Oil & Espelette",
+        "Huîtres Fraîches (Oysters)",
+        "Vitello Tonnato"
+      ],
+      pros: [
+        "Historic Camp Cazes aviation building framed by a tranquil 1,500 m² palm and jacaranda garden",
+        "Refined French brasserie menu featuring raw bar oysters, foie gras, and Josper-grilled cuts",
+        "Live piano and vocal evenings on Fridays and Saturdays"
+      ],
+      cons: [
+        "Fine-dining pricing averaging ~550+ MAD per person for a full meal",
+        "Advance table booking is strongly recommended, especially for outdoor garden seating"
+      ],
+      googleRating: 4.5,
+      googleReviewCount: 200,
+      openTime: "12:00",
+      closeTime: "23:00",
+      exactAddressAndCoordinates: {
+        address: "Street Retail, 3 Rue de l'Aéropostale, Casablanca Finance City, Casablanca 20250, Morocco",
+        lat: 33.5354,
+        lng: -7.6631
+      },
+      googleMapsUrl: "https://maps.google.com/?q=33.5354,-7.6631",
+      reservationMethod: ["phone", "whatsapp"],
+      reservationContact: "+212529200800",
+      bookingUrl: "",
+      whatsappNumber: "+212636404052",
+      website: "not-available",
+      instagram: "https://instagram.com/lepavilloncfc",
+      languagesSpoken: ["Arabic", "French", "English"],
+      menu: {
+        currency: "MAD",
+        lastUpdated: "2026-11",
+        serviceChargeIncluded: true,
+        sections: [
+          {
+            id: "oysters-caviar",
+            title: "Raw Bar, Oysters & Caviar",
+            description: "Fresh oysters and Lianozoff caviar service published on sam.ma.",
+            items: [
+              { id: "pavillon-caviar-50", name: "Siberian Caviar Lianozoff (50g)", description: "50g tin of Siberian caviar served with traditional accompaniments.", price: 1950 },
+              { id: "pavillon-caviar-30", name: "Siberian Caviar Lianozoff (30g)", description: "30g tin of Siberian caviar.", price: 1200 },
+              { id: "pavillon-oysters-12", name: "12 Fresh Oysters", description: "Served chilled with rye bread, salted butter, wine vinegar, and shallots.", price: 275, isSignature: true },
+              { id: "pavillon-oysters-9", name: "9 Fresh Oysters", description: "Served with rye bread, salted butter, and shallot mignonette.", price: 210 },
+              { id: "pavillon-oysters-6", name: "6 Fresh Oysters", description: "Half-dozen chilled oysters with classic condiments.", price: 140 }
+            ]
+          },
+          {
+            id: "brasserie-starters",
+            title: "Brasserie Starters & Carpaccios",
+            description: "Published French brasserie entrées (main courses and Josper grill selections change seasonally; ~550+ MAD full-meal average).",
+            items: [
+              { id: "pavillon-foiegras", name: "House Foie Gras Terrine", description: "Homemade duck foie gras terrine served with toasted Parisian brioche.", price: 240, isSignature: true },
+              { id: "pavillon-seabass-argan", name: "Sea Bass Carpaccio (Argan Oil & Espelette)", description: "Fresh line-caught sea bass dressed with Moroccan argan oil, lemon, and Espelette pepper.", price: 160, isSignature: true, dietary: ["halal", "gluten-free"] },
+              { id: "pavillon-vitello", name: "Vitello Tonnato", description: "Thinly sliced roasted veal topped with creamy tonnato sauce and caper berries.", price: 160, dietary: ["halal"] },
+              { id: "pavillon-beef-carpaccio", name: "Beef Carpaccio", description: "Chilled raw beef slices topped with aged parmesan shavings, rocket, and toasted pine nuts.", price: 155, dietary: ["halal", "gluten-free"] },
+              { id: "pavillon-seabass-pickles", name: "Sea Bass Carpaccio (Cucumber Pickles)", description: "Delicate sea bass slices paired with crisp cucumber pickles.", price: 150, dietary: ["halal", "gluten-free"] }
+            ]
+          }
+        ]
+      }
+    },
+
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      {
+        id: "financial-trust",
+        title: "Financial Trust",
+        icon: "receipt",
+        tag: "Fine-Dining Budget (~550+ MAD)",
+        tagColor: "money",
+        tone: "caution",
+        description: "High-end Casa Finance City brasserie pricing (starters 140–240 MAD, full meals ~550+ MAD/person); check wine/bar pours before ordering.",
+        state: "verified"
+      },
+      {
+        id: "health-safety",
+        title: "Health & Safety",
+        icon: "droplets",
+        tag: "High-End Raw Bar Standards",
+        tagColor: "water",
+        tone: "good",
+        description: "Upmarket kitchen standards trusted for raw oysters, sea bass carpaccio, and Josper-grilled Béni Mellal beef cuts.",
+        state: "verified"
+      },
+      {
+        id: "culinary-authenticity",
+        title: "Culinary Authenticity",
+        icon: "chef",
+        tag: "Classic French Brasserie",
+        tagColor: "food",
+        tone: "good",
+        description: "Authentic French brasserie menu (Burgundy snails, foie gras, mushroom risotto, Paris-Brest) rather than traditional Moroccan dining; serves alcohol.",
+        state: "verified"
+      },
+      {
+        id: "comfort-environment",
+        title: "Comfort & Atmosphere",
+        icon: "megaphone",
+        tag: "1,500 m² Hidden Garden",
+        tagColor: "safety",
+        tone: "good",
+        description: "Oasis of centenary palms, jacarandas, and Art Deco salons tucked between CFC towers; smart-chic dress code encouraged.",
+        state: "verified"
+      },
+      {
+        id: "service-expectations",
+        title: "Service Expectations",
+        icon: "clock",
+        tag: "Book Terrace Ahead",
+        tagColor: "safety",
+        tone: "good",
+        description: "Polished fine-dining service tailored to business lunches and evening guests; book via +212 5 29 20 08 00 for garden seating.",
+        state: "verified"
+      }
+    ],
+    reviewsData: { sources: [], reviews: [] }
+  },
+
+  {
+    id: "eat-casablanca-baristas-almaz",
+    city: "casablanca",
+
+    // ── 1. QUIZ (personalization, mood & matching) ──
+    quiz: {
+      lifestyle: "balanced",
+      groupTypes: ["solo", "couple", "family", "friends"],
+      mealTypes: ["breakfast", "brunch", "lunch", "afternoon-tea", "dinner"],
+      experienceTypes: ["casual", "cafes-tea"],
+      foodStyles: ["Cafe & Pastry", "International", "Grill & BBQ", "Moroccan"],
+      cuisineTags: ["cafe-pastry", "international"],
+      archetypeAffinity: ["nomad", "first-timer"],
+      vibeTags: ["belgian-chocolate", "specialty-coffee", "gourmet-brunch", "instagrammable"],
+      crowdLevel: "bustling"
+    },
+
+    // ── 2. FILTER (search criteria, dietary rules, logistics & flags) ──
+    filter: {
+      pricePerPerson: 16,
+      isHalal: true,
+      halalStatus: "likely-halal-food",
+      isVegetarianFriendly: true,
+      servesAlcohol: false,
+      alcoholPolicy: "dry",
+      hasDelivery: true,
+      hasParking: true,
+      nearMedina: false,
+      nearBeach: false,
+      nearCenter: false,
+      hasEnglishStaff: true,
+      hasFrenchStaff: true,
+      ramadanFriendly: "serves-lunch",
+      closedDays: [],
+      seatingTypes: ["indoor", "outdoor", "terrace"],
+      paymentMethods: ["cash", "credit_card", "visa", "mastercard"],
+      tags: [
+        "breakfast",
+        "brunch",
+        "lunch",
+        "dinner",
+        "afternoon-tea",
+        "cafes-tea",
+        "halal",
+        "vegetarian",
+        "dry",
+        "wifi",
+        "ac",
+        "terrace",
+        "parking",
+        "delivery",
+        "wheelchair-accessible",
+        "family",
+        "couple",
+        "ramadan-friendly"
+      ],
+      wiFi: true,
+      airConditioning: true,
+      wheelchairAccessible: true,
+      isHiddenGem: false,
+      isTemporarilyHidden: false,
+      verificationStatus: "verified"
+    },
+
+    // ── 3. UI (presentation, stories, ratings, contacts & plates) ──
+    ui: {
+      name: "Baristas",
+      neighborhood: "Anfa",
+      district: "Sela Park Almaz",
+      description: "Popular Moroccan specialty coffee shop, Belgian chocolatier, and all-day restaurant at Sela Park Almaz (with sister Casablanca locations in Californie, Morocco Mall, and Aeria Mall), known for indulgent chocolate desserts, gourmet brunches, and steaks.",
+      tip: "Great for Belgian chocolate crêpes, waffles, or Wednesday Moroccan couscous/rfissa; visit outside weekend brunch peak hours for faster kitchen turnaround.",
+      badge: "local",
+      bestDishes: [
+        "Crêpes Sushi au Chocolat Belge",
+        "Fettuccine Crêpe Oreo / Lotus",
+        "Filet de Bœuf Purée",
+        "Salade Baristas"
+      ],
+      pros: [
+        "Expansive Belgian chocolate dessert menu alongside full savory grill and salad options",
+        "Convenient Sela Park Almaz retail center parking, outdoor terrace, and Wi-Fi",
+        "Dry, family-friendly setting with card payment and delivery support"
+      ],
+      cons: [
+        "Service pace can feel slow or stretched during busy weekend rushes",
+        "Specialty drinks and sweet plates are pricier than typical Moroccan cafés"
+      ],
+      googleRating: 4.3,
+      googleReviewCount: 250,
+      openTime: "07:00",
+      closeTime: "22:00",
+      exactAddressAndCoordinates: {
+        address: "Sela Park Almaz, Pénétrante d'Azbane, Casablanca 20300, Morocco",
+        lat: 33.50858,
+        lng: -7.66996
+      },
+      googleMapsUrl: "https://maps.google.com/?q=33.50858,-7.66996",
+      reservationMethod: ["walk-in", "phone"],
+      reservationContact: "+212522505404",
+      bookingUrl: "https://baristas.info",
+      whatsappNumber: "",
+      website: "https://baristas.info",
+      instagram: "not-available",
+      languagesSpoken: ["Arabic", "French", "English"],
+      menu: {
+        currency: "MAD",
+        lastUpdated: "2026-11",
+        serviceChargeIncluded: true,
+        sections: [
+          {
+            id: "salads-starters",
+            title: "Salads & Starters",
+            description: "Fresh lunch bowls and signature Baristas salads (Yumlo / Casablanca menu rates).",
+            items: [
+              { id: "baristas-sal-exotique", name: "Salade Exotique (Seafood)", description: "Mixed fresh seafood salad with seasonal greens and house dressing.", price: 85, dietary: ["halal"] },
+              { id: "baristas-sal-quinoa", name: "Quinoa Gambas", description: "Warm and chilled quinoa bowl topped with sautéed prawns.", price: 75, dietary: ["halal"] },
+              { id: "baristas-sal-baristas", name: "Salade Baristas", description: "House signature composed salad.", price: 70, isSignature: true, dietary: ["halal"] },
+              { id: "baristas-sal-cesar", name: "Salade César / Protéinée", description: "Classic Caesar or high-protein grilled chicken salad.", price: 65, dietary: ["halal"] }
+            ]
+          },
+          {
+            id: "mains-grill",
+            title: "Main Courses, Grill & Moroccan Specials",
+            description: "Steaks, grilled skewers, fish, and traditional Moroccan plates (Glovo / Yumlo rates).",
+            items: [
+              { id: "baristas-main-souris", name: "Souris d'Agneau (12-Hour Slow-Cooked)", description: "Braised lamb shank slow-cooked for 12 hours until tender.", price: 306, dietary: ["halal"] },
+              { id: "baristas-main-filet", name: "Filet de Bœuf", description: "Grilled beef tenderloin served with creamy mashed potatoes and sauce.", price: 192, isSignature: true, dietary: ["halal"] },
+              { id: "baristas-main-entrecote", name: "Entrecôte Grillée", description: "Char-grilled beef ribeye steak with sides.", price: 168, dietary: ["halal"] },
+              { id: "baristas-main-saumon", name: "Pavé de Saumon Grillé", description: "Seared Atlantic salmon fillet with seasonal accompaniments.", price: 155, dietary: ["halal"] },
+              { id: "baristas-main-couscous", name: "Moroccan Couscous", description: "Traditional steamed semolina couscous with vegetables and tender meat.", price: 80, dietary: ["halal"] },
+              { id: "baristas-main-brochettes", name: "Brochettes (Chicken or Kefta)", description: "Grilled marinated chicken or spiced minced beef skewers.", price: 75, dietary: ["halal"] },
+              { id: "baristas-main-escalope", name: "Escalope Milanaise", description: "Crispy golden breaded chicken escalope.", price: 65, dietary: ["halal"] }
+            ]
+          },
+          {
+            id: "sweets-drinks",
+            title: "Belgian Chocolate Sweets & Drinks",
+            description: "Signature crêpes, waffles, hot chocolates, and gourmet milkshakes.",
+            items: [
+              { id: "baristas-sweet-crepesushi", name: "Crêpes Sushi (Raspberry / Pistachio / Brownie)", description: "Rolled thin crêpes filled with fruit or brownie and Belgian chocolate drizzle (69–77 MAD).", price: 73, isSignature: true, dietary: ["halal", "vegetarian"] },
+              { id: "baristas-sweet-fettuccine", name: "Fettuccine Crêpe (Classic / Oreo / Lotus)", description: "Ribbon-cut crêpe strips topped with warm Belgian chocolate and cookie crumble (65–72 MAD).", price: 68, isSignature: true, dietary: ["halal", "vegetarian"] },
+              { id: "baristas-sweet-waffle", name: "Gaufres (Croquante / Oreo / Lotus)", description: "Crisp Belgian-style waffle with chocolate, Oreo, or Lotus Biscoff topping (65–67 MAD).", price: 66, dietary: ["halal", "vegetarian"] },
+              { id: "baristas-drink-chocolat", name: "Hot Chocolates & Gourmet Milkshakes", description: "Rich Belgian hot chocolate or blended Oreo, Lotus, or Brownie milkshake.", price: 66, dietary: ["halal", "vegetarian"] }
+            ]
+          }
+        ]
+      }
+    },
+
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      {
+        id: "financial-trust",
+        title: "Financial Trust",
+        icon: "receipt",
+        tag: "Pricier Café Chain",
+        tagColor: "money",
+        tone: "caution",
+        description: "Prices are clearly printed (desserts/drinks ~65–77 MAD, mains 65–306 MAD), though several reviewers note sweets and shakes feel expensive for a casual café.",
+        state: "verified"
+      },
+      {
+        id: "health-safety",
+        title: "Health & Safety",
+        icon: "droplets",
+        tag: "Clean Mall-Center Standard",
+        tagColor: "water",
+        tone: "good",
+        description: "Modern commercial-center cafe kitchen at Sela Park Almaz with clean prep standards and family-friendly hygiene.",
+        state: "verified"
+      },
+      {
+        id: "culinary-authenticity",
+        title: "Culinary Authenticity",
+        icon: "chef",
+        tag: "Belgian Sweets & All-Day Cafe",
+        tagColor: "food",
+        tone: "good",
+        description: "Specializes in Belgian chocolate desserts, brunch, and international grill fare (plus Wednesday Moroccan couscous/rfissa); completely dry and halal.",
+        state: "verified"
+      },
+      {
+        id: "comfort-environment",
+        title: "Comfort & Atmosphere",
+        icon: "megaphone",
+        tag: "Chic Cafe, Busy Weekends",
+        tagColor: "alert",
+        tone: "caution",
+        description: "Modern, Instagram-friendly interior with terrace seating, Wi-Fi, and center parking, though weekend afternoons can feel crowded.",
+        state: "verified"
+      },
+      {
+        id: "service-expectations",
+        title: "Service Expectations",
+        icon: "clock",
+        tag: "Slower at Peak Hours",
+        tagColor: "alert",
+        tone: "caution",
+        description: "Friendly brand hospitality during quiet weekday mornings, but customer reviews note slow waits and inconsistent service at peak rush hours.",
+        state: "verified"
+      }
+    ],
+    reviewsData: { sources: [], reviews: [] }
   }
 ];
