@@ -5664,5 +5664,581 @@ export const casablancaEat: EatListing[] = [
       }
     ],
     reviewsData: { sources: [], reviews: [] }
+  },
+
+  {
+    id: "eat-casablanca-espressolab-maarif",
+    city: "casablanca",
+
+    // ── 1. QUIZ (personalization, mood & matching) ──
+    quiz: {
+      lifestyle: "lean",
+      groupTypes: ["solo", "friends", "couple", "business-friendly"],
+      mealTypes: ["breakfast", "brunch", "snack", "afternoon-tea", "drinks"],
+      experienceTypes: ["cafes-tea", "casual"],
+      foodStyles: ["Cafe & Pastry", "International"],
+      cuisineTags: ["cafe-pastry"],
+      archetypeAffinity: ["nomad", "budget", "first-timer"],
+      vibeTags: ["laptop-friendly", "third-wave-coffee", "power-outlets", "specialty-matcha"],
+      crowdLevel: "bustling"
+    },
+
+    // ── 2. FILTER (search criteria, dietary rules, logistics & flags) ──
+    filter: {
+      pricePerPerson: 6,
+      isHalal: true,
+      halalStatus: "likely-halal-food",
+      isVegetarianFriendly: true,
+      servesAlcohol: false,
+      alcoholPolicy: "dry",
+      hasDelivery: true,
+      hasParking: false,
+      nearMedina: false,
+      nearBeach: false,
+      nearCenter: true,
+      hasEnglishStaff: true,
+      hasFrenchStaff: true,
+      ramadanFriendly: "serves-lunch",
+      closedDays: [],
+      seatingTypes: ["indoor", "outdoor", "terrace"],
+      paymentMethods: ["cash", "credit_card", "visa", "mastercard"],
+      tags: [
+        "breakfast",
+        "snack",
+        "afternoon-tea",
+        "drinks",
+        "cafes-tea",
+        "halal",
+        "vegetarian",
+        "dry",
+        "wifi",
+        "ac",
+        "terrace",
+        "delivery",
+        "wheelchair-accessible",
+        "ramadan-friendly"
+      ],
+      wiFi: true,
+      airConditioning: true,
+      wheelchairAccessible: true,
+      isHiddenGem: false,
+      isTemporarilyHidden: false,
+      verificationStatus: "verified"
+    },
+
+    // ── 3. UI (presentation, stories, ratings, contacts & plates) ──
+    ui: {
+      name: "Espressolab",
+      neighborhood: "Maârif",
+      district: "Urban Square (Rue Normandie)",
+      description: "Popular third-wave specialty coffee roaster and laptop-friendly café at Urban Square in Maârif (with a sister Casablanca branch at Morocco Mall), loved by freelancers and students for power outlets, specialty lattes, croissants, and San Sebastian cheesecake.",
+      tip: "Arrive before late afternoon if you want a seat near a wall outlet; bring mobile data as backup in case Wi-Fi slows down when the café is packed.",
+      badge: "local-favorite",
+      bestDishes: [
+        "Iced Spanish Latte",
+        "Matcha Latte",
+        "San Sebastian Cheesecake",
+        "Croissant Omelette Sandwich"
+      ],
+      pros: [
+        "Power sockets at most indoor tables, making it a top digital-nomad hub in Maârif",
+        "Fair third-wave specialty coffee pricing (25–48 MAD) alongside fresh bakery & cheesecake",
+        "Spacious indoor & outdoor Urban Square terrace seating with friendly staff"
+      ],
+      cons: [
+        "Gets crowded quickly on weekday afternoons, making seats and Wi-Fi bandwidth competitive",
+        "Interior lighting can feel dim in corners and chairs aren't all ergonomic for long shifts"
+      ],
+      googleRating: 4.1,
+      googleReviewCount: 600,
+      openTime: "10:00",
+      closeTime: "22:00",
+      exactAddressAndCoordinates: {
+        address: "16 Angle Rue Normandie et Yaata El Ifrani, Urban Square, Maârif, Casablanca 20100, Morocco",
+        lat: 33.5855,
+        lng: -7.6322
+      },
+      googleMapsUrl: "https://maps.google.com/?q=33.5855,-7.6322",
+      reservationMethod: ["walk-in", "phone"],
+      reservationContact: "+212701071128",
+      bookingUrl: "",
+      whatsappNumber: "",
+      website: "https://www.espressolab.com",
+      instagram: "https://www.instagram.com/espressolab/",
+      languagesSpoken: ["Arabic", "French", "English"],
+      menu: {
+        currency: "MAD",
+        lastUpdated: "2026-11",
+        serviceChargeIncluded: true,
+        sections: [
+          {
+            id: "espresso-matcha",
+            title: "Specialty Coffee & Matcha",
+            description: "Hot and iced espresso drinks, flavored lattes, and matcha (Glovo / Pricelisto Casablanca rates).",
+            items: [
+              { id: "esplab-matcha", name: "Matcha Latte (Hot or Iced)", description: "Ceremonial-style green tea matcha whisked with steamed or iced milk (46–58 MAD).", price: 52, isSignature: true, dietary: ["halal", "vegetarian"] },
+              { id: "esplab-spanish", name: "Spanish Latte (Hot or Iced)", description: "Signature espresso blended with textured milk and condensed milk.", price: 47, isSignature: true, dietary: ["halal", "vegetarian"] },
+              { id: "esplab-caramel", name: "Caramel Salé Latte / Nutellaté", description: "Salted caramel or hazelnut-chocolate flavored espresso latte.", price: 42, dietary: ["halal", "vegetarian"] },
+              { id: "esplab-latte", name: "Café Latte / Cappuccino", description: "Freshly roasted house espresso with silky micro-foam (38–46 MAD).", price: 42, dietary: ["halal", "vegetarian"] },
+              { id: "esplab-americano", name: "Espresso / Americano", description: "House roast espresso shot or long black coffee (25–35 MAD).", price: 28, dietary: ["halal", "vegan", "vegetarian"] }
+            ]
+          },
+          {
+            id: "bakery-sandwiches",
+            title: "Bakery, Sandwiches & Desserts",
+            description: "Fresh viennoiseries, savory café sandwiches, and cheesecakes (Yumlo / Glovo rates).",
+            items: [
+              { id: "esplab-croissant-omelette", name: "Croissant Omelette / Batbout Dinde Fumée", description: "Flaky croissant stuffed with fresh omelette or smoked turkey batbout.", price: 55, dietary: ["halal"] },
+              { id: "esplab-panini", name: "Panini Semoule / Crispy Chicken Sandwich", description: "Warm pressed semolina panini or crispy chicken sandwich (50–55 MAD).", price: 53, dietary: ["halal"] },
+              { id: "esplab-sansebastian", name: "San Sebastian Cheesecake", description: "Creamy caramelized Basque-style cheesecake (46–58 MAD).", price: 52, isSignature: true, dietary: ["halal", "vegetarian"] },
+              { id: "esplab-tiramisu", name: "Tiramisu", description: "Classic espresso-soaked mascarpone layered dessert.", price: 40, dietary: ["halal", "vegetarian"] },
+              { id: "esplab-pain-choco", name: "Pain au Chocolat / Pain Suisse", description: "Butter pastry with dark chocolate or pastry cream.", price: 18, dietary: ["halal", "vegetarian"] },
+              { id: "esplab-croissant", name: "Classic Butter Croissant", description: "Golden baked French-style butter croissant.", price: 15, dietary: ["halal", "vegetarian"] }
+            ]
+          }
+        ]
+      }
+    },
+
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      {
+        id: "financial-trust",
+        title: "Financial Trust",
+        icon: "receipt",
+        tag: "Transparent Café Prices",
+        tagColor: "money",
+        tone: "good",
+        description: "Clear counter prices (coffees 25–58 MAD, pastries 15–18 MAD) with no hidden service surcharges and full card support.",
+        state: "verified"
+      },
+      {
+        id: "health-safety",
+        title: "Health & Safety",
+        icon: "droplets",
+        tag: "Clean Franchise Coffeehouse",
+        tagColor: "water",
+        tone: "good",
+        description: "Modern commercial espresso setup with sealed milk/bottled water and clean counter prep in Maârif's Urban Square.",
+        state: "verified"
+      },
+      {
+        id: "culinary-authenticity",
+        title: "Culinary Authenticity",
+        icon: "chef",
+        tag: "Third-Wave Roastery Chain",
+        tagColor: "food",
+        tone: "good",
+        description: "Istanbul-origin specialty coffee chain focused on single-origin espresso, Spanish lattes, and European-style pastries; completely dry.",
+        state: "verified"
+      },
+      {
+        id: "comfort-environment",
+        title: "Comfort & Atmosphere",
+        icon: "megaphone",
+        tag: "Outlets + Wi-Fi, Busy Peak",
+        tagColor: "safety",
+        tone: "good",
+        description: "Top Casablanca spot for laptop work with power outlets at tables, though seats fill up fast and Wi-Fi can dip at peak crowd hours.",
+        state: "verified"
+      },
+      {
+        id: "service-expectations",
+        title: "Service Expectations",
+        icon: "clock",
+        tag: "Counter Pickup & Friendly Staff",
+        tagColor: "safety",
+        tone: "good",
+        description: "Welcoming staff and dog-friendly terrace; counter-order model keeps turnaround fast outside afternoon rush hours.",
+        state: "verified"
+      }
+    ],
+    reviewsData: { sources: [], reviews: [] }
+  },
+
+  {
+    id: "eat-casablanca-blaban-maarif",
+    city: "casablanca",
+
+    // ── 1. QUIZ (personalization, mood & matching) ──
+    quiz: {
+      lifestyle: "lean",
+      groupTypes: ["friends", "family", "couple", "solo"],
+      mealTypes: ["snack", "afternoon-tea", "late-night"],
+      experienceTypes: ["casual", "street-food"],
+      foodStyles: ["Cafe & Pastry", "Middle Eastern"],
+      cuisineTags: ["cafe-pastry"],
+      archetypeAffinity: ["budget", "first-timer"],
+      vibeTags: ["viral-desserts", "egyptian-sweets", "late-night-sweet", "bustling"],
+      crowdLevel: "bustling"
+    },
+
+    // ── 2. FILTER (search criteria, dietary rules, logistics & flags) ──
+    filter: {
+      pricePerPerson: 5,
+      isHalal: true,
+      halalStatus: "halal-certified",
+      isVegetarianFriendly: true,
+      servesAlcohol: false,
+      alcoholPolicy: "dry",
+      hasDelivery: true,
+      hasParking: false,
+      nearMedina: false,
+      nearBeach: false,
+      nearCenter: true,
+      hasEnglishStaff: false,
+      hasFrenchStaff: true,
+      ramadanFriendly: "serves-lunch",
+      closedDays: [],
+      seatingTypes: ["indoor", "street-side"],
+      paymentMethods: ["cash", "credit_card"],
+      tags: [
+        "snack",
+        "afternoon-tea",
+        "late-night",
+        "halal",
+        "vegetarian",
+        "dry",
+        "delivery",
+        "ramadan-friendly"
+      ],
+      wiFi: false,
+      airConditioning: true,
+      wheelchairAccessible: true,
+      isHiddenGem: false,
+      isTemporarilyHidden: false,
+      verificationStatus: "verified"
+    },
+
+    // ── 3. UI (presentation, stories, ratings, contacts & plates) ──
+    ui: {
+      name: "B.Laban",
+      neighborhood: "Maârif",
+      district: "Rue El Kadi Iass",
+      description: "Viral Egyptian dairy and dessert shop in Maârif serving rich milk-soaked Qashtouta cakes, Roz Bel Laban rice puddings, Sweet Koshary, El Qoora spheres, and decadent pistachio, mango, and Lotus creations late into the night.",
+      tip: "Carry MAD cash in small bills (card terminals can be unreliable or short on change), go on weekday mornings to avoid long evening lines, and share one bowl if you dislike very sweet desserts. Opens at 12:00 on Fridays.",
+      badge: "local-favorite",
+      bestDishes: [
+        "Qashtouta & Lazy Cat Cake",
+        "Sweet Koshary (Pistachio / Oreo Nutella)",
+        "Dubai Chocolate Dessert",
+        "El Qoora (The Sphere)"
+      ],
+      pros: [
+        "Affordable viral Egyptian milk desserts (20–55 MAD) open until midnight every day",
+        "Massive menu variety from mango/pistachio bowls to Sweet Koshary and Qashtouta",
+        "Strictly halal and dry dessert spot ideal for late-night sweet cravings"
+      ],
+      cons: [
+        "Very heavy queues and crowded seating during evenings and weekends",
+        "Frequent customer complaints about disorganized counter service, card terminal issues, and overly sugary portions"
+      ],
+      googleRating: 3.2,
+      googleReviewCount: 450,
+      openTime: "10:00",
+      closeTime: "00:00",
+      seasonalHoursNote: "Opens at 12:00 on Fridays for Friday prayers (10:00–00:00 Sat–Thu).",
+      exactAddressAndCoordinates: {
+        address: "6 Rue El Kadi Iass, Maârif, Casablanca 20330, Morocco",
+        lat: 33.58611,
+        lng: -7.63538
+      },
+      googleMapsUrl: "https://maps.google.com/?q=33.58611,-7.63538",
+      reservationMethod: ["walk-in"],
+      reservationContact: "+212664448464",
+      bookingUrl: "",
+      whatsappNumber: "+212664448464",
+      website: "not-available",
+      instagram: "https://www.instagram.com/b.laban.official/",
+      languagesSpoken: ["Arabic", "French"],
+      menu: {
+        currency: "MAD",
+        lastUpdated: "2026-11",
+        serviceChargeIncluded: true,
+        sections: [
+          {
+            id: "signature-cakes",
+            title: "Signature Viral Cakes & Specialties",
+            description: "B.Laban signature Egyptian dairy desserts (Casablanca menu rates).",
+            items: [
+              { id: "blaban-hopa", name: "Hopa Tito Mambo", description: "Layered sponge cake, whipped cream, and rich chocolate drizzle.", price: 55, dietary: ["halal", "vegetarian"] },
+              { id: "blaban-lazy-cat", name: "Lazy Cat Cake", description: "Rich chocolate-soaked dairy cake topped with thick ganache.", price: 50, isSignature: true, dietary: ["halal", "vegetarian"] },
+              { id: "blaban-dubai", name: "Dubai Chocolate Dessert", description: "Crispy kunafa-pistachio filling layered with milk chocolate sauce.", price: 50, isSignature: true, dietary: ["halal", "vegetarian"] },
+              { id: "blaban-creme", name: "Creme de la Creme / Riyadh Shortcake", description: "Soft milk-soaked shortcake and cream cup.", price: 30, dietary: ["halal", "vegetarian"] },
+              { id: "blaban-frawlieta", name: "Frawlieta", description: "Light strawberry and dairy cream dessert.", price: 20, dietary: ["halal", "vegetarian"] }
+            ]
+          },
+          {
+            id: "koshary-qoora-imbalya",
+            title: "Sweet Koshary, El Qoora & Imbalya",
+            description: "Egyptian Roz Bel Laban rice pudding, crispy kunafa layers, and ice-cream bowls.",
+            items: [
+              { id: "blaban-koshary-pistachio", name: "Sweet Koshary (Pistachio / Pistachio Lotus)", description: "Rice pudding, kunafa, pastry layers, and thick pistachio cream.", price: 50, isSignature: true, dietary: ["halal", "vegetarian"] },
+              { id: "blaban-imbalya-pistachio", name: "Imbalya (Pistachio / Pistachio Lotus)", description: "Layered cream dessert topped with roasted pistachio and Lotus sauce.", price: 45, dietary: ["halal", "vegetarian"] },
+              { id: "blaban-koshary-oreo", name: "Sweet Koshary (Oreo & Nutella)", description: "Sweet rice pudding layered with crisp kunafa, Oreo crumble, and Nutella.", price: 40, dietary: ["halal", "vegetarian"] },
+              { id: "blaban-qoora", name: "El Qoora / The Sphere (Classic to Pistachio)", description: "Signature chilled cream sphere coated in chocolate, mango, Lotus, or pistachio (30–40 MAD).", price: 35, isSignature: true, dietary: ["halal", "vegetarian"] },
+              { id: "blaban-imbalya-mango", name: "Imbalya (Mango / Nutella / Oreo)", description: "Fruit or chocolate-topped cream cup (30–35 MAD).", price: 32, dietary: ["halal", "vegetarian"] }
+            ]
+          }
+        ]
+      }
+    },
+
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      {
+        id: "financial-trust",
+        title: "Financial Trust",
+        icon: "receipt",
+        tag: "Budget Sweets, Bring Cash",
+        tagColor: "alert",
+        tone: "caution",
+        description: "Prices are affordable (20–55 MAD), though reviewers note card terminals (TPE) are sometimes unavailable or cashiers run low on small change—bring MAD cash.",
+        state: "verified"
+      },
+      {
+        id: "health-safety",
+        title: "Health & Safety",
+        icon: "droplets",
+        tag: "High Turnover, Busy Tables",
+        tagColor: "water",
+        tone: "caution",
+        description: "High product turnover keeps dairy desserts fresh, though heavy evening crowds occasionally leave indoor/street tables slow to be wiped down.",
+        state: "verified"
+      },
+      {
+        id: "culinary-authenticity",
+        title: "Culinary Authenticity",
+        icon: "chef",
+        tag: "Authentic Viral Egyptian Chain",
+        tagColor: "food",
+        tone: "good",
+        description: "Official Egyptian B.Laban branch serving genuine Roz Bel Laban, Qashtouta, and Sweet Koshary; flavors skew very sweet and rich.",
+        state: "verified"
+      },
+      {
+        id: "comfort-environment",
+        title: "Comfort & Atmosphere",
+        icon: "megaphone",
+        tag: "Long Lines & Crowded",
+        tagColor: "alert",
+        tone: "caution",
+        description: "Noisy, high-energy viral shop with frequent queues spilling outside in the evening; best treated as a quick takeaway rather than a relaxed sit-down.",
+        state: "verified"
+      },
+      {
+        id: "service-expectations",
+        title: "Service Expectations",
+        icon: "clock",
+        tag: "Slow & Disorganized at Peak",
+        tagColor: "alert",
+        tone: "caution",
+        description: "Public reviews (~3.2★) frequently cite long waits and overwhelmed counter staff during peak night hours; visit midday for smoother service.",
+        state: "verified"
+      }
+    ],
+    reviewsData: { sources: [], reviews: [] }
+  },
+
+  {
+    id: "eat-casablanca-moods-marina",
+    city: "casablanca",
+
+    // ── 1. QUIZ (personalization, mood & matching) ──
+    quiz: {
+      lifestyle: "balanced",
+      groupTypes: ["couple", "friends", "family", "business-friendly", "large-groups"],
+      mealTypes: ["breakfast", "brunch", "lunch", "afternoon-tea", "dinner", "late-night"],
+      experienceTypes: ["casual", "cafes-tea"],
+      foodStyles: ["Mediterranean", "Italian", "Cafe & Pastry", "Moroccan", "International"],
+      cuisineTags: ["international", "cafe-pastry"],
+      archetypeAffinity: ["first-timer", "nomad", "luxury"],
+      vibeTags: ["ocean-view", "marina-terrace", "gourmet-brunch", "wood-fired-pizza"],
+      crowdLevel: "balanced"
+    },
+
+    // ── 2. FILTER (search criteria, dietary rules, logistics & flags) ──
+    filter: {
+      pricePerPerson: 15,
+      isHalal: true,
+      halalStatus: "likely-halal-food",
+      isVegetarianFriendly: true,
+      servesAlcohol: false,
+      alcoholPolicy: "dry",
+      hasDelivery: true,
+      hasParking: true,
+      nearMedina: true,
+      nearBeach: true,
+      nearCenter: true,
+      hasEnglishStaff: true,
+      hasFrenchStaff: true,
+      ramadanFriendly: "serves-lunch",
+      closedDays: [],
+      seatingTypes: ["indoor", "outdoor", "terrace"],
+      paymentMethods: ["cash", "credit_card", "visa", "mastercard"],
+      tags: [
+        "breakfast",
+        "brunch",
+        "lunch",
+        "afternoon-tea",
+        "dinner",
+        "late-night",
+        "cafes-tea",
+        "halal",
+        "vegetarian",
+        "dry",
+        "wifi",
+        "ac",
+        "terrace",
+        "parking",
+        "delivery",
+        "wheelchair-accessible",
+        "couple",
+        "family",
+        "ramadan-friendly"
+      ],
+      wiFi: true,
+      airConditioning: true,
+      wheelchairAccessible: true,
+      isHiddenGem: false,
+      isTemporarilyHidden: false,
+      verificationStatus: "verified"
+    },
+
+    // ── 3. UI (presentation, stories, ratings, contacts & plates) ──
+    ui: {
+      name: "Moods Café-Restaurant",
+      neighborhood: "Centre-Ville",
+      district: "Casablanca Marina (Marina Shopping)",
+      description: "Spacious, light-filled waterfront café-restaurant at Marina Shopping on Rue Mourabitine with panoramic Atlantic views, all-day themed brunch formulas (Tangerois, French, Italian, Lebanese), wood-fired pizzas, risottos, and valet parking.",
+      tip: "Ask for a window or waterfront terrace seat overlooking the Atlantic; great spot for morning Tangerois brunch or quiet weekday laptop work with free Wi-Fi.",
+      badge: "local-favorite",
+      bestDishes: [
+        "Formule Petit-Déjeuner Tangerois",
+        "Truffle Cream Risotto",
+        "Seafood Wood-Fired Pizza",
+        "Tagliatelle Roquefort & Mushrooms"
+      ],
+      pros: [
+        "Panoramic Atlantic & Casablanca Marina views with indoor and outdoor terrace seating",
+        "Massive all-day menu from 08:00 to 00:00 covering Moroccan/international brunches, pizzas, pastas, and seafood",
+        "High guest praise (4.8★ across 13,000+ reviews) for attentive hospitality, free Wi-Fi, and mall/valet parking"
+      ],
+      cons: [
+        "Marina-tier pricing (~105–135 MAD breakfast sets, ~75–170 MAD mains)",
+        "Popular waterfront tables fill quickly during weekend brunch and sunset hours"
+      ],
+      googleRating: 4.8,
+      googleReviewCount: 13000,
+      openTime: "08:00",
+      closeTime: "00:00",
+      exactAddressAndCoordinates: {
+        address: "Marina Shopping, Rue Mourabitine, Casablanca 20000, Morocco",
+        lat: 33.60699,
+        lng: -7.62064
+      },
+      googleMapsUrl: "https://maps.google.com/?q=33.60699,-7.62064",
+      reservationMethod: ["phone", "walk-in"],
+      reservationContact: "+212522202025",
+      bookingUrl: "",
+      whatsappNumber: "",
+      website: "https://moods.ma",
+      instagram: "https://www.instagram.com/moods.caferestaurant/",
+      languagesSpoken: ["Arabic", "French", "English"],
+      menu: {
+        currency: "MAD",
+        lastUpdated: "2026-11",
+        serviceChargeIncluded: true,
+        sections: [
+          {
+            id: "breakfast-brunch",
+            title: "Breakfast & Brunch Formulas",
+            description: "All-morning Moroccan and international breakfast spreads served with hot drinks and fresh juice (Pinjoy / Casablanca Marina rates).",
+            items: [
+              { id: "moods-brunch-tangerois", name: "Formule Tangerois (Moroccan Spread)", description: "Baghrir, msemmen, harcha, batbout, khlii with eggs, bissara, mint tea, and fresh orange juice (105–135 MAD).", price: 120, isSignature: true, dietary: ["halal"] },
+              { id: "moods-brunch-intl", name: "Made in France / Italy / Healthy / Libanais Set", description: "Themed set with viennoiserie, eggs-to-order, avocado bruschetta, muesli, or Lebanese mezze (95–130 MAD).", price: 115, isSignature: true, dietary: ["halal"] },
+              { id: "moods-muesli", name: "Muesli & Oats Bowl", description: "Chilled oats, yogurt, fresh fruit, and honey.", price: 60, dietary: ["halal", "vegetarian"] },
+              { id: "moods-eggs-khlii", name: "Tagine d'Œufs au Khlii", description: "Traditional clay-pot baked eggs with spiced preserved beef.", price: 40, dietary: ["halal"] }
+            ]
+          },
+          {
+            id: "pizzas-pastas-mains",
+            title: "Wood-Fired Pizzas, Pasta & Risotto",
+            description: "Mediterranean mains, seafood pizzas, and creamy risottos (Pinjoy / Tablio rates).",
+            items: [
+              { id: "moods-risotto-truffle", name: "Truffle Cream or Seafood Risotto", description: "Creamy Arborio risotto finished with truffle cream or fresh Atlantic seafood (110–170 MAD).", price: 145, isSignature: true, dietary: ["halal"] },
+              { id: "moods-pizza-seafood", name: "Pizza aux Fruits de Mer", description: "Wood-fired pizza topped with shrimp, calamari, tomato sauce, and mozzarella.", price: 120, isSignature: true, dietary: ["halal"] },
+              { id: "moods-pizza-truffle", name: "Pizza Quatre Fromages / Truffe", description: "Four-cheese or truffle-creamed artisan pizza.", price: 110, dietary: ["halal", "vegetarian"] },
+              { id: "moods-pizza-margherita", name: "Pizza Margherita / Végétarienne", description: "Classic tomato, mozzarella, and basil or roasted seasonal vegetables (75–85 MAD).", price: 80, dietary: ["halal", "vegetarian"] }
+            ]
+          },
+          {
+            id: "coffee-tea",
+            title: "Coffee & Moroccan Mint Tea",
+            description: "All-day café beverages.",
+            items: [
+              { id: "moods-cappuccino", name: "Cappuccino", description: "Espresso with rich steamed milk foam.", price: 42, dietary: ["halal", "vegetarian"] },
+              { id: "moods-mint-tea", name: "Moroccan Mint Tea", description: "Freshly brewed green tea with spearmint.", price: 32, dietary: ["halal", "vegan", "vegetarian"] },
+              { id: "moods-espresso", name: "Espresso", description: "Single-shot Italian-style espresso.", price: 27, dietary: ["halal", "vegan", "vegetarian"] }
+            ]
+          }
+        ]
+      }
+    },
+
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      {
+        id: "financial-trust",
+        title: "Financial Trust",
+        icon: "receipt",
+        tag: "Marina Mid-Upper Pricing",
+        tagColor: "money",
+        tone: "good",
+        description: "Clearly itemized menu (~100–170 MAD per meal; coffees 27–42 MAD) aligned with Casablanca Marina dining, accepting cards and cash.",
+        state: "verified"
+      },
+      {
+        id: "health-safety",
+        title: "Health & Safety",
+        icon: "droplets",
+        tag: "Clean Marina Kitchen Standard",
+        tagColor: "water",
+        tone: "good",
+        description: "Well-maintained modern restaurant inside Marina Shopping with high daily volume and reliable kitchen hygiene.",
+        state: "verified"
+      },
+      {
+        id: "culinary-authenticity",
+        title: "Culinary Authenticity",
+        icon: "chef",
+        tag: "Mediterranean & Moroccan Brunch",
+        tagColor: "food",
+        tone: "good",
+        description: "Broad Mediterranean-international menu paired with traditional Tangerois breakfast spreads and khlii egg tagines; completely dry.",
+        state: "verified"
+      },
+      {
+        id: "comfort-environment",
+        title: "Comfort & Atmosphere",
+        icon: "megaphone",
+        tag: "Ocean Views + Free Wi-Fi",
+        tagColor: "safety",
+        tone: "good",
+        description: "Bright, panoramic oceanfront setting at Marina Shopping with valet/mall parking, outdoor terrace, and Wi-Fi suitable for casual remote work.",
+        state: "verified"
+      },
+      {
+        id: "service-expectations",
+        title: "Service Expectations",
+        icon: "clock",
+        tag: "4.8★ Attentive Hospitality",
+        tagColor: "safety",
+        tone: "good",
+        description: "Consistently praised across 13,000+ Google reviews for warm, professional service from 08:00 to midnight; reserve or go early on weekends.",
+        state: "verified"
+      }
+    ],
+    reviewsData: { sources: [], reviews: [] }
   }
 ];

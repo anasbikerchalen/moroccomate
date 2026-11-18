@@ -2,20 +2,28 @@
 - Le Pavillon CFC
 - Baristas
 - La Fontaine des Épices
+
+
 - Joe & The Juice Rabat
  - Espressolab
 - B.Laban Casablanca
 - Moods
 - Friv'old
+
+
 - McDonald's Morocco
 - Crusty
 - Little Mamma
  - Caribou Coffee
 - Le Mirage Tanger
+
+
 - Cucina Napoli
 - Kandinsky Tanger
 - Sushi House
 - Ashokai Sushi
+
+
 - Boca Chica
 - Sushi Club
 - Azar Marrakech

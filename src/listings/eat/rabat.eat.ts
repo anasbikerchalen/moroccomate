@@ -3058,5 +3058,209 @@ export const rabatEat: EatListing[] = [
     ],
     // Multi-platform reviews holder (hidden on UI until populated)
     reviewsData: { sources: [], reviews: [] },
+  },
+
+  {
+    id: "eat-rabat-joe-and-the-juice-souissi",
+    city: "rabat",
+
+    // ── 1. QUIZ (personalization, mood & matching) ──
+    quiz: {
+      lifestyle: "balanced",
+      groupTypes: ["solo", "friends", "couple", "business-friendly"],
+      mealTypes: ["breakfast", "brunch", "lunch", "snack", "afternoon-tea", "drinks"],
+      experienceTypes: ["casual", "cafes-tea"],
+      foodStyles: ["Cafe & Pastry", "International", "Vegetarian/Vegan"],
+      cuisineTags: ["cafe-pastry", "international"],
+      archetypeAffinity: ["nomad", "first-timer"],
+      vibeTags: ["fresh-juice", "healthy-fast-casual", "modern-market", "matcha-coffee"],
+      crowdLevel: "bustling"
+    },
+
+    // ── 2. FILTER (search criteria, dietary rules, logistics & flags) ──
+    filter: {
+      pricePerPerson: 14,
+      isHalal: true,
+      halalStatus: "likely-halal-food",
+      isVegetarianFriendly: true,
+      servesAlcohol: false,
+      alcoholPolicy: "dry",
+      hasDelivery: true,
+      hasParking: true,
+      nearMedina: false,
+      nearBeach: false,
+      nearCenter: false,
+      hasEnglishStaff: true,
+      hasFrenchStaff: true,
+      ramadanFriendly: "serves-lunch",
+      closedDays: [],
+      seatingTypes: ["indoor", "outdoor", "terrace"],
+      paymentMethods: ["cash", "credit_card", "visa", "mastercard", "apple_pay"],
+      tags: [
+        "breakfast",
+        "brunch",
+        "lunch",
+        "snack",
+        "afternoon-tea",
+        "drinks",
+        "cafes-tea",
+        "halal",
+        "vegetarian",
+        "dry",
+        "wifi",
+        "ac",
+        "terrace",
+        "parking",
+        "delivery",
+        "wheelchair-accessible",
+        "ramadan-friendly"
+      ],
+      wiFi: true,
+      airConditioning: true,
+      wheelchairAccessible: true,
+      isHiddenGem: false,
+      isTemporarilyHidden: false,
+      verificationStatus: "verified"
+    },
+
+    // ── 3. UI (presentation, stories, ratings, contacts & plates) ──
+    ui: {
+      name: "Joe & The Juice",
+      neighborhood: "Souissi",
+      district: "Marché Dar Essalam",
+      description: "Danish juice bar and healthy fast-casual cafe inside Le Marché Dar Essalam in Souissi, serving made-to-order cold-pressed juices, protein shakes, specialty matcha and espresso drinks, toasted Tunacado sandwiches, and açai bowls.",
+      tip: "Order ahead or avoid peak weekend afternoon crowds inside Marché Dar Essalam; Tunacado and iced Spanish latte are customer staples.",
+      badge: "local-favorite",
+      bestDishes: [
+        "Tunacado Sandwich",
+        "Açai Bowl",
+        "JOE's Club Sandwich",
+        "Iced Spanish Latte"
+      ],
+      pros: [
+        "Freshly blended fruit/vegetable juices, shakes, and crisp toasted signature sandwiches made to order",
+        "Located in upscale Marché Dar Essalam with convenient parking, outdoor seating, and late midnight closing",
+        "Strong vegetarian and dry options with English/French-speaking staff"
+      ],
+      cons: [
+        "Premium international chain pricing (~88–129 MAD per sandwich, 50–73 MAD per drink)",
+        "Made-to-order prep can slow down noticeably during busy Souissi weekend rushes"
+      ],
+      googleRating: 3.5,
+      googleReviewCount: 191,
+      openTime: "09:00",
+      closeTime: "00:00",
+      exactAddressAndCoordinates: {
+        address: "Marché Dar Essalam, Avenue du 10 Mars 1982, Souissi, Rabat 10120, Morocco",
+        lat: 33.94974,
+        lng: -6.83327
+      },
+      googleMapsUrl: "https://maps.google.com/?q=33.94974,-6.83327",
+      reservationMethod: ["walk-in", "phone"],
+      reservationContact: "+212537015507",
+      bookingUrl: "",
+      whatsappNumber: "",
+      website: "https://www.joejuice.com",
+      instagram: "https://www.instagram.com/joeandthejuice/",
+      languagesSpoken: ["Arabic", "French", "English"],
+      menu: {
+        currency: "MAD",
+        lastUpdated: "2026-11",
+        serviceChargeIncluded: true,
+        sections: [
+          {
+            id: "signature-sandwiches",
+            title: "Signature Toasted Sandwiches",
+            description: "Crisp flatbread sandwiches made to order (Yumlo Morocco rates).",
+            items: [
+              { id: "joe-rabat-steak", name: "The Steak", description: "Sliced steak, pickles, tomato, honey mustard, parmesan, and arugula.", price: 129, dietary: ["halal"] },
+              { id: "joe-rabat-spicy-caesar", name: "JOE's Spicy Caesar", description: "Grilled chicken, turkey bacon, parmesan, Caesar dressing, and arugula.", price: 129, dietary: ["halal"] },
+              { id: "joe-rabat-tunacado", name: "Tunacado", description: "Signature tuna mousse, avocado, tomato, and vegan pesto on toasted rye flatbread.", price: 88, isSignature: true, dietary: ["halal"] },
+              { id: "joe-rabat-spicy-tuna", name: "Spicy Tuna", description: "Tuna mousse, pickled jalapeños, Tabasco, tomato, and pesto.", price: 88, dietary: ["halal"] },
+              { id: "joe-rabat-joes-club", name: "JOE's Club", description: "Grilled chicken, avocado, tomato, and vegan pesto.", price: 88, isSignature: true, dietary: ["halal"] },
+              { id: "joe-rabat-avocado", name: "Avocado Sandwich", description: "Fresh avocado slices, mozzarella, tomato, and basil pesto.", price: 88, dietary: ["halal", "vegetarian"] }
+            ]
+          },
+          {
+            id: "bowls-breakfast",
+            title: "Açai, Oats & Salad Bowls",
+            description: "Light breakfast bowls and protein salad bowls.",
+            items: [
+              { id: "joe-rabat-acai", name: "Açai Bowl", description: "Organic açai blend topped with banana, crunchy granola, and almond butter.", price: 90, isSignature: true, dietary: ["halal", "vegan", "vegetarian"] },
+              { id: "joe-rabat-green-chicken", name: "Green Chicken / Green Tuna Bowl", description: "Fresh greens, avocado, broccoli, and choice of chicken or tuna mousse.", price: 90, dietary: ["halal"] },
+              { id: "joe-rabat-green-veggie", name: "Green Veggie Bowl", description: "Leafy greens, avocado, tomato, broccoli, and seed mix.", price: 90, dietary: ["halal", "vegan", "vegetarian"] },
+              { id: "joe-rabat-oats", name: "JOE's Overnight Oats / Yoghurt Bowl", description: "Chilled rolled oats or Greek yoghurt topped with berry compote and granola.", price: 54, dietary: ["halal", "vegetarian"] }
+            ]
+          },
+          {
+            id: "juices-shakes-coffee",
+            title: "Fresh Juices, Shakes & Specialty Coffee",
+            description: "Blended juices, protein shakes, matcha, and espresso drinks.",
+            items: [
+              { id: "joe-rabat-herb-tonic", name: "Fresh Signature Juices (e.g. Herb Tonic / Pick Me Up)", description: "Made-to-order cold-pressed and blended vegetable and fruit juices.", price: 73, isSignature: true, dietary: ["halal", "vegan", "vegetarian"] },
+              { id: "joe-rabat-spanish-latte", name: "Spanish Latte (Hot or Iced)", description: "Double espresso over textured milk and sweet condensed milk.", price: 54, dietary: ["halal", "vegetarian"] },
+              { id: "joe-rabat-shakes", name: "Power Shake / Coffee Shake / Avo Shake", description: "Creamy protein and superfood blended shakes.", price: 50, isSignature: true, dietary: ["halal", "vegetarian"] },
+              { id: "joe-rabat-latte", name: "Latte / Cappuccino", description: "Organic espresso with steamed milk.", price: 43, dietary: ["halal", "vegetarian"] },
+              { id: "joe-rabat-espresso", name: "Espresso / Americano", description: "Single or double shot specialty espresso (31–36 MAD).", price: 34, dietary: ["halal", "vegan", "vegetarian"] }
+            ]
+          }
+        ]
+      }
+    },
+
+    // ── 4. WORRIES ("Things You're Worried About!") ──
+    worries: [
+      {
+        id: "financial-trust",
+        title: "Financial Trust",
+        icon: "receipt",
+        tag: "Upscale Chain Pricing",
+        tagColor: "money",
+        tone: "caution",
+        description: "Menu prices are clearly displayed (~88–129 MAD sandwiches, 50–73 MAD drinks), though many local reviewers find portions pricey for a quick counter stop.",
+        state: "verified"
+      },
+      {
+        id: "health-safety",
+        title: "Health & Safety",
+        icon: "droplets",
+        tag: "Clean Franchise Standards",
+        tagColor: "water",
+        tone: "good",
+        description: "Modern open counter inside Marché Dar Essalam using filtered water/ice and standardized international chain prep hygiene.",
+        state: "verified"
+      },
+      {
+        id: "culinary-authenticity",
+        title: "Culinary Authenticity",
+        icon: "chef",
+        tag: "Global Juice & Sandwich Bar",
+        tagColor: "food",
+        tone: "good",
+        description: "Authentic Copenhagen-born Joe & The Juice menu (Tunacado, açai bowls, matcha, pressed juices) rather than traditional Moroccan dishes; completely dry.",
+        state: "verified"
+      },
+      {
+        id: "comfort-environment",
+        title: "Comfort & Atmosphere",
+        icon: "megaphone",
+        tag: "Upbeat Market Energy",
+        tagColor: "safety",
+        tone: "good",
+        description: "Stylish modern lifestyle market setting in Souissi with parking and terrace seating, geared toward lively social catch-ups rather than quiet deep work.",
+        state: "verified"
+      },
+      {
+        id: "service-expectations",
+        title: "Service Expectations",
+        icon: "clock",
+        tag: "Slower at Peak Rushes",
+        tagColor: "alert",
+        tone: "caution",
+        description: "Staff are generally upbeat, but Google reviews (~3.5★) cite noticeable wait times when weekend orders back up since every sandwich and juice is made to order.",
+        state: "verified"
+      }
+    ],
+    reviewsData: { sources: [], reviews: [] }
   }
 ];
