@@ -390,6 +390,7 @@ export default function ActivityDetailView({ item }: ActivityDetailViewProps) {
         categoryBadge={activityCategoryLabel}
         title={name}
         subtitle={shortValueProp || undefined}
+        storefrontBanner={item?.storefrontBanner || item?.ui?.storefrontBanner}
         metadata={heroMetadata}
         reviewsData={item?.reviewsData}
         activeReviewSource={selectedReviewSource}

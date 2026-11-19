@@ -28,6 +28,7 @@ import {
 } from 'lucide-react';
 import { cn } from '../../utils/cn';
 import type { PlaceReviewsData, ReviewSource } from '../../types/reviews';
+import type { StorefrontBannerConfig } from '../../listings/types';
 import { computePlaceReviewScore, hasPopulatedReviewsData } from '../../types/reviews';
 import PlatformIcon, { formatCompactCount } from '../reviews/PlatformIcon';
 import TagTooltip from './TagTooltip';
@@ -112,6 +113,8 @@ export interface ListingHeroHeaderProps {
   servedForLabel?: string;
   /** Right-hand Action Hub card configuration */
   actions: HeroActionConfig;
+  /** Optional compact wide storefront fascia band displayed above the listing title */
+  storefrontBanner?: StorefrontBannerConfig;
   /** Optional secondary badge inside ratings card (e.g. "Top Rated" or "Verified") */
   highlightBadge?: string;
   /** Optional extra node under left column (e.g. SavvyBadge) */
@@ -186,6 +189,7 @@ export const ListingHeroHeader: React.FC<ListingHeroHeaderProps> = ({
   servedFor = [],
   servedForLabel = 'Served For',
   actions,
+  storefrontBanner,
   highlightBadge,
   extraLeftNode,
   className,
@@ -309,6 +313,10 @@ export const ListingHeroHeader: React.FC<ListingHeroHeaderProps> = ({
   const resolvedHighlightBadge =
     highlightBadge || (showRatingsCard && averageRating >= 4.4 ? 'Top Rated' : undefined);
 
+  const bannerBg = storefrontBanner?.backgroundColor || '#173042';
+  const bannerAccent = storefrontBanner?.accentColor || '#C9A84C';
+  const hasBannerZoom = Boolean(storefrontBanner?.logoZoom && storefrontBanner.logoZoom !== 1);
+
   return (
     <section
       onPointerMove={handleHeroPointerMove}
@@ -318,69 +326,129 @@ export const ListingHeroHeader: React.FC<ListingHeroHeaderProps> = ({
         className
       )}
     >
-      {/* Interactive 3-Layer Moroccan Skyline, Atlas Ridge & Palm Silhouette Watermark */}
-      <div
-        className="pointer-events-none select-none absolute inset-y-0 right-0 w-full md:w-[58%] overflow-hidden opacity-[0.13]"
-        aria-hidden="true"
-      >
-        <svg
-          viewBox="0 0 800 320"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-full w-full object-cover object-right-bottom"
-          preserveAspectRatio="xMaxYMax slice"
+      {/* Storefront Wide Identity Band (compact fascia directly above title) */}
+      {storefrontBanner?.logoUrl && (
+        <div
+          className="relative w-full h-[74px] sm:h-[92px] overflow-hidden flex items-center justify-center border-t border-white/10"
+          style={{ backgroundColor: bannerBg }}
+          aria-label={storefrontBanner.alt || `${title} storefront banner`}
         >
-          {/* Layer 1: Distant Atlas mountain contour */}
-          <motion.g style={reduceMotion ? undefined : { x: atlasX, y: atlasY }}>
-            <path
-              d="M40 320 L185 215 L295 258 L445 148 L605 228 L725 170 L820 220 L820 320 Z"
-              fill="#E3D2B8"
+          {/* Subtle architectural side-edge depth */}
+          <div
+            className="pointer-events-none absolute inset-0"
+            style={{
+              background:
+                'linear-gradient(90deg, rgba(0,0,0,0.28) 0%, transparent 16%, transparent 84%, rgba(0,0,0,0.28) 100%)',
+            }}
+            aria-hidden="true"
+          />
+
+          <motion.div
+            initial={reduceMotion ? false : { opacity: 0, scale: 0.96, y: 3 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.34, ease: [0.16, 1, 0.3, 1] }}
+            className="relative z-10 flex items-center justify-center w-full h-full px-4"
+          >
+            <img
+              src={storefrontBanner.logoUrl}
+              alt={storefrontBanner.alt || `${title} storefront sign`}
+              loading="eager"
+              decoding="async"
+              style={
+                hasBannerZoom
+                  ? { transform: `scale(${storefrontBanner.logoZoom})` }
+                  : undefined
+              }
+              className={cn(
+                'w-auto object-contain select-none pointer-events-none',
+                hasBannerZoom
+                  ? 'h-[68px] sm:h-[86px] max-w-none'
+                  : 'h-[52px] sm:h-[66px] max-w-[260px] sm:max-w-[360px]'
+              )}
             />
-          </motion.g>
+          </motion.div>
 
-          {/* Layer 2: Midground Medina rooftop & Koutoubia Minaret */}
-          <motion.g style={reduceMotion ? undefined : { x: medinaX, y: medinaY }}>
-            <path
-              d="M280 320 L280 262 L322 262 L322 246 L360 246 L360 268 L412 268 L412 240 L458 240 L458 272 L520 272 L520 250 L566 250 L566 266 L622 266 L622 232 L640 232 L640 210 L654 196 L668 210 L668 232 L686 232 L686 268 L748 268 L748 250 L800 250 L800 320 Z"
-              fill="#D4BEA0"
-            />
-            <g fill="#C8AF8C">
-              <rect x="650" y="92" width="44" height="176" rx="2" />
-              <rect x="658" y="64" width="28" height="28" rx="1" />
-              <path d="M658 64 Q672 46 686 64 Z" />
-              <line x1="672" y1="38" x2="672" y2="52" stroke="#C8AF8C" strokeWidth="2.5" />
-              <circle cx="672" cy="44" r="3" />
-              <circle cx="672" cy="38" r="2" />
-              <rect x="662" y="114" width="8" height="16" rx="4" fill="#FAF6EC" opacity="0.55" />
-              <rect x="674" y="114" width="8" height="16" rx="4" fill="#FAF6EC" opacity="0.55" />
-              <rect x="665" y="148" width="14" height="22" rx="7" fill="#FAF6EC" opacity="0.45" />
-            </g>
-          </motion.g>
+          {/* Crisp brass / storefront trim hairline separating fascia from cream hero */}
+          <div
+            className="pointer-events-none absolute bottom-0 inset-x-0 h-[2px]"
+            style={{
+              background: `linear-gradient(90deg, transparent 0%, ${bannerAccent}66 18%, ${bannerAccent} 50%, ${bannerAccent}66 82%, transparent 100%)`,
+            }}
+            aria-hidden="true"
+          />
+        </div>
+      )}
 
-          {/* Layer 3: Foreground Palm Trees */}
-          <motion.g style={reduceMotion ? undefined : { x: palmsX, y: palmsY }}>
-            <g fill="#C9B08D">
-              <path d="M512 272 Q518 220 515 178 L522 178 Q526 220 520 272 Z" />
-              <path d="M518 180 Q490 165 476 184 Q498 178 518 184 Z" />
-              <path d="M518 180 Q498 150 486 156 Q504 166 518 180 Z" />
-              <path d="M519 180 Q536 152 552 160 Q536 168 519 180 Z" />
-              <path d="M519 182 Q548 172 560 190 Q538 184 519 184 Z" />
-            </g>
-            <g fill="#C9B08D">
-              <path d="M578 272 Q574 232 576 202 L582 202 Q582 232 584 272 Z" />
-              <path d="M579 204 Q556 192 545 208 Q563 203 579 207 Z" />
-              <path d="M579 204 Q566 180 555 186 Q570 194 579 204 Z" />
-              <path d="M580 204 Q598 182 612 189 Q596 196 580 204 Z" />
-              <path d="M580 206 Q604 198 614 214 Q596 208 580 208 Z" />
-            </g>
-          </motion.g>
-        </svg>
-      </div>
+      {/* Lower Hero Canvas (Skyline Watermark + Content) */}
+      <div className="relative w-full">
+        {/* Interactive 3-Layer Moroccan Skyline, Atlas Ridge & Palm Silhouette Watermark */}
+        <div
+          className="pointer-events-none select-none absolute inset-y-0 right-0 w-full md:w-[58%] overflow-hidden opacity-[0.13]"
+          aria-hidden="true"
+        >
+          <svg
+            viewBox="0 0 800 320"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-full w-full object-cover object-right-bottom"
+            preserveAspectRatio="xMaxYMax slice"
+          >
+            {/* Layer 1: Distant Atlas mountain contour */}
+            <motion.g style={reduceMotion ? undefined : { x: atlasX, y: atlasY }}>
+              <path
+                d="M40 320 L185 215 L295 258 L445 148 L605 228 L725 170 L820 220 L820 320 Z"
+                fill="#E3D2B8"
+              />
+            </motion.g>
 
-      {/* Inner Hero Content */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 pt-6 pb-8 sm:pt-8 sm:pb-10">
-        {/* 1. CATEGORY KICKER + SERIF HEADLINE + INLINE METADATA BAR */}
-        <div className="space-y-3 mb-6">
+            {/* Layer 2: Midground Medina rooftop & Koutoubia Minaret */}
+            <motion.g style={reduceMotion ? undefined : { x: medinaX, y: medinaY }}>
+              <path
+                d="M280 320 L280 262 L322 262 L322 246 L360 246 L360 268 L412 268 L412 240 L458 240 L458 272 L520 272 L520 250 L566 250 L566 266 L622 266 L622 232 L640 232 L640 210 L654 196 L668 210 L668 232 L686 232 L686 268 L748 268 L748 250 L800 250 L800 320 Z"
+                fill="#D4BEA0"
+              />
+              <g fill="#C8AF8C">
+                <rect x="650" y="92" width="44" height="176" rx="2" />
+                <rect x="658" y="64" width="28" height="28" rx="1" />
+                <path d="M658 64 Q672 46 686 64 Z" />
+                <line x1="672" y1="38" x2="672" y2="52" stroke="#C8AF8C" strokeWidth="2.5" />
+                <circle cx="672" cy="44" r="3" />
+                <circle cx="672" cy="38" r="2" />
+                <rect x="662" y="114" width="8" height="16" rx="4" fill="#FAF6EC" opacity="0.55" />
+                <rect x="674" y="114" width="8" height="16" rx="4" fill="#FAF6EC" opacity="0.55" />
+                <rect x="665" y="148" width="14" height="22" rx="7" fill="#FAF6EC" opacity="0.45" />
+              </g>
+            </motion.g>
+
+            {/* Layer 3: Foreground Palm Trees */}
+            <motion.g style={reduceMotion ? undefined : { x: palmsX, y: palmsY }}>
+              <g fill="#C9B08D">
+                <path d="M512 272 Q518 220 515 178 L522 178 Q526 220 520 272 Z" />
+                <path d="M518 180 Q490 165 476 184 Q498 178 518 184 Z" />
+                <path d="M518 180 Q498 150 486 156 Q504 166 518 180 Z" />
+                <path d="M519 180 Q536 152 552 160 Q536 168 519 180 Z" />
+                <path d="M519 182 Q548 172 560 190 Q538 184 519 184 Z" />
+              </g>
+              <g fill="#C9B08D">
+                <path d="M578 272 Q574 232 576 202 L582 202 Q582 232 584 272 Z" />
+                <path d="M579 204 Q556 192 545 208 Q563 203 579 207 Z" />
+                <path d="M579 204 Q566 180 555 186 Q570 194 579 204 Z" />
+                <path d="M580 204 Q598 182 612 189 Q596 196 580 204 Z" />
+                <path d="M580 206 Q604 198 614 214 Q596 208 580 208 Z" />
+              </g>
+            </motion.g>
+          </svg>
+        </div>
+
+        {/* Inner Hero Content */}
+        <div
+          className={cn(
+            'relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 pb-8 sm:pb-10',
+            storefrontBanner?.logoUrl ? 'pt-5 sm:pt-6' : 'pt-6 sm:pt-8'
+          )}
+        >
+          {/* 1. CATEGORY KICKER + SERIF HEADLINE + INLINE METADATA BAR */}
+          <div className="space-y-3 mb-6">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F6E4CE]/90 border border-[#E9CFAF] text-[#9A4722] text-xs font-bold tracking-wide shadow-2xs">
             {DEFAULT_CATEGORY_ICON[category]}
             <span>{categoryBadge}</span>
@@ -838,6 +906,7 @@ export const ListingHeroHeader: React.FC<ListingHeroHeaderProps> = ({
               )}
             </div>
           </div>
+        </div>
         </div>
       </div>
     </section>

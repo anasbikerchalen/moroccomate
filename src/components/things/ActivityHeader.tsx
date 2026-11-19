@@ -186,6 +186,7 @@ export const ActivityHeader: React.FC<ActivityHeaderProps> = ({
       categoryBadge={activity.activity_type || activity.category || 'Experience'}
       title={activity.name}
       subtitle={activity.short_description}
+      storefrontBanner={(activity as any)?.storefrontBanner}
       metadata={metadata}
       reviewsData={activity.reviewsData}
       activeReviewSource={activeReviewSource}

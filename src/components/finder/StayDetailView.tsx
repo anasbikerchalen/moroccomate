@@ -178,6 +178,7 @@ export default function StayDetailView({ item }: StayDetailViewProps) {
         categoryBadge={stayTypeLabel}
         title={stay.name}
         subtitle={stay.tagline}
+        storefrontBanner={item?.storefrontBanner || item?.ui?.storefrontBanner}
         metadata={stayMetadata}
         reviewsData={stayReviewsData}
         activeReviewSource={selectedReviewSource}

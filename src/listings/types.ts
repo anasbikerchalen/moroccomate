@@ -45,6 +45,19 @@ export interface FrictionProfile {
   kidSuitable: boolean
 }
 
+export interface StorefrontBannerConfig {
+  /** Local or public path to the place's storefront logo/signage mark */
+  logoUrl: string;
+  /** Matching storefront fascia background color (e.g. "#000000") */
+  backgroundColor?: string;
+  /** Optional accent color for the subtle architectural bottom trim hairline */
+  accentColor?: string;
+  /** Accessible alt text for the storefront logo */
+  alt?: string;
+  /** Optional scale multiplier for square logo assets with built-in outer padding */
+  logoZoom?: number;
+}
+
 export interface SleepListing {
   id: string
   city: CityId
@@ -176,6 +189,8 @@ export interface SleepListing {
   }
   /** Multi-platform reviews section data (Tripadvisor, Booking.com, Google Travel, Hotels.com, Expedia) */
   reviewsData?: PlaceReviewsData
+  /** Optional compact wide storefront fascia banner rendered above the listing title */
+  storefrontBanner?: StorefrontBannerConfig
 }
 
 export interface MenuItem {
@@ -348,6 +363,8 @@ export interface EatListingUI {
   }[]
   /** Multi-platform reviews section data (Tripadvisor, Google Maps, TheFork, Wanderlog, Reddit) */
   reviewsData?: PlaceReviewsData
+  /** Optional compact wide storefront fascia banner rendered above the listing title */
+  storefrontBanner?: StorefrontBannerConfig
 }
 
 export interface EatListing {
@@ -452,6 +469,7 @@ export interface EatListing {
     lng: number
   }
   menuUrl?: string
+  storefrontBanner?: StorefrontBannerConfig
   seasonalHoursNote?: string
   editorialGuide?: { title?: string; heading?: string; body: string }[]
   knowBeforeYouGo?: string[]
@@ -612,6 +630,8 @@ export interface ThingToDoListing {
   worries?: ThingWorryEntry[] | string[];
   /** Multi-platform reviews section data (Tripadvisor, GetYourGuide, Viator, Google Travel, Lonely Planet) */
   reviewsData?: PlaceReviewsData;
+  /** Optional compact wide storefront fascia banner rendered above the listing title */
+  storefrontBanner?: StorefrontBannerConfig;
 }
 
 /**
@@ -757,6 +777,8 @@ export interface ShopListing {
   isLocalFavorite?: boolean
   /** Multi-platform reviews section data (Tripadvisor, Google Maps, Trustpilot, Lonely Planet, Reddit) */
   reviewsData?: PlaceReviewsData
+  /** Optional compact wide storefront fascia banner rendered above the listing title */
+  storefrontBanner?: StorefrontBannerConfig
   
   // Local Context
   nearbyLandmarks?: string[]

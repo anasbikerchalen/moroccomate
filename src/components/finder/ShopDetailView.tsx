@@ -241,6 +241,7 @@ export default function ShopDetailView({ item: passedItem }: ShopDetailViewProps
         categoryBadge={categoryBadge}
         title={shop.name}
         subtitle={shop.short_description}
+        storefrontBanner={legacyItem?.storefrontBanner}
         metadata={shopMetadata}
         reviewsData={shopReviewsData}
         activeReviewSource={selectedReviewSource}

@@ -22,6 +22,8 @@ import { getEatWeeklySchedule } from '../../utils/timeEngine';
 import { deriveEatProsCons } from '../../utils/eatProsConsEngine';
 import { getEatPriceMetrics } from '../../utils/eatPrice';
 import diningHeroEditorialImg from '../../assets/images/botanical_food_flat_1791668271591.jpg';
+import camelInsiderPointerImg from '../../assets/images/camel_insider_pointer.png';
+import { prefersReducedMotion } from '../../utils/playfulFeedback';
 import { useNavigate } from 'react-router-dom';
 import { WalkingDistanceMap } from './stay/WalkingDistanceMap';
 import {
@@ -616,6 +618,7 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
         category="eat"
         categoryBadge={experienceTypes?.[0] ? String(experienceTypes[0]).replace(/-/g, ' ') : 'Restaurant'}
         title={name}
+        storefrontBanner={item?.storefrontBanner || item?.ui?.storefrontBanner}
         metadata={eatMetadata}
         reviewsData={eatReviewsData}
         activeReviewSource={selectedReviewSource}
@@ -710,17 +713,38 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
             LOCAL INSIDER TIP (AUTHENTIC EXPERT ADVICE FROM DATA)
         ─────────────────────────────────────────────────────────── */}
         {tip && (
-          <div className="bg-[#FAF7F2] border-l-4 border-l-[#C9A84C] border border-[#EDE4D5] rounded-3xl p-6 sm:p-7 shadow-xs flex flex-col sm:flex-row items-start gap-4" id="eat-insider-tip">
-            <div className="w-10 h-10 rounded-2xl bg-amber-500/15 flex items-center justify-center text-[#96700A] shrink-0 shadow-2xs">
-              <Lightbulb className="w-5 h-5 text-[#96700A]" />
-            </div>
-            <div className="space-y-1">
-              <span className="text-xs font-bold uppercase tracking-wider text-[#96700A] block">
-                Local Insider Tip
-              </span>
-              <p className="text-stone-800 text-sm sm:text-base leading-relaxed font-serif italic">
-                "{tip}"
-              </p>
+          <div
+            className="relative flex flex-row items-center sm:items-end gap-0"
+            id="eat-insider-tip"
+          >
+            <motion.div
+              initial={prefersReducedMotion() ? false : { opacity: 0, x: -10, rotate: -3 }}
+              whileInView={{ opacity: 1, x: 0, rotate: 0 }}
+              whileHover={prefersReducedMotion() ? undefined : { rotate: [0, -3, 3, 0], scale: 1.04 }}
+              viewport={{ once: true, amount: 0.35 }}
+              transition={{ duration: 0.38, ease: [0.16, 1, 0.3, 1] }}
+              className="relative z-10 shrink-0 -mr-2.5 sm:-mr-4 sm:mb-0.5 select-none"
+            >
+              <img
+                src={camelInsiderPointerImg}
+                alt="Moroccan Mate camel pointing to Local Insider Tip"
+                referrerPolicy="no-referrer"
+                className="w-[74px] h-[76px] sm:w-[112px] sm:h-[116px] object-contain drop-shadow-[0_6px_14px_rgba(23,48,66,0.14)]"
+              />
+            </motion.div>
+
+            <div className="flex-1 min-w-0 bg-[#FAF7F2] border-l-4 border-l-[#C9A84C] border border-[#EDE4D5] rounded-3xl p-4 sm:p-7 pl-5 sm:pl-8 shadow-xs flex flex-col sm:flex-row items-start gap-3 sm:gap-4">
+              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-amber-500/15 flex items-center justify-center text-[#96700A] shrink-0 shadow-2xs">
+                <Lightbulb className="w-4 h-4 sm:w-5 sm:h-5 text-[#96700A]" />
+              </div>
+              <div className="space-y-1 min-w-0">
+                <span className="text-xs font-bold uppercase tracking-wider text-[#96700A] block">
+                  Local Insider Tip
+                </span>
+                <p className="text-stone-800 text-sm sm:text-base leading-relaxed font-serif italic">
+                  "{tip}"
+                </p>
+              </div>
             </div>
           </div>
         )}

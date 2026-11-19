@@ -12,6 +12,8 @@ import StayDetailView from './StayDetailView';
 import ShopDetailView from './ShopDetailView';
 import ActivityDetailView from './ActivityDetailView';
 import { getEatPriceMetrics } from '../../utils/eatPrice';
+import camelInsiderPointerImg from '../../assets/images/camel_insider_pointer.png';
+import { prefersReducedMotion } from '../../utils/playfulFeedback';
 
 interface DetailViewProps {
   item: any;
@@ -349,13 +351,31 @@ export default function DetailView({ item, onBack, category }: DetailViewProps) 
 
       {/* Insider Tip */}
       {tip && (
-        <div className="bg-stone-900 text-white rounded-[32px] p-8 mb-6 flex gap-5">
-          <div className="w-10 h-10 bg-[#C9A84C] rounded-2xl flex items-center justify-center shrink-0">
-            <Lightbulb className="w-5 h-5 text-stone-900" />
-          </div>
-          <div>
-            <p className="text-[10px] font-black uppercase tracking-widest text-[#C9A84C] mb-2">Insider Tip</p>
-            <p className="text-stone-300 leading-relaxed">{tip}</p>
+        <div className="relative flex flex-row items-center sm:items-end mb-6">
+          <motion.div
+            initial={prefersReducedMotion() ? false : { opacity: 0, x: -10, rotate: -3 }}
+            whileInView={{ opacity: 1, x: 0, rotate: 0 }}
+            whileHover={prefersReducedMotion() ? undefined : { rotate: [0, -3, 3, 0], scale: 1.04 }}
+            viewport={{ once: true, amount: 0.35 }}
+            transition={{ duration: 0.38, ease: [0.16, 1, 0.3, 1] }}
+            className="relative z-10 shrink-0 -mr-2.5 sm:-mr-4 sm:mb-1 select-none"
+          >
+            <img
+              src={camelInsiderPointerImg}
+              alt="Moroccan Mate camel pointing to Insider Tip"
+              referrerPolicy="no-referrer"
+              className="w-[74px] h-[76px] sm:w-[108px] sm:h-[112px] object-contain drop-shadow-[0_6px_14px_rgba(0,0,0,0.28)]"
+            />
+          </motion.div>
+
+          <div className="flex-1 min-w-0 bg-stone-900 text-white rounded-[32px] p-6 sm:p-8 pl-6 sm:pl-9 flex gap-4 sm:gap-5">
+            <div className="w-10 h-10 bg-[#C9A84C] rounded-2xl flex items-center justify-center shrink-0">
+              <Lightbulb className="w-5 h-5 text-stone-900" />
+            </div>
+            <div className="min-w-0">
+              <p className="text-[10px] font-black uppercase tracking-widest text-[#C9A84C] mb-2">Insider Tip</p>
+              <p className="text-stone-300 leading-relaxed">{tip}</p>
+            </div>
           </div>
         </div>
       )}
