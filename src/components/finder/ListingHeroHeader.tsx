@@ -1,5 +1,11 @@
-import React, { useState, useMemo } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import React, { useState, useMemo, useEffect } from 'react';
+import {
+  motion,
+  AnimatePresence,
+  useMotionValue,
+  useSpring,
+  useTransform,
+} from 'motion/react';
 import {
   MapPin,
   Navigation,
@@ -18,7 +24,7 @@ import {
   ShoppingBag,
   Clock,
   ExternalLink,
-  CalendarCheck
+  CalendarCheck,
 } from 'lucide-react';
 import { cn } from '../../utils/cn';
 import type { PlaceReviewsData, ReviewSource } from '../../types/reviews';
@@ -26,6 +32,11 @@ import { computePlaceReviewScore, hasPopulatedReviewsData } from '../../types/re
 import PlatformIcon, { formatCompactCount } from '../reviews/PlatformIcon';
 import TagTooltip from './TagTooltip';
 import logoImg from '../../assets/images/logo.png';
+import {
+  playTactileSound,
+  prefersReducedMotion,
+  spawnSaffronSparks,
+} from '../../utils/playfulFeedback';
 
 export type ListingHeroCategory = 'eat' | 'sleep' | 'things' | 'shop';
 
@@ -183,12 +194,65 @@ export const ListingHeroHeader: React.FC<ListingHeroHeaderProps> = ({
   const [localCopiedLink, setLocalCopiedLink] = useState(false);
   const [localCopiedPhone, setLocalCopiedPhone] = useState(false);
 
+  // Interactive 3-layer SVG parallax via pointer position (compositor-only, zero re-renders)
+  const reduceMotion = prefersReducedMotion();
+  const pointerX = useMotionValue(0);
+  const pointerY = useMotionValue(0);
+  const smoothX = useSpring(pointerX, { stiffness: 110, damping: 22 });
+  const smoothY = useSpring(pointerY, { stiffness: 110, damping: 22 });
+
+  const atlasX = useTransform(smoothX, [-1, 1], [-8, 8]);
+  const atlasY = useTransform(smoothY, [-1, 1], [-4, 4]);
+  const medinaX = useTransform(smoothX, [-1, 1], [-16, 16]);
+  const medinaY = useTransform(smoothY, [-1, 1], [-7, 7]);
+  const palmsX = useTransform(smoothX, [-1, 1], [-24, 24]);
+  const palmsY = useTransform(smoothY, [-1, 1], [-10, 10]);
+
+  const handleHeroPointerMove = (e: React.PointerEvent<HTMLElement>) => {
+    if (reduceMotion || e.pointerType !== 'mouse') return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    const nx = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+    const ny = ((e.clientY - rect.top) / rect.height) * 2 - 1;
+    pointerX.set(nx);
+    pointerY.set(ny);
+  };
+
+  const handleHeroPointerLeave = () => {
+    pointerX.set(0);
+    pointerY.set(0);
+  };
+
   // Strictly gate multi-platform ratings card on real populated reviewsData
   const showRatingsCard = hasPopulatedReviewsData(reviewsData);
 
   const { averageRating, totalCount } = useMemo(() => {
     return computePlaceReviewScore(reviewsData || undefined);
   }, [reviewsData]);
+
+  // Smooth rating count-up on mount/change
+  const [displayRating, setDisplayRating] = useState<number>(averageRating);
+  useEffect(() => {
+    if (!showRatingsCard || reduceMotion || averageRating <= 0) {
+      setDisplayRating(averageRating);
+      return;
+    }
+    let frame = 0;
+    const startVal = Math.max(1, averageRating - 0.9);
+    const startTime = performance.now();
+    const duration = 520;
+
+    const tick = (now: number) => {
+      const t = Math.min(1, (now - startTime) / duration);
+      const eased = 1 - Math.pow(1 - t, 3);
+      setDisplayRating(startVal + (averageRating - startVal) * eased);
+      if (t < 1) {
+        frame = window.requestAnimationFrame(tick);
+      }
+    };
+
+    frame = window.requestAnimationFrame(tick);
+    return () => window.cancelAnimationFrame(frame);
+  }, [averageRating, showRatingsCard, reduceMotion]);
 
   const sources = reviewsData?.sources || [];
   const compactTotal = formatCompactCount(totalCount) || (totalCount > 0 ? String(totalCount) : '');
@@ -247,12 +311,14 @@ export const ListingHeroHeader: React.FC<ListingHeroHeaderProps> = ({
 
   return (
     <section
+      onPointerMove={handleHeroPointerMove}
+      onPointerLeave={handleHeroPointerLeave}
       className={cn(
         'relative w-full overflow-x-clip border-b border-[#EAE2D5] bg-gradient-to-b from-[#FFFDF8] via-[#FAF6EC] to-[#F6EFE2] shadow-[0_10px_30px_-8px_rgba(28,21,16,0.05)] z-20',
         className
       )}
     >
-      {/* Subtle Moroccan Skyline, Atlas Ridge & Palm Silhouette Watermark (Right Side) */}
+      {/* Interactive 3-Layer Moroccan Skyline, Atlas Ridge & Palm Silhouette Watermark */}
       <div
         className="pointer-events-none select-none absolute inset-y-0 right-0 w-full md:w-[58%] overflow-hidden opacity-[0.13]"
         aria-hidden="true"
@@ -264,45 +330,50 @@ export const ListingHeroHeader: React.FC<ListingHeroHeaderProps> = ({
           className="h-full w-full object-cover object-right-bottom"
           preserveAspectRatio="xMaxYMax slice"
         >
-          {/* Distant Atlas mountain contour */}
-          <path
-            d="M40 320 L185 215 L295 258 L445 148 L605 228 L725 170 L820 220 L820 320 Z"
-            fill="#E3D2B8"
-          />
-          {/* Midground Medina rooftop & arch silhouette */}
-          <path
-            d="M280 320 L280 262 L322 262 L322 246 L360 246 L360 268 L412 268 L412 240 L458 240 L458 272 L520 272 L520 250 L566 250 L566 266 L622 266 L622 232 L640 232 L640 210 L654 196 L668 210 L668 232 L686 232 L686 268 L748 268 L748 250 L800 250 L800 320 Z"
-            fill="#D4BEA0"
-          />
-          {/* Koutoubia-style Minaret */}
-          <g fill="#C8AF8C">
-            <rect x="650" y="92" width="44" height="176" rx="2" />
-            <rect x="658" y="64" width="28" height="28" rx="1" />
-            <path d="M658 64 Q672 46 686 64 Z" />
-            <line x1="672" y1="38" x2="672" y2="52" stroke="#C8AF8C" strokeWidth="2.5" />
-            <circle cx="672" cy="44" r="3" />
-            <circle cx="672" cy="38" r="2" />
-            {/* Minaret decorative horseshoe arches */}
-            <rect x="662" y="114" width="8" height="16" rx="4" fill="#FAF6EC" opacity="0.55" />
-            <rect x="674" y="114" width="8" height="16" rx="4" fill="#FAF6EC" opacity="0.55" />
-            <rect x="665" y="148" width="14" height="22" rx="7" fill="#FAF6EC" opacity="0.45" />
-          </g>
-          {/* Left Palm Tree */}
-          <g fill="#C9B08D">
-            <path d="M512 272 Q518 220 515 178 L522 178 Q526 220 520 272 Z" />
-            <path d="M518 180 Q490 165 476 184 Q498 178 518 184 Z" />
-            <path d="M518 180 Q498 150 486 156 Q504 166 518 180 Z" />
-            <path d="M519 180 Q536 152 552 160 Q536 168 519 180 Z" />
-            <path d="M519 182 Q548 172 560 190 Q538 184 519 184 Z" />
-          </g>
-          {/* Right Palm Tree */}
-          <g fill="#C9B08D">
-            <path d="M578 272 Q574 232 576 202 L582 202 Q582 232 584 272 Z" />
-            <path d="M579 204 Q556 192 545 208 Q563 203 579 207 Z" />
-            <path d="M579 204 Q566 180 555 186 Q570 194 579 204 Z" />
-            <path d="M580 204 Q598 182 612 189 Q596 196 580 204 Z" />
-            <path d="M580 206 Q604 198 614 214 Q596 208 580 208 Z" />
-          </g>
+          {/* Layer 1: Distant Atlas mountain contour */}
+          <motion.g style={reduceMotion ? undefined : { x: atlasX, y: atlasY }}>
+            <path
+              d="M40 320 L185 215 L295 258 L445 148 L605 228 L725 170 L820 220 L820 320 Z"
+              fill="#E3D2B8"
+            />
+          </motion.g>
+
+          {/* Layer 2: Midground Medina rooftop & Koutoubia Minaret */}
+          <motion.g style={reduceMotion ? undefined : { x: medinaX, y: medinaY }}>
+            <path
+              d="M280 320 L280 262 L322 262 L322 246 L360 246 L360 268 L412 268 L412 240 L458 240 L458 272 L520 272 L520 250 L566 250 L566 266 L622 266 L622 232 L640 232 L640 210 L654 196 L668 210 L668 232 L686 232 L686 268 L748 268 L748 250 L800 250 L800 320 Z"
+              fill="#D4BEA0"
+            />
+            <g fill="#C8AF8C">
+              <rect x="650" y="92" width="44" height="176" rx="2" />
+              <rect x="658" y="64" width="28" height="28" rx="1" />
+              <path d="M658 64 Q672 46 686 64 Z" />
+              <line x1="672" y1="38" x2="672" y2="52" stroke="#C8AF8C" strokeWidth="2.5" />
+              <circle cx="672" cy="44" r="3" />
+              <circle cx="672" cy="38" r="2" />
+              <rect x="662" y="114" width="8" height="16" rx="4" fill="#FAF6EC" opacity="0.55" />
+              <rect x="674" y="114" width="8" height="16" rx="4" fill="#FAF6EC" opacity="0.55" />
+              <rect x="665" y="148" width="14" height="22" rx="7" fill="#FAF6EC" opacity="0.45" />
+            </g>
+          </motion.g>
+
+          {/* Layer 3: Foreground Palm Trees */}
+          <motion.g style={reduceMotion ? undefined : { x: palmsX, y: palmsY }}>
+            <g fill="#C9B08D">
+              <path d="M512 272 Q518 220 515 178 L522 178 Q526 220 520 272 Z" />
+              <path d="M518 180 Q490 165 476 184 Q498 178 518 184 Z" />
+              <path d="M518 180 Q498 150 486 156 Q504 166 518 180 Z" />
+              <path d="M519 180 Q536 152 552 160 Q536 168 519 180 Z" />
+              <path d="M519 182 Q548 172 560 190 Q538 184 519 184 Z" />
+            </g>
+            <g fill="#C9B08D">
+              <path d="M578 272 Q574 232 576 202 L582 202 Q582 232 584 272 Z" />
+              <path d="M579 204 Q556 192 545 208 Q563 203 579 207 Z" />
+              <path d="M579 204 Q566 180 555 186 Q570 194 579 204 Z" />
+              <path d="M580 204 Q598 182 612 189 Q596 196 580 204 Z" />
+              <path d="M580 206 Q604 198 614 214 Q596 208 580 208 Z" />
+            </g>
+          </motion.g>
         </svg>
       </div>
 
@@ -412,9 +483,11 @@ export const ListingHeroHeader: React.FC<ListingHeroHeaderProps> = ({
                     <div className="flex flex-col items-start">
                       <div className="flex items-center gap-2">
                         <span className="text-3xl sm:text-[34px] leading-none font-extrabold text-[#142333] tabular-nums tracking-tight">
-                          {averageRating.toFixed(1)}
+                          {displayRating.toFixed(1)}
                         </span>
-                        <img
+                        <motion.img
+                          whileHover={reduceMotion ? undefined : { rotate: [-4, 6, -3, 0], scale: 1.08 }}
+                          transition={{ duration: 0.4 }}
                           src={logoImg}
                           alt="Moroccan Mate Camel Rating"
                           className="w-7 h-7 sm:w-8 sm:h-8 object-contain drop-shadow-[0_2px_4px_rgba(201,168,76,0.35)] select-none"
@@ -508,7 +581,7 @@ export const ListingHeroHeader: React.FC<ListingHeroHeaderProps> = ({
                   const chipEl = (
                     <span
                       className={cn(
-                        'inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold border shadow-2xs transition-colors whitespace-nowrap',
+                        'inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold border shadow-2xs transition-transform duration-150 hover:-translate-y-0.5 whitespace-nowrap',
                         toneClasses,
                         feat.tooltip && 'cursor-help'
                       )}
@@ -691,16 +764,25 @@ export const ListingHeroHeader: React.FC<ListingHeroHeaderProps> = ({
                 <div className="flex flex-wrap items-center gap-2">
                   <button
                     type="button"
-                    onClick={actions.onToggleBookmark}
+                    onClick={(e) => {
+                      const willBookmark = !actions.isBookmarked;
+                      actions.onToggleBookmark();
+                      if (willBookmark) {
+                        playTactileSound('sparkle');
+                        spawnSaffronSparks(e.currentTarget, 14);
+                      } else {
+                        playTactileSound('tick');
+                      }
+                    }}
                     id="listing-btn-save-to-list"
                     className={cn(
-                      'inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold border transition-all cursor-pointer shadow-2xs active:scale-98 whitespace-nowrap shrink-0',
+                      'inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold border transition-all cursor-pointer shadow-2xs active:scale-95 whitespace-nowrap shrink-0',
                       actions.isBookmarked
                         ? 'bg-[#1F4B34] text-white border-[#1F4B34]'
                         : 'bg-white hover:bg-emerald-50/70 text-[#1F4B34] border-[#C2DAC6]'
                     )}
                   >
-                    <Heart className={cn('w-3.5 h-3.5 shrink-0', actions.isBookmarked && 'fill-current')} />
+                    <Heart className={cn('w-3.5 h-3.5 shrink-0 transition-transform duration-200', actions.isBookmarked && 'fill-current scale-110')} />
                     <span>
                       {actions.isBookmarked
                         ? actions.savedLabel || 'Saved in Favorites'

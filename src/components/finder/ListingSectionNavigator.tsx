@@ -1,10 +1,13 @@
 import React, { useEffect, useMemo, useRef, useState, useCallback } from 'react';
+import { motion } from 'motion/react';
 import { cn } from '../../utils/cn';
 import {
   computeActiveSectionId,
   filterAvailableNavItems,
   type ListingNavSection,
 } from './listingNavUtils';
+import logoImg from '../../assets/images/logo.png';
+import { playTactileSound, prefersReducedMotion } from '../../utils/playfulFeedback';
 
 export interface ListingNavigatorItem extends ListingNavSection {
   icon: React.ReactNode;
@@ -26,6 +29,8 @@ export const ListingSectionNavigator: React.FC<ListingSectionNavigatorProps> = (
   const [activeId, setActiveId] = useState<string>(() => visibleItems[0]?.id || '');
   const [stickyTopPx, setStickyTopPx] = useState<number>(0);
   const [isStuck, setIsStuck] = useState<boolean>(false);
+  const [scrollProgress, setScrollProgress] = useState<number>(0);
+  const [camelHop, setCamelHop] = useState<boolean>(false);
 
   const navRef = useRef<HTMLElement | null>(null);
   const trackRef = useRef<HTMLDivElement | null>(null);
@@ -77,13 +82,20 @@ export const ListingSectionNavigator: React.FC<ListingSectionNavigatorProps> = (
     };
   }, []);
 
-  // Scroll-spy & stuck visual shadow tracking
+  // Scroll-spy, stuck visual shadow & Camel Trail scroll progress tracking
   const syncScrollSpy = useCallback(() => {
     const navEl = navRef.current;
     if (navEl) {
       const navRect = navEl.getBoundingClientRect();
       setIsStuck(navRect.top <= stickyTopPx + 2);
     }
+
+    const maxScroll = Math.max(
+      1,
+      document.documentElement.scrollHeight - window.innerHeight
+    );
+    const pct = Math.min(1, Math.max(0, window.scrollY / maxScroll));
+    setScrollProgress(pct);
 
     if (Date.now() < scrollLockUntilRef.current) return;
 
@@ -146,9 +158,17 @@ export const ListingSectionNavigator: React.FC<ListingSectionNavigatorProps> = (
     return null;
   }
 
+  const reduceMotion = prefersReducedMotion();
+
   const handleSelectItem = (item: ListingNavigatorItem) => {
     setActiveId(item.id);
     scrollLockUntilRef.current = Date.now() + 750;
+    playTactileSound('tick');
+
+    if (!reduceMotion) {
+      setCamelHop(true);
+      window.setTimeout(() => setCamelHop(false), 380);
+    }
 
     const performScroll = () => {
       const targetEl =
@@ -158,13 +178,10 @@ export const ListingSectionNavigator: React.FC<ListingSectionNavigatorProps> = (
 
       const navHeight = navRef.current?.getBoundingClientRect().height || 56;
       const targetTop = targetEl.getBoundingClientRect().top + window.scrollY - stickyTopPx - navHeight - 16;
-      const prefersReducedMotion =
-        typeof window.matchMedia === 'function' &&
-        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
       window.scrollTo({
         top: Math.max(0, targetTop),
-        behavior: prefersReducedMotion ? 'auto' : 'smooth',
+        behavior: reduceMotion ? 'auto' : 'smooth',
       });
     };
 
@@ -221,21 +238,62 @@ export const ListingSectionNavigator: React.FC<ListingSectionNavigatorProps> = (
                   aria-controls={item.targetId}
                   onClick={() => handleSelectItem(item)}
                   className={cn(
-                    'inline-flex items-center gap-2 rounded-full px-4 sm:px-5 py-2 text-xs sm:text-[13px] font-semibold leading-none whitespace-nowrap shrink-0 transition-all duration-200 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B84F18]',
+                    'relative inline-flex items-center gap-2 rounded-full px-4 sm:px-5 py-2 text-xs sm:text-[13px] font-semibold leading-none whitespace-nowrap shrink-0 transition-colors duration-200 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B84F18]',
                     isActive
-                      ? 'bg-[#B84F18] text-white shadow-xs'
+                      ? 'text-white'
                       : 'text-[#29231F] hover:text-[#B84F18] hover:bg-[#F3ECE2]/65'
                   )}
                 >
-                  <span className={cn('shrink-0', isActive ? 'text-white' : 'text-[#3F3329]')}>
+                  {isActive && (
+                    <motion.span
+                      layoutId="listing-nav-active-pill"
+                      transition={
+                        reduceMotion
+                          ? { duration: 0 }
+                          : { type: 'spring', stiffness: 440, damping: 32 }
+                      }
+                      aria-hidden="true"
+                      className="absolute inset-0 rounded-full bg-[#B84F18] shadow-xs"
+                    />
+                  )}
+                  <span className={cn('relative z-10 shrink-0', isActive ? 'text-white' : 'text-[#3F3329]')}>
                     {item.icon}
                   </span>
-                  <span>{item.label}</span>
+                  <span className="relative z-10">{item.label}</span>
                 </button>
               </React.Fragment>
             );
           })}
         </div>
+      </div>
+
+      {/* Camel Trail Scroll Progress Track */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute bottom-0 inset-x-0 h-[3px] bg-[#EAE2D5]/55 overflow-visible"
+      >
+        <div
+          className="h-full bg-gradient-to-r from-[#C9A84C] via-[#C85A32] to-[#1F4B34] origin-left rtl:origin-right will-change-transform"
+          style={{
+            transform: `scaleX(${Math.max(0.02, scrollProgress)})`,
+          }}
+        />
+        {isStuck && !reduceMotion && (
+          <motion.div
+            animate={camelHop ? { y: [-2, -9, -2] } : { y: 0 }}
+            transition={{ duration: 0.34, ease: 'easeOut' }}
+            style={{
+              left: `calc(${Math.min(97, Math.max(2, scrollProgress * 100))}% - 10px)`,
+            }}
+            className="hidden sm:flex absolute -top-[14px] w-5 h-5 rounded-full bg-[#FFFDF8] border border-[#C9A84C] shadow-xs items-center justify-center transition-[left] duration-75"
+          >
+            <img
+              src={logoImg}
+              alt=""
+              className="w-3.5 h-3.5 object-contain select-none"
+            />
+          </motion.div>
+        )}
       </div>
     </nav>
   );
