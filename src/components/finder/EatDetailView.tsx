@@ -414,7 +414,7 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
           {
             id: 'hours',
             icon: <Clock className={cn('w-4 h-4 shrink-0', scheduleData.isOpenNow ? 'text-[#1F5A3B]' : 'text-stone-500')} />,
-            label: scheduleData.statusLabel.replace(/^[🟢🟡🔵🟣🔴⚪]\s*/, ''),
+            label: scheduleData.statusLabel.replace(/^[🟢🟡🔵🟣🔴⚪]\s*/u, ''),
             tone: (scheduleData.isOpenNow ? 'open' : 'closed') as 'open' | 'closed',
             onClick: () => setIsScheduleOpen((prev) => !prev),
             isExpanded: isScheduleOpen,

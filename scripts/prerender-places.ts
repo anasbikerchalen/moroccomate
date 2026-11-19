@@ -201,6 +201,19 @@ for (const page of pages) {
             .join('')
         : '';
 
+    const menuPhotosHtml =
+      m.menuPhotos && m.menuPhotos.length > 0
+        ? `<section style="margin:28px 0;" aria-label="Menu Photos"><h2 style="font-size:18px;font-weight:700;color:#173042;margin:0 0 12px;">Printed Menu Photos (${m.menuPhotos.length})</h2><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;">${m.menuPhotos
+            .map(
+              (p) =>
+                `<figure style="margin:0;border:1px solid #E9D8C8;border-radius:12px;overflow:hidden;background:#fff;">` +
+                `<img src="${esc(p.url)}" alt="${esc(p.alt)}"${p.title ? ` title="${esc(p.title)}"` : ''}${p.width ? ` width="${p.width}"` : ''}${p.height ? ` height="${p.height}"` : ''} loading="lazy" style="width:100%;height:auto;display:block;" />` +
+                (p.caption ? `<figcaption style="padding:8px 12px;font-size:12px;color:#555;border-top:1px solid #F3ECE1;">${esc(p.caption)}</figcaption>` : '') +
+                `</figure>`
+            )
+            .join('')}</div></section>`
+        : '';
+
     preContent =
       `<div dir="${dir}" style="max-width:880px;margin:32px auto;padding:0 24px;font-family:system-ui,-apple-system,sans-serif;color:#29231F;">` +
       `<nav style="font-size:12px;color:#71685F;margin-bottom:20px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;">` +
@@ -220,6 +233,7 @@ for (const page of pages) {
       `</div></header>` +
       `<p style="font-size:16px;line-height:1.65;color:#374151;border-top:1px solid #E9D8C8;padding-top:16px;">${esc(page.description)}</p>` +
       sectionsHtml +
+      menuPhotosHtml +
       faqHtml +
       cityExploreLinks +
       `</div>`;
@@ -270,10 +284,23 @@ for (const page of pages) {
           `</section>`
         : '';
 
+    const inlineMenuPhotosHtml =
+      m.menuPhotos && m.menuPhotos.length > 0
+        ? `<section style="margin:24px 0;" aria-label="Menu Photos"><h3 style="font-size:16px;font-weight:700;color:#173042;margin:0 0 10px;">Original Menu Photos (${m.menuPhotos.length})</h3><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;">${m.menuPhotos
+            .map(
+              (p) =>
+                `<figure style="margin:0;border:1px solid #E9D8C8;border-radius:10px;overflow:hidden;background:#fff;">` +
+                `<img src="${esc(p.url)}" alt="${esc(p.alt)}"${p.title ? ` title="${esc(p.title)}"` : ''}${p.width ? ` width="${p.width}"` : ''}${p.height ? ` height="${p.height}"` : ''} loading="lazy" style="width:100%;height:auto;display:block;" />` +
+                (p.caption ? `<figcaption style="padding:6px 10px;font-size:11px;color:#555;border-top:1px solid #F3ECE1;">${esc(p.caption)}</figcaption>` : '') +
+                `</figure>`
+            )
+            .join('')}</div></section>`
+        : '';
+
     const inlineMenuHtml =
-      m.menuSections && m.menuSections.length > 0
+      (m.menuSections && m.menuSections.length > 0) || inlineMenuPhotosHtml
         ? `<section style="margin:28px 0;"><h2 style="font-size:22px;font-weight:700;color:#173042;margin:0 0 12px;">${esc(ui.menuHeading)}</h2>` +
-          m.menuSections
+          (m.menuSections || [])
             .map(
               (sec) =>
                 `<details open style="margin-bottom:12px;border:1px solid #E9D8C8;border-radius:12px;background:#fff;">` +
@@ -292,6 +319,7 @@ for (const page of pages) {
                 `</ul></details>`
             )
             .join('') +
+          inlineMenuPhotosHtml +
           `</section>`
         : '';
 

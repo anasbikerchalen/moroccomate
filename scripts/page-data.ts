@@ -57,6 +57,11 @@ export interface IndexablePage {
   breadcrumbs?: BreadcrumbItem[];
   faq?: FaqItem[];
   h1: string;            // Main heading for the prerendered fallback content
+  images?: Array<{
+    loc: string;
+    title?: string;
+    caption?: string;
+  }>;
   meta?: {
     city?: string;
     category?: string;
@@ -94,6 +99,14 @@ export interface IndexablePage {
       title: string;
       description?: string;
       items: Array<{ name: string; description?: string; price: number }>;
+    }>;
+    menuPhotos?: Array<{
+      url: string;
+      alt: string;
+      title?: string;
+      caption?: string;
+      width?: number;
+      height?: number;
     }>;
     matchedPlaces?: Array<{ name: string; url: string; rating?: number; price?: number; neighborhood?: string }>;
   };
@@ -135,7 +148,36 @@ export function collectPlacePages(): IndexablePage[] {
     const ownerAnswer = isSleep ? getStayOwnerAnswer(listing) : undefined;
     const basePlacePath = `/place/${city}/${category}/${slug}`;
     const menuData = isEat ? (listing.ui?.menu || listing.menu) : undefined;
-    const hasMenu = Boolean(menuData && Array.isArray(menuData.sections) && menuData.sections.length > 0);
+    const hasMenu = Boolean(
+      menuData &&
+        ((Array.isArray(menuData.sections) && menuData.sections.length > 0) ||
+          (Array.isArray(menuData.menuPhotos) && menuData.menuPhotos.length > 0))
+    );
+    const rawMenuPhotos = isEat && menuData
+      ? (Array.isArray(menuData.menuPhotos) && menuData.menuPhotos.length > 0
+          ? menuData.menuPhotos
+          : Array.isArray(menuData.scannedMenuPhotos)
+            ? menuData.scannedMenuPhotos.map((url: string, idx: number) => ({
+                url,
+                alt: `${listing.ui?.name || listing.name || 'Restaurant'} menu page ${idx + 1}`,
+                title: `${listing.ui?.name || listing.name || 'Restaurant'} Menu Page ${idx + 1}`,
+                caption: `Menu page ${idx + 1}`,
+              }))
+            : [])
+      : [];
+    const normalizedMenuPhotos = rawMenuPhotos.map((p: any) => ({
+      url: String(p.url),
+      alt: String(p.alt || ''),
+      title: p.title ? String(p.title) : undefined,
+      caption: p.caption ? String(p.caption) : undefined,
+      width: typeof p.width === 'number' ? p.width : undefined,
+      height: typeof p.height === 'number' ? p.height : undefined,
+    }));
+    const sitemapImages = normalizedMenuPhotos.map((p: any) => ({
+      loc: p.url.startsWith('http') ? p.url : `${BASE_URL}${p.url.startsWith('/') ? '' : '/'}${p.url}`,
+      title: p.title,
+      caption: p.caption || p.alt,
+    }));
     const openingHoursStr =
       (listing.ui?.openTime || listing.openTime) && (listing.ui?.closeTime || listing.closeTime)
         ? `${listing.ui?.openTime || listing.openTime} – ${listing.ui?.closeTime || listing.closeTime}`
@@ -212,6 +254,7 @@ export function collectPlacePages(): IndexablePage[] {
         breadcrumbs: seo.breadcrumbs,
         faq: seo.faq,
         h1: seo.h1,
+        ...(sitemapImages.length > 0 ? { images: sitemapImages } : {}),
         meta: {
           city: label,
           citySlug: city,
@@ -248,6 +291,7 @@ export function collectPlacePages(): IndexablePage[] {
           hasMenu,
           menuUrl: hasMenu ? localizePath(`${basePlacePath}/menu`, lang) : undefined,
           menuSections: fullMenuSections,
+          ...(normalizedMenuPhotos.length > 0 ? { menuPhotos: normalizedMenuPhotos } : {}),
         },
       });
 
@@ -274,6 +318,7 @@ export function collectPlacePages(): IndexablePage[] {
           breadcrumbs: menuSeo.breadcrumbs,
           faq: menuSeo.faq,
           h1: menuSeo.h1,
+          ...(sitemapImages.length > 0 ? { images: sitemapImages } : {}),
           meta: {
             city: label,
             citySlug: city,
@@ -301,6 +346,7 @@ export function collectPlacePages(): IndexablePage[] {
             seasonalHoursNote,
             placeUrl: localizePath(basePlacePath, lang),
             menuSections: fullMenuSections,
+            ...(normalizedMenuPhotos.length > 0 ? { menuPhotos: normalizedMenuPhotos } : {}),
           },
         });
       }

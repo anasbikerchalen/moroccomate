@@ -30,14 +30,27 @@ const urls = pages
         }).join('\n') +
         `\n    <xhtml:link rel="alternate" hreflang="x-default" href="${escapeXml(`${BASE_URL}${localizePath(p.basePath, 'en')}`)}" />`
       : '';
-    return `  <url>\n    <loc>${escapeXml(loc)}</loc>${alternates}\n    <lastmod>${today}</lastmod>\n    <priority>${p.priority.toFixed(1)}</priority>\n  </url>`;
+    const imageTags =
+      p.images && p.images.length > 0
+        ? '\n' +
+          p.images
+            .map(
+              (img) =>
+                `    <image:image>\n      <image:loc>${escapeXml(img.loc)}</image:loc>` +
+                (img.title ? `\n      <image:title>${escapeXml(img.title)}</image:title>` : '') +
+                (img.caption ? `\n      <image:caption>${escapeXml(img.caption)}</image:caption>` : '') +
+                `\n    </image:image>`
+            )
+            .join('\n')
+        : '';
+    return `  <url>\n    <loc>${escapeXml(loc)}</loc>${alternates}${imageTags}\n    <lastmod>${today}</lastmod>\n    <priority>${p.priority.toFixed(1)}</priority>\n  </url>`;
   })
   .join('\n');
 
 const xml =
   `<?xml version="1.0" encoding="UTF-8"?>\n` +
   `<?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>\n` +
-  `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n` +
+  `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n` +
   `${urls}\n` +
   `</urlset>\n`;
 

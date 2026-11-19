@@ -184,7 +184,7 @@ export const agadirEat: EatListing[] = [
     ui: {
       name: "Amsterdam Luxury Restaurant",
       neighborhood: "Hay Mohammadi",
-      description: "Agadir's premier luxury halal steakhouse and fine-dining lounge in Hay Mohammadi, featuring dry-aged beef, tableside smoke and dry-ice presentations, 24K edible gold finishes, weekend live violin and acoustic music, and a signature non-alcoholic mixology bar.",
+      description: "Halal luxury steakhouse & all-day lounge in Hay Mohammadi—dry-aged cuts, 24K gold presentations, Dutch comfort food, weekend live violin, and dry-ice mocktails.",
       tip: "Weekend dinner slots fill up rapidly due to the live violin performances. Reserve 24–48 hours in advance via WhatsApp.",
       badge: "splurge",
       bestDishes: [
@@ -284,28 +284,28 @@ export const agadirEat: EatListing[] = [
       ],
       editorialGuide: [
         {
-          heading: "Breakfast & Morning Brunch (07:00 – 12:00)",
-          body: "Unlike dinner-only steakhouses along the Corniche, Amsterdam Luxury Restaurant opens its doors at 07:00 daily for residents and travelers seeking a calm breakfast or late brunch in Hay Mohammadi. Morning service centers on artisanal coffees, freshly pressed juices, Moroccan breakfast spreads, and signature Dutch mini-pancakes (poffertjes) cooked to order with melted farm butter, Nutella, or Lotus Biscoff."
+          heading: "Breakfast & Brunch (07:00 – 12:00)",
+          body: "Moroccan spreads, fresh juices, specialty coffees, and hot Dutch poffertjes with butter, Nutella, or Biscoff."
         },
         {
-          heading: "Lunch & Casual Dutch–Moroccan Comfort",
-          body: "From midday onward, the kitchen bridges elevated European brasserie staples with authentic Dutch street-food favorites rarely found elsewhere in Morocco. Diners drop in for Patatje Oorlog Fries topped with traditional peanut satay sauce, grilled Chicken Satay skewers, wood-fired pizzas, saffron-kissed Atlantic seafood pastas, and brioche burgers before the evening atmosphere shifts toward white-tablecloth steakhouse dining."
+          heading: "Lunch & Dutch Favorites",
+          body: "Patatje Oorlog satay fries, grilled chicken satay, wood-fired pizzas, seafood pasta, and brioche burgers."
         },
         {
-          heading: "Prime Halal Steaks & Live Dinner Show",
-          body: "After sunset—and especially on Friday and Saturday evenings from 20:30 when live acoustic violin and guitar performers take the floor—the dining room turns theatrical. Dry-aged Himalayan salt Côte de Bœuf, Black Angus Rib Eye, and 100% halal-certified Japanese A5 Kobe Beef arrive under smoke-filled cloches, with optional 24K edible gold leaf carving tableside for birthdays, proposals, and celebratory dinners."
+          heading: "Halal Steaks & Live Music",
+          body: "Dry-aged Côte de Bœuf, A5 Kobe Wagyu, optional 24K gold leaf, plus Fri–Sat live violin/guitar (from 20:30)."
         },
         {
-          heading: "Zero-Proof Artisanal Mixology",
-          body: "Because the venue is strictly halal and completely alcohol-free (dry), beverage craft focuses on dramatic non-alcoholic mixology. Signature virgin mojitos, cold-pressed tropical juices, and botanical mocktails are served inside dry-ice display cabinets—making Amsterdam Luxury Restaurant equally welcoming for families, couples, and observant guests seeking full fine-dining glamour without alcohol."
+          heading: "Dry-Ice Mocktail Bar",
+          body: "100% halal & alcohol-free—virgin mojitos and botanical mocktails served in theatrical dry-ice cabinets."
         }
       ],
       knowBeforeYouGo: [
-        "Live acoustic violin & guitar performances run every Friday and Saturday evening starting around 20:30.",
-        "100% halal kitchen and strictly alcohol-free (dry) establishment with theatrical mocktails and fresh juices.",
-        "Reserve 24–48 hours in advance via WhatsApp (+212 609-070598) or phone for Friday/Saturday dinner tables.",
-        "Private parking is available nearby in Résidence Islane, Hay Mohammadi (~15 minutes by taxi from Agadir Marina).",
-        "Listed MAD menu prices include service charges; luxury 24K gold and A5 Kobe Wagyu cuts are carved tableside."
+        "Live violin & guitar: Fri–Sat from 20:30",
+        "100% halal kitchen & strictly alcohol-free (dry)",
+        "Book 24–48h ahead via WhatsApp (+212 609-070598)",
+        "Parking near Résidence Islane (~15 min from Marina)",
+        "Service charge included in listed MAD prices"
       ],
       faqs: [
         {
@@ -5236,7 +5236,7 @@ export const agadirEat: EatListing[] = [
     quiz: {
       lifestyle: "balanced",
       groupTypes: ["family", "couple", "friends", "seniors"],
-      mealTypes: ["lunch", "dinner"],
+      mealTypes: ["breakfast", "lunch", "dinner", "afternoon-tea", "snack", "drinks"],
       experienceTypes: ["traditional"],
       foodStyles: ["Moroccan"],
       cuisineTags: ["moroccan-traditional"],
@@ -5251,8 +5251,8 @@ export const agadirEat: EatListing[] = [
       isHalal: true,
       halalStatus: "halal-certified",
       isVegetarianFriendly: true,
-      servesAlcohol: true,
-      alcoholPolicy: "serves-alcohol",
+      servesAlcohol: false,
+      alcoholPolicy: "dry",
       hasDelivery: false,
       hasParking: true,
       nearMedina: false,
@@ -5264,10 +5264,11 @@ export const agadirEat: EatListing[] = [
       closedDays: [],
       seatingTypes: ["indoor", "terrace"],
       paymentMethods: ["cash", "credit_card"],
-      tags: ["pastilla", "couscous", "budget", "alcohol", "dinner"],
+      tags: ["pastilla", "couscous", "tagine", "breakfast", "budget", "halal", "no-alcohol", "dinner", "lunch", "mint-tea"],
       isHiddenGem: false,
       isTemporarilyHidden: false,
-      verificationStatus: "verified"
+      verificationStatus: "verified",
+      wiFi: true
     },
 
     // ── 3. UI (presentation, reviews, dishes & contacts) ──
@@ -5275,22 +5276,22 @@ export const agadirEat: EatListing[] = [
       name: "Restaurant La Pastilla",
       neighborhood: "Secteur Balnéaire",
       description: "Tucked inside Complexe Tagadirt on Boulevard du 20 Août, this dedicated Moroccan dining room is renowned for mastering Morocco's most intricate culinary specialty: sweet and savory pastillas with delicate flaky pastry, roasted almonds, and spiced fillings.",
-      tip: "Arrive before 21:30 for dinner; the house-made pastillas sell out quickly on high-traffic evenings.",
+      tip: "Arrive before 21:30 for dinner; the house-made pastillas sell out quickly on high-traffic evenings. Bring MAD cash as backup in case the card terminal is offline.",
       badge: "local-favorite",
       bestDishes: [
-        "Chicken & Almond Pastilla",
-        "Seafood Pastilla",
-        "Sweet Cinnamon Seffa",
-        "Chicken Couscous"
+        "Pastilla au poulet",
+        "Pastilla au fruit de mer",
+        "Seffa Medfouna",
+        "Couscous Royale"
       ],
       pros: [
         "Outstanding execution of sweet and savory pastillas rarely perfected in tourist zones.",
         "Warm traditional decor with complimentary Moroccan mint tea and pastries.",
-        "Exceptional value for authentic home-style Moroccan recipes."
+        "Transparent mid-range MAD pricing across full breakfast (08:00–13:00), tagines, and couscous."
       ],
       cons: [
-        "Popular items can run out late in the evening.",
-        "Small dining room that can fill quickly."
+        "Popular items like house-made pastillas can run out late in the evening.",
+        "Compact dining room fills quickly during peak dinner hours; bring cash as backup for card issues."
       ],
       googleRating: 4.7,
       googleReviewCount: 1430,
@@ -5300,8 +5301,9 @@ export const agadirEat: EatListing[] = [
       theforkReviewCount: 120,
       restaurantguruRating: 4.8,
       restaurantguruReviewCount: 1430,
-      openTime: "09:00",
+      openTime: "08:00",
       closeTime: "00:00",
+      seasonalHoursNote: "Breakfast served daily 08:00–13:00; full traditional Moroccan lunch & dinner service until 00:00.",
       exactAddressAndCoordinates: {
         address: "Complexe Tagadirt, Boulevard du 20 Août, Agadir 80000, Morocco",
         lat: 30.4144,
@@ -5314,16 +5316,1198 @@ export const agadirEat: EatListing[] = [
       bookingUrl: "",
       website: "not-available",
       instagram: "not-available",
-      languagesSpoken: ["French", "Arabic/Darija", "English"]
-    }
-  ,
+      languagesSpoken: ["French", "Arabic/Darija", "English"],
+      knowBeforeYouGo: [
+        "Breakfast formulas (45–95 MAD) are served daily from 08:00 to 13:00.",
+        "Specialties on order (Seffa Medfouna, Tanjia Marrakchia, Rfissa) and house pastillas are prepared fresh—arrive before 21:30.",
+        "Strictly alcohol-free venue offering fresh juices, Moroccan mint tea, and virgin cocktails (Virgin mojito, N/A mangue, Cojak).",
+        "Keep Moroccan Dirham cash on hand as backup, as card terminal connectivity can occasionally vary."
+      ],
+      menu: {
+        currency: "MAD",
+        lastUpdated: "2026-11",
+        serviceChargeIncluded: true,
+        menuPhotos: [
+          {
+            url: "/images/menus/restaurant-la-pastilla/page-1.jpg",
+            pageNumber: 1,
+            width: 1792,
+            height: 2400,
+            title: "Restaurant La Pastilla Agadir Menu Page 1 — Breakfast & Starters",
+            alt: "Restaurant La Pastilla Agadir menu photo page 1: Breakfast served 08:00 to 13:00 (Quick 55 Dh, Fassi 85 Dh, Berber 85 Dh, Jebli 85 Dh, Wellness 95 Dh, Kids 45 Dh) and Starters & Soups (Fresh Mixed Salad 60 Dh, Moroccan Salad Assortment 80 Dh, Harira 60 Dh, Vegetable Soup 60 Dh)",
+            caption: "Page 1: Breakfast sets (08:00–13:00) and Moroccan Starters & Soups with MAD prices."
+          },
+          {
+            url: "/images/menus/restaurant-la-pastilla/page-2.jpg",
+            pageNumber: 2,
+            width: 1792,
+            height: 2400,
+            title: "Restaurant La Pastilla Agadir Menu Page 2 — Briouats, Pastilla, Couscous & Tagines",
+            alt: "Restaurant La Pastilla Agadir menu photo page 2: Briouats (Cheese 45 Dh, Chicken 60 Dh, Seafood 70 Dh, Kefta 60 Dh, Vegetarian 45 Dh, Assorted Platter 230 Dh), Chicken Pastilla (150 Dh), Seafood Pastilla (150 Dh), Couscous (90–150 Dh), and Traditional Tagines (90–120 Dh)",
+            caption: "Page 2: Crispy Briouates, signature Chicken & Seafood Pastillas, Couscous, and Moroccan Tagines."
+          },
+          {
+            url: "/images/menus/restaurant-la-pastilla/page-3.jpg",
+            pageNumber: 3,
+            width: 1792,
+            height: 2400,
+            title: "Restaurant La Pastilla Agadir Menu Page 3 — Made to Order, Sandwiches & Kids Menu",
+            alt: "Restaurant La Pastilla Agadir menu photo page 3: Dishes Made to Order (Seffa Medfouna 90 Dh, Marrakchi Tanjia 150 Dh, Rfissa Beldi Chicken 120 Dh), Homemade Batbout Sandwiches with fries (65–80 Dh), and Kids Menu (50–65 Dh)",
+            caption: "Page 3: Specialties made to order (Seffa Medfouna, Tanjia, Rfissa), Batbout sandwiches, and Kids Menu."
+          },
+          {
+            url: "/images/menus/restaurant-la-pastilla/page-4.jpg",
+            pageNumber: 4,
+            width: 1792,
+            height: 2400,
+            title: "Restaurant La Pastilla Agadir Menu Page 4 — Desserts, Hot Drinks, Juices & Mocktails",
+            alt: "Restaurant La Pastilla Agadir menu photo page 4: Desserts & Crêpes (Moroccan Pastries 35 Dh, Amlou Twist 40 Dh, Orange Cinnamon 30 Dh, Hliwa wa Atay 60 Dh, Crêpes 25–40 Dh), Hot Drinks & Moroccan Mint Tea (15–20 Dh), Fresh Juices & Non-Alcoholic Mocktails (25–35 Dh)",
+            caption: "Page 4: Moroccan pastries, crêpes, mint tea & coffee, fresh juices, and zero-proof mocktails."
+          },
+          {
+            url: "/images/menus/restaurant-la-pastilla/page-5.jpg",
+            pageNumber: 5,
+            width: 1792,
+            height: 2400,
+            title: "Restaurant La Pastilla Agadir Menu Page 5 — Water & Soda",
+            alt: "Restaurant La Pastilla Agadir menu photo page 5: Water & Soda prices in MAD (Soda 20 Dh, Still Water 33cl 10 Dh, Still Water 1L 25 Dh, Oulmes Sparkling Water 50cl 15 Dh, Oulmes Sparkling Water 1L 25 Dh)",
+            caption: "Page 5: Mineral water, Oulmès sparkling water, and soft drinks menu."
+          }
+        ],
+        sections: [
+          {
+            id: "petit-dejeuner",
+            title: "Petit Déjeuner (08h00 – 13h00)",
+            titleEn: "Breakfast (08:00 – 13:00)",
+            description: "Formules petit-déjeuner marocaines et classiques servies de 08h00 à 13h00",
+            descriptionEn: "Moroccan and classic breakfast sets served from 08:00 to 13:00",
+            items: [
+              {
+                id: "lp-pdj-rapide",
+                name: "Rapide",
+                nameEn: "Quick Breakfast",
+                localName: "فطور سريع (مشروب ساخن، حرشة، عصير برتقال، زبدة، مربى، مسمن، ماء 33 سل)",
+                translations: {
+                  ar: "فطور سريع (مشروب ساخن، حرشة، عصير برتقال، زبدة، مربى، مسمن، ماء 33 سل)",
+                  en: "Quick Breakfast (Hot drink, Harcha, Orange juice, Butter, Jam, Msemen, 33cl Water)",
+                  es: "Desayuno Rápido (Bebida caliente, Harcha, Zumo de naranja, Mantequilla, Mermelada, Msemen, Agua 33cl)",
+                  de: "Schnelles Frühstück (Heißgetränk, Harcha, Orangensaft, Butter, Marmelade, Msemen, Wasser 33cl)"
+                },
+                description: "Boisson chaude au choix, Harcha, Jus d'Orange, Beurre, Confiture, Msmen, Eau 33cl",
+                price: 55,
+                dietary: ["vegetarian", "halal"]
+              },
+              {
+                id: "lp-pdj-fassi",
+                name: "Fassi",
+                nameEn: "Fassi Breakfast",
+                localName: "فطور فاسي (مشروب ساخن، عصير برتقال، بيض بالخليع الفاسي، زيت زيتون، جبن، زيتون أسود، مسمن، ماء 33 سل)",
+                translations: {
+                  ar: "فطور فاسي (مشروب ساخن، عصير برتقال، بيض بالخليع الفاسي، زيت زيتون، جبن، زيتون أسود، مسمن، ماء 33 سل)",
+                  en: "Fassi Breakfast (Hot drink, Orange juice, Eggs with Fassi Khlii cured meat, Olive oil, Jben cheese, Black olives, Msemen, 33cl Water)",
+                  es: "Desayuno Fassi (Bebida caliente, Zumo de naranja, Huevos con Khlii fassi, Aceite de oliva, Queso Jben, Aceitunas negras, Msemen, Agua 33cl)",
+                  de: "Fassi-Frühstück (Heißgetränk, Orangensaft, Eier mit Fassi-Khlii, Olivenöl, Jben-Käse, schwarze Oliven, Msemen, Wasser 33cl)"
+                },
+                description: "Boisson chaude, Jus d'Orange, Œuf khlii fassi, Huile d'olive, Jben, Olive noire, Msemen, Eau 33cl",
+                price: 85,
+                isSignature: true,
+                dietary: ["halal"]
+              },
+              {
+                id: "lp-pdj-berbere",
+                name: "Berbère",
+                nameEn: "Berber Breakfast",
+                localName: "فطور أمازيغي (مشروب ساخن، عصير برتقال، زيت زيتون، أملو، عسل، زيتون أسود، أومليت سادة/بالطماطم، مسمن، ماء 33 سل)",
+                translations: {
+                  ar: "فطور أمازيغي (مشروب ساخن، عصير برتقال، زيت زيتون، أملو، عسل، زيتون أسود، أومليت سادة/بالطماطم، مسمن، ماء 33 سل)",
+                  en: "Berber Breakfast (Hot drink, Orange juice, Olive oil, Amlou, Honey, Black olives, Plain/tomato omelette, Msemen, 33cl Water)",
+                  es: "Desayuno Bereber (Bebida caliente, Zumo de naranja, Aceite de oliva, Amlou, Miel, Aceitunas negras, Tortilla natural/tomate, Msemen, Agua 33cl)",
+                  de: "Berber-Frühstück (Heißgetränk, Orangensaft, Olivenöl, Amlou, Honig, schwarze Oliven, Omelett natur/Tomate, Msemen, Wasser 33cl)"
+                },
+                description: "Boisson chaude, Jus d'Orange, Huile d'olive, Amlou, Miel, Olive noire, Omelette nature/tomate, Msemen, Eau 33cl",
+                price: 85,
+                isSignature: true,
+                dietary: ["vegetarian", "halal"]
+              },
+              {
+                id: "lp-pdj-jebli",
+                name: "Jebli",
+                nameEn: "Jebli Breakfast",
+                localName: "فطور جبلي (مشروب ساخن، عصير برتقال، أومليت سادة/بالطماطم، عسل، جبن، زيتون أسود، مسمن، بطبوط، ماء 33 سل)",
+                translations: {
+                  ar: "فطور جبلي (مشروب ساخن، عصير برتقال، أومليت سادة/بالطماطم، عسل، جبن، زيتون أسود، مسمن، بطبوط، ماء 33 سل)",
+                  en: "Jebli Breakfast (Hot drink, Orange juice, Plain/tomato omelette, Honey, Jben cheese, Black olives, Msemen, Batbout, 33cl Water)",
+                  es: "Desayuno Jebli (Bebida caliente, Zumo de naranja, Tortilla natural/tomate, Miel, Queso Jben, Aceitunas negras, Msemen, Batbout, Agua 33cl)",
+                  de: "Jebli-Frühstück (Heißgetränk, Orangensaft, Omelett natur/Tomate, Honig, Jben-Käse, schwarze Oliven, Msemen, Batbout, Wasser 33cl)"
+                },
+                description: "Boisson chaude, Jus d'Orange, Omelette nature/tomate, Miel, Jben, Olive noire, Msemen, Batboute, Eau 33cl",
+                price: 85,
+                dietary: ["vegetarian", "halal"]
+              },
+              {
+                id: "lp-pdj-bien-etre",
+                name: "Bien-être",
+                nameEn: "Wellness Breakfast",
+                localName: "فطور العافية (مشروب ساخن، عصير برتقال، حرشة، أومليت بياض البيض بالسبانخ واللحوم الباردة، زبدة، عسل، أملو، مسمن، ماء 33 سل)",
+                translations: {
+                  ar: "فطور العافية (مشروب ساخن، عصير برتقال، حرشة، أومليت بياض البيض بالسبانخ واللحوم الباردة، زبدة، عسل، أملو، مسمن، ماء 33 سل)",
+                  en: "Wellness Breakfast (Hot drink, Orange juice, Harcha, Egg-white omelette with spinach & cold cuts, Butter, Honey, Amlou, Msemen, 33cl Water)",
+                  es: "Desayuno Bienestar (Bebida caliente, Zumo de naranja, Harcha, Tortilla de claras con espinacas y embutido, Mantequilla, Miel, Amlou, Msemen, Agua 33cl)",
+                  de: "Wellness-Frühstück (Heißgetränk, Orangensaft, Harcha, Eiweiß-Omelett mit Spinat & Aufschnitt, Butter, Honig, Amlou, Msemen, Wasser 33cl)"
+                },
+                description: "Boisson chaude, Jus d'Orange, Harcha, Omelette au blanc d'œuf aux épinards et charcuterie, Beurre, Miel, Amlou, Msemen, Eau 33cl",
+                price: 95,
+                dietary: ["halal"]
+              },
+              {
+                id: "lp-pdj-kids",
+                name: "Kids",
+                nameEn: "Kids Breakfast",
+                localName: "فطور الأطفال (شوكولاتة ساخنة، كريب نوتيلا، عصير برتقال، ماء 33 سل)",
+                translations: {
+                  ar: "فطور الأطفال (شوكولاتة ساخنة، كريب نوتيلا، عصير برتقال، ماء 33 سل)",
+                  en: "Kids Breakfast (Hot chocolate, Nutella crêpe, Orange juice, 33cl Water)",
+                  es: "Desayuno Infantil (Chocolate caliente, Crepe de Nutella, Zumo de naranja, Agua 33cl)",
+                  de: "Kinderfrühstück (Heiße Schokolade, Nutella-Crêpe, Orangensaft, Wasser 33cl)"
+                },
+                description: "Chocolat chaud, Crêpe Nutella, Jus d'Orange, Eau 33cl",
+                price: 45,
+                dietary: ["vegetarian", "halal"]
+              }
+            ]
+          },
+          {
+            id: "entrees-soupes",
+            title: "Les Entrées & Soupes",
+            titleEn: "Starters & Soups",
+            description: "Salades fraîches, assortiment marocain et soupes traditionnelles",
+            descriptionEn: "Fresh salads, Moroccan salad platter, and traditional soups",
+            items: [
+              {
+                id: "lp-salade-crudite",
+                name: "Salade crudité",
+                nameEn: "Fresh Mixed Salad",
+                localName: "سلطة الخضار الطازجة (خس، طماطم كرزية، فاصوليا خضراء، بطاطس، أرز، شمندر، خيار، تونة، ذرة)",
+                translations: {
+                  ar: "سلطة الخضار الطازجة (خس، طماطم كرزية، فاصوليا خضراء، بطاطس، أرز، شمندر، خيار، تونة، ذرة)",
+                  en: "Fresh Mixed Salad (green salad, cherry tomato, green beans, potato, rice, beetroot, cucumber, tuna, corn)",
+                  es: "Ensalada de crudités (lechuga, tomate cherry, judías verdes, patata, arroz, remolacha, pepino, atún, maíz)",
+                  de: "Rohkostsalat (grüner Salat, Kirschtomaten, grüne Bohnen, Kartoffeln, Reis, Rote Bete, Gurke, Thunfisch, Mais)"
+                },
+                description: "Salade verte, tomate cerise, haricot vert, pomme de terre, riz, betterave, concombre, thon, maïs",
+                price: 60,
+                dietary: ["halal", "gluten-free", "dairy-free"]
+              },
+              {
+                id: "lp-assortiment-salade-marocaine",
+                name: "Assortiment Salade Marocaine",
+                nameEn: "Moroccan Salad Assortment",
+                localName: "تشكيلة سلطات مغربية (باذنجان، بطاطس، جزر، قرع، فلفل على الطريقة المغربية، شكشوكة)",
+                translations: {
+                  ar: "تشكيلة سلطات مغربية (باذنجان، بطاطس، جزر، قرع، فلفل على الطريقة المغربية، شكشوكة)",
+                  en: "Moroccan Salad Assortment (eggplant, potato, carrot, pumpkin, Moroccan-style pepper, chackchouka)",
+                  es: "Surtido de ensaladas marroquíes (berenjena, patata, zanahoria, calabaza, pimiento al estilo marroquí, chackchouka)",
+                  de: "Marokkanische Salatauswahl (Aubergine, Kartoffel, Karotte, Kürbis, Paprika nach marokkanischer Art, Chakchouka)"
+                },
+                description: "Aubergine, pomme de terre, carotte, potiron, poivron façon marocaine, chekchouka",
+                price: 80,
+                dietary: ["vegetarian", "vegan", "halal", "gluten-free", "dairy-free"]
+              },
+              {
+                id: "lp-harira-marocain",
+                name: "Harira marocain",
+                nameEn: "Moroccan Harira",
+                localName: "حريرة مغربية (حساء مغربي، عدس، حمص، بصل، بقدونس، تمر، شباكية، بيض مسلوق، بطبوط)",
+                translations: {
+                  ar: "حريرة مغربية (حساء مغربي، عدس، حمص، بصل، بقدونس، تمر، شباكية، بيض مسلوق، بطبوط)",
+                  en: "Moroccan Harira (Moroccan soup, lentils, chickpeas, onion, parsley, dates, chebakia, boiled egg, batbout)",
+                  es: "Harira marroquí (sopa marroquí, lentejas, garbanzos, cebolla, perejil, dátiles, chebakia, huevo duro, batbout)",
+                  de: "Marokkanische Harira (Suppe, Linsen, Kichererbsen, Zwiebel, Petersilie, Datteln, Chebakia, gekochtes Ei, Batbout)"
+                },
+                description: "Soupe marocaine, lentilles, pois chiche, oignon, persil, dattes, chabakia, œuf dur, batboute",
+                price: 60,
+                isSignature: true,
+                dietary: ["halal"]
+              },
+              {
+                id: "lp-soupe-legumes",
+                name: "Soupe de légumes",
+                nameEn: "Vegetable Soup",
+                localName: "حساء الخضر (قرع أخضر، كراث، بطاطس، جزر، لفت، تمر، بطبوط)",
+                translations: {
+                  ar: "حساء الخضر (قرع أخضر، كراث، بطاطس، جزر، لفت، تمر، بطبوط)",
+                  en: "Vegetable Soup (zucchini, leeks, potato, carrots, turnip, dates, batbout)",
+                  es: "Sopa de verduras (calabacín, puerros, patata, zanahorias, nabo, dátiles, batbout)",
+                  de: "Gemüsesuppe (Zucchini, Lauch, Kartoffeln, Karotten, Rüben, Datteln, Batbout)"
+                },
+                description: "Courgette, poireaux, pomme de terre, carottes, navet, dattes, batboute",
+                price: 60,
+                dietary: ["vegetarian", "vegan", "halal", "dairy-free"]
+              }
+            ]
+          },
+          {
+            id: "briouates-pastilla",
+            title: "Sélection Briouates & Pastilla",
+            titleEn: "Briouats & Pastilla Selection",
+            description: "Spécialités feuilletées maison préparées avec soin",
+            descriptionEn: "House-made crispy pastries and signature traditional pastillas",
+            items: [
+              {
+                id: "lp-briouate-fromage",
+                name: "Briouate Fromage",
+                nameEn: "Cheese Briouats",
+                localName: "بريوات بالجبن (جبن أبيض على الطريقة المغربية)",
+                translations: {
+                  ar: "بريوات بالجبن (جبن أبيض على الطريقة المغربية)",
+                  en: "Cheese Briouats (Moroccan-style white cheese)",
+                  es: "Briouats de queso (queso fresco al estilo marroquí)",
+                  de: "Käse-Briouates (Frischkäse nach marokkanischer Art)"
+                },
+                description: "Fromage blanc à la marocaine",
+                price: 45,
+                dietary: ["vegetarian", "halal"]
+              },
+              {
+                id: "lp-briouate-poulet",
+                name: "Briouate poulet",
+                nameEn: "Chicken Briouats",
+                localName: "بريوات بالدجاج (دجاج متبل على الطريقة المغربية)",
+                translations: {
+                  ar: "بريوات بالدجاج (دجاج متبل على الطريقة المغربية)",
+                  en: "Chicken Briouats (Moroccan marinated chicken)",
+                  es: "Briouats de pollo (pollo marinado al estilo marroquí)",
+                  de: "Hähnchen-Briouates (mariniertes Hähnchen nach marokkanischer Art)"
+                },
+                description: "Au poulet mariné à la marocaine",
+                price: 60,
+                dietary: ["halal"]
+              },
+              {
+                id: "lp-briouate-fruit-de-mer",
+                name: "Briouate fruit de mer",
+                nameEn: "Seafood Briouats",
+                localName: "بريوات بفواكه البحر (فواكه البحر، شعرية صينية، فطر أسود)",
+                translations: {
+                  ar: "بريوات بفواكه البحر (فواكه البحر، شعرية صينية، فطر أسود)",
+                  en: "Seafood Briouats (seafood, vermicelli, black mushroom)",
+                  es: "Briouats de marisco (marisco, fideos de arroz, seta negra)",
+                  de: "Meeresfrüchte-Briouates (Meeresfrüchte, Glasnudeln, Mu-Err-Pilze)"
+                },
+                description: "Fruits de mer, vermicelle, champignon noir",
+                price: 70,
+                dietary: ["halal"]
+              },
+              {
+                id: "lp-briouate-kefta",
+                name: "Briouate Kefta",
+                nameEn: "Kefta Briouats",
+                localName: "بريوات بالكفتة (لحم مفروم، زيتون)",
+                translations: {
+                  ar: "بريوات بالكفتة (لحم مفروم، زيتون)",
+                  en: "Kefta Briouats (minced meat, olives)",
+                  es: "Briouats de Kefta (carne picada, aceitunas)",
+                  de: "Kefta-Briouates (Hackfleisch, Oliven)"
+                },
+                description: "Viande hachée, olives",
+                price: 60,
+                dietary: ["halal"]
+              },
+              {
+                id: "lp-briouate-vegetarienne",
+                name: "Briouate Végétarienne",
+                nameEn: "Vegetarian Briouats",
+                localName: "بريوات نباتية (خضر موسمية)",
+                translations: {
+                  ar: "بريوات نباتية (خضر موسمية)",
+                  en: "Vegetarian Briouats (seasonal vegetables)",
+                  es: "Briouats vegetarianos (verduras de temporada)",
+                  de: "Vegetarische Briouates (Gemüse der Saison)"
+                },
+                description: "Légumes de saison",
+                price: 45,
+                dietary: ["vegetarian", "vegan", "halal"]
+              },
+              {
+                id: "lp-assortiment-briouate",
+                name: "Assortiment Briouate",
+                nameEn: "Assorted Briouats Platter",
+                localName: "تشكيلة بريوات مشكلة",
+                translations: {
+                  ar: "تشكيلة بريوات مشكلة",
+                  en: "Assorted Briouats Platter",
+                  es: "Surtido de Briouats",
+                  de: "Gemischte Briouates-Platte"
+                },
+                price: 230,
+                dietary: ["halal"],
+                portionNotes: "Assortiment idéal à partager"
+              },
+              {
+                id: "lp-pastilla-poulet",
+                name: "Pastilla au poulet",
+                nameEn: "Chicken Pastilla",
+                localName: "بسطيلة بالدجاج (دجاج متبل، لوز، بيض)",
+                translations: {
+                  ar: "بسطيلة بالدجاج (دجاج متبل، لوز، بيض)",
+                  en: "Chicken Pastilla (marinated chicken, almonds, eggs)",
+                  es: "Pastela de pollo (pollo marinado, almendras, huevos)",
+                  de: "Hähnchen-Pastilla (mariniertes Hähnchen, Mandeln, Eier)"
+                },
+                description: "Poulet mariné, amande, œufs",
+                price: 150,
+                isSignature: true,
+                dietary: ["halal"]
+              },
+              {
+                id: "lp-pastilla-fruit-de-mer",
+                name: "Pastilla au fruit de mer",
+                nameEn: "Seafood Pastilla",
+                localName: "بسطيلة بفواكه البحر (فواكه البحر، شعرية صينية، فطر أسود، جبن)",
+                translations: {
+                  ar: "بسطيلة بفواكه البحر (فواكه البحر، شعرية صينية، فطر أسود، جبن)",
+                  en: "Seafood Pastilla (seafood, vermicelli, black mushroom, cheese)",
+                  es: "Pastela de marisco (marisco, fideos, seta negra, queso)",
+                  de: "Meeresfrüchte-Pastilla (Meeresfrüchte, Glasnudeln, Mu-Err-Pilze, Käse)"
+                },
+                description: "Fruits de mer, vermicelle, champignon noir, fromage",
+                price: 150,
+                isSignature: true,
+                dietary: ["halal"]
+              }
+            ]
+          },
+          {
+            id: "couscous-tagines",
+            title: "Couscous & Tagines",
+            titleEn: "Couscous & Tagines",
+            description: "Couscous roulé à la main et tajines mijotés à la marocaine",
+            descriptionEn: "Traditional Moroccan couscous and slow-simmered clay pot tagines",
+            items: [
+              {
+                id: "lp-couscous-vegetarien",
+                name: "Couscous Végétarien",
+                nameEn: "Vegetarian Couscous",
+                localName: "كسكس بالخضار (نباتي)",
+                translations: {
+                  ar: "كسكس بالخضار (نباتي)",
+                  en: "Vegetarian Couscous",
+                  es: "Cuscús vegetariano",
+                  de: "Vegetarischer Couscous"
+                },
+                price: 90,
+                dietary: ["vegetarian", "vegan", "halal", "dairy-free"]
+              },
+              {
+                id: "lp-couscous-poulet",
+                name: "Couscous Poulet",
+                nameEn: "Chicken Couscous",
+                localName: "كسكس بالدجاج",
+                translations: {
+                  ar: "كسكس بالدجاج",
+                  en: "Chicken Couscous",
+                  es: "Cuscús de pollo",
+                  de: "Hähnchen-Couscous"
+                },
+                price: 100,
+                dietary: ["halal"]
+              },
+              {
+                id: "lp-couscous-viande",
+                name: "Couscous Viande",
+                nameEn: "Meat Couscous",
+                localName: "كسكس باللحم",
+                translations: {
+                  ar: "كسكس باللحم",
+                  en: "Meat Couscous",
+                  es: "Cuscús de carne",
+                  de: "Fleisch-Couscous"
+                },
+                price: 120,
+                dietary: ["halal"]
+              },
+              {
+                id: "lp-couscous-royale",
+                name: "Couscous Royale",
+                nameEn: "Royal Couscous",
+                localName: "كسكس ملكي",
+                translations: {
+                  ar: "كسكس ملكي",
+                  en: "Royal Couscous",
+                  es: "Cuscús real",
+                  de: "Couscous Royal"
+                },
+                price: 150,
+                isSignature: true,
+                dietary: ["halal"]
+              },
+              {
+                id: "lp-tagine-poulet",
+                name: "Tagine de poulet",
+                nameEn: "Chicken Tagine",
+                localName: "طاجين الدجاج (بالحامض، نصف دجاجة)",
+                translations: {
+                  ar: "طاجين الدجاج (بالحامض، نصف دجاجة)",
+                  en: "Chicken Tagine (Preserved lemon, 1/2 chicken)",
+                  es: "Tajín de pollo (Limón, 1/2 pollo)",
+                  de: "Hähnchen-Tajine (Zitrone, 1/2 Hähnchen)"
+                },
+                description: "Citron, 1/2 poulet",
+                price: 110,
+                dietary: ["halal", "gluten-free", "dairy-free"]
+              },
+              {
+                id: "lp-tagine-poulet-raisin",
+                name: "Tagine de poulet au Raisin",
+                nameEn: "Chicken Tagine with Raisins",
+                localName: "طاجين الدجاج بالزبيب",
+                translations: {
+                  ar: "طاجين الدجاج بالزبيب",
+                  en: "Chicken Tagine with Raisins",
+                  es: "Tajín de pollo con pasas",
+                  de: "Hähnchen-Tajine mit Rosinen"
+                },
+                price: 110,
+                dietary: ["halal", "gluten-free", "dairy-free"]
+              },
+              {
+                id: "lp-tagine-boeuf-pruneau",
+                name: "Tagine de Bœuf au Pruneau",
+                nameEn: "Beef Tagine with Prunes",
+                localName: "طاجين اللحم البقري بالبرقوق",
+                translations: {
+                  ar: "طاجين اللحم البقري بالبرقوق",
+                  en: "Beef Tagine with Prunes",
+                  es: "Tajín de ternera con ciruelas pasas",
+                  de: "Rindfleisch-Tajine mit Pflaumen"
+                },
+                price: 120,
+                dietary: ["halal", "gluten-free", "dairy-free"]
+              },
+              {
+                id: "lp-tagine-agneau-abricot",
+                name: "Tagine d'agneau au abricot",
+                nameEn: "Lamb Tagine with Apricots",
+                localName: "طاجين لحم الغنم بالمشمش",
+                translations: {
+                  ar: "طاجين لحم الغنم بالمشمش",
+                  en: "Lamb Tagine with Apricots",
+                  es: "Tajín de cordero con albaricoques",
+                  de: "Lamm-Tajine mit Aprikosen"
+                },
+                price: 120,
+                dietary: ["halal", "gluten-free", "dairy-free"]
+              },
+              {
+                id: "lp-tagine-kefta-oeufs",
+                name: "Tagine Kefta au œufs",
+                nameEn: "Kefta & Egg Tagine",
+                localName: "طاجين الكفتة بالبيض",
+                translations: {
+                  ar: "طاجين الكفتة بالبيض",
+                  en: "Kefta & Egg Tagine",
+                  es: "Tajín de Kefta con huevos",
+                  de: "Kefta-Tajine mit Eiern"
+                },
+                price: 120,
+                dietary: ["halal", "gluten-free", "dairy-free"]
+              },
+              {
+                id: "lp-tagine-poisson-charmoula",
+                name: "Tagine poisson au charmoula marocaine",
+                nameEn: "Fish Tagine with Moroccan Chermoula",
+                localName: "طاجين السمك بالشرمولة المغربية",
+                translations: {
+                  ar: "طاجين السمك بالشرمولة المغربية",
+                  en: "Fish Tagine with Moroccan Chermoula",
+                  es: "Tajín de pescado con chermoula marroquí",
+                  de: "Fisch-Tajine mit marokkanischer Chermoula"
+                },
+                price: 120,
+                dietary: ["halal", "gluten-free", "dairy-free"]
+              },
+              {
+                id: "lp-tagine-vegetarien",
+                name: "Tagine végétarien",
+                nameEn: "Vegetarian Tagine",
+                localName: "طاجين نباتي بالخضار",
+                translations: {
+                  ar: "طاجين نباتي بالخضار",
+                  en: "Vegetarian Tagine",
+                  es: "Tajín vegetariano",
+                  de: "Vegetarische Tajine"
+                },
+                price: 90,
+                dietary: ["vegetarian", "vegan", "halal", "gluten-free", "dairy-free"]
+              }
+            ]
+          },
+          {
+            id: "plats-sur-commande",
+            title: "Plats sur Commande",
+            titleEn: "Dishes Made to Order",
+            description: "Grands classiques marocains préparés sur commande",
+            descriptionEn: "Heritage Moroccan dishes prepared fresh to order",
+            items: [
+              {
+                id: "lp-seffa-medfouna",
+                name: "Seffa Medfouna",
+                nameEn: "Seffa Medfouna",
+                localName: "السفة المدفونة",
+                translations: {
+                  ar: "السفة المدفونة",
+                  en: "Seffa Medfouna (Sweet vermicelli with hidden spiced chicken)",
+                  es: "Seffa Medfouna (fideos dulces con pollo especiado)",
+                  de: "Seffa Medfouna (süße Fadennudeln mit verstecktem Hähnchen)"
+                },
+                price: 90,
+                isSignature: true,
+                dietary: ["halal"]
+              },
+              {
+                id: "lp-tanjia-marrakchia",
+                name: "Tanjia Marrakchia (1/2 kg)",
+                nameEn: "Marrakchi Tanjia (1/2 kg)",
+                localName: "الطنجية المراكشية (نصف كيلو)",
+                translations: {
+                  ar: "الطنجية المراكشية (نصف كيلو)",
+                  en: "Marrakchi Tanjia (1/2 kg slow-cooked meat)",
+                  es: "Tanjia de Marrakech (1/2 kg)",
+                  de: "Tanjia nach Marrakesch-Art (1/2 kg)"
+                },
+                price: 150,
+                dietary: ["halal", "gluten-free", "dairy-free"],
+                portionNotes: "Portion 1/2 kg sur commande"
+              },
+              {
+                id: "lp-rfissa-poulet-beldi",
+                name: "Rfissa au poulet beldi",
+                nameEn: "Rfissa with Beldi Free-Range Chicken",
+                localName: "الرفيسة بالدجاج البلدي",
+                translations: {
+                  ar: "الرفيسة بالدجاج البلدي",
+                  en: "Rfissa with Beldi Free-Range Chicken",
+                  es: "Rfissa con pollo de corral (beldi)",
+                  de: "Rfissa mit Beldi-Freilandhähnchen"
+                },
+                price: 120,
+                dietary: ["halal"]
+              }
+            ]
+          },
+          {
+            id: "sandwiches-menu-kids",
+            title: "Sandwiches & Menu Kids",
+            titleEn: "Sandwiches & Kids Menu",
+            description: "Tous les sandwiches sont accompagnés de frites",
+            descriptionEn: "All sandwiches are served in homemade batbout bread with fries",
+            items: [
+              {
+                id: "lp-sandwich-poulet",
+                name: "Sandwich poulet",
+                nameEn: "Chicken Sandwich",
+                localName: "ساندويتش دجاج (خبز البطبوط المنزلي، دجاج، طماطم، زعتر، خس، بقدونس، زيتون + بطاطس مقلية)",
+                translations: {
+                  ar: "ساندويتش دجاج (خبز البطبوط المنزلي، دجاج، طماطم، زعتر، خس، بقدونس، زيتون + بطاطس مقلية)",
+                  en: "Chicken Sandwich (2 homemade batbout breads, chicken, tomato, oregano, lettuce, parsley, olives + fries)",
+                  es: "Sándwich de pollo (2 panes batbout caseros, pollo, tomate, orégano, lechuga, perejil, aceitunas + patatas fritas)",
+                  de: "Hähnchen-Sandwich (2 hausgemachte Batbout-Brote, Hähnchen, Tomate, Oregano, Salat, Petersilie, Oliven + Pommes)"
+                },
+                description: "2 pains batboute maison, poulet, tomate, origan, salade verte, persil, olives + frites",
+                price: 65,
+                dietary: ["halal", "dairy-free"]
+              },
+              {
+                id: "lp-sandwich-viande-hachee",
+                name: "Sandwich viande hachée",
+                nameEn: "Minced Meat Sandwich",
+                localName: "ساندويتش لحم مفروم (خبز البطبوط، لحم مفروم، طماطم، زعتر، خس، بقدونس، زيتون + بطاطس مقلية)",
+                translations: {
+                  ar: "ساندويتش لحم مفروم (خبز البطبوط، لحم مفروم، طماطم، زعتر، خس، بقدونس، زيتون + بطاطس مقلية)",
+                  en: "Minced Meat Sandwich (2 homemade batbout breads, minced beef, tomato, oregano, lettuce, parsley, olives + fries)",
+                  es: "Sándwich de carne picada (2 panes batbout, carne picada, tomate, orégano, lechuga, perejil, aceitunas + patatas fritas)",
+                  de: "Hackfleisch-Sandwich (2 Batbout-Brote, Hackfleisch, Tomate, Oregano, Salat, Petersilie, Oliven + Pommes)"
+                },
+                description: "2 pains batboute maison, viande hachée, tomate, origan, salade verte, persil, olives + frites",
+                price: 75,
+                dietary: ["halal", "dairy-free"]
+              },
+              {
+                id: "lp-sandwich-mixte",
+                name: "Sandwich mixte",
+                nameEn: "Mixed Sandwich",
+                localName: "ساندويتش ميكست (دجاج + لحم مفروم، طماطم، زعتر، خس، بقدونس، زيتون + بطاطس مقلية)",
+                translations: {
+                  ar: "ساندويتش ميكست (دجاج + لحم مفروم، طماطم، زعتر، خس، بقدونس، زيتون + بطاطس مقلية)",
+                  en: "Mixed Sandwich (2 homemade batbout breads, minced beef + chicken, tomato, oregano, lettuce, parsley, olives + fries)",
+                  es: "Sándwich mixto (carne picada + pollo, tomate, orégano, lechuga, perejil, aceitunas + patatas fritas)",
+                  de: "Gemischtes Sandwich (Hackfleisch + Hähnchen, Tomate, Oregano, Salat, Petersilie, Oliven + Pommes)"
+                },
+                description: "2 pains batboute maison, viande hachée + poulet, tomate, origan, salade verte, persil, olives + frites",
+                price: 80,
+                dietary: ["halal", "dairy-free"]
+              },
+              {
+                id: "lp-kids-tajine-poulet",
+                name: "Menu Kids : Tajine poulet",
+                nameEn: "Kids Menu: Chicken Tagine",
+                localName: "قائمة الأطفال: طاجين الدجاج",
+                translations: {
+                  ar: "قائمة الأطفال: طاجين الدجاج",
+                  en: "Kids Menu: Chicken Tagine",
+                  es: "Menú Infantil: Tajín de pollo",
+                  de: "Kindermenü: Hähnchen-Tajine"
+                },
+                price: 65,
+                dietary: ["halal", "gluten-free", "dairy-free"]
+              },
+              {
+                id: "lp-kids-tajine-vegetarien",
+                name: "Menu Kids : Tajine végétarien",
+                nameEn: "Kids Menu: Vegetarian Tagine",
+                localName: "قائمة الأطفال: طاجين نباتي",
+                translations: {
+                  ar: "قائمة الأطفال: طاجين نباتي",
+                  en: "Kids Menu: Vegetarian Tagine",
+                  es: "Menú Infantil: Tajín vegetariano",
+                  de: "Kindermenü: Vegetarische Tajine"
+                },
+                price: 50,
+                dietary: ["vegetarian", "vegan", "halal", "gluten-free", "dairy-free"]
+              },
+              {
+                id: "lp-kids-couscous-poulet",
+                name: "Menu Kids : Couscous Poulet",
+                nameEn: "Kids Menu: Chicken Couscous",
+                localName: "قائمة الأطفال: كسكس بالدجاج",
+                translations: {
+                  ar: "قائمة الأطفال: كسكس بالدجاج",
+                  en: "Kids Menu: Chicken Couscous",
+                  es: "Menú Infantil: Cuscús de pollo",
+                  de: "Kindermenü: Hähnchen-Couscous"
+                },
+                price: 65,
+                dietary: ["halal"]
+              }
+            ]
+          },
+          {
+            id: "desserts-crepes",
+            title: "Desserts & Crêpes",
+            titleEn: "Desserts & Crêpes",
+            description: "Pâtisseries marocaines, desserts fruités et crêpes (portion de 2 crêpes)",
+            descriptionEn: "Moroccan almond pastries, traditional sweets, and crêpes (2 pieces)",
+            items: [
+              {
+                id: "lp-patisserie-marocain",
+                name: "Pâtisserie marocain",
+                nameEn: "Moroccan Pastries",
+                localName: "حلويات مغربية تقليدية",
+                translations: {
+                  ar: "حلويات مغربية تقليدية",
+                  en: "Moroccan Pastries",
+                  es: "Pastelería marroquí",
+                  de: "Marokkanisches Gebäck"
+                },
+                price: 35,
+                dietary: ["vegetarian", "halal"]
+              },
+              {
+                id: "lp-amlou-twist",
+                name: "Amlou twist",
+                nameEn: "Amlou Twist Dessert",
+                localName: "تحلية أملو تويست",
+                translations: {
+                  ar: "تحلية أملو تويست",
+                  en: "Amlou Twist Dessert",
+                  es: "Postre Amlou Twist",
+                  de: "Amlou-Twist-Dessert"
+                },
+                price: 40,
+                dietary: ["vegetarian", "halal"]
+              },
+              {
+                id: "lp-orange-canelle",
+                name: "Orange canelle",
+                nameEn: "Orange with Cinnamon",
+                localName: "برتقال بالقرفة",
+                translations: {
+                  ar: "برتقال بالقرفة",
+                  en: "Orange with Cinnamon",
+                  es: "Naranja con canela",
+                  de: "Orange mit Zimt"
+                },
+                price: 30,
+                dietary: ["vegetarian", "vegan", "halal", "gluten-free", "dairy-free"]
+              },
+              {
+                id: "lp-hliwa-wa-atay",
+                name: "Hliwa wa Atay",
+                nameEn: "Hliwa wa Atay",
+                localName: "حلوى وأتاي (تشكيلة حلويات مغربية باللوز مع شاي بالنعناع)",
+                translations: {
+                  ar: "حلوى وأتاي (تشكيلة حلويات مغربية باللوز مع شاي بالنعناع)",
+                  en: "Hliwa wa Atay (Assorted Moroccan almond pastries + mint tea)",
+                  es: "Hliwa wa Atay (Surtido de dulces de almendra marroquíes + té a la menta)",
+                  de: "Hliwa wa Atay (Marokkanisches Mandelgebäck + Minztee)"
+                },
+                description: "Assortiment pâtisseries marocaines amandes, thé à la menthe",
+                price: 60,
+                isSignature: true,
+                dietary: ["vegetarian", "halal"]
+              },
+              {
+                id: "lp-crepe-nature",
+                name: "Crêpe nature",
+                nameEn: "Plain Crêpes",
+                localName: "كريب سادة (قطعتان)",
+                translations: {
+                  ar: "كريب سادة (قطعتان)",
+                  en: "Plain Crêpes (2 Crêpes)",
+                  es: "Crepe natural (2 crepes)",
+                  de: "Crêpe natur (2 Stück)"
+                },
+                price: 25,
+                dietary: ["vegetarian", "halal"],
+                portionNotes: "2 Crêpes"
+              },
+              {
+                id: "lp-crepe-miel",
+                name: "Crêpe miel",
+                nameEn: "Honey Crêpes",
+                localName: "كريب بالعسل (قطعتان)",
+                translations: {
+                  ar: "كريب بالعسل (قطعتان)",
+                  en: "Honey Crêpes (2 Crêpes)",
+                  es: "Crepe con miel (2 crepes)",
+                  de: "Crêpe mit Honig (2 Stück)"
+                },
+                price: 30,
+                dietary: ["vegetarian", "halal"],
+                portionNotes: "2 Crêpes"
+              },
+              {
+                id: "lp-crepe-nutella",
+                name: "Crêpe nutella",
+                nameEn: "Nutella Crêpes",
+                localName: "كريب بالنوتيلا (قطعتان)",
+                translations: {
+                  ar: "كريب بالنوتيلا (قطعتان)",
+                  en: "Nutella Crêpes (2 Crêpes)",
+                  es: "Crepe de Nutella (2 crepes)",
+                  de: "Crêpe mit Nutella (2 Stück)"
+                },
+                price: 35,
+                dietary: ["vegetarian", "halal"],
+                portionNotes: "2 Crêpes"
+              },
+              {
+                id: "lp-crepe-nutella-banane",
+                name: "Crêpe nutella banane",
+                nameEn: "Nutella & Banana Crêpes",
+                localName: "كريب بالنوتيلا والموز (قطعتان)",
+                translations: {
+                  ar: "كريب بالنوتيلا والموز (قطعتان)",
+                  en: "Nutella & Banana Crêpes (2 Crêpes)",
+                  es: "Crepe de Nutella y plátano (2 crepes)",
+                  de: "Crêpe mit Nutella & Banane (2 Stück)"
+                },
+                price: 40,
+                dietary: ["vegetarian", "halal"],
+                portionNotes: "2 Crêpes"
+              }
+            ]
+          },
+          {
+            id: "boissons",
+            title: "Boissons Chaudes, Jus, Cocktails, Eau & Soda",
+            titleEn: "Hot Drinks, Juices, Mocktails, Water & Soda",
+            description: "Thés, cafés, jus pressés frais, cocktails sans alcool et eaux minérales",
+            descriptionEn: "Moroccan mint tea, coffee, fresh pressed juices, non-alcoholic mocktails, water, and soft drinks",
+            items: [
+              {
+                id: "lp-cafe-noir",
+                name: "Café noir",
+                nameEn: "Black Coffee / Espresso",
+                localName: "قهوة سوداء",
+                translations: {
+                  ar: "قهوة سوداء",
+                  en: "Black Coffee / Espresso",
+                  es: "Café solo",
+                  de: "Schwarzer Kaffee / Espresso"
+                },
+                price: 20,
+                dietary: ["vegetarian", "vegan", "halal", "gluten-free", "dairy-free"]
+              },
+              {
+                id: "lp-cafe-noss-noss",
+                name: "Café noss noss",
+                nameEn: "Noss Noss (Half Coffee, Half Milk)",
+                localName: "قهوة نص نص",
+                translations: {
+                  ar: "قهوة نص نص",
+                  en: "Noss Noss (Half Coffee, Half Milk)",
+                  es: "Café con leche (Mitad y mitad)",
+                  de: "Milchkaffee (Noss Noss)"
+                },
+                price: 20,
+                dietary: ["vegetarian", "halal", "gluten-free"]
+              },
+              {
+                id: "lp-chocolat-chaud",
+                name: "Chocolat chaud",
+                nameEn: "Hot Chocolate",
+                localName: "شوكولاتة ساخنة",
+                translations: {
+                  ar: "شوكولاتة ساخنة",
+                  en: "Hot Chocolate",
+                  es: "Chocolate caliente",
+                  de: "Heiße Schokolade"
+                },
+                price: 20,
+                dietary: ["vegetarian", "halal", "gluten-free"]
+              },
+              {
+                id: "lp-cappucino",
+                name: "Cappucino",
+                nameEn: "Cappuccino",
+                localName: "كابتشينو",
+                translations: {
+                  ar: "كابتشينو",
+                  en: "Cappuccino",
+                  es: "Capuchino",
+                  de: "Cappuccino"
+                },
+                price: 20,
+                dietary: ["vegetarian", "halal", "gluten-free"]
+              },
+              {
+                id: "lp-the-menthe-petit",
+                name: "Thé à la menthe petit",
+                nameEn: "Small Moroccan Mint Tea",
+                localName: "شاي بالنعناع (صغير)",
+                translations: {
+                  ar: "شاي بالنعناع (صغير)",
+                  en: "Small Moroccan Mint Tea",
+                  es: "Té a la menta pequeño",
+                  de: "Kleiner Minztee"
+                },
+                price: 15,
+                dietary: ["vegetarian", "vegan", "halal", "gluten-free", "dairy-free"]
+              },
+              {
+                id: "lp-the-menthe-moyen",
+                name: "Thé à la menthe moyen",
+                nameEn: "Medium Moroccan Mint Tea",
+                localName: "شاي بالنعناع (متوسط)",
+                translations: {
+                  ar: "شاي بالنعناع (متوسط)",
+                  en: "Medium Moroccan Mint Tea",
+                  es: "Té a la menta mediano",
+                  de: "Mittlerer Minztee"
+                },
+                price: 20,
+                dietary: ["vegetarian", "vegan", "halal", "gluten-free", "dairy-free"]
+              },
+              {
+                id: "lp-the-noir",
+                name: "Thé noir",
+                nameEn: "Black Tea",
+                localName: "شاي أسود",
+                translations: {
+                  ar: "شاي أسود",
+                  en: "Black Tea",
+                  es: "Té negro",
+                  de: "Schwarzer Tee"
+                },
+                price: 20,
+                dietary: ["vegetarian", "vegan", "halal", "gluten-free", "dairy-free"]
+              },
+              {
+                id: "lp-verveine",
+                name: "Verveine",
+                nameEn: "Verbena Tea",
+                localName: "لويزة (شاي اللويزة)",
+                translations: {
+                  ar: "لويزة (شاي اللويزة)",
+                  en: "Verbena Tea",
+                  es: "Infusión de hierba luisa",
+                  de: "Eisenkrauttee (Verveine)"
+                },
+                price: 20,
+                dietary: ["vegetarian", "vegan", "halal", "gluten-free", "dairy-free"]
+              },
+              {
+                id: "lp-jus-orange",
+                name: "Jus d'orange",
+                nameEn: "Fresh Orange Juice",
+                localName: "عصير برتقال",
+                translations: {
+                  ar: "عصير برتقال",
+                  en: "Fresh Orange Juice",
+                  es: "Zumo de naranja",
+                  de: "Orangensaft"
+                },
+                price: 25,
+                dietary: ["vegetarian", "vegan", "halal", "gluten-free", "dairy-free"]
+              },
+              {
+                id: "lp-jus-pomme",
+                name: "Jus de pomme",
+                nameEn: "Apple Juice",
+                localName: "عصير تفاح",
+                translations: {
+                  ar: "عصير تفاح",
+                  en: "Apple Juice",
+                  es: "Zumo de manzana",
+                  de: "Apfelsaft"
+                },
+                price: 25,
+                dietary: ["vegetarian", "vegan", "halal", "gluten-free", "dairy-free"]
+              },
+              {
+                id: "lp-jus-banane",
+                name: "Jus de banane",
+                nameEn: "Banana Smoothie / Juice",
+                localName: "عصير موز",
+                translations: {
+                  ar: "عصير موز",
+                  en: "Banana Smoothie / Juice",
+                  es: "Batido de plátano",
+                  de: "Bananensaft"
+                },
+                price: 25,
+                dietary: ["vegetarian", "halal", "gluten-free"]
+              },
+              {
+                id: "lp-jus-avocat",
+                name: "Jus d'avocat",
+                nameEn: "Avocado Smoothie",
+                localName: "عصير أفوكادو",
+                translations: {
+                  ar: "عصير أفوكادو",
+                  en: "Avocado Smoothie",
+                  es: "Batido de aguacate",
+                  de: "Avocado-Shake"
+                },
+                price: 30,
+                dietary: ["vegetarian", "halal", "gluten-free"]
+              },
+              {
+                id: "lp-jus-avocat-fruits-secs",
+                name: "Jus avocat fruits secs",
+                nameEn: "Avocado & Dried Fruits Smoothie",
+                localName: "عصير أفوكادو بالفواكه الجافة",
+                translations: {
+                  ar: "عصير أفوكادو بالفواكه الجافة",
+                  en: "Avocado & Dried Fruits Smoothie",
+                  es: "Batido de aguacate y frutos secos",
+                  de: "Avocado-Trockenfrüchte-Shake"
+                },
+                price: 35,
+                isSignature: true,
+                dietary: ["vegetarian", "halal", "gluten-free"]
+              },
+              {
+                id: "lp-jus-mangue",
+                name: "Jus de mangue",
+                nameEn: "Mango Juice",
+                localName: "عصير مانجو",
+                translations: {
+                  ar: "عصير مانجو",
+                  en: "Mango Juice",
+                  es: "Zumo de mango",
+                  de: "Mangosaft"
+                },
+                price: 30,
+                dietary: ["vegetarian", "vegan", "halal", "gluten-free", "dairy-free"]
+              },
+              {
+                id: "lp-jus-fruits-exotic",
+                name: "Jus de fruits exotic",
+                nameEn: "Exotic Fruit Juice",
+                localName: "عصير فواكه استوائية",
+                translations: {
+                  ar: "عصير فواكه استوائية",
+                  en: "Exotic Fruit Juice",
+                  es: "Zumo de frutas exóticas",
+                  de: "Exotischer Fruchtsaft"
+                },
+                price: 35,
+                dietary: ["vegetarian", "vegan", "halal", "gluten-free", "dairy-free"]
+              },
+              {
+                id: "lp-virgin-mojito",
+                name: "Virgin mojito",
+                nameEn: "Virgin Mojito",
+                localName: "فيرجن موخيتو (نعناع، ليمون، سبرايت)",
+                translations: {
+                  ar: "فيرجن موخيتو (نعناع، ليمون، سبرايت)",
+                  en: "Virgin Mojito (mint, lemon, Sprite)",
+                  es: "Mojito sin alcohol (menta, limón, Sprite)",
+                  de: "Virgin Mojito (Minze, Zitrone, Sprite)"
+                },
+                description: "Menthe, Citron, Sprite",
+                price: 35,
+                dietary: ["vegetarian", "vegan", "halal", "gluten-free", "dairy-free"]
+              },
+              {
+                id: "lp-na-mangue",
+                name: "N/A mangue",
+                nameEn: "N/A Mango",
+                localName: "كوكتيل مانجو غازي (هريس مانجو، ثلج مجروش، ماء غازي)",
+                translations: {
+                  ar: "كوكتيل مانجو غازي (هريس مانجو، ثلج مجروش، ماء غازي)",
+                  en: "N/A Mango (mango purée, crushed ice, sparkling water)",
+                  es: "Cóctel de mango (puré de mango, hielo picado, agua con gas)",
+                  de: "Alkoholfreier Mango-Cocktail (Mangopüree, Crushed Ice, Sprudelwasser)"
+                },
+                description: "Purée mangue, glaçon pilé, eau gazeuse",
+                price: 35,
+                dietary: ["vegetarian", "vegan", "halal", "gluten-free", "dairy-free"]
+              },
+              {
+                id: "lp-cojak",
+                name: "Cojak",
+                nameEn: "Cojak",
+                localName: "كوكتيل كوجاك (برتقال، هريس الفراولة)",
+                translations: {
+                  ar: "كوكتيل كوجاك (برتقال، هريس الفراولة)",
+                  en: "Cojak (orange, strawberry purée)",
+                  es: "Cojak (naranja, puré de fresa)",
+                  de: "Cojak (Orange, Erdbeerpüree)"
+                },
+                description: "Orange, purée de fraise",
+                price: 35,
+                dietary: ["vegetarian", "vegan", "halal", "gluten-free", "dairy-free"]
+              },
+              {
+                id: "lp-soda",
+                name: "Soda",
+                nameEn: "Soda / Soft Drink",
+                localName: "مشروب غازي",
+                translations: {
+                  ar: "مشروب غازي",
+                  en: "Soda / Soft Drink",
+                  es: "Refresco",
+                  de: "Limonade / Softdrink"
+                },
+                price: 20,
+                dietary: ["vegetarian", "vegan", "halal", "gluten-free", "dairy-free"]
+              },
+              {
+                id: "lp-eau-33cl",
+                name: "Eau 33 cl",
+                nameEn: "Still Water 33cl",
+                localName: "ماء معدني 33 سل",
+                translations: {
+                  ar: "ماء معدني 33 سل",
+                  en: "Still Water 33cl",
+                  es: "Agua mineral 33cl",
+                  de: "Stilles Wasser 33cl"
+                },
+                price: 10,
+                dietary: ["vegetarian", "vegan", "halal", "gluten-free", "dairy-free"]
+              },
+              {
+                id: "lp-eau-1l",
+                name: "Eau 1 L",
+                nameEn: "Still Water 1L",
+                localName: "ماء معدني 1 لتر",
+                translations: {
+                  ar: "ماء معدني 1 لتر",
+                  en: "Still Water 1L",
+                  es: "Agua mineral 1L",
+                  de: "Stilles Wasser 1L"
+                },
+                price: 25,
+                dietary: ["vegetarian", "vegan", "halal", "gluten-free", "dairy-free"]
+              },
+              {
+                id: "lp-oulmes-50cl",
+                name: "Oulmes 50cl",
+                nameEn: "Oulmes Sparkling Water 50cl",
+                localName: "ماء غازي والماس 50 سل",
+                translations: {
+                  ar: "ماء غازي والماس 50 سل",
+                  en: "Oulmes Sparkling Water 50cl",
+                  es: "Agua con gas Oulmes 50cl",
+                  de: "Oulmes Sprudelwasser 50cl"
+                },
+                price: 15,
+                dietary: ["vegetarian", "vegan", "halal", "gluten-free", "dairy-free"]
+              },
+              {
+                id: "lp-oulmes-1l",
+                name: "Oulmes 1L",
+                nameEn: "Oulmes Sparkling Water 1L",
+                localName: "ماء غازي والماس 1 لتر",
+                translations: {
+                  ar: "ماء غازي والماس 1 لتر",
+                  en: "Oulmes Sparkling Water 1L",
+                  es: "Agua con gas Oulmes 1L",
+                  de: "Oulmes Sprudelwasser 1L"
+                },
+                price: 25,
+                dietary: ["vegetarian", "vegan", "halal", "gluten-free", "dairy-free"]
+              }
+            ]
+          }
+        ]
+      }
+    },
     // ── 4. WORRIES ("Things You're Worried About!") ──
     worries: [
-      { id: "financial-trust", title: "Financial Trust", icon: "receipt", tag: "not available", description: "not available", state: "pending" },
-      { id: "health-safety", title: "Health & Safety", icon: "droplets", tag: "not available", description: "not available", state: "pending" },
-      { id: "culinary-authenticity", title: "Culinary Authenticity", icon: "chef", tag: "not available", description: "not available", state: "pending" },
-      { id: "comfort-environment", title: "Comfort & Atmosphere", icon: "megaphone", tag: "not available", description: "not available", state: "pending" },
-      { id: "service-expectations", title: "Service Expectations", icon: "clock", tag: "not available", description: "not available", state: "pending" },
+      {
+        id: "financial-trust",
+        title: "Financial Trust",
+        icon: "receipt",
+        tag: "Clear Menu / Cash Backup",
+        description: "Printed MAD prices (breakfasts 45–95 MAD, tagines 90–120 MAD, pastillas 150 MAD) with no surprise markups. Cards are listed, though several recent diners advise bringing MAD cash due to occasional card-machine issues.",
+        tone: "caution",
+        tagColor: "money",
+        state: "verified"
+      },
+      {
+        id: "health-safety",
+        title: "Health & Safety",
+        icon: "droplets",
+        tag: "Fresh Kitchen & Halal",
+        description: "Dishes are cooked fresh to order in a well-regarded kitchen (4.7/5 Google across 1,430+ reviews); 100% halal meats, strictly alcohol-free dining, and sealed bottled water (10–25 MAD) available.",
+        tone: "good",
+        tagColor: "water",
+        state: "verified"
+      },
+      {
+        id: "culinary-authenticity",
+        title: "Culinary Authenticity",
+        icon: "chef",
+        tag: "Pastilla Specialist",
+        description: "Celebrated on TripAdvisor and Restaurant Guru for flaky sweet-and-savory chicken pastilla, seafood pastilla, homemade batbout sandwiches, Harira, and made-to-order Seffa Medfouna, Tanjia, and Rfissa.",
+        tone: "good",
+        tagColor: "food",
+        state: "verified"
+      },
+      {
+        id: "comfort-environment",
+        title: "Comfort & Atmosphere",
+        icon: "megaphone",
+        tag: "Cozy Interior + Terrace",
+        description: "Warm traditional Moroccan decor with indoor tables, street-side terrace seating inside Complexe Tagadirt on Boulevard du 20 Août, and Wi-Fi; the small dining room fills up quickly at dinner.",
+        tone: "good",
+        tagColor: "safety",
+        state: "verified"
+      },
+      {
+        id: "service-expectations",
+        title: "Service Expectations",
+        icon: "clock",
+        tag: "Warm Host / Early Sell-Outs",
+        description: "Staff consistently earn praise for attentive hospitality—often serving complimentary mint tea and pastries—but popular pastillas are prepared in daily batches and can sell out after 21:30.",
+        tone: "caution",
+        tagColor: "alert",
+        state: "verified"
+      }
     ],
     // Multi-platform reviews holder (hidden on UI until populated)
     reviewsData: { sources: [], reviews: [] },

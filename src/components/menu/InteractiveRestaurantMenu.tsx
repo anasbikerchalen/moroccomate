@@ -9,6 +9,10 @@ import {
   Languages,
   LayoutList,
   ChevronDown,
+  ChevronLeft,
+  ChevronRight,
+  Image as ImageIcon,
+  ZoomIn,
   X,
 } from 'lucide-react';
 import MenuItemCard from './MenuItemCard';
@@ -24,7 +28,7 @@ import {
   type MenuLanguage,
 } from '../../data/menuTranslations';
 import { useAppLanguage } from '../../utils/localeRouting';
-import type { EatMenu, MenuItem } from '../../listings/types';
+import type { EatMenu, MenuItem, MenuPhoto } from '../../listings/types';
 import type { MoroccanDishGlossaryEntry } from '../../data/culinaryGlossary';
 
 interface InteractiveRestaurantMenuProps {
@@ -78,15 +82,31 @@ export default function InteractiveRestaurantMenu({
   const hasManualLangRef = useRef(false);
 
   // Default to 'accordion' so ALL menu sections & dishes render inline in HTML DOM
-  const [viewMode, setViewMode] = useState<'accordion' | 'booklet'>('accordion');
+  const [viewMode, setViewMode] = useState<'accordion' | 'booklet' | 'images'>('accordion');
   const [activeCategory, setActiveCategory] = useState<string>('all');
   const [dietaryFilter, setDietaryFilter] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [glossaryEntry, setGlossaryEntry] = useState<MoroccanDishGlossaryEntry | null>(null);
   const [isReservationOpen, setIsReservationOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const [showAllSections, setShowAllSections] = useState(false);
 
   const sections = menu?.sections || [];
   const hasSections = sections.length > 0;
+
+  const menuPhotos: MenuPhoto[] = useMemo(() => {
+    const structured = Array.isArray(menu?.menuPhotos) ? menu.menuPhotos : [];
+    if (structured.length > 0) return structured;
+    const legacy = Array.isArray(menu?.scannedMenuPhotos) ? menu.scannedMenuPhotos : [];
+    return legacy.map((url, idx) => ({
+      url,
+      pageNumber: idx + 1,
+      title: `${restaurantName} Menu Page ${idx + 1}`,
+      alt: `${restaurantName} in ${city} printed menu photo page ${idx + 1}`,
+      caption: `Original printed menu page ${idx + 1}`,
+    }));
+  }, [menu?.menuPhotos, menu?.scannedMenuPhotos, restaurantName, city]);
+  const hasMenuPhotos = menuPhotos.length > 0;
 
   // All sections start expanded so visitors & search engines read every item inline
   const [collapsedIds, setCollapsedIds] = useState<Set<string>>(() => new Set());
@@ -105,7 +125,22 @@ export default function InteractiveRestaurantMenu({
   useEffect(() => {
     setCollapsedIds(new Set());
     setActiveCategory('all');
+    setViewMode('accordion');
+    setLightboxIndex(null);
+    setShowAllSections(false);
   }, [restaurantId]);
+
+  // Lightbox keyboard navigation
+  useEffect(() => {
+    if (lightboxIndex === null || menuPhotos.length === 0) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setLightboxIndex(null);
+      else if (e.key === 'ArrowRight') setLightboxIndex((i) => (i === null ? null : (i + 1) % menuPhotos.length));
+      else if (e.key === 'ArrowLeft') setLightboxIndex((i) => (i === null ? null : (i - 1 + menuPhotos.length) % menuPhotos.length));
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [lightboxIndex, menuPhotos.length]);
 
   const toggleSectionOpen = (sectionId: string) => {
     setCollapsedIds((prev) => {
@@ -264,7 +299,7 @@ export default function InteractiveRestaurantMenu({
 
           {/* Controls */}
           <div className="flex items-center gap-2 self-start sm:self-auto flex-wrap">
-            {/* View Mode Switcher: Full Accordion (default) vs Classical Booklet */}
+            {/* View Mode Switcher: Full Accordion (default) vs Classical Booklet vs Menu Images */}
             <div className="flex items-center bg-stone-100/90 p-0.5 rounded-full border border-stone-200/60 shadow-2xs">
               <button
                 type="button"
@@ -292,6 +327,21 @@ export default function InteractiveRestaurantMenu({
                 <BookOpen className="w-3 h-3 text-amber-400" />
                 <span>Booklet</span>
               </button>
+              {hasMenuPhotos && (
+                <button
+                  type="button"
+                  onClick={() => setViewMode('images')}
+                  title="Original photographed menu pages"
+                  className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold transition-all cursor-pointer ${
+                    viewMode === 'images'
+                      ? 'bg-[#C2613C] text-white shadow-2xs'
+                      : 'text-stone-600 hover:text-stone-900'
+                  }`}
+                >
+                  <ImageIcon className="w-3 h-3" />
+                  <span>Images ({menuPhotos.length})</span>
+                </button>
+              )}
             </div>
 
             {/* Translation Language Selector */}
@@ -412,111 +462,258 @@ export default function InteractiveRestaurantMenu({
         )}
       </div>
 
-      {hasSections ? (
-        viewMode === 'booklet' ? (
-          bookletSections.length > 0 ? (
-            <ClassicalMenuBooklet
-              sections={bookletSections}
-              restaurantName={restaurantName}
-              restaurantId={restaurantId}
-              city={city}
-              highlightedDishes={highlightedDishes}
-              onOpenGlossary={setGlossaryEntry}
-            />
-          ) : (
-            <div className="py-12 text-center text-stone-500 text-xs bg-[#FAF6EF]/60 rounded-2xl border border-stone-200/80 p-6">
-              <p>No dishes found matching your current filter.</p>
-              <button
-                type="button"
-                onClick={() => {
-                  setSearchQuery('');
-                  setDietaryFilter('all');
-                }}
-                className="mt-2 text-[#D4863A] hover:underline font-bold cursor-pointer"
-              >
-                Reset filters
-              </button>
+      {hasMenuPhotos && viewMode === 'images' ? (
+        <div className="space-y-6" aria-label={`${restaurantName} Menu Images`}>
+          <div className="flex flex-wrap items-center justify-between gap-2 rounded-2xl border border-[#E8DFCF] bg-[#FAF6EE]/80 px-4 py-3">
+            <div>
+              <h3 className="font-serif text-base sm:text-lg font-bold text-stone-900">
+                {restaurantName} Printed Menu Pages ({menuPhotos.length})
+              </h3>
+              <p className="text-xs text-stone-600">
+                Tap any page card to inspect dish prices at full resolution.
+              </p>
             </div>
-          )
-        ) : (
-          <div className="space-y-4">
-            {filteredSections.length > 0 ? (
-              filteredSections.map((section) => {
-                const isOpen = !collapsedIds.has(section.id);
-                const sectionTitle = getLocalizedSectionTitle(section, menuLanguage);
-                const sectionDesc = getLocalizedSectionDescription(section, menuLanguage);
-                return (
-                  <div
-                    key={section.id}
-                    id={`menu-section-${section.id}`}
-                    className="rounded-2xl border border-[#E8DFCF] bg-[#FDFBF7]/75 overflow-hidden"
-                  >
-                    {/* Collapsible Section Header */}
-                    <button
-                      type="button"
-                      onClick={() => toggleSectionOpen(section.id)}
-                      aria-expanded={isOpen}
-                      className="w-full flex items-center justify-between gap-3 px-4 sm:px-5 py-3.5 text-left bg-[#FAF6EE]/80 hover:bg-[#F5EFE2] transition-colors cursor-pointer border-b border-[#E8DFCF]/70"
-                    >
-                      <div className="min-w-0">
-                        <div className="flex items-center gap-2.5 flex-wrap">
-                          <h3 className="font-serif text-base sm:text-lg font-bold tracking-tight text-stone-900">
-                            {sectionTitle}
-                          </h3>
-                          <span className="text-[11px] font-semibold text-stone-500 tabular-nums">
-                            ({section.items.length} {section.items.length === 1 ? 'item' : 'items'})
-                          </span>
-                        </div>
-                        {sectionDesc && (
-                          <p className="text-xs text-stone-600 mt-0.5 line-clamp-2">
-                            {sectionDesc}
-                          </p>
-                        )}
-                      </div>
-                      <ChevronDown
-                        className={`w-4 h-4 text-stone-500 shrink-0 transition-transform duration-200 ${
-                          isOpen ? 'rotate-180' : ''
-                        }`}
-                      />
-                    </button>
+            <span className="text-[11px] font-mono font-bold text-amber-900 bg-amber-500/15 border border-amber-500/30 px-2.5 py-1 rounded-full">
+              Prices in MAD (Dh)
+            </span>
+          </div>
 
-                    {/* Dishes always remain mounted in DOM for instant search/crawlability, hidden visually when collapsed */}
-                    <div className={isOpen ? 'px-4 sm:px-5 py-1.5 bg-white' : 'hidden'}>
-                      <div className="divide-y-0">
-                        {section.items.map((dish) => (
-                          <MenuItemCard
-                            key={dish.id}
-                            dish={dish}
-                            placeId={restaurantId}
-                            placeName={restaurantName}
-                            city={city}
-                            highlightedDishes={highlightedDishes}
-                            onOpenGlossary={setGlossaryEntry}
-                          />
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                );
-              })
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {menuPhotos.map((photo, idx) => (
+              <figure
+                key={photo.url}
+                className="group rounded-2xl border border-[#E8DFCF] bg-white overflow-hidden shadow-xs hover:shadow-md transition-shadow"
+              >
+                <button
+                  type="button"
+                  onClick={() => setLightboxIndex(idx)}
+                  className="relative block w-full bg-stone-100 overflow-hidden cursor-zoom-in text-left"
+                  aria-label={`Zoom ${photo.title || `Menu page ${idx + 1}`}`}
+                >
+                  <img
+                    src={photo.url}
+                    alt={photo.alt}
+                    title={photo.title}
+                    width={photo.width}
+                    height={photo.height}
+                    loading={idx < 2 ? 'eager' : 'lazy'}
+                    decoding="async"
+                    className="w-full h-auto object-contain transition-transform duration-300 group-hover:scale-[1.01]"
+                  />
+                  <span className="absolute top-3 left-3 inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-stone-900/85 text-white text-[11px] font-bold backdrop-blur-xs">
+                    Page {photo.pageNumber || idx + 1} / {menuPhotos.length}
+                  </span>
+                  <span className="absolute bottom-3 right-3 inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-white/90 text-stone-900 text-[11px] font-bold shadow-xs opacity-90 group-hover:opacity-100">
+                    <ZoomIn className="w-3.5 h-3.5 text-[#C2613C]" />
+                    <span>Zoom</span>
+                  </span>
+                </button>
+                {(photo.title || photo.caption) && (
+                  <figcaption className="px-4 py-3 border-t border-[#F0E8DA] bg-[#FDFBF7]">
+                    {photo.title && (
+                      <div className="text-xs font-bold text-stone-900">{photo.title}</div>
+                    )}
+                    {photo.caption && (
+                      <p className="text-[11px] text-stone-600 mt-0.5 leading-relaxed">
+                        {photo.caption}
+                      </p>
+                    )}
+                  </figcaption>
+                )}
+              </figure>
+            ))}
+          </div>
+        </div>
+      ) : hasSections ? (
+        <>
+          {viewMode === 'booklet' ? (
+            bookletSections.length > 0 ? (
+              <ClassicalMenuBooklet
+                sections={bookletSections}
+                restaurantName={restaurantName}
+                restaurantId={restaurantId}
+                city={city}
+                highlightedDishes={highlightedDishes}
+                onOpenGlossary={setGlossaryEntry}
+              />
             ) : (
-              <div className="py-12 text-center text-stone-500 text-xs">
+              <div className="py-12 text-center text-stone-500 text-xs bg-[#FAF6EF]/60 rounded-2xl border border-stone-200/80 p-6">
                 <p>No dishes found matching your current filter.</p>
                 <button
                   type="button"
                   onClick={() => {
                     setSearchQuery('');
                     setDietaryFilter('all');
-                    setActiveCategory('all');
                   }}
                   className="mt-2 text-[#D4863A] hover:underline font-bold cursor-pointer"
                 >
                   Reset filters
                 </button>
               </div>
-            )}
-          </div>
-        )
+            )
+          ) : (() => {
+            const isUnfiltered = activeCategory === 'all' && !searchQuery.trim() && dietaryFilter === 'all';
+            const isTruncatedOnListing = !isStandalonePage && !showAllSections && isUnfiltered && filteredSections.length > 2;
+            const visibleSections = isTruncatedOnListing ? filteredSections.slice(0, 2) : filteredSections;
+            const hiddenSectionsCount = isTruncatedOnListing ? filteredSections.length - 2 : 0;
+            const hiddenDishesCount = isTruncatedOnListing
+              ? filteredSections.slice(2).reduce((sum, s) => sum + s.items.length, 0)
+              : 0;
+            const canShowLess = !isStandalonePage && showAllSections && isUnfiltered && filteredSections.length > 2;
+
+            return (
+              <div className="space-y-4">
+                {visibleSections.length > 0 ? (
+                  <>
+                    {visibleSections.map((section) => {
+                      const isOpen = !collapsedIds.has(section.id);
+                      const sectionTitle = getLocalizedSectionTitle(section, menuLanguage);
+                      const sectionDesc = getLocalizedSectionDescription(section, menuLanguage);
+                      return (
+                        <div
+                          key={section.id}
+                          id={`menu-section-${section.id}`}
+                          className="rounded-2xl border border-[#E8DFCF] bg-[#FDFBF7]/75 overflow-hidden"
+                        >
+                          {/* Collapsible Section Header */}
+                          <button
+                            type="button"
+                            onClick={() => toggleSectionOpen(section.id)}
+                            aria-expanded={isOpen}
+                            className="w-full flex items-center justify-between gap-3 px-4 sm:px-5 py-3.5 text-left bg-[#FAF6EE]/80 hover:bg-[#F5EFE2] transition-colors cursor-pointer border-b border-[#E8DFCF]/70"
+                          >
+                            <div className="min-w-0">
+                              <div className="flex items-center gap-2.5 flex-wrap">
+                                <h3 className="font-serif text-base sm:text-lg font-bold tracking-tight text-stone-900">
+                                  {sectionTitle}
+                                </h3>
+                                <span className="text-[11px] font-semibold text-stone-500 tabular-nums">
+                                  ({section.items.length} {section.items.length === 1 ? 'item' : 'items'})
+                                </span>
+                              </div>
+                              {sectionDesc && (
+                                <p className="text-xs text-stone-600 mt-0.5 line-clamp-2">
+                                  {sectionDesc}
+                                </p>
+                              )}
+                            </div>
+                            <ChevronDown
+                              className={`w-4 h-4 text-stone-500 shrink-0 transition-transform duration-200 ${
+                                isOpen ? 'rotate-180' : ''
+                              }`}
+                            />
+                          </button>
+
+                          {/* Dishes always remain mounted in DOM for instant search/crawlability, hidden visually when collapsed */}
+                          <div className={isOpen ? 'px-4 sm:px-5 py-1.5 bg-white' : 'hidden'}>
+                            <div className="divide-y-0">
+                              {section.items.map((dish) => (
+                                <MenuItemCard
+                                  key={dish.id}
+                                  dish={dish}
+                                  placeId={restaurantId}
+                                  placeName={restaurantName}
+                                  city={city}
+                                  highlightedDishes={highlightedDishes}
+                                  onOpenGlossary={setGlossaryEntry}
+                                />
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })}
+
+                    {(isTruncatedOnListing || canShowLess) && (
+                      <div className="pt-2 flex justify-center">
+                        <button
+                          type="button"
+                          onClick={() => setShowAllSections((prev) => !prev)}
+                          className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-stone-900 hover:bg-stone-800 text-white text-xs sm:text-sm font-bold shadow-xs transition-all cursor-pointer"
+                        >
+                          {isTruncatedOnListing ? (
+                            <>
+                              <span>
+                                Show More ({hiddenSectionsCount} more {hiddenSectionsCount === 1 ? 'part' : 'parts'} · {hiddenDishesCount} dishes)
+                              </span>
+                              <ChevronDown className="w-4 h-4" />
+                            </>
+                          ) : (
+                            <>
+                              <span>Show Less</span>
+                              <ChevronDown className="w-4 h-4 rotate-180" />
+                            </>
+                          )}
+                        </button>
+                      </div>
+                    )}
+                  </>
+                ) : (
+                  <div className="py-12 text-center text-stone-500 text-xs">
+                    <p>No dishes found matching your current filter.</p>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setSearchQuery('');
+                        setDietaryFilter('all');
+                        setActiveCategory('all');
+                      }}
+                      className="mt-2 text-[#D4863A] hover:underline font-bold cursor-pointer"
+                    >
+                      Reset filters
+                    </button>
+                  </div>
+                )}
+              </div>
+            );
+          })()}
+
+          {/* Crawlable & Interactive Menu Photos Preview Strip */}
+          {hasMenuPhotos && (
+            <div className="mt-8 pt-6 border-t border-[#E8DFCF]">
+              <div className="flex items-center justify-between gap-2 mb-3">
+                <div className="flex items-center gap-2">
+                  <ImageIcon className="w-4 h-4 text-[#C2613C]" />
+                  <h3 className="font-serif text-base font-bold text-stone-900">
+                    Original Menu Card Photos ({menuPhotos.length})
+                  </h3>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setViewMode('images')}
+                  className="text-xs font-bold text-[#C2613C] hover:underline cursor-pointer"
+                >
+                  Open Full Gallery &rarr;
+                </button>
+              </div>
+              <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
+                {menuPhotos.map((photo, idx) => (
+                  <button
+                    key={photo.url}
+                    type="button"
+                    onClick={() => setLightboxIndex(idx)}
+                    className="group relative aspect-[3/4] rounded-xl overflow-hidden border border-[#E8DFCF] bg-stone-100 cursor-zoom-in text-left"
+                    title={photo.title || `Menu page ${idx + 1}`}
+                  >
+                    <img
+                      src={photo.url}
+                      alt={photo.alt}
+                      title={photo.title}
+                      width={photo.width}
+                      height={photo.height}
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                    <span className="absolute bottom-1.5 left-1.5 px-2 py-0.5 rounded-full bg-stone-900/80 text-white text-[10px] font-bold">
+                      Page {photo.pageNumber || idx + 1}
+                    </span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+        </>
       ) : (
         /* Honest Fallback for venues where menu digitization is pending */
         <div className="py-12 text-center space-y-3">
@@ -549,6 +746,78 @@ export default function InteractiveRestaurantMenu({
               <CalendarCheck className="w-3 h-3 text-[#D4863A]" />
               <span>Reservations</span>
             </button>
+          </div>
+        </div>
+      )}
+
+      {/* Menu Photo Lightbox Modal */}
+      {lightboxIndex !== null && menuPhotos[lightboxIndex] && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label={menuPhotos[lightboxIndex].title || `${restaurantName} Menu Photo`}
+          className="fixed inset-0 z-50 bg-stone-950/90 backdrop-blur-xs flex flex-col items-center justify-center p-3 sm:p-6"
+          onClick={() => setLightboxIndex(null)}
+        >
+          <div
+            className="relative max-w-3xl w-full max-h-[90vh] flex flex-col items-center"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="w-full flex items-center justify-between gap-3 text-white mb-2 px-1">
+              <div className="min-w-0">
+                <p className="text-xs sm:text-sm font-bold truncate">
+                  {menuPhotos[lightboxIndex].title || `${restaurantName} — Page ${lightboxIndex + 1}`}
+                </p>
+                {menuPhotos[lightboxIndex].caption && (
+                  <p className="text-[11px] text-stone-300 truncate">
+                    {menuPhotos[lightboxIndex].caption}
+                  </p>
+                )}
+              </div>
+              <div className="flex items-center gap-2 shrink-0">
+                <span className="text-xs font-mono text-stone-300">
+                  {lightboxIndex + 1} / {menuPhotos.length}
+                </span>
+                <button
+                  type="button"
+                  onClick={() => setLightboxIndex(null)}
+                  aria-label="Close image viewer"
+                  className="p-1.5 rounded-full bg-white/10 hover:bg-white/20 text-white cursor-pointer"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
+
+            <div className="relative w-full flex items-center justify-center">
+              {menuPhotos.length > 1 && (
+                <button
+                  type="button"
+                  onClick={() => setLightboxIndex((lightboxIndex - 1 + menuPhotos.length) % menuPhotos.length)}
+                  aria-label="Previous menu page"
+                  className="absolute left-2 z-10 p-2 rounded-full bg-stone-900/80 hover:bg-stone-900 text-white border border-white/15 cursor-pointer"
+                >
+                  <ChevronLeft className="w-5 h-5" />
+                </button>
+              )}
+
+              <img
+                src={menuPhotos[lightboxIndex].url}
+                alt={menuPhotos[lightboxIndex].alt}
+                className="max-h-[80vh] w-auto max-w-full rounded-xl object-contain shadow-2xl bg-white"
+              />
+
+              {menuPhotos.length > 1 && (
+                <button
+                  type="button"
+                  onClick={() => setLightboxIndex((lightboxIndex + 1) % menuPhotos.length)}
+                  aria-label="Next menu page"
+                  className="absolute right-2 z-10 p-2 rounded-full bg-stone-900/80 hover:bg-stone-900 text-white border border-white/15 cursor-pointer"
+                >
+                  <ChevronRight className="w-5 h-5" />
+                </button>
+              )}
+            </div>
           </div>
         </div>
       )}

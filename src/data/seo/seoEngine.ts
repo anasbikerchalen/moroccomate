@@ -1,4 +1,4 @@
-import type { EatListing, EatMenu } from '../../listings/types';
+import type { EatListing, EatMenu, MenuPhoto } from '../../listings/types';
 import { getListingRating } from '../../listings/utils';
 import { PLACE_SCHEMA_TYPE, type PlaceUrlCategory } from '../../listings/placeConstants';
 import { localizePath, type AppLanguage } from '../../utils/localeRouting';
@@ -279,6 +279,40 @@ function extractOpeningHoursSpecification(listing: any): Record<string, any>[] |
     ];
   }
   return undefined;
+}
+
+function extractMenuPhotos(menu: EatMenu | undefined, placeName: string): MenuPhoto[] {
+  if (!menu) return [];
+  if (Array.isArray(menu.menuPhotos) && menu.menuPhotos.length > 0) {
+    return menu.menuPhotos.filter((p) => Boolean(p?.url));
+  }
+  if (Array.isArray(menu.scannedMenuPhotos) && menu.scannedMenuPhotos.length > 0) {
+    return menu.scannedMenuPhotos.filter(Boolean).map((url, idx) => ({
+      url,
+      pageNumber: idx + 1,
+      title: `${placeName} Menu Page ${idx + 1}`,
+      alt: `${placeName} menu photo page ${idx + 1}`,
+      caption: `${placeName} printed menu page ${idx + 1}`,
+    }));
+  }
+  return [];
+}
+
+function buildMenuAssociatedMediaSchema(photos: MenuPhoto[], placeName: string) {
+  return photos.map((p, idx) => {
+    const absUrl = resolveAbsoluteImageUrl(p.url);
+    return {
+      '@type': 'ImageObject',
+      contentUrl: absUrl,
+      url: absUrl,
+      name: p.title || `${placeName} Menu Page ${p.pageNumber || idx + 1}`,
+      description: p.alt,
+      caption: p.caption || p.alt,
+      encodingFormat: 'image/jpeg',
+      ...(p.width ? { width: p.width } : {}),
+      ...(p.height ? { height: p.height } : {}),
+    };
+  });
 }
 
 function buildMenuSectionsSchema(menu: EatMenu | undefined, lang: AppLanguage) {
@@ -822,12 +856,19 @@ export function buildPlaceSeo(params: {
 
   const canonical = `/place/${cityKey}/${category}/${slug}`;
   const localizedCanonicalUrl = `${BASE_URL}${localizePath(canonical, lang)}`;
+  const eatMenu: EatMenu | undefined = isEat ? (listing?.ui?.menu || listing?.menu) : undefined;
+  const eatMenuPhotos = isEat ? extractMenuPhotos(eatMenu, name) : [];
   const rawImage =
     listing?.ui?.nonCopyrightImage ||
     listing?.nonCopyrightImage ||
     (Array.isArray(listing?.images) && listing.images[0]) ||
+    eatMenuPhotos[0]?.url ||
     undefined;
   const image = resolveAbsoluteImageUrl(rawImage);
+  const schemaImages =
+    eatMenuPhotos.length > 0
+      ? Array.from(new Set([image, ...eatMenuPhotos.map((p) => resolveAbsoluteImageUrl(p.url))]))
+      : image;
 
   const addressText =
     listing?.ui?.exactAddressAndCoordinates?.address ||
@@ -841,14 +882,14 @@ export function buildPlaceSeo(params: {
   const telephone = extractTelephone(listing);
   const sameAs = extractSameAsUrls(listing);
   const openingHoursSpecification = extractOpeningHoursSpecification(listing);
-  const eatMenu: EatMenu | undefined = isEat ? (listing?.ui?.menu || listing?.menu) : undefined;
   const eatMenuSections = isEat ? buildMenuSectionsSchema(eatMenu, lang) : [];
+  const eatMenuMediaSchema = isEat ? buildMenuAssociatedMediaSchema(eatMenuPhotos, name) : [];
 
   const schemaData: Record<string, any> = {
     name,
     description,
     url: localizedCanonicalUrl,
-    image,
+    image: schemaImages,
     inLanguage: lang,
     ...(telephone ? { telephone } : {}),
     ...(sameAs.length > 0 ? { sameAs } : {}),
@@ -918,6 +959,7 @@ export function buildPlaceSeo(params: {
                   url: `${BASE_URL}${localizePath(`${canonical}/menu`, lang)}`,
                   inLanguage: lang,
                   ...(eatMenuSections.length > 0 ? { hasMenuSection: eatMenuSections } : {}),
+                  ...(eatMenuMediaSchema.length > 0 ? { associatedMedia: eatMenuMediaSchema } : {}),
                 },
               }
             : {}),
@@ -1015,12 +1057,18 @@ export function buildMenuSeo(params: {
   const placeProfileUrl = `/place/${cityKey}/food/${slug}`;
   const localizedCanonicalUrl = `${BASE_URL}${localizePath(canonical, lang)}`;
 
+  const menuPhotos = extractMenuPhotos(menu, name);
   const rawImage =
     listing.ui?.nonCopyrightImage ||
     listing.nonCopyrightImage ||
     (Array.isArray(listing.images) && listing.images[0]) ||
+    menuPhotos[0]?.url ||
     undefined;
   const image = resolveAbsoluteImageUrl(rawImage);
+  const schemaImages =
+    menuPhotos.length > 0
+      ? Array.from(new Set([image, ...menuPhotos.map((p) => resolveAbsoluteImageUrl(p.url))]))
+      : image;
 
   const rating = getListingRating(listing);
   const servesAlcohol = Boolean(
@@ -1042,6 +1090,7 @@ export function buildMenuSeo(params: {
   ];
 
   const menuSectionsForSchema = buildMenuSectionsSchema(menu, lang);
+  const menuMediaSchema = buildMenuAssociatedMediaSchema(menuPhotos, name);
 
   const coords = listing.ui?.coordinates || (listing as any).coordinates;
   const addressText = listing.ui?.address || `${loc}, Morocco`;
@@ -1049,7 +1098,7 @@ export function buildMenuSeo(params: {
   const schemaData: Record<string, any> = {
     name,
     url: localizedCanonicalUrl,
-    image,
+    image: schemaImages,
     inLanguage: lang,
     address: {
       '@type': 'PostalAddress',
@@ -1083,6 +1132,7 @@ export function buildMenuSeo(params: {
       url: localizedCanonicalUrl,
       inLanguage: lang,
       ...(menuSectionsForSchema.length > 0 ? { hasMenuSection: menuSectionsForSchema } : {}),
+      ...(menuMediaSchema.length > 0 ? { associatedMedia: menuMediaSchema } : {}),
     },
   };
 

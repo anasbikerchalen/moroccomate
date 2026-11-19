@@ -207,6 +207,16 @@ export interface MenuSection {
   items: MenuItem[];
 }
 
+export interface MenuPhoto {
+  url: string;
+  alt: string;
+  title?: string;
+  caption?: string;
+  width?: number;
+  height?: number;
+  pageNumber?: number;
+}
+
 export interface EatMenu {
   currency?: 'MAD';
   lastUpdated?: string;
@@ -214,6 +224,7 @@ export interface EatMenu {
   sections: MenuSection[];
   pdfUrl?: string;
   scannedMenuPhotos?: string[];
+  menuPhotos?: MenuPhoto[];
 }
 
 export interface EatListingQuiz {
