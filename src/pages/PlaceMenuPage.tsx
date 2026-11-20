@@ -11,6 +11,7 @@ import { cityMap } from '../data/cities';
 import { buildMenuSeo } from '../data/seo/seoEngine';
 import logoImg from '../assets/images/logo.png';
 import type { EatListing } from '../listings/types';
+import { hasListingTranslations, localizeListing } from '../listings/translations';
 
 export default function PlaceMenuPage() {
   const { city, slug: rawSlug } = useParams<{
@@ -25,7 +26,7 @@ export default function PlaceMenuPage() {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   }, [cityKey, rawSlug]);
 
-  const listing: EatListing | undefined = useMemo(() => {
+  const rawListing: EatListing | undefined = useMemo(() => {
     if (!cityKey || !rawSlug) return undefined;
     let found = getPlaceBySlug(cityKey, 'food', rawSlug);
     if (!found) {
@@ -36,6 +37,11 @@ export default function PlaceMenuPage() {
     }
     return found;
   }, [cityKey, rawSlug]);
+
+  const listing: EatListing | undefined = useMemo(
+    () => (rawListing ? localizeListing(rawListing, lang) : undefined),
+    [rawListing, lang]
+  );
 
   if (!listing) {
     return (
@@ -93,6 +99,7 @@ export default function PlaceMenuPage() {
         schemaData={menuSeo.schemaData}
         breadcrumbs={menuSeo.breadcrumbs}
         faq={menuSeo.faq}
+        disableHreflang={!hasListingTranslations(listing.id)}
       />
 
       {/* Slim, Minimal Top Bar */}

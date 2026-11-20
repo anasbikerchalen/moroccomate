@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { HelpCircle, ChevronDown } from 'lucide-react';
 import { cn } from '../../utils/cn';
 import type { FaqEntry } from '../../data/seo/faqEngine';
+import { useAppLanguage } from '../../utils/localeRouting';
+import { getPlaceUiCopy } from '../../data/placeUiI18n';
 
 interface PlaceFAQSectionProps {
   faqs: FaqEntry[];
@@ -14,10 +16,13 @@ interface PlaceFAQSectionProps {
 export const PlaceFAQSection: React.FC<PlaceFAQSectionProps> = ({
   faqs,
   placeName,
-  subtitle = 'Quick answers verified from house policies, menu pricing, and local logistics',
+  subtitle,
   className,
   defaultOpenIndex = 0,
 }) => {
+  const lang = useAppLanguage();
+  const ui = getPlaceUiCopy(lang);
+  const resolvedSubtitle = subtitle || ui.faq.defaultSubtitle;
   const [openIndices, setOpenIndices] = useState<Set<number>>(() => {
     const initial = new Set<number>();
     if (defaultOpenIndex !== null && defaultOpenIndex >= 0 && faqs.length > defaultOpenIndex) {
@@ -64,9 +69,9 @@ export const PlaceFAQSection: React.FC<PlaceFAQSectionProps> = ({
               id="place-faq-heading"
               className="font-serif text-xl sm:text-2xl font-bold text-[#142333] tracking-tight"
             >
-              Frequently Asked Questions about {placeName}
+              {ui.faq.headingForPlace(placeName)}
             </h2>
-            <p className="text-xs text-[#6B5D4D] mt-0.5">{subtitle}</p>
+            <p className="text-xs text-[#6B5D4D] mt-0.5">{resolvedSubtitle}</p>
           </div>
         </div>
 
@@ -76,7 +81,7 @@ export const PlaceFAQSection: React.FC<PlaceFAQSectionProps> = ({
             onClick={toggleAll}
             className="self-start sm:self-center text-xs font-semibold text-[#8A6D1F] hover:text-[#142333] px-3 py-1.5 rounded-lg border border-[#E5DCCE] bg-white hover:bg-[#FAF7F2] transition-colors cursor-pointer shrink-0 tabular-nums"
           >
-            {allExpanded ? 'Collapse all' : `Expand all (${faqs.length})`}
+            {allExpanded ? ui.faq.collapseAll : ui.faq.expandAll(faqs.length)}
           </button>
         )}
       </div>

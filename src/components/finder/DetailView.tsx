@@ -1,4 +1,5 @@
 // src/components/finder/DetailView.tsx
+import { useMemo } from 'react';
 import { motion } from 'motion/react';
 import { 
   Star, MapPin, Clock, Users, ExternalLink, ArrowLeft, 
@@ -14,6 +15,8 @@ import ActivityDetailView from './ActivityDetailView';
 import { getEatPriceMetrics } from '../../utils/eatPrice';
 import camelInsiderPointerImg from '../../assets/images/camel_insider_pointer.png';
 import { prefersReducedMotion } from '../../utils/playfulFeedback';
+import { useAppLanguage } from '../../utils/localeRouting';
+import { localizeListing } from '../../listings/translations';
 
 interface DetailViewProps {
   item: any;
@@ -55,8 +58,13 @@ function RatingStars({ rating }: { rating: number }) {
   );
 }
 
-export default function DetailView({ item, onBack, category }: DetailViewProps) {
+export default function DetailView({ item: rawItem, onBack, category }: DetailViewProps) {
   const { omitGoogleImage } = useExploreStore();
+  const lang = useAppLanguage();
+  const item = useMemo(
+    () => (rawItem ? localizeListing(rawItem, lang) : rawItem),
+    [rawItem, lang]
+  );
 
   if (!item) {
     return (

@@ -85,17 +85,85 @@ export interface PlaceReviewsData {
  * Calculates the relative time difference from a posted date string compared to today.
  * e.g. "3 days ago", "2 weeks ago", "4 months ago", "1 year ago"
  */
-export function formatRelativeTime(dateString: string): string {
-  if (!dateString) return 'Recently';
-  
+export function formatRelativeTime(
+  dateString: string,
+  lang: 'en' | 'fr' | 'es' | 'de' | 'ar' = 'en'
+): string {
+  const labels = {
+    en: {
+      recently: 'Recently',
+      justNow: 'Just now',
+      minsAgo: (m: number) => `${m} mins ago`,
+      hoursAgo: (h: number) => `${h} ${h === 1 ? 'hour' : 'hours'} ago`,
+      yesterday: 'Yesterday',
+      daysAgo: (d: number) => `${d} days ago`,
+      weeksAgo: (w: number) => `${w} ${w === 1 ? 'week' : 'weeks'} ago`,
+      monthsAgo: (m: number) => `${m} ${m === 1 ? 'month' : 'months'} ago`,
+      yearsAgo: (y: number) => `${y} ${y === 1 ? 'year' : 'years'} ago`,
+    },
+    fr: {
+      recently: 'Récemment',
+      justNow: 'À l’instant',
+      minsAgo: (m: number) => `Il y a ${m} min`,
+      hoursAgo: (h: number) => `Il y a ${h} ${h === 1 ? 'heure' : 'heures'}`,
+      yesterday: 'Hier',
+      daysAgo: (d: number) => `Il y a ${d} jours`,
+      weeksAgo: (w: number) => `Il y a ${w} ${w === 1 ? 'semaine' : 'semaines'}`,
+      monthsAgo: (m: number) => `Il y a ${m} mois`,
+      yearsAgo: (y: number) => `Il y a ${y} ${y === 1 ? 'an' : 'ans'}`,
+    },
+    es: {
+      recently: 'Recientemente',
+      justNow: 'Ahora mismo',
+      minsAgo: (m: number) => `Hace ${m} min`,
+      hoursAgo: (h: number) => `Hace ${h} ${h === 1 ? 'hora' : 'horas'}`,
+      yesterday: 'Ayer',
+      daysAgo: (d: number) => `Hace ${d} días`,
+      weeksAgo: (w: number) => `Hace ${w} ${w === 1 ? 'semana' : 'semanas'}`,
+      monthsAgo: (m: number) => `Hace ${m} ${m === 1 ? 'mes' : 'meses'}`,
+      yearsAgo: (y: number) => `Hace ${y} ${y === 1 ? 'año' : 'años'}`,
+    },
+    de: {
+      recently: 'Kürzlich',
+      justNow: 'Gerade eben',
+      minsAgo: (m: number) => `Vor ${m} Min.`,
+      hoursAgo: (h: number) => `Vor ${h} ${h === 1 ? 'Stunde' : 'Stunden'}`,
+      yesterday: 'Gestern',
+      daysAgo: (d: number) => `Vor ${d} Tagen`,
+      weeksAgo: (w: number) => `Vor ${w} ${w === 1 ? 'Woche' : 'Wochen'}`,
+      monthsAgo: (m: number) => `Vor ${m} ${m === 1 ? 'Monat' : 'Monaten'}`,
+      yearsAgo: (y: number) => `Vor ${y} ${y === 1 ? 'Jahr' : 'Jahren'}`,
+    },
+    ar: {
+      recently: 'مؤخراً',
+      justNow: 'الآن',
+      minsAgo: (m: number) => `منذ ${m} د`,
+      hoursAgo: (h: number) => `منذ ${h} ساعات`,
+      yesterday: 'أمس',
+      daysAgo: (d: number) => `منذ ${d} أيام`,
+      weeksAgo: (w: number) => `منذ ${w} أسابيع`,
+      monthsAgo: (m: number) => `منذ ${m} أشهر`,
+      yearsAgo: (y: number) => `منذ ${y} سنوات`,
+    },
+  }[lang] || {
+    recently: 'Recently',
+    justNow: 'Just now',
+    minsAgo: (m: number) => `${m} mins ago`,
+    hoursAgo: (h: number) => `${h} ${h === 1 ? 'hour' : 'hours'} ago`,
+    yesterday: 'Yesterday',
+    daysAgo: (d: number) => `${d} days ago`,
+    weeksAgo: (w: number) => `${w} ${w === 1 ? 'week' : 'weeks'} ago`,
+    monthsAgo: (m: number) => `${m} ${m === 1 ? 'month' : 'months'} ago`,
+    yearsAgo: (y: number) => `${y} ${y === 1 ? 'year' : 'years'} ago`,
+  };
+
+  if (!dateString) return labels.recently;
   const parsed = new Date(dateString);
-  if (isNaN(parsed.getTime())) return 'Recently';
+  if (isNaN(parsed.getTime())) return labels.recently;
 
   const now = new Date();
   const diffMs = now.getTime() - parsed.getTime();
-  
-  // Future date fallback
-  if (diffMs < 0) return 'Just now';
+  if (diffMs < 0) return labels.justNow;
 
   const diffSeconds = Math.floor(diffMs / 1000);
   const diffMinutes = Math.floor(diffSeconds / 60);
@@ -104,23 +172,23 @@ export function formatRelativeTime(dateString: string): string {
 
   if (diffDays === 0) {
     if (diffHours === 0) {
-      if (diffMinutes <= 1) return 'Just now';
-      return `${diffMinutes} mins ago`;
+      if (diffMinutes <= 1) return labels.justNow;
+      return labels.minsAgo(diffMinutes);
     }
-    return `${diffHours} ${diffHours === 1 ? 'hour' : 'hours'} ago`;
+    return labels.hoursAgo(diffHours);
   }
-  
-  if (diffDays === 1) return 'Yesterday';
-  if (diffDays < 7) return `${diffDays} days ago`;
+
+  if (diffDays === 1) return labels.yesterday;
+  if (diffDays < 7) return labels.daysAgo(diffDays);
 
   const diffWeeks = Math.floor(diffDays / 7);
-  if (diffWeeks < 4) return `${diffWeeks} ${diffWeeks === 1 ? 'week' : 'weeks'} ago`;
+  if (diffWeeks < 4) return labels.weeksAgo(diffWeeks);
 
   const diffMonths = Math.floor(diffDays / 30.4375);
-  if (diffMonths < 12) return `${diffMonths} ${diffMonths === 1 ? 'month' : 'months'} ago`;
+  if (diffMonths < 12) return labels.monthsAgo(diffMonths);
 
   const diffYears = Math.floor(diffDays / 365.25);
-  return `${diffYears} ${diffYears === 1 ? 'year' : 'years'} ago`;
+  return labels.yearsAgo(diffYears);
 }
 
 /**

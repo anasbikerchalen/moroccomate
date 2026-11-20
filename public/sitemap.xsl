@@ -2,7 +2,8 @@
 <xsl:stylesheet version="1.0"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:sitemap="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <xsl:output method="html" version="5.0" encoding="UTF-8" indent="yes" />
 
   <xsl:template match="/">
@@ -247,6 +248,10 @@
               <div class="stat-label">Things To Do</div>
               <div class="stat-value"><xsl:value-of select="count(sitemap:urlset/sitemap:url[contains(sitemap:loc, '/things/')])" /></div>
             </div>
+            <div class="stat-card">
+              <div class="stat-label">Image URLs</div>
+              <div class="stat-value"><xsl:value-of select="count(sitemap:urlset/sitemap:url/image:image)" /></div>
+            </div>
           </div>
 
           <div class="toolbar">
@@ -268,6 +273,7 @@
                   <th>URL</th>
                   <th>Type</th>
                   <th>Hreflang</th>
+                  <th>Images</th>
                   <th>Priority</th>
                   <th>Last Modified</th>
                 </tr>
@@ -310,6 +316,25 @@
                           <span class="badge badge-muted"><xsl:value-of select="count(xhtml:link)" /> alternates</span>
                         </xsl:when>
                         <xsl:otherwise>en</xsl:otherwise>
+                      </xsl:choose>
+                    </td>
+                    <td class="num">
+                      <xsl:choose>
+                        <xsl:when test="count(image:image) &gt; 0">
+                          <details>
+                            <summary style="cursor:pointer;">
+                              <span class="badge"><xsl:value-of select="count(image:image)" /> images</span>
+                            </summary>
+                            <div style="margin-top:6px;display:flex;flex-direction:column;gap:3px;font-size:11px;">
+                              <xsl:for-each select="image:image">
+                                <a class="url-link" href="{image:loc}">
+                                  <xsl:value-of select="image:loc" />
+                                </a>
+                              </xsl:for-each>
+                            </div>
+                          </details>
+                        </xsl:when>
+                        <xsl:otherwise>—</xsl:otherwise>
                       </xsl:choose>
                     </td>
                     <td class="num"><xsl:value-of select="sitemap:priority" /></td>

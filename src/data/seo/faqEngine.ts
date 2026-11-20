@@ -212,20 +212,66 @@ export function buildPlaceFaqs({
 
     // 4. Reservations & Popular Dishes
     if (reservationMethod.length > 0 || dishes.length > 0) {
-      if (lang === 'en') {
-        const resBits: string[] = [];
-        if (reservationMethod.includes('walk-in') && reservationMethod.length === 1) {
-          resBits.push(`${name} operates primarily on a walk-in basis`);
-        } else if (reservationMethod.length > 0) {
-          const methodsReadable = reservationMethod
-            .map((m) => (m === 'whatsapp' ? 'WhatsApp' : m === 'website' ? 'online booking' : m))
-            .join(', ');
-          resBits.push(`Reservations can be arranged via ${methodsReadable}${reservationContact ? ` (${reservationContact})` : ''}`);
-        }
-        if (typeof avgWait === 'number' && avgWait > 0) {
-          resBits.push(`typical table/kitchen wait time is around ${avgWait} minutes`);
-        }
-        if (resBits.length > 0) {
+      const resBits: string[] = [];
+      if (reservationMethod.includes('walk-in') && reservationMethod.length === 1) {
+        if (lang === 'fr') resBits.push(`${name} fonctionne principalement sans réservation`);
+        else if (lang === 'es') resBits.push(`${name} funciona principalmente sin reserva previa`);
+        else if (lang === 'de') resBits.push(`${name} empfängt Gäste überwiegend ohne Vorreservierung`);
+        else if (lang === 'ar') resBits.push(`يعمل ${name} أساساً بنظام الحضور المباشر دون حجز مسبق`);
+        else resBits.push(`${name} operates primarily on a walk-in basis`);
+      } else if (reservationMethod.length > 0) {
+        const methodsReadable = reservationMethod
+          .map((m) =>
+            m === 'whatsapp'
+              ? 'WhatsApp'
+              : m === 'website'
+                ? lang === 'fr'
+                  ? 'réservation en ligne'
+                  : lang === 'es'
+                    ? 'reserva online'
+                    : lang === 'de'
+                      ? 'Online-Reservierung'
+                      : lang === 'ar'
+                        ? 'الحجز عبر الإنترنت'
+                        : 'online booking'
+                : m
+          )
+          .join(', ');
+        if (lang === 'fr') resBits.push(`Les réservations se font via ${methodsReadable}${reservationContact ? ` (${reservationContact})` : ''}`);
+        else if (lang === 'es') resBits.push(`Se puede reservar mediante ${methodsReadable}${reservationContact ? ` (${reservationContact})` : ''}`);
+        else if (lang === 'de') resBits.push(`Reservierungen sind per ${methodsReadable}${reservationContact ? ` (${reservationContact})` : ''} möglich`);
+        else if (lang === 'ar') resBits.push(`يمكن الحجز عبر ${methodsReadable}${reservationContact ? ` (${reservationContact})` : ''}`);
+        else resBits.push(`Reservations can be arranged via ${methodsReadable}${reservationContact ? ` (${reservationContact})` : ''}`);
+      }
+      if (typeof avgWait === 'number' && avgWait > 0) {
+        if (lang === 'fr') resBits.push(`le temps d'attente habituel est d'environ ${avgWait} minutes`);
+        else if (lang === 'es') resBits.push(`el tiempo de espera habitual es de unos ${avgWait} minutos`);
+        else if (lang === 'de') resBits.push(`die übliche Wartezeit beträgt etwa ${avgWait} Minuten`);
+        else if (lang === 'ar') resBits.push(`متوسط وقت الانتظار المعتاد نحو ${avgWait} دقيقة`);
+        else resBits.push(`typical table/kitchen wait time is around ${avgWait} minutes`);
+      }
+      if (resBits.length > 0) {
+        if (lang === 'fr') {
+          generated.push({
+            question: `Faut-il réserver une table chez ${name} ?`,
+            answer: `${resBits.join(' ; ')}.${bestTime ? ` Il est conseillé d'arriver vers ${bestTime} ou de réserver pour les soirées chargées.` : ''}`,
+          });
+        } else if (lang === 'es') {
+          generated.push({
+            question: `¿Es necesario reservar en ${name}?`,
+            answer: `${resBits.join('; ')}.${bestTime ? ` Se recomienda llegar sobre ${bestTime} o reservar en fin de semana.` : ''}`,
+          });
+        } else if (lang === 'de') {
+          generated.push({
+            question: `Braucht man im ${name} eine Reservierung?`,
+            answer: `${resBits.join('; ')}.${bestTime ? ` Empfohlen wird ein Besuch gegen ${bestTime} oder eine Reservierung am Wochenende.` : ''}`,
+          });
+        } else if (lang === 'ar') {
+          generated.push({
+            question: `هل أحتاج إلى حجز مسبق في ${name}؟`,
+            answer: `${resBits.join('؛ ')}.${bestTime ? ` يُنصح بالوصول نحو ${bestTime} أو الحجز مسبقاً في عطلة نهاية الأسبوع.` : ''}`,
+          });
+        } else {
           generated.push({
             question: `Do I need a reservation at ${name}?`,
             answer: `${resBits.join('; ')}.${bestTime ? ` Arriving around ${bestTime} or booking ahead for busy weekend evenings is recommended.` : ''}`,
@@ -236,26 +282,96 @@ export function buildPlaceFaqs({
 
     // 5. Cuisine & signature dishes
     if (cuisines.length > 0 || dishes.length > 0) {
-      if (lang === 'en') {
+      const cuisineList = cuisines.length > 0 ? cuisines.join(', ') : (lang === 'fr' ? 'marocaine' : lang === 'es' ? 'marroquí' : lang === 'de' ? 'marokkanischer' : lang === 'ar' ? 'المغربي' : 'Moroccan');
+      if (lang === 'fr') {
+        generated.push({
+          question: `Quelle cuisine propose ${name} ?`,
+          answer: `${name} propose une cuisine ${cuisineList} à ${locPhrase}.${dishes.length > 0 ? ` Parmi les plats signatures : ${dishes.slice(0, 4).join(', ')}.` : ''}`,
+        });
+      } else if (lang === 'es') {
+        generated.push({
+          question: `¿Qué tipo de comida sirve ${name}?`,
+          answer: `${name} ofrece cocina ${cuisineList} en ${locPhrase}.${dishes.length > 0 ? ` Entre sus platos destacados figuran ${dishes.slice(0, 4).join(', ')}.` : ''}`,
+        });
+      } else if (lang === 'de') {
+        generated.push({
+          question: `Welche Küche bietet ${name}?`,
+          answer: `${name} serviert ${cuisineList} Küche in ${locPhrase}.${dishes.length > 0 ? ` Zu den beliebtesten Gerichten zählen ${dishes.slice(0, 4).join(', ')}.` : ''}`,
+        });
+      } else if (lang === 'ar') {
+        generated.push({
+          question: `ما نوع المطبخ والأطباق في ${name}؟`,
+          answer: `يشتهر ${name} بتقديم مطبخ ${cuisineList} في ${locPhrase}.${dishes.length > 0 ? ` ومن أبرز الأطباق المميزة: ${dishes.slice(0, 4).join('، ')}.` : ''}`,
+        });
+      } else {
         generated.push({
           question: `What type of food is ${name} known for?`,
-          answer: `${name} specializes in ${cuisines.length > 0 ? cuisines.join(', ') : 'Moroccan'} cuisine in ${locPhrase}.${dishes.length > 0 ? ` Standout signature items include ${dishes.slice(0, 4).join(', ')}.` : ''}`,
+          answer: `${name} specializes in ${cuisineList} cuisine in ${locPhrase}.${dishes.length > 0 ? ` Standout signature items include ${dishes.slice(0, 4).join(', ')}.` : ''}`,
         });
       }
     }
 
     // 6. Location, parking & payment
     if (address || payments || typeof hasParking === 'boolean') {
-      if (lang === 'en') {
-        const details: string[] = [];
-        if (address) details.push(`Located at ${address}`);
-        if (typeof hasParking === 'boolean') {
-          details.push(hasParking ? 'parking is available nearby' : 'street parking is limited so walking or a short taxi ride is easiest');
-        }
-        if (payments) details.push(`accepted payment methods include ${payments}`);
-        if (hasDelivery) details.push('local delivery is also available');
+      const details: string[] = [];
+      if (address) {
+        details.push(
+          lang === 'fr'
+            ? `Situé au ${address}`
+            : lang === 'es'
+              ? `Ubicado en ${address}`
+              : lang === 'de'
+                ? `Adresse: ${address}`
+                : lang === 'ar'
+                  ? `العنوان: ${address}`
+                  : `Located at ${address}`
+        );
+      }
+      if (typeof hasParking === 'boolean') {
+        if (lang === 'fr') details.push(hasParking ? 'un parking est disponible à proximité' : 'stationnement limité dans la rue, accès facile à pied ou en taxi');
+        else if (lang === 'es') details.push(hasParking ? 'hay aparcamiento cercano disponible' : 'el aparcamiento en la calle es limitado, conviene llegar a pie o en taxi');
+        else if (lang === 'de') details.push(hasParking ? 'Parkplätze sind in der Nähe vorhanden' : 'Straßenparkplätze sind begrenzt, zu Fuß oder per Taxi am einfachsten');
+        else if (lang === 'ar') details.push(hasParking ? 'يتوفر موقف سيارات قريب' : 'المواقف محدودة في الشارع ويفضل الوصول مشياً أو بسيارة أجرة');
+        else details.push(hasParking ? 'parking is available nearby' : 'street parking is limited so walking or a short taxi ride is easiest');
+      }
+      if (payments) {
+        details.push(
+          lang === 'fr'
+            ? `moyens de paiement acceptés : ${payments}`
+            : lang === 'es'
+              ? `métodos de pago aceptados: ${payments}`
+              : lang === 'de'
+                ? `akzeptierte Zahlungsmittel: ${payments}`
+                : lang === 'ar'
+                  ? `طرق الدفع المقبولة: ${payments}`
+                  : `accepted payment methods include ${payments}`
+        );
+      }
+      if (hasDelivery) {
+        details.push(
+          lang === 'fr'
+            ? 'livraison locale également disponible'
+            : lang === 'es'
+              ? 'también ofrece entrega local'
+              : lang === 'de'
+                ? 'lokaler Lieferservice verfügbar'
+                : lang === 'ar'
+                  ? 'تتوفر خدمة التوصيل المحلي'
+                  : 'local delivery is also available'
+        );
+      }
+      if (details.length > 0) {
         generated.push({
-          question: `Where is ${name} located and what payment methods are accepted?`,
+          question:
+            lang === 'fr'
+              ? `Où se trouve ${name} et quels paiements sont acceptés ?`
+              : lang === 'es'
+                ? `¿Dónde está ${name} y qué métodos de pago acepta?`
+                : lang === 'de'
+                  ? `Wo liegt ${name} und welche Zahlungsmittel werden akzeptiert?`
+                  : lang === 'ar'
+                    ? `أين يقع ${name} وما هي طرق الدفع المقبولة؟`
+                    : `Where is ${name} located and what payment methods are accepted?`,
           answer: `${details.join('. ')}.`,
         });
       }

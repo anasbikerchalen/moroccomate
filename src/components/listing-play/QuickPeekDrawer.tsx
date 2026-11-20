@@ -13,6 +13,8 @@ import {
   RefreshCw,
 } from 'lucide-react';
 import { LocalizedLink } from '../ui/LocalizedLink';
+import { useAppLanguage } from '../../utils/localeRouting';
+import { getPlaceUiCopy } from '../../data/placeUiI18n';
 import { cn } from '../../utils/cn';
 import type { DeckPlaceItem } from '../../utils/listingDeckEngine';
 import { useSavedStore } from '../../state/savedStore';
@@ -30,6 +32,8 @@ export const QuickPeekDrawer: React.FC<QuickPeekDrawerProps> = ({
   onClose,
   onSpinAnother,
 }) => {
+  const lang = useAppLanguage();
+  const ui = getPlaceUiCopy(lang);
   const { toggleBookmark, isBookmarked } = useSavedStore();
   const entries = usePassportStore((s) => s.entries);
 
@@ -87,7 +91,7 @@ export const QuickPeekDrawer: React.FC<QuickPeekDrawerProps> = ({
                       <span aria-hidden="true">·</span>
                       <span className="inline-flex items-center gap-1 text-[#1F4B34] font-bold">
                         <Stamp className="w-3 h-3" />
-                        Stamped
+                        {ui.play.stamped}
                       </span>
                     </>
                   )}
@@ -135,7 +139,7 @@ export const QuickPeekDrawer: React.FC<QuickPeekDrawerProps> = ({
               <button
                 type="button"
                 onClick={onClose}
-                aria-label="Close quick peek"
+                aria-label={ui.play.closeQuickPeek}
                 className="p-2 rounded-full bg-white hover:bg-stone-100 border border-[#E5D9C5] text-[#5E5448] transition-colors cursor-pointer shrink-0"
               >
                 <X className="w-4 h-4" />
@@ -153,7 +157,7 @@ export const QuickPeekDrawer: React.FC<QuickPeekDrawerProps> = ({
               {place.highlights && place.highlights.length > 0 && (
                 <div>
                   <p className="text-[11px] font-bold uppercase tracking-wider text-[#6F6559] mb-2">
-                    Highlights
+                    {ui.play.highlights}
                   </p>
                   <div className="flex flex-wrap gap-1.5">
                     {place.highlights.map((h, i) => (
@@ -175,7 +179,7 @@ export const QuickPeekDrawer: React.FC<QuickPeekDrawerProps> = ({
                   </div>
                   <div className="text-xs leading-relaxed text-stone-100">
                     <span className="font-bold text-[#F5D782] block mb-0.5">
-                      Insider Tip
+                      {ui.play.insiderTip}
                     </span>
                     {place.tip}
                   </div>
@@ -212,7 +216,7 @@ export const QuickPeekDrawer: React.FC<QuickPeekDrawerProps> = ({
                   )}
                 >
                   <Heart className={cn('w-3.5 h-3.5', saved && 'fill-current')} />
-                  <span>{saved ? 'Saved' : 'Save'}</span>
+                  <span>{saved ? ui.play.saved : ui.play.save}</span>
                 </button>
 
                 {onSpinAnother && (
@@ -225,7 +229,7 @@ export const QuickPeekDrawer: React.FC<QuickPeekDrawerProps> = ({
                     className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold bg-[#FAF8F4] hover:bg-[#F3ECE2] text-[#2D261E] border border-[#E5D9C5] transition-colors cursor-pointer whitespace-nowrap shrink-0"
                   >
                     <RefreshCw className="w-3.5 h-3.5 text-[#C85A32]" />
-                    <span>Next Spin</span>
+                    <span>{ui.play.nextSpin}</span>
                   </button>
                 )}
 
@@ -234,7 +238,7 @@ export const QuickPeekDrawer: React.FC<QuickPeekDrawerProps> = ({
                     href={place.googleMapsUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    title="Open on Google Maps"
+                    title={ui.play.openMapsTitle}
                     className="inline-flex items-center justify-center p-2 rounded-xl bg-[#FAF8F4] hover:bg-[#F3ECE2] text-[#5E5448] border border-[#E5D9C5] transition-colors shrink-0"
                   >
                     <ExternalLink className="w-3.5 h-3.5" />
@@ -251,7 +255,7 @@ export const QuickPeekDrawer: React.FC<QuickPeekDrawerProps> = ({
                 className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-[#C85A32] hover:bg-[#B24B26] text-white text-xs font-bold shadow-xs transition-all whitespace-nowrap shrink-0"
               >
                 <Compass className="w-3.5 h-3.5" />
-                <span>Open Full Guide</span>
+                <span>{ui.play.openFullGuide}</span>
                 <ArrowRight className="w-3.5 h-3.5 rtl:rotate-180" />
               </LocalizedLink>
             </div>

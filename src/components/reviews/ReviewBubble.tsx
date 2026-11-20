@@ -5,11 +5,14 @@ import { formatRelativeTime } from '../../types/reviews';
 import CamelRating from '../finder/CamelRating';
 import PlatformIcon from './PlatformIcon';
 import { cn } from '../../utils/cn';
+import { useAppLanguage } from '../../utils/localeRouting';
+import { getPlaceUiCopy, type PlaceUiCopy } from '../../data/placeUiI18n';
 
 interface ReviewBubbleProps {
   review: SingleReview;
   reviewKey: string;
   onExpandChange?: (reviewKey: string, expanded: boolean) => void;
+  isDuplicateLoop?: boolean;
 }
 
 const EXPAND_CHAR_THRESHOLD = 185;
@@ -18,7 +21,15 @@ const EXPAND_CHAR_THRESHOLD = 185;
  * Clean SVG avatar for Man / Woman / Neutral reviewer.
  * Uses vector icons only (no external portrait images).
  */
-function GenderAvatar({ gender, tone }: { gender?: 'man' | 'woman' | 'other'; tone: 'good' | 'bad' | 'neutral' }) {
+function GenderAvatar({
+  gender,
+  tone,
+  ui,
+}: {
+  gender?: 'man' | 'woman' | 'other';
+  tone: 'good' | 'bad' | 'neutral';
+  ui: PlaceUiCopy;
+}) {
   const toneRing =
     tone === 'good'
       ? 'bg-white/90 border-[#cde4d1] text-[#225c39]'
@@ -33,7 +44,7 @@ function GenderAvatar({ gender, tone }: { gender?: 'man' | 'woman' | 'other'; to
           'w-9 h-9 rounded-full border flex items-center justify-center shrink-0 shadow-2xs',
           toneRing
         )}
-        title="Woman reviewer"
+        title={ui.reviews.womanReviewer}
       >
         <svg
           className="w-5 h-5"
@@ -59,7 +70,7 @@ function GenderAvatar({ gender, tone }: { gender?: 'man' | 'woman' | 'other'; to
         'w-9 h-9 rounded-full border flex items-center justify-center shrink-0 shadow-2xs',
         toneRing
       )}
-      title="Man reviewer"
+      title={ui.reviews.manReviewer}
     >
       <svg
         className="w-5 h-5"
@@ -91,12 +102,15 @@ function resolveSentimentTone(review: SingleReview): 'good' | 'bad' | 'neutral' 
 export const ReviewBubble: React.FC<ReviewBubbleProps> = ({
   review,
   reviewKey,
-  onExpandChange
+  onExpandChange,
+  isDuplicateLoop = false,
 }) => {
+  const lang = useAppLanguage();
+  const ui = getPlaceUiCopy(lang);
   const { author, gender, text, postedDate, source, rating = 5, sourceUrl, tags = [] } = review;
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const relativeDate = formatRelativeTime(postedDate);
+  const relativeDate = formatRelativeTime(postedDate, lang);
   const tone = resolveSentimentTone(review);
   const isLongText = text.length > EXPAND_CHAR_THRESHOLD;
 
@@ -113,8 +127,11 @@ export const ReviewBubble: React.FC<ReviewBubbleProps> = ({
     onExpandChange?.(reviewKey, next);
   };
 
+  const ContainerTag = isDuplicateLoop ? 'div' : 'article';
+  const AuthorTag = isDuplicateLoop ? 'div' : 'h4';
+
   return (
-    <article
+    <ContainerTag
       className={cn(
         'group relative flex flex-col justify-between rounded-2xl border p-4 sm:p-5 transition-all duration-200 shadow-2xs',
         surfaceClass
@@ -123,11 +140,11 @@ export const ReviewBubble: React.FC<ReviewBubbleProps> = ({
       {/* Top Row: Man/Woman Avatar + Author & Source/Relative Date + Camel Rating */}
       <div className="flex items-start justify-between gap-2.5 mb-2.5">
         <div className="flex items-center gap-2.5 min-w-0">
-          <GenderAvatar gender={gender} tone={tone} />
+          <GenderAvatar gender={gender} tone={tone} ui={ui} />
           <div className="min-w-0">
-            <h4 className="text-sm font-bold text-[#173042] truncate leading-tight">
+            <AuthorTag className="text-sm font-bold text-[#173042] truncate leading-tight">
               {author}
-            </h4>
+            </AuthorTag>
             <div className="flex items-center gap-1.5 mt-0.5 text-xs text-[#5d6870] min-w-0">
               <PlatformIcon source={source} size="xs" />
               <span className="font-medium text-[#374651] truncate">{source}</span>
@@ -157,7 +174,7 @@ export const ReviewBubble: React.FC<ReviewBubbleProps> = ({
             onClick={handleToggleExpand}
             className="mt-1.5 inline-flex items-center gap-1 text-xs font-bold text-[#173042] hover:text-[#8c6d37] underline-offset-2 hover:underline cursor-pointer transition-colors"
           >
-            <span>{isExpanded ? 'Show less' : 'Expand text'}</span>
+            <span>{isExpanded ? ui.reviews.showLess : ui.reviews.expandText}</span>
             {isExpanded ? (
               <ChevronUp className="w-3.5 h-3.5" />
             ) : (
@@ -185,15 +202,15 @@ export const ReviewBubble: React.FC<ReviewBubbleProps> = ({
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#173042] hover:text-[#8c6d37] transition-colors"
-              title={`View original review on ${source}`}
+              title={ui.reviews.viewOriginalReview(source)}
             >
-              <span>Source</span>
+              <span>{ui.reviews.source}</span>
               <ExternalLink className="w-3 h-3" />
             </a>
           )}
         </div>
       )}
-    </article>
+    </ContainerTag>
   );
 };
 

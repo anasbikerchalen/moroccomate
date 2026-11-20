@@ -25,6 +25,8 @@ import { cityMap } from '../data/cities';
 import logoImg from '../assets/images/logo.png';
 import { getStayOwnerAnswer } from '../engine/stayAdapter';
 import { getCityPopularIntents, doesListingMatchIntent } from '../data/seo/searchIntents';
+import { hasListingTranslations, localizeListing } from '../listings/translations';
+import { getPlaceUiCopy, localizeCityName } from '../data/placeUiI18n';
 
 import { getActivityByCityAndSlug } from '../things-to-do';
 import { usePassportStore } from '../state/passportStore';
@@ -154,7 +156,12 @@ export default function PlaceListingPage() {
     return { category: null, slug: undefined, listing: undefined, redirectUrl: null };
   }, [cityKey, categoryParam, rawSlug, categoryOrSlug]);
 
-  const { category, slug, listing, redirectUrl } = resolved;
+  const { category, slug, listing: rawListing, redirectUrl } = resolved;
+
+  const listing = useMemo(
+    () => (rawListing ? localizeListing(rawListing, lang) : undefined),
+    [rawListing, lang]
+  );
 
   // Execute canonical URL replacement in history without flashing "Place not found"
   useEffect(() => {
@@ -169,8 +176,9 @@ export default function PlaceListingPage() {
     try {
       const index = getPlaceIndex(cityKey, category);
       const siblings: Array<{ slug: string; name: string; neighborhood?: string; rating?: number }> = [];
-      for (const [s, l] of index.bySlug.entries()) {
+      for (const [s, rawEntry] of index.bySlug.entries()) {
         if (s !== slug) {
+          const l = localizeListing(rawEntry, lang);
           const r = getListingRating(l);
           siblings.push({
             slug: s,
@@ -185,7 +193,7 @@ export default function PlaceListingPage() {
     } catch {
       return [];
     }
-  }, [cityKey, category, slug]);
+  }, [cityKey, category, slug, lang]);
 
   // High-intent search filter links for this city (only intents backed by >=3 places)
   const popularIntents = useMemo(() => {
@@ -214,7 +222,9 @@ export default function PlaceListingPage() {
     [passportEntries]
   );
 
-  const cityLabel = cityMap[cityKey]?.name || (cityKey ? cityKey.charAt(0).toUpperCase() + cityKey.slice(1).replace(/_/g, ' ') : 'Morocco');
+  const rawCityLabel = cityMap[cityKey]?.name || (cityKey ? cityKey.charAt(0).toUpperCase() + cityKey.slice(1).replace(/_/g, ' ') : 'Morocco');
+  const cityLabel = localizeCityName(cityKey, rawCityLabel, lang);
+  const ui = getPlaceUiCopy(lang);
   const placeName = listing ? (listing.name || listing.title || 'Place') : '';
 
   // Record visit in Passport on listing load
@@ -316,7 +326,7 @@ export default function PlaceListingPage() {
     listing,
     category: category!,
     cityKey,
-    cityLabel,
+    cityLabel: rawCityLabel,
     slug: slug!,
     lang,
     ownerAnswer,
@@ -346,25 +356,26 @@ export default function PlaceListingPage() {
         schemaData={seoBundle.schemaData}
         faq={seoBundle.faq}
         breadcrumbs={seoBundle.breadcrumbs}
+        disableHreflang={!hasListingTranslations(listing.id)}
       />
 
       {/* Minimal header: back navigation + wordmark */}
       <header className="sticky top-0 z-40 bg-[#FAF9F5]/95 backdrop-blur-sm border-b border-[#ece4d5]">
-        <div className="mx-auto w-full max-w-6xl flex items-center justify-between gap-2 px-4 py-3.5 sm:px-6 lg:px-8">
+        <div className="mx-auto w-full max-w-6xl flex items-center justify-between gap-2 px-3 py-2.5 sm:px-6 sm:py-3.5 lg:px-8">
           <button
             type="button"
             onClick={handleBack}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white hover:bg-stone-50 border border-[#ece4d5] shadow-xs text-sm font-bold text-[#173042] hover:border-[#C9A84C] transition-all cursor-pointer active:scale-95"
+            className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3.5 py-1.5 rounded-full bg-white hover:bg-stone-50 border border-[#ece4d5] shadow-xs text-xs sm:text-sm font-bold text-[#173042] hover:border-[#C9A84C] transition-all cursor-pointer active:scale-95 shrink-0"
             title={t('place.backToListings')}
           >
-            <ArrowLeft className="w-4 h-4 text-[#173042] rtl:rotate-180" />
+            <ArrowLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#173042] rtl:rotate-180 shrink-0" />
             <span>{t('common.back')}</span>
           </button>
-          <LocalizedLink to="/" className="flex items-center gap-2">
-            <img src={logoImg} alt="Moroccan Mate logo" className="w-7 h-7 object-contain" />
-            <span className="font-display text-base font-bold text-[#173042]">Moroccan Mate</span>
+          <LocalizedLink to="/" className="flex items-center gap-1.5 sm:gap-2 shrink-0 min-w-0">
+            <img src={logoImg} alt="Moroccan Mate logo" className="w-6 h-6 sm:w-7 sm:h-7 object-contain shrink-0" />
+            <span className="font-display text-sm sm:text-base font-bold text-[#173042] whitespace-nowrap">Moroccan Mate</span>
           </LocalizedLink>
-          <div className="flex items-center gap-1.5 sm:gap-2">
+          <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
             <LanguageSwitcher compact />
             <button
               type="button"
@@ -372,12 +383,12 @@ export default function PlaceListingPage() {
                 playTactileSound('tick');
                 setPassportOpen(true);
               }}
-              className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-full bg-white hover:bg-[#FAF3EA] border border-[#ece4d5] shadow-xs hover:border-[#C9A84C] transition-all cursor-pointer text-[#173042]"
-              aria-label="Open Moroccan Mate Passport"
-              title="Open Moroccan Mate Passport"
+              className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white hover:bg-[#FAF3EA] border border-[#ece4d5] shadow-xs hover:border-[#C9A84C] transition-all cursor-pointer text-[#173042]"
+              aria-label={ui.play.openPassportAria}
+              title={ui.play.openPassportAria}
             >
               <Stamp className="w-3.5 h-3.5 text-[#C85A32]" />
-              <span className="font-sans text-xs font-semibold hidden md:inline">Passport</span>
+              <span className="font-sans text-xs font-semibold">{ui.play.passport}</span>
               {totalStampsCount > 0 && (
                 <span className="bg-[#173042] text-[#F5D782] text-[10px] font-bold px-1.5 py-0.2 rounded-full leading-none tabular-nums">
                   {totalStampsCount}
@@ -433,6 +444,36 @@ export default function PlaceListingPage() {
           id="listing-play-discovery-zone"
           className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6 lg:px-8 border-t border-[#ece4d5] mt-12 space-y-8"
         >
+          {/* Mobile Traveler Passport Entry (kept out of crowded mobile top bar) */}
+          <div className="sm:hidden">
+            <button
+              type="button"
+              onClick={() => {
+                playTactileSound('tick');
+                setPassportOpen(true);
+              }}
+              className="w-full flex items-center justify-between gap-3 px-4 py-3 rounded-2xl bg-white border border-[#E5D9C5] hover:border-[#C9A84C] shadow-2xs transition-all cursor-pointer text-start"
+              aria-label={ui.play.openPassportAria}
+            >
+              <div className="flex items-center gap-2.5 min-w-0">
+                <span className="w-9 h-9 rounded-xl bg-[#FAF3EA] border border-[#EADBCE] flex items-center justify-center shrink-0">
+                  <Stamp className="w-4 h-4 text-[#C85A32]" />
+                </span>
+                <div className="min-w-0">
+                  <span className="block font-serif text-sm font-bold text-[#173042]">{ui.play.travelerPassport}</span>
+                  <span className="block text-[11px] text-[#71685F] truncate">
+                    {totalStampsCount > 0
+                      ? ui.play.placesStamped(totalStampsCount)
+                      : ui.play.collectStamps}
+                  </span>
+                </div>
+              </div>
+              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#173042] text-[#F5D782] text-[11px] font-bold shrink-0 tabular-nums">
+                {totalStampsCount > 0 ? `${totalStampsCount} ★` : ui.play.openLabel}
+              </span>
+            </button>
+          </div>
+
           {/* 1. Booklet City Deck Swipe Bar (Prev / Next in City) */}
           {category && slug && (
             <CityDeckNavigator
@@ -479,9 +520,9 @@ export default function PlaceListingPage() {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <TiltPeekCard
                   className="rounded-2xl"
-                  quickPeekLabel={`Peek a stay in ${cityLabel}`}
+                  quickPeekLabel={ui.play.peekStay(cityLabel)}
                   onQuickPeek={() => {
-                    const pick = pickCompassSuggestion({ cityKey, filterCategory: 'sleep' });
+                    const pick = pickCompassSuggestion({ cityKey, filterCategory: 'sleep', lang });
                     if (pick) setPeekPlace(pick);
                   }}
                 >
@@ -506,9 +547,9 @@ export default function PlaceListingPage() {
 
                 <TiltPeekCard
                   className="rounded-2xl"
-                  quickPeekLabel={`Peek an activity in ${cityLabel}`}
+                  quickPeekLabel={ui.play.peekActivity(cityLabel)}
                   onQuickPeek={() => {
-                    const pick = pickCompassSuggestion({ cityKey, filterCategory: 'things' });
+                    const pick = pickCompassSuggestion({ cityKey, filterCategory: 'things', lang });
                     if (pick) setPeekPlace(pick);
                   }}
                 >
@@ -533,9 +574,9 @@ export default function PlaceListingPage() {
 
                 <TiltPeekCard
                   className="rounded-2xl"
-                  quickPeekLabel={`Peek a shop in ${cityLabel}`}
+                  quickPeekLabel={ui.play.peekShop(cityLabel)}
                   onQuickPeek={() => {
-                    const pick = pickCompassSuggestion({ cityKey, filterCategory: 'shopping' });
+                    const pick = pickCompassSuggestion({ cityKey, filterCategory: 'shopping', lang });
                     if (pick) setPeekPlace(pick);
                   }}
                 >
@@ -584,9 +625,9 @@ export default function PlaceListingPage() {
                     <TiltPeekCard
                       key={sibling.slug}
                       className="rounded-xl"
-                      quickPeekLabel={`Quick peek ${sibling.name}`}
+                      quickPeekLabel={ui.play.quickPeekAria(sibling.name)}
                       onQuickPeek={() => {
-                        const full = category ? getDeckPlaceBySlug(cityKey, category, sibling.slug) : null;
+                        const full = category ? getDeckPlaceBySlug(cityKey, category, sibling.slug, lang) : null;
                         if (full) setPeekPlace(full);
                       }}
                     >
@@ -680,6 +721,7 @@ export default function PlaceListingPage() {
             excludeSlug: slug,
             excludeCategory: category || undefined,
             lastPickedSlug: peekPlace.slug,
+            lang,
           });
           if (nextPick) setPeekPlace(nextPick);
         }}

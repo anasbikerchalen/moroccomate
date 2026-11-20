@@ -45,6 +45,19 @@ import { hasVerifiedReviews, hasVerifiedWorries } from './listingNavUtils';
 import type { ReviewSource } from '../../types/reviews';
 import { useAppLanguage, useLangPath } from '../../utils/localeRouting';
 import LocalizedLink from '../ui/LocalizedLink';
+import {
+  getPlaceUiCopy,
+  localizeCityName,
+  localizeCuisineLabel,
+  localizeExperienceBadge,
+  localizeGroupType,
+  localizeSeatingType,
+  localizeViewType,
+  localizePaymentMethod,
+  localizeLanguageSpoken,
+  localizeDayName,
+} from '../../data/placeUiI18n';
+import { localizeListing } from '../../listings/translations';
 
 interface EatDetailViewProps {
   item: any;
@@ -54,6 +67,7 @@ interface EatDetailViewProps {
 export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
   const navigate = useNavigate();
   const lang = useAppLanguage();
+  const ui = getPlaceUiCopy(lang);
   const { navigateLang } = useLangPath();
   const { toggleBookmark, isBookmarked } = useSavedStore();
   const { city } = useParameterStore();
@@ -137,21 +151,25 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
   const scheduleData = useMemo(() => {
     const raw = item || {};
     const weekly = raw.weeklySchedule || raw.ui?.weeklySchedule;
-    return getEatWeeklySchedule({
-      ...raw,
-      openTime: raw.openTime || raw.ui?.openTime,
-      closeTime: raw.closeTime || raw.ui?.closeTime,
-      weeklySchedule: weekly?.map((s: any) => ({
-        day: s.day,
-        open: s.open || s.openTime,
-        close: s.close || s.closeTime,
-        isClosed: s.isClosed,
-        note: s.note
-      })),
-      closedDays: raw.closedDays || raw.filter?.closedDays,
-      ramadanFriendly: raw.ramadanFriendly || raw.filter?.ramadanFriendly
-    });
-  }, [item]);
+    return getEatWeeklySchedule(
+      {
+        ...raw,
+        openTime: raw.openTime || raw.ui?.openTime,
+        closeTime: raw.closeTime || raw.ui?.closeTime,
+        weeklySchedule: weekly?.map((s: any) => ({
+          day: s.day,
+          open: s.open || s.openTime,
+          close: s.close || s.closeTime,
+          isClosed: s.isClosed,
+          note: s.note,
+        })),
+        closedDays: raw.closedDays || raw.filter?.closedDays,
+        ramadanFriendly: raw.ramadanFriendly || raw.filter?.ramadanFriendly,
+      },
+      new Date(),
+      lang
+    );
+  }, [item, lang]);
 
   // Consolidated ratings from real backend database
   const { averageRating, totalReviews } = useMemo(() => {
@@ -161,6 +179,7 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
   // City display label
   const cityKey = String(item?.city || city || 'marrakech').toLowerCase();
   const cityLabel = cityMap[cityKey]?.name || cityKey.charAt(0).toUpperCase() + cityKey.slice(1);
+  const localizedCityLabel = localizeCityName(cityKey, cityLabel, lang);
 
   // Price tier symbol ($ / $$ / $$$) & normalized MAD price metrics
   const priceTier = useMemo(() => {
@@ -190,6 +209,7 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
     if (typeof foodStyles === 'string' && foodStyles.trim()) return foodStyles.trim();
     return 'Moroccan';
   }, [foodStyles]);
+  const localizedCuisine = localizeCuisineLabel(primaryCuisine, lang);
 
   const placeSlug = useMemo(() => {
     return getPlaceSlugById(cityKey, 'food', id) || (name ? name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') : id);
@@ -384,12 +404,12 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
   if (!item) {
     return (
       <div className="flex flex-col items-center justify-center min-h-[40vh] text-stone-400">
-        <p className="text-lg font-serif">No listing selected.</p>
+        <p className="text-lg font-serif">{ui.logistics.noListingSelected}</p>
         <button 
           onClick={handleBackClick} 
           className="mt-4 text-[#234E35] hover:underline font-bold flex items-center gap-2 cursor-pointer transition-colors"
         >
-          <ArrowLeft className="w-4 h-4" /> Go Back
+          <ArrowLeft className="w-4 h-4 rtl:rotate-180" /> {ui.logistics.goBack}
         </button>
       </div>
     );
@@ -402,13 +422,13 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
     {
       id: 'location',
       icon: <MapPin className="w-4 h-4 text-[#C85A32] shrink-0" />,
-      label: `${cityLabel}, Morocco`,
+      label: `${localizedCityLabel}, ${ui.hero.morocco}`,
       sublabel: neighborhood ? `· ${neighborhood}` : undefined,
     },
     {
       id: 'cuisine',
       icon: <UtensilsCrossed className="w-4 h-4 text-[#C85A32] shrink-0" />,
-      label: `${primaryCuisine} Cuisine`,
+      label: ui.hero.cuisineLabel(localizedCuisine),
       sublabel: calculatedPriceRange ? `· ${priceTier} (~${calculatedPriceRange})` : `· ${priceTier}`,
     },
     ...((openTime || scheduleData.schedule.length > 0)
@@ -430,7 +450,7 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
               >
                 <div className="flex items-center justify-between pb-2 border-b border-stone-100">
                   <span className="text-xs font-bold text-stone-900 uppercase tracking-wider flex items-center gap-1.5">
-                    <Clock className="w-3.5 h-3.5 text-[#C9A84C]" /> Weekly Schedule
+                    <Clock className="w-3.5 h-3.5 text-[#C9A84C]" /> {ui.hero.weeklySchedule}
                   </span>
                   <span
                     className={cn(
@@ -440,7 +460,7 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
                         : 'text-rose-700 bg-rose-50 border-rose-200/60'
                     )}
                   >
-                    {scheduleData.isOpenNow ? 'Open Now' : 'Closed'} · Morocco
+                    {scheduleData.isOpenNow ? ui.hero.openNow : ui.hero.closed} · {ui.hero.morocco}
                   </span>
                 </div>
                 <div className="space-y-1.5 text-xs">
@@ -457,8 +477,8 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
                       <div className="min-w-0">
                         <span className="flex items-center gap-1.5">
                           {dayItem.isToday && <span className="w-1.5 h-1.5 rounded-full bg-[#C9A84C] shrink-0" />}
-                          <span>{dayItem.dayName}</span>
-                          {dayItem.isToday && <span className="text-[10px] text-[#C9A84C] font-semibold">(Today)</span>}
+                          <span>{localizeDayName(dayItem.dayName, lang)}</span>
+                          {dayItem.isToday && <span className="text-[10px] text-[#C9A84C] font-semibold">({ui.hero.today})</span>}
                         </span>
                         {dayItem.note && (
                           <p className="text-[10px] font-normal text-stone-500 mt-0.5 leading-snug">
@@ -498,7 +518,7 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
   const eatFeatures: HeroFeatureChip[] = [
     {
       id: 'cuisine-chip',
-      label: `${primaryCuisine} Food`,
+      label: ui.hero.foodChipLabel(localizedCuisine),
       icon: <UtensilsCrossed className="w-3.5 h-3.5 text-[#C85A32]" />,
     },
     ...(isHalal
@@ -507,13 +527,13 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
             id: 'halal-chip',
             label:
               servesAlcohol || alcoholPolicy === 'serves-alcohol'
-                ? 'Halal Food · Serves Alcohol'
-                : 'Halal Certified (Dry)',
+                ? ui.features.halalAlcohol
+                : ui.features.halalDry,
             icon: <ShieldCheck className="w-3.5 h-3.5 text-amber-600" />,
             tooltip:
               servesAlcohol || alcoholPolicy === 'serves-alcohol'
-                ? 'All meat dishes and ingredients are 100% Halal. The venue holds a liquor license and serves alcoholic beverages.'
-                : 'Strictly Halal certified kitchen in a 100% alcohol-free, pork-free venue.',
+                ? ui.features.halalAlcoholTip
+                : ui.features.halalDryTip,
             tone: 'amber' as const,
           },
         ]
@@ -522,26 +542,26 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
       ? [
           {
             id: 'veg-chip',
-            label: 'Vegetarian Friendly',
+            label: ui.features.vegFriendly,
             icon: <Leaf className="w-3.5 h-3.5 text-emerald-600" />,
-            tooltip: 'Offers verified vegetarian tajines, couscous, fresh salads, and plant-based Moroccan specialties.',
+            tooltip: ui.features.vegFriendlyTip,
             tone: 'emerald' as const,
           },
         ]
       : []),
     ...(wiFi
-      ? [{ id: 'wifi-chip', label: 'Free Wi-Fi', icon: <Wifi className="w-3.5 h-3.5 text-sky-600" /> }]
+      ? [{ id: 'wifi-chip', label: ui.features.freeWifi, icon: <Wifi className="w-3.5 h-3.5 text-sky-600" /> }]
       : []),
     ...(airConditioning
-      ? [{ id: 'ac-chip', label: 'Air Conditioning', icon: <Wind className="w-3.5 h-3.5 text-sky-600" /> }]
+      ? [{ id: 'ac-chip', label: ui.features.ac, icon: <Wind className="w-3.5 h-3.5 text-sky-600" /> }]
       : []),
     ...(nearMedina
       ? [
           {
             id: 'medina-chip',
-            label: 'Medina Courtyard',
+            label: ui.features.medinaCourtyard,
             icon: <MapPin className="w-3.5 h-3.5 text-stone-500" />,
-            tooltip: 'Located inside the historical Medina pedestrian quarter with an authentic open-air courtyard.',
+            tooltip: ui.features.medinaCourtyardTip,
           },
         ]
       : []),
@@ -549,9 +569,9 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
       ? [
           {
             id: 'gem-chip',
-            label: 'Hidden Gem',
+            label: ui.features.hiddenGem,
             icon: <Sparkles className="w-3.5 h-3.5 text-purple-600" />,
-            tooltip: 'Authentic local gem cherished by locals and tucked away from tourist crowds.',
+            tooltip: ui.features.hiddenGemTip,
             tone: 'purple' as const,
           },
         ]
@@ -560,9 +580,9 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
       ? [
           {
             id: 'delivery-chip',
-            label: 'Delivery Available',
+            label: ui.features.delivery,
             icon: <Car className="w-3.5 h-3.5 text-sky-600" />,
-            tooltip: 'Local delivery available to your riad or hotel via Glovo or direct dispatch.',
+            tooltip: ui.features.deliveryTip,
             tone: 'sky' as const,
           },
         ]
@@ -571,7 +591,7 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
       ? [
           {
             id: 'access-chip',
-            label: 'Step-Free Access',
+            label: ui.features.stepFree,
             icon: <Accessibility className="w-3.5 h-3.5 text-emerald-700" />,
           },
         ]
@@ -584,30 +604,30 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
 
   const eatPrimaryAction = hasOnlineBooking
     ? {
-        label: 'Book a Table',
+        label: ui.hero.bookTable,
         href: bookingUrl || cleanWebsite || '#',
         icon: <CalendarCheck className="w-4 h-4 shrink-0" />,
         variant: 'terracotta' as const,
-        title: 'Book a table online',
+        title: ui.hero.bookTableTitle,
       }
     : hasWhatsappBooking
       ? {
-          label: 'Reserve via WhatsApp',
+          label: ui.hero.reserveWhatsApp,
           href: `https://wa.me/${resolvedPrimaryWhatsapp}`,
           icon: <WhatsAppIcon variant="monochrome" className="w-4 h-4 shrink-0" />,
           variant: 'whatsapp' as const,
-          title: 'Reserve via WhatsApp',
+          title: ui.hero.reserveWhatsAppTitle,
         }
       : cleanPhoneForTel
         ? {
-            label: 'Call to Book',
+            label: ui.hero.callToBook,
             href: `tel:${cleanPhoneForTel}`,
             icon: <PhoneCall className="w-4 h-4 text-amber-300 shrink-0" />,
             variant: 'dark' as const,
-            title: `Call ${reservationContact || 'to book'}`,
+            title: ui.hero.callTargetTitle(reservationContact || ui.hero.callToBook),
           }
         : {
-            label: 'Walk-in Only',
+            label: ui.hero.walkInOnly,
             variant: 'muted' as const,
           };
 
@@ -616,7 +636,11 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
       {/* UNIFIED UPPER HERO SECTION (Warm Skyline Watermark · Strictly Gated Ratings · Action Hub) */}
       <ListingHeroHeader
         category="eat"
-        categoryBadge={experienceTypes?.[0] ? String(experienceTypes[0]).replace(/-/g, ' ') : 'Restaurant'}
+        categoryBadge={
+          experienceTypes?.[0]
+            ? localizeExperienceBadge(String(experienceTypes[0]), lang)
+            : ui.hero.restaurantFallback
+        }
         title={name}
         storefrontBanner={item?.storefrontBanner || item?.ui?.storefrontBanner}
         metadata={eatMetadata}
@@ -625,24 +649,24 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
         onSelectReviewSource={setSelectedReviewSource}
         features={eatFeatures}
         servedFor={Array.isArray(mealTypes) ? mealTypes : []}
-        servedForLabel="Served For"
+        servedForLabel={ui.hero.servedFor}
         actions={{
           directionsUrl,
-          directionsLabel: 'Get Directions',
+          directionsLabel: ui.hero.getDirections,
           primaryAction: eatPrimaryAction,
           phone: reservationContact || undefined,
           onCopyPhone: handleCopyPhone,
           copiedPhone,
           whatsappNumber: !hasOnlineBooking && hasWhatsappBooking ? undefined : cleanPhoneForWhatsApp || undefined,
           websiteUrl: cleanWebsite || webSearchUrl,
-          websiteTitle: cleanWebsite ? 'Visit official website' : 'Search online',
+          websiteTitle: cleanWebsite ? ui.hero.visitWebsiteTitle : ui.hero.searchOnlineTitle,
           instagramUrl: cleanInstagram || undefined,
           isBookmarked: bookmarked,
           onToggleBookmark: () => toggleBookmark({ id, type: 'eat', name, city: item.city || city || 'marrakech' }),
           onShare: handleShare,
           copiedLink,
-          saveLabel: 'Save to Favorites',
-          savedLabel: 'Saved in Favorites',
+          saveLabel: ui.hero.saveFavorites,
+          savedLabel: ui.hero.savedFavorites,
         }}
       />
 
@@ -651,42 +675,42 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
         items={[
           {
             id: 'worries',
-            label: 'Worries',
+            label: ui.nav.worries,
             targetId: 'eat-worries-section',
             icon: <ShieldCheck className="w-4 h-4" />,
             available: hasVerifiedWorries(resolvedWorries),
           },
           {
             id: 'about',
-            label: 'About',
+            label: ui.nav.about,
             targetId: 'eat-soul-card',
             icon: <Info className="w-4 h-4" />,
             available: true,
           },
           {
             id: 'menu',
-            label: 'Menu',
+            label: ui.nav.menu,
             targetId: 'restaurant-menu-section',
             icon: <UtensilsCrossed className="w-4 h-4" />,
             available: Boolean((item?.menu?.sections?.length || item?.ui?.menu?.sections?.length || 0) > 0),
           },
           {
             id: 'logistics',
-            label: 'Hours & Map',
+            label: ui.nav.hoursMap,
             targetId: 'eat-logistics-section',
             icon: <Clock className="w-4 h-4" />,
             available: true,
           },
           {
             id: 'faq',
-            label: 'FAQ',
+            label: ui.nav.faq,
             targetId: 'eat-faq-section',
             icon: <HelpCircle className="w-4 h-4" />,
             available: eatFaqs.length > 0,
           },
           {
             id: 'reviews',
-            label: 'Reviews',
+            label: ui.nav.reviews,
             targetId: 'eat-reviews-section',
             icon: <MessageSquareText className="w-4 h-4" />,
             available: hasVerifiedReviews(eatReviewsData),
@@ -703,8 +727,8 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
           <div id="eat-worries-section">
             <WorriesSection
               worries={resolvedWorries}
-              title="Things You're Worried About!"
-              subtitle="Honest answers to what usually worries diners — checked and verified, never guessed."
+              title={ui.worries.title}
+              subtitle={ui.worries.subtitleEat}
             />
           </div>
         )}
@@ -727,7 +751,7 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
             >
               <img
                 src={camelInsiderPointerImg}
-                alt="Moroccan Mate camel pointing to Local Insider Tip"
+                alt={ui.insiderTip.camelAlt}
                 referrerPolicy="no-referrer"
                 className="w-[74px] h-[76px] sm:w-[112px] sm:h-[116px] object-contain drop-shadow-[0_6px_14px_rgba(23,48,66,0.14)]"
               />
@@ -739,7 +763,7 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
               </div>
               <div className="space-y-1 min-w-0">
                 <span className="text-xs font-bold uppercase tracking-wider text-[#96700A] block">
-                  Local Insider Tip
+                  {ui.insiderTip.title}
                 </span>
                 <p className="text-stone-800 text-sm sm:text-base leading-relaxed font-serif italic">
                   "{tip}"
@@ -760,7 +784,7 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
             <div className="space-y-4">
               
               <h2 className="font-serif text-2xl sm:text-3xl font-bold text-stone-900 tracking-tight">
-                Is it right for you?
+                {ui.soul.title}
               </h2>
 
               {/* Sub-Section 1: BEST FOR */}
@@ -768,10 +792,10 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
                 <div className="flex items-center justify-between">
                   <span className="flex items-center gap-2 text-[11px] font-bold text-stone-500 uppercase tracking-wider">
                     <Compass className="w-3.5 h-3.5 text-[#C9A84C]" />
-                    <span>Best For</span>
+                    <span>{ui.soul.bestFor}</span>
                   </span>
                   <span className="text-[10px] font-semibold text-stone-400 bg-stone-100/80 px-2 py-0.5 rounded-md border border-stone-200/50">
-                    Ideal Fit
+                    {ui.soul.idealFit}
                   </span>
                 </div>
                 
@@ -782,12 +806,12 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
                         key={idx}
                         className="px-3.5 py-1.5 rounded-xl bg-white border border-[#DDD0BC] text-stone-800 text-xs font-semibold shadow-2xs hover:border-[#C9A84C] hover:bg-amber-50/30 transition-all cursor-default select-none"
                       >
-                        {target}
+                        {localizeGroupType(target, lang)}
                       </span>
                     ))}
                   </div>
                 ) : (
-                  <p className="text-xs text-stone-500 italic">Recommended for all Moroccan culinary explorers.</p>
+                  <p className="text-xs text-stone-500 italic">{ui.soul.bestForFallback}</p>
                 )}
               </div>
 
@@ -796,10 +820,10 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
                 <div className="flex items-center justify-between pb-1 border-b border-[#F0E6D8]">
                   <span className="flex items-center gap-2 text-[11px] font-bold text-stone-500 uppercase tracking-wider">
                     <Award className="w-3.5 h-3.5 text-[#C9A84C]" />
-                    <span>Aspect Ratings</span>
+                    <span>{ui.soul.aspectRatings}</span>
                   </span>
                   <span className="text-[10px] font-semibold text-stone-400 bg-stone-100/80 px-2 py-0.5 rounded-md border border-stone-200/50">
-                    5-Point Scale
+                    {ui.soul.fivePointScale}
                   </span>
                 </div>
 
@@ -807,7 +831,7 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
                   
                   <div className="flex items-center justify-between text-xs py-1 px-1.5 rounded-lg hover:bg-stone-50/80 transition-colors">
                     <span className="flex items-center gap-2 text-stone-700 font-bold w-28">
-                      <UtensilsCrossed className="w-3.5 h-3.5 text-[#C9A84C]" /> Food
+                      <UtensilsCrossed className="w-3.5 h-3.5 text-[#C9A84C]" /> {ui.soul.food}
                     </span>
                     <CamelRating rating={parseFloat(aspectScores.food)} size="xs" showScore={false} />
                     <span className="font-bold text-stone-900 text-xs w-12 text-right tabular-nums">
@@ -817,7 +841,7 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
 
                   <div className="flex items-center justify-between text-xs py-1 px-1.5 rounded-lg hover:bg-stone-50/80 transition-colors">
                     <span className="flex items-center gap-2 text-stone-700 font-bold w-28">
-                      <Armchair className="w-3.5 h-3.5 text-[#C9A84C]" /> Atmosphere
+                      <Armchair className="w-3.5 h-3.5 text-[#C9A84C]" /> {ui.soul.atmosphere}
                     </span>
                     <CamelRating rating={parseFloat(aspectScores.atmosphere)} size="xs" showScore={false} />
                     <span className="font-bold text-stone-900 text-xs w-12 text-right tabular-nums">
@@ -827,7 +851,7 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
 
                   <div className="flex items-center justify-between text-xs py-1 px-1.5 rounded-lg hover:bg-stone-50/80 transition-colors">
                     <span className="flex items-center gap-2 text-stone-700 font-bold w-28">
-                      <Languages className="w-3.5 h-3.5 text-[#C9A84C]" /> Service
+                      <Languages className="w-3.5 h-3.5 text-[#C9A84C]" /> {ui.soul.service}
                     </span>
                     <CamelRating rating={parseFloat(aspectScores.service)} size="xs" showScore={false} />
                     <span className="font-bold text-stone-900 text-xs w-12 text-right tabular-nums">
@@ -837,7 +861,7 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
 
                   <div className="flex items-center justify-between text-xs py-1 px-1.5 rounded-lg hover:bg-stone-50/80 transition-colors">
                     <span className="flex items-center gap-2 text-stone-700 font-bold w-28">
-                      <DollarSign className="w-3.5 h-3.5 text-[#C9A84C]" /> Value
+                      <DollarSign className="w-3.5 h-3.5 text-[#C9A84C]" /> {ui.soul.value}
                     </span>
                     <CamelRating rating={parseFloat(aspectScores.value)} size="xs" showScore={false} />
                     <span className="font-bold text-stone-900 text-xs w-12 text-right tabular-nums">
@@ -860,11 +884,11 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
                     <div className="flex items-center justify-between mb-2.5">
                       <div className="flex items-center gap-2 text-emerald-900 font-bold text-xs uppercase tracking-wide">
                         <CheckCircle2 className="w-4 h-4 text-emerald-700 fill-emerald-100" />
-                        <span>The good</span>
+                        <span>{ui.soul.theGood}</span>
                       </div>
                       {isProsConsDerived && (
                         <span className="text-[10px] text-stone-500 font-medium bg-white/70 px-2 py-0.5 rounded-md border border-[#E3D7C5]">
-                          Verified Profile Facts
+                          {ui.soul.verifiedProfileFacts}
                         </span>
                       )}
                     </div>
@@ -883,7 +907,7 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
                   <div className={cn(resolvedPros.length > 0 && "pt-3 border-t border-[#E2D4C2]")}>
                     <div className="flex items-center gap-2 mb-2.5 text-rose-900 font-bold text-xs uppercase tracking-wide">
                       <XCircle className="w-4 h-4 text-rose-700 fill-rose-100" />
-                      <span>The not so good</span>
+                      <span>{ui.soul.theNotSoGood}</span>
                     </div>
                     <ul className="space-y-2 pl-6 text-xs text-stone-800 font-medium list-disc marker:text-rose-700">
                       {resolvedCons.map((point: string, idx: number) => (
@@ -914,7 +938,7 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
                   <Award className="w-4 h-4" />
                 </span>
                 <h3 className="font-display text-xl sm:text-2xl font-bold text-stone-900">
-                  About the Experience
+                  {ui.about.title}
                 </h3>
               </div>
               {description && (
@@ -943,7 +967,7 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
               <div className="pt-5 border-t border-[#EDE4D5]">
                 <div className="rounded-2xl border border-[#E8DFCF] bg-[#FAF7F2] p-5 space-y-3">
                   <span className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#8A6D1F]">
-                    <Info className="w-4 h-4" /> Know Before You Go
+                    <Info className="w-4 h-4" /> {ui.about.knowBeforeYouGo}
                   </span>
                   <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs sm:text-sm text-stone-800">
                     {knowBeforeYouGo.map((bullet, idx) => (
@@ -967,8 +991,8 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
           menu={item.menu || item.ui?.menu}
           restaurantId={id}
           restaurantName={name}
-          city={cityLabel}
-          primaryCuisine={primaryCuisine}
+          city={localizedCityLabel}
+          primaryCuisine={localizedCuisine}
           highlightedDishes={finalBestDishes}
           reservationContact={reservationContact}
           whatsappNumber={whatsappNumber}
@@ -993,7 +1017,7 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
                 <Compass className="w-5 h-5" />
               </div>
               <h3 className="font-display text-xl font-bold text-stone-900">
-                Logistics & Getting There
+                {ui.logistics.title}
               </h3>
             </div>
 
@@ -1001,7 +1025,7 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
               {addressText && (
                 <div className="py-3.5 flex items-start justify-between gap-4">
                   <span className="flex items-center gap-2 text-sm font-bold text-stone-900 shrink-0">
-                    <MapPin className="w-4 h-4 text-emerald-700" /> Address
+                    <MapPin className="w-4 h-4 text-emerald-700" /> {ui.logistics.address}
                   </span>
                   <span className="text-sm font-medium text-stone-700 text-right">
                     {addressText}
@@ -1012,10 +1036,10 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
               {typeof hasParking === 'boolean' && (
                 <div className="py-3.5 flex items-center justify-between gap-4">
                   <span className="flex items-center gap-2 text-sm font-bold text-stone-900">
-                    <Car className="w-4 h-4 text-emerald-700" /> Parking Access
+                    <Car className="w-4 h-4 text-emerald-700" /> {ui.logistics.parkingAccess}
                   </span>
                   <span className="text-sm font-semibold text-stone-800">
-                    {hasParking ? 'Private parking nearby' : 'Street parking / Walking in'}
+                    {hasParking ? ui.logistics.privateParking : ui.logistics.streetParking}
                   </span>
                 </div>
               )}
@@ -1023,10 +1047,10 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
               {typeof averageWaitMinutes === 'number' && averageWaitMinutes > 0 && (
                 <div className="py-3.5 flex items-center justify-between gap-4">
                   <span className="flex items-center gap-2 text-sm font-bold text-stone-900">
-                    <Clock className="w-4 h-4 text-emerald-700" /> Typical Wait Time
+                    <Clock className="w-4 h-4 text-emerald-700" /> {ui.logistics.typicalWaitTime}
                   </span>
                   <span className="text-sm font-bold text-stone-900">
-                    {averageWaitMinutes} mins
+                    {ui.logistics.minsSuffix(averageWaitMinutes)}
                   </span>
                 </div>
               )}
@@ -1034,7 +1058,7 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
               {bestTimeToVisit && (
                 <div className="py-3.5 flex items-center justify-between gap-4">
                   <span className="flex items-center gap-2 text-sm font-bold text-stone-900">
-                    <Sun className="w-4 h-4 text-amber-600" /> Best Time to Visit
+                    <Sun className="w-4 h-4 text-amber-600" /> {ui.logistics.bestTimeToVisit}
                   </span>
                   <span className="text-sm font-medium text-stone-800">
                     {bestTimeToVisit}
@@ -1045,10 +1069,10 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
               {Array.isArray(seatingTypes) && seatingTypes.length > 0 && (
                 <div className="py-3.5 flex items-center justify-between gap-4">
                   <span className="flex items-center gap-2 text-sm font-bold text-stone-900">
-                    <Armchair className="w-4 h-4 text-emerald-700" /> Seating Styles
+                    <Armchair className="w-4 h-4 text-emerald-700" /> {ui.logistics.seatingStyles}
                   </span>
                   <span className="text-sm font-semibold text-stone-800 capitalize">
-                    {seatingTypes.join(', ')}
+                    {seatingTypes.map((s: string) => localizeSeatingType(s, lang)).join(', ')}
                   </span>
                 </div>
               )}
@@ -1056,10 +1080,10 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
               {viewType && viewType !== 'none' && (
                 <div className="py-3.5 flex items-center justify-between gap-4">
                   <span className="flex items-center gap-2 text-sm font-bold text-stone-900">
-                    <Sun className="w-4 h-4 text-emerald-700" /> View Setting
+                    <Sun className="w-4 h-4 text-emerald-700" /> {ui.logistics.viewSetting}
                   </span>
                   <span className="text-sm font-semibold text-stone-800 capitalize">
-                    {viewType}
+                    {localizeViewType(String(viewType), lang)}
                   </span>
                 </div>
               )}
@@ -1077,12 +1101,12 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
                     )}
                     <span>
                       {hasDriveLandmarks
-                        ? 'Nearby Landmarks & Access'
-                        : 'Walking Distance to Landmarks'}
+                        ? ui.logistics.nearbyLandmarks
+                        : ui.logistics.walkingDistance}
                     </span>
                   </span>
                   <span className="text-[10px] font-semibold text-stone-500 bg-stone-100/90 px-2 py-0.5 rounded-md border border-stone-200/60 shrink-0">
-                    {hasDriveLandmarks ? 'Walk & Drive Times' : 'Real GPS Proximity'}
+                    {hasDriveLandmarks ? ui.logistics.walkDriveTimes : ui.logistics.realGpsProximity}
                   </span>
                 </div>
 
@@ -1099,7 +1123,7 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
                     const isDrive =
                       place.travel_mode === 'drive' ||
                       (place.travel_time_minutes ?? place.walking_time_minutes ?? 0) > 25;
-                    const travelLabel = formatNearbyTravelLabel(place);
+                    const travelLabel = formatNearbyTravelLabel(place, lang);
                     const isHovered = hoveredPlaceId === place.id;
                     return (
                       <div
@@ -1144,7 +1168,7 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
                 <Settings className="w-5 h-5" />
               </div>
               <h3 className="font-display text-xl font-bold text-stone-900">
-                Operational Details
+                {ui.logistics.operationalTitle}
               </h3>
             </div>
 
@@ -1152,17 +1176,17 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
               {(eatPriceMetrics.perPersonRangeText || eatPriceMetrics.avgPersonText) && (
                 <div className="py-3.5 flex items-start justify-between gap-4">
                   <span className="flex items-center gap-2 text-sm font-bold text-stone-900">
-                    <DollarSign className="w-4 h-4 text-emerald-700" /> Average Meal Cost
+                    <DollarSign className="w-4 h-4 text-emerald-700" /> {ui.logistics.averageMealCost}
                   </span>
                   <div className="text-right tabular-nums">
                     <span className="text-sm font-bold text-stone-900 block">
                       {eatPriceMetrics.perPersonRangeText
-                        ? `${eatPriceMetrics.perPersonRangeText} / person`
-                        : eatPriceMetrics.avgPersonText}
+                        ? `${eatPriceMetrics.perPersonRangeText} ${ui.logistics.perPersonSuffix}`
+                        : ui.logistics.avgPersonApprox(eatPriceMetrics.avgPersonMad || 0)}
                     </span>
                     {eatPriceMetrics.menuRangeText && (
                       <span className="text-[11px] font-medium text-stone-500 block">
-                        Menu dishes: {eatPriceMetrics.menuRangeText}
+                        {ui.logistics.menuDishesLabel} {eatPriceMetrics.menuRangeText}
                       </span>
                     )}
                   </div>
@@ -1172,10 +1196,10 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
               {alcoholPolicy && (
                 <div className="py-3.5 flex items-center justify-between gap-4">
                   <span className="flex items-center gap-2 text-sm font-bold text-stone-900">
-                    <Info className="w-4 h-4 text-amber-700" /> Beverage Policy
+                    <Info className="w-4 h-4 text-amber-700" /> {ui.logistics.beveragePolicy}
                   </span>
                   <span className="text-sm font-semibold text-stone-800 capitalize">
-                    {alcoholPolicy === 'serves-alcohol' ? 'Licensed (Serves Alcohol)' : 'Dry Dining (Alcohol-free venue)'}
+                    {alcoholPolicy === 'serves-alcohol' ? ui.logistics.servesAlcohol : ui.logistics.dryDining}
                   </span>
                 </div>
               )}
@@ -1183,7 +1207,7 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
               {openTime && closeTime && (
                 <div className="py-3.5 flex items-start justify-between gap-4">
                   <span className="flex items-center gap-2 text-sm font-bold text-stone-900">
-                    <Clock className="w-4 h-4 text-amber-700" /> Service Hours
+                    <Clock className="w-4 h-4 text-amber-700" /> {ui.logistics.serviceHours}
                   </span>
                   <div className="text-right">
                     <span className="text-sm font-bold text-stone-900 font-mono tabular-nums block">
@@ -1201,10 +1225,14 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
               {ramadanFriendly && (
                 <div className="py-3.5 flex items-center justify-between gap-4">
                   <span className="flex items-center gap-2 text-sm font-bold text-stone-900">
-                    <Moon className="w-4 h-4 text-amber-700" /> Ramadan Service
+                    <Moon className="w-4 h-4 text-amber-700" /> {ui.logistics.ramadanService}
                   </span>
                   <span className="text-sm font-semibold text-stone-800 capitalize">
-                    {ramadanFriendly === 'special-ftour' ? 'Opens for Ftour buffet' : ramadanFriendly === 'serves-lunch' ? 'Serves lunch to visitors' : 'Evening service only'}
+                    {ramadanFriendly === 'special-ftour'
+                      ? ui.logistics.ramadanFtour
+                      : ramadanFriendly === 'serves-lunch'
+                        ? ui.logistics.ramadanLunch
+                        : ui.logistics.ramadanEvening}
                   </span>
                 </div>
               )}
@@ -1212,12 +1240,15 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
               {((item?.languagesSpoken && item.languagesSpoken.length > 0) || hasEnglishStaff || hasFrenchStaff) && (
                 <div className="py-3.5 flex items-center justify-between gap-4">
                   <span className="flex items-center gap-2 text-sm font-bold text-stone-900">
-                    <Languages className="w-4 h-4 text-amber-700" /> Languages Spoken
+                    <Languages className="w-4 h-4 text-amber-700" /> {ui.logistics.languagesSpoken}
                   </span>
                   <span className="text-sm font-semibold text-stone-800">
                     {item?.languagesSpoken && item.languagesSpoken.length > 0
-                      ? item.languagesSpoken.join(', ')
-                      : [hasEnglishStaff && 'English', hasFrenchStaff && 'French', 'Arabic'].filter(Boolean).join(', ')
+                      ? item.languagesSpoken.map((l: string) => localizeLanguageSpoken(l, lang)).join(', ')
+                      : [hasEnglishStaff && 'English', hasFrenchStaff && 'French', 'Arabic']
+                          .filter(Boolean)
+                          .map((l) => localizeLanguageSpoken(String(l), lang))
+                          .join(', ')
                     }
                   </span>
                 </div>
@@ -1226,10 +1257,10 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
               {typeof wiFi === 'boolean' && (
                 <div className="py-3.5 flex items-center justify-between gap-4">
                   <span className="flex items-center gap-2 text-sm font-bold text-stone-900">
-                    <Wifi className="w-4 h-4 text-amber-700" /> Wi-Fi Access
+                    <Wifi className="w-4 h-4 text-amber-700" /> {ui.logistics.wifiAccess}
                   </span>
                   <span className="text-sm font-semibold text-stone-800">
-                    {wiFi ? 'Complimentary' : 'None'}
+                    {wiFi ? ui.logistics.complimentary : ui.logistics.none}
                   </span>
                 </div>
               )}
@@ -1237,10 +1268,10 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
               {typeof airConditioning === 'boolean' && (
                 <div className="py-3.5 flex items-center justify-between gap-4">
                   <span className="flex items-center gap-2 text-sm font-bold text-stone-900">
-                    <Wind className="w-4 h-4 text-amber-700" /> Air Conditioning
+                    <Wind className="w-4 h-4 text-amber-700" /> {ui.logistics.airConditioning}
                   </span>
                   <span className="text-sm font-semibold text-stone-800">
-                    {airConditioning ? 'Equipped with AC' : 'Natural courtyard breeze'}
+                    {airConditioning ? ui.logistics.equippedAc : ui.logistics.naturalBreeze}
                   </span>
                 </div>
               )}
@@ -1248,10 +1279,10 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
               {typeof wheelchairAccessible === 'boolean' && (
                 <div className="py-3.5 flex items-center justify-between gap-4">
                   <span className="flex items-center gap-2 text-sm font-bold text-stone-900">
-                    <Accessibility className="w-4 h-4 text-amber-700" /> Accessibility
+                    <Accessibility className="w-4 h-4 text-amber-700" /> {ui.logistics.accessibility}
                   </span>
                   <span className="text-sm font-semibold text-stone-800">
-                    {wheelchairAccessible ? 'Wheelchair accessible' : 'Step-access entrance'}
+                    {wheelchairAccessible ? ui.logistics.wheelchairAccessible : ui.logistics.stepAccess}
                   </span>
                 </div>
               )}
@@ -1259,10 +1290,10 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
               {Array.isArray(paymentMethods) && paymentMethods.length > 0 && (
                 <div className="py-3.5 flex items-center justify-between gap-4">
                   <span className="flex items-center gap-2 text-sm font-bold text-stone-900">
-                    <CreditCard className="w-4 h-4 text-amber-700" /> Accepted Payments
+                    <CreditCard className="w-4 h-4 text-amber-700" /> {ui.logistics.acceptedPayments}
                   </span>
                   <span className="text-sm font-bold text-stone-900 capitalize">
-                    {paymentMethods.join(', ')}
+                    {paymentMethods.map((m: string) => localizePaymentMethod(m, lang)).join(', ')}
                   </span>
                 </div>
               )}
@@ -1270,7 +1301,7 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
               {reservationContact && (
                 <div className="py-3.5 flex items-center justify-between gap-4">
                   <span className="flex items-center gap-2 text-sm font-bold text-stone-900">
-                    <Phone className="w-4 h-4 text-amber-700" /> Phone / Booking
+                    <Phone className="w-4 h-4 text-amber-700" /> {ui.logistics.phoneBooking}
                   </span>
                   <a
                     href={`tel:${cleanPhoneForTel}`}
@@ -1294,7 +1325,7 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
             <PlaceFAQSection
               faqs={eatFaqs}
               placeName={name}
-              subtitle="Verified answers on prices in MAD, halal & beverage policy, reservations, and hours"
+              subtitle={ui.faq.eatSubtitle}
             />
           </div>
         )}
@@ -1323,19 +1354,20 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
             
             <div className="mb-6">
               <span className="text-xs font-bold uppercase tracking-widest text-[#234E35] block mb-1">
-                Similar Atmosphere & Taste
+                {ui.peers.kicker}
               </span>
               <h3 className="font-display text-2xl sm:text-3xl font-bold text-stone-900">
-                Recommended Restaurants in {cityLabel}
+                {ui.peers.heading(localizedCityLabel)}
               </h3>
             </div>
 
             {/* Clean horizontal text cards with full name, style & neighborhood */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {peerListings.map((peer: any, idx: number) => {
+              {peerListings.map((rawPeer: any, idx: number) => {
+                const peer = localizeListing(rawPeer, lang);
                 const peerRating = getListingRating(peer);
                 const peerCity = String(peer.city || cityKey).toLowerCase();
-                const peerName = peer.name || peer.ui?.name || peer.title || 'Restaurant';
+                const peerName = peer.name || peer.ui?.name || peer.title || ui.hero.restaurantFallback;
                 const peerNeighborhood = peer.neighborhood || peer.ui?.neighborhood || peer.district || 'Medina';
                 const peerFoodStyle = peer.foodStyles?.[0] || peer.quiz?.foodStyles?.[0] || peer.cuisineTags?.[0] || peer.quiz?.cuisineTags?.[0] || 'Moroccan';
                 const peerMetrics = getEatPriceMetrics(peer);
@@ -1356,16 +1388,16 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
                           {peerNeighborhood}
                         </span>
                         <span className="text-[11px] text-stone-400 capitalize truncate">
-                          {peerFoodStyle}
+                          {localizeCuisineLabel(peerFoodStyle, lang)}
                         </span>
                       </div>
 
                       <h4 className="font-bold text-stone-900 text-sm group-hover:text-[#234E35] transition-colors line-clamp-1">
                         {peerName}
                       </h4>
-                      {peerMetrics.avgPersonText ? (
+                      {peerMetrics.avgPersonMad ? (
                         <p className="text-[11px] text-stone-500 mt-0.5 tabular-nums">
-                          {peerMetrics.avgPersonText}
+                          {ui.logistics.avgPersonApprox(peerMetrics.avgPersonMad)}
                         </p>
                       ) : null}
                     </div>
@@ -1373,7 +1405,7 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
                     <div className="pt-2 border-t border-stone-100 flex items-center justify-between">
                       <CamelRating rating={peerRating.averageRating} size="xs" showScore={true} />
                       <span className="text-xs font-bold text-[#234E35] group-hover:translate-x-1 transition-transform inline-flex items-center">
-                        <ChevronRight className="w-4 h-4" />
+                        <ChevronRight className="w-4 h-4 rtl:rotate-180" />
                       </span>
                     </div>
                   </LocalizedLink>
@@ -1412,8 +1444,8 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
                     <BookOpen className="w-5 h-5 text-[#D4863A]" />
                   </div>
                   <div>
-                    <h3 className="font-display text-xl font-bold text-stone-900">{name} Menu</h3>
-                    <p className="text-xs text-stone-500">Official selection</p>
+                    <h3 className="font-display text-xl font-bold text-stone-900">{ui.menuModal.menuTitle(name)}</h3>
+                    <p className="text-xs text-stone-500">{ui.menuModal.officialSelection}</p>
                   </div>
                 </div>
                 <button
@@ -1428,7 +1460,7 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
                 {fullMenu?.type === 'image' && fullMenu.content ? (
                   <img
                     src={fullMenu.content}
-                    alt={`${name} menu`}
+                    alt={ui.menuModal.menuTitle(name)}
                     className="w-full h-auto object-contain rounded-xl"
                     referrerPolicy="no-referrer"
                   />
@@ -1441,9 +1473,9 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
                 ) : (
                   <div className="py-12 text-center space-y-4">
                     <BookOpen className="w-10 h-10 text-stone-300 mx-auto" />
-                    <p className="text-base font-bold text-stone-800">Verified Diner Photos & Menus</p>
+                    <p className="text-base font-bold text-stone-800">{ui.menuModal.verifiedDinerPhotos}</p>
                     <p className="text-xs text-stone-500 max-w-md mx-auto leading-relaxed">
-                      Full photographed menus and daily rotating specials are verified directly by diners on Google Maps.
+                      {ui.menuModal.verifiedDinerPhotosDesc}
                     </p>
                     <a
                       href={directionsUrl}
@@ -1452,7 +1484,7 @@ export default function EatDetailView({ item, onBack }: EatDetailViewProps) {
                       className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#234E35] hover:bg-[#1A3D29] text-white text-xs font-bold transition-all shadow-md cursor-pointer"
                     >
                       <MapPin className="w-3.5 h-3.5" />
-                      <span>See photos and menu on Maps</span>
+                      <span>{ui.menuModal.seePhotosOnMaps}</span>
                       <ExternalLink className="w-3 h-3 opacity-70" />
                     </a>
                   </div>

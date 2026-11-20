@@ -20,6 +20,8 @@ import {
   type LucideIcon,
 } from 'lucide-react';
 import type { WorryBoxData, WorryIconKey, TagColorKey } from '../../data/prototype/worriesPrototype';
+import { useAppLanguage } from '../../utils/localeRouting';
+import { getPlaceUiCopy, type PlaceUiCopy } from '../../data/placeUiI18n';
 
 /** Map data icon keys → lucide icons */
 const WORRY_ICONS: Record<WorryIconKey, LucideIcon> = {
@@ -58,7 +60,7 @@ const TAG_TOPIC_STYLES: Record<TagColorKey, string> = {
 };
 
 /** Chip look for each tag state — text-only color bubble, no border, no icon */
-function TagChip({ box }: { box: WorryBoxData }) {
+function TagChip({ box, ui }: { box: WorryBoxData; ui: PlaceUiCopy }) {
   const isPending =
     box.state === 'pending' ||
     !box.tag ||
@@ -69,9 +71,9 @@ function TagChip({ box }: { box: WorryBoxData }) {
     return (
       <span
         className="inline-flex items-center rounded-full bg-stone-100 px-2.5 py-1 text-[11px] font-semibold italic text-[#8a8273]"
-        title="Web research not done yet — this answer will only appear after verification."
+        title={ui.worries.pendingResearchTitle}
       >
-        (not available yet)
+        {ui.worries.notAvailableYet}
       </span>
     );
   }
@@ -88,7 +90,7 @@ function TagChip({ box }: { box: WorryBoxData }) {
 }
 
 /** One worry box: 1:1 image (or placeholder) + title + description + tag chip */
-function WorryCard({ box }: { box: WorryBoxData }) {
+function WorryCard({ box, ui }: { box: WorryBoxData; ui: PlaceUiCopy }) {
   const Icon = WORRY_ICONS[box.icon] ?? HelpCircle;
   const [imageError, setImageError] = useState(false);
 
@@ -126,7 +128,7 @@ function WorryCard({ box }: { box: WorryBoxData }) {
           <Icon className="h-7 w-7" strokeWidth={1.5} />
           <span className="inline-flex items-center gap-1 text-[10px] font-semibold uppercase tracking-wide">
             <ImageOff className="h-3 w-3" />
-            Image pending
+            {ui.worries.imagePending}
           </span>
         </div>
       )}
@@ -135,7 +137,7 @@ function WorryCard({ box }: { box: WorryBoxData }) {
       <div className="flex flex-1 flex-col gap-1.5 p-3">
         <h3 className="text-sm font-bold leading-snug text-[#173042]">{box.title}</h3>
         <div>
-          <TagChip box={box} />
+          <TagChip box={box} ui={ui} />
         </div>
         <p className="text-xs leading-relaxed text-[#66757D]">
           {box.description}
@@ -159,9 +161,14 @@ export interface WorriesSectionProps {
 export default function WorriesSection({
   worries,
   className = '',
-  title = "Things You're Worried About!",
-  subtitle = 'Honest answers to what usually worries travelers — checked from the web, never guessed.',
+  title,
+  subtitle,
 }: WorriesSectionProps) {
+  const lang = useAppLanguage();
+  const ui = getPlaceUiCopy(lang);
+  const resolvedTitle = title || ui.worries.title;
+  const resolvedSubtitle = subtitle || ui.worries.subtitleDefault;
+
   if (!worries || !worries.length) return null;
 
   // Only show if at least ONE worry has real verified data (not "not available" / "pending")
@@ -178,17 +185,17 @@ export default function WorriesSection({
         </span>
         <div>
           <h2 id="worries-section-title" className="font-display text-xl font-bold text-[#173042] sm:text-2xl">
-            {title}
+            {resolvedTitle}
           </h2>
           <p className="text-xs text-[#66757D]">
-            {subtitle}
+            {resolvedSubtitle}
           </p>
         </div>
       </div>
 
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
         {worries.map((box) => (
-          <WorryCard key={box.id} box={box} />
+          <WorryCard key={box.id} box={box} ui={ui} />
         ))}
       </div>
     </section>

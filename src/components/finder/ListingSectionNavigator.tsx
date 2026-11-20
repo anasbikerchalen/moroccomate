@@ -245,13 +245,7 @@ export const ListingSectionNavigator: React.FC<ListingSectionNavigatorProps> = (
                   )}
                 >
                   {isActive && (
-                    <motion.span
-                      layoutId="listing-nav-active-pill"
-                      transition={
-                        reduceMotion
-                          ? { duration: 0 }
-                          : { type: 'spring', stiffness: 440, damping: 32 }
-                      }
+                    <span
                       aria-hidden="true"
                       className="absolute inset-0 rounded-full bg-[#B84F18] shadow-xs"
                     />
@@ -283,9 +277,9 @@ export const ListingSectionNavigator: React.FC<ListingSectionNavigatorProps> = (
             animate={camelHop ? { y: [-2, -9, -2] } : { y: 0 }}
             transition={{ duration: 0.34, ease: 'easeOut' }}
             style={{
-              left: `calc(${Math.min(97, Math.max(2, scrollProgress * 100))}% - 10px)`,
+              insetInlineStart: `calc(${Math.min(97, Math.max(2, scrollProgress * 100))}% - 10px)`,
             }}
-            className="hidden sm:flex absolute -top-[14px] w-5 h-5 rounded-full bg-[#FFFDF8] border border-[#C9A84C] shadow-xs items-center justify-center transition-[left] duration-75"
+            className="hidden sm:flex absolute -top-[14px] w-5 h-5 rounded-full bg-[#FFFDF8] border border-[#C9A84C] shadow-xs items-center justify-center transition-[inset-inline-start] duration-75"
           >
             <img
               src={logoImg}

@@ -210,20 +210,20 @@ export default function ThingsListingPage() {
 
       {/* Minimal header: back navigation + wordmark */}
       <header className="sticky top-0 z-40 bg-[#FAF9F5]/95 backdrop-blur-sm border-b border-[#ece4d5]">
-        <div className="mx-auto w-full max-w-6xl flex items-center justify-between gap-2 px-4 py-3.5 sm:px-6 lg:px-8">
+        <div className="mx-auto w-full max-w-6xl flex items-center justify-between gap-2 px-3 py-2.5 sm:px-6 sm:py-3.5 lg:px-8">
           <button
             type="button"
             onClick={() => navigateLang(-1)}
-            className="inline-flex items-center gap-2 text-sm font-semibold text-[#66757D] hover:text-[#173042] transition-colors cursor-pointer"
+            className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3.5 py-1.5 rounded-full bg-white hover:bg-stone-50 border border-[#ece4d5] shadow-xs text-xs sm:text-sm font-bold text-[#173042] hover:border-[#C9A84C] transition-all cursor-pointer active:scale-95 shrink-0"
           >
-            <ArrowLeft className="w-4 h-4 rtl:rotate-180" />
+            <ArrowLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#173042] rtl:rotate-180 shrink-0" />
             <span>{t('common.back')}</span>
           </button>
-          <LocalizedLink to="/" className="flex items-center gap-2">
-            <img src={logoImg} alt="Moroccan Mate logo" className="w-7 h-7 object-contain" />
-            <span className="font-display text-base font-bold text-[#173042]">Moroccan Mate</span>
+          <LocalizedLink to="/" className="flex items-center gap-1.5 sm:gap-2 shrink-0 min-w-0">
+            <img src={logoImg} alt="Moroccan Mate logo" className="w-6 h-6 sm:w-7 sm:h-7 object-contain shrink-0" />
+            <span className="font-display text-sm sm:text-base font-bold text-[#173042] whitespace-nowrap">Moroccan Mate</span>
           </LocalizedLink>
-          <div className="flex items-center gap-1.5 sm:gap-2">
+          <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
             <LanguageSwitcher compact />
             <button
               type="button"
@@ -231,12 +231,12 @@ export default function ThingsListingPage() {
                 playTactileSound('tick');
                 setPassportOpen(true);
               }}
-              className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-full bg-white hover:bg-[#FAF3EA] border border-[#ece4d5] shadow-xs hover:border-[#C9A84C] transition-all cursor-pointer text-[#173042]"
+              className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white hover:bg-[#FAF3EA] border border-[#ece4d5] shadow-xs hover:border-[#C9A84C] transition-all cursor-pointer text-[#173042]"
               aria-label="Open Moroccan Mate Passport"
               title="Open Moroccan Mate Passport"
             >
               <Stamp className="w-3.5 h-3.5 text-[#C85A32]" />
-              <span className="font-sans text-xs font-semibold hidden md:inline">Passport</span>
+              <span className="font-sans text-xs font-semibold">Passport</span>
               {totalStampsCount > 0 && (
                 <span className="bg-[#173042] text-[#F5D782] text-[10px] font-bold px-1.5 py-0.2 rounded-full leading-none tabular-nums">
                   {totalStampsCount}
@@ -292,6 +292,36 @@ export default function ThingsListingPage() {
           id="listing-play-discovery-zone"
           className="mx-auto w-full max-w-6xl px-4 pb-12 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-[#ece4d5] space-y-8"
         >
+          {/* Mobile Traveler Passport Entry (kept out of crowded mobile top bar) */}
+          <div className="sm:hidden">
+            <button
+              type="button"
+              onClick={() => {
+                playTactileSound('tick');
+                setPassportOpen(true);
+              }}
+              className="w-full flex items-center justify-between gap-3 px-4 py-3 rounded-2xl bg-white border border-[#E5D9C5] hover:border-[#C9A84C] shadow-2xs transition-all cursor-pointer text-left"
+              aria-label="Open Moroccan Mate Passport"
+            >
+              <div className="flex items-center gap-2.5 min-w-0">
+                <span className="w-9 h-9 rounded-xl bg-[#FAF3EA] border border-[#EADBCE] flex items-center justify-center shrink-0">
+                  <Stamp className="w-4 h-4 text-[#C85A32]" />
+                </span>
+                <div className="min-w-0">
+                  <span className="block font-serif text-sm font-bold text-[#173042]">Traveler Passport</span>
+                  <span className="block text-[11px] text-[#71685F] truncate">
+                    {totalStampsCount > 0
+                      ? `${totalStampsCount} ${totalStampsCount === 1 ? 'place' : 'places'} stamped across Morocco`
+                      : 'Collect zellige stamps as you explore'}
+                  </span>
+                </div>
+              </div>
+              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#173042] text-[#F5D782] text-[11px] font-bold shrink-0 tabular-nums">
+                {totalStampsCount > 0 ? `${totalStampsCount} ★` : 'Open'}
+              </span>
+            </button>
+          </div>
+
           {/* 1. Booklet City Deck Swipe Bar */}
           <CityDeckNavigator
             cityKey={cityKey}

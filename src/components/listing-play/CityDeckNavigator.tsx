@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import { ChevronLeft, ChevronRight, BookOpen, Eye } from 'lucide-react';
 import { LocalizedLink } from '../ui/LocalizedLink';
 import { useLangPath } from '../../utils/localeRouting';
+import { getPlaceUiCopy } from '../../data/placeUiI18n';
 import {
   getDeckNeighbors,
   type DeckPlaceItem,
@@ -31,11 +32,12 @@ export const CityDeckNavigator: React.FC<CityDeckNavigatorProps> = ({
   currentSlug,
   onQuickPeek,
 }) => {
-  const { navigateLang } = useLangPath();
+  const { lang, navigateLang } = useLangPath();
+  const ui = getPlaceUiCopy(lang);
 
   const deck = useMemo(
-    () => getDeckNeighbors(cityKey, category, currentSlug),
-    [cityKey, category, currentSlug]
+    () => getDeckNeighbors(cityKey, category, currentSlug, lang),
+    [cityKey, category, currentSlug, lang]
   );
 
   // Keyboard deck flip (Alt + Left / Right arrows)
@@ -94,7 +96,7 @@ export const CityDeckNavigator: React.FC<CityDeckNavigatorProps> = ({
               </span>
               <span className="min-w-0">
                 <span className="block text-[10px] font-bold uppercase tracking-wider text-[#6B6156]">
-                  Previous
+                  {ui.play.previous}
                 </span>
                 <span className="block text-xs sm:text-sm font-serif font-bold text-[#142333] group-hover:text-[#C85A32] truncate">
                   {deck.prev.name}
@@ -108,8 +110,8 @@ export const CityDeckNavigator: React.FC<CityDeckNavigatorProps> = ({
                   playTactileSound('tick');
                   onQuickPeek(deck.prev!);
                 }}
-                title={`Quick peek ${deck.prev.name}`}
-                aria-label={`Quick peek ${deck.prev.name}`}
+                title={ui.play.quickPeekAria(deck.prev.name)}
+                aria-label={ui.play.quickPeekAria(deck.prev.name)}
                 className="p-2.5 rounded-xl bg-[#FAF8F4] hover:bg-[#173042] text-[#5E5448] hover:text-white border border-[#EAE2D5] transition-colors cursor-pointer shrink-0"
               >
                 <Eye className="w-4 h-4" />
@@ -125,14 +127,14 @@ export const CityDeckNavigator: React.FC<CityDeckNavigatorProps> = ({
           <span className="inline-flex items-center gap-1.5 text-[11px] font-bold text-[#173042] tabular-nums">
             <BookOpen className="w-3.5 h-3.5 text-[#C85A32]" />
             <span>
-              {deck.index + 1} of {deck.total}
+              {ui.play.ofTotal(deck.index + 1, deck.total)}
             </span>
           </span>
           <span className="text-[10px] text-[#6B6156] whitespace-nowrap">
             {categoryLabel} · {cityLabel}
           </span>
           <span className="hidden md:inline text-[10px] text-[#8E8274]">
-            Swipe or Alt + ← / →
+            {ui.play.swipeOrAlt}
           </span>
         </div>
 
@@ -146,8 +148,8 @@ export const CityDeckNavigator: React.FC<CityDeckNavigatorProps> = ({
                   playTactileSound('tick');
                   onQuickPeek(deck.next!);
                 }}
-                title={`Quick peek ${deck.next.name}`}
-                aria-label={`Quick peek ${deck.next.name}`}
+                title={ui.play.quickPeekAria(deck.next.name)}
+                aria-label={ui.play.quickPeekAria(deck.next.name)}
                 className="p-2.5 rounded-xl bg-[#FAF8F4] hover:bg-[#173042] text-[#5E5448] hover:text-white border border-[#EAE2D5] transition-colors cursor-pointer shrink-0"
               >
                 <Eye className="w-4 h-4" />
@@ -156,11 +158,11 @@ export const CityDeckNavigator: React.FC<CityDeckNavigatorProps> = ({
             <LocalizedLink
               to={deck.next.url}
               onClick={() => playTactileSound('tick')}
-              className="flex-1 min-w-0 flex items-center justify-end gap-2.5 p-2.5 rounded-xl bg-[#FAF8F4] hover:bg-[#F3ECE2] border border-[#EAE2D5] hover:border-[#C9A84C] transition-all group text-right"
+              className="flex-1 min-w-0 flex items-center justify-end gap-2.5 p-2.5 rounded-xl bg-[#FAF8F4] hover:bg-[#F3ECE2] border border-[#EAE2D5] hover:border-[#C9A84C] transition-all group text-end"
             >
               <span className="min-w-0">
                 <span className="block text-[10px] font-bold uppercase tracking-wider text-[#6B6156]">
-                  Next Gem
+                  {ui.play.nextGem}
                 </span>
                 <span className="block text-xs sm:text-sm font-serif font-bold text-[#142333] group-hover:text-[#C85A32] truncate">
                   {deck.next.name}

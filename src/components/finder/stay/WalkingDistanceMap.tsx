@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { NearbyPlace } from '../../../types/stay';
 import { StayIcon } from './StayIcon';
+import { useAppLanguage } from '../../../utils/localeRouting';
+import { getPlaceUiCopy } from '../../../data/placeUiI18n';
 
 interface WalkingDistanceMapProps {
   propertyName: string;
@@ -17,6 +19,8 @@ export const WalkingDistanceMap: React.FC<WalkingDistanceMapProps> = ({
   onHoverPlace,
   centerIcon = 'riad'
 }) => {
+  const lang = useAppLanguage();
+  const ui = getPlaceUiCopy(lang);
   const [activeTooltip, setActiveTooltip] = useState<string | null>(null);
 
   // SVG coordinate configuration (viewBox 440 x 300)
@@ -267,7 +271,7 @@ export const WalkingDistanceMap: React.FC<WalkingDistanceMapProps> = ({
               {(() => {
                 const mins = place.travel_time_minutes ?? place.walking_time_minutes;
                 const mode = place.travel_mode ?? (mins > 35 ? 'drive' : 'walk');
-                const modeShort = mode === 'drive' ? `${mins}m drive` : `${mins}m walk`;
+                const modeShort = mode === 'drive' ? ui.logistics.minDriveShort(mins) : ui.logistics.minWalkShort(mins);
                 const shortName = place.name.length > 13 ? place.name.slice(0, 12) + '…' : place.name;
                 return (
                   <g transform={`translate(${pos.x}, ${pos.y > centerY ? pos.y + 26 : pos.y - 20})`}>
@@ -303,12 +307,12 @@ export const WalkingDistanceMap: React.FC<WalkingDistanceMapProps> = ({
       {/* Compass Needle (Bottom Left) */}
       <div className="absolute bottom-3 left-3.5 z-10 flex flex-col items-center justify-center rounded-md bg-[#faf7f0]/90 px-2 py-1 border border-[#e5dcce] shadow-xs">
         <span className="text-[10px] font-bold text-[#b45309] leading-none">▲</span>
-        <span className="text-[10px] font-bold tracking-widest text-[#5c4e3e]">N</span>
+        <span className="text-[10px] font-bold tracking-widest text-[#5c4e3e]">{ui.logistics.northLetter}</span>
       </div>
 
       {/* Map Interactive Hint */}
       <div className="absolute top-3 right-3 z-10 rounded-full bg-[#faf7f0]/90 px-2.5 py-0.5 border border-[#e5dcce] text-[10px] font-medium text-[#766755]">
-        Interactive radius graph
+        {ui.logistics.interactiveRadiusGraph}
       </div>
     </div>
   );

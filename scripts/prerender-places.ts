@@ -338,7 +338,7 @@ for (const page of pages) {
 
     const sampleReviewsHtml =
       m.sampleReviews && m.sampleReviews.length > 0
-        ? `<section style="margin:24px 0;"><h3 style="font-size:16px;font-weight:700;color:#173042;margin:0 0 10px;">Guest Reviews</h3><div style="display:grid;gap:10px;">${m.sampleReviews
+        ? `<section style="margin:24px 0;"><h2 style="font-size:20px;font-weight:700;color:#173042;margin:0 0 12px;">${esc(page.h1)} Reviews</h2><div style="display:grid;gap:10px;">${m.sampleReviews
             .map(
               (r) =>
                 `<article style="padding:12px 14px;border:1px solid #E9D8C8;border-radius:10px;background:#fff;font-size:13px;">` +
@@ -416,6 +416,19 @@ for (const page of pages) {
         ? `<div style="margin:20px 0;padding:14px 18px;border-radius:12px;background:#FFFDF9;border-left:4px solid #C9A84C;border:1px solid #E9D8C8;"><h4 style="margin:0 0 4px;font-size:13px;font-weight:700;color:#8A6D1F;text-transform:uppercase;">${esc(ui.whatToKnowHeading)}</h4><p style="margin:0;font-size:14px;color:#29231F;line-height:1.5;">${m.requirements.map((r) => esc(r)).join(' • ')}</p></div>`
         : '';
 
+    const thingsSampleReviewsHtml =
+      m.sampleReviews && m.sampleReviews.length > 0
+        ? `<section style="margin:24px 0;"><h2 style="font-size:20px;font-weight:700;color:#173042;margin:0 0 12px;">${esc(page.h1)} Reviews</h2><div style="display:grid;gap:10px;">${m.sampleReviews
+            .map(
+              (r) =>
+                `<article style="padding:12px 14px;border:1px solid #E9D8C8;border-radius:10px;background:#fff;font-size:13px;">` +
+                `<div style="font-weight:700;color:#173042;margin-bottom:4px;">${esc(r.author)} · ★ ${r.rating}</div>` +
+                `<p style="margin:0;color:#374151;line-height:1.5;">${esc(r.text)}</p>` +
+                `</article>`
+            )
+            .join('')}</div></section>`
+        : '';
+
     preContent =
       `<div dir="${dir}" style="max-width:880px;margin:32px auto;padding:0 24px;font-family:system-ui,-apple-system,sans-serif;color:#29231F;">` +
       `<nav style="font-size:12px;color:#71685F;margin-bottom:20px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;">` +
@@ -440,6 +453,7 @@ for (const page of pages) {
       highlightsHtml +
       includedHtml +
       requirementsHtml +
+      thingsSampleReviewsHtml +
       faqHtml +
       cityExploreLinks +
       `<footer style="margin-top:36px;padding-top:20px;border-top:1px solid #E9D8C8;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:#71685F;">` +

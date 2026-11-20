@@ -15,8 +15,123 @@ import {
   type PassportPlaceEntry,
 } from '../../state/passportStore';
 import { LocalizedLink } from '../ui/LocalizedLink';
+import { useAppLanguage, type AppLanguage } from '../../utils/localeRouting';
+import { localizeCityName } from '../../data/placeUiI18n';
 import { cn } from '../../utils/cn';
 import { playTactileSound } from '../../utils/playfulFeedback';
+
+const PASSPORT_COPY: Record<
+  AppLanguage,
+  {
+    title: string;
+    stampsCollected: (c: number) => string;
+    inCity: (city: string, count: number) => string;
+    muteTitle: string;
+    unmuteTitle: string;
+    soundOn: string;
+    muted: string;
+    closeAria: string;
+    emptyTitle: string;
+    emptyDesc: string;
+    citySummary: (stamped: number, visited: number) => string;
+    stamped: string;
+    visited: string;
+    resetStamps: string;
+    storedPrivately: string;
+    spinCompassBtn: string;
+  }
+> = {
+  en: {
+    title: 'Moroccan Mate Passport',
+    stampsCollected: (c) => `${c} ${c === 1 ? 'stamp' : 'stamps'} collected`,
+    inCity: (city, count) => ` · ${count} in ${city}`,
+    muteTitle: 'Mute tactile sounds',
+    unmuteTitle: 'Enable tactile sounds',
+    soundOn: 'Sound On',
+    muted: 'Muted',
+    closeAria: 'Close passport',
+    emptyTitle: 'Your passport is ready for stamps',
+    emptyDesc: 'Read through any place guide or save a spot to Favorites to unlock its Moroccan wax seal.',
+    citySummary: (s, v) => `${s} stamped · ${v} visited`,
+    stamped: 'Stamped',
+    visited: 'Visited',
+    resetStamps: 'Reset stamps',
+    storedPrivately: 'Stored privately on your device',
+    spinCompassBtn: 'Spin Compass for Next Gem',
+  },
+  fr: {
+    title: 'Passeport Moroccan Mate',
+    stampsCollected: (c) => `${c} ${c === 1 ? 'tampon obtenu' : 'tampons obtenus'}`,
+    inCity: (city, count) => ` · ${count} à ${city}`,
+    muteTitle: 'Couper les sons',
+    unmuteTitle: 'Activer les sons',
+    soundOn: 'Son activé',
+    muted: 'Muet',
+    closeAria: 'Fermer le passeport',
+    emptyTitle: 'Votre passeport est prêt pour ses tampons',
+    emptyDesc: 'Parcourez un guide ou enregistrez un lieu dans vos favoris pour débloquer son sceau marocain.',
+    citySummary: (s, v) => `${s} tamponnés · ${v} visités`,
+    stamped: 'Tamponné',
+    visited: 'Visité',
+    resetStamps: 'Réinitialiser',
+    storedPrivately: 'Enregistré en privé sur votre appareil',
+    spinCompassBtn: 'Lancer la boussole',
+  },
+  es: {
+    title: 'Pasaporte Moroccan Mate',
+    stampsCollected: (c) => `${c} ${c === 1 ? 'sello conseguido' : 'sellos conseguidos'}`,
+    inCity: (city, count) => ` · ${count} en ${city}`,
+    muteTitle: 'Silenciar sonidos',
+    unmuteTitle: 'Activar sonidos',
+    soundOn: 'Sonido',
+    muted: 'Silencio',
+    closeAria: 'Cerrar pasaporte',
+    emptyTitle: 'Tu pasaporte está listo para sellar',
+    emptyDesc: 'Explora cualquier guía o guarda un lugar en favoritos para desbloquear su sello marroquí.',
+    citySummary: (s, v) => `${s} sellados · ${v} visitados`,
+    stamped: 'Sellado',
+    visited: 'Visitado',
+    resetStamps: 'Reiniciar sellos',
+    storedPrivately: 'Guardado de forma privada en tu dispositivo',
+    spinCompassBtn: 'Girar brújula para otro lugar',
+  },
+  de: {
+    title: 'Moroccan Mate Reisepass',
+    stampsCollected: (c) => `${c} ${c === 1 ? 'Stempel' : 'Stempel'} gesammelt`,
+    inCity: (city, count) => ` · ${count} in ${city}`,
+    muteTitle: 'Töne stummschalten',
+    unmuteTitle: 'Töne aktivieren',
+    soundOn: 'Ton an',
+    muted: 'Stumm',
+    closeAria: 'Reisepass schließen',
+    emptyTitle: 'Dein Reisepass wartet auf Stempel',
+    emptyDesc: 'Lies einen Ortsguide durch oder speichere einen Ort in deinen Favoriten, um das Siegel freizuschalten.',
+    citySummary: (s, v) => `${s} gestempelt · ${v} besucht`,
+    stamped: 'Abgestempelt',
+    visited: 'Besucht',
+    resetStamps: 'Stempel zurücksetzen',
+    storedPrivately: 'Privat auf deinem Gerät gespeichert',
+    spinCompassBtn: 'Kompass für nächsten Tipp drehen',
+  },
+  ar: {
+    title: 'جواز سفر Moroccan Mate',
+    stampsCollected: (c) => `تم جمع ${c} ${c === 1 ? 'ختم' : 'أختام'}`,
+    inCity: (city, count) => ` · ${count} في ${city}`,
+    muteTitle: 'كتم الأصوات',
+    unmuteTitle: 'تفعيل الأصوات',
+    soundOn: 'الصوت مفعل',
+    muted: 'صامت',
+    closeAria: 'إغلاق جواز السفر',
+    emptyTitle: 'جواز سفرك جاهز لجمع الأختام',
+    emptyDesc: 'تصفح أي دليل مكان أو احفظه في المفضلة لفتح الختم المغربي الخاص به.',
+    citySummary: (s, v) => `${s} مختوم · ${v} تمت زيارته`,
+    stamped: 'مختوم',
+    visited: 'تمت زيارته',
+    resetStamps: 'إعادة ضبط الأختام',
+    storedPrivately: 'محفوظ بخصوصية على جهازك',
+    spinCompassBtn: 'أدر البوصلة لاكتشاف مكان جديد',
+  },
+};
 
 interface PassportModalProps {
   isOpen: boolean;
@@ -40,6 +155,8 @@ export const PassportModal: React.FC<PassportModalProps> = ({
   currentCityLabel,
   onSpinCompass,
 }) => {
+  const lang = useAppLanguage();
+  const pc = PASSPORT_COPY[lang] || PASSPORT_COPY.en;
   const entries = usePassportStore((s) => s.entries);
   const soundEnabled = usePassportStore((s) => s.soundEnabled);
   const toggleSound = usePassportStore((s) => s.toggleSound);
@@ -116,12 +233,12 @@ export const PassportModal: React.FC<PassportModalProps> = ({
                 </div>
                 <div className="min-w-0">
                   <h2 id="passport-modal-title" className="font-serif text-lg font-bold leading-tight">
-                    Moroccan Mate Passport
+                    {pc.title}
                   </h2>
                   <p className="text-xs text-stone-300 tabular-nums">
-                    {stampedEntries.length} {stampedEntries.length === 1 ? 'stamp' : 'stamps'} collected
+                    {pc.stampsCollected(stampedEntries.length)}
                     {currentCityLabel && currentCityStamps > 0
-                      ? ` · ${currentCityStamps} in ${currentCityLabel}`
+                      ? pc.inCity(currentCityLabel, currentCityStamps)
                       : ''}
                   </p>
                 </div>
@@ -136,7 +253,7 @@ export const PassportModal: React.FC<PassportModalProps> = ({
                       window.setTimeout(() => playTactileSound('tick'), 20);
                     }
                   }}
-                  title={soundEnabled ? 'Mute tactile sounds' : 'Enable tactile sounds'}
+                  title={soundEnabled ? pc.muteTitle : pc.unmuteTitle}
                   className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-full bg-white/10 hover:bg-white/20 text-xs font-semibold text-white transition-colors cursor-pointer whitespace-nowrap"
                 >
                   {soundEnabled ? (
@@ -144,12 +261,12 @@ export const PassportModal: React.FC<PassportModalProps> = ({
                   ) : (
                     <VolumeX className="w-3.5 h-3.5 text-stone-300" />
                   )}
-                  <span className="hidden sm:inline">{soundEnabled ? 'Sound On' : 'Muted'}</span>
+                  <span className="hidden sm:inline">{soundEnabled ? pc.soundOn : pc.muted}</span>
                 </button>
                 <button
                   type="button"
                   onClick={onClose}
-                  aria-label="Close passport"
+                  aria-label={pc.closeAria}
                   className="p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer"
                 >
                   <X className="w-4 h-4" />
@@ -164,10 +281,10 @@ export const PassportModal: React.FC<PassportModalProps> = ({
                 <div className="rounded-2xl border border-dashed border-[#D8CBB8] bg-white/60 p-8 text-center space-y-2">
                   <Stamp className="w-8 h-8 text-[#C85A32] mx-auto opacity-80" />
                   <p className="font-serif text-base font-bold text-[#142333]">
-                    Your passport is ready for stamps
+                    {pc.emptyTitle}
                   </p>
                   <p className="text-xs text-[#5E5448] max-w-xs mx-auto leading-relaxed">
-                    Read through any place guide or save a spot to Favorites to unlock its Moroccan wax seal.
+                    {pc.emptyDesc}
                   </p>
                 </div>
               ) : (
@@ -179,10 +296,10 @@ export const PassportModal: React.FC<PassportModalProps> = ({
                         <div className="flex items-center justify-between">
                           <h3 className="text-xs font-bold uppercase tracking-wider text-[#5E5448] flex items-center gap-1.5">
                             <MapPin className="w-3.5 h-3.5 text-[#C85A32]" />
-                            <span>{group.cityLabel}</span>
+                            <span>{localizeCityName(cityKey, group.cityLabel, lang)}</span>
                           </h3>
                           <span className="text-[11px] font-bold text-[#1F4B34] tabular-nums">
-                            {cityStampedCount} stamped · {group.items.length} visited
+                            {pc.citySummary(cityStampedCount, group.items.length)}
                           </span>
                         </div>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -217,7 +334,7 @@ export const PassportModal: React.FC<PassportModalProps> = ({
                                     {item.name}
                                   </p>
                                   <p className="text-[11px] text-[#6B6156] truncate">
-                                    {item.stamped ? 'Stamped' : 'Visited'}
+                                    {item.stamped ? pc.stamped : pc.visited}
                                     {item.neighborhood ? ` · ${item.neighborhood}` : ''}
                                   </p>
                                 </div>
@@ -245,10 +362,10 @@ export const PassportModal: React.FC<PassportModalProps> = ({
                   className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#6B6156] hover:text-red-700 transition-colors cursor-pointer"
                 >
                   <Trash2 className="w-3.5 h-3.5" />
-                  <span>Reset stamps</span>
+                  <span>{pc.resetStamps}</span>
                 </button>
               ) : (
-                <span className="text-xs text-[#6B6156]">Stored privately on your device</span>
+                <span className="text-xs text-[#6B6156]">{pc.storedPrivately}</span>
               )}
 
               {onSpinCompass && (
@@ -261,7 +378,7 @@ export const PassportModal: React.FC<PassportModalProps> = ({
                   className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[#C85A32] hover:bg-[#B24B26] text-white text-xs font-bold shadow-xs transition-all cursor-pointer whitespace-nowrap"
                 >
                   <Compass className="w-3.5 h-3.5" />
-                  <span>Spin Compass for Next Gem</span>
+                  <span>{pc.spinCompassBtn}</span>
                 </button>
               )}
             </div>

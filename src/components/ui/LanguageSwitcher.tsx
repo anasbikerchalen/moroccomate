@@ -63,7 +63,7 @@ export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
         aria-expanded={open}
         aria-label="Choose language"
         title="Language / Langue / Idioma / Sprache / اللغة"
-        className="inline-flex items-center gap-1.5 px-2.5 py-1.5 sm:px-3 sm:py-1.5 rounded-full bg-white/95 hover:bg-white border border-[#EADBCE] shadow-xs hover:shadow-md hover:border-[#C9A84C] transition-all duration-200 cursor-pointer text-[#29231F]"
+        className={`inline-flex items-center ${compact ? 'gap-1 px-2 py-1.5 sm:gap-1.5 sm:px-3' : 'gap-1.5 px-2.5 py-1.5 sm:px-3'} rounded-full bg-white/95 hover:bg-white border border-[#EADBCE] shadow-xs hover:shadow-md hover:border-[#C9A84C] transition-all duration-200 cursor-pointer text-[#29231F]`}
       >
         <Globe className="w-3.5 h-3.5 text-[#C9A84C] shrink-0" />
         <span className="font-sans text-xs font-bold tracking-wide">{currentMeta.shortCode}</span>

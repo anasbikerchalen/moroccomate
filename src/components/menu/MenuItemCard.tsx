@@ -4,7 +4,15 @@ import { Plus, Minus, Flame, HelpCircle, ChevronDown } from 'lucide-react';
 import { useTastingStore, formatPrice } from '../../state/tastingStore';
 import { findGlossaryEntryForDish, type MoroccanDishGlossaryEntry } from '../../data/culinaryGlossary';
 import { getDishDisplayName, getDishSecondaryText } from '../../data/menuTranslations';
+import { useAppLanguage } from '../../utils/localeRouting';
+import { getPlaceUiCopy } from '../../data/placeUiI18n';
 import type { MenuItem } from '../../listings/types';
+
+const DIETARY_LABELS: Record<string, Record<string, string>> = {
+  vegetarian: { en: 'Vegetarian', fr: 'Végétarien', es: 'Vegetariano', de: 'Vegetarisch', ar: 'نباتي' },
+  vegan: { en: 'Vegan', fr: 'Végan', es: 'Vegano', de: 'Vegan', ar: 'نباتي صرف' },
+  'gluten-free': { en: 'Gluten-Free', fr: 'Sans gluten', es: 'Sin gluten', de: 'Glutenfrei', ar: 'خالٍ من الغلوتين' },
+};
 
 interface MenuItemCardProps {
   dish: MenuItem;
@@ -33,6 +41,8 @@ export default function MenuItemCard({
     menuLanguage,
   } = useTastingStore();
 
+  const routeLang = useAppLanguage();
+  const ui = getPlaceUiCopy(routeLang);
   const [descOpen, setDescOpen] = useState(false);
   const selected = isDishSelected(dish.id);
   const quantity = getDishQuantity(dish.id);
@@ -76,13 +86,13 @@ export default function MenuItemCard({
             <div className="flex flex-wrap items-center gap-2 mb-1">
               {isRecommended && (
                 <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-amber-500/15 text-amber-900 border border-amber-500/30">
-                  ★ Highly Recommended
+                  {ui.menu.highlyRecommendedBadge}
                 </span>
               )}
               {dish.isSpicy && (
                 <span className="inline-flex items-center gap-0.5 text-[10px] font-bold text-rose-600">
                   <Flame className="w-2.5 h-2.5" />
-                  Spicy
+                  {ui.menu.spicy}
                 </span>
               )}
               {dish.dietary?.map((diet) => (
@@ -90,7 +100,7 @@ export default function MenuItemCard({
                   key={diet}
                   className="text-[10px] font-semibold text-emerald-700 capitalize"
                 >
-                  {diet === 'vegetarian' ? '🌱' : diet === 'vegan' ? '🌿' : ''} {diet}
+                  {diet === 'vegetarian' ? '🌱' : diet === 'vegan' ? '🌿' : ''} {DIETARY_LABELS[diet]?.[routeLang] || diet}
                 </span>
               ))}
             </div>
@@ -109,11 +119,11 @@ export default function MenuItemCard({
               <button
                 type="button"
                 onClick={() => onOpenGlossary(glossaryEntry)}
-                title={`Learn about ${glossaryEntry.term}`}
+                title={ui.menu.learnAboutTerm(glossaryEntry.term)}
                 className="inline-flex items-center gap-0.5 text-[10px] font-semibold text-[#D4863A] hover:text-[#c2762e] transition-colors cursor-pointer"
               >
                 <HelpCircle className="w-3 h-3" />
-                <span className="hidden sm:inline">What is this?</span>
+                <span className="hidden sm:inline">{ui.menu.whatIsThis}</span>
               </button>
             )}
           </div>
@@ -149,7 +159,7 @@ export default function MenuItemCard({
               >
                 <ChevronDown className="w-3 h-3" />
               </motion.span>
-              <span>{descOpen ? 'Less' : 'Details'}</span>
+              <span>{descOpen ? ui.menu.less : ui.menu.details}</span>
             </button>
           )}
 

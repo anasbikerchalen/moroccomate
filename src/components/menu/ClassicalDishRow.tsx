@@ -3,6 +3,8 @@ import { Plus, Minus, Flame, HelpCircle } from 'lucide-react';
 import { useTastingStore, formatPrice } from '../../state/tastingStore';
 import { findGlossaryEntryForDish, type MoroccanDishGlossaryEntry } from '../../data/culinaryGlossary';
 import { getDishDisplayName, getDishSecondaryText } from '../../data/menuTranslations';
+import { useAppLanguage } from '../../utils/localeRouting';
+import { getPlaceUiCopy } from '../../data/placeUiI18n';
 import type { MenuItem } from '../../listings/types';
 
 interface ClassicalDishRowProps {
@@ -32,6 +34,8 @@ export default function ClassicalDishRow({
     menuLanguage,
   } = useTastingStore();
 
+  const routeLang = useAppLanguage();
+  const ui = getPlaceUiCopy(routeLang);
   const selected = isDishSelected(dish.id);
   const quantity = getDishQuantity(dish.id);
   const glossaryEntry = findGlossaryEntryForDish(dish.name);
@@ -67,9 +71,9 @@ export default function ClassicalDishRow({
           {isRecommended && (
             <span
               className="inline-flex items-center gap-0.5 px-1.5 py-0.2 rounded text-[8px] sm:text-[9px] font-black uppercase tracking-wider bg-amber-600/15 text-amber-950 border border-amber-600/30 shrink-0 shadow-2xs"
-              title="Chef's Highly Recommended Plate"
+              title={ui.menu.recommendedTitle}
             >
-              ★ Recommended
+              {ui.menu.recommendedBadge}
             </span>
           )}
           {dish.isSpicy && (
@@ -79,7 +83,7 @@ export default function ClassicalDishRow({
             <button
               type="button"
               onClick={() => onOpenGlossary(glossaryEntry)}
-              title={`Learn about ${glossaryEntry.term}`}
+              title={ui.menu.learnAboutTerm(glossaryEntry.term)}
               className="text-[#B8A080] hover:text-[#8B6F4E] transition-colors cursor-pointer inline-flex self-center"
             >
               <HelpCircle className="w-2.5 h-2.5" />

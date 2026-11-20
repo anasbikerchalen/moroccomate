@@ -143,3 +143,65 @@ test('public/sitemap.xml includes all 16 target restaurant place and menu URLs w
   );
 });
 
+test('public/sitemap.xml includes localized fr/es/de/ar URLs for Agadir Eat and all 6 Amsterdam Luxury image URLs', () => {
+  const sitemapPath = resolve(process.cwd(), 'public', 'sitemap.xml');
+  const xml = readFileSync(sitemapPath, 'utf8');
+
+  const urlBlocks = [...xml.matchAll(/<url>([\s\S]*?)<\/url>/g)].map((m) => m[1]);
+  const blockByLoc = new Map<string, string>();
+  for (const block of urlBlocks) {
+    const locMatch = block.match(/<loc>([^<]+)<\/loc>/);
+    if (locMatch) blockByLoc.set(locMatch[1], block);
+  }
+
+  const agadirSpecs = TARGET_LISTING_SPECS.filter((s) => s.city === 'agadir');
+  const nonAgadirSpecs = TARGET_LISTING_SPECS.filter((s) => s.city !== 'agadir');
+
+  for (const spec of agadirSpecs) {
+    for (const prefix of ['', '/fr', '/es', '/de', '/ar']) {
+      const placeLoc = `https://www.moroccanmate.com${prefix}/place/agadir/food/${spec.sitemapSlug}`;
+      const block = blockByLoc.get(placeLoc);
+      assert.ok(block, `Missing localized Agadir Eat URL in sitemap.xml: ${placeLoc}`);
+      assert.match(block, /hreflang="fr"/);
+      assert.match(block, /hreflang="es"/);
+      assert.match(block, /hreflang="de"/);
+      assert.match(block, /hreflang="ar"/);
+      assert.match(block, /hreflang="x-default"/);
+
+      const menuLoc = `${placeLoc}/menu`;
+      assert.ok(blockByLoc.has(menuLoc), `Missing localized Agadir Eat menu URL in sitemap.xml: ${menuLoc}`);
+    }
+  }
+
+  for (const spec of nonAgadirSpecs) {
+    for (const prefix of ['/fr', '/es', '/de', '/ar']) {
+      const untranslatedLoc = `https://www.moroccanmate.com${prefix}/place/${spec.city}/food/${spec.sitemapSlug}`;
+      assert.equal(
+        blockByLoc.has(untranslatedLoc),
+        false,
+        `Untranslated listing should not have ${prefix} URL in sitemap.xml: ${untranslatedLoc}`
+      );
+    }
+  }
+
+  const amsterdamPaths = [
+    '/place/agadir/food/amsterdam-luxury-restaurant',
+    '/place/agadir/food/amsterdam-luxury-restaurant/menu',
+  ];
+  for (const basePath of amsterdamPaths) {
+    for (const prefix of ['', '/fr', '/es', '/de', '/ar']) {
+      const fullLoc = `https://www.moroccanmate.com${prefix}${basePath}`;
+      const block = blockByLoc.get(fullLoc);
+      assert.ok(block, `Missing Amsterdam Luxury sitemap block for ${fullLoc}`);
+      for (let page = 1; page <= 6; page++) {
+        const expectedImg = `https://www.moroccanmate.com/images/menus/amsterdam-luxury/amsterdam_menu_page_${page}.jpg`;
+        assert.ok(
+          block.includes(`<image:loc>${expectedImg}</image:loc>`),
+          `Missing <image:loc>${expectedImg}</image:loc> on ${fullLoc}`
+        );
+      }
+    }
+  }
+});
+
+

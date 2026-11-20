@@ -345,6 +345,62 @@ export const agadirEat: EatListing[] = [
         currency: "MAD",
         lastUpdated: "Verified March 2026",
         serviceChargeIncluded: true,
+        menuPhotos: [
+          {
+            url: "/images/menus/amsterdam-luxury/amsterdam_menu_page_1.jpg",
+            pageNumber: 1,
+            width: 1792,
+            height: 2400,
+            title: "Amsterdam Luxury Restaurant Agadir Menu Page 1",
+            alt: "Amsterdam Luxury Restaurant Agadir menu photo page 1: Starters, salads, and breakfast",
+            caption: "Page 1: Cold and warm starters, salads, and breakfast selections."
+          },
+          {
+            url: "/images/menus/amsterdam-luxury/amsterdam_menu_page_2.jpg",
+            pageNumber: 2,
+            width: 1792,
+            height: 2400,
+            title: "Amsterdam Luxury Restaurant Agadir Menu Page 2",
+            alt: "Amsterdam Luxury Restaurant Agadir menu photo page 2: Main courses, steaks, and grills",
+            caption: "Page 2: Premium steaks, dry-aged cuts, and grill specialties."
+          },
+          {
+            url: "/images/menus/amsterdam-luxury/amsterdam_menu_page_3.jpg",
+            pageNumber: 3,
+            width: 1792,
+            height: 2400,
+            title: "Amsterdam Luxury Restaurant Agadir Menu Page 3",
+            alt: "Amsterdam Luxury Restaurant Agadir menu photo page 3: Signature dishes and 24K gold",
+            caption: "Page 3: Signature 24K gold presentations and Wagyu dishes."
+          },
+          {
+            url: "/images/menus/amsterdam-luxury/amsterdam_menu_page_4.jpg",
+            pageNumber: 4,
+            width: 1792,
+            height: 2400,
+            title: "Amsterdam Luxury Restaurant Agadir Menu Page 4",
+            alt: "Amsterdam Luxury Restaurant Agadir menu photo page 4: Burgers, pasta, and Dutch comfort food",
+            caption: "Page 4: Burgers, pasta, and Dutch comfort food (Patatje Oorlog, Poffertjes)."
+          },
+          {
+            url: "/images/menus/amsterdam-luxury/amsterdam_menu_page_5.jpg",
+            pageNumber: 5,
+            width: 1792,
+            height: 2400,
+            title: "Amsterdam Luxury Restaurant Agadir Menu Page 5",
+            alt: "Amsterdam Luxury Restaurant Agadir menu photo page 5: Desserts, mocktails, and beverages",
+            caption: "Page 5: Desserts, 24K gold chocolate, mocktails, and fresh juices."
+          },
+          {
+            url: "/images/menus/amsterdam-luxury/amsterdam_menu_page_6.jpg",
+            pageNumber: 6,
+            width: 1792,
+            height: 2400,
+            title: "Amsterdam Luxury Restaurant Agadir Menu Page 6",
+            alt: "Amsterdam Luxury Restaurant Agadir menu photo page 6: Additional menu items",
+            caption: "Page 6: Additional menu items and beverages."
+          }
+        ],
         sections: [
           {
             id: 'entrees-froides',

@@ -19,7 +19,188 @@ import {
   Minus
 } from 'lucide-react';
 import { useTastingStore, formatPrice } from '../../state/tastingStore';
+import { useAppLanguage, type AppLanguage } from '../../utils/localeRouting';
+import { localizePaymentMethod } from '../../data/placeUiI18n';
 import type { MenuItem } from '../../listings/types';
+
+const RES_COPY: Record<
+  AppLanguage,
+  {
+    reserveAt: (n: string) => string;
+    dishesCountSub: (c: number) => string;
+    directChannelSub: string;
+    closeAria: string;
+    selectedPlates: (c: number) => string;
+    clearList: string;
+    each: string;
+    estimatedTotal: string;
+    copied: string;
+    copyList: string;
+    noPlatesTitle: string;
+    noPlatesDesc: string;
+    channelsHeading: string;
+    reserveWhatsApp: string;
+    verified: string;
+    whatsappDesc: string;
+    officialPortal: string;
+    verifiedOfficialLink: string;
+    portalDesc: string;
+    callVenueDirectly: string;
+    callNow: string;
+    walkInTitle: string;
+    walkInDesc: string;
+    bestArrivalTime: string;
+    getGpsDirections: string;
+    acceptedPayments: string;
+    cashRecommended: string;
+  }
+> = {
+  en: {
+    reserveAt: (n) => `Reserve at ${n}`,
+    dishesCountSub: (c) => `${c} dishes selected for your tasting visit`,
+    directChannelSub: 'Direct verified booking channel',
+    closeAria: 'Close reservation dialog',
+    selectedPlates: (c) => `Your Selected Tasting Plates (${c})`,
+    clearList: 'Clear list',
+    each: 'each',
+    estimatedTotal: 'Estimated Total Food Cost',
+    copied: 'Order Copied to Clipboard!',
+    copyList: 'Copy Dish List',
+    noPlatesTitle: 'No specific plates pre-selected',
+    noPlatesDesc: 'You can reserve your table directly through the verified channels below and order upon arrival.',
+    channelsHeading: 'Reservation & Booking Channels',
+    reserveWhatsApp: 'Reserve via WhatsApp',
+    verified: 'Verified',
+    whatsappDesc: 'Sends your table request & selected dishes directly',
+    officialPortal: 'Official Booking Portal',
+    verifiedOfficialLink: 'Verified Official Link',
+    portalDesc: 'Direct reservation on the official venue booking platform',
+    callVenueDirectly: 'Call Venue Directly',
+    callNow: 'Call Now',
+    walkInTitle: 'Online Reservation Not Available — Walk-In Only',
+    walkInDesc: 'This venue does not operate an advance online booking system. Seating is on a genuine first-come, first-served walk-in basis.',
+    bestArrivalTime: 'Best arrival time:',
+    getGpsDirections: 'Get GPS Walking Directions on Google Maps',
+    acceptedPayments: 'Accepted Payment Methods:',
+    cashRecommended: 'Cash (MAD) recommended',
+  },
+  fr: {
+    reserveAt: (n) => `Réserver chez ${n}`,
+    dishesCountSub: (c) => `${c} plats sélectionnés pour votre visite`,
+    directChannelSub: 'Canal de réservation vérifié',
+    closeAria: 'Fermer la fenêtre de réservation',
+    selectedPlates: (c) => `Votre sélection de plats (${c})`,
+    clearList: 'Tout effacer',
+    each: 'l’unité',
+    estimatedTotal: 'Estimation totale des plats',
+    copied: 'Liste copiée !',
+    copyList: 'Copier la liste des plats',
+    noPlatesTitle: 'Aucun plat présélectionné',
+    noPlatesDesc: 'Vous pouvez réserver directement via les canaux vérifiés ci-dessous et commander sur place.',
+    channelsHeading: 'Canaux de réservation',
+    reserveWhatsApp: 'Réserver via WhatsApp',
+    verified: 'Vérifié',
+    whatsappDesc: 'Envoie votre demande de table et vos plats choisis',
+    officialPortal: 'Portail de réservation officiel',
+    verifiedOfficialLink: 'Lien officiel vérifié',
+    portalDesc: 'Réservation directe sur la plateforme officielle du lieu',
+    callVenueDirectly: 'Appeler l’établissement',
+    callNow: 'Appeler',
+    walkInTitle: 'Réservation en ligne indisponible — Sans réservation',
+    walkInDesc: 'Cet établissement ne propose pas de réservation en ligne. L’accueil se fait directement sur place selon l’arrivée.',
+    bestArrivalTime: 'Meilleure heure d’arrivée :',
+    getGpsDirections: 'Itinéraire GPS sur Google Maps',
+    acceptedPayments: 'Paiements acceptés :',
+    cashRecommended: 'Espèces (MAD) recommandées',
+  },
+  es: {
+    reserveAt: (n) => `Reservar en ${n}`,
+    dishesCountSub: (c) => `${c} platos elegidos para tu visita`,
+    directChannelSub: 'Canal de reserva verificado',
+    closeAria: 'Cerrar diálogo de reserva',
+    selectedPlates: (c) => `Platos seleccionados (${c})`,
+    clearList: 'Limpiar lista',
+    each: 'c/u',
+    estimatedTotal: 'Costo total estimado',
+    copied: '¡Lista copiada!',
+    copyList: 'Copiar lista de platos',
+    noPlatesTitle: 'Ningún plato preseleccionado',
+    noPlatesDesc: 'Puedes reservar tu mesa directamente mediante los canales verificados y pedir al llegar.',
+    channelsHeading: 'Canales de reserva',
+    reserveWhatsApp: 'Reservar por WhatsApp',
+    verified: 'Verificado',
+    whatsappDesc: 'Envía tu solicitud de mesa y platos elegidos directamente',
+    officialPortal: 'Portal oficial de reservas',
+    verifiedOfficialLink: 'Enlace oficial verificado',
+    portalDesc: 'Reserva directa en la plataforma oficial del local',
+    callVenueDirectly: 'Llamar al restaurante',
+    callNow: 'Llamar',
+    walkInTitle: 'Sin reserva online — Solo acceso directo',
+    walkInDesc: 'Este local no dispone de sistema de reserva anticipada online. Las mesas se asignan por orden de llegada.',
+    bestArrivalTime: 'Mejor hora de llegada:',
+    getGpsDirections: 'Cómo llegar en Google Maps',
+    acceptedPayments: 'Métodos de pago aceptados:',
+    cashRecommended: 'Se recomienda efectivo (MAD)',
+  },
+  de: {
+    reserveAt: (n) => `Reservieren bei ${n}`,
+    dishesCountSub: (c) => `${c} Gerichte für deinen Besuch ausgewählt`,
+    directChannelSub: 'Geprüfter Buchungskanal',
+    closeAria: 'Reservierungsfenster schließen',
+    selectedPlates: (c) => `Deine gewählten Gerichte (${c})`,
+    clearList: 'Liste leeren',
+    each: 'pro Stück',
+    estimatedTotal: 'Geschätzter Gesamtpreis',
+    copied: 'Liste kopiert!',
+    copyList: 'Gerichteliste kopieren',
+    noPlatesTitle: 'Keine bestimmten Gerichte vorausgewählt',
+    noPlatesDesc: 'Du kannst direkt über die geprüften Kanäle unten reservieren und vor Ort bestellen.',
+    channelsHeading: 'Reservierungs- & Buchungskanäle',
+    reserveWhatsApp: 'Per WhatsApp reservieren',
+    verified: 'Geprüft',
+    whatsappDesc: 'Sendet Tischanfrage & gewählte Gerichte direkt',
+    officialPortal: 'Offizielles Buchungsportal',
+    verifiedOfficialLink: 'Geprüfter offizieller Link',
+    portalDesc: 'Direkte Reservierung auf der offiziellen Plattform',
+    callVenueDirectly: 'Lokal direkt anrufen',
+    callNow: 'Jetzt anrufen',
+    walkInTitle: 'Keine Online-Reservierung — Nur Walk-in',
+    walkInDesc: 'Dieses Lokal bietet keine Online-Vorreservierung. Sitzplätze werden nach Ankunft vergeben.',
+    bestArrivalTime: 'Beste Ankunftszeit:',
+    getGpsDirections: 'GPS-Route in Google Maps öffnen',
+    acceptedPayments: 'Akzeptierte Zahlungsmittel:',
+    cashRecommended: 'Bargeld (MAD) empfohlen',
+  },
+  ar: {
+    reserveAt: (n) => `الحجز في ${n}`,
+    dishesCountSub: (c) => `${c} أطباق محددة لزيارتك`,
+    directChannelSub: 'قناة حجز موثقة مباشرة',
+    closeAria: 'إغلاق نافذة الحجز',
+    selectedPlates: (c) => `الأطباق المختارة (${c})`,
+    clearList: 'مسح القائمة',
+    each: 'للقطعة',
+    estimatedTotal: 'التكلفة التقديرية للأطباق',
+    copied: 'تم نسخ القائمة!',
+    copyList: 'نسخ قائمة الأطباق',
+    noPlatesTitle: 'لم يتم تحديد أطباق مسبقاً',
+    noPlatesDesc: 'يمكنك حجز طاولتك مباشرة عبر القنوات الموثقة أدناه والطلب عند الوصول.',
+    channelsHeading: 'قنوات الحجز المباشر',
+    reserveWhatsApp: 'الحجز عبر واتساب',
+    verified: 'موثق',
+    whatsappDesc: 'يرسل طلب الطاولة والأطباق المختارة مباشرة',
+    officialPortal: 'بوابة الحجز الرسمية',
+    verifiedOfficialLink: 'رابط رسمي موثق',
+    portalDesc: 'حجز مباشر على المنصة الرسمية للمطعم',
+    callVenueDirectly: 'الاتصال بالمكان مباشرة',
+    callNow: 'اتصل الآن',
+    walkInTitle: 'الحجز الإلكتروني غير متوفر — حضور مباشر فقط',
+    walkInDesc: 'لا يعتمد هذا المكان نظام حجز إلكتروني مسبقاً، ويتم الجلوس حسب أولوية الحضور.',
+    bestArrivalTime: 'أفضل وقت للوصول:',
+    getGpsDirections: 'فتح المسار على خرائط جوجل',
+    acceptedPayments: 'طرق الدفع المقبولة:',
+    cashRecommended: 'يُنصح بالدفع نقداً (MAD)',
+  },
+};
 
 interface MenuReservationModalProps {
   isOpen: boolean;
@@ -50,6 +231,8 @@ export default function MenuReservationModal({
   averageWaitMinutes,
   paymentMethods = [],
 }: MenuReservationModalProps) {
+  const lang = useAppLanguage();
+  const rc = RES_COPY[lang] || RES_COPY.en;
   const [copiedText, setCopiedText] = useState(false);
   const {
     selectedDishes,
@@ -139,16 +322,16 @@ export default function MenuReservationModal({
               </div>
               <div>
                 <h3 className="font-display text-lg sm:text-xl font-bold text-stone-900">
-                  Reserve at {restaurantName}
+                  {rc.reserveAt(restaurantName)}
                 </h3>
                 <p className="text-xs text-stone-500 font-medium">
-                  {totalCount > 0 ? `${totalCount} dishes selected for your tasting visit` : 'Direct verified booking channel'}
+                  {totalCount > 0 ? rc.dishesCountSub(totalCount) : rc.directChannelSub}
                 </p>
               </div>
             </div>
             <button
               onClick={onClose}
-              aria-label="Close reservation dialog"
+              aria-label={rc.closeAria}
               className="w-9 h-9 rounded-full bg-stone-200/60 hover:bg-stone-200 text-stone-600 flex items-center justify-center transition-colors cursor-pointer"
             >
               <X className="w-4 h-4" />
@@ -161,13 +344,13 @@ export default function MenuReservationModal({
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-bold uppercase tracking-wider text-stone-700">
-                    Your Selected Tasting Plates ({totalCount})
+                    {rc.selectedPlates(totalCount)}
                   </span>
                   <button
                     onClick={clearDishes}
                     className="text-[11px] font-semibold text-rose-600 hover:text-rose-700 hover:underline flex items-center gap-1 cursor-pointer"
                   >
-                    <Trash2 className="w-3 h-3" /> Clear list
+                    <Trash2 className="w-3 h-3" /> {rc.clearList}
                   </button>
                 </div>
 
@@ -179,7 +362,7 @@ export default function MenuReservationModal({
                           {dish.name}
                         </h4>
                         <span className="text-[11px] font-medium text-stone-500">
-                          {formatPrice(dish.price, currency)} each
+                          {formatPrice(dish.price, currency)} {rc.each}
                         </span>
                       </div>
 
@@ -213,7 +396,7 @@ export default function MenuReservationModal({
                   ))}
 
                   <div className="pt-3 pb-1 px-2 flex items-center justify-between border-t border-stone-200">
-                    <span className="text-xs font-bold text-stone-800">Estimated Total Food Cost</span>
+                    <span className="text-xs font-bold text-stone-800">{rc.estimatedTotal}</span>
                     <span className="text-sm font-black text-stone-900 font-mono">
                       {formatPrice(totalPriceMAD, currency)}
                       {currency !== 'MAD' && (
@@ -231,7 +414,7 @@ export default function MenuReservationModal({
                     className="inline-flex items-center gap-1.5 text-[11px] font-bold text-stone-700 hover:text-stone-900 bg-stone-100 hover:bg-stone-200 px-3 py-1.5 rounded-lg transition-colors cursor-pointer"
                   >
                     {copiedText ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
-                    <span>{copiedText ? 'Order Copied to Clipboard!' : 'Copy Dish List'}</span>
+                    <span>{copiedText ? rc.copied : rc.copyList}</span>
                   </button>
                 </div>
               </div>
@@ -239,8 +422,8 @@ export default function MenuReservationModal({
               <div className="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-start gap-3">
                 <UtensilsCrossed className="w-5 h-5 text-[#D4863A] shrink-0 mt-0.5" />
                 <div className="text-xs text-stone-700 leading-relaxed">
-                  <span className="font-bold text-stone-900 block mb-0.5">No specific plates pre-selected</span>
-                  You can reserve your table directly through the verified channels below and order upon arrival.
+                  <span className="font-bold text-stone-900 block mb-0.5">{rc.noPlatesTitle}</span>
+                  {rc.noPlatesDesc}
                 </div>
               </div>
             )}
@@ -248,7 +431,7 @@ export default function MenuReservationModal({
             {/* Verified Booking Methods or Honest Walk-In Banner */}
             <div className="space-y-3 pt-2">
               <span className="text-xs font-bold uppercase tracking-wider text-stone-700 block">
-                Reservation & Booking Channels
+                {rc.channelsHeading}
               </span>
 
               {hasOnlineReservation ? (
@@ -267,13 +450,13 @@ export default function MenuReservationModal({
                         </div>
                         <div>
                           <div className="flex items-center gap-1.5">
-                            <span className="font-bold text-sm">Reserve via WhatsApp</span>
+                            <span className="font-bold text-sm">{rc.reserveWhatsApp}</span>
                             <span className="text-[10px] bg-white/25 px-2 py-0.2 rounded-full font-semibold">
-                              Verified
+                              {rc.verified}
                             </span>
                           </div>
                           <p className="text-xs text-white/80 mt-0.5">
-                            Sends your table request & selected dishes directly
+                            {rc.whatsappDesc}
                           </p>
                         </div>
                       </div>
@@ -295,13 +478,13 @@ export default function MenuReservationModal({
                         </div>
                         <div>
                           <div className="flex items-center gap-1.5">
-                            <span className="font-bold text-sm">Official Booking Portal</span>
+                            <span className="font-bold text-sm">{rc.officialPortal}</span>
                             <span className="text-[10px] bg-white/20 px-2 py-0.2 rounded-full font-semibold">
-                              Verified Official Link
+                              {rc.verifiedOfficialLink}
                             </span>
                           </div>
                           <p className="text-xs text-white/80 mt-0.5">
-                            Direct reservation on the official venue booking platform
+                            {rc.portalDesc}
                           </p>
                         </div>
                       </div>
@@ -320,12 +503,12 @@ export default function MenuReservationModal({
                           <PhoneCall className="w-5 h-5" />
                         </div>
                         <div>
-                          <span className="font-bold text-sm block">Call Venue Directly</span>
+                          <span className="font-bold text-sm block">{rc.callVenueDirectly}</span>
                           <span className="text-xs text-stone-500 font-mono">{verifiedPhone}</span>
                         </div>
                       </div>
                       <span className="text-xs font-bold text-stone-700 bg-stone-100 px-3 py-1.5 rounded-lg group-hover:bg-stone-200 transition-colors">
-                        Call Now
+                        {rc.callNow}
                       </span>
                     </a>
                   )}
@@ -339,10 +522,10 @@ export default function MenuReservationModal({
                     </div>
                     <div>
                       <h4 className="text-sm font-bold text-stone-900">
-                        Online Reservation Not Available — Walk-In Only
+                        {rc.walkInTitle}
                       </h4>
                       <p className="text-xs text-stone-600 mt-1 leading-relaxed">
-                        This venue does not operate an advance online booking system. Seating is on a genuine first-come, first-served walk-in basis.
+                        {rc.walkInDesc}
                       </p>
                     </div>
                   </div>
@@ -350,7 +533,7 @@ export default function MenuReservationModal({
                   {bestTimeToVisit && (
                     <div className="flex items-center gap-2 text-xs text-stone-700 bg-white p-2.5 rounded-xl border border-stone-200/60">
                       <Clock className="w-4 h-4 text-[#D4863A] shrink-0" />
-                      <span><strong>Best arrival time:</strong> {bestTimeToVisit}</span>
+                      <span><strong>{rc.bestArrivalTime}</strong> {bestTimeToVisit}</span>
                     </div>
                   )}
 
@@ -362,7 +545,7 @@ export default function MenuReservationModal({
                       className="inline-flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-[#234E35] hover:bg-[#1A3D29] text-white text-xs font-bold transition-all shadow-xs cursor-pointer no-underline"
                     >
                       <MapPin className="w-3.5 h-3.5" />
-                      <span>Get GPS Walking Directions on Google Maps</span>
+                      <span>{rc.getGpsDirections}</span>
                       <ExternalLink className="w-3 h-3 opacity-80" />
                     </a>
                   )}
@@ -371,10 +554,12 @@ export default function MenuReservationModal({
             </div>
 
             {/* Payment & Cash Notice */}
-            <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-200/70 text-[11px] text-stone-600 flex items-center justify-between">
-              <span>Accepted Payment Methods:</span>
+            <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-200/70 text-[11px] text-stone-600 flex items-center justify-between gap-2">
+              <span>{rc.acceptedPayments}</span>
               <span className="font-bold text-stone-800 capitalize">
-                {paymentMethods.length > 0 ? paymentMethods.join(', ') : 'Cash (MAD) recommended'}
+                {paymentMethods.length > 0
+                  ? paymentMethods.map((m) => localizePaymentMethod(m, lang)).join(', ')
+                  : rc.cashRecommended}
               </span>
             </div>
           </div>

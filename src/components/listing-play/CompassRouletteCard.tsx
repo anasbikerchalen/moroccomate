@@ -1,9 +1,12 @@
-import React, { useMemo, useState, useCallback, useRef } from 'react';
+import React, { useEffect, useMemo, useState, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Compass, Eye, ArrowRight, Star, MapPin, RotateCw } from 'lucide-react';
 import { cn } from '../../utils/cn';
 import { LocalizedLink } from '../ui/LocalizedLink';
+import { useAppLanguage } from '../../utils/localeRouting';
+import { getPlaceUiCopy } from '../../data/placeUiI18n';
 import {
+  getDeckPlaceBySlug,
   pickCompassSuggestion,
   type DeckPlaceItem,
 } from '../../utils/listingDeckEngine';
@@ -26,14 +29,6 @@ interface CompassRouletteCardProps {
   sectionRef?: React.RefObject<HTMLDivElement | null>;
 }
 
-const FILTER_TABS: Array<{ id: 'all' | ListingPlayCategory; label: string }> = [
-  { id: 'all', label: 'Surprise Me' },
-  { id: 'food', label: 'Eat' },
-  { id: 'sleep', label: 'Stay' },
-  { id: 'things', label: 'Do' },
-  { id: 'shopping', label: 'Shop' },
-];
-
 export const CompassRouletteCard: React.FC<CompassRouletteCardProps> = ({
   cityKey,
   cityLabel,
@@ -42,6 +37,16 @@ export const CompassRouletteCard: React.FC<CompassRouletteCardProps> = ({
   onQuickPeek,
   sectionRef,
 }) => {
+  const lang = useAppLanguage();
+  const ui = getPlaceUiCopy(lang);
+  const filterTabs: Array<{ id: 'all' | ListingPlayCategory; label: string }> = [
+    { id: 'all', label: ui.play.tabAll },
+    { id: 'food', label: ui.play.tabFood },
+    { id: 'sleep', label: ui.play.tabSleep },
+    { id: 'things', label: ui.play.tabThings },
+    { id: 'shopping', label: ui.play.tabShopping },
+  ];
+
   const entries = usePassportStore((s) => s.entries);
   const visitedKeys = useMemo(() => new Set(Object.keys(entries)), [entries]);
 
@@ -55,8 +60,18 @@ export const CompassRouletteCard: React.FC<CompassRouletteCardProps> = ({
       excludeSlug: currentSlug,
       excludeCategory: currentCategory,
       visitedKeys,
+      lang,
     })
   );
+
+  // Re-localize active suggestion immediately when route language changes
+  useEffect(() => {
+    if (!suggestion) return;
+    const relocalized = getDeckPlaceBySlug(cityKey, suggestion.category, suggestion.slug, lang);
+    if (relocalized) {
+      setSuggestion(relocalized);
+    }
+  }, [lang, cityKey]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const dialRef = useRef<HTMLButtonElement | null>(null);
 
@@ -69,6 +84,7 @@ export const CompassRouletteCard: React.FC<CompassRouletteCardProps> = ({
         excludeCategory: currentCategory,
         lastPickedSlug: suggestion?.slug,
         visitedKeys,
+        lang,
       });
 
       const spinDelta = prefersReducedMotion()
@@ -89,7 +105,7 @@ export const CompassRouletteCard: React.FC<CompassRouletteCardProps> = ({
         setIsSpinning(false);
       }, revealDelay);
     },
-    [cityKey, currentCategory, currentSlug, filterCat, suggestion?.slug, visitedKeys]
+    [cityKey, currentCategory, currentSlug, filterCat, suggestion?.slug, visitedKeys, lang]
   );
 
   const handleSelectFilter = (cat: 'all' | ListingPlayCategory) => {
@@ -114,7 +130,7 @@ export const CompassRouletteCard: React.FC<CompassRouletteCardProps> = ({
             ref={dialRef}
             type="button"
             onClick={() => spinCompass(filterCat, true)}
-            aria-label={`Spin compass to discover another spot in ${cityLabel}`}
+            aria-label={ui.play.spinCompassAria(cityLabel)}
             className="relative w-24 h-24 rounded-full bg-gradient-to-br from-[#173042] to-[#0E202E] border-4 border-[#C9A84C] shadow-md flex items-center justify-center shrink-0 cursor-pointer group focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C85A32] active:scale-95 transition-transform"
           >
             {/* Outer compass ring ticks */}
@@ -170,13 +186,13 @@ export const CompassRouletteCard: React.FC<CompassRouletteCardProps> = ({
           <div className="space-y-2 min-w-0">
             <div className="text-[11px] font-bold uppercase tracking-widest text-[#9A4722] flex items-center justify-center sm:justify-start lg:justify-center xl:justify-start gap-1.5">
               <Compass className="w-3.5 h-3.5" />
-              <span>Medina Compass</span>
+              <span>{ui.play.medinaCompass}</span>
             </div>
             <h3 className="font-serif text-xl font-bold text-[#142333] leading-snug">
-              Where next in {cityLabel}?
+              {ui.play.whereNextIn(cityLabel)}
             </h3>
             <p className="text-xs text-[#5E5448] leading-relaxed max-w-xs">
-              Spin the brass dial to surface an unvisited spot nearby—eat, stay, shop, or explore.
+              {ui.play.compassDesc}
             </p>
             <button
               type="button"
@@ -184,7 +200,7 @@ export const CompassRouletteCard: React.FC<CompassRouletteCardProps> = ({
               className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[#173042] hover:bg-[#0E202E] text-white text-xs font-bold shadow-2xs transition-all cursor-pointer active:scale-95 whitespace-nowrap"
             >
               <RotateCw className={cn('w-3.5 h-3.5 text-[#F5D782]', isSpinning && 'animate-spin')} />
-              <span>Spin Compass</span>
+              <span>{ui.play.spinCompass}</span>
             </button>
           </div>
         </div>
@@ -193,7 +209,7 @@ export const CompassRouletteCard: React.FC<CompassRouletteCardProps> = ({
         <div className="lg:col-span-7 space-y-3">
           {/* Category switcher */}
           <div className="flex flex-wrap items-center gap-1.5">
-            {FILTER_TABS.map((tab) => {
+            {filterTabs.map((tab) => {
               const active = filterCat === tab.id;
               return (
                 <button
@@ -274,14 +290,14 @@ export const CompassRouletteCard: React.FC<CompassRouletteCardProps> = ({
                   className="inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-[#FAF8F4] hover:bg-[#F3ECE2] text-[#173042] border border-[#E5D5BA] text-xs font-bold transition-colors cursor-pointer whitespace-nowrap w-full sm:w-auto"
                 >
                   <Eye className="w-3.5 h-3.5" />
-                  <span>Quick Peek</span>
+                  <span>{ui.play.quickPeekBtn}</span>
                 </button>
                 <LocalizedLink
                   to={suggestion.url}
                   onClick={() => playTactileSound('tick')}
                   className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl bg-[#C85A32] hover:bg-[#B24B26] text-white text-xs font-bold shadow-2xs transition-colors whitespace-nowrap w-full sm:w-auto"
                 >
-                  <span>Go There</span>
+                  <span>{ui.play.goThere}</span>
                   <ArrowRight className="w-3.5 h-3.5 rtl:rotate-180" />
                 </LocalizedLink>
               </div>

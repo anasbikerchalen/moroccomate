@@ -38,6 +38,8 @@ import {
   prefersReducedMotion,
   spawnSaffronSparks,
 } from '../../utils/playfulFeedback';
+import { useAppLanguage } from '../../utils/localeRouting';
+import { getPlaceUiCopy, localizeMealType } from '../../data/placeUiI18n';
 
 export type ListingHeroCategory = 'eat' | 'sleep' | 'things' | 'shop';
 
@@ -187,13 +189,16 @@ export const ListingHeroHeader: React.FC<ListingHeroHeaderProps> = ({
   onSelectReviewSource,
   features = [],
   servedFor = [],
-  servedForLabel = 'Served For',
+  servedForLabel,
   actions,
   storefrontBanner,
   highlightBadge,
   extraLeftNode,
   className,
 }) => {
+  const lang = useAppLanguage();
+  const ui = getPlaceUiCopy(lang);
+  const resolvedServedForLabel = servedForLabel || ui.hero.servedFor;
   const [showAllFeatures, setShowAllFeatures] = useState(false);
   const [localCopiedLink, setLocalCopiedLink] = useState(false);
   const [localCopiedPhone, setLocalCopiedPhone] = useState(false);
@@ -311,7 +316,7 @@ export const ListingHeroHeader: React.FC<ListingHeroHeaderProps> = ({
   };
 
   const resolvedHighlightBadge =
-    highlightBadge || (showRatingsCard && averageRating >= 4.4 ? 'Top Rated' : undefined);
+    highlightBadge || (showRatingsCard && averageRating >= 4.4 ? ui.hero.topRated : undefined);
 
   const bannerBg = storefrontBanner?.backgroundColor || '#173042';
   const bannerAccent = storefrontBanner?.accentColor || '#C9A84C';
@@ -331,7 +336,7 @@ export const ListingHeroHeader: React.FC<ListingHeroHeaderProps> = ({
         <div
           className="relative w-full h-[74px] sm:h-[92px] overflow-hidden flex items-center justify-center border-t border-white/10"
           style={{ backgroundColor: bannerBg }}
-          aria-label={storefrontBanner.alt || `${title} storefront banner`}
+          aria-label={storefrontBanner.alt || ui.hero.storefrontBannerAlt(title)}
         >
           {/* Subtle architectural side-edge depth */}
           <div
@@ -351,7 +356,7 @@ export const ListingHeroHeader: React.FC<ListingHeroHeaderProps> = ({
           >
             <img
               src={storefrontBanner.logoUrl}
-              alt={storefrontBanner.alt || `${title} storefront sign`}
+              alt={storefrontBanner.alt || ui.hero.storefrontBannerAlt(title)}
               loading="eager"
               decoding="async"
               style={
@@ -499,7 +504,7 @@ export const ListingHeroHeader: React.FC<ListingHeroHeaderProps> = ({
                             'inline-flex items-center gap-1.5 rounded-lg px-2 py-1 -mx-2 -my-1 hover:bg-white/80 transition-colors cursor-pointer whitespace-nowrap',
                             textColorClass
                           )}
-                          title="Click to view weekly schedule"
+                          title={ui.hero.clickScheduleTitle}
                         >
                           {item.icon}
                           <span>{item.label}</span>
@@ -557,13 +562,13 @@ export const ListingHeroHeader: React.FC<ListingHeroHeaderProps> = ({
                           whileHover={reduceMotion ? undefined : { rotate: [-4, 6, -3, 0], scale: 1.08 }}
                           transition={{ duration: 0.4 }}
                           src={logoImg}
-                          alt="Moroccan Mate Camel Rating"
+                          alt={ui.hero.moroccanMateRating}
                           className="w-7 h-7 sm:w-8 sm:h-8 object-contain drop-shadow-[0_2px_4px_rgba(201,168,76,0.35)] select-none"
                         />
                       </div>
                       {compactTotal && (
                         <span className="mt-1 text-xs font-medium text-[#5C5348] tabular-nums">
-                          ({compactTotal} reviews)
+                          ({compactTotal} {ui.hero.reviewsWord})
                         </span>
                       )}
                     </div>
@@ -587,7 +592,7 @@ export const ListingHeroHeader: React.FC<ListingHeroHeaderProps> = ({
                               key={s.source}
                               type="button"
                               onClick={() => handlePlatformClick(s.source)}
-                              title={`View ${s.source} reviews`}
+                              title={ui.hero.viewSourceReviews(s.source)}
                               className={cn(
                                 'group inline-flex items-center gap-2 px-2 py-1 rounded-xl transition-all cursor-pointer text-left',
                                 isSelected
@@ -674,7 +679,7 @@ export const ListingHeroHeader: React.FC<ListingHeroHeaderProps> = ({
                     onClick={() => setShowAllFeatures((prev) => !prev)}
                     className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-semibold bg-white/95 hover:bg-white text-[#2D261E] border border-[#E4D9C7] shadow-2xs transition-colors cursor-pointer whitespace-nowrap"
                   >
-                    <span>{showAllFeatures ? 'Show less' : `+${hiddenFeatureCount} more`}</span>
+                    <span>{showAllFeatures ? ui.hero.showLess : ui.hero.plusMore(hiddenFeatureCount)}</span>
                     <ChevronDown
                       className={cn(
                         'w-3.5 h-3.5 text-stone-500 transition-transform duration-200',
@@ -690,14 +695,14 @@ export const ListingHeroHeader: React.FC<ListingHeroHeaderProps> = ({
             {servedFor.length > 0 && (
               <div className="flex flex-wrap items-center gap-1.5 pt-0.5" id="eat-meal-types-row">
                 <span className="text-[11px] font-bold text-[#6F6559] uppercase tracking-wider mr-1">
-                  {servedForLabel}:
+                  {resolvedServedForLabel}:
                 </span>
                 {servedFor.map((itemLabel, idx) => (
                   <span
                     key={`${itemLabel}-${idx}`}
                     className="inline-flex items-center px-3 py-1 rounded-full bg-white/85 text-[#2D261E] text-xs font-semibold capitalize border border-[#E4D9C7] shadow-2xs"
                   >
-                    {itemLabel.replace(/-/g, ' ')}
+                    {localizeMealType(itemLabel, lang)}
                   </span>
                 ))}
               </div>
@@ -718,7 +723,7 @@ export const ListingHeroHeader: React.FC<ListingHeroHeaderProps> = ({
                   className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-[#1F4B34] hover:bg-[#173A28] text-white font-bold text-xs sm:text-sm tracking-wide shadow-xs hover:shadow-md transition-all cursor-pointer active:scale-98 whitespace-nowrap"
                 >
                   <Navigation className="w-4 h-4 text-emerald-200 shrink-0" />
-                  <span>{actions.directionsLabel || 'Get Directions'}</span>
+                  <span>{actions.directionsLabel || ui.hero.getDirections}</span>
                 </button>
               ) : (
                 <a
@@ -729,7 +734,7 @@ export const ListingHeroHeader: React.FC<ListingHeroHeaderProps> = ({
                   className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-[#1F4B34] hover:bg-[#173A28] text-white font-bold text-xs sm:text-sm tracking-wide shadow-xs hover:shadow-md transition-all cursor-pointer active:scale-98 whitespace-nowrap"
                 >
                   <Navigation className="w-4 h-4 text-emerald-200 shrink-0" />
-                  <span>{actions.directionsLabel || 'Get Directions'}</span>
+                  <span>{actions.directionsLabel || ui.hero.getDirections}</span>
                 </a>
               )}
 
@@ -792,23 +797,23 @@ export const ListingHeroHeader: React.FC<ListingHeroHeaderProps> = ({
                         <a
                           href={`tel:${cleanPhoneForTel}`}
                           className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white hover:bg-stone-50 text-[#1F4B34] border border-[#E2D6C3] text-xs font-semibold transition-all shadow-2xs active:scale-98 whitespace-nowrap shrink-0"
-                          title={`Call ${actions.phone}`}
+                          title={ui.hero.callTargetTitle(actions.phone || '')}
                         >
                           <Phone className="w-3.5 h-3.5 shrink-0" />
-                          <span>Call</span>
+                          <span>{ui.hero.call}</span>
                         </a>
                         <button
                           type="button"
                           onClick={handleCopyPhoneClick}
                           className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white hover:bg-stone-50 text-[#2D261E] border border-[#E2D6C3] text-xs font-semibold transition-all shadow-2xs active:scale-98 cursor-pointer whitespace-nowrap shrink-0"
-                          title={isPhoneCopied ? 'Phone number copied' : `Copy ${actions.phone}`}
+                          title={isPhoneCopied ? ui.hero.phoneCopiedTitle : ui.hero.copyPhoneTitle(actions.phone || '')}
                         >
                           {isPhoneCopied ? (
                             <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
                           ) : (
                             <Copy className="w-3.5 h-3.5 text-stone-500 shrink-0" />
                           )}
-                          <span>{isPhoneCopied ? 'Copied' : 'Copy'}</span>
+                          <span>{isPhoneCopied ? ui.hero.copied : ui.hero.copy}</span>
                         </button>
                       </>
                     )}
@@ -819,10 +824,10 @@ export const ListingHeroHeader: React.FC<ListingHeroHeaderProps> = ({
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white hover:bg-emerald-50/70 text-[#126E5B] border border-[#C8E2D4] text-xs font-semibold transition-all shadow-2xs active:scale-98 whitespace-nowrap shrink-0"
-                        title="Message on WhatsApp"
+                        title={ui.hero.messageWhatsAppTitle}
                       >
                         <WhatsAppIcon className="w-4 h-4 shrink-0" />
-                        <span>WhatsApp</span>
+                        <span>{ui.hero.whatsapp}</span>
                       </a>
                     )}
                   </div>
@@ -853,8 +858,8 @@ export const ListingHeroHeader: React.FC<ListingHeroHeaderProps> = ({
                     <Heart className={cn('w-3.5 h-3.5 shrink-0 transition-transform duration-200', actions.isBookmarked && 'fill-current scale-110')} />
                     <span>
                       {actions.isBookmarked
-                        ? actions.savedLabel || 'Saved in Favorites'
-                        : actions.saveLabel || 'Save to Favorites'}
+                        ? actions.savedLabel || ui.hero.savedFavorites
+                        : actions.saveLabel || ui.hero.saveFavorites}
                     </span>
                   </button>
 
@@ -862,14 +867,14 @@ export const ListingHeroHeader: React.FC<ListingHeroHeaderProps> = ({
                     type="button"
                     onClick={handleShareClick}
                     className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white hover:bg-stone-50 text-[#2D261E] border border-[#E2D6C3] text-xs font-semibold transition-all shadow-2xs active:scale-98 cursor-pointer whitespace-nowrap shrink-0"
-                    title={isLinkCopied ? 'Link copied!' : 'Share listing'}
+                    title={isLinkCopied ? ui.hero.linkCopiedTitle : ui.hero.shareListingTitle}
                   >
                     {isLinkCopied ? (
                       <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
                     ) : (
                       <Share2 className="w-3.5 h-3.5 text-stone-600 shrink-0" />
                     )}
-                    <span>{isLinkCopied ? 'Copied' : 'Share'}</span>
+                    <span>{isLinkCopied ? ui.hero.copied : ui.hero.share}</span>
                   </button>
                 </div>
               </div>
@@ -883,10 +888,10 @@ export const ListingHeroHeader: React.FC<ListingHeroHeaderProps> = ({
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white hover:bg-stone-50 text-[#173042] border border-[#E2D6C3] text-xs font-semibold transition-all shadow-2xs active:scale-98 whitespace-nowrap shrink-0"
-                      title={actions.websiteTitle || 'Visit website'}
+                      title={actions.websiteTitle || ui.hero.visitWebsiteTitle}
                     >
                       <Globe className="w-3.5 h-3.5 text-[#173042] shrink-0" />
-                      <span>Website</span>
+                      <span>{ui.hero.website}</span>
                     </a>
                   )}
 
@@ -896,10 +901,10 @@ export const ListingHeroHeader: React.FC<ListingHeroHeaderProps> = ({
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white hover:bg-rose-50/70 text-[#9F1D48] border border-[#EED3DD] text-xs font-semibold transition-all shadow-2xs active:scale-98 whitespace-nowrap shrink-0"
-                      title="Open Instagram"
+                      title={ui.hero.openInstagramTitle}
                     >
                       <Instagram className="w-3.5 h-3.5 text-[#E1306C] shrink-0" />
-                      <span>Instagram</span>
+                      <span>{ui.hero.instagram}</span>
                     </a>
                   )}
                 </div>

@@ -2,8 +2,81 @@ import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react'
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronLeft, ChevronRight, Bookmark } from 'lucide-react';
 import ClassicalDishRow from './ClassicalDishRow';
+import { useAppLanguage, type AppLanguage } from '../../utils/localeRouting';
+import { getPlaceUiCopy } from '../../data/placeUiI18n';
 import type { MenuSection } from '../../listings/types';
 import type { MoroccanDishGlossaryEntry } from '../../data/culinaryGlossary';
+
+const BOOKLET_COPY: Record<
+  AppLanguage,
+  {
+    bonAppetit: string;
+    closingNote: string;
+    endOfMenu: string;
+    swipeHint: string;
+    arrowHint: string;
+    prev: string;
+    next: string;
+    pagesRange: (start: number, end: number, total: number) => string;
+    pageSingle: (current: number, total: number) => string;
+  }
+> = {
+  en: {
+    bonAppetit: 'Bon Appétit',
+    closingNote: 'Prices verified in Moroccan Dirhams. Tap (+) to build your tasting selection.',
+    endOfMenu: '— End of Menu —',
+    swipeHint: 'Swipe to turn pages',
+    arrowHint: 'or use ◄ ► arrow keys',
+    prev: 'Previous',
+    next: 'Next',
+    pagesRange: (s, e, t) => `Pages ${s}–${e} of ${t}`,
+    pageSingle: (c, t) => `Page ${c} of ${t}`,
+  },
+  fr: {
+    bonAppetit: 'Bon Appétit',
+    closingNote: 'Prix vérifiés en Dirhams marocains. Appuyez sur (+) pour composer votre sélection.',
+    endOfMenu: '— Fin du Menu —',
+    swipeHint: 'Glissez pour tourner les pages',
+    arrowHint: 'ou utilisez les flèches ◄ ►',
+    prev: 'Précédent',
+    next: 'Suivant',
+    pagesRange: (s, e, t) => `Pages ${s}–${e} sur ${t}`,
+    pageSingle: (c, t) => `Page ${c} sur ${t}`,
+  },
+  es: {
+    bonAppetit: 'Buen Provecho',
+    closingNote: 'Precios verificados en dírhams marroquíes. Pulsa (+) para crear tu selección.',
+    endOfMenu: '— Fin de la Carta —',
+    swipeHint: 'Desliza para pasar páginas',
+    arrowHint: 'o usa las flechas ◄ ►',
+    prev: 'Anterior',
+    next: 'Siguiente',
+    pagesRange: (s, e, t) => `Páginas ${s}–${e} de ${t}`,
+    pageSingle: (c, t) => `Página ${c} de ${t}`,
+  },
+  de: {
+    bonAppetit: 'Guten Appetit',
+    closingNote: 'Preise in Dirham (MAD) geprüft. Tippe auf (+) für deine Probierauswahl.',
+    endOfMenu: '— Ende der Karte —',
+    swipeHint: 'Zum Blättern wischen',
+    arrowHint: 'oder Pfeiltasten ◄ ► nutzen',
+    prev: 'Zurück',
+    next: 'Weiter',
+    pagesRange: (s, e, t) => `Seiten ${s}–${e} von ${t}`,
+    pageSingle: (c, t) => `Seite ${c} von ${t}`,
+  },
+  ar: {
+    bonAppetit: 'بالهناء والشفاء',
+    closingNote: 'الأسعار موثقة بالدرهم المغربي. اضغط (+) لإضافة الأطباق إلى قائمتك.',
+    endOfMenu: '— نهاية القائمة —',
+    swipeHint: 'اسحب لتقليب الصفحات',
+    arrowHint: 'أو استخدم الأسهم ◄ ►',
+    prev: 'السابق',
+    next: 'التالي',
+    pagesRange: (s, e, t) => `الصفحات ${s}–${e} من ${t}`,
+    pageSingle: (c, t) => `صفحة ${c} من ${t}`,
+  },
+};
 
 /* ─────────────── Ornamental SVG decorations ─────────────── */
 
@@ -60,6 +133,9 @@ export default function ClassicalMenuBooklet({
   highlightedDishes = [],
   onOpenGlossary,
 }: ClassicalMenuBookletProps) {
+  const routeLang = useAppLanguage();
+  const ui = getPlaceUiCopy(routeLang);
+  const bCopy = BOOKLET_COPY[routeLang] || BOOKLET_COPY.en;
   const [currentPage, setCurrentPage] = useState(0);
   const [isDesktop, setIsDesktop] = useState(false);
   const [showSwipeHint, setShowSwipeHint] = useState(true);
@@ -191,10 +267,18 @@ export default function ClassicalMenuBooklet({
   return (
     <div className="space-y-3 select-none" ref={containerRef}>
       {/* ── Category Bookmark Index ── */}
-      <div className="flex items-center gap-1.5 overflow-x-auto pb-2 scrollbar-none pt-1">
+      <div
+        onWheel={(e) => {
+          if (e.currentTarget && e.deltaY !== 0) {
+            e.currentTarget.scrollLeft += e.deltaY;
+            e.preventDefault();
+          }
+        }}
+        className="flex items-center gap-1.5 overflow-x-auto flex-nowrap pb-2 scrollbar-none pt-1 touch-pan-x overscroll-x-contain"
+      >
         <span className="text-[10px] font-bold uppercase tracking-wider text-stone-600 flex items-center gap-1 mr-1 shrink-0">
           <Bookmark className="w-3 h-3 text-[#C2613C]" />
-          <span>Index:</span>
+          <span>{ui.menu.indexLabel}</span>
         </span>
         {validSections.map((sec, idx) => {
           const isActive = isDesktop
@@ -298,13 +382,13 @@ export default function ClassicalMenuBooklet({
                   <div className="relative z-10 space-y-4">
                     <div className="text-3xl text-[#B8A080]">❦</div>
                     <h4 className="font-serif text-xl font-bold text-[#3D2B1F] italic">
-                      Bon Appétit
+                      {bCopy.bonAppetit}
                     </h4>
                     <p className="text-xs font-serif italic text-[#8B7D6B] max-w-[200px] mx-auto leading-relaxed">
-                      Prices verified in Moroccan Dirhams. Tap (+) to build your tasting selection.
+                      {bCopy.closingNote}
                     </p>
                     <span className="block text-[10px] font-serif text-[#A0917B] tracking-widest">
-                      — Fin du Menu —
+                      {bCopy.endOfMenu}
                     </span>
                   </div>
                 </div>
@@ -339,20 +423,20 @@ export default function ClassicalMenuBooklet({
                       animate={{ x: [0, -12, 0] }}
                       transition={{ repeat: 2, duration: 0.8, ease: 'easeInOut' }}
                     >
-                      <ChevronLeft className="w-5 h-5 text-[#8B6F4E]" />
+                      <ChevronLeft className="w-5 h-5 text-[#8B6F4E] rtl:rotate-180" />
                     </motion.div>
                     <span className="text-sm font-serif font-bold text-[#3D2B1F]">
-                      Swipe to turn pages
+                      {bCopy.swipeHint}
                     </span>
                     <motion.div
                       animate={{ x: [0, 12, 0] }}
                       transition={{ repeat: 2, duration: 0.8, ease: 'easeInOut' }}
                     >
-                      <ChevronRight className="w-5 h-5 text-[#8B6F4E]" />
+                      <ChevronRight className="w-5 h-5 text-[#8B6F4E] rtl:rotate-180" />
                     </motion.div>
                   </div>
                   <span className="text-[11px] text-white/90 font-medium">
-                    or use ◄ ► arrow keys
+                    {bCopy.arrowHint}
                   </span>
                 </motion.div>
               </motion.div>
@@ -373,15 +457,15 @@ export default function ClassicalMenuBooklet({
               : 'bg-[#FAF6EF] hover:bg-[#F0E8DA] text-[#3D2B1F] border border-[#C9B99A]/60 shadow-xs hover:shadow-sm'
           }`}
         >
-          <ChevronLeft className="w-4 h-4" />
-          <span>Précédent</span>
+          <ChevronLeft className="w-4 h-4 rtl:rotate-180" />
+          <span>{bCopy.prev}</span>
         </button>
 
         <div className="text-center">
           <span className="text-xs font-serif font-bold text-[#6B5D4F]">
             {isDesktop
-              ? `Pages ${currentPage + 1}–${Math.min(totalPages, currentPage + 2)} of ${totalPages}`
-              : `Page ${currentPage + 1} of ${totalPages}`}
+              ? bCopy.pagesRange(currentPage + 1, Math.min(totalPages, currentPage + 2), totalPages)
+              : bCopy.pageSingle(currentPage + 1, totalPages)}
           </span>
         </div>
 
@@ -395,8 +479,8 @@ export default function ClassicalMenuBooklet({
               : 'bg-[#FAF6EF] hover:bg-[#F0E8DA] text-[#3D2B1F] border border-[#C9B99A]/60 shadow-xs hover:shadow-sm'
           }`}
         >
-          <span>Suivant</span>
-          <ChevronRight className="w-4 h-4" />
+          <span>{bCopy.next}</span>
+          <ChevronRight className="w-4 h-4 rtl:rotate-180" />
         </button>
       </div>
     </div>

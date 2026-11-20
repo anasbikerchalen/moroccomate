@@ -13,6 +13,8 @@ import logoImg from '../../assets/images/logo.png';
 import ReviewBubble from './ReviewBubble';
 import PlatformIcon, { formatCompactCount } from './PlatformIcon';
 import { cn } from '../../utils/cn';
+import { useAppLanguage } from '../../utils/localeRouting';
+import { getPlaceUiCopy, type PlaceUiCopy } from '../../data/placeUiI18n';
 
 interface PlaceReviewsSectionProps {
   reviewsData?: PlaceReviewsData;
@@ -73,6 +75,7 @@ interface FlowingColumnProps {
   direction: 'up' | 'down';
   speedPxPerSec?: number;
   globalPaused?: boolean;
+  ui: PlaceUiCopy;
 }
 
 /**
@@ -86,7 +89,8 @@ const FlowingColumn: React.FC<FlowingColumnProps> = ({
   items,
   direction,
   speedPxPerSec = 22,
-  globalPaused = false
+  globalPaused = false,
+  ui,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const firstPassRef = useRef<HTMLDivElement>(null);
@@ -206,18 +210,18 @@ const FlowingColumn: React.FC<FlowingColumnProps> = ({
           <button
             type="button"
             onClick={() => nudgeScroll(-220)}
-            aria-label="Scroll column up"
+            aria-label={ui.reviews.scrollUp}
             className="p-1 rounded-md border border-[#e5dcce] bg-white/90 text-[#665b4f] hover:text-[#173042] hover:bg-white transition-colors cursor-pointer"
-            title="Scroll up"
+            title={ui.reviews.scrollUp}
           >
             <ChevronUp className="w-3.5 h-3.5" />
           </button>
           <button
             type="button"
             onClick={() => nudgeScroll(220)}
-            aria-label="Scroll column down"
+            aria-label={ui.reviews.scrollDown}
             className="p-1 rounded-md border border-[#e5dcce] bg-white/90 text-[#665b4f] hover:text-[#173042] hover:bg-white transition-colors cursor-pointer"
-            title="Scroll down"
+            title={ui.reviews.scrollDown}
           >
             <ChevronDown className="w-3.5 h-3.5" />
           </button>
@@ -257,13 +261,14 @@ const FlowingColumn: React.FC<FlowingColumnProps> = ({
 
           {/* Pass 2 (seamless duplicate loop only when flowing) */}
           {shouldLoop && (
-            <div aria-hidden="true" className="space-y-4 pb-4">
+            <div aria-hidden="true" data-nosnippet="true" className="space-y-4 pb-4">
               {items.map(({ review, key }) => (
                 <ReviewBubble
                   key={`p2-${key}`}
                   review={review}
                   reviewKey={`p2-${key}`}
                   onExpandChange={handleExpandChange}
+                  isDuplicateLoop
                 />
               ))}
             </div>
@@ -281,6 +286,8 @@ export const PlaceReviewsSection: React.FC<PlaceReviewsSectionProps> = ({
   externalSelectedSource,
   onSelectedSourceChange
 }) => {
+  const lang = useAppLanguage();
+  const ui = getPlaceUiCopy(lang);
   const rawReviews = reviewsData?.reviews || [];
   const rawSources = reviewsData?.sources || [];
 
@@ -289,6 +296,18 @@ export const PlaceReviewsSection: React.FC<PlaceReviewsSectionProps> = ({
   const [selectedSentiment, setSelectedSentiment] = useState<'all' | 'good' | 'bad'>('all');
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
   const [globalPaused, setGlobalPaused] = useState(false);
+  const [isDesktop, setIsDesktop] = useState<boolean>(() =>
+    typeof window !== 'undefined' ? window.innerWidth >= 768 : true
+  );
+
+  useEffect(() => {
+    if (typeof window === 'undefined' || !window.matchMedia) return;
+    const mq = window.matchMedia('(min-width: 768px)');
+    setIsDesktop(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setIsDesktop(e.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
 
   useEffect(() => {
     if (externalSelectedSource !== undefined) {
@@ -421,9 +440,9 @@ export const PlaceReviewsSection: React.FC<PlaceReviewsSectionProps> = ({
           </svg>
           <h2
             id="traveler-reviews-heading"
-            className="font-display text-3xl sm:text-4xl font-extrabold text-[#142333] tracking-tight"
+            className="font-display text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#142333] tracking-tight"
           >
-            Reviews
+            {placeName && placeName !== 'this place' ? ui.reviews.headingForPlace(placeName) : ui.reviews.headingGeneric}
           </h2>
         </div>
 
@@ -441,7 +460,7 @@ export const PlaceReviewsSection: React.FC<PlaceReviewsSectionProps> = ({
                   key={s.source}
                   type="button"
                   onClick={() => setSelectedSource(isSelected ? null : s.source)}
-                  title={`Filter reviews from ${s.source}`}
+                  title={ui.reviews.filterFromSource(s.source)}
                   className={cn(
                     'group flex items-center gap-2.5 px-2.5 py-1.5 rounded-2xl transition-all cursor-pointer text-left',
                     isSelected
@@ -474,12 +493,12 @@ export const PlaceReviewsSection: React.FC<PlaceReviewsSectionProps> = ({
                 </span>
                 <img
                   src={logoImg}
-                  alt="MoroccoMate Camel Rating"
+                  alt={ui.hero.moroccanMateRating}
                   className="w-9 h-9 object-contain drop-shadow-[0_2px_4px_rgba(201,168,76,0.35)] select-none"
                 />
               </div>
               <span className="mt-1.5 text-xs font-medium text-[#5c554c] tabular-nums">
-                Total · <strong className="font-bold text-[#142333]">{compactTotal}</strong> reviews
+                {ui.reviews.totalPrefix} <strong className="font-bold text-[#142333]">{compactTotal}</strong> {ui.reviews.reviewsWord}
               </span>
             </div>
           </div>
@@ -528,12 +547,12 @@ export const PlaceReviewsSection: React.FC<PlaceReviewsSectionProps> = ({
               </span>
               <img
                 src={logoImg}
-                alt="MoroccoMate Camel Rating"
+                alt={ui.hero.moroccanMateRating}
                 className="w-8 h-8 object-contain drop-shadow-[0_2px_4px_rgba(201,168,76,0.35)] select-none"
               />
             </div>
             <span className="mt-1 text-xs font-medium text-[#5c554c] tabular-nums">
-              Total · <strong className="font-bold text-[#142333]">{compactTotal}</strong> reviews
+              {ui.reviews.totalPrefix} <strong className="font-bold text-[#142333]">{compactTotal}</strong> {ui.reviews.reviewsWord}
             </span>
           </div>
         </div>
@@ -545,10 +564,10 @@ export const PlaceReviewsSection: React.FC<PlaceReviewsSectionProps> = ({
               <div className="lg:col-span-5 rounded-2xl border border-[#e5dcce] bg-white p-4">
                 <div className="flex items-center justify-between mb-2.5">
                   <span className="text-[11px] font-bold uppercase tracking-wider text-[#5c554c]">
-                    Rating Breakdown
+                    {ui.reviews.ratingBreakdown}
                   </span>
                   <span className="text-[11px] text-[#7a6f62] tabular-nums">
-                    {ratingBreakdown.totalRated} featured reviews
+                    {ui.reviews.featuredReviews(ratingBreakdown.totalRated)}
                   </span>
                 </div>
                 <div className="space-y-1.5">
@@ -581,7 +600,7 @@ export const PlaceReviewsSection: React.FC<PlaceReviewsSectionProps> = ({
               >
                 <div className="flex items-center justify-between mb-2.5">
                   <span className="text-[11px] font-bold uppercase tracking-wider text-[#5c554c]">
-                    Most Mentioned Topics
+                    {ui.reviews.mostMentionedTopics}
                   </span>
                   {selectedTag && (
                     <button
@@ -589,7 +608,7 @@ export const PlaceReviewsSection: React.FC<PlaceReviewsSectionProps> = ({
                       onClick={() => setSelectedTag(null)}
                       className="text-[11px] font-semibold text-[#8c6d37] hover:underline cursor-pointer"
                     >
-                      Clear topic
+                      {ui.reviews.clearTopic}
                     </button>
                   )}
                 </div>
@@ -644,7 +663,7 @@ export const PlaceReviewsSection: React.FC<PlaceReviewsSectionProps> = ({
                   : 'text-[#6c6155] hover:text-[#142333]'
               )}
             >
-              All ({rawReviews.length})
+              {ui.reviews.all(rawReviews.length)}
             </button>
             <button
               type="button"
@@ -656,7 +675,7 @@ export const PlaceReviewsSection: React.FC<PlaceReviewsSectionProps> = ({
                   : 'text-[#6c6155] hover:text-[#1f5c35]'
               )}
             >
-              Good ({goodCount})
+              {ui.reviews.good(goodCount)}
             </button>
             <button
               type="button"
@@ -668,7 +687,7 @@ export const PlaceReviewsSection: React.FC<PlaceReviewsSectionProps> = ({
                   : 'text-[#6c6155] hover:text-[#9b2c2c]'
               )}
             >
-              Bad ({badCount})
+              {ui.reviews.bad(badCount)}
             </button>
           </div>
 
@@ -705,7 +724,7 @@ export const PlaceReviewsSection: React.FC<PlaceReviewsSectionProps> = ({
               className="inline-flex items-center gap-1 text-xs font-semibold text-[#8c6d37] hover:text-[#5a431c] cursor-pointer"
             >
               <RotateCcw className="w-3.5 h-3.5" />
-              <span>Reset</span>
+              <span>{ui.reviews.reset}</span>
             </button>
           )}
 
@@ -714,17 +733,17 @@ export const PlaceReviewsSection: React.FC<PlaceReviewsSectionProps> = ({
               type="button"
               onClick={() => setGlobalPaused((p) => !p)}
               className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-[#e5dcce] bg-white/85 text-xs font-medium text-[#5c554c] hover:text-[#142333] hover:bg-white transition-colors cursor-pointer"
-              title={globalPaused ? 'Resume flowing reviews' : 'Pause flowing reviews'}
+              title={globalPaused ? ui.reviews.resumeFlowTitle : ui.reviews.pauseFlowTitle}
             >
               {globalPaused ? (
                 <>
                   <Play className="w-3 h-3" />
-                  <span>Resume flow</span>
+                  <span>{ui.reviews.resumeFlow}</span>
                 </>
               ) : (
                 <>
                   <Pause className="w-3 h-3" />
-                  <span>Pause flow</span>
+                  <span>{ui.reviews.pauseFlow}</span>
                 </>
               )}
             </button>
@@ -737,11 +756,11 @@ export const PlaceReviewsSection: React.FC<PlaceReviewsSectionProps> = ({
          ───────────────────────────────────────────────────────────── */}
       <div className="relative z-10">
         {filteredReviews.length > 0 ? (
-          <>
-            {/* Desktop: Two independent flowing vertical columns (hovering one stops ONLY that column) */}
+          isDesktop ? (
+            /* Desktop: Two independent flowing vertical columns (hovering one stops ONLY that column) */
             <div
               className={cn(
-                'hidden md:grid gap-5 items-start',
+                'grid gap-5 items-start',
                 rightItems.length > 0 ? 'md:grid-cols-2' : 'md:grid-cols-1'
               )}
             >
@@ -750,6 +769,7 @@ export const PlaceReviewsSection: React.FC<PlaceReviewsSectionProps> = ({
                 direction="up"
                 speedPxPerSec={22}
                 globalPaused={globalPaused}
+                ui={ui}
               />
               {rightItems.length > 0 ? (
                 <FlowingColumn
@@ -757,31 +777,33 @@ export const PlaceReviewsSection: React.FC<PlaceReviewsSectionProps> = ({
                   direction="down"
                   speedPxPerSec={22}
                   globalPaused={globalPaused}
+                  ui={ui}
                 />
               ) : null}
             </div>
-
-            {/* Mobile: Single flowing vertical column with manual scroll */}
-            <div className="md:hidden">
+          ) : (
+            /* Mobile: Single flowing vertical column with manual scroll */
+            <div>
               <FlowingColumn
                 items={filteredReviews}
                 direction="up"
                 speedPxPerSec={20}
                 globalPaused={globalPaused}
+                ui={ui}
               />
             </div>
-          </>
+          )
         ) : (
           <div className="rounded-2xl border border-dashed border-[#d9ccb6] bg-[#faf6ee] p-8 text-center">
             <p className="text-sm font-medium text-[#736554]">
-              No reviews match the selected filters.
+              {ui.reviews.noReviewsMatch}
             </p>
             <button
               type="button"
               onClick={resetFilters}
               className="mt-3 text-xs font-semibold text-[#8c6d37] hover:underline cursor-pointer"
             >
-              Show all reviews
+              {ui.reviews.showAllReviews}
             </button>
           </div>
         )}
@@ -798,8 +820,8 @@ export const PlaceReviewsSection: React.FC<PlaceReviewsSectionProps> = ({
           className="inline-flex items-center justify-center gap-2.5 px-6 py-2.5 rounded-full border border-[#d4cab7] bg-white text-[#142333] hover:bg-[#142333] hover:text-white hover:border-[#142333] font-bold text-sm transition-all shadow-2xs cursor-pointer group"
         >
           <PlatformIcon source={ctaSource} size="sm" />
-          <span>{`See all reviews on ${ctaSource}`}</span>
-          <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+          <span>{ui.reviews.seeAllReviewsOn(ctaSource)}</span>
+          <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 rtl:rotate-180" />
         </a>
       </div>
 

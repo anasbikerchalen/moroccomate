@@ -13,6 +13,9 @@ import {
 import { getEatPriceMetrics } from './eatPrice';
 import { getStayPrice } from '../engine/stayAdapter';
 import type { ListingPlayCategory } from '../state/passportStore';
+import type { AppLanguage } from './localeRouting';
+import { localizeListing } from '../listings/translations';
+import { getPlaceUiCopy, localizeCityName } from '../data/placeUiI18n';
 
 export interface DeckPlaceItem {
   id: string;
@@ -35,47 +38,73 @@ export interface DeckPlaceItem {
   reasonTag: string;
 }
 
-const CATEGORY_LABELS: Record<ListingPlayCategory, string> = {
-  food: 'Eat & Drink',
-  sleep: 'Where to Stay',
-  shopping: 'Artisan Shopping',
-  things: 'Things to Do',
-};
-
-function formatBadgeReason(raw: any): string {
-  const badge = String(raw?.badge || '').toLowerCase();
-  if (badge === 'hidden-gem' || raw?.isHiddenGem) return 'Hidden Gem';
-  if (badge === 'local-favorite' || raw?.isLocalFavorite) return 'Local Favorite';
-  if (badge === 'splurge') return 'Special Treat';
-  if (raw?.isVerified) return 'Verified Pick';
-  const r = getListingRating(raw);
-  if (r?.averageRating && r.averageRating >= 4.6) return 'Top Rated';
-  return 'City Discovery';
+function getCategoryLabels(lang: AppLanguage): Record<ListingPlayCategory, string> {
+  const ui = getPlaceUiCopy(lang);
+  return {
+    food: ui.play.catFood,
+    sleep: ui.play.catSleep,
+    shopping: ui.play.catShopping,
+    things: ui.play.catThings,
+  };
 }
 
+function formatBadgeReason(raw: any, lang: AppLanguage): string {
+  const ui = getPlaceUiCopy(lang);
+  const badge = String(raw?.badge || '').toLowerCase();
+  if (badge === 'hidden-gem' || raw?.isHiddenGem) return ui.play.reasonHiddenGem;
+  if (badge === 'local-favorite' || raw?.isLocalFavorite) return ui.play.reasonLocalFavorite;
+  if (badge === 'splurge') return ui.play.reasonSpecialTreat;
+  if (raw?.isVerified) return ui.play.reasonVerifiedPick;
+  const r = getListingRating(raw);
+  if (r?.averageRating && r.averageRating >= 4.6) return ui.play.reasonTopRated;
+  return ui.play.reasonCityDiscovery;
+}
+
+const SLEEP_NIGHT_SUFFIX: Record<AppLanguage, string> = {
+  en: 'MAD / night',
+  fr: 'MAD / nuit',
+  es: 'MAD / noche',
+  de: 'MAD / Nacht',
+  ar: 'درهم / ليلة',
+};
+
+const SHOP_PRICING_LABELS: Record<AppLanguage, { fixed: string; mixed: string }> = {
+  en: { fixed: 'Fixed Prices', mixed: 'Mixed Pricing' },
+  fr: { fixed: 'Prix fixes', mixed: 'Prix mixtes' },
+  es: { fixed: 'Precios fijos', mixed: 'Precios mixtos' },
+  de: { fixed: 'Festpreise', mixed: 'Gemischte Preise' },
+  ar: { fixed: 'أسعار ثابتة', mixed: 'أسعار متنوعة' },
+};
+
 function buildPlaceItemFromRaw(
-  raw: any,
+  rawEntry: any,
   slug: string,
   cityKey: string,
-  category: PlaceUrlCategory
+  category: PlaceUrlCategory,
+  lang: AppLanguage = 'en'
 ): DeckPlaceItem {
+  const raw = localizeListing(rawEntry, lang);
+  const ui = getPlaceUiCopy(lang);
+  const catLabels = getCategoryLabels(lang);
   const r = getListingRating(raw);
   const name = raw.name || raw.title || 'Place';
-  const cityLabel =
+  const fallbackCityLabel =
     cityKey.charAt(0).toUpperCase() + cityKey.slice(1).replace(/_/g, ' ');
+  const cityLabel = localizeCityName(cityKey, fallbackCityLabel, lang);
 
   let priceLabel: string | undefined;
   if (category === 'food') {
     const metrics = getEatPriceMetrics(raw);
     priceLabel = metrics?.perPersonRangeText
-      ? `${metrics.perPersonRangeText} / person`
+      ? `${metrics.perPersonRangeText} ${ui.logistics.perPersonSuffix}`
       : undefined;
   } else if (category === 'sleep') {
     const p = getStayPrice(raw);
-    if (p > 0) priceLabel = `${p} MAD / night`;
+    if (p > 0) priceLabel = `${p} ${SLEEP_NIGHT_SUFFIX[lang] || SLEEP_NIGHT_SUFFIX.en}`;
   } else if (category === 'shopping') {
-    if (raw.pricingModel === 'fixed') priceLabel = 'Fixed Prices';
-    else if (raw.pricingModel === 'mixed') priceLabel = 'Mixed Pricing';
+    const sp = SHOP_PRICING_LABELS[lang] || SHOP_PRICING_LABELS.en;
+    if (raw.pricingModel === 'fixed') priceLabel = sp.fixed;
+    else if (raw.pricingModel === 'mixed') priceLabel = sp.mixed;
     else if (raw.priceLevel) priceLabel = String(raw.priceLevel);
   }
 
@@ -98,7 +127,7 @@ function buildPlaceItemFromRaw(
     city: cityKey,
     cityLabel,
     category,
-    categoryLabel: CATEGORY_LABELS[category],
+    categoryLabel: catLabels[category],
     name,
     neighborhood: raw.neighborhood,
     rating: r?.averageRating,
@@ -111,15 +140,22 @@ function buildPlaceItemFromRaw(
     googleMapsUrl:
       raw.googleMapsUrl ||
       `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-        `${name} ${cityLabel} Morocco`
+        `${name} ${fallbackCityLabel} Morocco`
       )}`,
     url: buildPlaceUrl(cityKey, category, slug),
-    reasonTag: formatBadgeReason(raw),
+    reasonTag: formatBadgeReason(raw, lang),
   };
 }
 
-function buildThingItem(activity: any, cityKey: string): DeckPlaceItem {
-  const cityLabel = getCityLabel(cityKey);
+function buildThingItem(
+  rawActivity: any,
+  cityKey: string,
+  lang: AppLanguage = 'en'
+): DeckPlaceItem {
+  const activity = localizeListing(rawActivity, lang);
+  const ui = getPlaceUiCopy(lang);
+  const catLabels = getCategoryLabels(lang);
+  const cityLabel = localizeCityName(cityKey, getCityLabel(cityKey), lang);
   const dur = formatDuration(activity.duration_minutes);
   const pr = formatPrice(activity.pricing);
   const priceLabel = [pr, dur].filter(Boolean).join(' · ') || undefined;
@@ -137,7 +173,7 @@ function buildThingItem(activity: any, cityKey: string): DeckPlaceItem {
     city: cityKey,
     cityLabel,
     category: 'things',
-    categoryLabel: CATEGORY_LABELS.things,
+    categoryLabel: catLabels.things,
     name: activity.name,
     neighborhood: activity.neighborhood,
     rating: activity.google_rating || undefined,
@@ -150,14 +186,15 @@ function buildThingItem(activity: any, cityKey: string): DeckPlaceItem {
     googleMapsUrl: activity.directions_url,
     url: `/things/${cityKey}/${activity.slug}`,
     reasonTag: activity.badge
-      ? String(activity.badge).replace(/-/g, ' ')
-      : activity.activity_type || 'Local Experience',
+      ? formatBadgeReason(activity, lang)
+      : activity.activity_type || ui.play.reasonCityDiscovery,
   };
 }
 
 export function getCityCategoryDeck(
   cityKey: string,
-  category: ListingPlayCategory
+  category: ListingPlayCategory,
+  lang: AppLanguage = 'en'
 ): DeckPlaceItem[] {
   const normalizedCity = String(cityKey || '').toLowerCase();
   if (!normalizedCity) return [];
@@ -165,7 +202,7 @@ export function getCityCategoryDeck(
   if (category === 'things') {
     try {
       return getActivitiesByCity(normalizedCity).map((act) =>
-        buildThingItem(act, normalizedCity)
+        buildThingItem(act, normalizedCity, lang)
       );
     } catch {
       return [];
@@ -176,7 +213,7 @@ export function getCityCategoryDeck(
     const index = getPlaceIndex(normalizedCity, category);
     const items: DeckPlaceItem[] = [];
     for (const [slug, raw] of index.bySlug.entries()) {
-      items.push(buildPlaceItemFromRaw(raw, slug, normalizedCity, category));
+      items.push(buildPlaceItemFromRaw(raw, slug, normalizedCity, category, lang));
     }
     return items;
   } catch {
@@ -187,7 +224,8 @@ export function getCityCategoryDeck(
 export function getDeckNeighbors(
   cityKey: string,
   category: ListingPlayCategory,
-  currentSlug: string
+  currentSlug: string,
+  lang: AppLanguage = 'en'
 ): {
   prev: DeckPlaceItem | null;
   next: DeckPlaceItem | null;
@@ -195,7 +233,7 @@ export function getDeckNeighbors(
   total: number;
   items: DeckPlaceItem[];
 } {
-  const items = getCityCategoryDeck(cityKey, category);
+  const items = getCityCategoryDeck(cityKey, category, lang);
   if (items.length === 0) {
     return { prev: null, next: null, index: -1, total: 0, items: [] };
   }
@@ -224,9 +262,10 @@ export function getDeckNeighbors(
 export function getDeckPlaceBySlug(
   cityKey: string,
   category: ListingPlayCategory,
-  slug: string
+  slug: string,
+  lang: AppLanguage = 'en'
 ): DeckPlaceItem | null {
-  const items = getCityCategoryDeck(cityKey, category);
+  const items = getCityCategoryDeck(cityKey, category, lang);
   return (
     items.find((i) => i.slug.toLowerCase() === String(slug || '').toLowerCase()) ||
     null
@@ -240,6 +279,7 @@ export function pickCompassSuggestion(options: {
   excludeCategory?: ListingPlayCategory;
   lastPickedSlug?: string;
   visitedKeys?: Set<string>;
+  lang?: AppLanguage;
 }): DeckPlaceItem | null {
   const {
     cityKey,
@@ -248,6 +288,7 @@ export function pickCompassSuggestion(options: {
     excludeCategory,
     lastPickedSlug,
     visitedKeys,
+    lang = 'en',
   } = options;
 
   const categoriesToScan: ListingPlayCategory[] =
@@ -257,7 +298,7 @@ export function pickCompassSuggestion(options: {
 
   let pool: DeckPlaceItem[] = [];
   for (const cat of categoriesToScan) {
-    pool = pool.concat(getCityCategoryDeck(cityKey, cat));
+    pool = pool.concat(getCityCategoryDeck(cityKey, cat, lang));
   }
 
   // Exclude the current listing

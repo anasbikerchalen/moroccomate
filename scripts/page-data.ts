@@ -30,6 +30,7 @@ import {
   buildPlaceSeo,
   buildSearchIntentSeo,
   buildThingsSeo,
+  extractListingReviewsData,
   type BreadcrumbItem,
   type FaqItem,
 } from '../src/data/seo/seoEngine';
@@ -41,6 +42,10 @@ import {
   getDishDisplayName,
   getDishSecondaryText,
 } from '../src/data/menuTranslations';
+import {
+  hasListingTranslations,
+  localizeListing,
+} from '../src/listings/translations';
 
 export { BASE_URL, DEFAULT_OG_IMAGE };
 
@@ -182,18 +187,6 @@ export function collectPlacePages(): IndexablePage[] {
       (listing.ui?.openTime || listing.openTime) && (listing.ui?.closeTime || listing.closeTime)
         ? `${listing.ui?.openTime || listing.openTime} – ${listing.ui?.closeTime || listing.closeTime}`
         : undefined;
-    const seasonalHoursNote: string | undefined =
-      listing.ui?.seasonalHoursNote || listing.seasonalHoursNote;
-    const editorialGuide: Array<{ heading: string; body: string }> | undefined = Array.isArray(
-      listing.ui?.editorialGuide || listing.editorialGuide
-    )
-      ? (listing.ui?.editorialGuide || listing.editorialGuide)
-      : undefined;
-    const knowBeforeYouGo: string[] | undefined = Array.isArray(
-      listing.ui?.knowBeforeYouGo || listing.knowBeforeYouGo
-    )
-      ? (listing.ui?.knowBeforeYouGo || listing.knowBeforeYouGo)
-      : undefined;
 
     const rawNearby = isEat || isSleep ? getWalkingDistancePlaces(listing) : [];
     const nearbyDistances =
@@ -205,11 +198,11 @@ export function collectPlacePages(): IndexablePage[] {
           }))
         : undefined;
 
-    const rawReviewsList = listing.reviewsData?.reviews || listing.ui?.reviewsData?.reviews || [];
+    const rawReviewsList = extractListingReviewsData(listing)?.reviews || [];
     const sampleReviews = Array.isArray(rawReviewsList)
       ? rawReviewsList
           .filter((r: any) => r?.text && String(r.text).trim().length >= 30)
-          .slice(0, 3)
+          .slice(0, 5)
           .map((r: any) => ({
             author: String(r.author || 'Traveler'),
             rating: Number(r.rating || 5),
@@ -217,15 +210,40 @@ export function collectPlacePages(): IndexablePage[] {
           }))
       : undefined;
 
-    for (const lang of ['en'] as const) {
+    const isFullyTranslated = hasListingTranslations(listing.id);
+    const langsForListing = isFullyTranslated ? SUPPORTED_LANGS : (['en'] as const);
+
+    for (const lang of langsForListing) {
+      const localizedListing = localizeListing(listing, lang);
+      const seasonalHoursNote: string | undefined =
+        localizedListing.ui?.seasonalHoursNote || localizedListing.seasonalHoursNote;
+      const rawEditorial =
+        localizedListing.ui?.editorialGuide || localizedListing.editorialGuide;
+      const editorialGuide: Array<{ heading: string; body: string }> | undefined = Array.isArray(
+        rawEditorial
+      )
+        ? rawEditorial.map((part: any) => ({
+            heading: String(part?.heading || part?.title || ''),
+            body: String(part?.body || ''),
+          }))
+        : undefined;
+      const knowBeforeYouGo: string[] | undefined = Array.isArray(
+        localizedListing.ui?.knowBeforeYouGo || localizedListing.knowBeforeYouGo
+      )
+        ? (localizedListing.ui?.knowBeforeYouGo || localizedListing.knowBeforeYouGo)
+        : undefined;
+      const localizedOwnerAnswer = isSleep
+        ? (localizedListing.ownerAnswer || ownerAnswer)
+        : undefined;
+
       const seo = buildPlaceSeo({
-        listing,
+        listing: localizedListing,
         category,
         cityKey: city,
         cityLabel: label,
         slug,
         lang,
-        ownerAnswer,
+        ownerAnswer: localizedOwnerAnswer,
       });
 
       const catLabel = CATEGORY_LABELS_I18N[lang]?.[category] || PLACE_CATEGORY_LABEL[category];
@@ -245,7 +263,7 @@ export function collectPlacePages(): IndexablePage[] {
         path: localizePath(basePlacePath, lang),
         basePath: basePlacePath,
         lang,
-        hasLocalizedRoutes: false,
+        hasLocalizedRoutes: isFullyTranslated,
         priority: 0.7,
         title: seo.title,
         description: seo.description,
@@ -259,7 +277,7 @@ export function collectPlacePages(): IndexablePage[] {
           city: label,
           citySlug: city,
           category: catLabel,
-          neighborhood: listing.ui?.neighborhood || listing.neighborhood,
+          neighborhood: localizedListing.ui?.neighborhood || localizedListing.neighborhood,
           price: price > 0 ? price : undefined,
           priceRangeText: isEat && eatMetrics?.perPersonRangeText
             ? `${eatMetrics.perPersonRangeText} / person`
@@ -267,21 +285,27 @@ export function collectPlacePages(): IndexablePage[] {
           rating: rating?.averageRating,
           reviewCount: rating?.totalReviews,
           address:
-            listing.ui?.exactAddressAndCoordinates?.address ||
-            listing.ui?.address ||
-            listing.address,
-          amenities: Array.isArray(listing.amenities) ? listing.amenities : undefined,
-          cuisines: Array.isArray(listing.foodStyles)
-            ? listing.foodStyles
-            : Array.isArray(listing.quiz?.foodStyles)
-              ? listing.quiz.foodStyles
+            localizedListing.ui?.exactAddressAndCoordinates?.address ||
+            localizedListing.ui?.address ||
+            localizedListing.address,
+          amenities: Array.isArray(localizedListing.amenities) ? localizedListing.amenities : undefined,
+          cuisines: Array.isArray(localizedListing.foodStyles)
+            ? localizedListing.foodStyles
+            : Array.isArray(localizedListing.quiz?.foodStyles)
+              ? localizedListing.quiz.foodStyles
               : undefined,
-          bestDishes: Array.isArray(listing.bestDishes)
-            ? listing.bestDishes
-            : Array.isArray(listing.ui?.bestDishes)
-              ? listing.ui.bestDishes
+          bestDishes: Array.isArray(localizedListing.bestDishes)
+            ? localizedListing.bestDishes
+            : Array.isArray(localizedListing.ui?.bestDishes)
+              ? localizedListing.ui.bestDishes
               : undefined,
-          tip: listing.tip || listing.ui?.tip,
+          tip: localizedListing.tip || localizedListing.ui?.tip,
+          pros: Array.isArray(localizedListing.pros) ? localizedListing.pros : undefined,
+          cons: Array.isArray(localizedListing.cons) ? localizedListing.cons : undefined,
+          fullDescription:
+            localizedListing.description ||
+            localizedListing.ui?.description ||
+            localizedListing.short_description,
           openingHours: openingHoursStr,
           seasonalHoursNote,
           editorialGuide,
@@ -298,7 +322,7 @@ export function collectPlacePages(): IndexablePage[] {
       if (hasMenu) {
         const baseMenuPath = `${basePlacePath}/menu`;
         const menuSeo = buildMenuSeo({
-          listing,
+          listing: localizedListing,
           cityKey: city,
           cityLabel: label,
           slug,
@@ -309,7 +333,7 @@ export function collectPlacePages(): IndexablePage[] {
           path: localizePath(baseMenuPath, lang),
           basePath: baseMenuPath,
           lang,
-          hasLocalizedRoutes: false,
+          hasLocalizedRoutes: isFullyTranslated,
           priority: 0.8,
           title: menuSeo.title,
           description: menuSeo.description,
@@ -323,24 +347,24 @@ export function collectPlacePages(): IndexablePage[] {
             city: label,
             citySlug: city,
             category: catLabel,
-            neighborhood: listing.ui?.neighborhood || listing.neighborhood,
+            neighborhood: localizedListing.ui?.neighborhood || localizedListing.neighborhood,
             price: price > 0 ? price : undefined,
             priceRangeText: menuSeo.priceRangeText,
             rating: rating?.averageRating,
             reviewCount: rating?.totalReviews,
             address:
-              listing.ui?.exactAddressAndCoordinates?.address ||
-              listing.ui?.address ||
-              listing.address,
-            cuisines: Array.isArray(listing.foodStyles)
-              ? listing.foodStyles
-              : Array.isArray(listing.quiz?.foodStyles)
-                ? listing.quiz.foodStyles
+              localizedListing.ui?.exactAddressAndCoordinates?.address ||
+              localizedListing.ui?.address ||
+              localizedListing.address,
+            cuisines: Array.isArray(localizedListing.foodStyles)
+              ? localizedListing.foodStyles
+              : Array.isArray(localizedListing.quiz?.foodStyles)
+                ? localizedListing.quiz.foodStyles
                 : undefined,
-            bestDishes: Array.isArray(listing.bestDishes)
-              ? listing.bestDishes
-              : Array.isArray(listing.ui?.bestDishes)
-                ? listing.ui.bestDishes
+            bestDishes: Array.isArray(localizedListing.bestDishes)
+              ? localizedListing.bestDishes
+              : Array.isArray(localizedListing.ui?.bestDishes)
+                ? localizedListing.ui.bestDishes
                 : undefined,
             openingHours: openingHoursStr,
             seasonalHoursNote,
@@ -380,6 +404,18 @@ export function collectThingsPages(): IndexablePage[] {
       : [];
     const rawFullDesc = activity.description || activity.short_description || '';
 
+    const thingReviewsList = extractListingReviewsData(activity)?.reviews || [];
+    const thingSampleReviews = Array.isArray(thingReviewsList)
+      ? thingReviewsList
+          .filter((r: any) => r?.text && String(r.text).trim().length >= 30)
+          .slice(0, 5)
+          .map((r: any) => ({
+            author: String(r.author || 'Traveler'),
+            rating: Number(r.rating || 5),
+            text: String(r.text).trim(),
+          }))
+      : undefined;
+
     for (const lang of ['en'] as const) {
       const seo = buildThingsSeo({
         activity,
@@ -414,6 +450,7 @@ export function collectThingsPages(): IndexablePage[] {
           highlights: hlStrings,
           includedServices: includedStrings,
           requirements: reqStrings,
+          ...(thingSampleReviews && thingSampleReviews.length > 0 ? { sampleReviews: thingSampleReviews } : {}),
         },
       });
     }

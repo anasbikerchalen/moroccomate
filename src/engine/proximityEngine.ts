@@ -97,9 +97,16 @@ export function driveMinutes(meters: number): number {
   return Math.max(4, Math.round(meters / DRIVE_METERS_PER_MINUTE));
 }
 
-export function formatNearbyTravelLabel(place: Pick<NearbyPlace, 'walking_time_minutes' | 'travel_mode' | 'travel_time_minutes'>): string {
+export function formatNearbyTravelLabel(
+  place: Pick<NearbyPlace, 'walking_time_minutes' | 'travel_mode' | 'travel_time_minutes'>,
+  lang: 'en' | 'fr' | 'es' | 'de' | 'ar' = 'en'
+): string {
   const mins = place.travel_time_minutes ?? place.walking_time_minutes;
   const mode = place.travel_mode ?? (mins > 35 ? 'drive' : 'walk');
+  if (lang === 'fr') return mode === 'drive' ? `${mins} min en voiture` : `${mins} min à pied`;
+  if (lang === 'es') return mode === 'drive' ? `${mins} min en coche` : `${mins} min a pie`;
+  if (lang === 'de') return mode === 'drive' ? `${mins} Min. Fahrt` : `${mins} Min. zu Fuß`;
+  if (lang === 'ar') return mode === 'drive' ? `${mins} د بالسيارة` : `${mins} د مشياً`;
   return mode === 'drive' ? `${mins} min drive` : `${mins} min walk`;
 }
 

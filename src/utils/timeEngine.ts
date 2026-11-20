@@ -9,6 +9,8 @@
  *   // → { status: 'open', label: 'Open Now · Closes 19:00', color: 'emerald' }
  */
 
+import type { AppLanguage } from './localeRouting';
+
 export type ShopStatusValue =
   | 'open'
   | 'closes_soon'
@@ -238,10 +240,219 @@ function isHolidayParts(parts: MoroccoTimeParts): boolean {
   return HOLIDAYS.some(([hm, hd]) => hm === parts.month && hd === parts.day);
 }
 
+const TIME_UI: Record<
+  AppLanguage,
+  {
+    tomorrow: string;
+    hoursUnconfirmed: string;
+    ramadanUntil: (t: string) => string;
+    ramadanNight: string;
+    ramadanClosedHours: (a: string, b: string) => string;
+    ramadanEveningWait: string;
+    openEvening: string;
+    openHoliday: (t: string) => string;
+    holidayClosed: string;
+    closesSoon: (t: string) => string;
+    openNowCloses: (t: string) => string;
+    fridayPrayer: (t: string) => string;
+    closedTodayOpens: (day: string, t: string) => string;
+    closedToday: string;
+    open24h: string;
+    closedOpens: (prefix: string, t: string) => string;
+    openDaily: string;
+    closedWord: string;
+    fridayNote: string;
+    openNowParen: (hrs: string) => string;
+    opensFallback: (t: string) => string;
+    regularHours: string;
+    ramadanFtourSpecial: string;
+    ramadanLunchSpecial: string;
+    days: Record<string, string>;
+  }
+> = {
+  en: {
+    tomorrow: 'Tomorrow',
+    hoursUnconfirmed: '⚪ Hours unconfirmed · Check WhatsApp',
+    ramadanUntil: (t) => `🟣 Ramadan Hours · Open until ${t}`,
+    ramadanNight: '🟣 Ramadan Night Market · Open 20:00–23:00',
+    ramadanClosedHours: (a, b) => `🔴 Closed · Ramadan hours ${a}–${b}`,
+    ramadanEveningWait: '🟣 Ramadan · Likely closed until evening',
+    openEvening: '🟢 Open · Evening hours',
+    openHoliday: (t) => `🟢 Open (Holiday) · Closes ${t}`,
+    holidayClosed: '🔴 Holiday · Check back tomorrow',
+    closesSoon: (t) => `🟡 Open · Closes soon (${t})`,
+    openNowCloses: (t) => `🟢 Open Now · Closes ${t}`,
+    fridayPrayer: (t) => `🔵 Friday Prayer · Reopens ${t}`,
+    closedTodayOpens: (day, t) => `🔴 Closed Today · Opens ${day} ${t}`,
+    closedToday: '🔴 Closed Today',
+    open24h: '🟢 Open 24 Hours',
+    closedOpens: (prefix, t) => `🔴 Closed · Opens ${prefix}${t}`,
+    openDaily: 'Open Daily',
+    closedWord: 'Closed',
+    fridayNote: 'May pause for Friday prayer (12:30–14:30)',
+    openNowParen: (hrs) => `Open Now (${hrs})`,
+    opensFallback: (t) => `Opens ${t}`,
+    regularHours: 'regular hours',
+    ramadanFtourSpecial: 'Ramadan: Special Iftar/Ftour buffet & extended evening dining.',
+    ramadanLunchSpecial: 'Open for normal lunch service during Ramadan.',
+    days: {
+      monday: 'Monday',
+      tuesday: 'Tuesday',
+      wednesday: 'Wednesday',
+      thursday: 'Thursday',
+      friday: 'Friday',
+      saturday: 'Saturday',
+      sunday: 'Sunday',
+    },
+  },
+  fr: {
+    tomorrow: 'Demain',
+    hoursUnconfirmed: '⚪ Horaires à confirmer · Voir WhatsApp',
+    ramadanUntil: (t) => `🟣 Horaires Ramadan · Ouvert jusqu’à ${t}`,
+    ramadanNight: '🟣 Soirée Ramadan · Ouvert 20:00–23:00',
+    ramadanClosedHours: (a, b) => `🔴 Fermé · Horaires Ramadan ${a}–${b}`,
+    ramadanEveningWait: '🟣 Ramadan · Probablement fermé jusqu’au soir',
+    openEvening: '🟢 Ouvert · Horaires du soir',
+    openHoliday: (t) => `🟢 Ouvert (Jour férié) · Ferme à ${t}`,
+    holidayClosed: '🔴 Jour férié · Revenir demain',
+    closesSoon: (t) => `🟡 Ouvert · Ferme bientôt (${t})`,
+    openNowCloses: (t) => `🟢 Ouvert · Ferme à ${t}`,
+    fridayPrayer: (t) => `🔵 Prière du vendredi · Réouvre à ${t}`,
+    closedTodayOpens: (day, t) => `🔴 Fermé aujourd’hui · Ouvre ${day} à ${t}`,
+    closedToday: '🔴 Fermé aujourd’hui',
+    open24h: '🟢 Ouvert 24h/24',
+    closedOpens: (prefix, t) => `🔴 Fermé · Ouvre ${prefix}à ${t}`,
+    openDaily: 'Ouvert tous les jours',
+    closedWord: 'Fermé',
+    fridayNote: 'Pause possible pour la prière du vendredi (12:30–14:30)',
+    openNowParen: (hrs) => `Ouvert (${hrs})`,
+    opensFallback: (t) => `Ouvre à ${t}`,
+    regularHours: 'horaires habituels',
+    ramadanFtourSpecial: 'Ramadan : Buffet Ftour spécial et service prolongé en soirée.',
+    ramadanLunchSpecial: 'Ouvert pour le déjeuner habituel pendant le Ramadan.',
+    days: {
+      monday: 'lundi',
+      tuesday: 'mardi',
+      wednesday: 'mercredi',
+      thursday: 'jeudi',
+      friday: 'vendredi',
+      saturday: 'samedi',
+      sunday: 'dimanche',
+    },
+  },
+  es: {
+    tomorrow: 'Mañana',
+    hoursUnconfirmed: '⚪ Horario por confirmar · Consultar WhatsApp',
+    ramadanUntil: (t) => `🟣 Horario de Ramadán · Abierto hasta las ${t}`,
+    ramadanNight: '🟣 Noche de Ramadán · Abierto 20:00–23:00',
+    ramadanClosedHours: (a, b) => `🔴 Cerrado · Horario Ramadán ${a}–${b}`,
+    ramadanEveningWait: '🟣 Ramadán · Cerrado hasta la tarde',
+    openEvening: '🟢 Abierto · Horario de tarde',
+    openHoliday: (t) => `🟢 Abierto (Festivo) · Cierra a las ${t}`,
+    holidayClosed: '🔴 Día festivo · Vuelve mañana',
+    closesSoon: (t) => `🟡 Abierto · Cierra pronto (${t})`,
+    openNowCloses: (t) => `🟢 Abierto ahora · Cierra ${t}`,
+    fridayPrayer: (t) => `🔵 Rezo del viernes · Reabre ${t}`,
+    closedTodayOpens: (day, t) => `🔴 Cerrado hoy · Abre ${day} a las ${t}`,
+    closedToday: '🔴 Cerrado hoy',
+    open24h: '🟢 Abierto 24 horas',
+    closedOpens: (prefix, t) => `🔴 Cerrado · Abre ${prefix}${t}`,
+    openDaily: 'Abierto todos los días',
+    closedWord: 'Cerrado',
+    fridayNote: 'Puede pausar por el rezo del viernes (12:30–14:30)',
+    openNowParen: (hrs) => `Abierto (${hrs})`,
+    opensFallback: (t) => `Abre ${t}`,
+    regularHours: 'horario habitual',
+    ramadanFtourSpecial: 'Ramadán: Buffet especial de Ftour y horario nocturno ampliado.',
+    ramadanLunchSpecial: 'Abierto al mediodía para almuerzos durante Ramadán.',
+    days: {
+      monday: 'lunes',
+      tuesday: 'martes',
+      wednesday: 'miércoles',
+      thursday: 'jueves',
+      friday: 'viernes',
+      saturday: 'sábado',
+      sunday: 'domingo',
+    },
+  },
+  de: {
+    tomorrow: 'Morgen',
+    hoursUnconfirmed: '⚪ Zeiten unbestätigt · WhatsApp prüfen',
+    ramadanUntil: (t) => `🟣 Ramadan-Zeiten · Geöffnet bis ${t}`,
+    ramadanNight: '🟣 Ramadan-Abend · Geöffnet 20:00–23:00',
+    ramadanClosedHours: (a, b) => `🔴 Geschlossen · Ramadan ${a}–${b}`,
+    ramadanEveningWait: '🟣 Ramadan · Vermutlich bis abends geschlossen',
+    openEvening: '🟢 Geöffnet · Abendzeiten',
+    openHoliday: (t) => `🟢 Geöffnet (Feiertag) · Schließt ${t}`,
+    holidayClosed: '🔴 Feiertag · Morgen wieder geöffnet',
+    closesSoon: (t) => `🟡 Geöffnet · Schließt bald (${t})`,
+    openNowCloses: (t) => `🟢 Jetzt geöffnet · Schließt ${t}`,
+    fridayPrayer: (t) => `🔵 Freitagsgebet · Öffnet wieder ${t}`,
+    closedTodayOpens: (day, t) => `🔴 Heute geschlossen · Öffnet ${day} ${t}`,
+    closedToday: '🔴 Heute geschlossen',
+    open24h: '🟢 24 Stunden geöffnet',
+    closedOpens: (prefix, t) => `🔴 Geschlossen · Öffnet ${prefix}${t}`,
+    openDaily: 'Täglich geöffnet',
+    closedWord: 'Geschlossen',
+    fridayNote: 'Eventuelle Pause zum Freitagsgebet (12:30–14:30)',
+    openNowParen: (hrs) => `Jetzt geöffnet (${hrs})`,
+    opensFallback: (t) => `Öffnet ${t}`,
+    regularHours: 'reguläre Zeiten',
+    ramadanFtourSpecial: 'Ramadan: Spezielles Iftar/Ftour-Buffet & verlängerte Abendzeiten.',
+    ramadanLunchSpecial: 'Während des Ramadan regulär zum Mittagessen geöffnet.',
+    days: {
+      monday: 'Montag',
+      tuesday: 'Dienstag',
+      wednesday: 'Mittwoch',
+      thursday: 'Donnerstag',
+      friday: 'Freitag',
+      saturday: 'Samstag',
+      sunday: 'Sonntag',
+    },
+  },
+  ar: {
+    tomorrow: 'غداً',
+    hoursUnconfirmed: '⚪ الأوقات غير مؤكدة · تحقق عبر واتساب',
+    ramadanUntil: (t) => `🟣 أوقات رمضان · مفتوح حتى ${t}`,
+    ramadanNight: '🟣 ليالي رمضان · مفتوح 20:00–23:00',
+    ramadanClosedHours: (a, b) => `🔴 مغلق · أوقات رمضان ${a}–${b}`,
+    ramadanEveningWait: '🟣 رمضان · مغلق غالباً حتى المساء',
+    openEvening: '🟢 مفتوح · أوقات مسائية',
+    openHoliday: (t) => `🟢 مفتوح (عطلة) · يغلق ${t}`,
+    holidayClosed: '🔴 عطلة رسمية · يفتح غداً',
+    closesSoon: (t) => `🟡 مفتوح · يغلق قريباً (${t})`,
+    openNowCloses: (t) => `🟢 مفتوح الآن · يغلق ${t}`,
+    fridayPrayer: (t) => `🔵 صلاة الجمعة · يعيد الفتح ${t}`,
+    closedTodayOpens: (day, t) => `🔴 مغلق اليوم · يفتح ${day} ${t}`,
+    closedToday: '🔴 مغلق اليوم',
+    open24h: '🟢 مفتوح 24 ساعة',
+    closedOpens: (prefix, t) => `🔴 مغلق · يفتح ${prefix}${t}`,
+    openDaily: 'مفتوح يومياً',
+    closedWord: 'مغلق',
+    fridayNote: 'قد يتوقف مؤقتاً وقت صلاة الجمعة (12:30–14:30)',
+    openNowParen: (hrs) => `مفتوح الآن (${hrs})`,
+    opensFallback: (t) => `يفتح ${t}`,
+    regularHours: 'الأوقات المعتادة',
+    ramadanFtourSpecial: 'رمضان: بوفيه إفطار خاص وساعات عمل ممتدة مساءً.',
+    ramadanLunchSpecial: 'مفتوح لتقديم وجبة الغداء للزوار خلال رمضان.',
+    days: {
+      monday: 'الاثنين',
+      tuesday: 'الثلاثاء',
+      wednesday: 'الأربعاء',
+      thursday: 'الخميس',
+      friday: 'الجمعة',
+      saturday: 'السبت',
+      sunday: 'الأحد',
+    },
+  },
+};
+
 function findNextOpenInfo(
   normalizedHours: HoursEntry[],
-  currentDayOfWeek: number
-): { dayLabel: string; openMinutes: number } | null {
+  currentDayOfWeek: number,
+  lang: AppLanguage = 'en'
+): { dayLabel: string; openMinutes: number; isTomorrow: boolean } | null {
+  const ui = TIME_UI[lang] || TIME_UI.en;
   for (let offset = 1; offset <= 7; offset++) {
     const nextIdx = (currentDayOfWeek + offset) % 7;
     const nextDayName = SUNDAY_FIRST_DAYS[nextIdx];
@@ -252,9 +463,9 @@ function findNextOpenInfo(
       const sorted = [...ranges].sort((a, b) => a[0] - b[0]);
       const dayLabel =
         offset === 1
-          ? 'Tomorrow'
-          : nextDayName.charAt(0).toUpperCase() + nextDayName.slice(1);
-      return { dayLabel, openMinutes: sorted[0][0] };
+          ? ui.tomorrow
+          : ui.days[nextDayName] || nextDayName.charAt(0).toUpperCase() + nextDayName.slice(1);
+      return { dayLabel, openMinutes: sorted[0][0], isTomorrow: offset === 1 };
     }
   }
   return null;
@@ -272,8 +483,11 @@ export function getShopStatus(
   openingHours: HoursEntry[] | string,
   fridayHours?: string,
   ramadanHours?: string,
-  now: Date = new Date()
+  now: Date = new Date(),
+  lang: AppLanguage = 'en'
 ): ShopStatus {
+  const ui = TIME_UI[lang] || TIME_UI.en;
+
   // Normalize openingHours if it's a string, or undefined/null, or not an array
   let normalizedHours: HoursEntry[] = [];
   if (Array.isArray(openingHours) && openingHours.length > 0) {
@@ -304,7 +518,7 @@ export function getShopStatus(
   } else {
     return {
       status: 'unknown',
-      label: '⚪ Hours unconfirmed · Check WhatsApp',
+      label: ui.hoursUnconfirmed,
       color: 'stone',
     };
   }
@@ -323,14 +537,14 @@ export function getShopStatus(
           if (currentMinutes >= open && currentMinutes < effectiveClose) {
             return {
               status: 'ramadan_day',
-              label: `🟣 Ramadan Hours · Open until ${formatMinutes(effectiveClose)}`,
+              label: ui.ramadanUntil(formatMinutes(effectiveClose)),
               color: 'purple',
             };
           }
           if (effectiveClose > MINUTES_PER_DAY && currentMinutes + MINUTES_PER_DAY < effectiveClose) {
             return {
               status: 'ramadan_day',
-              label: `🟣 Ramadan Hours · Open until ${formatMinutes(effectiveClose)}`,
+              label: ui.ramadanUntil(formatMinutes(effectiveClose)),
               color: 'purple',
             };
           }
@@ -338,14 +552,14 @@ export function getShopStatus(
         if (currentMinutes >= 20 * 60 && currentMinutes < 23 * 60) {
           return {
             status: 'ramadan_night',
-            label: '🟣 Ramadan Night Market · Open 20:00–23:00',
+            label: ui.ramadanNight,
             color: 'purple',
           };
         }
         const [firstOpen, firstClose] = ranges[0];
         return {
           status: 'closed',
-          label: `🔴 Closed · Ramadan hours ${formatMinutes(firstOpen)}–${formatMinutes(firstClose)}`,
+          label: ui.ramadanClosedHours(formatMinutes(firstOpen), formatMinutes(firstClose)),
           color: 'red',
         };
       }
@@ -353,13 +567,13 @@ export function getShopStatus(
     if (currentMinutes < 20 * 60) {
       return {
         status: 'ramadan_day',
-        label: '🟣 Ramadan · Likely closed until evening',
+        label: ui.ramadanEveningWait,
         color: 'purple',
       };
     }
     return {
       status: 'open',
-      label: '🟢 Open · Evening hours',
+      label: ui.openEvening,
       color: 'emerald',
     };
   }
@@ -373,7 +587,7 @@ export function getShopStatus(
         if (currentMinutes >= open && currentMinutes < effectiveClose) {
           return {
             status: 'open',
-            label: `🟢 Open (Holiday) · Closes ${formatMinutes(effectiveClose)}`,
+            label: ui.openHoliday(formatMinutes(effectiveClose)),
             color: 'emerald',
           };
         }
@@ -381,13 +595,12 @@ export function getShopStatus(
     }
     return {
       status: 'holiday',
-      label: '🔴 Holiday · Check back tomorrow',
+      label: ui.holidayClosed,
       color: 'red',
     };
   }
 
   // --- YESTERDAY OVERNIGHT SPILLOVER (00:00 - 07:59) ---
-  // e.g., Yesterday open 19:00 - 02:00 and currently 00:30 Morocco time
   if (currentMinutes < 8 * 60) {
     const yesterdayHrs =
       yesterdayName === 'friday' && fridayHours
@@ -402,13 +615,13 @@ export function getShopStatus(
             if (effectiveClose - shiftedNow <= 60) {
               return {
                 status: 'closes_soon',
-                label: `🟡 Open · Closes soon (${formatMinutes(effectiveClose)})`,
+                label: ui.closesSoon(formatMinutes(effectiveClose)),
                 color: 'amber',
               };
             }
             return {
               status: 'open',
-              label: `🟢 Open Now · Closes ${formatMinutes(effectiveClose)}`,
+              label: ui.openNowCloses(formatMinutes(effectiveClose)),
               color: 'emerald',
             };
           }
@@ -425,13 +638,13 @@ export function getShopStatus(
         if (effectiveClose - currentMinutes <= 60) {
           return {
             status: 'closes_soon',
-            label: `🟡 Open · Closes soon (${formatMinutes(effectiveClose)})`,
+            label: ui.closesSoon(formatMinutes(effectiveClose)),
             color: 'amber',
           };
         }
         return {
           status: 'open',
-          label: `🟢 Open Now · Closes ${formatMinutes(effectiveClose)}`,
+          label: ui.openNowCloses(formatMinutes(effectiveClose)),
           color: 'emerald',
         };
       }
@@ -441,7 +654,7 @@ export function getShopStatus(
       const reopenTime = afternoonRange ? afternoonRange[0] : 15 * 60;
       return {
         status: 'friday_prayer',
-        label: `🔵 Friday Prayer · Reopens ${formatMinutes(reopenTime)}`,
+        label: ui.fridayPrayer(formatMinutes(reopenTime)),
         color: 'blue',
       };
     }
@@ -451,12 +664,12 @@ export function getShopStatus(
   const hrs = findHoursForToday(normalizedHours, dayName);
   if (hrs) {
     if (isClosedHoursText(hrs)) {
-      const nextOpen = findNextOpenInfo(normalizedHours, dayOfWeek);
+      const nextOpen = findNextOpenInfo(normalizedHours, dayOfWeek, lang);
       return {
         status: 'closed',
         label: nextOpen
-          ? `🔴 Closed Today · Opens ${nextOpen.dayLabel} ${formatMinutes(nextOpen.openMinutes)}`
-          : '🔴 Closed Today',
+          ? ui.closedTodayOpens(nextOpen.dayLabel, formatMinutes(nextOpen.openMinutes))
+          : ui.closedToday,
         color: 'red',
       };
     }
@@ -468,7 +681,7 @@ export function getShopStatus(
       if (open === 0 && effectiveClose === MINUTES_PER_DAY) {
         return {
           status: 'open',
-          label: '🟢 Open 24 Hours',
+          label: ui.open24h,
           color: 'emerald',
         };
       }
@@ -477,13 +690,13 @@ export function getShopStatus(
         if (effectiveClose - currentMinutes <= 60) {
           return {
             status: 'closes_soon',
-            label: `🟡 Open · Closes soon (${formatMinutes(effectiveClose)})`,
+            label: ui.closesSoon(formatMinutes(effectiveClose)),
             color: 'amber',
           };
         }
         return {
           status: 'open',
-          label: `🟢 Open Now · Closes ${formatMinutes(effectiveClose)}`,
+          label: ui.openNowCloses(formatMinutes(effectiveClose)),
           color: 'emerald',
         };
       }
@@ -498,25 +711,25 @@ export function getShopStatus(
     if (nextOpenMinutes !== null) {
       return {
         status: 'closed',
-        label: `🔴 Closed · Opens ${formatMinutes(nextOpenMinutes)}`,
+        label: ui.closedOpens('', formatMinutes(nextOpenMinutes)),
         color: 'red',
       };
     }
 
     if (ranges.length > 0) {
-      const nextOpen = findNextOpenInfo(normalizedHours, dayOfWeek);
+      const nextOpen = findNextOpenInfo(normalizedHours, dayOfWeek, lang);
       if (nextOpen) {
-        const prefix = nextOpen.dayLabel === 'Tomorrow' ? '' : `${nextOpen.dayLabel} `;
+        const prefix = nextOpen.isTomorrow ? '' : `${nextOpen.dayLabel} `;
         return {
           status: 'closed',
-          label: `🔴 Closed · Opens ${prefix}${formatMinutes(nextOpen.openMinutes)}`,
+          label: ui.closedOpens(prefix, formatMinutes(nextOpen.openMinutes)),
           color: 'red',
         };
       }
 
       return {
         status: 'closed',
-        label: `🔴 Closed · Opens ${formatMinutes(ranges[0][0])}`,
+        label: ui.closedOpens('', formatMinutes(ranges[0][0])),
         color: 'red',
       };
     }
@@ -524,7 +737,7 @@ export function getShopStatus(
 
   return {
     status: 'unknown',
-    label: '⚪ Hours unconfirmed · Check WhatsApp',
+    label: ui.hoursUnconfirmed,
     color: 'stone',
   };
 }
@@ -665,8 +878,10 @@ export interface EatWeeklyScheduleInput {
 
 export function getEatWeeklySchedule(
   listing: EatWeeklyScheduleInput,
-  now: Date = new Date()
+  now: Date = new Date(),
+  lang: AppLanguage = 'en'
 ): EatScheduleResult {
+  const ui = TIME_UI[lang] || TIME_UI.en;
   const timeParts = getMoroccoTimeParts(now);
   const currentDayIndex = timeParts.mondayIndex; // Monday = 0, Sunday = 6
 
@@ -676,7 +891,7 @@ export function getEatWeeklySchedule(
   const defaultHours =
     listing.openTime && listing.closeTime
       ? `${listing.openTime} – ${listing.closeTime}`
-      : 'Open Daily';
+      : ui.openDaily;
   const closedDaysList = Array.isArray(listing.closedDays)
     ? listing.closedDays.map(d => String(d).toLowerCase().trim())
     : [];
@@ -703,7 +918,7 @@ export function getEatWeeklySchedule(
         const dayClose = match.close || match.closeTime || listing.closeTime;
         if (match.isClosed) {
           isClosed = true;
-          hoursText = 'Closed';
+          hoursText = ui.closedWord;
           rawRangeForEngine = 'Closed';
         } else if (dayOpen && dayClose) {
           hoursText = `${dayOpen} – ${dayClose}`;
@@ -716,13 +931,13 @@ export function getEatWeeklySchedule(
     // 2. Check closedDays array (unless weeklySchedule explicitly set an open shift, union closed flags)
     if (!isClosed && (closedDaysList.includes(dayObj.key) || closedDaysList.includes(dayObj.short.toLowerCase()))) {
       isClosed = true;
-      hoursText = 'Closed';
+      hoursText = ui.closedWord;
       rawRangeForEngine = 'Closed';
     }
 
     // 3. Preserve curated Friday note if present; otherwise apply Friday prayer guidance
     if (dayObj.key === 'friday' && !isClosed && !note) {
-      note = 'May pause for Friday prayer (12:30–14:30)';
+      note = ui.fridayNote;
     }
 
     if (rawRangeForEngine) {
@@ -747,9 +962,9 @@ export function getEatWeeklySchedule(
       ? listing.openingHours.trim() !== ''
       : Array.isArray(listing.openingHours) && listing.openingHours.length > 0)
   ) {
-    statusCalc = getShopStatus(listing.openingHours, fHours, rHours, now);
+    statusCalc = getShopStatus(listing.openingHours, fHours, rHours, now, lang);
   } else if (resolvedDailyRanges.length > 0) {
-    statusCalc = getShopStatus(resolvedDailyRanges, fHours, rHours, now);
+    statusCalc = getShopStatus(resolvedDailyRanges, fHours, rHours, now, lang);
   }
 
   const todayItem = schedule[currentDayIndex];
@@ -762,18 +977,18 @@ export function getEatWeeklySchedule(
   const statusLabel =
     statusCalc?.label ||
     (isOpenNow
-      ? `Open Now (${todayItem.hoursText})`
+      ? ui.openNowParen(todayItem.hoursText)
       : todayItem.isClosed
-        ? 'Closed Today'
-        : `Opens ${listing.openTime || 'regular hours'}`);
+        ? ui.closedToday.replace(/^🔴\s*/u, '')
+        : ui.opensFallback(listing.openTime || ui.regularHours));
   const statusBadgeColor: EatScheduleResult['statusBadgeColor'] =
     statusCalc?.color || (isOpenNow ? 'emerald' : 'stone');
 
   let specialNote: string | undefined = undefined;
   if (listing.ramadanFriendly === 'special-ftour') {
-    specialNote = 'Ramadan: Special Iftar/Ftour buffet & extended evening dining.';
+    specialNote = ui.ramadanFtourSpecial;
   } else if (listing.ramadanFriendly === 'serves-lunch') {
-    specialNote = 'Open for normal lunch service during Ramadan.';
+    specialNote = ui.ramadanLunchSpecial;
   }
 
   return {

@@ -18,6 +18,7 @@ import {
   getDishSecondaryText,
   type MenuLanguage,
 } from '../menuTranslations';
+import { hasPopulatedReviewsData, type PlaceReviewsData } from '../../types/reviews';
 
 export const SITE_NAME = 'Moroccan Mate';
 export const BASE_URL = 'https://www.moroccanmate.com';
@@ -338,6 +339,328 @@ function buildMenuSectionsSchema(menu: EatMenu | undefined, lang: AppLanguage) {
   }));
 }
 
+/** Extracts the PlaceReviewsData object from any listing shape */
+export function extractListingReviewsData(listing: any): PlaceReviewsData | undefined {
+  const candidates = [
+    listing?.reviewsData,
+    listing?.ui?.reviewsData,
+    listing?.data?.reviewsData,
+    !Array.isArray(listing?.reviews) ? listing?.reviews : undefined,
+  ];
+  for (const candidate of candidates) {
+    if (candidate && typeof candidate === 'object') {
+      return candidate as PlaceReviewsData;
+    }
+  }
+  return undefined;
+}
+
+/** True only when the listing actually has populated reviews/sources */
+export function hasListingReviews(listing: any): boolean {
+  const data = extractListingReviewsData(listing);
+  return hasPopulatedReviewsData(data);
+}
+
+/** True only when the listing actually has structured menu items or menu photos */
+export function hasListingMenu(listing: any): boolean {
+  const menu: EatMenu | undefined = listing?.ui?.menu || listing?.menu;
+  if (!menu) return false;
+  const hasSections =
+    Array.isArray(menu.sections) &&
+    menu.sections.some((sec) => Array.isArray(sec?.items) && sec.items.length > 0);
+  const hasPhotos =
+    (Array.isArray(menu.menuPhotos) && menu.menuPhotos.some((p) => Boolean(p?.url))) ||
+    (Array.isArray(menu.scannedMenuPhotos) && menu.scannedMenuPhotos.some(Boolean));
+  return hasSections || hasPhotos;
+}
+
+/** Builds up to 5 Schema.org Review objects from real populated listing reviews */
+export function extractReviewSchemaEntries(listing: any, limit = 5): Record<string, any>[] {
+  const reviewsData = extractListingReviewsData(listing);
+  const rawReviews = Array.isArray(reviewsData?.reviews) ? reviewsData.reviews : [];
+  if (rawReviews.length === 0) return [];
+
+  return rawReviews
+    .filter((r) => Boolean(r?.text && String(r.text).trim().length >= 20))
+    .slice(0, limit)
+    .map((r) => {
+      const ratingNum = typeof r.rating === 'number' && r.rating > 0 ? r.rating : undefined;
+      return {
+        '@type': 'Review',
+        author: {
+          '@type': 'Person',
+          name: String(r.author || 'Traveler').trim(),
+        },
+        reviewBody: smartTrim(String(r.text), 400),
+        ...(r.postedDate ? { datePublished: String(r.postedDate) } : {}),
+        ...(ratingNum
+          ? {
+              reviewRating: {
+                '@type': 'Rating',
+                ratingValue: ratingNum,
+                bestRating: 5,
+                worstRating: 1,
+              },
+            }
+          : {}),
+        ...(r.source
+          ? {
+              publisher: {
+                '@type': 'Organization',
+                name: String(r.source),
+              },
+            }
+          : {}),
+      };
+    });
+}
+
+function pickBestTitle(candidates: string[], fallback: string): string {
+  for (const c of candidates) {
+    if (c && c.length <= 60) return c;
+  }
+  return fallback;
+}
+
+function buildConditionalPlaceTitle(params: {
+  name: string;
+  cityLabel: string;
+  shortCat: string;
+  inWord: string;
+  category: PlaceUrlCategory;
+  lang: AppLanguage;
+  hasMenu: boolean;
+  hasReviews: boolean;
+}): string {
+  const { name, cityLabel, shortCat, inWord, category, lang, hasMenu, hasReviews } = params;
+  const baseTitle = `${name} — ${shortCat} ${inWord} ${cityLabel}`;
+
+  const localized: Record<AppLanguage, () => string[]> = {
+    en: () => {
+      if (category === 'food') {
+        if (hasMenu && hasReviews) {
+          return [
+            `${name} ${cityLabel}: Menu, Prices & Reviews`,
+            `${name} — ${cityLabel} Menu & Reviews`,
+            `${name}: Menu & Reviews`,
+          ];
+        }
+        if (hasMenu) {
+          return [
+            `${name} ${cityLabel}: Menu & Prices`,
+            `${name} — ${cityLabel} Menu`,
+            `${name}: Menu`,
+          ];
+        }
+        if (hasReviews) {
+          return [
+            `${name} ${cityLabel}: Prices & Reviews`,
+            `${name} — ${cityLabel} Reviews`,
+            `${name}: Reviews`,
+          ];
+        }
+        return [];
+      }
+      if (hasReviews) {
+        if (category === 'sleep') {
+          return [
+            `${name} ${cityLabel}: Prices & Reviews`,
+            `${name} — ${cityLabel} Reviews`,
+            `${name}: Reviews`,
+          ];
+        }
+        return [
+          `${name} ${cityLabel}: Guide & Reviews`,
+          `${name} — ${cityLabel} Reviews`,
+          `${name}: Reviews`,
+        ];
+      }
+      return [];
+    },
+    fr: () => {
+      if (category === 'food') {
+        if (hasMenu && hasReviews) {
+          return [
+            `${name} ${cityLabel} : Carte, Prix & Avis`,
+            `${name} — ${cityLabel} Carte & Avis`,
+            `${name} : Carte & Avis`,
+          ];
+        }
+        if (hasMenu) {
+          return [
+            `${name} ${cityLabel} : Carte & Prix`,
+            `${name} — ${cityLabel} Carte`,
+            `${name} : Carte`,
+          ];
+        }
+        if (hasReviews) {
+          return [
+            `${name} ${cityLabel} : Prix & Avis`,
+            `${name} — ${cityLabel} Avis`,
+            `${name} : Avis`,
+          ];
+        }
+        return [];
+      }
+      if (hasReviews) {
+        return [
+          `${name} ${cityLabel} : Tarifs & Avis`,
+          `${name} — ${cityLabel} Avis`,
+          `${name} : Avis`,
+        ];
+      }
+      return [];
+    },
+    es: () => {
+      if (category === 'food') {
+        if (hasMenu && hasReviews) {
+          return [
+            `${name} ${cityLabel}: Carta, Precios y Reseñas`,
+            `${name} — ${cityLabel} Carta y Reseñas`,
+            `${name}: Carta y Reseñas`,
+          ];
+        }
+        if (hasMenu) {
+          return [
+            `${name} ${cityLabel}: Carta y Precios`,
+            `${name} — ${cityLabel} Carta`,
+            `${name}: Carta`,
+          ];
+        }
+        if (hasReviews) {
+          return [
+            `${name} ${cityLabel}: Precios y Reseñas`,
+            `${name} — ${cityLabel} Reseñas`,
+            `${name}: Reseñas`,
+          ];
+        }
+        return [];
+      }
+      if (hasReviews) {
+        return [
+          `${name} ${cityLabel}: Precios y Reseñas`,
+          `${name} — ${cityLabel} Reseñas`,
+          `${name}: Reseñas`,
+        ];
+      }
+      return [];
+    },
+    de: () => {
+      if (category === 'food') {
+        if (hasMenu && hasReviews) {
+          return [
+            `${name} ${cityLabel}: Speisekarte & Bewertungen`,
+            `${name} — ${cityLabel} Menü & Bewertungen`,
+            `${name}: Menü & Bewertungen`,
+          ];
+        }
+        if (hasMenu) {
+          return [
+            `${name} ${cityLabel}: Speisekarte & Preise`,
+            `${name} — ${cityLabel} Speisekarte`,
+            `${name}: Speisekarte`,
+          ];
+        }
+        if (hasReviews) {
+          return [
+            `${name} ${cityLabel}: Preise & Bewertungen`,
+            `${name} — ${cityLabel} Bewertungen`,
+            `${name}: Bewertungen`,
+          ];
+        }
+        return [];
+      }
+      if (hasReviews) {
+        return [
+          `${name} ${cityLabel}: Preise & Bewertungen`,
+          `${name} — ${cityLabel} Bewertungen`,
+          `${name}: Bewertungen`,
+        ];
+      }
+      return [];
+    },
+    ar: () => {
+      if (category === 'food') {
+        if (hasMenu && hasReviews) {
+          return [
+            `${name} ${cityLabel}: المنيو، الأسعار والتقييمات`,
+            `${name} — ${cityLabel} منيو وتقييمات`,
+            `${name}: منيو وتقييمات`,
+          ];
+        }
+        if (hasMenu) {
+          return [
+            `${name} ${cityLabel}: المنيو والأسعار`,
+            `${name} — ${cityLabel} المنيو`,
+            `${name}: المنيو`,
+          ];
+        }
+        if (hasReviews) {
+          return [
+            `${name} ${cityLabel}: الأسعار والتقييمات`,
+            `${name} — ${cityLabel} التقييمات`,
+            `${name}: التقييمات`,
+          ];
+        }
+        return [];
+      }
+      if (hasReviews) {
+        return [
+          `${name} ${cityLabel}: الأسعار والتقييمات`,
+          `${name} — ${cityLabel} التقييمات`,
+          `${name}: التقييمات`,
+        ];
+      }
+      return [];
+    },
+  };
+
+  const candidates = localized[lang]();
+  if (candidates.length === 0) return baseTitle;
+  return pickBestTitle(candidates, baseTitle);
+}
+
+function buildConditionalThingsTitle(params: {
+  name: string;
+  cityLabel: string;
+  lang: AppLanguage;
+  hasReviews: boolean;
+  defaultTitle: string;
+}): string {
+  const { name, cityLabel, lang, hasReviews, defaultTitle } = params;
+  if (!hasReviews) return defaultTitle;
+
+  const localized: Record<AppLanguage, string[]> = {
+    en: [
+      `${name} ${cityLabel}: Guide & Reviews`,
+      `${name} — ${cityLabel} Reviews`,
+      `${name}: Reviews`,
+    ],
+    fr: [
+      `${name} ${cityLabel} : Visite, Prix & Avis`,
+      `${name} — ${cityLabel} Avis`,
+      `${name} : Avis`,
+    ],
+    es: [
+      `${name} ${cityLabel}: Guía, Precios y Reseñas`,
+      `${name} — ${cityLabel} Reseñas`,
+      `${name}: Reseñas`,
+    ],
+    de: [
+      `${name} ${cityLabel}: Tipps, Preise & Bewertungen`,
+      `${name} — ${cityLabel} Bewertungen`,
+      `${name}: Bewertungen`,
+    ],
+    ar: [
+      `${name} ${cityLabel}: الدليل، الأسعار والتقييمات`,
+      `${name} — ${cityLabel} التقييمات`,
+      `${name}: التقييمات`,
+    ],
+  };
+
+  return pickBestTitle(localized[lang], defaultTitle);
+}
+
 // ---------------------------------------------------------------------------
 // Localized copy dictionaries for Place, Menu, Things-to-Do, Near Me
 // ---------------------------------------------------------------------------
@@ -360,7 +683,7 @@ const PLACE_COPY: Record<
     fromNight: (p: number) => string;
     avgPerson: (p: number) => string;
     verifiedIn: (cat: string, loc: string) => string;
-    exploreCta: Record<PlaceUrlCategory, string>;
+    exploreCta: (opts: { category: PlaceUrlCategory; hasMenu: boolean; hasReviews: boolean }) => string;
     ownerFaqQ: (name: string) => string;
   }
 > = {
@@ -372,10 +695,21 @@ const PLACE_COPY: Record<
     fromNight: (p) => `From ${p} MAD/night`,
     avgPerson: (p) => `Avg ${p} MAD/person`,
     verifiedIn: (cat, loc) => `${cat} in ${loc}`,
-    exploreCta: {
-      food: 'See menu, reviews & local tips.',
-      sleep: 'Check rooms, amenities & honest reviews.',
-      shopping: 'Browse crafts, prices & directions.',
+    exploreCta: ({ category, hasMenu, hasReviews }) => {
+      if (category === 'food') {
+        if (hasMenu && hasReviews) return 'See menu, reviews & local tips.';
+        if (hasMenu) return 'See menu, MAD prices & local tips.';
+        if (hasReviews) return 'See prices, reviews & local tips.';
+        return 'See MAD prices, hours & local tips.';
+      }
+      if (category === 'sleep') {
+        return hasReviews
+          ? 'Check rooms, amenities & honest reviews.'
+          : 'Check rooms, amenities & MAD rates.';
+      }
+      return hasReviews
+        ? 'Browse crafts, prices, reviews & directions.'
+        : 'Browse crafts, prices & directions.';
     },
     ownerFaqQ: (name) => `Who is the owner of ${name}?`,
   },
@@ -387,10 +721,21 @@ const PLACE_COPY: Record<
     fromNight: (p) => `Dès ${p} MAD/nuit`,
     avgPerson: (p) => `Env. ${p} MAD/pers.`,
     verifiedIn: (cat, loc) => `${cat} à ${loc}`,
-    exploreCta: {
-      food: 'Consultez la carte, tarifs en MAD, avis vérifiés et conseils locaux sur Moroccan Mate.',
-      sleep: 'Découvrez chambres, équipements, tarifs en MAD et avis vérifiés sur Moroccan Mate.',
-      shopping: 'Explorez artisanat, prix justes en MAD, horaires et accès sur Moroccan Mate.',
+    exploreCta: ({ category, hasMenu, hasReviews }) => {
+      if (category === 'food') {
+        if (hasMenu && hasReviews) return 'Consultez la carte, tarifs en MAD, avis vérifiés et conseils locaux sur Moroccan Mate.';
+        if (hasMenu) return 'Consultez la carte, tarifs en MAD, horaires et conseils locaux sur Moroccan Mate.';
+        if (hasReviews) return 'Consultez tarifs en MAD, avis vérifiés et conseils locaux sur Moroccan Mate.';
+        return 'Consultez tarifs en MAD, horaires et conseils locaux sur Moroccan Mate.';
+      }
+      if (category === 'sleep') {
+        return hasReviews
+          ? 'Découvrez chambres, équipements, tarifs en MAD et avis vérifiés sur Moroccan Mate.'
+          : 'Découvrez chambres, équipements, tarifs en MAD et conseils sur Moroccan Mate.';
+      }
+      return hasReviews
+        ? 'Explorez artisanat, prix en MAD, avis vérifiés et accès sur Moroccan Mate.'
+        : 'Explorez artisanat, prix justes en MAD, horaires et accès sur Moroccan Mate.';
     },
     ownerFaqQ: (name) => `Qui est le propriétaire de ${name} ?`,
   },
@@ -402,10 +747,21 @@ const PLACE_COPY: Record<
     fromNight: (p) => `Desde ${p} MAD/noche`,
     avgPerson: (p) => `Media ${p} MAD/pers.`,
     verifiedIn: (cat, loc) => `${cat} en ${loc}`,
-    exploreCta: {
-      food: 'Consulta la carta, precios en MAD, reseñas verificadas y consejos en Moroccan Mate.',
-      sleep: 'Descubre habitaciones, servicios, tarifas en MAD y reseñas en Moroccan Mate.',
-      shopping: 'Explora artesanía, precios en MAD, horarios y ubicación en Moroccan Mate.',
+    exploreCta: ({ category, hasMenu, hasReviews }) => {
+      if (category === 'food') {
+        if (hasMenu && hasReviews) return 'Consulta la carta, precios en MAD, reseñas verificadas y consejos en Moroccan Mate.';
+        if (hasMenu) return 'Consulta la carta, precios en MAD, horarios y consejos en Moroccan Mate.';
+        if (hasReviews) return 'Consulta precios en MAD, reseñas verificadas y consejos en Moroccan Mate.';
+        return 'Consulta precios en MAD, horarios y consejos en Moroccan Mate.';
+      }
+      if (category === 'sleep') {
+        return hasReviews
+          ? 'Descubre habitaciones, servicios, tarifas en MAD y reseñas en Moroccan Mate.'
+          : 'Descubre habitaciones, servicios, tarifas en MAD y consejos en Moroccan Mate.';
+      }
+      return hasReviews
+        ? 'Explora artesanía, precios en MAD, reseñas y ubicación en Moroccan Mate.'
+        : 'Explora artesanía, precios en MAD, horarios y ubicación en Moroccan Mate.';
     },
     ownerFaqQ: (name) => `¿Quién es el propietario de ${name}?`,
   },
@@ -417,10 +773,21 @@ const PLACE_COPY: Record<
     fromNight: (p) => `Ab ${p} MAD/Nacht`,
     avgPerson: (p) => `Ca. ${p} MAD/Pers.`,
     verifiedIn: (cat, loc) => `${cat} in ${loc}`,
-    exploreCta: {
-      food: 'Speisekarte, MAD-Preise, geprüfte Bewertungen & Geheimtipps auf Moroccan Mate.',
-      sleep: 'Zimmer, Ausstattung, MAD-Preise & geprüfte Bewertungen auf Moroccan Mate.',
-      shopping: 'Handwerk, faire MAD-Preise, Öffnungszeiten & Route auf Moroccan Mate.',
+    exploreCta: ({ category, hasMenu, hasReviews }) => {
+      if (category === 'food') {
+        if (hasMenu && hasReviews) return 'Speisekarte, MAD-Preise, geprüfte Bewertungen & Geheimtipps auf Moroccan Mate.';
+        if (hasMenu) return 'Speisekarte, MAD-Preise, Öffnungszeiten & Geheimtipps auf Moroccan Mate.';
+        if (hasReviews) return 'MAD-Preise, geprüfte Bewertungen & Geheimtipps auf Moroccan Mate.';
+        return 'MAD-Preise, Öffnungszeiten & Geheimtipps auf Moroccan Mate.';
+      }
+      if (category === 'sleep') {
+        return hasReviews
+          ? 'Zimmer, Ausstattung, MAD-Preise & geprüfte Bewertungen auf Moroccan Mate.'
+          : 'Zimmer, Ausstattung, MAD-Preise & Tipps auf Moroccan Mate.';
+      }
+      return hasReviews
+        ? 'Handwerk, faire MAD-Preise, Bewertungen & Route auf Moroccan Mate.'
+        : 'Handwerk, faire MAD-Preise, Öffnungszeiten & Route auf Moroccan Mate.';
     },
     ownerFaqQ: (name) => `Wer ist der Eigentümer von ${name}?`,
   },
@@ -432,10 +799,21 @@ const PLACE_COPY: Record<
     fromNight: (p) => `ابتداءً من ${p} درهم/ليلة`,
     avgPerson: (p) => `متوسط ${p} درهم/شخص`,
     verifiedIn: (cat, loc) => `${cat} في ${loc}`,
-    exploreCta: {
-      food: 'تصفح قائمة الطعام والأسعار بالدرهم، التقييمات الموثوقة ونصائح المحليين على Moroccan Mate.',
-      sleep: 'شاهد الغرف، المرافق، الأسعار بالدرهم والتقييمات الموثوقة على Moroccan Mate.',
-      shopping: 'اكتشف الحرف التقليدية، الأسعار بالدرهم، أوقات العمل والاتجاهات على Moroccan Mate.',
+    exploreCta: ({ category, hasMenu, hasReviews }) => {
+      if (category === 'food') {
+        if (hasMenu && hasReviews) return 'تصفح قائمة الطعام والأسعار بالدرهم، التقييمات الموثوقة ونصائح المحليين على Moroccan Mate.';
+        if (hasMenu) return 'تصفح قائمة الطعام والأسعار بالدرهم، أوقات العمل ونصائح المحليين على Moroccan Mate.';
+        if (hasReviews) return 'شاهد الأسعار بالدرهم، التقييمات الموثوقة ونصائح المحليين على Moroccan Mate.';
+        return 'شاهد الأسعار بالدرهم، أوقات العمل ونصائح المحليين على Moroccan Mate.';
+      }
+      if (category === 'sleep') {
+        return hasReviews
+          ? 'شاهد الغرف، المرافق، الأسعار بالدرهم والتقييمات الموثوقة على Moroccan Mate.'
+          : 'شاهد الغرف، المرافق، الأسعار بالدرهم ونصائح المحليين على Moroccan Mate.';
+      }
+      return hasReviews
+        ? 'اكتشف الحرف التقليدية، الأسعار بالدرهم، التقييمات والاتجاهات على Moroccan Mate.'
+        : 'اكتشف الحرف التقليدية، الأسعار بالدرهم، أوقات العمل والاتجاهات على Moroccan Mate.';
     },
     ownerFaqQ: (name) => `من هو مالك ${name}؟`,
   },
@@ -539,7 +917,7 @@ const THINGS_COPY: Record<
     title: (name: string, city: string) => string;
     free: string;
     minutesUnit: string;
-    cta: string;
+    cta: (hasReviews: boolean) => string;
   }
 > = {
   en: {
@@ -550,7 +928,10 @@ const THINGS_COPY: Record<
     },
     free: 'Free Entry',
     minutesUnit: 'min',
-    cta: 'Check hours, tips & prices on Moroccan Mate.',
+    cta: (hasReviews: boolean) =>
+      hasReviews
+        ? 'Check hours, tips, prices & reviews on Moroccan Mate.'
+        : 'Check hours, tips & prices on Moroccan Mate.',
   },
   fr: {
     thingsIn: (c) => `Choses à Faire à ${c}`,
@@ -560,7 +941,10 @@ const THINGS_COPY: Record<
     },
     free: 'Entrée gratuite',
     minutesUnit: 'min',
-    cta: 'Horaires, tarifs en MAD, conseils pratiques et avis vérifiés sur Moroccan Mate.',
+    cta: (hasReviews: boolean) =>
+      hasReviews
+        ? 'Horaires, tarifs en MAD, conseils pratiques et avis vérifiés sur Moroccan Mate.'
+        : 'Horaires, tarifs en MAD et conseils pratiques sur Moroccan Mate.',
   },
   es: {
     thingsIn: (c) => `Qué Hacer en ${c}`,
@@ -570,7 +954,10 @@ const THINGS_COPY: Record<
     },
     free: 'Entrada gratis',
     minutesUnit: 'min',
-    cta: 'Horarios, precios en MAD, consejos prácticos y reseñas en Moroccan Mate.',
+    cta: (hasReviews: boolean) =>
+      hasReviews
+        ? 'Horarios, precios en MAD, consejos prácticos y reseñas en Moroccan Mate.'
+        : 'Horarios, precios en MAD y consejos prácticos en Moroccan Mate.',
   },
   de: {
     thingsIn: (c) => `Aktivitäten in ${c}`,
@@ -580,7 +967,10 @@ const THINGS_COPY: Record<
     },
     free: 'Eintritt frei',
     minutesUnit: 'Min.',
-    cta: 'Öffnungszeiten, MAD-Preise, Insidertipps & Bewertungen auf Moroccan Mate.',
+    cta: (hasReviews: boolean) =>
+      hasReviews
+        ? 'Öffnungszeiten, MAD-Preise, Insidertipps & Bewertungen auf Moroccan Mate.'
+        : 'Öffnungszeiten, MAD-Preise & Insidertipps auf Moroccan Mate.',
   },
   ar: {
     thingsIn: (c) => `أنشطة في ${c}`,
@@ -590,7 +980,10 @@ const THINGS_COPY: Record<
     },
     free: 'دخول مجاني',
     minutesUnit: 'دقيقة',
-    cta: 'اكتشف أوقات العمل، الأسعار بالدرهم، نصائح المحليين والتقييمات على Moroccan Mate.',
+    cta: (hasReviews: boolean) =>
+      hasReviews
+        ? 'اكتشف أوقات العمل، الأسعار بالدرهم، نصائح المحليين والتقييمات على Moroccan Mate.'
+        : 'اكتشف أوقات العمل، الأسعار بالدرهم ونصائح المحليين على Moroccan Mate.',
   },
 };
 
@@ -803,18 +1196,21 @@ export function buildPlaceSeo(params: {
 
   const rating = getListingRating(listing);
   const rawDesc = String(listing?.ui?.description || listing?.description || listing?.short_description || '');
+  const hasMenu = isEat && hasListingMenu(listing);
+  const hasReviews = hasListingReviews(listing);
+  const reviewSchemas = hasReviews ? extractReviewSchemaEntries(listing, 5) : [];
 
-  // Category-aware SERP title (<= 60 chars)
-  let coreTitle = `${name} — ${shortCat} ${copy.inWord} ${cityLabel}`;
-  if (isEat && lang === 'en') {
-    const richEatTitle = `${name} ${cityLabel}: Menu, Prices & Reviews`;
-    const compactEatTitle = `${name} — ${cityLabel} Menu & Reviews`;
-    if (richEatTitle.length <= 60) {
-      coreTitle = richEatTitle;
-    } else if (compactEatTitle.length <= 60) {
-      coreTitle = compactEatTitle;
-    }
-  }
+  // Conditional SERP title (<= 60 chars): NEVER add "Menu" or "Reviews" unless actually populated
+  const coreTitle = buildConditionalPlaceTitle({
+    name,
+    cityLabel,
+    shortCat,
+    inWord: copy.inWord,
+    category,
+    lang,
+    hasMenu,
+    hasReviews,
+  });
   const title = composeTitle(coreTitle, SITE_NAME, 60);
 
   // Description: pack concrete SERP hooks (rating, realistic MAD price, location, summary/CTA)
@@ -839,18 +1235,22 @@ export function buildPlaceSeo(params: {
     ? `${neighborhood}, ${cityLabel}`
     : cityLabel;
 
+  const ctaLine = copy.exploreCta({ category, hasMenu, hasReviews });
+  const isLocalizedDesc = lang === 'en' || listing?._localizedLang === lang;
   let composedDesc = '';
-  if (lang === 'en' && rawDesc) {
-    const prefix = factParts.length > 0 ? `${factParts.join(' · ')} in ${locText}. ` : `${locText}. `;
+  if (isLocalizedDesc && rawDesc) {
+    const prefix =
+      lang === 'en'
+        ? (factParts.length > 0 ? `${factParts.join(' · ')} in ${locText}. ` : `${locText}. `)
+        : (factParts.length > 0 ? `${name} · ${factParts.join(' · ')} (${locText}). ` : `${name} (${locText}). `);
     composedDesc = `${prefix}${rawDesc}`;
     if (composedDesc.length < 115) {
-      composedDesc = `${composedDesc.replace(/\.+$/, '')}. ${copy.exploreCta[category]}`;
+      composedDesc = `${composedDesc.replace(/\.+$/, '')}. ${ctaLine}`;
     }
   } else {
     const lead = `${name} (${copy.verifiedIn(shortCat, locText)})`;
     const metrics = factParts.length > 0 ? ` · ${factParts.join(' · ')}.` : '.';
-    const extra = rawDesc && lang === 'en' ? ` ${rawDesc}` : ` ${copy.exploreCta[category]}`;
-    composedDesc = `${lead}${metrics}${extra}`;
+    composedDesc = `${lead}${metrics} ${ctaLine}`;
   }
   const description = smartDescription(composedDesc, 155);
 
@@ -918,6 +1318,7 @@ export function buildPlaceSeo(params: {
           },
         }
       : {}),
+    ...(reviewSchemas.length > 0 ? { review: reviewSchemas } : {}),
     ...(isSleep && price > 0
       ? {
           priceRange: `${price} MAD`,
@@ -1180,7 +1581,17 @@ export function buildThingsSeo(params: {
   const canonical = `/things/${cityKey}/${slug}`;
   const localizedUrl = `${BASE_URL}${localizePath(canonical, lang)}`;
 
-  const title = composeTitle(copy.title(name, cityLabel), SITE_NAME, 60);
+  const hasReviews = hasListingReviews(activity);
+  const reviewSchemas = hasReviews ? extractReviewSchemaEntries(activity, 5) : [];
+
+  const coreTitle = buildConditionalThingsTitle({
+    name,
+    cityLabel,
+    lang,
+    hasReviews,
+    defaultTitle: copy.title(name, cityLabel),
+  });
+  const title = composeTitle(coreTitle, SITE_NAME, 60);
 
   const price = Number(activity?.pricing?.price ?? activity?.price ?? 0);
   const durationMin = Number(activity?.duration_minutes ?? activity?.durationMinutes ?? 0);
@@ -1195,16 +1606,17 @@ export function buildThingsSeo(params: {
   if (price > 0) metaBits.push(`${price} MAD`);
   else if (activity?.pricing?.pricing_type === 'free') metaBits.push(copy.free);
 
+  const ctaLine = copy.cta(hasReviews);
   let rawComposed = '';
   if (lang === 'en' && rawDesc) {
     const prefix = metaBits.length > 0 ? `${metaBits.join(' · ')} in ${cityLabel}. ` : `${cityLabel}. `;
     rawComposed = `${prefix}${rawDesc}`;
     if (rawComposed.length < 115) {
-      rawComposed = `${rawComposed.replace(/\.+$/, '')}. ${copy.cta}`;
+      rawComposed = `${rawComposed.replace(/\.+$/, '')}. ${ctaLine}`;
     }
   } else {
     const prefix = metaBits.length > 0 ? `${name} (${cityLabel}) · ${metaBits.join(' · ')}. ` : `${name} (${cityLabel}). `;
-    rawComposed = `${prefix}${copy.cta}`;
+    rawComposed = `${prefix}${ctaLine}`;
   }
   const description = smartDescription(rawComposed, 155);
 
@@ -1263,6 +1675,7 @@ export function buildThingsSeo(params: {
           },
         }
       : {}),
+    ...(reviewSchemas.length > 0 ? { review: reviewSchemas } : {}),
   };
 
   const jsonLd: Record<string, any> = {

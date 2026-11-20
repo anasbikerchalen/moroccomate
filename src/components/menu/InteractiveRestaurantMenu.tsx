@@ -28,6 +28,7 @@ import {
   type MenuLanguage,
 } from '../../data/menuTranslations';
 import { useAppLanguage } from '../../utils/localeRouting';
+import { getPlaceUiCopy } from '../../data/placeUiI18n';
 import type { EatMenu, MenuItem, MenuPhoto } from '../../listings/types';
 import type { MoroccanDishGlossaryEntry } from '../../data/culinaryGlossary';
 
@@ -79,10 +80,11 @@ export default function InteractiveRestaurantMenu({
 }: InteractiveRestaurantMenuProps) {
   const { currency, setCurrency, menuLanguage, setMenuLanguage } = useTastingStore();
   const routeLang = useAppLanguage();
-  const hasManualLangRef = useRef(false);
+  const ui = getPlaceUiCopy(routeLang);
+  const [hasManualLang, setHasManualLang] = useState(false);
 
-  // Default to 'accordion' so ALL menu sections & dishes render inline in HTML DOM
-  const [viewMode, setViewMode] = useState<'accordion' | 'booklet' | 'images'>('accordion');
+  // Default to 'images' as requested
+  const [viewMode, setViewMode] = useState<'accordion' | 'booklet' | 'images'>('images');
   const [activeCategory, setActiveCategory] = useState<string>('all');
   const [dietaryFilter, setDietaryFilter] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
@@ -101,11 +103,11 @@ export default function InteractiveRestaurantMenu({
     return legacy.map((url, idx) => ({
       url,
       pageNumber: idx + 1,
-      title: `${restaurantName} Menu Page ${idx + 1}`,
-      alt: `${restaurantName} in ${city} printed menu photo page ${idx + 1}`,
-      caption: `Original printed menu page ${idx + 1}`,
+      title: `${restaurantName} — ${ui.menu.menuPageFallback(idx + 1)}`,
+      alt: `${restaurantName} (${city}) — ${ui.menu.menuPageFallback(idx + 1)}`,
+      caption: ui.menu.menuPageFallback(idx + 1),
     }));
-  }, [menu?.menuPhotos, menu?.scannedMenuPhotos, restaurantName, city]);
+  }, [menu?.menuPhotos, menu?.scannedMenuPhotos, restaurantName, city, ui]);
   const hasMenuPhotos = menuPhotos.length > 0;
 
   // All sections start expanded so visitors & search engines read every item inline
@@ -113,19 +115,19 @@ export default function InteractiveRestaurantMenu({
 
   // Sync menu language with route language when navigating (/en -> en, /es -> es, /de -> de, /ar -> ar)
   useEffect(() => {
-    if (hasManualLangRef.current) return;
+    if (hasManualLang) return;
     const mapped: MenuLanguage =
       routeLang === 'es' || routeLang === 'de' || routeLang === 'ar' ? routeLang : 'en';
     if (menuLanguage !== mapped) {
       setMenuLanguage(mapped);
     }
-  }, [routeLang, menuLanguage, setMenuLanguage]);
+  }, [routeLang, menuLanguage, setMenuLanguage, hasManualLang]);
 
-  // Reset collapsed accordion sections when switching restaurants
+  // Reset collapsed accordion sections when switching restaurants (default to images)
   useEffect(() => {
     setCollapsedIds(new Set());
     setActiveCategory('all');
-    setViewMode('accordion');
+    setViewMode('images');
     setLightboxIndex(null);
     setShowAllSections(false);
   }, [restaurantId]);
@@ -166,6 +168,8 @@ export default function InteractiveRestaurantMenu({
     return sections.reduce((acc, s) => acc + s.items.length, 0);
   }, [sections]);
 
+  const keepFrenchHeadings = routeLang === 'fr' && !hasManualLang && menuLanguage === 'en';
+
   // Booklet filtered sections
   const bookletSections = useMemo(() => {
     if (!hasSections) return [];
@@ -191,13 +195,15 @@ export default function InteractiveRestaurantMenu({
         if (filteredItems.length === 0) return null;
         return {
           ...section,
-          title: getLocalizedSectionTitle(section, menuLanguage),
-          description: getLocalizedSectionDescription(section, menuLanguage),
+          title: keepFrenchHeadings ? section.title : getLocalizedSectionTitle(section, menuLanguage),
+          description: keepFrenchHeadings
+            ? section.description || ''
+            : getLocalizedSectionDescription(section, menuLanguage),
           items: filteredItems,
         };
       })
       .filter(Boolean) as typeof sections;
-  }, [sections, dietaryFilter, searchQuery, hasSections, highlightedDishes, menuLanguage]);
+  }, [sections, dietaryFilter, searchQuery, hasSections, highlightedDishes, menuLanguage, keepFrenchHeadings]);
 
   // Inline Accordion filtered sections
   const filteredSections = useMemo(() => {
@@ -241,7 +247,7 @@ export default function InteractiveRestaurantMenu({
           <div className="flex items-center gap-2 mb-1.5 flex-wrap">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-extrabold uppercase tracking-wider bg-amber-500/15 text-[#C2613C] border border-amber-500/25">
               <UtensilsCrossed className="w-3.5 h-3.5" />
-              Verified Menu &amp; Prices
+              {ui.menu.verifiedMenuPrices}
             </span>
             {recommendedCount > 0 && (
               <button
@@ -252,22 +258,26 @@ export default function InteractiveRestaurantMenu({
                     ? 'bg-[#C2613C] text-white border-[#C2613C] shadow-2xs'
                     : 'bg-amber-500/10 hover:bg-amber-500/20 text-[#A0522D] border-amber-500/25'
                 }`}
-                title="Filter by Highly Recommended Plates"
+                title={ui.menu.highlyRecommendedFilterTitle}
               >
-                <span>★ {recommendedCount} Highly Recommended</span>
+                <span>{ui.menu.highlyRecommendedCount(recommendedCount)}</span>
               </button>
             )}
             {menu?.lastUpdated && (
-              <span className="text-[11px] text-stone-500 font-medium ml-auto">
+              <span className="text-[11px] text-stone-500 font-medium ms-auto">
                 {menu.lastUpdated}
               </span>
             )}
           </div>
           <h2 className="font-serif text-2xl sm:text-3xl font-extrabold text-stone-900 tracking-tight">
-            {restaurantName} Menu &amp; Prices
+            {ui.menu.menuAndPricesTitle(restaurantName)}
           </h2>
           <p className="text-xs sm:text-sm text-stone-600 font-medium mt-1">
-            All {totalDishCount} dishes listed inline with verified Moroccan Dirham (MAD) prices. Signature favorites are marked <span className="font-bold text-[#C2613C]">★ Recommended</span>. Tap <span className="font-bold text-[#D4863A]">(+)</span> to build your tasting list.
+            {ui.menu.menuIntroPrefix(totalDishCount)}
+            <span className="font-bold text-[#C2613C]">{ui.menu.recommendedCue}</span>
+            {ui.menu.menuIntroMiddle}
+            <span className="font-bold text-[#D4863A]">(+)</span>
+            {ui.menu.menuIntroSuffix}
           </p>
         </div>
       )}
@@ -282,14 +292,14 @@ export default function InteractiveRestaurantMenu({
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Filter dishes..."
+              placeholder={ui.menu.filterDishesPlaceholder}
               className="w-full pl-8 pr-7 py-1.5 rounded-full bg-stone-100/70 border border-transparent hover:border-stone-200 focus:bg-white focus:border-stone-300 text-xs text-stone-800 placeholder-stone-400 focus:outline-none transition-all"
             />
             {searchQuery && (
               <button
                 type="button"
                 onClick={() => setSearchQuery('')}
-                aria-label="Clear filter"
+                aria-label={ui.menu.clearFilter}
                 className="absolute right-2.5 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-600 p-0.5 cursor-pointer"
               >
                 <X className="w-3 h-3" />
@@ -297,14 +307,22 @@ export default function InteractiveRestaurantMenu({
             )}
           </div>
 
-          {/* Controls */}
-          <div className="flex items-center gap-2 self-start sm:self-auto flex-wrap">
-            {/* View Mode Switcher: Full Accordion (default) vs Classical Booklet vs Menu Images */}
+          {/* Controls - Side-scrollable horizontally */}
+          <div
+            onWheel={(e) => {
+              if (e.currentTarget && e.deltaY !== 0) {
+                e.currentTarget.scrollLeft += e.deltaY;
+                e.preventDefault();
+              }
+            }}
+            className="flex items-center gap-2 self-start sm:self-auto overflow-x-auto whitespace-nowrap flex-nowrap scrollbar-none py-1 max-w-full touch-pan-x overscroll-x-contain"
+          >
+            {/* View Mode Switcher: Full Accordion vs Classical Booklet vs Menu Images */}
             <div className="flex items-center bg-stone-100/90 p-0.5 rounded-full border border-stone-200/60 shadow-2xs">
               <button
                 type="button"
                 onClick={() => setViewMode('accordion')}
-                title="Full expandable menu list view"
+                title={ui.menu.fullMenuTitle}
                 className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold transition-all cursor-pointer ${
                   viewMode === 'accordion'
                     ? 'bg-stone-900 text-white shadow-2xs'
@@ -312,12 +330,12 @@ export default function InteractiveRestaurantMenu({
                 }`}
               >
                 <LayoutList className="w-3 h-3" />
-                <span>Full Menu</span>
+                <span>{ui.menu.fullMenu}</span>
               </button>
               <button
                 type="button"
                 onClick={() => setViewMode('booklet')}
-                title="Classical printed menu booklet view"
+                title={ui.menu.bookletTitle}
                 className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold transition-all cursor-pointer ${
                   viewMode === 'booklet'
                     ? 'bg-amber-900 text-amber-50 shadow-2xs'
@@ -325,13 +343,13 @@ export default function InteractiveRestaurantMenu({
                 }`}
               >
                 <BookOpen className="w-3 h-3 text-amber-400" />
-                <span>Booklet</span>
+                <span>{ui.menu.booklet}</span>
               </button>
               {hasMenuPhotos && (
                 <button
                   type="button"
                   onClick={() => setViewMode('images')}
-                  title="Original photographed menu pages"
+                  title={ui.menu.imagesTitle}
                   className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold transition-all cursor-pointer ${
                     viewMode === 'images'
                       ? 'bg-[#C2613C] text-white shadow-2xs'
@@ -339,7 +357,7 @@ export default function InteractiveRestaurantMenu({
                   }`}
                 >
                   <ImageIcon className="w-3 h-3" />
-                  <span>Images ({menuPhotos.length})</span>
+                  <span>{ui.menu.imagesCount(menuPhotos.length)}</span>
                 </button>
               )}
             </div>
@@ -348,17 +366,17 @@ export default function InteractiveRestaurantMenu({
             <div className="flex items-center gap-1 bg-stone-100/90 p-0.5 rounded-full border border-stone-200/60 shadow-2xs">
               <span className="text-[10px] font-bold text-stone-500 pl-2 pr-0.5 flex items-center gap-1">
                 <Languages className="w-3 h-3 text-rose-600" />
-                <span className="hidden md:inline text-[9px] uppercase tracking-wider text-stone-400">Lang:</span>
+                <span className="hidden md:inline text-[9px] uppercase tracking-wider text-stone-400">{ui.menu.langLabel}</span>
               </span>
               {MENU_LANGUAGES.map((lang) => (
                 <button
                   key={lang.code}
                   type="button"
                   onClick={() => {
-                    hasManualLangRef.current = true;
+                    setHasManualLang(true);
                     setMenuLanguage(lang.code);
                   }}
-                  title={`Display dish descriptions in ${lang.label}`}
+                  title={ui.menu.displayDishInLang(lang.label)}
                   className={`px-2 py-0.5 rounded-full text-[11px] font-bold transition-all cursor-pointer ${
                     menuLanguage === lang.code
                       ? lang.code === 'en'
@@ -393,12 +411,12 @@ export default function InteractiveRestaurantMenu({
             {/* Dietary quick filter */}
             <div className="flex items-center gap-0.5 bg-stone-100/80 p-0.5 rounded-full border border-stone-200/50">
               {[
-                { id: 'all', label: 'All' },
+                { id: 'all', label: ui.menu.all },
                 {
                   id: 'signature',
-                  label: `★ Recommended${recommendedCount > 0 ? ` (${recommendedCount})` : ''}`,
+                  label: ui.menu.recommendedShort(recommendedCount),
                 },
-                { id: 'vegetarian', label: '🌱 Veg' },
+                { id: 'vegetarian', label: ui.menu.vegShort },
               ].map((pill) => (
                 <button
                   key={pill.id}
@@ -420,7 +438,15 @@ export default function InteractiveRestaurantMenu({
         {/* Section Jump Pills + Expand/Collapse All (shown in Full Menu accordion view) */}
         {hasSections && viewMode === 'accordion' && (
           <div className="flex items-center justify-between gap-2 pb-1.5 border-b border-stone-200/70">
-            <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none">
+            <div
+              onWheel={(e) => {
+                if (e.currentTarget && e.deltaY !== 0) {
+                  e.currentTarget.scrollLeft += e.deltaY;
+                  e.preventDefault();
+                }
+              }}
+              className="flex items-center gap-1.5 overflow-x-auto flex-nowrap pb-1 scrollbar-none touch-pan-x overscroll-x-contain"
+            >
               <button
                 type="button"
                 onClick={() => setActiveCategory('all')}
@@ -430,7 +456,7 @@ export default function InteractiveRestaurantMenu({
                     : 'text-stone-600 hover:bg-stone-100'
                 }`}
               >
-                All Sections ({totalDishCount})
+                {ui.menu.allSections(totalDishCount)}
               </button>
               {sections.map((sec) => (
                 <button
@@ -443,7 +469,7 @@ export default function InteractiveRestaurantMenu({
                       : 'text-stone-600 hover:bg-stone-100'
                   }`}
                 >
-                  {getLocalizedSectionTitle(sec, menuLanguage)} ({sec.items.length})
+                  {keepFrenchHeadings ? sec.title : getLocalizedSectionTitle(sec, menuLanguage)} ({sec.items.length})
                 </button>
               ))}
             </div>
@@ -454,7 +480,7 @@ export default function InteractiveRestaurantMenu({
                   onClick={collapsedIds.size > 0 ? expandAll : collapseAll}
                   className="hover:text-stone-900 underline-offset-2 hover:underline cursor-pointer"
                 >
-                  {collapsedIds.size > 0 ? 'Expand all' : 'Collapse all'}
+                  {collapsedIds.size > 0 ? ui.menu.expandAll : ui.menu.collapseAll}
                 </button>
               </div>
             )}
@@ -463,18 +489,18 @@ export default function InteractiveRestaurantMenu({
       </div>
 
       {hasMenuPhotos && viewMode === 'images' ? (
-        <div className="space-y-6" aria-label={`${restaurantName} Menu Images`}>
+        <div className="space-y-6" aria-label={ui.menu.printedMenuPages(restaurantName, menuPhotos.length)}>
           <div className="flex flex-wrap items-center justify-between gap-2 rounded-2xl border border-[#E8DFCF] bg-[#FAF6EE]/80 px-4 py-3">
             <div>
               <h3 className="font-serif text-base sm:text-lg font-bold text-stone-900">
-                {restaurantName} Printed Menu Pages ({menuPhotos.length})
+                {ui.menu.printedMenuPages(restaurantName, menuPhotos.length)}
               </h3>
               <p className="text-xs text-stone-600">
-                Tap any page card to inspect dish prices at full resolution.
+                {ui.menu.tapPageCard}
               </p>
             </div>
             <span className="text-[11px] font-mono font-bold text-amber-900 bg-amber-500/15 border border-amber-500/30 px-2.5 py-1 rounded-full">
-              Prices in MAD (Dh)
+              {ui.menu.pricesInMad}
             </span>
           </div>
 
@@ -488,7 +514,7 @@ export default function InteractiveRestaurantMenu({
                   type="button"
                   onClick={() => setLightboxIndex(idx)}
                   className="relative block w-full bg-stone-100 overflow-hidden cursor-zoom-in text-left"
-                  aria-label={`Zoom ${photo.title || `Menu page ${idx + 1}`}`}
+                  aria-label={ui.menu.zoomPageAria(photo.title || ui.menu.menuPageFallback(idx + 1))}
                 >
                   <img
                     src={photo.url}
@@ -501,11 +527,11 @@ export default function InteractiveRestaurantMenu({
                     className="w-full h-auto object-contain transition-transform duration-300 group-hover:scale-[1.01]"
                   />
                   <span className="absolute top-3 left-3 inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-stone-900/85 text-white text-[11px] font-bold backdrop-blur-xs">
-                    Page {photo.pageNumber || idx + 1} / {menuPhotos.length}
+                    {ui.menu.pageOf(photo.pageNumber || idx + 1, menuPhotos.length)}
                   </span>
                   <span className="absolute bottom-3 right-3 inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-white/90 text-stone-900 text-[11px] font-bold shadow-xs opacity-90 group-hover:opacity-100">
                     <ZoomIn className="w-3.5 h-3.5 text-[#C2613C]" />
-                    <span>Zoom</span>
+                    <span>{ui.menu.zoom}</span>
                   </span>
                 </button>
                 {(photo.title || photo.caption) && (
@@ -538,7 +564,7 @@ export default function InteractiveRestaurantMenu({
               />
             ) : (
               <div className="py-12 text-center text-stone-500 text-xs bg-[#FAF6EF]/60 rounded-2xl border border-stone-200/80 p-6">
-                <p>No dishes found matching your current filter.</p>
+                <p>{ui.menu.noDishesFound}</p>
                 <button
                   type="button"
                   onClick={() => {
@@ -547,7 +573,7 @@ export default function InteractiveRestaurantMenu({
                   }}
                   className="mt-2 text-[#D4863A] hover:underline font-bold cursor-pointer"
                 >
-                  Reset filters
+                  {ui.menu.resetFilters}
                 </button>
               </div>
             )
@@ -567,8 +593,12 @@ export default function InteractiveRestaurantMenu({
                   <>
                     {visibleSections.map((section) => {
                       const isOpen = !collapsedIds.has(section.id);
-                      const sectionTitle = getLocalizedSectionTitle(section, menuLanguage);
-                      const sectionDesc = getLocalizedSectionDescription(section, menuLanguage);
+                      const sectionTitle = keepFrenchHeadings
+                        ? section.title
+                        : getLocalizedSectionTitle(section, menuLanguage);
+                      const sectionDesc = keepFrenchHeadings
+                        ? section.description || ''
+                        : getLocalizedSectionDescription(section, menuLanguage);
                       return (
                         <div
                           key={section.id}
@@ -588,7 +618,7 @@ export default function InteractiveRestaurantMenu({
                                   {sectionTitle}
                                 </h3>
                                 <span className="text-[11px] font-semibold text-stone-500 tabular-nums">
-                                  ({section.items.length} {section.items.length === 1 ? 'item' : 'items'})
+                                  ({ui.menu.itemCount(section.items.length)})
                                 </span>
                               </div>
                               {sectionDesc && (
@@ -634,13 +664,13 @@ export default function InteractiveRestaurantMenu({
                           {isTruncatedOnListing ? (
                             <>
                               <span>
-                                Show More ({hiddenSectionsCount} more {hiddenSectionsCount === 1 ? 'part' : 'parts'} · {hiddenDishesCount} dishes)
+                                {ui.menu.showMoreParts(hiddenSectionsCount, hiddenDishesCount)}
                               </span>
                               <ChevronDown className="w-4 h-4" />
                             </>
                           ) : (
                             <>
-                              <span>Show Less</span>
+                              <span>{ui.menu.showLess}</span>
                               <ChevronDown className="w-4 h-4 rotate-180" />
                             </>
                           )}
@@ -650,7 +680,7 @@ export default function InteractiveRestaurantMenu({
                   </>
                 ) : (
                   <div className="py-12 text-center text-stone-500 text-xs">
-                    <p>No dishes found matching your current filter.</p>
+                    <p>{ui.menu.noDishesFound}</p>
                     <button
                       type="button"
                       onClick={() => {
@@ -660,7 +690,7 @@ export default function InteractiveRestaurantMenu({
                       }}
                       className="mt-2 text-[#D4863A] hover:underline font-bold cursor-pointer"
                     >
-                      Reset filters
+                      {ui.menu.resetFilters}
                     </button>
                   </div>
                 )}
@@ -675,7 +705,7 @@ export default function InteractiveRestaurantMenu({
                 <div className="flex items-center gap-2">
                   <ImageIcon className="w-4 h-4 text-[#C2613C]" />
                   <h3 className="font-serif text-base font-bold text-stone-900">
-                    Original Menu Card Photos ({menuPhotos.length})
+                    {ui.menu.originalMenuCardPhotos(menuPhotos.length)}
                   </h3>
                 </div>
                 <button
@@ -683,7 +713,7 @@ export default function InteractiveRestaurantMenu({
                   onClick={() => setViewMode('images')}
                   className="text-xs font-bold text-[#C2613C] hover:underline cursor-pointer"
                 >
-                  Open Full Gallery &rarr;
+                  {ui.menu.openFullGallery}
                 </button>
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
@@ -693,7 +723,7 @@ export default function InteractiveRestaurantMenu({
                     type="button"
                     onClick={() => setLightboxIndex(idx)}
                     className="group relative aspect-[3/4] rounded-xl overflow-hidden border border-[#E8DFCF] bg-stone-100 cursor-zoom-in text-left"
-                    title={photo.title || `Menu page ${idx + 1}`}
+                    title={photo.title || ui.menu.menuPageFallback(idx + 1)}
                   >
                     <img
                       src={photo.url}
@@ -706,7 +736,7 @@ export default function InteractiveRestaurantMenu({
                       className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                     />
                     <span className="absolute bottom-1.5 left-1.5 px-2 py-0.5 rounded-full bg-stone-900/80 text-white text-[10px] font-bold">
-                      Page {photo.pageNumber || idx + 1}
+                      {ui.menu.pageShort(photo.pageNumber || idx + 1)}
                     </span>
                   </button>
                 ))}
@@ -719,10 +749,10 @@ export default function InteractiveRestaurantMenu({
         <div className="py-12 text-center space-y-3">
           <BookOpen className="w-6 h-6 text-stone-400 mx-auto" />
           <h3 className="font-serif text-base font-bold text-stone-800">
-            Digital Menu Pending Verification
+            {ui.menu.digitalMenuPending}
           </h3>
           <p className="text-xs text-stone-500 max-w-sm mx-auto">
-            We confirm live prices before publishing. View diner photos of the printed menu on Google Maps.
+            {ui.menu.pendingVerificationDesc}
           </p>
 
           <div className="flex items-center justify-center gap-2 pt-2">
@@ -734,7 +764,7 @@ export default function InteractiveRestaurantMenu({
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-stone-900 text-white text-xs font-semibold hover:bg-stone-800 transition-colors cursor-pointer no-underline"
               >
                 <MapPin className="w-3 h-3 text-amber-400" />
-                <span>Photos on Google Maps</span>
+                <span>{ui.menu.photosOnGoogleMaps}</span>
                 <ExternalLink className="w-2.5 h-2.5 opacity-60" />
               </a>
             )}
@@ -744,7 +774,7 @@ export default function InteractiveRestaurantMenu({
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-stone-100 text-stone-800 text-xs font-semibold hover:bg-stone-200 transition-colors cursor-pointer"
             >
               <CalendarCheck className="w-3 h-3 text-[#D4863A]" />
-              <span>Reservations</span>
+              <span>{ui.menu.reservations}</span>
             </button>
           </div>
         </div>
@@ -755,7 +785,7 @@ export default function InteractiveRestaurantMenu({
         <div
           role="dialog"
           aria-modal="true"
-          aria-label={menuPhotos[lightboxIndex].title || `${restaurantName} Menu Photo`}
+          aria-label={menuPhotos[lightboxIndex].title || `${restaurantName} — ${ui.menu.menuPageFallback(lightboxIndex + 1)}`}
           className="fixed inset-0 z-50 bg-stone-950/90 backdrop-blur-xs flex flex-col items-center justify-center p-3 sm:p-6"
           onClick={() => setLightboxIndex(null)}
         >
@@ -766,7 +796,7 @@ export default function InteractiveRestaurantMenu({
             <div className="w-full flex items-center justify-between gap-3 text-white mb-2 px-1">
               <div className="min-w-0">
                 <p className="text-xs sm:text-sm font-bold truncate">
-                  {menuPhotos[lightboxIndex].title || `${restaurantName} — Page ${lightboxIndex + 1}`}
+                  {menuPhotos[lightboxIndex].title || `${restaurantName} — ${ui.menu.pageShort(lightboxIndex + 1)}`}
                 </p>
                 {menuPhotos[lightboxIndex].caption && (
                   <p className="text-[11px] text-stone-300 truncate">
@@ -781,7 +811,7 @@ export default function InteractiveRestaurantMenu({
                 <button
                   type="button"
                   onClick={() => setLightboxIndex(null)}
-                  aria-label="Close image viewer"
+                  aria-label={ui.menu.closeImageViewer}
                   className="p-1.5 rounded-full bg-white/10 hover:bg-white/20 text-white cursor-pointer"
                 >
                   <X className="w-4 h-4" />
@@ -794,7 +824,7 @@ export default function InteractiveRestaurantMenu({
                 <button
                   type="button"
                   onClick={() => setLightboxIndex((lightboxIndex - 1 + menuPhotos.length) % menuPhotos.length)}
-                  aria-label="Previous menu page"
+                  aria-label={ui.menu.previousMenuPage}
                   className="absolute left-2 z-10 p-2 rounded-full bg-stone-900/80 hover:bg-stone-900 text-white border border-white/15 cursor-pointer"
                 >
                   <ChevronLeft className="w-5 h-5" />
@@ -811,7 +841,7 @@ export default function InteractiveRestaurantMenu({
                 <button
                   type="button"
                   onClick={() => setLightboxIndex((lightboxIndex + 1) % menuPhotos.length)}
-                  aria-label="Next menu page"
+                  aria-label={ui.menu.nextMenuPage}
                   className="absolute right-2 z-10 p-2 rounded-full bg-stone-900/80 hover:bg-stone-900 text-white border border-white/15 cursor-pointer"
                 >
                   <ChevronRight className="w-5 h-5" />
