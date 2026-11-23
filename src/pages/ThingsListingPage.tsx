@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { SEO } from '../components/ui/SEO';
 import { LanguageSwitcher } from '../components/ui/LanguageSwitcher';
 import { LocalizedLink } from '../components/ui/LocalizedLink';
+import { SiteFooter } from '../components/layout/SiteFooter';
 import { useLangPath } from '../utils/localeRouting';
 import { buildThingsSeo } from '../data/seo/seoEngine';
 import { ActivityTemplateView } from '../components/things/ActivityTemplateView';
@@ -426,18 +427,10 @@ export default function ThingsListingPage() {
         </section>
       </motion.main>
 
-      {/* Footer strip */}
-      <footer className="border-t border-[#ece4d5] bg-white">
-        <div className="mx-auto w-full max-w-6xl flex flex-col sm:flex-row items-center justify-between gap-2 px-4 py-5 sm:px-6 lg:px-8">
-          <LocalizedLink to="/" className="flex items-center gap-1.5">
-            <img src={logoImg} alt="Moroccan Mate logo" className="w-5 h-5 object-contain opacity-80" />
-            <span className="font-display text-sm font-bold text-[#173042]">Moroccan Mate</span>
-          </LocalizedLink>
-          <span className="text-xs text-[#66757D]">
-            {activity.activity_type} · {formatDuration(activity.duration_minutes) || cityLabel} · {cityLabel}
-          </span>
-        </div>
-      </footer>
+      <SiteFooter
+        variant="compact"
+        contextLabel={`${activity.activity_type} · ${formatDuration(activity.duration_minutes) || cityLabel} · ${cityLabel}`}
+      />
 
       {/* Favorites Drawer */}
       <FavoritesDrawer isOpen={favoritesOpen} onClose={() => setFavoritesOpen(false)} />

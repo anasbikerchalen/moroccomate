@@ -1752,3 +1752,210 @@ export function buildNearMeSeo(params: {
     canonical,
   };
 }
+
+export function buildBlogIndexSeo(lang: AppLanguage): SeoBundle {
+  const copy: Record<AppLanguage, { title: string; desc: string; h1: string; home: string; blog: string }> = {
+    en: {
+      title: 'Moroccan Mate Blog — Morocco Travel Guides & Tips',
+      desc: 'Local travel guides, food essays, riad comparisons, and craft tips across Morocco—linked directly to verified local places.',
+      h1: 'Moroccan Mate Blog',
+      home: 'Home',
+      blog: 'Blog',
+    },
+    fr: {
+      title: 'Blog Moroccan Mate — Guides de Voyage au Maroc',
+      desc: 'Guides locaux, gastronomie, choix de riads et artisanat au Maroc reliés aux adresses vérifiées.',
+      h1: 'Blog Moroccan Mate',
+      home: 'Accueil',
+      blog: 'Blog',
+    },
+    es: {
+      title: 'Blog de Moroccan Mate — Guías de Viaje en Marruecos',
+      desc: 'Guías locales, gastronomía, riads y artesanía en Marruecos conectados a lugares verificados.',
+      h1: 'Blog de Moroccan Mate',
+      home: 'Inicio',
+      blog: 'Blog',
+    },
+    de: {
+      title: 'Moroccan Mate Blog — Marokko Reise-Guides & Tipps',
+      desc: 'Lokale Reise-Guides, Kulinarik, Riad-Tipps und Handwerk aus Marokko – direkt verknüpft mit geprüften Orten.',
+      h1: 'Moroccan Mate Blog',
+      home: 'Startseite',
+      blog: 'Blog',
+    },
+    ar: {
+      title: 'مدونة Moroccan Mate — أدلة السفر في المغرب',
+      desc: 'أدلة سفر محلية، مقالات مطبخ، ونصائح اختيار الرياضات والحرف في المغرب مرتبطة بأماكن موثوقة.',
+      h1: 'مدونة Moroccan Mate',
+      home: 'الرئيسية',
+      blog: 'المدونة',
+    },
+  };
+
+  const c = copy[lang];
+  const canonical = '/blog';
+  const fullUrl = `${BASE_URL}${localizePath(canonical, lang)}`;
+  const image = `${BASE_URL}/images/blog/marrakech-courtyard.jpg`;
+
+  const schemaData = {
+    name: c.h1,
+    inLanguage: lang,
+    publisher: {
+      '@type': 'Organization',
+      name: SITE_NAME,
+      url: BASE_URL,
+    },
+  };
+
+  return {
+    title: composeTitle(c.title, SITE_NAME, 60),
+    description: smartDescription(c.desc, 155),
+    canonical,
+    image,
+    h1: c.h1,
+    schemaType: 'Blog',
+    schemaData,
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'Blog',
+      name: c.h1,
+      description: smartDescription(c.desc, 155),
+      url: fullUrl,
+      inLanguage: lang,
+    },
+    breadcrumbs: [
+      { name: c.home, item: '/' },
+      { name: c.blog, item: canonical },
+    ],
+  };
+}
+
+export function buildBlogArticleSeo(params: {
+  slug: string;
+  heroImageKey: string;
+  publishedAt: string;
+  seoTitle: string;
+  seoDescription: string;
+  title: string;
+  authorName: string;
+  lang: AppLanguage;
+}): SeoBundle {
+  const { slug, heroImageKey, publishedAt, seoTitle, seoDescription, title, authorName, lang } = params;
+  const canonical = `/blog/${slug}`;
+  const fullUrl = `${BASE_URL}${localizePath(canonical, lang)}`;
+  const image = `${BASE_URL}/images/blog/${heroImageKey}.jpg`;
+
+  const navLabels: Record<AppLanguage, { home: string; blog: string }> = {
+    en: { home: 'Home', blog: 'Blog' },
+    fr: { home: 'Accueil', blog: 'Blog' },
+    es: { home: 'Inicio', blog: 'Blog' },
+    de: { home: 'Startseite', blog: 'Blog' },
+    ar: { home: 'الرئيسية', blog: 'المدونة' },
+  };
+
+  const schemaData = {
+    headline: title,
+    image,
+    datePublished: publishedAt,
+    dateModified: publishedAt,
+    inLanguage: lang,
+    author: {
+      '@type': 'Person',
+      name: authorName,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: SITE_NAME,
+      url: BASE_URL,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${BASE_URL}/logo192.png`,
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': fullUrl,
+    },
+  };
+
+  return {
+    title: composeTitle(seoTitle || title, SITE_NAME, 60),
+    description: smartDescription(seoDescription, 155),
+    canonical,
+    image,
+    h1: title,
+    schemaType: 'BlogPosting',
+    schemaData,
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'BlogPosting',
+      ...schemaData,
+      url: fullUrl,
+      description: smartDescription(seoDescription, 155),
+    },
+    breadcrumbs: [
+      { name: navLabels[lang].home, item: '/' },
+      { name: navLabels[lang].blog, item: '/blog' },
+      { name: title, item: canonical },
+    ],
+  };
+}
+
+import { TRUST_PAGES_I18N } from '../trustPagesI18n';
+
+export type TrustPageKey = 'about' | 'contact' | 'privacy' | 'terms';
+
+export function buildTrustPageSeo(pageKey: TrustPageKey, lang: AppLanguage): SeoBundle {
+  const bundle = TRUST_PAGES_I18N[lang];
+  const pageCopy = bundle[pageKey];
+  const canonical = `/${pageKey}`;
+  const fullUrl = `${BASE_URL}${localizePath(canonical, lang)}`;
+
+  const homeLabel: Record<AppLanguage, string> = {
+    en: 'Home',
+    fr: 'Accueil',
+    es: 'Inicio',
+    de: 'Startseite',
+    ar: 'الرئيسية',
+  };
+
+  const schemaType =
+    pageKey === 'about'
+      ? 'AboutPage'
+      : pageKey === 'contact'
+        ? 'ContactPage'
+        : 'WebPage';
+
+  const schemaData = {
+    name: pageCopy.title,
+    description: smartDescription(pageCopy.seoDescription, 155),
+    url: fullUrl,
+    inLanguage: lang,
+    isPartOf: {
+      '@type': 'WebSite',
+      name: SITE_NAME,
+      url: BASE_URL,
+    },
+  };
+
+  return {
+    title: composeTitle(pageCopy.seoTitle, SITE_NAME, 60),
+    description: smartDescription(pageCopy.seoDescription, 155),
+    canonical,
+    image: DEFAULT_OG_IMAGE,
+    h1: pageCopy.title,
+    schemaType,
+    schemaData,
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': schemaType,
+      ...schemaData,
+    },
+    breadcrumbs: [
+      { name: homeLabel[lang], item: '/' },
+      { name: pageCopy.title, item: canonical },
+    ],
+  };
+}
+
+

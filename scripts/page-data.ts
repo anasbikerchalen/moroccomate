@@ -23,6 +23,8 @@ import { CATEGORY_LABELS_I18N, type BrowseSegment } from '../src/data/seo/i18nSe
 import {
   BASE_URL,
   DEFAULT_OG_IMAGE,
+  buildBlogArticleSeo,
+  buildBlogIndexSeo,
   buildBrowseSeo,
   buildFinderHubSeo,
   buildHomeSeo,
@@ -30,10 +32,13 @@ import {
   buildPlaceSeo,
   buildSearchIntentSeo,
   buildThingsSeo,
+  buildTrustPageSeo,
   extractListingReviewsData,
   type BreadcrumbItem,
   type FaqItem,
+  type TrustPageKey,
 } from '../src/data/seo/seoEngine';
+import { getAllBlogArticles, getLocalizedArticleContent } from '../src/data/blog';
 import { getEatPriceMetrics } from '../src/utils/eatPrice';
 import { getWalkingDistancePlaces, formatNearbyTravelLabel } from '../src/engine/proximityEngine';
 import {
@@ -491,6 +496,24 @@ export function collectStaticPages(): IndexablePage[] {
       jsonLd: finder.jsonLd,
       h1: finder.h1,
     });
+
+    const trustKeys: TrustPageKey[] = ['about', 'contact', 'privacy', 'terms'];
+    for (const key of trustKeys) {
+      const trustSeo = buildTrustPageSeo(key, lang);
+      pages.push({
+        path: localizePath(`/${key}`, lang),
+        basePath: `/${key}`,
+        lang,
+        hasLocalizedRoutes: true,
+        priority: key === 'about' || key === 'contact' ? 0.7 : 0.5,
+        title: trustSeo.title,
+        description: trustSeo.description,
+        image: trustSeo.image,
+        jsonLd: trustSeo.jsonLd,
+        breadcrumbs: trustSeo.breadcrumbs,
+        h1: trustSeo.h1,
+      });
+    }
   }
 
   for (const segment of segments) {
@@ -656,10 +679,69 @@ export function collectSearchIntentPages(): IndexablePage[] {
   return pages;
 }
 
+export function collectBlogPages(): IndexablePage[] {
+  const pages: IndexablePage[] = [];
+
+  for (const lang of SUPPORTED_LANGS) {
+    const indexSeo = buildBlogIndexSeo(lang);
+    pages.push({
+      path: localizePath('/blog', lang),
+      basePath: '/blog',
+      lang,
+      hasLocalizedRoutes: true,
+      priority: lang === 'en' ? 0.9 : 0.85,
+      title: indexSeo.title,
+      description: indexSeo.description,
+      image: indexSeo.image,
+      jsonLd: indexSeo.jsonLd,
+      breadcrumbs: indexSeo.breadcrumbs,
+      h1: indexSeo.h1,
+    });
+  }
+
+  for (const article of getAllBlogArticles()) {
+    const basePath = `/blog/${article.slug}`;
+    for (const lang of SUPPORTED_LANGS) {
+      const loc = getLocalizedArticleContent(article, lang);
+      const artSeo = buildBlogArticleSeo({
+        slug: article.slug,
+        heroImageKey: article.heroImageKey,
+        publishedAt: article.publishedAt,
+        seoTitle: loc.seoTitle,
+        seoDescription: loc.seoDescription,
+        title: loc.title,
+        authorName: loc.authorName,
+        lang,
+      });
+      pages.push({
+        path: localizePath(basePath, lang),
+        basePath,
+        lang,
+        hasLocalizedRoutes: true,
+        priority: lang === 'en' ? 0.85 : 0.8,
+        title: artSeo.title,
+        description: artSeo.description,
+        image: artSeo.image,
+        jsonLd: artSeo.jsonLd,
+        breadcrumbs: artSeo.breadcrumbs,
+        h1: artSeo.h1,
+        meta: {
+          city: loc.kickerCityLabel,
+          citySlug: article.cityId,
+          fullDescription: loc.deck,
+        },
+      });
+    }
+  }
+
+  return pages;
+}
+
 /** Every indexable page on the website */
 export function collectAllPages(): IndexablePage[] {
   return [
     ...collectStaticPages(),
+    ...collectBlogPages(),
     ...collectSearchIntentPages(),
     ...collectPlacePages(),
     ...collectThingsPages(),

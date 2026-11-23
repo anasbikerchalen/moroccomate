@@ -255,13 +255,15 @@
           </div>
 
           <div class="toolbar">
-            <input id="sitemap-search" class="search-input" type="search" placeholder="Filter URLs (e.g. agadir, steakhouses, amsterdam-luxury, /fr/)..." />
+            <input id="sitemap-search" class="search-input" type="search" placeholder="Filter URLs (e.g. agadir, blog, privacy, terms, /fr/)..." />
             <div class="filters">
               <button type="button" class="filter-btn active" data-filter="all">All</button>
               <button type="button" class="filter-btn" data-filter="finder">Browse &amp; Intents</button>
               <button type="button" class="filter-btn" data-filter="place">Places</button>
               <button type="button" class="filter-btn" data-filter="menu">Menus</button>
               <button type="button" class="filter-btn" data-filter="things">Things To Do</button>
+              <button type="button" class="filter-btn" data-filter="blog">Blog</button>
+              <button type="button" class="filter-btn" data-filter="info">Info &amp; Legal</button>
             </div>
           </div>
 
@@ -297,6 +299,8 @@
                       <xsl:when test="contains($loc, '/place/')">place</xsl:when>
                       <xsl:when test="contains($loc, '/things/')">things</xsl:when>
                       <xsl:when test="contains($loc, '/finder')">finder</xsl:when>
+                      <xsl:when test="contains($loc, '/blog')">blog</xsl:when>
+                      <xsl:when test="contains($loc, '/about') or contains($loc, '/contact') or contains($loc, '/privacy') or contains($loc, '/terms')">info</xsl:when>
                       <xsl:otherwise>home</xsl:otherwise>
                     </xsl:choose>
                   </xsl:variable>

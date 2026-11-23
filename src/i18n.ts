@@ -12,7 +12,13 @@ function detectInitialLanguage(): AppLanguage {
     const fromPath = extractLangFromPath(window.location.pathname).lang;
     if (fromPath !== 'en') return fromPath;
     // Only use root "/" as 'en' (avoid overriding English root URL with another language)
-    if (window.location.pathname === '/' || window.location.pathname.startsWith('/finder') || window.location.pathname.startsWith('/place') || window.location.pathname.startsWith('/things')) {
+    if (
+      window.location.pathname === '/' ||
+      window.location.pathname.startsWith('/finder') ||
+      window.location.pathname.startsWith('/place') ||
+      window.location.pathname.startsWith('/things') ||
+      window.location.pathname.startsWith('/blog')
+    ) {
       return 'en';
     }
     try {

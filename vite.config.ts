@@ -4,8 +4,55 @@ import { fileURLToPath } from 'url';
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import { defineConfig, type Plugin } from 'vite';
+import { processContactSubmission } from './api/contact';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+function devContactApiPlugin(): Plugin {
+  return {
+    name: 'dev-contact-api',
+    configureServer(server) {
+      server.middlewares.use('/api/contact', (req: any, res: any, next: any) => {
+        if (req.url && req.url !== '/' && !req.url.startsWith('/?')) {
+          return next();
+        }
+        if (req.method !== 'POST') {
+          res.statusCode = 405;
+          res.setHeader('Content-Type', 'application/json');
+          res.end(JSON.stringify({ ok: false, code: 'METHOD_NOT_ALLOWED' }));
+          return;
+        }
+        let raw = '';
+        let aborted = false;
+        req.on('data', (chunk: Buffer) => {
+          raw += chunk.toString('utf8');
+          if (raw.length > 16384) {
+            aborted = true;
+            res.statusCode = 413;
+            res.setHeader('Content-Type', 'application/json');
+            res.end(JSON.stringify({ ok: false, code: 'PAYLOAD_TOO_LARGE' }));
+            req.destroy();
+          }
+        });
+        req.on('end', async () => {
+          if (aborted) return;
+          try {
+            const parsed = raw ? JSON.parse(raw) : null;
+            const ip = req.socket?.remoteAddress || 'local';
+            const result = await processContactSubmission(parsed, ip);
+            res.statusCode = result.status;
+            res.setHeader('Content-Type', 'application/json');
+            res.end(JSON.stringify(result.body));
+          } catch {
+            res.statusCode = 400;
+            res.setHeader('Content-Type', 'application/json');
+            res.end(JSON.stringify({ ok: false, code: 'INVALID_JSON' }));
+          }
+        });
+      });
+    },
+  };
+}
 
 function serveSitemapPlugin(): Plugin {
   const attach = (middlewares: any, dir: string) => {
@@ -37,7 +84,7 @@ function serveSitemapPlugin(): Plugin {
 
 export default defineConfig(() => {
   return {
-    plugins: [serveSitemapPlugin(), react(), tailwindcss()],
+    plugins: [devContactApiPlugin(), serveSitemapPlugin(), react(), tailwindcss()],
     resolve: {
       alias: {
         '@': path.resolve(__dirname, 'src'),

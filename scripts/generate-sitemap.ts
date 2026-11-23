@@ -66,8 +66,9 @@ try {
 const places = pages.filter((p) => p.basePath.startsWith('/place/')).length;
 const things = pages.filter((p) => p.basePath.startsWith('/things/')).length;
 const browse = pages.filter((p) => p.basePath.startsWith('/finder/')).length;
-const homeAndFinder = pages.length - places - things - browse;
+const blog = pages.filter((p) => p.basePath === '/blog' || p.basePath.startsWith('/blog/')).length;
+const homeAndTrust = pages.length - places - things - browse - blog;
 console.log(
   `[sitemap] ${pages.length} URLs -> ${target}\n` +
-  `[sitemap]   home+finder: ${homeAndFinder} | browse+intents: ${browse} | places: ${places} | things: ${things}`
+  `[sitemap]   home+finder+trust: ${homeAndTrust} | blog: ${blog} | browse+intents: ${browse} | places: ${places} | things: ${things}`
 );

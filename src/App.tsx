@@ -5,6 +5,7 @@ import NotFoundPage from './pages/NotFoundPage';
 import i18next from './i18n';
 import { useProfileStore } from './state/profileStore';
 import { extractLangFromPath, LANG_META, localizePath, NON_DEFAULT_LANGS } from './utils/localeRouting';
+import { CookieConsentBanner } from './components/ui/CookieConsentBanner';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -86,10 +87,12 @@ const ThingsListingPage = lazyWithRetry(() => import('./pages/ThingsListingPage'
 const PlaceListingPage = lazyWithRetry(() => import('./pages/PlaceListingPage'));
 const PlaceMenuPage = lazyWithRetry(() => import('./pages/PlaceMenuPage'));
 const NearMePage = lazyWithRetry(() => import('./components/finder/NearMePage'));
-// 🧪 PROTOTYPE — design review page for the "Things You're Worried About!" section.
-// TEMPORARY: remove this import + the /prototype/worries route below once the
-// section is implemented on the real listing pages (or if the prototype is rejected).
-const WorriesPrototypePage = lazyWithRetry(() => import('./pages/WorriesPrototypePage'));
+const BlogIndexPage = lazyWithRetry(() => import('./pages/BlogIndexPage'));
+const BlogArticlePage = lazyWithRetry(() => import('./pages/BlogArticlePage'));
+const AboutPage = lazyWithRetry(() => import('./pages/AboutPage'));
+const ContactPage = lazyWithRetry(() => import('./pages/ContactPage'));
+const PrivacyPolicyPage = lazyWithRetry(() => import('./pages/PrivacyPolicyPage'));
+const TermsPage = lazyWithRetry(() => import('./pages/TermsPage'));
 
 function AppRoutes() {
   const navigate = useNavigate();
@@ -118,8 +121,14 @@ function AppRoutes() {
       <Route path="/place/:city/:category/:slug" element={<PlaceListingPage />} />
       <Route path="/place/:city/:categoryOrSlug" element={<PlaceListingPage />} />
       <Route path="/things/:city/:slug?" element={<ThingsListingPage />} />
-      {/* 🧪 PROTOTYPE — design review for the worries section. Remove after review. */}
-      <Route path="/prototype/worries" element={<WorriesPrototypePage />} />
+      <Route path="/blog" element={<BlogIndexPage />} />
+      <Route path="/blog/:slug" element={<BlogArticlePage />} />
+      <Route path="/about" element={<AboutPage />} />
+      <Route path="/contact" element={<ContactPage />} />
+      <Route path="/privacy" element={<PrivacyPolicyPage />} />
+      <Route path="/privacy-policy" element={<Navigate to={localizePath('/privacy', lang)} replace />} />
+      <Route path="/terms" element={<TermsPage />} />
+      <Route path="/terms-of-use" element={<Navigate to={localizePath('/terms', lang)} replace />} />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
@@ -169,6 +178,7 @@ export default function App() {
         ))}
         <Route path="/*" element={<AppRoutes />} />
       </Routes>
+      <CookieConsentBanner />
     </Suspense>
   );
 }

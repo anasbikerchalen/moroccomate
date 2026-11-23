@@ -1,6 +1,6 @@
 import { useState, useMemo, lazy, Suspense } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { MapPin, ChevronDown, ChevronUp, ArrowRight, Heart, Check, Search, X, Compass, ShieldCheck, Receipt, MapPinned } from 'lucide-react';
+import { MapPin, ChevronDown, ChevronUp, ArrowRight, Heart, Check, Search, X, Compass, ShieldCheck, Receipt, MapPinned, BookOpen } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { SEO } from '../components/ui/SEO';
 import { LanguageSwitcher } from '../components/ui/LanguageSwitcher';
@@ -12,6 +12,8 @@ import { useParameterStore } from '../state/parameterStore';
 import { useExploreStore } from '../state/exploreStore';
 import { useSavedStore } from '../state/savedStore';
 import HomeSearchBar from '../components/home/HomeSearchBar';
+import { HomeBroadsheetSection } from '../components/blog/HomeBroadsheetSection';
+import { SiteFooter } from '../components/layout/SiteFooter';
 import { getPopularGuidesLocalized, orderTouristicCitiesByRecommendedId } from '../utils/homeGuides';
 
 const FavoritesDrawer = lazy(() => import('../components/finder/FavoritesDrawer'));
@@ -184,6 +186,16 @@ export default function HomePage() {
           </div>
 
           <LanguageSwitcher compact />
+
+          {/* Blog Navigation Link */}
+          <LocalizedLink
+            to="/blog"
+            className="group relative flex items-center gap-1.5 px-2.5 py-1.5 sm:px-3.5 sm:py-1.5 rounded-full bg-white/90 hover:bg-white border border-[#EADBCE] shadow-xs hover:shadow-md hover:border-[#C9A84C]/50 transition-all duration-200 whitespace-nowrap shrink-0"
+            title={t('common.blogTitle')}
+          >
+            <BookOpen className="w-4 h-4 text-[#C9A84C] shrink-0" />
+            <span className="font-sans text-xs font-semibold text-[#29231F] hidden sm:inline">{t('common.blog')}</span>
+          </LocalizedLink>
 
           {/* Near Me Navigation Link */}
           <LocalizedLink
@@ -568,7 +580,9 @@ export default function HomePage() {
           </div>
         </section>
 
-        <div className="pt-8 border-t border-[#E9D8C8]/60">
+        <HomeBroadsheetSection />
+
+        <div className="pt-8 border-t border-[#E9D8C8]/60 mt-8">
           <h3 className="font-sans text-xs font-bold uppercase tracking-wider text-[#71685F] mb-4">
             {t('home.featuredHeading')}
           </h3>
@@ -629,13 +643,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="mt-12 pt-6 border-t border-[#E9D8C8]/60 flex flex-col sm:flex-row items-center justify-between text-xs text-[#71685F] gap-3">
-          <p>© {new Date().getFullYear()} Moroccan Mate · {t('common.independentGuide')}</p>
-          <div className="flex items-center gap-4">
-            <LocalizedLink to="/eat/marrakech/near-me" className="hover:text-[#C9A84C] transition-colors">{t('common.nearMe')}</LocalizedLink>
-            <a href="/sitemap.xml" className="hover:text-[#C9A84C] transition-colors">{t('common.sitemap')}</a>
-          </div>
-        </div>
+        <SiteFooter variant="editorial" />
       </div>
 
       {(favoritesOpen || hasOpenedFavorites) && (
