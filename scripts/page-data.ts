@@ -161,7 +161,8 @@ export function collectPlacePages(): IndexablePage[] {
     const hasMenu = Boolean(
       menuData &&
         ((Array.isArray(menuData.sections) && menuData.sections.length > 0) ||
-          (Array.isArray(menuData.menuPhotos) && menuData.menuPhotos.length > 0))
+          (Array.isArray(menuData.menuPhotos) && menuData.menuPhotos.length > 0) ||
+          (Array.isArray(menuData.scannedMenuPhotos) && menuData.scannedMenuPhotos.length > 0))
     );
     const rawMenuPhotos = isEat && menuData
       ? (Array.isArray(menuData.menuPhotos) && menuData.menuPhotos.length > 0

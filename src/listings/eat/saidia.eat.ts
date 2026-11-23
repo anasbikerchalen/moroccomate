@@ -308,7 +308,46 @@ export const saidiaEat: EatListing[] = [
       viewType: "beach",
       bestTimeToVisit: "Lunch around 13:00 for quiet",
       averageWaitMinutes: 10,
-      languagesSpoken: ["Arabic/Darija", "French", "English"]
+      languagesSpoken: ["Arabic/Darija", "French", "English"],
+      menu: {
+        currency: "MAD",
+        lastUpdated: "2026-11",
+        serviceChargeIncluded: true,
+        sections: [
+          {
+            id: "mediterranean-seafood",
+            title: "Mediterranean Tagines, Paella & Grilled Catch",
+            titleEn: "Mediterranean Tagines, Paella & Grilled Catch",
+            description: "Beachfront favorites cooked in clay pots and large paella pans along Boulevard Mohamed V.",
+            items: [
+              { id: "samy-seabass-tagine", name: "Sea Bass Tagine", nameEn: "Mediterranean Sea Bass Clay-Pot Tagine", localName: "Tajine Loup de Mer", translations: { ar: "طاجين سمك الدرعي بالزيتون والبطاطس", en: "Mediterranean Sea Bass Clay-Pot Tagine", es: "Tajín de Lubina Mediterránea", de: "Wolfsbarsch-Tajine aus dem Tontopf" }, description: "Fresh Mediterranean sea bass slow-cooked with potatoes, tomatoes, green peppers, olives, and preserved lemon.", price: 130, isSignature: true, dietary: ["halal", "gluten-free"] },
+              { id: "samy-seafood-paella", name: "Seafood Paella", nameEn: "Saffron Mediterranean Seafood Paella", translations: { ar: "بايلا ثمار البحر المتوسطية", en: "Saffron Mediterranean Seafood Paella", es: "Paella de Mariscos del Mediterráneo", de: "Mediterrane Meeresfrüchte-Paella" }, description: "Generous saffron rice loaded with Mediterranean prawns, calamari, mussels, and clams.", price: 140, isSignature: true, dietary: ["halal", "gluten-free"] },
+              { id: "samy-mixed-fish-grill", name: "Grilled Mediterranean Fish & Calamari Plate", nameEn: "Mixed Grilled Fish & Calamari", translations: { ar: "طبق السمك والكالمار المشوي", en: "Mixed Grilled Fish & Calamari", es: "Pescado y Calamares a la Parrilla", de: "Gegrillter Fisch & Tintenfisch" }, description: "Fresh daily catch fillets and tender calamari grilled to order with fries and Moroccan salad.", price: 120, dietary: ["halal", "gluten-free"] }
+            ]
+          },
+          {
+            id: "pizzas-casual",
+            title: "Wood-Fired Pizzas, Tacos & Burgers",
+            titleEn: "Wood-Fired Pizzas, Tacos & Burgers",
+            description: "Family-friendly pizzeria classics and casual seaside bites.",
+            items: [
+              { id: "samy-quattro-stagioni", name: "Quattro Stagioni Pizza", nameEn: "Four Seasons Wood-Fired Pizza", translations: { ar: "بيتزا الفصول الأربعة", en: "Four Seasons Wood-Fired Pizza", es: "Pizza Cuatro Estaciones", de: "Pizza Quattro Stagioni" }, description: "Crisp pizza topped with mushrooms, artichokes, olives, turkey ham, mozzarella, and tomato sauce.", price: 75, isSignature: true, dietary: ["halal"] },
+              { id: "samy-seafood-pizza", name: "Pizza Fruits de Mer", nameEn: "Mediterranean Seafood Pizza", translations: { ar: "بيتزا فواكه البحر", en: "Mediterranean Seafood Pizza", es: "Pizza de Mariscos", de: "Meeresfrüchte-Pizza" }, description: "Stone-baked crust topped with mozzarella, shrimp, calamari, and oregano.", price: 85, dietary: ["halal"] },
+              { id: "samy-tacos-burger", name: "French Tacos / Beach Burger", nameEn: "Chicken Tacos or Grilled Beef Burger", translations: { ar: "تاكوس الدجاج أو برغر الشاطئ", en: "Chicken Tacos or Grilled Beef Burger", es: "Tacos Franceses o Hamburguesa", de: "French Tacos oder Strand-Burger" }, description: "Pressed French tacos with cheese sauce and fries, or grilled beef burger with chips.", price: 55, dietary: ["halal"] }
+            ]
+          },
+          {
+            id: "crepes-drinks",
+            title: "Crêpes, Coffee & Cold Drinks",
+            titleEn: "Crêpes, Coffee & Cold Drinks",
+            description: "Alcohol-free beachside refreshments, sweet crêpes, and Moroccan tea.",
+            items: [
+              { id: "samy-nutella-crepe", name: "Nutella & Banana Crêpe", nameEn: "Warm Nutella & Banana Crêpe", translations: { ar: "كريب نوتيلا بالموز", en: "Warm Nutella & Banana Crêpe", es: "Crepe de Nutella y Plátano", de: "Crêpe mit Nutella & Banane" }, description: "Warm sweet crêpe folded with Nutella spread and sliced fresh banana.", price: 35, dietary: ["halal", "vegetarian"] },
+              { id: "samy-mint-tea", name: "Moroccan Mint Tea / Fresh Juice", nameEn: "Mint Tea or Fresh Orange Juice", translations: { ar: "أتاي بالنعناع أو عصير طازج", en: "Mint Tea or Fresh Orange Juice", es: "Té a la Menta o Zumo Natural", de: "Minztee oder Frischer Orangensaft" }, description: "Freshly brewed mint tea (18 MAD) or chilled fresh-squeezed orange juice (22 MAD).", price: 20, dietary: ["halal", "vegan", "gluten-free"] }
+            ]
+          }
+        ]
+      }
     }
   ,
     // ── 4. WORRIES ("Things You're Worried About!") ──

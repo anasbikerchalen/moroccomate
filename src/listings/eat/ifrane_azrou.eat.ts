@@ -186,7 +186,36 @@ export const ifrane_azrouEat: EatListing[] = [
       instagram: "not-available",
       viewType: "city",
       bestTimeToVisit: "Lunch around 13:00 or late afternoon tea at 16:30",
-      averageWaitMinutes: 10
+      averageWaitMinutes: 10,
+      menu: {
+        currency: "MAD",
+        lastUpdated: "2026-11",
+        serviceChargeIncluded: true,
+        sections: [
+          {
+            id: "alpine-breakfast-pastries",
+            title: "Alpine Breakfast, Hot Chocolate & Pastries",
+            titleEn: "Alpine Breakfast, Hot Chocolate & Pastries",
+            description: "Cozy chalet morning staples and afternoon pastries near Ifrane's Stone Lion.",
+            items: [
+              { id: "lapaix-hot-chocolate-croissants", name: "Hot Chocolate & Croissants", nameEn: "Rich Hot Chocolate & Butter Croissants", translations: { ar: "شوكولاتة ساخنة مع كرواسون بالزبدة", en: "Rich Hot Chocolate & Butter Croissants", es: "Chocolate Caliente y Croissants", de: "Heiße Schokolade & Buttercroissants" }, description: "Steaming velvety Alpine-style hot chocolate paired with two warm flaky croissants.", price: 48, isSignature: true, dietary: ["halal", "vegetarian"] },
+              { id: "lapaix-american-breakfast", name: "Complete American / Moroccan Breakfast", nameEn: "Full American or Moroccan Breakfast Set", translations: { ar: "فطور أمريكي أو مغربي متكامل", en: "Full American or Moroccan Breakfast Set", es: "Desayuno Completo Americano o Marroquí", de: "Komplettes Amerikanisches oder Marokkanisches Frühstück" }, description: "Generous morning platter with eggs, pastries, toast, cheeses, fresh orange juice, and hot beverage.", price: 110, dietary: ["halal", "vegetarian"] },
+              { id: "lapaix-cheesecake", name: "House Cheesecake / Tart", nameEn: "Chilled Berry Cheesecake", translations: { ar: "تشيز كيك منزلي بالتوت", en: "Chilled Berry Cheesecake", es: "Tarta de Queso Casera", de: "Hausgemachter Käsekuchen" }, description: "Creamy baked cheesecake slice topped with berry or caramel glaze.", price: 35, dietary: ["halal", "vegetarian"] }
+            ]
+          },
+          {
+            id: "soups-moroccan-mains",
+            title: "Warming Soups, Tagines & Bistro Mains",
+            titleEn: "Warming Soups, Tagines & Bistro Mains",
+            description: "Hearty Atlas mountain comfort food for cool Ifrane evenings.",
+            items: [
+              { id: "lapaix-french-onion-soup", name: "French Onion Soup", nameEn: "Gratinated French Onion Soup", translations: { ar: "شوربة البصل الفرنسية بالجبن", en: "Gratinated French Onion Soup", es: "Sopa de Cebolla Gratinada", de: "Französische Zwiebelsuppe Überbacken" }, description: "Caramelized onion beef broth topped with crusty baguette and melted bubbling gruyère cheese.", price: 65, isSignature: true, dietary: ["halal"] },
+              { id: "lapaix-lamb-prune-tagine", name: "Lamb Tagine with Prunes", nameEn: "Slow-Cooked Lamb, Prune & Almond Tagine", localName: "Tajine Agneau Pruneaux", translations: { ar: "طاجين اللحم بالبرقوق واللوز", en: "Slow-Cooked Lamb, Prune & Almond Tagine", es: "Tajín de Cordero con Ciruelas", de: "Lamm-Tajine mit Pflaumen & Mandeln" }, description: "Middle Atlas lamb simmered in saffron and cinnamon with sweet prunes and toasted sesame almonds.", price: 145, isSignature: true, dietary: ["halal", "gluten-free"] },
+              { id: "lapaix-woodfired-pizza", name: "Wood-Fired Pizza / Spaghetti Bolognese", nameEn: "Wood-Fired Margherita or Beef Spaghetti", translations: { ar: "بيتزا على الحطب أو سباغيتي بولونيز", en: "Wood-Fired Margherita or Beef Spaghetti", es: "Pizza a la Leña o Espaguetis", de: "Holzofen-Pizza oder Spaghetti Bolognese" }, description: "Stone-baked pizza or classic beef tomato spaghetti served piping hot.", price: 95, dietary: ["halal"] }
+            ]
+          }
+        ]
+      }
     }
   ,
     // ── 4. WORRIES ("Things You're Worried About!") ──

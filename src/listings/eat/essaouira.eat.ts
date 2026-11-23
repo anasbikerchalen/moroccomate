@@ -321,7 +321,46 @@ export const essaouiraEat: EatListing[] = [
       instagram: "not-available",
       viewType: "beach",
       bestTimeToVisit: "Early evening around 18:30 for sunset",
-      averageWaitMinutes: 10
+      averageWaitMinutes: 10,
+      menu: {
+        currency: "MAD",
+        lastUpdated: "2026-11",
+        serviceChargeIncluded: true,
+        sections: [
+          {
+            id: "starters-tapas",
+            title: "Rampart Starters & Coastal Plates",
+            titleEn: "Rampart Starters & Coastal Plates",
+            description: "Fresh Atlantic starters and crisp Moroccan briouats overlooking Essaouira's ramparts.",
+            items: [
+              { id: "salut-octopus-carpaccio", name: "Octopus Carpaccio", nameEn: "Chilled Atlantic Octopus Carpaccio", translations: { ar: "كارباتشيو الأخطبوط الأطلسي", en: "Chilled Atlantic Octopus Carpaccio", es: "Carpaccio de Pulpo Atlántico", de: "Oktopus-Carpaccio" }, description: "Thinly sliced marinated Essaouira octopus with preserved lemon, capers, and argan-olive oil.", price: 145, isSignature: true, dietary: ["halal", "gluten-free"] },
+              { id: "salut-briouats", name: "Assorted Moroccan Briouats & Salads", nameEn: "Crispy Moroccan Briouats & Mezze", translations: { ar: "بريوات مغربية مقرمشة وسلطات", en: "Crispy Moroccan Briouats & Mezze", es: "Briouats Marroquíes y Ensaladas", de: "Knusprige Briouats & Marokkanische Salate" }, description: "Spiced cheese, herb, and minced-meat pastry triangles served with zaalouk and taktouka.", price: 115, dietary: ["halal"] }
+            ]
+          },
+          {
+            id: "moroccan-seafood-mains",
+            title: "Moroccan Classics, Tagines & Wood-Fired Grill",
+            titleEn: "Moroccan Classics, Tagines & Wood-Fired Grill",
+            description: "Contemporary Moroccan-Mediterranean mains and fresh Mogador catch.",
+            items: [
+              { id: "salut-seafood-pastilla", name: "Seafood Pastilla", nameEn: "Essaouira Seafood Pastilla", translations: { ar: "بسطيلة ثمار البحر الصويرية", en: "Essaouira Seafood Pastilla", es: "Pastela de Mariscos de Esauira", de: "Meeresfrüchte-Pastilla" }, description: "Crisp golden warqa pastry filled with Atlantic white fish, calamari, shrimp, vermicelli, and coastal spices.", price: 195, isSignature: true, dietary: ["halal"] },
+              { id: "salut-lamb-tagine", name: "Slow-Cooked Lamb Tagine", nameEn: "Slow-Cooked Lamb, Prune & Almond Tagine", localName: "Tajine Agneau Pruneaux", translations: { ar: "طاجين اللحم بالبرقوق واللوز", en: "Slow-Cooked Lamb, Prune & Almond Tagine", es: "Tajín de Cordero con Ciruelas", de: "Geschmorte Lamm-Tajine mit Pflaumen" }, description: "Tender lamb shoulder braised in saffron and ras el hanout with caramelized prunes and toasted almonds.", price: 210, isSignature: true, dietary: ["halal", "gluten-free"] },
+              { id: "salut-wood-grilled-fish", name: "Wood-Grilled Market Fish", nameEn: "Daily Catch Grilled Over Wood Fire", translations: { ar: "سمك السوق الطازج مشوي على الحطب", en: "Daily Catch Grilled Over Wood Fire", es: "Pescado del Día a la Brasa", de: "Tagesfang vom Holzgrill" }, description: "Fresh Essaouira port catch grilled over wood embers with charmoula, roasted potatoes, and market greens.", price: 220, dietary: ["halal", "gluten-free"] },
+              { id: "salut-wagyu-burger", name: "Salut Maroc Beef Burger / Pasta", nameEn: "Wood-Grilled Gourmet Burger or Seafood Pasta", translations: { ar: "برغر غورميه مشوي على الحطب", en: "Wood-Grilled Gourmet Burger or Seafood Pasta", es: "Hamburguesa Gourmet a la Brasa", de: "Gourmet-Burger vom Holzgrill" }, description: "Juicy grilled beef burger on brioche with spiced fries, or fresh coastal pasta.", price: 175, dietary: ["halal"] }
+            ]
+          },
+          {
+            id: "cocktails-desserts",
+            title: "Berber Cocktails, Wines & Desserts",
+            titleEn: "Berber Cocktails, Wines & Desserts",
+            description: "Sunset rooftop mixology, Moroccan Val d'Argan wines, and house desserts.",
+            items: [
+              { id: "salut-berber-cocktail", name: "Herb-Infused Berber Sunset Cocktail", nameEn: "Signature Rooftop Sunset Cocktail", translations: { ar: "كوكتيل الغروب بالأعشاب المغربية", en: "Signature Rooftop Sunset Cocktail", es: "Cóctel de Autor con Hierbas Marroquíes", de: "Berber-Kräuter-Cocktail zum Sonnenuntergang" }, description: "House cocktail infused with fresh verbena, citrus, and Moroccan botanicals (120 MAD) or zero-proof mocktail (75 MAD).", price: 120 },
+              { id: "salut-half-board-tasting", name: "3-Course Rooftop Dinner Menu", nameEn: "3-Course Starter, Main & Dessert Menu", translations: { ar: "قائمة عشاء كاملة من 3 أطباق", en: "3-Course Starter, Main & Dessert Menu", es: "Menú Degustación de 3 Platos", de: "3-Gänge-Dachterrassen-Menü" }, description: "Curated three-course dining experience featuring starter, Moroccan or seafood main, and dessert.", price: 495, dietary: ["halal"] }
+            ]
+          }
+        ]
+      }
     }
   ,
     // ── 4. WORRIES ("Things You're Worried About!") ──

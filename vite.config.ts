@@ -4,7 +4,6 @@ import { fileURLToPath } from 'url';
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import { defineConfig, type Plugin } from 'vite';
-import { processContactSubmission } from './api/contact';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -39,6 +38,7 @@ function devContactApiPlugin(): Plugin {
           try {
             const parsed = raw ? JSON.parse(raw) : null;
             const ip = req.socket?.remoteAddress || 'local';
+            const { processContactSubmission } = await import('./api/contact');
             const result = await processContactSubmission(parsed, ip);
             res.statusCode = result.status;
             res.setHeader('Content-Type', 'application/json');

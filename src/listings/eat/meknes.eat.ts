@@ -1722,7 +1722,50 @@ export const meknesEat: EatListing[] = [
       instagram: "not-available",
       viewType: "none",
       bestTimeToVisit: "Lunch around 13:00 for quiet",
-      averageWaitMinutes: 5
+      averageWaitMinutes: 5,
+      menu: {
+        currency: "MAD",
+        lastUpdated: "2026-11",
+        serviceChargeIncluded: true,
+        sections: [
+          {
+            id: "burgers-tacos-bowls",
+            title: "House Burgers, French Tacos & Bowls",
+            titleEn: "House Burgers, French Tacos & Bowls",
+            description: "Signature Hamria bistro burgers, pressed French tacos, and fresh salads.",
+            items: [
+              { id: "dlys-house-burger", name: "D-Lys House Burger", nameEn: "D-Lys Gourmet House Burger", translations: { ar: "برغر لا دي ليس الخاص", en: "D-Lys Gourmet House Burger", es: "Hamburguesa de la Casa D-Lys", de: "D-Lys Hausburger" }, description: "Grilled beef patty on brioche bun with melted cheddar, caramelized onions, house sauce, and fries.", price: 62, isSignature: true, dietary: ["halal"] },
+              { id: "dlys-tuna-bowl", name: "Healthy Tuna Bowl", nameEn: "Fresh Mediterranean Tuna & Quinoa Bowl", translations: { ar: "طبق التونة الصحي بالخضار", en: "Fresh Mediterranean Tuna & Quinoa Bowl", es: "Bowl Saludable de Atún", de: "Gesunde Thunfisch-Bowl" }, description: "Flaked tuna over mixed greens, avocado, sweet corn, cherry tomatoes, and vinaigrette.", price: 58, isSignature: true, dietary: ["halal", "gluten-free"] },
+              { id: "dlys-tacos-classics", name: "Tacos Poulet / Mixte / Cordon Bleu", nameEn: "French Tacos (Chicken, Mixed or Cordon Bleu)", translations: { ar: "تاكوس الدجاج أو ميكست أو كوردون بلو", en: "French Tacos (Chicken, Mixed or Cordon Bleu)", es: "Tacos Franceses de Pollo o Mixto", de: "French Tacos (Hähnchen oder Mix)" }, description: "Grilled tortilla stuffed with seasoned meat, crispy fries, and creamy cheddar cheese sauce.", price: 49, dietary: ["halal"] },
+              { id: "dlys-tacos-las-dlys", name: "Tacos Las Dlys / Tacos Santiago", nameEn: "Signature Tacos Las Dlys or Santiago", translations: { ar: "تاكوس لاس دي ليس الخاص", en: "Signature Tacos Las Dlys or Santiago", es: "Tacos Especiales Las Dlys", de: "Tacos Spezial Las Dlys" }, description: "Double-meat house specialty French tacos finished with gratinated cheese crust.", price: 55, dietary: ["halal"] },
+              { id: "dlys-hachis-parmentier", name: "Hachis Parmentier Menu", nameEn: "Baked Beef Hachis Parmentier", translations: { ar: "هاشي بارمانتييه باللحم والبطاطس", en: "Baked Beef Hachis Parmentier", es: "Hachis Parmentier de Ternera", de: "Hachis Parmentier (Überbackener Hackfleischauflauf)" }, description: "French-style minced beef gratin topped with velvety mashed potato and melted gruyère.", price: 82, dietary: ["halal"] }
+            ]
+          },
+          {
+            id: "stone-baked-pizzas",
+            title: "Pizzas",
+            titleEn: "Artisan Pizzas",
+            description: "Freshly baked pizzas from the Hamria menu.",
+            items: [
+              { id: "dlys-pizza-margherita", name: "Pizza Margherita", nameEn: "Classic Margherita Pizza", translations: { ar: "بيتزا مارغريتا", en: "Classic Margherita Pizza", es: "Pizza Margarita", de: "Pizza Margherita" }, description: "Tomato sauce, mozzarella, oregano, and extra-virgin olive oil.", price: 40, dietary: ["halal", "vegetarian"] },
+              { id: "dlys-pizza-veggie", name: "Pizza Veggie / Chèvre Miel", nameEn: "Vegetarian or Goat Cheese Honey Pizza", translations: { ar: "بيتزا الخضار أو جبن الماعز بالعسل", en: "Vegetarian or Goat Cheese Honey Pizza", es: "Pizza Vegetariana o Queso de Cabra y Miel", de: "Vegetarische Pizza oder Ziegenkäse-Honig" }, description: "Garden vegetables (55 MAD) or creamy goat cheese drizzled with wildflower honey (59 MAD).", price: 55, dietary: ["halal", "vegetarian"] },
+              { id: "dlys-pizza-las-dlys", name: "Pizza Las Dlys / Pepperoni / Savoyarde", nameEn: "House Signature Pizza Las Dlys", translations: { ar: "بيتزا لاس دي ليس أو بيبروني", en: "House Signature Pizza Las Dlys", es: "Pizza Especial Las Dlys o Pepperoni", de: "Haus-Pizza Las Dlys oder Peperoni" }, description: "Loaded house pizza with seasoned meats, mushrooms, and mozzarella.", price: 64, dietary: ["halal"] },
+              { id: "dlys-pizza-quattro-formaggi", name: "Pizza Quattro Formaggi / Marina", nameEn: "Four Cheese or Seafood Marina Pizza", translations: { ar: "بيتزا أربع أجبان أو مارينا", en: "Four Cheese or Seafood Marina Pizza", es: "Pizza Cuatro Quesos o Marina", de: "Pizza Vier Käse oder Meeresfrüchte" }, description: "Four-cheese blend (69 MAD) or Atlantic seafood Marina (72 MAD).", price: 69, dietary: ["halal"] },
+              { id: "dlys-pizza-meat-lover", name: "Pizza Meat Lover", nameEn: "Meat Lover Loaded Pizza", translations: { ar: "بيتزا محبي اللحوم", en: "Meat Lover Loaded Pizza", es: "Pizza Meat Lover", de: "Pizza Meat Lover" }, description: "Hearty combination of beef, pepperoni, chicken, and melted mozzarella.", price: 89, dietary: ["halal"] }
+            ]
+          },
+          {
+            id: "savory-sweet-crepes",
+            title: "Savory & Sweet Crêpes",
+            titleEn: "Savory & Sweet Crêpes",
+            description: "Freshly folded buckwheat and sweet French crêpes.",
+            items: [
+              { id: "dlys-savory-turkey-crepe", name: "Savory Cheese & Turkey Crepe", nameEn: "Savory Smoked Turkey & Cheese Crêpe", translations: { ar: "كريب مالح بالجبن والديك الرومي المدخن", en: "Savory Smoked Turkey & Cheese Crêpe", es: "Crepe Salado de Pavo y Queso", de: "Herzhafter Puten-Käse-Crêpe" }, description: "Thin warm crêpe filled with smoked turkey breast, melted emmental-mozzarella, and herb béchamel.", price: 45, isSignature: true, dietary: ["halal"] },
+              { id: "dlys-sweet-crepe", name: "Crêpe Nutella & Banana / Salted Caramel", nameEn: "Sweet Nutella or Salted Caramel Crêpe", translations: { ar: "كريب نوتيلا بالموز أو الكراميل", en: "Sweet Nutella or Salted Caramel Crêpe", es: "Crepe Dulce de Nutella o Caramelo", de: "Süßer Nutella- oder Karamell-Crêpe" }, description: "Golden sweet crêpe served warm with hazelnut chocolate spread and sliced banana.", price: 35, dietary: ["halal", "vegetarian"] }
+            ]
+          }
+        ]
+      }
     },
 
     // ── 4. WORRIES ("Things You're Worried About!") ──
@@ -2040,7 +2083,46 @@ export const meknesEat: EatListing[] = [
       instagram: "not-available",
       viewType: "city",
       bestTimeToVisit: "Early evening around 18:30 for sunset",
-      averageWaitMinutes: 5
+      averageWaitMinutes: 5,
+      menu: {
+        currency: "MAD",
+        lastUpdated: "2026-11",
+        serviceChargeIncluded: true,
+        sections: [
+          {
+            id: "breakfast-coffee",
+            title: "Breakfast Platters, Coffee & Mint Tea",
+            titleEn: "Breakfast Platters, Coffee & Mint Tea",
+            description: "Panoramic morning breakfasts and Italian espresso overlooking the Meknes Medina skyline.",
+            items: [
+              { id: "bellacitta-breakfast-platter", name: "Breakfast Platter", nameEn: "Bella Citta Complete Breakfast Platter", translations: { ar: "طبق فطور بيلا سيتا المتكامل", en: "Bella Citta Complete Breakfast Platter", es: "Plato de Desayuno Completo", de: "Bella Citta Frühstücksplatte" }, description: "Pastries, warm bread, cheese, eggs, olive oil, jam, fresh orange juice, and hot drink.", price: 55, isSignature: true, dietary: ["halal", "vegetarian"] },
+              { id: "bellacitta-double-espresso", name: "Double Espresso / Iced Latte", nameEn: "Italian Double Espresso or Iced Coffee", translations: { ar: "إسبريسو مزدوج أو قهوة مثلجة", en: "Italian Double Espresso or Iced Coffee", es: "Espresso Doble o Café Helado", de: "Doppelter Espresso oder Eiskaffee" }, description: "Rich Italian-roast double espresso or chilled milk iced latte.", price: 24, isSignature: true, dietary: ["halal", "vegetarian", "gluten-free"] },
+              { id: "bellacitta-mint-tea", name: "Moroccan Mint Tea", nameEn: "Traditional Moroccan Mint Tea", localName: "Atay", translations: { ar: "أتاي مغربي بالنعناع", en: "Traditional Moroccan Mint Tea", es: "Té Marroquí a la Menta", de: "Marokkanischer Minztee" }, description: "Fragrant green tea brewed with fresh spearmint leaves.", price: 20, isSignature: true, dietary: ["halal", "vegan", "gluten-free"] }
+            ]
+          },
+          {
+            id: "pizzas-light-meals",
+            title: "Pizzas & Light Bistro Plates",
+            titleEn: "Pizzas & Light Bistro Plates",
+            description: "Casual pizzas and terrace snacks.",
+            items: [
+              { id: "bellacitta-margherita", name: "Margherita Pizza", nameEn: "Classic Margherita Pizza", translations: { ar: "بيتزا مارغريتا", en: "Classic Margherita Pizza", es: "Pizza Margarita", de: "Pizza Margherita" }, description: "Crisp crust topped with tomato sauce, melted mozzarella, and fresh basil.", price: 55, isSignature: true, dietary: ["halal", "vegetarian"] },
+              { id: "bellacitta-4-seasons-pizza", name: "Pizza 4 Saisons / Tuna Pizza", nameEn: "Four Seasons or Mediterranean Tuna Pizza", translations: { ar: "بيتزا الفصول الأربعة أو التونة", en: "Four Seasons or Mediterranean Tuna Pizza", es: "Pizza Cuatro Estaciones o Atún", de: "Pizza Vier Jahreszeiten oder Thunfisch" }, description: "Oven-baked pizza with olives, peppers, mushrooms, and mozzarella.", price: 70, dietary: ["halal"] }
+            ]
+          },
+          {
+            id: "gelato-crepes-juices",
+            title: "Artisanal Gelato, Nutella Crêpes & Juices",
+            titleEn: "Artisanal Gelato, Nutella Crêpes & Juices",
+            description: "Bella Citta's popular ice creams, parfaits, crêpes, and fresh fruit juices.",
+            items: [
+              { id: "bellacitta-nutella-crepe", name: "Nutella & Artisanal Gelato Crêpe", nameEn: "Warm Nutella Crêpe with Gelato", translations: { ar: "كريب نوتيلا مع الآيس كريم الحرفي", en: "Warm Nutella Crêpe with Gelato", es: "Crepe de Nutella con Helado Artesanal", de: "Nutella-Crêpe mit Handwerklichem Eis" }, description: "Warm folded crêpe filled with Nutella and served with a scoop of artisanal ice cream.", price: 45, dietary: ["halal", "vegetarian"] },
+              { id: "bellacitta-gelato-parfait", name: "Artisanal Ice Cream Parfait", nameEn: "Artisanal Gelato & Fruit Parfait", translations: { ar: "بارفي الآيس كريم والفواكه", en: "Artisanal Gelato & Fruit Parfait", es: "Parfait de Helado Artesanal", de: "Eiscreme-Parfait" }, description: "Layered house gelato scoops topped with whipped cream, nuts, and fresh fruit.", price: 48, dietary: ["halal", "vegetarian"] },
+              { id: "bellacitta-fresh-juice", name: "Fresh Squeezed Seasonal Juice", nameEn: "Fresh Pressed Seasonal Fruit Juice", translations: { ar: "عصير فواكه موسمي طازج", en: "Fresh Pressed Seasonal Fruit Juice", es: "Zumo Natural de Temporada", de: "Frisch Gepresster Saisonalsaft" }, description: "Chilled fresh orange, avocado, or strawberry juice.", price: 28, dietary: ["halal", "vegan", "gluten-free"] }
+            ]
+          }
+        ]
+      }
     },
 
     // ── 4. WORRIES ("Things You're Worried About!") ──

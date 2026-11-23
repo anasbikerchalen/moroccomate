@@ -382,7 +382,50 @@ export const el_jadidaEat: EatListing[] = [
       instagram: "not-available",
       viewType: "city",
       bestTimeToVisit: "Dinner around 20:00 for a romantic atmosphere",
-      averageWaitMinutes: 5
+      averageWaitMinutes: 5,
+      menu: {
+        currency: "MAD",
+        lastUpdated: "2026-11",
+        serviceChargeIncluded: true,
+        sections: [
+          {
+            id: "starters-entrees",
+            title: "Entrées & Moroccan Salads",
+            titleEn: "Starters & Moroccan Salads",
+            description: "French-Moroccan starters served inside the 16th-century Cité Portugaise walls.",
+            items: [
+              { id: "capitainerie-seafood-soup", name: "Seafood Soup Royal", nameEn: "Seafood Soup Royal", translations: { ar: "شوربة ثمار البحر الملكية", en: "Seafood Soup Royal", es: "Sopa Real de Mariscos", de: "Königliche Meeresfrüchtesuppe" }, description: "Rich coastal fisherman's bisque enriched with Atlantic shellfish, saffron, and garlic croutons.", price: 110, isSignature: true, dietary: ["halal"] },
+              { id: "capitainerie-parmesan-fondue", name: "Fondus au Parmesan Maison", nameEn: "Homemade Warm Parmesan Fondue", translations: { ar: "فوندو البارميزان المنزلي", en: "Homemade Warm Parmesan Fondue", es: "Fondue Casera de Parmesano", de: "Hausgemachtes Parmesan-Fondue" }, description: "Velvety aged parmesan cream served with crisp artisanal toast.", price: 95, dietary: ["halal", "vegetarian"] },
+              { id: "capitainerie-beef-carpaccio", name: "Carpaccio de Bœuf", nameEn: "Thinly Sliced Beef Carpaccio", translations: { ar: "كارباتشيو اللحم البقري", en: "Thinly Sliced Beef Carpaccio", es: "Carpaccio de Ternera", de: "Rindercarpaccio" }, description: "Chilled beef tenderloin ribbons dressed with olive oil, capers, and parmesan shavings.", price: 120, dietary: ["halal", "gluten-free"] },
+              { id: "capitainerie-briouats-salads", name: "Briouats & Trio of Moroccan Salads", nameEn: "Goat Cheese Cigars, Meat Briouats & Zaalouk", translations: { ar: "بريوات وسيجار بجبن الماعز مع زعلوك", en: "Goat Cheese Cigars, Meat Briouats & Zaalouk", es: "Briouats y Trío de Ensaladas Marroquíes", de: "Briouats & Marokkanische Salate" }, description: "Crisp goat-cheese-mint cigars, spiced meat briouats, smoky zaalouk, and roasted peppers.", price: 105, dietary: ["halal"] }
+            ]
+          },
+          {
+            id: "seafood-mains",
+            title: "Catch of the Day & Seafood Specialties",
+            titleEn: "Catch of the Day & Seafood Specialties",
+            description: "Fresh El Jadida harbor seafood, whole turbot, and signature John Dory pastilla.",
+            items: [
+              { id: "capitainerie-spider-crab", name: "Grilled Spider Crab", nameEn: "Grilled Atlantic Spider Crab", localName: "Araignée de Mer", translations: { ar: "سلطعون البحر الأطلسي المشوي", en: "Grilled Atlantic Spider Crab", es: "Centollo a la Parrilla", de: "Gegrillte Atlantik-Seespinne" }, description: "Fresh local spider crab split and grilled with garlic parsley butter.", price: 290, isSignature: true, dietary: ["halal", "gluten-free"] },
+              { id: "capitainerie-saint-pierre", name: "Filet de Saint-Pierre", nameEn: "Pan-Roasted John Dory Fillet", translations: { ar: "فيليه سمك سان بيير", en: "Pan-Roasted John Dory Fillet", es: "Filete de Gallo San Pedro", de: "Gebratenes Petersfischfilet" }, description: "Local John Dory fillet sautéed in citrus butter with market vegetables.", price: 250, isSignature: true, dietary: ["halal", "gluten-free"] },
+              { id: "capitainerie-john-dory-pastilla", name: "Pastilla de Saint-Pierre", nameEn: "John Dory & Baby Vegetable Pastilla", translations: { ar: "بسطيلة سمك سان بيير", en: "John Dory & Baby Vegetable Pastilla", es: "Pastela de San Pedro y Verduritas", de: "Petersfisch-Pastilla mit Junggemüse" }, description: "Crispy warqa pastry filled with saffron-spiced John Dory and tender garden vegetables.", price: 220, dietary: ["halal"] },
+              { id: "capitainerie-whole-turbot", name: "Whole Grilled Turbot", nameEn: "Whole Charcoal-Grilled Atlantic Turbot", translations: { ar: "سمك التوربو الكامل المشوي", en: "Whole Charcoal-Grilled Atlantic Turbot", es: "Rodaballo Entero a la Brasa", de: "Ganzer Gegrillter Steinbutt" }, description: "Daily catch whole turbot grilled with olive oil, lemon, and sea salt.", price: 320, dietary: ["halal", "gluten-free"] },
+              { id: "capitainerie-calamari-plancha", name: "Calamars à la Plancha", nameEn: "Seared Atlantic Calamari a la Plancha", translations: { ar: "كالمار مشوي على البلانشا", en: "Seared Atlantic Calamari a la Plancha", es: "Calamares a la Plancha", de: "Gegrillter Tintenfisch a la Plancha" }, description: "Tender local squid seared on the hot plancha with garlic and lemon.", price: 185, dietary: ["halal", "gluten-free"] }
+            ]
+          },
+          {
+            id: "moroccan-classics-desserts",
+            title: "Moroccan Mains & Desserts",
+            titleEn: "Moroccan Mains & Desserts",
+            description: "Slow-braised tagines, imperial couscous, and traditional sweets.",
+            items: [
+              { id: "capitainerie-madfoun", name: "Madfoun Impérial (Veiled Quail Couscous)", nameEn: "Imperial Quail & Almond Couscous", translations: { ar: "مدفون السمان بالكسكس واللوز", en: "Imperial Quail & Almond Couscous", es: "Cuscús Imperial de Codorniz", de: "Kaiserlicher Wachtel-Couscous" }, description: "Fine couscous concealing roasted boneless quail, caramelized onions, and saffron cinnamon jus.", price: 240, dietary: ["halal"] },
+              { id: "capitainerie-beef-fennel-tagine", name: "Beef Tagine with Fennel & Preserved Lemon", nameEn: "Beef & Fennel Lemon Tagine", translations: { ar: "طاجين اللحم بالشمر والحامض", en: "Beef & Fennel Lemon Tagine", es: "Tajín de Ternera con Hinojo", de: "Rindfleisch-Tajine mit Fenchel" }, description: "Slow-simmered beef chuck with wild fennel bulbs and lightly lemony Moroccan broth.", price: 195, dietary: ["halal", "gluten-free"] },
+              { id: "capitainerie-pastry-assortment", name: "Moroccan Pastries & Mint Tea or Seasonal Fruit", nameEn: "Assorted Moroccan Pastries & Tea", translations: { ar: "حلويات مغربية تقليدية مع الشاي", en: "Assorted Moroccan Pastries & Tea", es: "Pasteles Marroquíes y Té", de: "Marokkanisches Gebäck & Tee" }, description: "Selection of handmade almond gazelle horns and honey pastries served with fresh mint tea.", price: 85, dietary: ["halal", "vegetarian"] }
+            ]
+          }
+        ]
+      }
     }
   ,
     // ── 4. WORRIES ("Things You're Worried About!") ──
@@ -649,7 +692,36 @@ export const el_jadidaEat: EatListing[] = [
       instagram: "not-available",
       viewType: "none",
       bestTimeToVisit: "Lunch around 13:30 right after fish boats land",
-      averageWaitMinutes: 10
+      averageWaitMinutes: 10,
+      menu: {
+        currency: "MAD",
+        lastUpdated: "2026-11",
+        serviceChargeIncluded: true,
+        sections: [
+          {
+            id: "seafood-platters",
+            title: "Fresh Harbor Fish & Seafood Platters",
+            titleEn: "Fresh Harbor Fish & Seafood Platters",
+            description: "Sourced steps from the El Jadida fishing port and served with fries, zaalouk, and spicy harissa.",
+            items: [
+              { id: "aymane-mixed-grill", name: "Mixed Seafood Grill Platter", nameEn: "Mixed Harbor Seafood Grill Platter", translations: { ar: "طبق مشاوي ثمار البحر المشكل", en: "Mixed Harbor Seafood Grill Platter", es: "Parrillada Mixta de Mariscos", de: "Gemischte Meeresfrüchte-Grillplatte" }, description: "Char-grilled prawns, calamari, whiting, and sole served with fries, zaalouk, and harissa.", price: 110, isSignature: true, dietary: ["halal"] },
+              { id: "aymane-fried-sole", name: "Fried Sole & Whiting", nameEn: "Crispy Fried Atlantic Sole & Whiting", localName: "Friture de Sole & Merlan", translations: { ar: "سمك الصول والميرلان المقلي المقرمش", en: "Crispy Fried Atlantic Sole & Whiting", es: "Lenguado y Pescadilla Frita", de: "Knusprig Gebratene Seezunge & Wittling" }, description: "Golden-fried daily catch sole and merlan fillets with fresh lemon wedges and crusty bread.", price: 85, isSignature: true, dietary: ["halal"] },
+              { id: "aymane-calamari-plate", name: "Fried or Grilled Calamari Plate", nameEn: "Fresh Atlantic Calamari Plate", translations: { ar: "طبق الكالمار المقلي أو المشوي", en: "Fresh Atlantic Calamari Plate", es: "Calamares Fritos o a la Plancha", de: "Gebratener oder Frittierter Tintenfisch" }, description: "Tender harbor squid rings served with crispy chips and roasted pepper salad.", price: 90, dietary: ["halal"] }
+            ]
+          },
+          {
+            id: "salads-pizzas-pastas",
+            title: "Moroccan Salads, Pizzas & Pastas",
+            titleEn: "Moroccan Salads, Pizzas & Pastas",
+            description: "Fresh starter salads alongside seafood pizzas and calamari pasta.",
+            items: [
+              { id: "aymane-tomato-salad", name: "Moroccan Tomato Salad & Zaalouk", nameEn: "Moroccan Tomato & Onion Salad", localName: "Salade Marocaine", translations: { ar: "سلطة مغربية بالطماطم وزعلوك", en: "Moroccan Tomato & Onion Salad", es: "Ensalada Marroquí de Tomate", de: "Marokkanischer Tomatensalat" }, description: "Finely diced tomatoes, green peppers, red onion, olive oil, and cumin served with warm bread.", price: 25, isSignature: true, dietary: ["halal", "vegan", "gluten-free"] },
+              { id: "aymane-seafood-pizza", name: "Seafood Pizza", nameEn: "Harbor Seafood Pizza", translations: { ar: "بيتزا فواكه البحر", en: "Harbor Seafood Pizza", es: "Pizza de Mariscos", de: "Meeresfrüchte-Pizza" }, description: "Oven-baked pizza topped with tomato sauce, mozzarella, shrimp, and calamari.", price: 65, dietary: ["halal"] },
+              { id: "aymane-calamari-pasta", name: "Calamari & Prawn Pasta", nameEn: "Seafood Tomato & Garlic Pasta", translations: { ar: "باستا الكالمار والجمبري", en: "Seafood Tomato & Garlic Pasta", es: "Pasta con Calamares y Gambas", de: "Pasta mit Tintenfisch & Garnelen" }, description: "Penne or spaghetti sautéed with fresh harbor calamari, prawns, and herb tomato sauce.", price: 75, dietary: ["halal"] }
+            ]
+          }
+        ]
+      }
     }
   ,
     // ── 4. WORRIES ("Things You're Worried About!") ──
@@ -830,7 +902,46 @@ export const el_jadidaEat: EatListing[] = [
       instagram: "not-available",
       viewType: "beach",
       bestTimeToVisit: "Dinner around 21:00 when live acoustic musicians perform",
-      averageWaitMinutes: 10
+      averageWaitMinutes: 10,
+      menu: {
+        currency: "MAD",
+        lastUpdated: "2026-11",
+        serviceChargeIncluded: true,
+        sections: [
+          {
+            id: "starters-seafood",
+            title: "Starters & Atlantic Seafood",
+            titleEn: "Starters & Atlantic Seafood",
+            description: "Classic French-Mediterranean seafood starters and fresh coastal catches.",
+            items: [
+              { id: "alibaba-seafood-cocktail", name: "Seafood Cocktail Royale", nameEn: "Chilled Seafood Cocktail Royale", translations: { ar: "كوكتيل ثمار البحر الملكي", en: "Chilled Seafood Cocktail Royale", es: "Cóctel Real de Mariscos", de: "Meeresfrüchte-Cocktail Royale" }, description: "Atlantic prawns, poached fish, and shellfish served chilled with classic cognac-rose sauce.", price: 140, isSignature: true, dietary: ["halal", "gluten-free"] },
+              { id: "alibaba-tuna-steak", name: "Grilled Bluefin Tuna Steak", nameEn: "Char-Grilled Atlantic Bluefin Tuna Steak", translations: { ar: "ستيك التونة الزرقاء المشوية", en: "Char-Grilled Atlantic Bluefin Tuna Steak", es: "Filete de Atún Rojo a la Parrilla", de: "Gegrilltes Blauflossen-Thunfischsteak" }, description: "Thick-cut local bluefin tuna seared medium-rare with caper-lemon butter and seasonal vegetables.", price: 240, isSignature: true, dietary: ["halal", "gluten-free"] },
+              { id: "alibaba-fish-soup", name: "Soupe de Poissons du Littoral", nameEn: "Traditional Coastal Fish Soup", translations: { ar: "شوربة السمك الساحلية", en: "Traditional Coastal Fish Soup", es: "Sopa de Pescado del Litoral", de: "Traditionelle Fischsuppe" }, description: "Simmered rockfish soup served with gruyère, rouille, and toasted garlic bread.", price: 95, dietary: ["halal"] }
+            ]
+          },
+          {
+            id: "french-mains",
+            title: "French Brasserie Mains & Grills",
+            titleEn: "French Brasserie Mains & Grills",
+            description: "Long-standing brasserie cuts and classic French sauces.",
+            items: [
+              { id: "alibaba-entrecote", name: "Classic French Entrecôte", nameEn: "Grilled French Entrecôte Steak", translations: { ar: "ستيك أنتريكوت فرنسي مشوي", en: "Grilled French Entrecôte Steak", es: "Entrecot Clásico Francés", de: "Klassisches Französisches Entrecôte" }, description: "Char-grilled prime ribeye with green peppercorn or maître d'hôtel butter and crisp pommes frites.", price: 260, isSignature: true, dietary: ["halal", "gluten-free"] },
+              { id: "alibaba-pepper-beef", name: "Filet de Bœuf Sauce Poivre", nameEn: "Beef Tenderloin in Peppercorn Sauce", translations: { ar: "فيليه اللحم بصلصة الفلفل", en: "Beef Tenderloin in Peppercorn Sauce", es: "Solomillo a la Pimienta", de: "Rinderfilet in Pfeffersauce" }, description: "Tender beef fillet seared to order with creamy Madagascar peppercorn reduction.", price: 290, dietary: ["halal"] },
+              { id: "alibaba-paella", name: "Paella Royale aux Fruits de Mer", nameEn: "Atlantic Seafood Paella", translations: { ar: "بايلا فواكه البحر الأطلسية", en: "Atlantic Seafood Paella", es: "Paella Real de Mariscos", de: "Meeresfrüchte-Paella" }, description: "Saffron rice baked with prawns, mussels, calamari, and coastal fish.", price: 220, dietary: ["halal", "gluten-free"] }
+            ]
+          },
+          {
+            id: "desserts-lounge",
+            title: "Desserts & Jazz Lounge Drinks",
+            titleEn: "Desserts & Jazz Lounge Drinks",
+            description: "Classic French desserts and licensed lounge cocktails.",
+            items: [
+              { id: "alibaba-chocolate-mousse", name: "Mousse au Chocolat Maison", nameEn: "Homemade Dark Chocolate Mousse", translations: { ar: "موس الشوكولاتة الداكنة", en: "Homemade Dark Chocolate Mousse", es: "Mousse Casera de Chocolate", de: "Hausgemachte Schokoladenmousse" }, description: "Airy whipped dark chocolate mousse topped with Chantilly cream.", price: 75, dietary: ["halal", "vegetarian", "gluten-free"] },
+              { id: "alibaba-creme-caramel", name: "Crème Caramel / Tarte Tatin", nameEn: "Classic French Crème Caramel", translations: { ar: "كريم كراميل فرنسي", en: "Classic French Crème Caramel", es: "Flan Francés al Caramelo", de: "Klassische Crème Caramel" }, description: "Silky baked vanilla custard glazed with amber caramel.", price: 70, dietary: ["halal", "vegetarian", "gluten-free"] }
+            ]
+          }
+        ]
+      }
     }
   ,
     // ── 4. WORRIES ("Things You're Worried About!") ──
@@ -1361,7 +1472,45 @@ export const el_jadidaEat: EatListing[] = [
       instagram: "not-available",
       viewType: "beach",
       bestTimeToVisit: "Dinner around 20:00 for the refined oceanfront ambiance",
-      averageWaitMinutes: 0
+      averageWaitMinutes: 0,
+      menu: {
+        currency: "MAD",
+        lastUpdated: "2026-11",
+        serviceChargeIncluded: true,
+        sections: [
+          {
+            id: "raw-bar-starters",
+            title: "Oualidia Raw Bar & Caviar Starters",
+            titleEn: "Oualidia Raw Bar & Caviar Starters",
+            description: "Fine shellfish, lagoon oysters, and caviar appetizers at Mazagan Beach & Golf Resort.",
+            items: [
+              { id: "seldemer-caviar-blinis", name: "Osetra Caviar and Blinis", nameEn: "Osetra Caviar & Warm Buckwheat Blinis", translations: { ar: "كافيار أوسيترا مع البيليني", en: "Osetra Caviar & Warm Buckwheat Blinis", es: "Caviar Osetra con Blinis", de: "Osetra-Kaviar mit Blinis" }, description: "Chilled Osetra caviar served over ice with warm blinis, crème fraîche, and traditional garnishes.", price: 950, isSignature: true, dietary: ["halal"] },
+              { id: "seldemer-oualidia-oysters", name: "Oualidia Lagoon Oysters (6 pcs)", nameEn: "Fresh Oualidia Lagoon Oysters (6 pcs)", translations: { ar: "محار بحيرة الوليدية الطازج (6 قطع)", en: "Fresh Oualidia Lagoon Oysters (6 pcs)", es: "Ostras Frescas de Oualidia (6 uds)", de: "Frische Austern aus Oualidia (6 Stk.)" }, description: "Harvested from Oualidia's Atlantic lagoon, served over crushed ice with shallot mignonette and lemon.", price: 220, dietary: ["halal", "gluten-free"] },
+              { id: "seldemer-lobster-tartlet", name: "Oualidia Lobster & Citrus Tartlet", nameEn: "Poached Oualidia Lobster Tartlet", translations: { ar: "تارتليت كركند الوليدية بالحمضيات", en: "Poached Oualidia Lobster Tartlet", es: "Tartaleta de Bogavante y Cítricos", de: "Hummer-Törtchen mit Zitrusnote" }, description: "Delicate crisp pastry filled with sweet Atlantic lobster, avocado purée, and citrus emulsion.", price: 280, dietary: ["halal"] }
+            ]
+          },
+          {
+            id: "iced-catch-mains",
+            title: "Iced Display Catch & Fine Seafood Mains",
+            titleEn: "Iced Display Catch & Fine Seafood Mains",
+            description: "Whole Atlantic fish baked in sea salt crust or coal-grilled lobster.",
+            items: [
+              { id: "seldemer-salt-crusted-bass", name: "Sea Salt Crusted Loup de Mer", nameEn: "Sea Salt Crusted Atlantic Sea Bass", translations: { ar: "سمك الدرعي في قشرة الملح البحري", en: "Sea Salt Crusted Atlantic Sea Bass", es: "Lubina a la Costra de Sal Marina", de: "Wolfsbarsch in der Meersalzkruste" }, description: "Whole wild sea bass baked in coarse sea salt crust, carved tableside with seaweed butter and seasonal greens.", price: 480, isSignature: true, dietary: ["halal", "gluten-free"] },
+              { id: "seldemer-grilled-lobster", name: "Grilled Atlantic Lobster", nameEn: "Char-Grilled Whole Atlantic Lobster", translations: { ar: "كركند أطلسي مشوي على الفحم", en: "Char-Grilled Whole Atlantic Lobster", es: "Bogavante Atlántico a la Brasa", de: "Gegrillter Atlantik-Hummer" }, description: "Live Atlantic lobster split and coal-grilled with herb garlic butter and saffron risotto.", price: 690, isSignature: true, dietary: ["halal", "gluten-free"] },
+              { id: "seldemer-plancha-catch", name: "Catch of the Day à la Plancha", nameEn: "Fresh Catch of the Day a la Plancha", translations: { ar: "صيد اليوم المشوي على البلانشا", en: "Fresh Catch of the Day a la Plancha", es: "Pescado del Día a la Plancha", de: "Tagesfang a la Plancha" }, description: "Daily El Jadida fillet seared on the plancha with confit tomatoes, capers, and olive oil.", price: 390, dietary: ["halal", "gluten-free"] }
+            ]
+          },
+          {
+            id: "desserts",
+            title: "Fine Pastry Desserts",
+            titleEn: "Fine Pastry Desserts",
+            description: "Artisanal plated desserts crafted by Mazagan's pastry kitchen.",
+            items: [
+              { id: "seldemer-citrus-pavlova", name: "Moroccan Citrus Pavlova", nameEn: "Crisp Meringue & Moroccan Citrus Pavlova", translations: { ar: "بافلوفا الحمضيات المغربية", en: "Crisp Meringue & Moroccan Citrus Pavlova", es: "Pavlova de Cítricos Marroquíes", de: "Zitrus-Pavlova" }, description: "Light meringue layered with vanilla chantilly, blood orange segments, and passionfruit coulis.", price: 140, dietary: ["halal", "vegetarian", "gluten-free"] }
+            ]
+          }
+        ]
+      }
     }
   ,
     // ── 4. WORRIES ("Things You're Worried About!") ──

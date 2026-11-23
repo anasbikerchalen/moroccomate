@@ -896,7 +896,46 @@ export const ouarzazateEat: EatListing[] = [
       instagram: "not-available",
       viewType: "city",
       bestTimeToVisit: "Sunset around 18:45 for rooftop seating",
-      averageWaitMinutes: 10
+      averageWaitMinutes: 10,
+      menu: {
+        currency: "MAD",
+        lastUpdated: "2026-11",
+        serviceChargeIncluded: true,
+        sections: [
+          {
+            id: "starters-pastilla",
+            title: "Moroccan Salads & Traditional Pastilla",
+            titleEn: "Moroccan Salads & Traditional Pastilla",
+            description: "Homemade starters served overlooking Kasbah Taourirt.",
+            items: [
+              { id: "douyria-pigeon-pastilla", name: "Pigeon Pastilla with Almonds", nameEn: "Traditional Pigeon & Almond Pastilla", localName: "Pastilla au Pigeon", translations: { ar: "بسطيلة الحمام باللوز والقرفة", en: "Traditional Pigeon & Almond Pastilla", es: "Pastela Tradicional de Pichón y Almendras", de: "Traditionelle Tauben-Mandel-Pastilla" }, description: "Flaky warqa pastry layered with spiced shredded pigeon, scrambled eggs, roasted almonds, and cinnamon sugar.", price: 95, isSignature: true, dietary: ["halal"] },
+              { id: "douyria-moroccan-salads", name: "Assorted Cooked & Fresh Moroccan Salads", nameEn: "Selection of Moroccan Salads", translations: { ar: "تشكيلة سلطات مغربية تقليدية", en: "Selection of Moroccan Salads", es: "Surtido de Ensaladas Marroquíes", de: "Auswahl Marokkanischer Salate" }, description: "Smoky zaalouk, roasted pepper taktouka, spiced carrots, and fresh tomato-cucumber salad.", price: 50, dietary: ["halal", "vegan", "gluten-free"] }
+            ]
+          },
+          {
+            id: "tagines-couscous",
+            title: "Desert Tagines, Couscous & Grills",
+            titleEn: "Desert Tagines, Couscous & Grills",
+            description: "Main courses starting around 60 MAD, including Ouarzazate's signature camel tagine.",
+            items: [
+              { id: "douyria-dromedary-tagine", name: "Dromedary Meat Tagine", nameEn: "Slow-Cooked Dromedary Camel Tagine", localName: "Tajine de Dromadaire", translations: { ar: "طاجين لحم الجمل الصحراوي", en: "Slow-Cooked Dromedary Camel Tagine", es: "Tajín de Carne de Dromedario", de: "Geschmorte Dromedar-Tajine" }, description: "Tender desert camel meat slow-simmered in saffron, ginger, caramelized onions, and warm clay-pot spices.", price: 110, isSignature: true, dietary: ["halal", "gluten-free"] },
+              { id: "douyria-friday-couscous", name: "Friday Seven-Vegetable Couscous", nameEn: "Seven-Vegetable & Meat Couscous", translations: { ar: "كسكس بالسبع خضار واللحم", en: "Seven-Vegetable & Meat Couscous", es: "Cuscús de Siete Verduras", de: "Couscous mit Sieben Gemüsesorten" }, description: "Hand-rolled semolina steamed over tender beef or lamb with seven seasonal market vegetables and chickpeas.", price: 90, isSignature: true, dietary: ["halal"] },
+              { id: "douyria-chicken-lemon-tagine", name: "Chicken & Preserved Lemon Tagine", nameEn: "Chicken Tagine with Olives & Preserved Lemon", translations: { ar: "طاجين الدجاج بالزيتون والحامض المصير", en: "Chicken Tagine with Olives & Preserved Lemon", es: "Tajín de Pollo con Aceitunas y Limón", de: "Hähnchen-Tajine mit Oliven & Salzzitrone" }, description: "Classic saffron-turmeric braised chicken with green olives and preserved lemon peel.", price: 70, dietary: ["halal", "gluten-free"] },
+              { id: "douyria-veg-tagine", name: "Berber Vegetable Tagine", nameEn: "Berber Seasonal Vegetable Tagine", translations: { ar: "طاجين الخضار البربري", en: "Berber Seasonal Vegetable Tagine", es: "Tajín Vegetariano Bereber", de: "Berber-Gemüse-Tajine" }, description: "Zucchini, potatoes, carrots, turnips, and tomatoes simmered slowly with olive oil and cumin.", price: 60, dietary: ["halal", "vegan", "gluten-free"] }
+            ]
+          },
+          {
+            id: "drinks-desserts",
+            title: "Desserts, Mint Tea & Licensed Bar",
+            titleEn: "Desserts, Mint Tea & Licensed Bar",
+            description: "Moroccan sweets, fresh fruit, tea, and local wines/beer.",
+            items: [
+              { id: "douyria-orange-cinnamon", name: "Sliced Oranges with Cinnamon & Pastries", nameEn: "Moroccan Cinnamon Oranges & Pastries", translations: { ar: "برتقال بالقرفة مع حلويات مغربية", en: "Moroccan Cinnamon Oranges & Pastries", es: "Naranjas con Canela y Pasteles", de: "Orangen mit Zimt & Gebäck" }, description: "Chilled sweet Moroccan oranges dusted with cinnamon and orange blossom water.", price: 35, dietary: ["halal", "vegan", "gluten-free"] },
+              { id: "douyria-mint-tea", name: "Moroccan Mint Tea / Local Wine Glass", nameEn: "Mint Tea or Moroccan Wine", translations: { ar: "أتاي بالنعناع أو مشروب", en: "Mint Tea or Moroccan Wine", es: "Té a la Menta o Vino Marroquí", de: "Minztee oder Marokkanischer Wein" }, description: "Freshly steeped mint tea (20 MAD) or licensed Moroccan beer and wine selections (65 MAD+).", price: 20, dietary: ["halal", "vegan", "gluten-free"] }
+            ]
+          }
+        ]
+      }
     },
 
     // ── 4. WORRIES ("Things You're Worried About!") ──
@@ -1470,7 +1509,47 @@ export const ouarzazateEat: EatListing[] = [
       instagram: "not-available",
       viewType: "none",
       bestTimeToVisit: "Morning coffee or juice stop",
-      averageWaitMinutes: 10
+      averageWaitMinutes: 10,
+      menu: {
+        currency: "MAD",
+        lastUpdated: "2026-11",
+        serviceChargeIncluded: true,
+        sections: [
+          {
+            id: "breakfast-drinks",
+            title: "Moroccan Breakfast, Coffee & Fresh Juices",
+            titleEn: "Moroccan Breakfast, Coffee & Fresh Juices",
+            description: "All-day café drinks and morning breakfast boards on Avenue Mohammed V.",
+            items: [
+              { id: "kasbah-tafarnout-breakfast", name: "Moroccan Breakfast Board", nameEn: "Traditional Moroccan Breakfast Board", localName: "Ftour Beldi", translations: { ar: "فطور مغربي تقليدي", en: "Traditional Moroccan Breakfast Board", es: "Desayuno Marroquí Completo", de: "Marokkanisches Frühstücksbrett" }, description: "Msemen, bread, olive oil, butter, jam, cheese, boiled egg, fresh juice, and mint tea or coffee.", price: 45, isSignature: true, dietary: ["halal", "vegetarian"] },
+              { id: "kasbah-tafarnout-orange-juice", name: "Fresh Orange Juice", nameEn: "Freshly Squeezed Orange Juice", translations: { ar: "عصير البرتقال الطازج", en: "Freshly Squeezed Orange Juice", es: "Zumo de Naranja Natural", de: "Frisch Gepresster Orangensaft" }, description: "Chilled sweet Moroccan oranges squeezed fresh to order.", price: 18, isSignature: true, dietary: ["halal", "vegan", "gluten-free"] },
+              { id: "kasbah-tafarnout-mint-tea", name: "Moroccan Mint Tea / Espresso", nameEn: "Mint Tea or Coffee", translations: { ar: "أتاي بالنعناع أو قهوة إسبريسو", en: "Mint Tea or Coffee", es: "Té a la Menta o Café", de: "Minztee oder Espresso" }, description: "Classic sweet mint tea pot or café crème.", price: 15, dietary: ["halal", "vegetarian", "gluten-free"] }
+            ]
+          },
+          {
+            id: "tagines-couscous-grills",
+            title: "Tagines, Couscous & Skewers",
+            titleEn: "Tagines, Couscous & Skewers",
+            description: "Honest-priced Moroccan staples, lamb apricot tagines, and kebabs.",
+            items: [
+              { id: "kasbah-tafarnout-chicken-tagine", name: "Chicken Tagine", nameEn: "Chicken & Preserved Lemon Tagine", translations: { ar: "طاجين الدجاج بالليمون والزيتون", en: "Chicken & Preserved Lemon Tagine", es: "Tajín de Pollo al Limón", de: "Hähnchen-Tajine mit Zitrone" }, description: "Traditional clay-pot chicken simmered with olives, potatoes, and preserved lemon.", price: 55, isSignature: true, dietary: ["halal", "gluten-free"] },
+              { id: "kasbah-tafarnout-lamb-apricot", name: "Lamb Tagine with Apricots & Almonds", nameEn: "Sweet & Savory Lamb Apricot Tagine", translations: { ar: "طاجين اللحم بالمشمش واللوز", en: "Sweet & Savory Lamb Apricot Tagine", es: "Tajín de Cordero con Albaricoques", de: "Lamm-Tajine mit Aprikosen & Mandeln" }, description: "Slow-braised lamb finished with honeyed dried apricots and toasted almonds.", price: 75, dietary: ["halal", "gluten-free"] },
+              { id: "kasbah-tafarnout-couscous-royale", name: "Couscous Royale / Berber Tagine", nameEn: "Royal Meat & Vegetable Couscous", translations: { ar: "كسكس ملكي أو طاجين بربري", en: "Royal Meat & Vegetable Couscous", es: "Cuscús Real o Tajín Bereber", de: "Couscous Royale" }, description: "Steamed semolina topped with seasonal vegetables, chickpeas, beef, and grilled skewer.", price: 75, dietary: ["halal"] },
+              { id: "kasbah-tafarnout-kefta-skewers", name: "Kefta & Beef Brochettes with Salad", nameEn: "Grilled Kefta or Meat Skewers", translations: { ar: "أسياخ الكفتة واللحم المشوي", en: "Grilled Kefta or Meat Skewers", es: "Brochetas de Kefta y Ternera", de: "Gegrillte Kefta- und Fleischspieße" }, description: "Char-grilled spiced skewers served with Moroccan salad, fries, and warm bread.", price: 65, dietary: ["halal"] }
+            ]
+          },
+          {
+            id: "pizzas-sweets",
+            title: "Pizzas, Soups & Baklava",
+            titleEn: "Pizzas, Soups & Baklava",
+            description: "Quick pizzas, harira soup, and honeyed pastries.",
+            items: [
+              { id: "kasbah-tafarnout-harira", name: "Traditional Harira Soup", nameEn: "Moroccan Harira Tomato & Lentil Soup", translations: { ar: "شوربة الحريرة المغربية", en: "Moroccan Harira Tomato & Lentil Soup", es: "Sopa Harira Tradicional", de: "Traditionelle Harira-Suppe" }, description: "Hearty tomato, chickpea, and lentil soup seasoned with cilantro and ginger.", price: 25, dietary: ["halal", "vegetarian"] },
+              { id: "kasbah-tafarnout-baklava", name: "Assorted Baklava & Moroccan Pastries", nameEn: "Almond & Honey Baklava", translations: { ar: "بقلاوة بالعسل واللوز", en: "Almond & Honey Baklava", es: "Baklava de Miel y Almendras", de: "Mandel-Honig-Baklava" }, description: "Crisp layered filo pastries filled with roasted nuts and orange blossom honey.", price: 30, dietary: ["halal", "vegetarian"] }
+            ]
+          }
+        ]
+      }
     },
 
     // ── 4. WORRIES ("Things You're Worried About!") ──
@@ -1750,7 +1829,45 @@ export const ouarzazateEat: EatListing[] = [
       instagram: "not-available",
       viewType: "city",
       bestTimeToVisit: "Early morning (08:30–10:30) for breakfast",
-      averageWaitMinutes: 5
+      averageWaitMinutes: 5,
+      menu: {
+        currency: "MAD",
+        lastUpdated: "2026-11",
+        serviceChargeIncluded: true,
+        sections: [
+          {
+            id: "breakfast-pancakes",
+            title: "Moroccan & Healthy Breakfast Boards",
+            titleEn: "Moroccan & Healthy Breakfast Boards",
+            description: "Signature morning sets, pancakes, and pastries on the breezy Avenue Mohammed V terrace.",
+            items: [
+              { id: "terrasse-breakfast-boards", name: "Moroccan & Healthy Breakfast Boards", nameEn: "Moroccan or Healthy Oat & Fruit Breakfast Board", translations: { ar: "أطباق الفطور المغربي والصحي", en: "Moroccan or Healthy Oat & Fruit Breakfast Board", es: "Tablas de Desayuno Marroquí y Saludable", de: "Marokkanisches & Gesundes Frühstücksbrett" }, description: "Choose traditional msemen, eggs, honey, and amlou, or healthy oats, yogurt, fresh fruit, juice, and coffee.", price: 45, isSignature: true, dietary: ["halal", "vegetarian"] },
+              { id: "terrasse-pancakes", name: "Fluffy Pancakes (Honey, Amlou or Nutella)", nameEn: "Warm Pancakes with Honey, Amlou or Nutella", translations: { ar: "بان كيك بالعسل أو الأملو أو النوتيلا", en: "Warm Pancakes with Honey, Amlou or Nutella", es: "Tortitas con Miel, Amlou o Nutella", de: "Pfannkuchen mit Honig, Amlou oder Nutella" }, description: "Stack of three warm golden pancakes topped with fruit and your choice of sauce.", price: 35, dietary: ["halal", "vegetarian"] }
+            ]
+          },
+          {
+            id: "italian-moroccan-mains",
+            title: "Pastas, Tagines & Bistro Plates",
+            titleEn: "Pastas, Tagines & Bistro Plates",
+            description: "Fair-priced Italian pastas, burgers, fresh salads, and traditional clay-pot tagines.",
+            items: [
+              { id: "terrasse-alfredo-penne", name: "Alfredo Penne Pasta", nameEn: "Creamy Chicken & Mushroom Alfredo Penne", translations: { ar: "بيني باستا ألفريدو بالدجاج", en: "Creamy Chicken & Mushroom Alfredo Penne", es: "Penne Alfredo con Pollo y Champiñones", de: "Penne Alfredo mit Hähnchen & Pilzen" }, description: "Penne pasta coated in rich garlic parmesan cream with grilled chicken strips.", price: 65, isSignature: true, dietary: ["halal"] },
+              { id: "terrasse-tagine", name: "Traditional Chicken or Beef Tagine", nameEn: "Traditional Moroccan Tagine", translations: { ar: "طاجين مغربي تقليدي", en: "Traditional Moroccan Tagine", es: "Tajín Marroquí Tradicional", de: "Traditionelle Marokkanische Tajine" }, description: "Slow-simmered clay-pot tagine with olives, seasonal vegetables, and warm bread.", price: 75, dietary: ["halal", "gluten-free"] },
+              { id: "terrasse-burger-salad", name: "La Terrasse Burger & Crispy Fries", nameEn: "Grilled Bistro Burger & Fries", translations: { ar: "برغر لا تيراس مع البطاطس", en: "Grilled Bistro Burger & Fries", es: "Hamburguesa La Terrasse con Patatas", de: "La Terrasse Burger mit Pommes" }, description: "Seared beef or chicken patty on toasted brioche with cheddar, greens, and fries.", price: 60, dietary: ["halal"] }
+            ]
+          },
+          {
+            id: "shakes-mocktails-coffee",
+            title: "Avocado Shakes, Mocktails & Espresso",
+            titleEn: "Avocado Shakes, Mocktails & Espresso",
+            description: "Freshly blended Moroccan avocado shakes, iced coffees, and fruit mocktails.",
+            items: [
+              { id: "terrasse-avocado-shake", name: "Fresh Avocado Almond Shake", nameEn: "Avocado, Date & Almond Smoothie", localName: "Zaâzaâ / Jus d'Avocat", translations: { ar: "عصير الأفوكادو باللوز والتمر", en: "Avocado, Date & Almond Smoothie", es: "Batido de Aguacate y Almendras", de: "Avocado-Mandel-Shake" }, description: "Thick, creamy Moroccan avocado shake topped with roasted almonds and sweet dates.", price: 28, isSignature: true, dietary: ["halal", "vegetarian", "gluten-free"] },
+              { id: "terrasse-espresso-mocktail", name: "Double Espresso / Virgin Mojito", nameEn: "Double Espresso or Fresh Mint Mojito", translations: { ar: "إسبريسو مزدوج أو موهيتو منعش", en: "Double Espresso or Fresh Mint Mojito", es: "Espresso Doble o Mojito Sin Alcohol", de: "Doppelter Espresso oder Virgin Mojito" }, description: "Italian roast espresso (18 MAD) or chilled lime-mint mocktail (30 MAD).", price: 25, dietary: ["halal", "vegan", "gluten-free"] }
+            ]
+          }
+        ]
+      }
     },
 
     // ── 4. WORRIES ("Things You're Worried About!") ──

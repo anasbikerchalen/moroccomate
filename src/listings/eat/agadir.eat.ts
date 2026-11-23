@@ -2480,7 +2480,50 @@ export const agadirEat: EatListing[] = [
       website: "not-available",
       instagram: "not-available",
       customStory: "Pâtisserie Tafarnout has been an Agadir institution since 1984, starting as a traditional bakery and evolving into a full-service patisserie, café, and breakfast room. It remains a morning ritual for locals and visitors seeking fresh baguettes, croissants, and Moroccan pastries.",
-      languagesSpoken: ["French", "Arabic/Darija", "English"]
+      languagesSpoken: ["French", "Arabic/Darija", "English"],
+      menu: {
+        currency: "MAD",
+        lastUpdated: "2026-11",
+        serviceChargeIncluded: true,
+        sections: [
+          {
+            id: "breakfast-bakery",
+            title: "Breakfast Sets & Viennoiserie",
+            titleEn: "Breakfast Sets & Viennoiserie",
+            description: "Fresh morning croissants, Moroccan breakfast boards, and café classics since 1984.",
+            items: [
+              { id: "tafarnout-agadir-moroccan-breakfast", name: "Traditional Moroccan Breakfast Set", nameEn: "Traditional Moroccan Breakfast Set", localName: "Ftour Beldi", translations: { ar: "فطور بلدي مغربي تقليدي", en: "Traditional Moroccan Breakfast Set", es: "Desayuno Marroquí Tradicional", de: "Traditionelles Marokkanisches Frühstück" }, description: "Warm msemen, baghrir, honey, amlou, olive oil, olives, fresh juice, and mint tea or coffee.", price: 55, isSignature: true, dietary: ["halal", "vegetarian"] },
+              { id: "tafarnout-agadir-croissants", name: "Fresh Butter Croissants & Pain au Chocolat", nameEn: "Fresh Butter Croissants & Pain au Chocolat", translations: { ar: "كرواسون بالزبدة طازج وبان أو شوكولا", en: "Fresh Butter Croissants & Pain au Chocolat", es: "Croissants de Mantequilla y Napolitana", de: "Frische Buttercroissants & Schokobrötchen" }, description: "Baked every morning in Tafarnout's Avenue Hassan II bakery ovens.", price: 12, isSignature: true, dietary: ["halal", "vegetarian"] },
+              { id: "tafarnout-agadir-crepe-amlou", name: "Crêpe Amlou / Nutella", nameEn: "Amlou or Nutella Crêpe", translations: { ar: "كريب بالأملو أو النوتيلا", en: "Amlou or Nutella Crêpe", es: "Crepe de Amlou o Nutella", de: "Crêpe mit Amlou oder Nutella" }, description: "Warm crêpe filled with artisanal argan-almond amlou or chocolate hazelnut spread.", price: 42, dietary: ["halal", "vegetarian"] },
+              { id: "tafarnout-agadir-gaufre-amlou", name: "Gaufre Amlou / Caramel", nameEn: "Amlou or Salted Caramel Waffle", translations: { ar: "وافل بالأملو أو الكراميل", en: "Amlou or Salted Caramel Waffle", es: "Gofre de Amlou o Caramelo", de: "Waffel mit Amlou oder Karamell" }, description: "Crisp golden waffle drizzled with Souss Valley amlou or salted butter caramel.", price: 33, dietary: ["halal", "vegetarian"] }
+            ]
+          },
+          {
+            id: "patisserie-moroccan",
+            title: "Pâtisseries, Tarts & Moroccan Sweets",
+            titleEn: "Patisseries, Tarts & Moroccan Sweets",
+            description: "Signature French-Moroccan pastries, tarts, and savory pastillas.",
+            items: [
+              { id: "tafarnout-agadir-lemon-tart", name: "Lemon Tart & Almond Fruit Tarts", nameEn: "Lemon Tart & Almond Fruit Tarts", translations: { ar: "تارت الليمون وتارت اللوز", en: "Lemon Tart & Almond Fruit Tarts", es: "Tarta de Limón y Tartaletas de Almendra", de: "Zitronentarte & Mandelküchlein" }, description: "Zesty house lemon tart, apple almond tart, or chocolate ganache tartlet.", price: 25, isSignature: true, dietary: ["halal", "vegetarian"] },
+              { id: "tafarnout-agadir-millefeuille", name: "Mille-Feuille / Éclair (Vanille ou Chocolat)", nameEn: "Mille-Feuille or Éclair", translations: { ar: "ميل فوي أو إكلير بالفانيليا والشوكولاتة", en: "Mille-Feuille or Éclair", es: "Milhojas o Éclair de Vainilla y Chocolate", de: "Mille-Feuille oder Éclair" }, description: "Classic crisp puff pastry mille-feuille or filled choux éclair.", price: 21, dietary: ["halal", "vegetarian"] },
+              { id: "tafarnout-agadir-moroccan-sweets", name: "Assortiment de Gâteaux Marocains", nameEn: "Assorted Moroccan Almond Pastries", translations: { ar: "تشكيلة حلويات مغربية تقليدية باللوز", en: "Assorted Moroccan Almond Pastries", es: "Surtido de Pasteles Marroquíes", de: "Auswahl Marokkanischer Mandelgebäcke" }, description: "Boxed selection of gazelle horns, almond briouats, and fekkas.", price: 60, dietary: ["halal", "vegetarian"] },
+              { id: "tafarnout-agadir-pastilla-duo", name: "Mini Pastilla Poulet / Poisson", nameEn: "Individual Chicken or Seafood Pastilla", translations: { ar: "بسطيلة فردية بالدجاج أو السمك", en: "Individual Chicken or Seafood Pastilla", es: "Pastela Individual de Pollo o Pescado", de: "Kleine Hähnchen- oder Fisch-Pastilla" }, description: "Flaky warqa pastry filled with spiced shredded chicken (33 MAD) or seafood (39 MAD).", price: 36, dietary: ["halal"] }
+            ]
+          },
+          {
+            id: "savory-drinks",
+            title: "Paninis, Coffee & Fresh Juices",
+            titleEn: "Paninis, Coffee & Fresh Juices",
+            description: "Quick counter sandwiches, Nespresso coffees, mint tea, and cold-pressed juices.",
+            items: [
+              { id: "tafarnout-agadir-panini", name: "Panini Fromage / Poulet", nameEn: "Grilled Cheese or Chicken Panini", translations: { ar: "بانيني بالجبن أو الدجاج", en: "Grilled Cheese or Chicken Panini", es: "Panini de Queso o Pollo", de: "Gegrilltes Käse- oder Hähnchen-Panini" }, description: "Toasted bakery bread pressed with melted cheese and herbs.", price: 43, dietary: ["halal"] },
+              { id: "tafarnout-agadir-mint-tea", name: "Moroccan Mint Tea", nameEn: "Moroccan Mint Tea", localName: "Atay", translations: { ar: "أتاي مغربي بالنعناع", en: "Moroccan Mint Tea", es: "Té Marroquí a la Menta", de: "Marokkanischer Minztee" }, description: "Freshly brewed green tea with aromatic garden mint.", price: 18, isSignature: true, dietary: ["halal", "vegan", "gluten-free"] },
+              { id: "tafarnout-agadir-nespresso", name: "Nespresso + Mineral Water", nameEn: "Espresso & Mineral Water", translations: { ar: "إسبريسو مع ماء معدني", en: "Espresso & Mineral Water", es: "Café Espresso con Agua Mineral", de: "Espresso mit Mineralwasser" }, description: "Single espresso served with 33cl chilled mineral water.", price: 18, dietary: ["halal", "vegan", "gluten-free"] },
+              { id: "tafarnout-agadir-almond-juice", name: "Fresh Almond or Tropical Smoothie", nameEn: "Almond Milkshake or Tropical Smoothie", translations: { ar: "عصير اللوز الطازج أو سموذي استوائي", en: "Almond Milkshake or Tropical Smoothie", es: "Batido de Almendras o Smoothie Tropical", de: "Mandel-Shake oder Tropischer Smoothie" }, description: "Blended fresh almond milk (26 MAD) or mango-pineapple-kiwi smoothie (31 MAD).", price: 28, dietary: ["halal", "vegetarian", "gluten-free"] }
+            ]
+          }
+        ]
+      }
     }
   ,
     // ── 4. WORRIES ("Things You're Worried About!") ──
@@ -7823,7 +7866,50 @@ export const agadirEat: EatListing[] = [
       bookingUrl: "",
       website: "not-available",
       instagram: "https://instagram.com/yuzaki_restaurant",
-      languagesSpoken: ["French", "English", "Arabic/Darija"]
+      languagesSpoken: ["French", "English", "Arabic/Darija"],
+      menu: {
+        currency: "MAD",
+        lastUpdated: "2026-11",
+        serviceChargeIncluded: true,
+        sections: [
+          {
+            id: "starters-sushi-tacos",
+            title: "Starters, Tartares & Sushi Tacos",
+            titleEn: "Starters, Tartares & Sushi Tacos",
+            description: "Signature crispy nori sushi tacos, gyozas, and fresh fish tartares.",
+            items: [
+              { id: "yuzaki-salmon-tacos", name: "Salmon Sushi Tacos", nameEn: "Crispy Nori Salmon Sushi Tacos", translations: { ar: "تاكو السوشي بالسلمون الطازج", en: "Crispy Nori Salmon Sushi Tacos", es: "Tacos de Sushi de Salmón", de: "Knusprige Lachs-Sushi-Tacos" }, description: "Tempura-crisp nori shells filled with sushi rice, fresh salmon, avocado, and spicy mayo.", price: 70, isSignature: true, dietary: ["halal"] },
+              { id: "yuzaki-crab-tacos", name: "Crab Sushi Tacos", nameEn: "Crab Sushi Tacos", translations: { ar: "تاكو السوشي بالسلطعون", en: "Crab Sushi Tacos", es: "Tacos de Sushi de Cangrejo", de: "Krabben-Sushi-Tacos" }, description: "Crunchy nori shells stuffed with seasoned crab mix, cucumber, and tobiko.", price: 70, dietary: ["halal"] },
+              { id: "yuzaki-shrimp-tacos", name: "Shrimp Sushi Tacos", nameEn: "Crispy Shrimp Sushi Tacos", translations: { ar: "تاكو السوشي بالجمبري", en: "Crispy Shrimp Sushi Tacos", es: "Tacos de Sushi de Langostinos", de: "Garnelen-Sushi-Tacos" }, description: "Golden shrimp tempura nestled in crispy nori tacos with sesame dressing.", price: 60, dietary: ["halal"] },
+              { id: "yuzaki-tuna-tartare", name: "Tuna Tartare", nameEn: "Fresh Yellowfin Tuna Tartare", translations: { ar: "تارتار التونة الطازجة بالأفوكادو", en: "Fresh Yellowfin Tuna Tartare", es: "Tartar de Atún con Aguacate", de: "Thunfisch-Tatar mit Avocado" }, description: "Diced Atlantic tuna dressed with soy-sesame oil, avocado, and crispy shallots.", price: 85, isSignature: true, dietary: ["halal"] },
+              { id: "yuzaki-gyoza", name: "Chicken & Prawn Gyozas (5 pcs)", nameEn: "Pan-Seared Chicken & Prawn Gyozas", translations: { ar: "جيوزا الدجاج والجمبري المقرمشة", en: "Pan-Seared Chicken & Prawn Gyozas", es: "Gyozas de Pollo y Gambas", de: "Gebratene Gyozas mit Huhn & Garnelen" }, description: "Crisp-bottomed Japanese dumplings served with yuzu soy dipping sauce.", price: 65, dietary: ["halal"] }
+            ]
+          },
+          {
+            id: "signature-rolls",
+            title: "Signature Sushi Rolls & Sashimi",
+            titleEn: "Signature Sushi Rolls & Sashimi",
+            description: "8-piece specialty maki rolls, tempura crunch rolls, and sashimi platters.",
+            items: [
+              { id: "yuzaki-rock-shrimp", name: "Rock Shrimp Rolls", nameEn: "Rock Shrimp Tempura Rolls", translations: { ar: "رولز روك شريمب تمبورا", en: "Rock Shrimp Tempura Rolls", es: "Rolls Rock Shrimp en Tempura", de: "Rock-Shrimp-Tempura-Rolls" }, description: "Crispy shrimp tempura maki glazed with creamy spicy dynamite sauce.", price: 95, isSignature: true, dietary: ["halal"] },
+              { id: "yuzaki-dragon-roll", name: "Dragon Roll", nameEn: "Ebi Dragon Roll", translations: { ar: "دراغون رول بالجمبري والأفوكادو", en: "Ebi Dragon Roll", es: "Dragon Roll de Langostino y Aguacate", de: "Dragon Roll mit Tempura-Garnele & Avocado" }, description: "Prawn tempura and cucumber topped with sliced avocado, unagi glaze, and toasted sesame.", price: 110, isSignature: true, dietary: ["halal"] },
+              { id: "yuzaki-salmon-california", name: "Fresh Salmon & Avocado Roll (8 pcs)", nameEn: "Salmon Avocado Uramaki", translations: { ar: "كاليفورنيا رول السلمون والأفوكادو", en: "Salmon Avocado Uramaki", es: "Uramaki de Salmón y Aguacate", de: "Lachs-Avocado-Uramaki" }, description: "Classic inside-out roll with Atlantic salmon, avocado, and cream cheese.", price: 85, dietary: ["halal"] },
+              { id: "yuzaki-sushi-boat", name: "Yuzaki Sharing Platter (24 pcs)", nameEn: "Yuzaki Chef's Sushi Platter (24 pcs)", translations: { ar: "طبق يوزاكي المشترك للسوشي (24 قطعة)", en: "Yuzaki Chef's Sushi Platter (24 pcs)", es: "Bandeja de Sushi Yuzaki (24 piezas)", de: "Yuzaki Sushi-Platte (24 Stück)" }, description: "Assorted signature rolls, salmon nigiri, and sashimi curated for two.", price: 290, dietary: ["halal"] }
+            ]
+          },
+          {
+            id: "woks-noodles",
+            title: "Asian Woks, Noodles & Soups",
+            titleEn: "Asian Woks, Noodles & Soups",
+            description: "Hot wok-tossed noodles, Thai curries, and miso or hot-and-sour soups.",
+            items: [
+              { id: "yuzaki-hot-sour-soup", name: "Hot & Sour Seafood Soup", nameEn: "Hot & Sour Seafood Soup", translations: { ar: "حساء ثمار البحر الحار والحامض", en: "Hot & Sour Seafood Soup", es: "Sopa Agripicante de Mariscos", de: "Scharf-Saure Meeresfrüchtesuppe" }, description: "Aromatic Asian broth simmered with prawns, calamari, mushrooms, and bamboo shoots.", price: 55, isSpicy: true, dietary: ["halal"] },
+              { id: "yuzaki-beef-wok", name: "Szechuan Beef & Cashew Wok", nameEn: "Szechuan Beef & Vegetable Wok", translations: { ar: "ووك اللحم البقري بالخضار والكاجو", en: "Szechuan Beef & Vegetable Wok", es: "Wok de Ternera con Verduras y Anacardos", de: "Wok-Rindfleisch mit Gemüse & Cashews" }, description: "Seared beef strips stir-fried with crunchy seasonal vegetables and jasmine rice.", price: 120, isSpicy: true, dietary: ["halal"] },
+              { id: "yuzaki-pad-thai", name: "Shrimp & Chicken Wok Noodles", nameEn: "Wok-Fried Noodles with Shrimp & Chicken", translations: { ar: "نودلز الووك بالجمبري والدجاج", en: "Wok-Fried Noodles with Shrimp & Chicken", es: "Fideos al Wok con Pollo y Gambas", de: "Wok-Nudeln mit Huhn & Garnelen" }, description: "Savory rice or egg noodles tossed with wok vegetables, soy glaze, and crushed peanuts.", price: 110, dietary: ["halal"] }
+            ]
+          }
+        ]
+      }
     }
   ,
     // ── 4. WORRIES ("Things You're Worried About!") ──
@@ -9090,7 +9176,60 @@ export const agadirEat: EatListing[] = [
       bookingUrl: "",
       website: "not-available",
       instagram: "not-available",
-      languagesSpoken: ["French", "English", "Arabic/Darija"]
+      languagesSpoken: ["French", "English", "Arabic/Darija"],
+      menu: {
+        currency: "MAD",
+        lastUpdated: "2026-11",
+        serviceChargeIncluded: true,
+        sections: [
+          {
+            id: "starters-salads",
+            title: "Entrées, Tapas & Composite Salads",
+            titleEn: "Starters, Seafood Soups & Salads",
+            description: "Fresh seafood starters, Gambas Pil-Pil, and Vanisca's signature tropical salads.",
+            items: [
+              { id: "vanisca-gambas-pil-pil", name: "Gambas Pil-Pil", nameEn: "Sizzling Garlic & Chili Prawns", translations: { ar: "روبيان بيل بيل بالثوم والفلفل الحار", en: "Sizzling Garlic & Chili Prawns", es: "Gambas al Pil-Pil", de: "Brutzelnde Knoblauch-Chili-Garnelen" }, description: "Agadir Atlantic prawns sautéed in olive oil, roasted garlic, and mild chili.", price: 95, isSignature: true, isSpicy: true, dietary: ["halal", "gluten-free"] },
+              { id: "vanisca-seafood-soup", name: "Creamy Coastal Seafood Soup", nameEn: "Coastal Fisherman's Seafood Soup", translations: { ar: "حساء ثمار البحر الكريمي", en: "Coastal Fisherman's Seafood Soup", es: "Sopa Cremosa de Mariscos", de: "Cremige Meeresfrüchtesuppe" }, description: "Rich bisque-style soup with white fish, calamari, prawns, and herbed croutons.", price: 75, dietary: ["halal"] },
+              { id: "vanisca-exotic-salad", name: "Salade Vanisca (Exotic Prawns & Avocado)", nameEn: "Vanisca Exotic Prawn & Avocado Salad", translations: { ar: "سلطة فانيسكا بالروبيان والأفوكادو والمانجو", en: "Vanisca Exotic Prawn & Avocado Salad", es: "Ensalada Exótica Vanisca de Langostinos y Aguacate", de: "Vanisca Exotischer Garnelen-Avocado-Salat" }, description: "Crisp greens layered with grilled prawns, avocado, mango, pineapple, and quail eggs.", price: 90, dietary: ["halal", "gluten-free"] },
+              { id: "vanisca-prawn-skewers", name: "Brochettes de Gambas Grillées", nameEn: "Grilled Prawn Skewers", translations: { ar: "أسياخ الروبيان المشوي", en: "Grilled Prawn Skewers", es: "Brochetas de Langostinos a la Parrilla", de: "Gegrillte Garnelenspieße" }, description: "Char-grilled Atlantic prawn skewers brushed with herb lemon butter.", price: 95, dietary: ["halal", "gluten-free"] }
+            ]
+          },
+          {
+            id: "signature-mains",
+            title: "Signature Mains (Meat & Seafood)",
+            titleEn: "Signature Mains (Meat & Atlantic Seafood)",
+            description: "French-Moroccan slow-braised lamb shank, steaks, and coastal fish in bisque.",
+            items: [
+              { id: "vanisca-lamb-shank", name: "Confit Lamb Shank with Orange Glaze", nameEn: "7-Hour Confit Lamb Shank in Orange Glaze", localName: "Souris d'Agneau Confite", translations: { ar: "موزة لحم الضأن المطهوة ببطء بصلصة البرتقال", en: "7-Hour Confit Lamb Shank in Orange Glaze", es: "Jarrete de Cordero Confitado a la Naranja", de: "7 Stunden Geschmorte Lammhaxe in Orangenglasur" }, description: "Vanisca's signature fall-off-the-bone lamb shank slow-braised for 7 hours with citrus glaze and mash.", price: 185, isSignature: true, dietary: ["halal"] },
+              { id: "vanisca-saint-pierre", name: "Saint-Pierre Fillet in Prawn Bisque", nameEn: "John Dory Fillet in Prawn Bisque", translations: { ar: "فيليه سمك سان بيير بصلصة الروبيان", en: "John Dory Fillet in Prawn Bisque", es: "Filete de San Pedro en Bisque de Gambas", de: "Petersfischfilet in Garnelen-Bisque" }, description: "Pan-seared local John Dory fillet served in velvety crustacean bisque with saffron rice.", price: 175, isSignature: true, dietary: ["halal", "gluten-free"] },
+              { id: "vanisca-stuffed-sole", name: "Sole Farcie aux Gambas", nameEn: "Atlantic Sole Stuffed with Prawns", translations: { ar: "سمك الصول المحشو بالروبيان", en: "Atlantic Sole Stuffed with Prawns", es: "Lenguado Relleno de Gambas", de: "Mit Garnelen Gefüllte Seezunge" }, description: "Whole rolled Atlantic sole filled with spiced shrimp mousse in creamy shrimp sauce.", price: 170, dietary: ["halal"] },
+              { id: "vanisca-veal-mignon", name: "Filet de Veau Mignon au Poivre", nameEn: "Veal Mignon with Peppercorn Sauce", translations: { ar: "فيليه العجل بصلصة الفلفل", en: "Veal Mignon with Peppercorn Sauce", es: "Solomillo de Ternera a la Pimienta", de: "Kalbsfilet mit Pfeffersauce" }, description: "Tender veal tenderloin medallions finished in cracked peppercorn cream with gratin dauphinois.", price: 195, dietary: ["halal"] },
+              { id: "vanisca-ribeye", name: "Entrecôte Grillée", nameEn: "Char-Grilled Ribeye Steak", translations: { ar: "ستيك أنتريكوت مشوي", en: "Char-Grilled Ribeye Steak", es: "Entrecot a la Parrilla", de: "Gegrilltes Ribeye-Steak" }, description: "Prime grilled ribeye served with herb butter, seasonal vegetables, and homemade fries.", price: 180, dietary: ["halal", "gluten-free"] }
+            ]
+          },
+          {
+            id: "pasta-risotto",
+            title: "Italian Pasta & Risotto",
+            titleEn: "Italian Pasta & Risotto",
+            description: "Creamy seafood risottos and freshly prepared Italian pastas.",
+            items: [
+              { id: "vanisca-seafood-risotto", name: "Seafood Risotto", nameEn: "Creamy Adriatic-Style Seafood Risotto", translations: { ar: "ريزوتو ثمار البحر الكريمي", en: "Creamy Seafood Risotto", es: "Risotto Cremoso de Mariscos", de: "Cremiges Meeresfrüchte-Risotto" }, description: "Arborio rice slowly cooked with prawns, calamari, mussels, and parmesan.", price: 145, isSignature: true, dietary: ["halal", "gluten-free"] },
+              { id: "vanisca-alfredo", name: "Penne Alfredo au Poulet", nameEn: "Chicken Alfredo Penne", translations: { ar: "باستا ألفريدو بالدجاج", en: "Chicken Alfredo Penne", es: "Penne Alfredo con Pollo", de: "Penne Alfredo mit Hähnchen" }, description: "Penne pasta tossed in parmesan garlic cream with grilled chicken breast and mushrooms.", price: 115, dietary: ["halal"] }
+            ]
+          },
+          {
+            id: "desserts-drinks",
+            title: "Desserts & Fresh Juices",
+            titleEn: "Desserts & Fresh Juices",
+            description: "Generous house-baked cakes, brûlées, and alcohol-free fresh fruit mocktails.",
+            items: [
+              { id: "vanisca-san-sebastian", name: "San Sebastian Cheesecake", nameEn: "Burnt Basque San Sebastian Cheesecake", translations: { ar: "تشيز كيك سان سيباستيان", en: "Burnt Basque San Sebastian Cheesecake", es: "Tarta de Queso San Sebastián", de: "San-Sebastián-Käsekuchen" }, description: "Caramelized crust with a creamy baked center, served with warm chocolate drizzle.", price: 65, isSignature: true, dietary: ["halal", "vegetarian"] },
+              { id: "vanisca-creme-brulee", name: "Grande Crème Brûlée Maison", nameEn: "Classic Vanilla Bean Crème Brûlée", translations: { ar: "كريم بروليه بالفانيليا", en: "Classic Vanilla Bean Crème Brûlée", es: "Crème Brûlée Clásica de Vainilla", de: "Hausgemachte Crème Brûlée" }, description: "Generous ramekin of chilled vanilla custard under a crisp caramelized sugar crust.", price: 55, dietary: ["halal", "vegetarian", "gluten-free"] },
+              { id: "vanisca-fresh-juice", name: "Fresh Mango or Strawberry Juice", nameEn: "Fresh Pressed Fruit Juice", translations: { ar: "عصير المانجو أو الفراولة الطازج", en: "Fresh Pressed Fruit Juice", es: "Zumo Natural de Mango o Fresa", de: "Frisch Gepresster Mango- oder Erdbeersaft" }, description: "Chilled seasonal fruit pressed to order (alcohol-free venue).", price: 35, dietary: ["halal", "vegan", "gluten-free"] }
+            ]
+          }
+        ]
+      }
     }
   ,
     // ── 4. WORRIES ("Things You're Worried About!") ──

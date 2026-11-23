@@ -478,8 +478,47 @@ export const taghazoutEat: EatListing[] = [
     wheelchairAccessible: true
   ,
     tags: ["budget", "dinner", "dry", "wifi"],
-    fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
-    menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
+    menu: {
+      currency: "MAD",
+      lastUpdated: "2026-11",
+      serviceChargeIncluded: true,
+      sections: [
+        {
+          id: "pizzas-pastas",
+          title: "Wood-Fired Thin-Crust Pizzas & Pastas",
+          titleEn: "Wood-Fired Thin-Crust Pizzas & Pastas",
+          description: "Taghazout village's classic thin-crust pizzas and hearty post-surf pasta bowls.",
+          items: [
+            { id: "lespot-seafood-pizza", name: "Taghazout Seafood Pizza", nameEn: "Taghazout Seafood Pizza", translations: { ar: "بيتزا ثمار البحر تاغازوت", en: "Taghazout Seafood Pizza", es: "Pizza de Mariscos Taghazout", de: "Meeresfrüchte-Pizza Taghazout" }, description: "Crispy thin crust topped with tomato sauce, mozzarella, calamari, prawns, and oregano.", price: 85, isSignature: true, dietary: ["halal"] },
+            { id: "lespot-margherita", name: "Pizza Margherita", nameEn: "Classic Margherita Pizza", translations: { ar: "بيتزا مارغريتا كلاسيكية", en: "Classic Margherita Pizza", es: "Pizza Margarita", de: "Pizza Margherita" }, description: "San Marzano tomato base, mozzarella, fresh basil, and olive oil.", price: 60, dietary: ["halal", "vegetarian"] },
+            { id: "lespot-alfredo-penne", name: "Alfredo Chicken Penne", nameEn: "Creamy Chicken Alfredo Penne", translations: { ar: "باستا ألفريدو بالدجاج", en: "Creamy Chicken Alfredo Penne", es: "Penne Alfredo con Pollo", de: "Penne Alfredo mit Hähnchen" }, description: "Penne pasta tossed in creamy garlic parmesan sauce with sautéed chicken and mushrooms.", price: 75, isSignature: true, dietary: ["halal"] },
+            { id: "lespot-spaghetti-bolognese", name: "Spaghetti Bolognese", nameEn: "Beef Bolognese Spaghetti", translations: { ar: "سباغيتي بولونيز", en: "Beef Bolognese Spaghetti", es: "Espaguetis a la Boloñesa", de: "Spaghetti Bolognese" }, description: "Slow-simmered minced beef and herb tomato ragù over al dente spaghetti.", price: 70, dietary: ["halal"] }
+          ]
+        },
+        {
+          id: "tagines-seafood",
+          title: "Moroccan Tagines & Grilled Catch",
+          titleEn: "Moroccan Tagines & Grilled Catch",
+          description: "Traditional clay-pot tagines and fresh coastal seafood plates with fries and salad.",
+          items: [
+            { id: "lespot-chicken-tagine", name: "Chicken & Preserved Lemon Tagine", nameEn: "Chicken & Preserved Lemon Tagine", localName: "Tajine Poulet Citron", translations: { ar: "طاجين الدجاج بالحامض المصير والزيتون", en: "Chicken & Preserved Lemon Tagine", es: "Tajín de Pollo al Limón Confitado", de: "Hähnchen-Tajine mit Salzzitrone" }, description: "Simmered chicken with local olives, preserved lemon, and crusty Moroccan khobz.", price: 75, dietary: ["halal"] },
+            { id: "lespot-kefta-tagine", name: "Kefta & Egg Tomato Tagine", nameEn: "Spiced Beef Kefta Tagine", translations: { ar: "طاجين الكفتة بالبيض وصلصة الطماطم", en: "Spiced Beef Kefta Tagine", es: "Tajín de Kefta con Huevo", de: "Kefta-Tajine mit Tomaten & Ei" }, description: "Seasoned beef meatballs simmered in cumin tomato sauce topped with poached eggs.", price: 80, dietary: ["halal"] },
+            { id: "lespot-grilled-calamari", name: "Grilled Calamari & Fish Plate", nameEn: "Grilled Atlantic Calamari Plate", translations: { ar: "طبق الكالمار والسمك المشوي", en: "Grilled Atlantic Calamari Plate", es: "Calamares y Pescado a la Plancha", de: "Gegrillter Tintenfisch & Fischplatte" }, description: "Char-grilled local calamari and white fish fillet served with fries, rice, and Moroccan salad.", price: 105, dietary: ["halal", "gluten-free"] }
+          ]
+        },
+        {
+          id: "crepes-drinks",
+          title: "Sweet & Savory Crêpes & Drinks",
+          titleEn: "Sweet & Savory Crêpes & Drinks",
+          description: "French-style crêpes, fresh juices, and hot mint tea.",
+          items: [
+            { id: "lespot-nutella-crepe", name: "Sweet Nutella Crêpe", nameEn: "Warm Nutella & Banana Crêpe", translations: { ar: "كريب نوتيلا دافئ", en: "Warm Nutella & Banana Crêpe", es: "Crepe Dulce de Nutella", de: "Süßer Nutella-Crêpe" }, description: "Thin golden crêpe folded generously with Nutella hazelnut spread (optional banana).", price: 35, isSignature: true, dietary: ["halal", "vegetarian"] },
+            { id: "lespot-savory-crepe", name: "Savory Cheese & Chicken Crêpe", nameEn: "Savory Cheese & Chicken Crêpe", translations: { ar: "كريب مالح بالجبن والدجاج", en: "Savory Cheese & Chicken Crêpe", es: "Crepe Salado de Pollo y Queso", de: "Herzhafter Hähnchen-Käse-Crêpe" }, description: "Folded buckwheat-style savory crêpe with melted mozzarella, chicken, and herbs.", price: 45, dietary: ["halal"] },
+            { id: "lespot-orange-juice", name: "Fresh Squeezed Orange Juice", nameEn: "Fresh Squeezed Orange Juice", translations: { ar: "عصير برتقال طازج", en: "Fresh Squeezed Orange Juice", es: "Zumo de Naranja Natural", de: "Frisch Gepresster Orangensaft" }, description: "Sweet Souss Valley oranges pressed fresh to order.", price: 20, dietary: ["halal", "vegan", "gluten-free"] }
+          ]
+        }
+      ]
+    },
   
     // ── 4. WORRIES ("Things You're Worried About!") ──
     worries: [
@@ -567,8 +606,46 @@ export const taghazoutEat: EatListing[] = [
     wheelchairAccessible: false
   ,
     tags: ["alcohol", "budget", "dinner", "fine", "wifi"],
-    fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
-    menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
+    menu: {
+      currency: "MAD",
+      lastUpdated: "2026-11",
+      serviceChargeIncluded: true,
+      sections: [
+        {
+          id: "sourdough-pizzas",
+          title: "Wood-Fired Sourdough Pizzas",
+          titleEn: "Wood-Fired Sourdough Pizzas",
+          description: "48-hour fermented sourdough crusts baked in Munga's wood-fired oven.",
+          items: [
+            { id: "munga-seafood-pizza", name: "Sourdough Seafood Pizza", nameEn: "Wood-Fired Sourdough Seafood Pizza", translations: { ar: "بيتزا العجين المخمر بثمار البحر", en: "Wood-Fired Sourdough Seafood Pizza", es: "Pizza de Masa Madre y Mariscos", de: "Sauerteig-Meeresfrüchte-Pizza" }, description: "Blistered sourdough crust topped with Atlantic prawns, calamari, garlic oil, and fresh herbs.", price: 155, isSignature: true, dietary: ["halal"] },
+            { id: "munga-burrata-pizza", name: "Sourdough Margherita & Basil Pizza", nameEn: "Sourdough Margherita & Mozzarella Pizza", translations: { ar: "بيتزا مارغريتا بالعجين المخمر", en: "Sourdough Margherita & Mozzarella Pizza", es: "Pizza Margarita de Masa Madre", de: "Sauerteig-Pizza Margherita" }, description: "Slow-fermented dough with crushed San Marzano tomatoes, fior di latte, and sweet basil.", price: 120, dietary: ["halal", "vegetarian"] },
+            { id: "munga-veggie-pizza", name: "Roasted Seasonal Veggie & Goat Cheese Pizza", nameEn: "Roasted Vegetable & Goat Cheese Pizza", translations: { ar: "بيتزا الخضار المشوية وجبن الماعز", en: "Roasted Vegetable & Goat Cheese Pizza", es: "Pizza de Verduras Asadas y Queso de Cabra", de: "Pizza mit Röstgemüse & Ziegenkäse" }, description: "Charred zucchini, eggplant, caramelized onions, local goat cheese, and oregano.", price: 135, dietary: ["halal", "vegetarian"] }
+          ]
+        },
+        {
+          id: "salads-mains",
+          title: "Organic Salads, Seafood & Big Burgers",
+          titleEn: "Organic Salads, Seafood & Big Burgers",
+          description: "Fresh Atlantic catches, gourmet burgers, and vibrant organic bowls.",
+          items: [
+            { id: "munga-yellowfin-tuna", name: "Seared Yellowfin Tuna", nameEn: "Sesame-Seared Yellowfin Tuna Steak", translations: { ar: "تونة صفراء الزعانف مشوية", en: "Sesame-Seared Yellowfin Tuna Steak", es: "Atún Rojo Sellado a la Plancha", de: "Gebratenes Gelbflossen-Thunfischsteak" }, description: "Fresh local yellowfin tuna seared rare with citrus-soy glaze, avocado, and roasted potatoes.", price: 185, isSignature: true, dietary: ["halal", "gluten-free"] },
+            { id: "munga-goat-cheese-salad", name: "Warm Goat Cheese Salad", nameEn: "Organic Warm Goat Cheese & Walnut Salad", translations: { ar: "سلطة جبن الماعز الدافئ العضوية", en: "Organic Warm Goat Cheese & Walnut Salad", es: "Ensalada Orgánica de Queso de Cabra Templado", de: "Bio-Salat mit Warmem Ziegenkäse" }, description: "Organic Taghazout greens, toasted goat cheese medallions, walnuts, figs, and honey mustard dressing.", price: 115, isSignature: true, dietary: ["halal", "vegetarian"] },
+            { id: "munga-big-burger", name: "Munga's Big Artisan Beef Burger", nameEn: "Munga's Gourmet Beef Burger", translations: { ar: "برغر مونغا الكبير باللحم البقري", en: "Munga's Gourmet Beef Burger", es: "Gran Hamburguesa Gourmet de Ternera", de: "Mungas Großer Gourmet-Rindfleischburger" }, description: "Double-seared beef patty on toasted brioche with aged cheddar, caramelized onion, and hand-cut fries.", price: 145, dietary: ["halal"] },
+            { id: "munga-vegan-bowl", name: "Bohemian Plant-Based Harvest Bowl", nameEn: "Vegan Roasted Vegetable & Quinoa Bowl", translations: { ar: "طبق نباتي عضوي بالكينوا والخضار", en: "Vegan Roasted Vegetable & Quinoa Bowl", es: "Bowl Vegano de Quinoa y Verduras Asadas", de: "Vegane Quinoa-Gemüse-Bowl" }, description: "Quinoa, spiced chickpeas, avocado, roasted sweet potato, tahini dressing, and toasted seeds.", price: 110, dietary: ["halal", "vegan", "gluten-free"] }
+          ]
+        },
+        {
+          id: "desserts-bar",
+          title: "Homemade Desserts & Craft Bar",
+          titleEn: "Homemade Desserts & Craft Bar",
+          description: "House-baked sweets paired with licensed wines, draft beers, and cocktails.",
+          items: [
+            { id: "munga-fondant", name: "Warm Chocolate Fondant & Ice Cream", nameEn: "Dark Chocolate Fondant", translations: { ar: "فوندان الشوكولاتة الداكنة الدافئ", en: "Dark Chocolate Fondant", es: "Coulant de Chocolate Negro", de: "Warmer Schokoladenkuchen mit Vanilleeis" }, description: "Molten dark chocolate cake baked fresh to order with vanilla bean ice cream.", price: 70, dietary: ["halal", "vegetarian"] },
+            { id: "munga-sunset-cocktail", name: "Munga Signature Cocktail / Moroccan Wine Glass", nameEn: "House Cocktail or Glass of Moroccan Wine", translations: { ar: "كوكتيل الدار أو نبيذ مغربي", en: "House Cocktail or Glass of Moroccan Wine", es: "Cóctel de la Casa o Vino Marroquí", de: "Hauscocktail oder Glas Marokkanischer Wein" }, description: "Licensed bar selection including Meknes/Essaouira wines, Casablanca beer, or ginger-mint cocktails.", price: 95 }
+          ]
+        }
+      ]
+    },
   
     // ── 4. WORRIES ("Things You're Worried About!") ──
     worries: [
@@ -1813,8 +1890,47 @@ export const taghazoutEat: EatListing[] = [
     wheelchairAccessible: true
   ,
     tags: ["alcohol", "budget", "dinner", "fine", "terrace", "wifi"],
-    fullMenu: { type: 'text', content: '' }, // TODO: Owner — paste the menu as text (web search)
-    menuUrl: '', // TODO: Owner — paste the real menu page link (web search)
+    menu: {
+      currency: "MAD",
+      lastUpdated: "2026-11",
+      serviceChargeIncluded: true,
+      sections: [
+        {
+          id: "starters-raw-bar",
+          title: "Starters, Salads & Shellfish",
+          titleEn: "Starters, Salads & Shellfish",
+          description: "Fresh coastal starters and vibrant resort salads poolside at Fairmont Taghazout Bay.",
+          items: [
+            { id: "beefreef-fritto-misto", name: "Fritto Misto (Shellfish)", nameEn: "Crispy Shellfish Fritto Misto", translations: { ar: "فريتو ميستو ثمار البحر المقرمشة", en: "Crispy Shellfish Fritto Misto", es: "Fritto Misto de Mariscos", de: "Knuspriges Meeresfrüchte-Fritto-Misto" }, description: "Crisp shrimp, calamari, and baby octopus served with vegetable chips and spicy mayo.", price: 160, dietary: ["halal"] },
+            { id: "beefreef-taghazout-salad", name: "Taghazout Salad", nameEn: "Taghazout Orchard & Feta Salad", translations: { ar: "سلطة تاغازوت بالجبن والرمان", en: "Taghazout Orchard & Feta Salad", es: "Ensalada Taghazout con Feta y Granada", de: "Taghazout-Salat mit Feta & Granatapfel" }, description: "Mesclun greens, tomatoes, cucumber, walnuts, raisins, feta, pomegranate, blueberries, and potato crunch.", price: 160, dietary: ["halal", "vegetarian"] }
+          ]
+        },
+        {
+          id: "surf-turf-mains",
+          title: "Surf & Turf Signature Burgers & Mains",
+          titleEn: "Surf & Turf Signature Burgers & Mains",
+          description: "Charcoal-grilled Wagyu cuts, Atlantic sea bass in salt crust, and lobster specialties.",
+          items: [
+            { id: "beefreef-wagyu-ribeye", name: "Charcoal-Grilled Wagyu Ribeye", nameEn: "Charcoal-Grilled Wagyu Ribeye", translations: { ar: "ريباي واجيو مشوي على الفحم", en: "Charcoal-Grilled Wagyu Ribeye", es: "Chuletón Wagyu a la Brasa", de: "Holzkohle-gegrilltes Wagyu-Ribeye" }, description: "Prime marbled Wagyu ribeye seared over natural coals with herb jus and choice of 40 MAD sides.", price: 680, isSignature: true, dietary: ["halal", "gluten-free"] },
+            { id: "beefreef-seabass-salt", name: "Sea Bass in Salt Crust", nameEn: "Whole Atlantic Sea Bass in Sea Salt Crust", translations: { ar: "سمك الدرعي في قشرة الملح البحري", en: "Whole Atlantic Sea Bass in Sea Salt Crust", es: "Lubina a la Costra de Sal Marina", de: "Wolfsbarsch in der Meersalzkruste" }, description: "Wild local sea bass baked whole in coarse sea salt crust, tableside filleted (350 MAD for grilled fillet).", price: 350, isSignature: true, dietary: ["halal", "gluten-free"] },
+            { id: "beefreef-grilled-lobster", name: "Spiced Grilled Lobster", nameEn: "Spiced Atlantic Grilled Lobster", translations: { ar: "كركند أطلسي مشوي بالتوابل", en: "Spiced Atlantic Grilled Lobster", es: "Bogavante Atlántico a la Parrilla", de: "Gewürzter Gegrillter Atlantik-Hummer" }, description: "Wild-caught Taghazout Bay lobster split and charcoal-grilled with coastal herb butter.", price: 590, isSignature: true, dietary: ["halal", "gluten-free"] },
+            { id: "beefreef-signature-burger", name: "“Beef & Reef” Surf & Turf Burger", nameEn: "Beef & Reef Lobster & Beef Burger", translations: { ar: "برغر بيف أند ريف باللحم والكركند", en: "Beef & Reef Lobster & Beef Burger", es: "Hamburguesa Beef & Reef con Bogavante", de: "Beef & Reef Burger mit Hummer" }, description: "Prime beef patty topped with fresh lobster, iceberg lettuce, potato hay, and BBQ mushroom relish.", price: 350, isSignature: true, dietary: ["halal"] },
+            { id: "beefreef-lobster-mac", name: "Lobster Mac and Cheese", nameEn: "Truffle Lobster Mac & Cheese", translations: { ar: "ماك آند تشيز بالكركند والكمأة", en: "Truffle Lobster Mac & Cheese", es: "Mac and Cheese de Bogavante y Trufa", de: "Hummer-Mac-and-Cheese mit Trüffel" }, description: "Creamy gratinated macaroni folded with sweet Atlantic lobster, leek truffle cream, and chives.", price: 320, dietary: ["halal"] },
+            { id: "beefreef-cheeseburger", name: "Classic Fairmont Cheeseburger", nameEn: "Prime Beef Cheeseburger", translations: { ar: "تشيز برغر فيرمونت الكلاسيكي", en: "Prime Beef Cheeseburger", es: "Cheeseburger Clásica de Ternera", de: "Klassischer Fairmont-Cheeseburger" }, description: "100% ground beef patty on brioche bun with aged cheddar and smoky BBQ onion jam.", price: 250, dietary: ["halal"] }
+          ]
+        },
+        {
+          id: "garnitures-sides",
+          title: "Sides & Garnitures",
+          titleEn: "Sides & Garnitures",
+          description: "Accompaniments priced at 40 MAD (20% VAT included).",
+          items: [
+            { id: "beefreef-side-fries", name: "Crispy French Fries / Roasted Potatoes", nameEn: "French Fries or Herb Roasted Potatoes", translations: { ar: "بطاطس مقلية أو مشوية بالأعشاب", en: "French Fries or Herb Roasted Potatoes", es: "Patatas Fritas o Asadas", de: "Pommes Frites oder Kräuter-Bratkartoffeln" }, description: "Golden hand-cut fries or herb-roasted baby potatoes.", price: 40, dietary: ["halal", "vegan", "gluten-free"] },
+            { id: "beefreef-side-veg", name: "Seasonal Grilled Vegetables / Chef's Salad", nameEn: "Seasonal Grilled Vegetables or Garden Salad", translations: { ar: "خضار موسمية مشوية أو سلطة الشيف", en: "Seasonal Grilled Vegetables or Garden Salad", es: "Verduras a la Parrilla o Ensalada", de: "Gegrilltes Saisongemüse oder Gartensalat" }, description: "Charred coastal vegetables or crisp mixed garden greens.", price: 40, dietary: ["halal", "vegan", "gluten-free"] }
+          ]
+        }
+      ]
+    },
   
     // ── 4. WORRIES ("Things You're Worried About!") ──
     worries: [
