@@ -63,11 +63,13 @@ function syncGtagConsent(analytics: boolean, advertising: boolean) {
 
 export function maybeLoadAdsenseScript() {
   if (typeof document === 'undefined') return;
+  const existing = document.querySelector(
+    'script[data-mm-adsense="true"], script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]'
+  );
+  if (existing) return;
+
   const clientId = (import.meta.env.VITE_ADSENSE_CLIENT_ID || '').trim();
   if (!clientId || !/^ca-pub-\d{10,20}$/.test(clientId)) return;
-
-  const existing = document.querySelector('script[data-mm-adsense="true"]');
-  if (existing) return;
 
   const script = document.createElement('script');
   script.async = true;

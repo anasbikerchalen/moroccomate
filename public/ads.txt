@@ -1,5 +1,1 @@
-# Google AdSense ads.txt template
-# Once Google AdSense approves your account and assigns a Publisher ID,
-# replace pub-XXXXXXXXXXXXXXXX with your real Publisher ID and remove the leading '# '.
-#
-# google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
+google.com, pub-9346076587189206, DIRECT, f08c47fec0942fa0
