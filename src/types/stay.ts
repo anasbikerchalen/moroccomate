@@ -288,6 +288,13 @@ export interface StayListing {
   contact_whatsapp?: string;
   booking_url?: string;
   phone?: string;
+  affiliate_links?: {
+    bookingCom?: string;
+    expedia?: string;
+    hotelsCom?: string;
+    hostelworld?: string;
+    agoda?: string;
+  };
   // Metadata for backend sync
   created_at?: string;
   updated_at?: string;

@@ -18,6 +18,12 @@ import ListingHeroHeader, { WhatsAppIcon, type HeroFeatureChip, type HeroMetadat
 import ListingSectionNavigator, { type ListingNavigatorItem } from './ListingSectionNavigator';
 import { hasVerifiedReviews } from './listingNavUtils';
 import type { ReviewSource } from '../../types/reviews';
+import { getPlaceUiCopy } from '../../data/placeUiI18n';
+import {
+  getStayAffiliateBookingUrl,
+  isOtaBookingUrl,
+  trackStayAffiliateClick,
+} from '../../utils/stayAffiliate';
 
 interface StayDetailViewProps {
   item: any;
@@ -32,12 +38,14 @@ const LIFESTYLE_LABEL: Record<string, string> = {
 
 export default function StayDetailView({ item }: StayDetailViewProps) {
   const lang = useAppLanguage();
+  const ui = useMemo(() => getPlaceUiCopy(lang), [lang]);
   const { toggleBookmark, isBookmarked } = useSavedStore();
   const [selectedReviewSource, setSelectedReviewSource] = useState<ReviewSource | null>(null);
   const [copiedLink, setCopiedLink] = useState(false);
 
   // Bridge: collected sleep listing → new modular stay template schema
   const stay = useMemo(() => adaptToStayListing(item), [item]);
+  const affiliateBookingUrl = useMemo(() => getStayAffiliateBookingUrl(item, stay), [item, stay]);
 
   const stayFaqs = useMemo(
     () =>
@@ -133,8 +141,9 @@ export default function StayDetailView({ item }: StayDetailViewProps) {
 
   const cleanWhatsapp = stay.contact_whatsapp ? stay.contact_whatsapp.replace(/[^0-9]/g, '') : '';
   const cleanPhone = stay.phone ? stay.phone.replace(/[^0-9+]/g, '') : '';
+  const hasDirectNonOtaBooking = Boolean(stay.booking_url && !isOtaBookingUrl(stay.booking_url));
 
-  const stayPrimaryAction = stay.booking_url
+  const stayPrimaryAction = hasDirectNonOtaBooking
     ? {
         label: 'Direct Booking',
         href: stay.booking_url,
@@ -157,12 +166,7 @@ export default function StayDetailView({ item }: StayDetailViewProps) {
             icon: <Phone className="w-4 h-4 shrink-0" />,
             variant: 'dark' as const,
           }
-        : {
-            label: 'View Photos',
-            href: directionsUrl,
-            icon: <ExternalLink className="w-4 h-4 shrink-0" />,
-            variant: 'dark' as const,
-          };
+        : undefined;
 
   return (
     <motion.div
@@ -187,12 +191,26 @@ export default function StayDetailView({ item }: StayDetailViewProps) {
         highlightBadge={item?.isVerified ? 'Verified Stay' : undefined}
         actions={{
           directionsUrl,
-          directionsLabel: 'Get Directions',
+          directionsLabel: ui.hero.getDirections,
           primaryAction: stayPrimaryAction,
+          affiliateAction: {
+            label: ui.hero.checkRatesAvailability,
+            href: affiliateBookingUrl,
+            title: ui.hero.checkRatesAvailabilityTitle,
+            disclosure: ui.hero.affiliateDisclosure,
+            onClick: () =>
+              trackStayAffiliateClick({
+                stayId: idString || stay.id,
+                stayName: stay.name,
+                city: stay.location.city,
+                placement: 'stay_hero',
+                url: affiliateBookingUrl,
+              }),
+          },
           phone: stay.phone,
-          whatsappNumber: stay.booking_url ? stay.contact_whatsapp : undefined,
+          whatsappNumber: hasDirectNonOtaBooking ? stay.contact_whatsapp : undefined,
           websiteUrl: item?.officialWebsite || undefined,
-          websiteTitle: 'Visit property website',
+          websiteTitle: ui.hero.visitWebsiteTitle,
           isBookmarked: bookmarked,
           onToggleBookmark: () =>
             toggleBookmark({
@@ -204,8 +222,8 @@ export default function StayDetailView({ item }: StayDetailViewProps) {
             }),
           onShare: handleShare,
           copiedLink,
-          saveLabel: 'Save to Favorites',
-          savedLabel: 'Saved in Favorites',
+          saveLabel: ui.hero.saveFavorites,
+          savedLabel: ui.hero.savedFavorites,
         }}
       />
 

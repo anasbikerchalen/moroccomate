@@ -96,6 +96,14 @@ export interface HeroActionConfig {
   copiedLink?: boolean;
   saveLabel?: string;
   savedLabel?: string;
+  /** Optional partner/affiliate booking CTA (rendered with rel="sponsored noopener noreferrer") */
+  affiliateAction?: {
+    label: string;
+    href: string;
+    title?: string;
+    disclosure?: string;
+    onClick?: () => void;
+  };
 }
 
 export interface ListingHeroHeaderProps {
@@ -780,8 +788,39 @@ export const ListingHeroHeader: React.FC<ListingHeroHeaderProps> = ({
                     <span>{actions.primaryAction.label}</span>
                   </button>
                 )
+              ) : actions.affiliateAction ? (
+                <a
+                  href={actions.affiliateAction.href}
+                  target="_blank"
+                  rel="sponsored noopener noreferrer"
+                  onClick={actions.affiliateAction.onClick}
+                  title={actions.affiliateAction.title}
+                  id="listing-btn-check-availability"
+                  className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-[#173042] hover:bg-[#0F2230] text-white font-bold text-xs sm:text-sm tracking-wide shadow-xs hover:shadow-md transition-all cursor-pointer active:scale-98 whitespace-nowrap"
+                >
+                  <CalendarCheck className="w-4 h-4 text-[#C9A84C] shrink-0" />
+                  <span>{actions.affiliateAction.label}</span>
+                  <ExternalLink className="w-3.5 h-3.5 opacity-75 shrink-0" />
+                </a>
               ) : null}
             </div>
+
+            {/* Dedicated Partner Booking CTA when a primary Direct/WhatsApp CTA already occupies slot 2 */}
+            {actions.primaryAction && actions.affiliateAction && (
+              <a
+                href={actions.affiliateAction.href}
+                target="_blank"
+                rel="sponsored noopener noreferrer"
+                onClick={actions.affiliateAction.onClick}
+                title={actions.affiliateAction.title}
+                id="listing-btn-check-availability"
+                className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#173042] hover:bg-[#0F2230] text-white font-bold text-xs sm:text-sm tracking-wide shadow-xs hover:shadow-md transition-all cursor-pointer active:scale-98 whitespace-nowrap"
+              >
+                <CalendarCheck className="w-4 h-4 text-[#C9A84C] shrink-0" />
+                <span>{actions.affiliateAction.label}</span>
+                <ExternalLink className="w-3.5 h-3.5 opacity-75 shrink-0" />
+              </a>
+            )}
 
             {/* Structured Utility Zone:
                 Left -> Row 1 (Call, Copy, WhatsApp) + Row 2 (Save to Favorites, Share)
@@ -910,6 +949,12 @@ export const ListingHeroHeader: React.FC<ListingHeroHeaderProps> = ({
                 </div>
               )}
             </div>
+
+            {actions.affiliateAction?.disclosure && (
+              <p className="text-[11px] leading-snug text-[#6B6156] pt-0.5">
+                {actions.affiliateAction.disclosure}
+              </p>
+            )}
           </div>
         </div>
         </div>

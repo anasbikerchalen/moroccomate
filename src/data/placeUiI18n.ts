@@ -44,6 +44,9 @@ export interface PlaceUiCopy {
     viewSourceReviews: (source: string) => string;
     moroccanMateRating: string;
     storefrontBannerAlt: (name: string) => string;
+    checkRatesAvailability: string;
+    checkRatesAvailabilityTitle: string;
+    affiliateDisclosure: string;
   };
   features: {
     halalAlcohol: string;
@@ -349,6 +352,9 @@ export const PLACE_UI_I18N: Record<AppLanguage, PlaceUiCopy> = {
       viewSourceReviews: (s) => `View ${s} reviews`,
       moroccanMateRating: 'Moroccan Mate Camel Rating',
       storefrontBannerAlt: (n) => `${n} storefront banner`,
+      checkRatesAvailability: 'Check Rates & Availability',
+      checkRatesAvailabilityTitle: 'Check live rates and availability on Booking.com',
+      affiliateDisclosure: 'Partner booking link · We may earn a commission at no extra cost to you.',
     },
     features: {
       halalAlcohol: 'Halal Food · Serves Alcohol',
@@ -658,6 +664,9 @@ export const PLACE_UI_I18N: Record<AppLanguage, PlaceUiCopy> = {
       viewSourceReviews: (s) => `Voir les avis ${s}`,
       moroccanMateRating: 'Note Moroccan Mate',
       storefrontBannerAlt: (n) => `Façade de ${n}`,
+      checkRatesAvailability: 'Voir tarifs et disponibilités',
+      checkRatesAvailabilityTitle: 'Vérifier les tarifs et disponibilités en direct sur Booking.com',
+      affiliateDisclosure: 'Lien partenaire · Une commission peut être perçue sans frais supplémentaires pour vous.',
     },
     features: {
       halalAlcohol: 'Cuisine Halal · Sert de l’alcool',
@@ -967,6 +976,9 @@ export const PLACE_UI_I18N: Record<AppLanguage, PlaceUiCopy> = {
       viewSourceReviews: (s) => `Ver reseñas de ${s}`,
       moroccanMateRating: 'Puntuación Moroccan Mate',
       storefrontBannerAlt: (n) => `Fachada de ${n}`,
+      checkRatesAvailability: 'Ver precios y disponibilidad',
+      checkRatesAvailabilityTitle: 'Consultar tarifas y disponibilidad en tiempo real en Booking.com',
+      affiliateDisclosure: 'Enlace de afiliado · Podemos recibir una comisión sin coste adicional para ti.',
     },
     features: {
       halalAlcohol: 'Comida Halal · Sirve alcohol',
@@ -1276,6 +1288,9 @@ export const PLACE_UI_I18N: Record<AppLanguage, PlaceUiCopy> = {
       viewSourceReviews: (s) => `${s}-Bewertungen ansehen`,
       moroccanMateRating: 'Moroccan-Mate-Bewertung',
       storefrontBannerAlt: (n) => `${n} Eingangsschild`,
+      checkRatesAvailability: 'Preise & Verfügbarkeit',
+      checkRatesAvailabilityTitle: 'Aktuelle Preise und Verfügbarkeit auf Booking.com prüfen',
+      affiliateDisclosure: 'Partnerlink · Bei Buchung erhalten wir ggf. eine Provision ohne Aufpreis für Sie.',
     },
     features: {
       halalAlcohol: 'Halal-Küche · Alkohol serviert',
@@ -1591,6 +1606,9 @@ export const PLACE_UI_I18N: Record<AppLanguage, PlaceUiCopy> = {
       viewSourceReviews: (s) => `عرض تقييمات ${s}`,
       moroccanMateRating: 'تقييم Moroccan Mate',
       storefrontBannerAlt: (n) => `واجهة ${n}`,
+      checkRatesAvailability: 'عرض الأسعار والتوافر',
+      checkRatesAvailabilityTitle: 'تحقق من الأسعار والتوافر المباشر على Booking.com',
+      affiliateDisclosure: 'رابط حجز شريك · قد نحصل على عمولة دون أي تكلفة إضافية عليك.',
     },
     features: {
       halalAlcohol: 'طعام حلال · يقدم مشروبات كحولية',

@@ -42,23 +42,50 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       (function() {
+        var EEA_UK_CH = [
+          'AT','BE','BG','CH','CY','CZ','DE','DK','EE','ES','FI','FR',
+          'GB','GR','HR','HU','IE','IS','IT','LI','LT','LU','LV','MT',
+          'NL','NO','PL','PT','RO','SE','SI','SK'
+        ];
+        var hasStoredChoice = false;
         var analyticsGranted = false;
         var adsGranted = false;
         try {
           var raw = localStorage.getItem('mm_cookie_consent_v1');
           if (raw) {
             var parsed = JSON.parse(raw);
-            analyticsGranted = Boolean(parsed && parsed.analytics);
-            adsGranted = Boolean(parsed && parsed.advertising);
+            if (parsed && (parsed.status === 'accepted' || parsed.status === 'rejected' || parsed.status === 'custom')) {
+              hasStoredChoice = true;
+              analyticsGranted = Boolean(parsed.analytics);
+              adsGranted = Boolean(parsed.advertising);
+            }
           }
         } catch (e) {}
-        gtag('consent', 'default', {
-          ad_storage: adsGranted ? 'granted' : 'denied',
-          ad_user_data: adsGranted ? 'granted' : 'denied',
-          ad_personalization: adsGranted ? 'granted' : 'denied',
-          analytics_storage: analyticsGranted ? 'granted' : 'denied',
-          wait_for_update: 500
-        });
+
+        if (hasStoredChoice) {
+          gtag('consent', 'default', {
+            ad_storage: adsGranted ? 'granted' : 'denied',
+            ad_user_data: adsGranted ? 'granted' : 'denied',
+            ad_personalization: adsGranted ? 'granted' : 'denied',
+            analytics_storage: analyticsGranted ? 'granted' : 'denied',
+            wait_for_update: 500
+          });
+        } else {
+          gtag('consent', 'default', {
+            ad_storage: 'granted',
+            ad_user_data: 'granted',
+            ad_personalization: 'granted',
+            analytics_storage: 'granted'
+          });
+          gtag('consent', 'default', {
+            region: EEA_UK_CH,
+            ad_storage: 'denied',
+            ad_user_data: 'denied',
+            ad_personalization: 'denied',
+            analytics_storage: 'denied',
+            wait_for_update: 500
+          });
+        }
       })();
     </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VRGKPQYHYC"></script>
@@ -73,6 +100,18 @@
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9346076587189206"
       crossorigin="anonymous"
     ></script>
+    <!-- Stay22 Let Me Allez -->
+    <script>
+      (function (s, t, a, y, twenty, two) {
+        s.Stay22 = s.Stay22 || {};
+        s.Stay22.params = { lmaID: '6b06142f2308dc6c16d4850c' };
+        twenty = t.createElement(a);
+        two = t.getElementsByTagName(a)[0];
+        twenty.async = 1;
+        twenty.src = y;
+        two.parentNode.insertBefore(twenty, two);
+      })(window, document, 'script', 'https://lma.stay22.com/letmeallez.js');
+    </script>
   </head>
   <body style="height: 100%; margin: 0; background-color: #FAF7F2;">
     <!--app-root-start--><div id="root" style="height: 100%;">

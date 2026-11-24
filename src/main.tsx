@@ -14,10 +14,15 @@ declare global {
   }
 }
 
+const initialTrackedPath = typeof window !== 'undefined' ? window.location.pathname : '';
+
 function PageViewTracker() {
   const { pathname } = useLocation();
+  const lastTrackedPathRef = React.useRef(initialTrackedPath);
 
   useEffect(() => {
+    if (pathname === lastTrackedPathRef.current) return;
+    lastTrackedPathRef.current = pathname;
     window.gtag?.('config', 'G-VRGKPQYHYC', { page_path: pathname });
   }, [pathname]);
 

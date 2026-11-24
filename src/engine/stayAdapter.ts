@@ -378,7 +378,8 @@ export function adaptToStayListing(listing: any): StayListing {
     reviewsData: listing?.reviewsData || listing?.ui?.reviewsData || undefined,
     contact_whatsapp: listing?.contactWhatsApp || listing?.whatsappNumber || undefined,
     booking_url: listing?.bookingUrl || listing?.officialWebsite || undefined,
-    phone: listing?.logistics?.contact || undefined
+    phone: listing?.logistics?.contact || undefined,
+    affiliate_links: listing?.affiliateLinks || undefined
   };
 }
 

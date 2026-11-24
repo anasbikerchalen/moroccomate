@@ -15,6 +15,7 @@ import PlatformIcon, { formatCompactCount } from './PlatformIcon';
 import { cn } from '../../utils/cn';
 import { useAppLanguage } from '../../utils/localeRouting';
 import { getPlaceUiCopy, type PlaceUiCopy } from '../../data/placeUiI18n';
+import { getSourceSearchUrl, isAffiliateReviewSource } from '../../utils/stayAffiliate';
 
 interface PlaceReviewsSectionProps {
   reviewsData?: PlaceReviewsData;
@@ -392,7 +393,8 @@ export const PlaceReviewsSection: React.FC<PlaceReviewsSectionProps> = ({
   const ctaSource: ReviewSource = selectedSource || activeSourceSummary?.source || 'Google Maps';
   const destinationUrl =
     activeSourceSummary?.url ||
-    `${getSourceDefaultDomain(ctaSource)}/search?q=${encodeURIComponent(placeName + ' Morocco')}`;
+    getSourceSearchUrl(ctaSource, placeName);
+  const isAffiliateSource = isAffiliateReviewSource(ctaSource);
 
   const resetFilters = () => {
     setSelectedSource(null);
@@ -816,7 +818,7 @@ export const PlaceReviewsSection: React.FC<PlaceReviewsSectionProps> = ({
         <a
           href={destinationUrl}
           target="_blank"
-          rel="noopener noreferrer"
+          rel={isAffiliateSource ? 'sponsored noopener noreferrer' : 'noopener noreferrer'}
           className="inline-flex items-center justify-center gap-2.5 px-6 py-2.5 rounded-full border border-[#d4cab7] bg-white text-[#142333] hover:bg-[#142333] hover:text-white hover:border-[#142333] font-bold text-sm transition-all shadow-2xs cursor-pointer group"
         >
           <PlatformIcon source={ctaSource} size="sm" />

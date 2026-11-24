@@ -189,6 +189,14 @@ export interface SleepListing {
   }
   /** Multi-platform reviews section data (Tripadvisor, Booking.com, Google Travel, Hotels.com, Expedia) */
   reviewsData?: PlaceReviewsData
+  /** Optional partner OTA URLs for affiliate booking links */
+  affiliateLinks?: {
+    bookingCom?: string
+    expedia?: string
+    hotelsCom?: string
+    hostelworld?: string
+    agoda?: string
+  }
   /** Optional compact wide storefront fascia banner rendered above the listing title */
   storefrontBanner?: StorefrontBannerConfig
 }

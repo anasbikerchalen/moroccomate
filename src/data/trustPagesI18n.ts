@@ -294,15 +294,23 @@ export const TRUST_PAGES_I18N: Record<AppLanguage, TrustPagesBundle> = {
           ],
         },
         {
+          id: 'affiliate-links',
+          title: '5. Affiliate Partnerships & Booking Links (Stay22)',
+          paragraphs: [
+            'Moroccan Mate participates in travel affiliate programs, including Stay22 and accommodation booking partners (such as Booking.com, Expedia, and Hotels.com). When you click a "Check Rates & Availability" or partner booking link on a stay listing and complete a reservation, we may earn a small commission at no additional cost to you.',
+            'Stay22’s link script helps route outgoing accommodation links to supported booking platforms and attribute referrals. Affiliate commissions never influence our independent curation, honest warnings, or search rankings.',
+          ],
+        },
+        {
           id: 'contact-data',
-          title: '5. Contact Form Submissions',
+          title: '6. Contact Form Submissions',
           paragraphs: [
             'When you send a message through our Contact page, we process the name, email address, topic, and message you submit solely to read your feedback and reply to you. Messages are transmitted securely through our server email relay and are never sold, rented, or added to marketing mailing lists.',
           ],
         },
         {
           id: 'rights',
-          title: '6. Your Rights (GDPR & CCPA)',
+          title: '7. Your Rights (GDPR & CCPA)',
           paragraphs: [
             'Depending on where you live (including the EEA, UK, and California), you have the right to withdraw consent, request access to personal correspondence you sent us, or ask us to delete your contact message history.',
             'You can update or withdraw cookie consent at any time using the "Cookie Settings" button in the footer or below. For any privacy request, please reach out through our Contact page.',
@@ -337,9 +345,10 @@ export const TRUST_PAGES_I18N: Record<AppLanguage, TrustPagesBundle> = {
         },
         {
           id: 'external-links',
-          title: '3. External Websites & Third-Party Services',
+          title: '3. External Websites, Affiliate Links & Third-Party Services',
           paragraphs: [
-            'Listings and articles may link to external venue websites, map services, booking platforms, or advertisements served by third-party networks such as Google AdSense. Moroccan Mate does not control and is not responsible for the content, availability, or privacy practices of external websites.',
+            'Listings and articles may link to external venue websites, map services, booking platforms, or advertisements served by third-party networks such as Google AdSense. Some outbound stay and travel booking links are affiliate links (powered by Stay22 and partner OTAs), meaning Moroccan Mate may earn a referral commission if you make a booking—at no extra price to you.',
+            'Moroccan Mate does not control and is not responsible for the content, pricing accuracy, availability, or privacy practices of external websites.',
           ],
         },
         {
@@ -555,15 +564,23 @@ export const TRUST_PAGES_I18N: Record<AppLanguage, TrustPagesBundle> = {
           ],
         },
         {
-          id: 'contact-data',
-          title: '5. Formulaire de contact',
+          id: 'affiliate-links',
+          title: '5. Liens d’affiliation et partenaires de réservation (Stay22)',
           paragraphs: [
-            'Les informations envoyées via la page Contact (nom, e-mail, sujet et message) ne servent qu’à traiter votre demande et ne sont jamais vendues ni partagées à des fins commerciales.',
+            'Moroccan Mate participe à des programmes d’affiliation voyage, notamment Stay22 et des plateformes partenaires (telles que Booking.com, Expedia et Hotels.com). Lorsque vous cliquez sur un bouton « Voir tarifs et disponibilités » et effectuez une réservation, nous pouvons percevoir une commission sans aucun frais supplémentaire pour vous.',
+            'Ces partenariats n’influencent jamais notre sélection éditoriale indépendante ni nos conseils de vigilance.',
+          ],
+        },
+        {
+          id: 'contact-data',
+          title: '6. Formulaire de contact',
+          paragraphs: [
+            'Les informations envoyées via la page Contact (nom, e-mail, sujet et message) ne servent qu’à traiter votre demande et ne servent jamais à des fins de revente commerciale.',
           ],
         },
         {
           id: 'rights',
-          title: '6. Vos droits (RGPD / CCPA)',
+          title: '7. Vos droits (RGPD / CCPA)',
           paragraphs: [
             'Vous disposez d’un droit d’accès, de rectification, de suppression et de retrait du consentement. Vous pouvez modifier vos choix à tout moment via le bouton « Cookies » en pied de page ou nous écrire via la page Contact.',
           ],
@@ -596,9 +613,9 @@ export const TRUST_PAGES_I18N: Record<AppLanguage, TrustPagesBundle> = {
         },
         {
           id: 'external-links',
-          title: '3. Liens externes et publicités',
+          title: '3. Liens externes, affiliation et publicités',
           paragraphs: [
-            'Le site contient des liens vers des sites tiers (cartes, réservations, annonces Google AdSense). Moroccan Mate n’est pas responsable du contenu ni des politiques de ces sites externes.',
+            'Le site contient des liens vers des sites tiers (cartes, réservations, annonces Google AdSense). Certains liens de réservation d’hébergements sont des liens affiliés (via Stay22) : Moroccan Mate peut recevoir une commission sans coût supplémentaire pour vous, mais n’est pas responsable du contenu ni des politiques de ces sites externes.',
           ],
         },
         {
@@ -814,15 +831,23 @@ export const TRUST_PAGES_I18N: Record<AppLanguage, TrustPagesBundle> = {
           ],
         },
         {
+          id: 'affiliate-links',
+          title: '5. Enlaces de afiliados y reservas (Stay22)',
+          paragraphs: [
+            'Moroccan Mate participa en programas de afiliación de viajes, incluido Stay22 y plataformas asociadas (como Booking.com, Expedia y Hotels.com). Si reservas a través de nuestros botones de disponibilidad, podemos recibir una comisión sin coste adicional para ti.',
+            'Estas comisiones no influyen en nuestra selección editorial independiente ni en las advertencias prácticas de cada ficha.',
+          ],
+        },
+        {
           id: 'contact-data',
-          title: '5. Datos del formulario de contacto',
+          title: '6. Datos del formulario de contacto',
           paragraphs: [
             'Los datos enviados en la página de Contacto se utilizan exclusivamente para responder a tu mensaje y nunca se venden ni comparten con terceros con fines comerciales.',
           ],
         },
         {
           id: 'rights',
-          title: '6. Tus derechos (RGPD y CCPA)',
+          title: '7. Tus derechos (RGPD y CCPA)',
           paragraphs: [
             'Puedes retirar tu consentimiento o solicitar la eliminación de tu correspondencia en cualquier momento usando el enlace de Cookies en el pie de página o la página de Contacto.',
           ],
@@ -855,9 +880,9 @@ export const TRUST_PAGES_I18N: Record<AppLanguage, TrustPagesBundle> = {
         },
         {
           id: 'external-links',
-          title: '3. Enlaces externos',
+          title: '3. Enlaces externos y de afiliados',
           paragraphs: [
-            'Los enlaces a sitios oficiales, mapas, reservas o anuncios de Google AdSense pertenecen a terceros fuera de nuestro control.',
+            'Los enlaces a sitios oficiales, mapas, reservas o anuncios de Google AdSense pertenecen a terceros fuera de nuestro control. Algunos enlaces de reserva de alojamientos son enlaces de afiliado (gestionados mediante Stay22) que pueden generar una comisión sin coste adicional para ti.',
           ],
         },
         {
@@ -1073,15 +1098,23 @@ export const TRUST_PAGES_I18N: Record<AppLanguage, TrustPagesBundle> = {
           ],
         },
         {
+          id: 'affiliate-links',
+          title: '5. Affiliate-Partnerschaften & Buchungslinks (Stay22)',
+          paragraphs: [
+            'Moroccan Mate nimmt an Reise-Affiliate-Programmen teil, einschließlich Stay22 und Buchungspartnern wie Booking.com, Expedia und Hotels.com. Wenn Sie über unsere Verfügbarkeits-Buttons buchen, erhalten wir ggf. eine Provision ohne Aufpreis für Sie.',
+            'Affiliate-Links beeinflussen niemals unsere unabhängige redaktionelle Auswahl oder ehrliche Hinweise.',
+          ],
+        },
+        {
           id: 'contact-data',
-          title: '5. Kontaktformular-Daten',
+          title: '6. Kontaktformular-Daten',
           paragraphs: [
             'Übermittelte Kontaktdaten werden ausschließlich zur Bearbeitung Ihrer Anfrage genutzt und nicht verkauft oder für Newsletter verwendet.',
           ],
         },
         {
           id: 'rights',
-          title: '6. Ihre Rechte (DSGVO / CCPA)',
+          title: '7. Ihre Rechte (DSGVO / CCPA)',
           paragraphs: [
             'Sie haben das Recht auf Auskunft, Löschung und Widerruf Ihrer Einwilligung. Nutzen Sie dazu jederzeit „Cookie-Einstellungen“ im Footer oder unsere Kontaktseite.',
           ],
@@ -1114,9 +1147,9 @@ export const TRUST_PAGES_I18N: Record<AppLanguage, TrustPagesBundle> = {
         },
         {
           id: 'external-links',
-          title: '3. Externe Links',
+          title: '3. Externe Links & Affiliate-Hinweise',
           paragraphs: [
-            'Verlinkte Websites, Kartendienste oder Werbeanzeigen Dritter liegen außerhalb unseres Verantwortungsbereichs.',
+            'Verlinkte Websites, Kartendienste oder Werbeanzeigen Dritter liegen außerhalb unseres Verantwortungsbereichs. Einige Buchungslinks für Unterkünfte sind Affiliate-Links (über Stay22), bei denen wir ohne Mehrkosten für Sie eine Provision erhalten können.',
           ],
         },
         {
@@ -1332,15 +1365,23 @@ export const TRUST_PAGES_I18N: Record<AppLanguage, TrustPagesBundle> = {
           ],
         },
         {
+          id: 'affiliate-links',
+          title: '5. روابط التسويق بالعمولة وشركاء الحجز (Stay22)',
+          paragraphs: [
+            'يشارك Moroccan Mate في برامج تسويق بالعمولة خاصة بالسفر، بما في ذلك Stay22 وشركاء حجز الإقامات مثل Booking.com وExpedia وHotels.com. عند النقر على رابط التحقق من الأسعار والتوافر وإتمام حجز، قد نحصل على عمولة بسيطة دون أي تكلفة إضافية عليك.',
+            'لا تؤثر هذه الشراكات إطلاقاً على اختياراتنا التحريرية المستقلة أو التنبيهات الصادقة للمسافرين.',
+          ],
+        },
+        {
           id: 'contact-data',
-          title: '5. بيانات نموذج الاتصال',
+          title: '6. بيانات نموذج الاتصال',
           paragraphs: [
             'تُستخدم البيانات المرسلة عبر صفحة الاتصال للرد على رسالتك فقط، ولا تُباع أو تُشارك لأي أغراض تسويقية.',
           ],
         },
         {
           id: 'rights',
-          title: '6. حقوقك (GDPR وCCPA)',
+          title: '7. حقوقك (GDPR وCCPA)',
           paragraphs: [
             'يحق لك تعديل موافقتك في أي وقت عبر زر "إعدادات الكوكيز" في أسفل الصفحة، أو مراسلتنا عبر صفحة الاتصال لطلب حذف مراسلاتك.',
           ],
@@ -1373,9 +1414,9 @@ export const TRUST_PAGES_I18N: Record<AppLanguage, TrustPagesBundle> = {
         },
         {
           id: 'external-links',
-          title: '3. الروابط الخارجية والإعلانات',
+          title: '3. الروابط الخارجية وروابط الشركاء',
           paragraphs: [
-            'قد يحتوي الموقع على روابط لخرائط أو مواقع حجز أو إعلانات Google AdSense. لا يتحمل Moroccan Mate مسؤولية محتوى أو سياسات المواقع الخارجية.',
+            'قد يحتوي الموقع على روابط لخرائط أو مواقع حجز أو إعلانات Google AdSense. بعض روابط حجز الإقامات هي روابط تسويق بالعمولة (عبر Stay22)، مما يعني أننا قد نحصل على عمولة دون أي زيادة في السعر عليك. لا يتحمل Moroccan Mate مسؤولية محتوى أو سياسات المواقع الخارجية.',
           ],
         },
         {
