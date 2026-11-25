@@ -103,7 +103,11 @@ export default function ClassicalDishRow({
         {/* Price & add button */}
         <div className="flex items-center gap-1 shrink-0">
           <span className="font-serif text-[13px] sm:text-[14px] font-bold text-[#3D2B1F] tabular-nums">
-            {formatPrice(dish.price, currency)}
+            {dish.price > 0
+              ? formatPrice(dish.price, currency)
+              : /all-inclusive|included|buffet/i.test(dish.portionNotes || '')
+                ? 'Included'
+                : 'À la carte'}
           </span>
 
           {selected ? (

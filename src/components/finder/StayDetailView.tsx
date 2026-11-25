@@ -1,7 +1,7 @@
 // src/components/finder/StayDetailView.tsx
 import React, { useMemo, useState } from 'react';
 import { motion } from 'motion/react';
-import { MapPin, Home, ExternalLink, Phone, Wifi, Wind, Coffee, Waves, ShieldCheck, Clock, Sun, Accessibility, Sparkles, Footprints, BedDouble, ScrollText, HelpCircle, MessageSquareText } from 'lucide-react';
+import { MapPin, Home, ExternalLink, Phone, Wifi, Wind, Coffee, Waves, ShieldCheck, Clock, Sun, Accessibility, Sparkles, Footprints, BedDouble, ScrollText, HelpCircle, MessageSquareText, UtensilsCrossed } from 'lucide-react';
 import { adaptToStayListing, getStayPrice, getStayLifestyle, getStayOwnerAnswer } from '../../engine/stayAdapter';
 import { useSavedStore } from '../../state/savedStore';
 import { WalkingDistanceSection } from './stay/WalkingDistanceSection';
@@ -9,6 +9,7 @@ import { TraditionalSpacesSection } from './stay/TraditionalSpacesSection';
 import { RoomDetailsSection } from './stay/RoomDetailsSection';
 import { AmenitiesSection } from './stay/AmenitiesSection';
 import { PoliciesSection } from './stay/PoliciesSection';
+import InteractiveRestaurantMenu from '../menu/InteractiveRestaurantMenu';
 import PlaceFAQSection from '../common/PlaceFAQSection';
 import { buildPlaceFaqs } from '../../data/seo/faqEngine';
 import { useAppLanguage } from '../../utils/localeRouting';
@@ -65,6 +66,13 @@ export default function StayDetailView({ item }: StayDetailViewProps) {
   const bookmarked = isBookmarked(idString);
 
   const stayReviewsData = stay.reviewsData || item?.reviewsData || item?.ui?.reviewsData;
+  const stayMenu = item?.menu || item?.ui?.menu;
+  const hasStayMenu = Boolean(
+    stayMenu &&
+      ((Array.isArray(stayMenu.sections) && stayMenu.sections.length > 0) ||
+        (Array.isArray(stayMenu.menuPhotos) && stayMenu.menuPhotos.length > 0) ||
+        (Array.isArray(stayMenu.scannedMenuPhotos) && stayMenu.scannedMenuPhotos.length > 0))
+  );
 
   const directionsUrl = stay.location?.directions_url
     || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${stay.name}, ${stay.location.city}, Morocco`)}`;
@@ -259,6 +267,13 @@ export default function StayDetailView({ item }: StayDetailViewProps) {
             available: stay.visibility.show_comfort_amenities !== false && Boolean(stay.amenities),
           },
           {
+            id: 'menu',
+            label: 'Menu',
+            targetId: 'restaurant-menu-section',
+            icon: <UtensilsCrossed className="w-4 h-4" />,
+            available: hasStayMenu,
+          },
+          {
             id: 'policies',
             label: 'Policies',
             targetId: 'stay-policies-section',
@@ -313,6 +328,25 @@ export default function StayDetailView({ item }: StayDetailViewProps) {
           <div id="stay-amenities-section">
             <AmenitiesSection amenities={stay.amenities} visibility={stay.visibility} />
           </div>
+        )}
+
+        {/* Hotel Dining, Bar & Room-Service Menu (same interactive design as Eat listings) */}
+        {hasStayMenu && (
+          <InteractiveRestaurantMenu
+            menu={stayMenu}
+            restaurantId={idString}
+            restaurantName={stay.name}
+            city={stay.location.city}
+            primaryCuisine={Array.isArray(item?.foodStyles) && item.foodStyles[0] ? item.foodStyles[0] : 'Moroccan & International'}
+            highlightedDishes={Array.isArray(item?.bestDishes) ? item.bestDishes : []}
+            reservationContact={stay.phone}
+            whatsappNumber={stay.contact_whatsapp}
+            bookingUrl={stay.booking_url}
+            website={item?.officialWebsite || ''}
+            googleMapsUrl={directionsUrl}
+            paymentMethods={item?.paymentMethods || []}
+            directionsUrl={directionsUrl}
+          />
         )}
 
         {/* Policies & payments */}

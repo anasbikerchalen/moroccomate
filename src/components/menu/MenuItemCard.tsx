@@ -192,12 +192,20 @@ export default function MenuItemCard({
         <div className="flex flex-col items-end gap-2 shrink-0">
           {/* Price */}
           <div className="text-right">
-            <span className="font-mono text-[15px] sm:text-[16px] font-bold text-stone-900 tabular-nums">
-              {formatPrice(dish.price, currency)}
-            </span>
-            {currency !== 'MAD' && (
-              <span className="block text-[10px] text-stone-400 font-mono tabular-nums">
-                {dish.price} DH
+            {dish.price > 0 ? (
+              <>
+                <span className="font-mono text-[15px] sm:text-[16px] font-bold text-stone-900 tabular-nums">
+                  {formatPrice(dish.price, currency)}
+                </span>
+                {currency !== 'MAD' && (
+                  <span className="block text-[10px] text-stone-400 font-mono tabular-nums">
+                    {dish.price} DH
+                  </span>
+                )}
+              </>
+            ) : (
+              <span className="inline-block px-2 py-0.5 rounded-full bg-stone-100 border border-stone-200 text-[11px] font-semibold text-stone-700">
+                {/all-inclusive|included|buffet/i.test(dish.portionNotes || '') ? 'Included' : 'À la carte'}
               </span>
             )}
           </div>

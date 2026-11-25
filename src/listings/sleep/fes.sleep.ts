@@ -2610,5 +2610,162 @@ export const fesSleep: SleepListing[] = [
     tags: ["family-favorite", "heritage", "5-star", "pool", "rooftop-terrace", "spa", "in-medina", "airport-shuttle"],
     // Multi-platform reviews holder (hidden on UI until populated)
     reviewsData: { sources: [], reviews: [] },
+  },
+  {
+    id: "f-sleep-21",
+    city: "fes",
+    name: "Vichy Thermalia Spa Hôtel Moulay Yacoub",
+    type: "hotel",
+    neighborhood: "Moulay Yacoub",
+    description: "A 4-star wellness and thermal spa resort set inside a 4-hectare park in the Middle Atlas foothills of Moulay Yacoub, 20 km northwest of Fes. Directly linked by a walkway to the renowned Moulay Yacoub Thermal Centre, featuring an outdoor swimming pool, Vichy hydrotherapy programs, Le Minéral restaurant, and private balconies overlooking the hills.",
+    pricePerNight: 120,
+    lifestyle: "balanced",
+    amenities: [
+      "Outdoor Swimming Pool",
+      "Direct Walkway to Thermal Centre",
+      "Vichy Hydrotherapy & Spa",
+      "Traditional Hammam",
+      "Le Minéral Restaurant",
+      "Fitness Center",
+      "Free On-Site Parking",
+      "Wifi",
+      "AC",
+      "pool",
+      "spa",
+      "hammam",
+      "gym",
+      "parking"
+    ],
+    googleRating: 4.2,
+    googleReviewCount: 650,
+    tripadvisorRating: 4.3,
+    tripadvisorReviewCount: 205,
+    bookingRating: 4.2,
+    bookingReviewCount: 420,
+    hotelguruRating: 4.2,
+    hotelguruReviewCount: 150,
+    hasPool: true,
+    hasBreakfast: true,
+    hasAC: true,
+    hasHeating: true,
+    hasRooftop: false,
+    hasEnsuite: true,
+    hasRestaurant: true,
+    hasBar: true,
+    hasGym: true,
+    hasElevator: true,
+    hasLaundryService: true,
+    hasRoomService: true,
+    petFriendly: false,
+    isWheelchairAccessible: true,
+    taxesIncluded: false,
+    freeCancellation: true,
+    kidsStayFree: true,
+    nearMedina: false,
+    locationFeel: "countryside",
+    nearBeach: false,
+    nearMosque: false,
+    safetyLevel: 5,
+    groupTypes: ["couple", "family", "seniors", "solo"],
+    tip: "Note that entry to the adjacent Moulay Yacoub Thermal Centre sulfur pools (approx. 180–200 MAD, with dedicated women-only pool options) and Vichy spa treatments are billed separately unless booked as a thermal package.",
+    vibeTags: ["Thermal Spa", "Wellness", "Hilltop Park", "4-Star", "Quiet Retreat", "Hydrotherapy"],
+    locationSummary: "Moulay Yacoub Thermal Hills (20 km northwest of Fes)",
+    availabilityText: "Available tonight",
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Vichy+Thermalia+Spa+Hotel+Moulay+Yacoub",
+    address: "Vichy Thermalia Moulay Yacoub, BP 2426 Fès Principale, 36150 Moulay Yacoub, Morocco",
+    bookingUrl: "https://www.moulay-yacoub-vichy-thermalia-spa-hotel.fr",
+    paymentMethods: ["card", "cash"],
+    languagesSpoken: ["Arabic", "French", "English"],
+    customStory: "Created in partnership with Vichy's thermal wellness expertise around Moulay Yacoub's famous natural sulfur springs, drawing health and relaxation travelers to the hills northwest of Fes.",
+    neighborhoodOverview: "Set within a quiet 4-hectare landscaped park in Moulay Yacoub Province, roughly a 20–25 minute drive from Fes city center and 35 km from Fes-Saïs Airport.",
+    hiddenFeesNotice: "Thermal spring pool access and spa treatments carry separate fees; city tourist tax not included.",
+    pros: [
+      "Direct indoor walkway to the famous Moulay Yacoub Thermal Centre",
+      "Peaceful 4-hectare hillside park with private room balconies",
+      "Free private on-site parking, outdoor pool, and full fitness center"
+    ],
+    cons: [
+      "20 km outside Fes Medina—requires a car or taxi for sightseeing in Fes",
+      "Thermal baths and hydrotherapy treatments cost extra beyond standard room-only rates"
+    ],
+    trustScores: {
+      cleanliness: 8.8,
+      safety: 9.4,
+      staff: 8.9,
+      value: 8.7,
+      comfort: 8.9,
+      location: 8.4
+    },
+    logistics: {
+      checkIn: "15:00",
+      checkOut: "12:00",
+      luggageStorage: "Free 24-hour reception storage",
+      parking: "Free private on-site parking",
+      airportTransfer: "Airport shuttle available upon request (Fes-Saïs Airport, 35 km)",
+      contact: "+212 5 35 69 40 64"
+    },
+    roomFeatures: ["balcony", "mountain-view", "ac", "heating", "soundproof"],
+    roomTypes: [
+      {
+        name: "Classic Double Room",
+        view: "Park or hill view",
+        price: 120,
+        beds: "1 Double or 2 Singles",
+        size: "26m²",
+        available: true
+      },
+      {
+        name: "Superior Room with Balcony",
+        view: "Middle Atlas hills view",
+        price: 155,
+        beds: "1 Queen",
+        size: "30m²",
+        available: true
+      },
+      {
+        name: "Deluxe Suite",
+        view: "Panoramic valley view",
+        price: 220,
+        beds: "1 King",
+        size: "45m²",
+        available: true
+      }
+    ],
+    neighborhoodDistances: [
+      {
+        label: "Moulay Yacoub Thermal Centre",
+        distance: "50m",
+        time: "1 min walk",
+        icon: "spa"
+      },
+      {
+        label: "Fès Medina (Bab Boujloud)",
+        distance: "20km",
+        time: "25 min drive",
+        icon: "city"
+      },
+      {
+        label: "Fes-Saïs Airport",
+        distance: "35km",
+        time: "40 min drive",
+        icon: "plane"
+      }
+    ],
+    cancellationPolicy: "Flexible 48h",
+    childPolicy: "Children welcome; on-site outdoor children's playground",
+    officialWebsite: "https://vichythermaliamy.ma",
+    reviewHighlights: {
+      solo: "Restorative and safe thermal wellness retreat away from medina noise.",
+      couples: "Relaxing hillside setting with private balconies and couple spa packages.",
+      families: "Outdoor pool, playground, and free parking make family stays easy.",
+      business: "Quiet rooms with Wi-Fi and conference facilities outside Fes.",
+      nomad: "Calm hillside terraces and reliable Wi-Fi for slow wellness stays."
+    },
+    coordinates: {
+      lat: 34.085,
+      lng: -5.183
+    },
+    tags: ["hotel", "spa", "hammam", "pool", "gym", "parking"],
+    reviewsData: { sources: [], reviews: [] },
   }
 ]

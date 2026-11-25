@@ -157,14 +157,14 @@ export function collectPlacePages(): IndexablePage[] {
     const rating = getListingRating(listing);
     const ownerAnswer = isSleep ? getStayOwnerAnswer(listing) : undefined;
     const basePlacePath = `/place/${city}/${category}/${slug}`;
-    const menuData = isEat ? (listing.ui?.menu || listing.menu) : undefined;
+    const menuData = isEat || isSleep ? (listing.ui?.menu || listing.menu) : undefined;
     const hasMenu = Boolean(
       menuData &&
         ((Array.isArray(menuData.sections) && menuData.sections.length > 0) ||
           (Array.isArray(menuData.menuPhotos) && menuData.menuPhotos.length > 0) ||
           (Array.isArray(menuData.scannedMenuPhotos) && menuData.scannedMenuPhotos.length > 0))
     );
-    const rawMenuPhotos = isEat && menuData
+    const rawMenuPhotos = (isEat || isSleep) && menuData
       ? (Array.isArray(menuData.menuPhotos) && menuData.menuPhotos.length > 0
           ? menuData.menuPhotos
           : Array.isArray(menuData.scannedMenuPhotos)
@@ -329,6 +329,7 @@ export function collectPlacePages(): IndexablePage[] {
         const baseMenuPath = `${basePlacePath}/menu`;
         const menuSeo = buildMenuSeo({
           listing: localizedListing,
+          category: isSleep ? 'sleep' : 'food',
           cityKey: city,
           cityLabel: label,
           slug,

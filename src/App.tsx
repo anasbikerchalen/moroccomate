@@ -118,6 +118,8 @@ function AppRoutes() {
       <Route path="/near-me" element={<NearMePage />} />
       <Route path="/place/:city/food/:slug/menu" element={<PlaceMenuPage />} />
       <Route path="/place/:city/eat/:slug/menu" element={<PlaceMenuPage />} />
+      <Route path="/place/:city/sleep/:slug/menu" element={<PlaceMenuPage />} />
+      <Route path="/place/:city/stay/:slug/menu" element={<PlaceMenuPage />} />
       <Route path="/place/:city/:category/:slug" element={<PlaceListingPage />} />
       <Route path="/place/:city/:categoryOrSlug" element={<PlaceListingPage />} />
       <Route path="/things/:city/:slug?" element={<ThingsListingPage />} />

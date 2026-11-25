@@ -1196,7 +1196,7 @@ export function buildPlaceSeo(params: {
 
   const rating = getListingRating(listing);
   const rawDesc = String(listing?.ui?.description || listing?.description || listing?.short_description || '');
-  const hasMenu = isEat && hasListingMenu(listing);
+  const hasMenu = (isEat || isSleep) && hasListingMenu(listing);
   const hasReviews = hasListingReviews(listing);
   const reviewSchemas = hasReviews ? extractReviewSchemaEntries(listing, 5) : [];
 
@@ -1256,8 +1256,8 @@ export function buildPlaceSeo(params: {
 
   const canonical = `/place/${cityKey}/${category}/${slug}`;
   const localizedCanonicalUrl = `${BASE_URL}${localizePath(canonical, lang)}`;
-  const eatMenu: EatMenu | undefined = isEat ? (listing?.ui?.menu || listing?.menu) : undefined;
-  const eatMenuPhotos = isEat ? extractMenuPhotos(eatMenu, name) : [];
+  const eatMenu: EatMenu | undefined = isEat || isSleep ? (listing?.ui?.menu || listing?.menu) : undefined;
+  const eatMenuPhotos = isEat || isSleep ? extractMenuPhotos(eatMenu, name) : [];
   const rawImage =
     listing?.ui?.nonCopyrightImage ||
     listing?.nonCopyrightImage ||
@@ -1282,8 +1282,8 @@ export function buildPlaceSeo(params: {
   const telephone = extractTelephone(listing);
   const sameAs = extractSameAsUrls(listing);
   const openingHoursSpecification = extractOpeningHoursSpecification(listing);
-  const eatMenuSections = isEat ? buildMenuSectionsSchema(eatMenu, lang) : [];
-  const eatMenuMediaSchema = isEat ? buildMenuAssociatedMediaSchema(eatMenuPhotos, name) : [];
+  const eatMenuSections = isEat || isSleep ? buildMenuSectionsSchema(eatMenu, lang) : [];
+  const eatMenuMediaSchema = isEat || isSleep ? buildMenuAssociatedMediaSchema(eatMenuPhotos, name) : [];
 
   const schemaData: Record<string, any> = {
     name,
@@ -1335,6 +1335,18 @@ export function buildPlaceSeo(params: {
                   name: a,
                   value: true,
                 })),
+              }
+            : {}),
+          ...(eatMenu
+            ? {
+                hasMenu: {
+                  '@type': 'Menu',
+                  name: `${name} ${copy.menuWord}`,
+                  url: `${BASE_URL}${localizePath(`${canonical}/menu`, lang)}`,
+                  inLanguage: lang,
+                  ...(eatMenuSections.length > 0 ? { hasMenuSection: eatMenuSections } : {}),
+                  ...(eatMenuMediaSchema.length > 0 ? { associatedMedia: eatMenuMediaSchema } : {}),
+                },
               }
             : {}),
         }
@@ -1410,17 +1422,19 @@ export function buildPlaceSeo(params: {
 }
 
 export function buildMenuSeo(params: {
-  listing: EatListing;
+  listing: EatListing | any;
+  category?: 'food' | 'sleep';
   cityKey: string;
   cityLabel: string;
   slug: string;
   lang: AppLanguage;
 }): SeoBundle & { placeProfileUrl: string; priceRangeText: string } {
-  const { listing, cityKey, cityLabel, slug, lang } = params;
+  const { listing, category = 'food', cityKey, cityLabel, slug, lang } = params;
+  const isSleepMenu = category === 'sleep';
   const copy = MENU_COPY[lang];
   const pCopy = PLACE_COPY[lang];
 
-  const rawName = String(listing.ui?.name || listing.name || 'Restaurant');
+  const rawName = String(listing.ui?.name || listing.name || (isSleepMenu ? 'Hotel' : 'Restaurant'));
   const name = rawName.replace(/\s*\(unverified\)\s*$/i, '').trim() || rawName;
   const neighborhood = listing.ui?.neighborhood || listing.neighborhood || '';
   const loc = neighborhood && neighborhood.toLowerCase() !== cityLabel.toLowerCase()
@@ -1428,19 +1442,19 @@ export function buildMenuSeo(params: {
     : cityLabel;
 
   const menu = listing.ui?.menu || listing.menu;
-  const bestDishesRaw = listing.ui?.bestDishes || listing.bestDishes || [];
+  const bestDishesRaw: string[] = listing.ui?.bestDishes || listing.bestDishes || [];
   // Keep 1-2 clean dishes so full menu highlight fits within 155-char description across all languages
   const dishes = bestDishesRaw
     .map((d) => String(d || '').replace(/\s*\(.*?\)\s*/g, ' ').replace(/\s+/g, ' ').trim())
     .filter(Boolean)
     .slice(0, 2);
   const primaryCuisine =
-    listing.foodStyles?.[0] || listing.quiz?.foodStyles?.[0] || 'Moroccan';
+    listing.foodStyles?.[0] || listing.quiz?.foodStyles?.[0] || (isSleepMenu ? 'Moroccan & International' : 'Moroccan');
   const avgPrice = Number(listing.filter?.pricePerPerson ?? listing.pricePerPerson ?? 20);
   const computedRange = computeMenuPriceRange(menu);
-  const minPrice = computedRange?.min ?? Math.round(avgPrice * 6);
-  const maxPrice = computedRange?.max ?? Math.round(avgPrice * 14);
-  const priceRangeText = `${minPrice}–${maxPrice} MAD`;
+  const minPrice = computedRange?.min ?? (isSleepMenu ? 0 : Math.round(avgPrice * 6));
+  const maxPrice = computedRange?.max ?? (isSleepMenu ? 0 : Math.round(avgPrice * 14));
+  const priceRangeText = minPrice > 0 && maxPrice > 0 ? `${minPrice}–${maxPrice} MAD` : 'Included / À la carte';
 
   const title = composeTitle(copy.title(name, cityLabel), SITE_NAME, 60);
   const description = smartDescription(
@@ -1448,14 +1462,14 @@ export function buildMenuSeo(params: {
       name,
       loc,
       cuisine: primaryCuisine,
-      priceText: priceRangeText,
+      priceText: minPrice > 0 ? priceRangeText : '',
       dishes,
     }),
     155
   );
 
-  const canonical = `/place/${cityKey}/food/${slug}/menu`;
-  const placeProfileUrl = `/place/${cityKey}/food/${slug}`;
+  const canonical = `/place/${cityKey}/${category}/${slug}/menu`;
+  const placeProfileUrl = `/place/${cityKey}/${category}/${slug}`;
   const localizedCanonicalUrl = `${BASE_URL}${localizePath(canonical, lang)}`;
 
   const menuPhotos = extractMenuPhotos(menu, name);
@@ -1475,6 +1489,7 @@ export function buildMenuSeo(params: {
   const servesAlcohol = Boolean(
     listing.filter?.servesAlcohol ||
       listing.servesAlcohol ||
+      listing.hasBar ||
       listing.filter?.alcoholPolicy === 'serves-alcohol' ||
       listing.alcoholPolicy === 'serves-alcohol'
   );
@@ -1482,7 +1497,10 @@ export function buildMenuSeo(params: {
   const faq: FaqItem[] = [
     {
       question: copy.faqPriceQ(name, cityLabel),
-      answer: copy.faqPriceA(name, minPrice, maxPrice),
+      answer:
+        minPrice > 0 && maxPrice > 0
+          ? copy.faqPriceA(name, minPrice, maxPrice)
+          : `${name} offers on-site restaurant and bar dining (all-inclusive or à la carte depending on package).`,
     },
     {
       question: copy.faqAlcoholQ(name),
@@ -1494,7 +1512,7 @@ export function buildMenuSeo(params: {
   const menuMediaSchema = buildMenuAssociatedMediaSchema(menuPhotos, name);
 
   const coords = listing.ui?.coordinates || (listing as any).coordinates;
-  const addressText = listing.ui?.address || `${loc}, Morocco`;
+  const addressText = listing.ui?.address || listing.address || `${loc}, Morocco`;
 
   const schemaData: Record<string, any> = {
     name,
@@ -1525,7 +1543,7 @@ export function buildMenuSeo(params: {
           },
         }
       : {}),
-    servesCuisine: listing.foodStyles || listing.quiz?.foodStyles || [primaryCuisine],
+    ...(isSleepMenu ? {} : { servesCuisine: listing.foodStyles || listing.quiz?.foodStyles || [primaryCuisine] }),
     priceRange: priceRangeText,
     hasMenu: {
       '@type': 'Menu',
@@ -1537,16 +1555,17 @@ export function buildMenuSeo(params: {
     },
   };
 
+  const schemaType = isSleepMenu ? 'Hotel' : 'Restaurant';
   const jsonLd: Record<string, any> = {
     '@context': 'https://schema.org',
-    '@type': 'Restaurant',
+    '@type': schemaType,
     ...schemaData,
   };
 
   const breadcrumbs: BreadcrumbItem[] = [
     { name: pCopy.home, item: '/' },
     { name: cityLabel, item: `/finder/${cityKey}` },
-    { name: pCopy.dining, item: `/finder/${cityKey}/food` },
+    { name: isSleepMenu ? CATEGORY_LABELS_I18N[lang].sleep : pCopy.dining, item: `/finder/${cityKey}/${category}` },
     { name, item: placeProfileUrl },
     { name: pCopy.menuWord, item: canonical },
   ];
@@ -1559,7 +1578,7 @@ export function buildMenuSeo(params: {
     priceRangeText,
     image,
     h1: copy.h1(name),
-    schemaType: 'Restaurant',
+    schemaType,
     schemaData,
     jsonLd,
     breadcrumbs,

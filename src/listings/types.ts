@@ -199,6 +199,14 @@ export interface SleepListing {
   }
   /** Optional compact wide storefront fascia banner rendered above the listing title */
   storefrontBanner?: StorefrontBannerConfig
+  /** Optional verified on-site dining, bar & room-service menu */
+  menu?: EatMenu
+  /** Optional signature dishes served at the property's dining outlets */
+  bestDishes?: string[]
+  /** Optional cuisine styles served at the property's dining outlets */
+  foodStyles?: string[]
+  /** Whether the property's restaurants/bars serve alcohol */
+  servesAlcohol?: boolean
 }
 
 export interface MenuItem {

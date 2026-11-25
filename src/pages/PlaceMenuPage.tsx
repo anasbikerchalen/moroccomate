@@ -1,16 +1,15 @@
 import React, { useMemo, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import { ArrowLeft, MapPin, ExternalLink, Globe, Instagram, Clock } from 'lucide-react';
 import { SEO } from '../components/ui/SEO';
 import { LanguageSwitcher } from '../components/ui/LanguageSwitcher';
 import { LocalizedLink } from '../components/ui/LocalizedLink';
 import { useLangPath } from '../utils/localeRouting';
 import InteractiveRestaurantMenu from '../components/menu/InteractiveRestaurantMenu';
-import { getPlaceBySlug, getPlaceSlugById } from '../listings/placeRoutes';
+import { getPlaceBySlug, getPlaceSlugById, type PlaceUrlCategory } from '../listings/placeRoutes';
 import { cityMap } from '../data/cities';
 import { buildMenuSeo } from '../data/seo/seoEngine';
 import logoImg from '../assets/images/logo.png';
-import type { EatListing } from '../listings/types';
 import { hasListingTranslations, localizeListing } from '../listings/translations';
 
 export default function PlaceMenuPage() {
@@ -18,27 +17,36 @@ export default function PlaceMenuPage() {
     city: string;
     slug: string;
   }>();
+  const { pathname } = useLocation();
   const { lang, navigateLang } = useLangPath();
   const cityKey = String(city || '').toLowerCase();
+  const placeCategory: Extract<PlaceUrlCategory, 'food' | 'sleep'> = useMemo(
+    () => (/\/(sleep|stay)\//i.test(pathname) ? 'sleep' : 'food'),
+    [pathname]
+  );
 
   // Scroll to top immediately on route change
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-  }, [cityKey, rawSlug]);
+  }, [cityKey, rawSlug, placeCategory]);
 
-  const rawListing: EatListing | undefined = useMemo(() => {
+  const rawListing: any = useMemo(() => {
     if (!cityKey || !rawSlug) return undefined;
-    let found = getPlaceBySlug(cityKey, 'food', rawSlug);
+    let found = getPlaceBySlug(cityKey, placeCategory, rawSlug);
     if (!found) {
-      const mappedSlug = getPlaceSlugById(cityKey, 'food', rawSlug);
+      const mappedSlug = getPlaceSlugById(cityKey, placeCategory, rawSlug);
       if (mappedSlug) {
-        found = getPlaceBySlug(cityKey, 'food', mappedSlug);
+        found = getPlaceBySlug(cityKey, placeCategory, mappedSlug);
       }
     }
+    if (!found) {
+      const fallbackCat: 'food' | 'sleep' = placeCategory === 'sleep' ? 'food' : 'sleep';
+      found = getPlaceBySlug(cityKey, fallbackCat, rawSlug);
+    }
     return found;
-  }, [cityKey, rawSlug]);
+  }, [cityKey, rawSlug, placeCategory]);
 
-  const listing: EatListing | undefined = useMemo(
+  const listing: any = useMemo(
     () => (rawListing ? localizeListing(rawListing, lang) : undefined),
     [rawListing, lang]
   );
@@ -54,33 +62,36 @@ export default function PlaceMenuPage() {
           </p>
           <button
             type="button"
-            onClick={() => navigateLang(`/finder/${cityKey}/food`)}
+            onClick={() => navigateLang(`/finder/${cityKey}/${placeCategory}`)}
             className="mt-6 inline-flex items-center gap-2 rounded-xl bg-[#DFAF4F] px-6 py-3 text-sm font-bold text-[#173042] shadow-xs hover:bg-[#d09c39] cursor-pointer"
           >
             <ArrowLeft className="w-4 h-4 rtl:rotate-180" />
-            Explore Dining in {cityKey}
+            Explore {placeCategory === 'sleep' ? 'Stays' : 'Dining'} in {cityKey}
           </button>
         </div>
       </div>
     );
   }
 
-  const name = listing.ui?.name || listing.name || 'Restaurant';
+  const name = listing.ui?.name || listing.name || (placeCategory === 'sleep' ? 'Hotel' : 'Restaurant');
   const cityLabel = cityMap[cityKey]?.name || (cityKey.charAt(0).toUpperCase() + cityKey.slice(1).replace(/_/g, ' '));
-  const neighborhood = listing.ui?.neighborhood || listing.neighborhood || 'Marina';
+  const neighborhood = listing.ui?.neighborhood || listing.neighborhood || (placeCategory === 'sleep' ? 'City Centre' : 'Marina');
   const menu = listing.ui?.menu || listing.menu;
   const bestDishes = listing.ui?.bestDishes || listing.bestDishes || [];
-  const primaryCuisine = listing.foodStyles?.[0] || listing.quiz?.foodStyles?.[0] || 'Mediterranean';
-  const canonicalSlug = getPlaceSlugById(cityKey, 'food', listing.id) || rawSlug || '';
-  const placeProfileUrl = `/place/${cityKey}/food/${canonicalSlug}`;
+  const primaryCuisine = listing.foodStyles?.[0] || listing.quiz?.foodStyles?.[0] || 'Moroccan & International';
+  const canonicalSlug = getPlaceSlugById(cityKey, placeCategory, listing.id) || rawSlug || '';
+  const placeProfileUrl = `/place/${cityKey}/${placeCategory}/${canonicalSlug}`;
 
   // External verified links
   const googleMapsUrl = listing.ui?.googleMapsUrl || listing.googleMapsUrl || `https://maps.google.com/?q=${encodeURIComponent(name + ' ' + cityLabel)}`;
-  const website = listing.ui?.website && listing.ui.website !== 'not-available' ? listing.ui.website : '';
-  const instagram = listing.ui?.instagram && listing.ui.instagram !== 'not-available' ? listing.ui.instagram : '';
+  const rawWebsite = listing.ui?.website || listing.officialWebsite;
+  const website = rawWebsite && rawWebsite !== 'not-available' ? rawWebsite : '';
+  const rawInstagram = listing.ui?.instagram || listing.instagramHandle;
+  const instagram = rawInstagram && rawInstagram !== 'not-available' ? rawInstagram : '';
 
   const menuSeo = buildMenuSeo({
     listing,
+    category: placeCategory,
     cityKey,
     cityLabel,
     slug: canonicalSlug,

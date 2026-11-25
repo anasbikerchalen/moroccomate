@@ -83,16 +83,6 @@ export default function InteractiveRestaurantMenu({
   const ui = getPlaceUiCopy(routeLang);
   const [hasManualLang, setHasManualLang] = useState(false);
 
-  // Default to 'images' as requested
-  const [viewMode, setViewMode] = useState<'accordion' | 'booklet' | 'images'>('images');
-  const [activeCategory, setActiveCategory] = useState<string>('all');
-  const [dietaryFilter, setDietaryFilter] = useState<string>('all');
-  const [searchQuery, setSearchQuery] = useState<string>('');
-  const [glossaryEntry, setGlossaryEntry] = useState<MoroccanDishGlossaryEntry | null>(null);
-  const [isReservationOpen, setIsReservationOpen] = useState(false);
-  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
-  const [showAllSections, setShowAllSections] = useState(false);
-
   const sections = menu?.sections || [];
   const hasSections = sections.length > 0;
 
@@ -110,6 +100,20 @@ export default function InteractiveRestaurantMenu({
   }, [menu?.menuPhotos, menu?.scannedMenuPhotos, restaurantName, city, ui]);
   const hasMenuPhotos = menuPhotos.length > 0;
 
+  const [viewMode, setViewMode] = useState<'accordion' | 'booklet' | 'images'>(() =>
+    (Array.isArray(menu?.menuPhotos) && menu.menuPhotos.length > 0) ||
+    (Array.isArray(menu?.scannedMenuPhotos) && menu.scannedMenuPhotos.length > 0)
+      ? 'images'
+      : 'accordion'
+  );
+  const [activeCategory, setActiveCategory] = useState<string>('all');
+  const [dietaryFilter, setDietaryFilter] = useState<string>('all');
+  const [searchQuery, setSearchQuery] = useState<string>('');
+  const [glossaryEntry, setGlossaryEntry] = useState<MoroccanDishGlossaryEntry | null>(null);
+  const [isReservationOpen, setIsReservationOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const [showAllSections, setShowAllSections] = useState(false);
+
   // All sections start expanded so visitors & search engines read every item inline
   const [collapsedIds, setCollapsedIds] = useState<Set<string>>(() => new Set());
 
@@ -123,14 +127,14 @@ export default function InteractiveRestaurantMenu({
     }
   }, [routeLang, menuLanguage, setMenuLanguage, hasManualLang]);
 
-  // Reset collapsed accordion sections when switching restaurants (default to images)
+  // Reset collapsed accordion sections when switching restaurants
   useEffect(() => {
     setCollapsedIds(new Set());
     setActiveCategory('all');
-    setViewMode('images');
+    setViewMode(hasMenuPhotos ? 'images' : 'accordion');
     setLightboxIndex(null);
     setShowAllSections(false);
-  }, [restaurantId]);
+  }, [restaurantId, hasMenuPhotos]);
 
   // Lightbox keyboard navigation
   useEffect(() => {
